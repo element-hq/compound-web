@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Body renders 1`] = `
+<DocumentFragment>
+  <p
+    style="font: var(--cpd-font-body-md-regular); letter-spacing: var(--cpd-font-letter-spacing-body-md);"
+  >
+    The quick brown fox jumps over the lazy dog.
+  </p>
+</DocumentFragment>
+`;

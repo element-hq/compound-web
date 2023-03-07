@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Heading renders 1`] = `
+<DocumentFragment>
+  <h1
+    style="font: var(--cpd-font-heading-md-regular); letter-spacing: var(--cpd-font-letter-spacing-heading-md);"
+  >
+    The quick brown fox jumps over the lazy dog.
+  </h1>
+</DocumentFragment>
+`;
