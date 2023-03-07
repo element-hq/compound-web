@@ -50,6 +50,7 @@
     "@types/react": "^18.0.28",
     "@vitejs/plugin-react": "^3.1.0",
     "babel-loader": "^8.3.0",
+    "browserslist-to-esbuild": "^1.2.0",
     "typescript": "^4.9.5",
     "vite": "^4.1.4"
   },
