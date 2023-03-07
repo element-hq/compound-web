@@ -1,6 +1,7 @@
 import { defineConfig } from "vite";
 import { resolve } from "path";
 import browserslistToEsbuild from "browserslist-to-esbuild";
+import eslint from "vite-plugin-eslint";
 
 export default defineConfig({
   publicDir: "res",
@@ -21,4 +22,5 @@ export default defineConfig({
       },
     },
   },
+  plugins: [eslint()],
 });
