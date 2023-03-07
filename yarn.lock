@@ -5026,11 +5026,6 @@ crypto-browserify@^3.11.0:
     randombytes "^2.0.0"
     randomfill "^1.0.3"
 
-css-loader-shorter-classnames@^2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/css-loader-shorter-classnames/-/css-loader-shorter-classnames-2.0.1.tgz#ac5dfb1f8943174e78eed404e1fa74e65b4986be"
-  integrity sha512-5oRIRf7r/bm3zn6N+4gguENF0ej9eoI/S1Q5bu4wLIfi+039yJ8QZ8Dvz/sFeaZ3vmNkA25rtRQCLlpfFwJKvA==
-
 css-loader@^3.6.0:
   version "3.6.0"
   resolved "https://registry.yarnpkg.com/css-loader/-/css-loader-3.6.0.tgz#2e4b2c7e6e2d27f8c8f28f61bffcd2e6c91ef645"
@@ -10827,11 +10822,6 @@ store2@^2.12.0:
   version "2.14.2"
   resolved "https://registry.yarnpkg.com/store2/-/store2-2.14.2.tgz#56138d200f9fe5f582ad63bc2704dbc0e4a45068"
   integrity sha512-siT1RiqlfQnGqgT/YzXVUNsom9S0H1OX+dpdGN1xkyYATo4I6sep5NmsRD/40s3IIOvlCq6akxkqG82urIZW1w==
-
-storybook-css-modules@^1.0.8:
-  version "1.0.8"
-  resolved "https://registry.yarnpkg.com/storybook-css-modules/-/storybook-css-modules-1.0.8.tgz#19392c07a31849dbcd2753ae6331e7f8c0f2ec69"
-  integrity sha512-anITwllH6nLw0quPElVBLRrE8QDbcRv0Dgl8sKLOc4uiqw+g1GE2l21Stjx3Wyv2O6ZKJScbyOpOuuz3SmeaOQ==
 
 stream-browserify@^2.0.1:
   version "2.0.2"

@@ -70,9 +70,7 @@
   },
   "dependencies": {
     "@vector-im/compound-design-tokens": "https://github.com/vector-im/compound-design-tokens#develop",
-    "css-loader-shorter-classnames": "^2.0.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "storybook-css-modules": "^1.0.8"
+    "react-dom": "^18.2.0"
   }
 }
