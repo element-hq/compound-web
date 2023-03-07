@@ -3,3 +3,4 @@ build
 coverage
 storybook-static
 node_modules
+dist
