@@ -2,7 +2,23 @@
   "name": "@vector-im/compound-design-tokens",
   "version": "0.0.1",
   "description": "Compound components for the Web",
-  "scripts": {},
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/compound-web.umd.cjs",
+  "module": "./dist/compound-web.js",
+  "exports": {
+    ".": {
+      "import": "./dist/compound-web.js",
+      "require": "./dist/compound-web.umd.cjs"
+    }
+  },
+  "scripts": {
+    "dev": "start-storybook -p 6006",
+    "build": "vite build  ",
+    "build-storybook": "build-storybook"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/vector-im/compound-web.git"
@@ -18,5 +34,30 @@
   "bugs": {
     "url": "https://github.com/vector-im/compound/issues"
   },
-  "homepage": "https://github.com/vector-im/compound-web#readme"
+  "homepage": "https://github.com/vector-im/compound-web#readme",
+  "devDependencies": {
+    "@babel/core": "^7.21.0",
+    "@storybook/addon-actions": "^6.5.16",
+    "@storybook/addon-essentials": "^6.5.16",
+    "@storybook/addon-interactions": "^6.5.16",
+    "@storybook/addon-links": "^6.5.16",
+    "@storybook/builder-vite": "^0.4.2",
+    "@storybook/builder-webpack4": "^6.5.16",
+    "@storybook/manager-webpack4": "^6.5.16",
+    "@storybook/react": "^6.5.16",
+    "@storybook/testing-library": "^0.0.13",
+    "@types/node": "^18.14.6",
+    "@types/react": "^18.0.28",
+    "@vitejs/plugin-react": "^3.1.0",
+    "babel-loader": "^8.3.0",
+    "typescript": "^4.9.5",
+    "vite": "^4.1.4"
+  },
+  "dependencies": {
+    "@vector-im/compound-design-tokens": "https://github.com/vector-im/compound-design-tokens#develop",
+    "css-loader-shorter-classnames": "^2.0.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "storybook-css-modules": "^1.0.8"
+  }
 }
