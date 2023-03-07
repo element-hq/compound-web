@@ -1,0 +1,26 @@
+name: Static Analysis
+on:
+    pull_request: {}
+    push:
+        branches: [develop, main]
+jobs:
+    lint:
+        name: "Lint"
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+            - uses: actions/setup-node@v3
+              with:
+                  cache: "yarn"
+            - name: Lint
+              run: "yarn run lint"
+    test:
+        name: "Test"
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+            - uses: actions/setup-node@v3
+              with:
+                  cache: "yarn"
+            - name: Lint
+              run: "yarn run test --coverage"
