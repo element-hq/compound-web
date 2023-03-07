@@ -12,6 +12,8 @@ jobs:
             - uses: actions/setup-node@v3
               with:
                   cache: "yarn"
+            - name: Install deps
+              run: yarn
             - name: Lint
               run: "yarn run lint"
     test:
@@ -22,5 +24,7 @@ jobs:
             - uses: actions/setup-node@v3
               with:
                   cache: "yarn"
+            - name: Install deps
+              run: yarn
             - name: Lint
               run: "yarn run test --coverage"
