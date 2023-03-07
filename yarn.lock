@@ -2427,6 +2427,13 @@
   dependencies:
     lodash "^4.17.15"
 
+"@storybook/csf@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@storybook/csf/-/csf-0.0.1.tgz#95901507dc02f0bc6f9ac8ee1983e2fc5bb98ce6"
+  integrity sha512-USTLkZze5gkel8MYCujSRBVIrUQ3YPBrLOx7GNk/0wttvVtlzWXAq9eLbQ4p/NicGxP+3T7KPEMVV//g+yubpw==
+  dependencies:
+    lodash "^4.17.15"
+
 "@storybook/docs-tools@6.5.16":
   version "6.5.16"
   resolved "https://registry.yarnpkg.com/@storybook/docs-tools/-/docs-tools-6.5.16.tgz#1ec5433eeab63a214d37ffc4660cdaec9704ac39"
@@ -3177,7 +3184,7 @@
     semver "^7.3.7"
     tsutils "^3.21.0"
 
-"@typescript-eslint/utils@5.54.1":
+"@typescript-eslint/utils@5.54.1", "@typescript-eslint/utils@^5.45.0":
   version "5.54.1"
   resolved "https://registry.yarnpkg.com/@typescript-eslint/utils/-/utils-5.54.1.tgz#7a3ee47409285387b9d4609ea7e1020d1797ec34"
   integrity sha512-IY5dyQM8XD1zfDe5X8jegX6r2EVU5o/WJnLu/znLPWCBF7KNGC+adacXnt5jEYS9JixDcoccI6CvE4RCjHMzCQ==
@@ -5734,6 +5741,16 @@ eslint-plugin-react@^7.32.2:
     resolve "^2.0.0-next.4"
     semver "^6.3.0"
     string.prototype.matchall "^4.0.8"
+
+eslint-plugin-storybook@^0.6.11:
+  version "0.6.11"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-storybook/-/eslint-plugin-storybook-0.6.11.tgz#3c52fc3e994d1539d8a69c4028999402601eaacb"
+  integrity sha512-lIVmCqQgA0bhcuS1yWYBFrnPHBKPEQI+LHPDtlN81UE1/17onCqgwUW7Nyt7gS2OHjCAiOR4npjTGEoe0hssKw==
+  dependencies:
+    "@storybook/csf" "^0.0.1"
+    "@typescript-eslint/utils" "^5.45.0"
+    requireindex "^1.1.0"
+    ts-dedent "^2.2.0"
 
 eslint-scope@5.1.1, eslint-scope@^5.1.1:
   version "5.1.1"
@@ -10222,6 +10239,11 @@ require-directory@^2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/require-directory/-/require-directory-2.1.1.tgz#8c64ad5fd30dab1c976e2344ffe7f792a6a6df42"
   integrity sha512-fGxEI7+wsG9xrvdjsrlmL22OMTTiHRwAMroiEeMgq8gzoLC/PQr7RsRDSTLUg/bZAZtF+TVIkHc6/4RIKrui+Q==
+
+requireindex@^1.1.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/requireindex/-/requireindex-1.2.0.tgz#3463cdb22ee151902635aa6c9535d4de9c2ef1ef"
+  integrity sha512-L9jEkOi3ASd9PYit2cwRfyppc9NoABujTP8/5gFcbERmo5jUoAKovIC3fsF17pkTnGsrByysqX+Kxd2OTNI1ww==
 
 requires-port@^1.0.0:
   version "1.0.0"
