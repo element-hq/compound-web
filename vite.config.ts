@@ -2,6 +2,9 @@ import { defineConfig } from "vite";
 import { resolve } from "path";
 import browserslistToEsbuild from "browserslist-to-esbuild";
 import eslint from "vite-plugin-eslint";
+import babel from "vite-plugin-babel";
+
+import babelConfig from "./babel.config.cjs";
 
 export default defineConfig({
   publicDir: "res",
@@ -22,5 +25,10 @@ export default defineConfig({
       },
     },
   },
-  plugins: [eslint()],
+  plugins: [
+    eslint(),
+    babel({
+      babelConfig,
+    }),
+  ],
 });
