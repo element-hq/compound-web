@@ -17,13 +17,13 @@ jobs:
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
     steps:
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
       - uses: actions/checkout@v3
         with:
           submodules: true
           fetch-depth: 0
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 18
 
       - name: Build
         run: yarn && yarn run build-storybook
