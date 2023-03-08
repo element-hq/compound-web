@@ -14,8 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import "!style-loader!css-loader!@vector-im/compound-design-tokens/assets/web/css/compound-design-tokens.css";
-import "!style-loader!css-loader!../src/styles/global.css";
+import "../src/styles/global.css";
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
