@@ -48,7 +48,7 @@
     "@storybook/addon-essentials": "^7.0.0-beta.62",
     "@storybook/addon-interactions": "^7.0.0-beta.62",
     "@storybook/addon-links": "^7.0.0-beta.62",
-    "@storybook/addon-mdx-gfm": "^7.0.0-beta.62",
+    "@storybook/addons": "^7.0.0-beta.62",
     "@storybook/react": "^7.0.0-beta.62",
     "@storybook/react-vite": "^7.0.0-beta.62",
     "@storybook/testing-library": "^0.0.14-next.1",
