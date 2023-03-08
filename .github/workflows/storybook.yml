@@ -1,5 +1,8 @@
 name: GitHub Pages
 
+env:
+  NODE_OPTIONS: '--openssl-legacy-provider'
+  
 on:
   push:
     branches:
@@ -18,6 +21,9 @@ jobs:
         with:
           submodules: true
           fetch-depth: 0
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
 
       - name: Build
         run: yarn && yarn run build-storybook
