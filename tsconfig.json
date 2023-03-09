@@ -22,6 +22,7 @@
 
     /* Type Checking */
     "strict": true,                                      /* Enable all strict type-checking options. */
+    "typeRoots": ["./src/@types"],
 
     /* Completeness */
     "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
