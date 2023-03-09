@@ -22,7 +22,8 @@
 
     /* Type Checking */
     "strict": true,                                      /* Enable all strict type-checking options. */
-    "typeRoots": ["./src/@types"],
+    "typeRoots": ["./node_modules/@types", "./src/@types"],
+    "types": ["jest", "node"],
 
     /* Completeness */
     "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
