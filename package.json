@@ -24,9 +24,6 @@
     "prepercy": "node scripts/disableStoryStore7.js && yarn build-storybook",
     "percy": "percy storybook ./storybook-static",
     "postpercy": "git checkout .storybook/main.ts",
-    "prepercy:ci": "node scripts/disableStoryStore7.js && yarn build-storybook",
-    "percy:ci": "npx @percy/cli snapshot ./storybook-static",
-    "postpercy:ci": "git checkout .storybook/main.ts",
     "build-storybook": "storybook build",
     "storybook": "storybook dev -p 6006"
   },

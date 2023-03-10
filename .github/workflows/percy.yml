@@ -3,7 +3,8 @@ on:
     pull_request: {}
     push:
         branches: [develop, main]
-
+env:
+  PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }
 jobs:
     visual:
         name: "Percy"
@@ -14,4 +15,4 @@ jobs:
               with:
                   cache: "yarn"
             - name: Percy
-              run: yarn && yarn percy:ci
+              run: yarn && yarn percy
