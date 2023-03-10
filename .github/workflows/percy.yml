@@ -1,0 +1,14 @@
+name: Visual Regression
+on:
+    pull_request: {}
+    push:
+        branches: [develop, main]
+
+jobs:
+    visual:
+        name: "Percy"
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+            - name: Percy
+              run: yarn percy:ci
