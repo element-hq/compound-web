@@ -4,7 +4,7 @@ on:
     push:
         branches: [develop, main]
 env:
-  PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }
+  PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
 jobs:
     visual:
         name: "Percy"
