@@ -18,7 +18,6 @@ limitations under the License.
   display: inline-block;
   aspect-ratio: 1 / 1;
   width: var(--cpd-avatar-size);
-  height: var(--cpd-avatar-size);
   line-height: var(--cpd-avatar-size); 
   text-align: center;
   font-size: min(calc(var(--cpd-avatar-size) * 0.75), 60px);

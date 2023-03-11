@@ -16,6 +16,10 @@ limitations under the License.
 
 import { split } from "lodash";
 
+export const MX_USERNAME_PREFIX = "@";
+export const MX_ROOM_PREFIX = "#";
+export const MX_ALIAS_PREFIX = "+";
+
 /**
  * returns the first (non-sigil) character of 'name',
  * converted to uppercase
@@ -28,12 +32,7 @@ export function getInitialLetter(name: string): string {
   }
 
   const initial = name[0];
-  if (
-    //
-    (initial === "@" || initial === "#" || initial === "+") &&
-    typeof name === "string" &&
-    name !== ""
-  ) {
+  if ([MX_USERNAME_PREFIX, MX_ROOM_PREFIX, MX_ALIAS_PREFIX].includes(initial)) {
     name = name.substring(1);
   }
 

@@ -27,19 +27,21 @@ export default {
 
 const Template: StoryFn<typeof AvatarComponent> = (args) => (
   <>
-    <AvatarComponent size="16px" {...args} />
+    <AvatarComponent size="16px" name="Alice" id="@alice:example.org" />
     <AvatarComponent
       size="32px"
-      {...args}
+      name="Bob"
+      id="@bob:example.org"
       src="https://placekitten.com/600/150"
     />
-    <AvatarComponent size="64px" {...args} />
+    <AvatarComponent size="64px" name="Charlie" id="@charlie:example.org" />
     <AvatarComponent
       size="128px"
-      {...args}
+      name="Dan"
+      id="@dan:example.org"
       src="https://placekitten.com/200/300"
     />
-    <AvatarComponent size="256px" {...args} />
+    <AvatarComponent size="256px" name="Elena" id="@elena:example.org" />
   </>
 );
 
