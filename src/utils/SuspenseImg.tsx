@@ -54,5 +54,13 @@ export function SuspenseImg({ src, ...props }: SuspenseImgProps): JSX.Element {
    * Once the promise is resolved, suspense will replace the fallback with the below
    */
   imgCache.read(src);
-  return <img alt="" src={src} {...props} />;
+  return (
+    <img
+      alt=""
+      src={src}
+      crossOrigin="anonymous"
+      referrerPolicy="no-referrer"
+      {...props}
+    />
+  );
 }
