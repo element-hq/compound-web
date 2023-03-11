@@ -23,30 +23,36 @@ export default {
   title: "Avatar",
   component: AvatarComponent,
   argTypes: {},
+  args: {
+    name: "Bob",
+    size: "64px",
+    id: "@bob:example.org",
+    src: "https://placekitten.com/200/200",
+    type: "round",
+  },
 } as Meta<typeof AvatarComponent>;
 
 const Template: StoryFn<typeof AvatarComponent> = (args) => (
-  <>
-    <AvatarComponent size="16px" name="Alice" id="@alice:example.org" />
-    <AvatarComponent
-      size="32px"
-      name="Bob"
-      id="@bob:example.org"
-      src="https://placekitten.com/600/150"
-    />
-    <AvatarComponent size="64px" name="Charlie" id="@charlie:example.org" />
-    <AvatarComponent
-      size="128px"
-      name="Dan"
-      id="@dan:example.org"
-      src="https://placekitten.com/200/300"
-    />
-    <AvatarComponent size="256px" name="Elena" id="@elena:example.org" />
-  </>
+  <AvatarComponent {...args} />
 );
 
-export const Avatar = Template.bind({});
-Avatar.args = {
-  name: "Bob",
-  id: "@bob:example.org",
+export const Round = Template.bind({});
+Round.args = {
+  type: "round",
+};
+
+export const Square = Template.bind({});
+Square.args = {
+  type: "square",
+};
+
+export const NoImageFallback = Template.bind({});
+NoImageFallback.args = {
+  src: "",
+};
+
+export const LargeNoImageFallback = Template.bind({});
+NoImageFallback.args = {
+  src: "",
+  size: "128px",
 };
