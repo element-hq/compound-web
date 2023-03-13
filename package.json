@@ -21,6 +21,9 @@
     "lint:js": "eslint --max-warnings=0 .",
     "lint:styles": "npx stylelint \"**/*.css\"",
     "test": "jest",
+    "prepercy": "node scripts/disableStoryStore7.js && yarn build-storybook",
+    "percy": "percy storybook ./storybook-static",
+    "postpercy": "git checkout .storybook/main.ts",
     "build-storybook": "storybook build",
     "storybook": "storybook dev -p 6006"
   },
@@ -44,6 +47,8 @@
     "@babel/core": "^7.21.0",
     "@babel/preset-react": "^7.18.6",
     "@babel/preset-typescript": "^7.21.0",
+    "@percy/cli": "^1.20.3",
+    "@percy/storybook": "^4.3.5",
     "@storybook/addon-actions": "^7.0.0-beta.62",
     "@storybook/addon-essentials": "^7.0.0-beta.62",
     "@storybook/addon-interactions": "^7.0.0-beta.62",
