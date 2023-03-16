@@ -5,6 +5,7 @@ exports[`Button renders 1`] = `
   <button
     class="button"
     data-kind="primary"
+    data-size="lg"
     role="button"
     tabindex="0"
   >
