@@ -15,9 +15,9 @@ limitations under the License.
 */
 
 .button {
-  font: var(--cpd-font-body-lg-semibold);
-  padding: var(--cpd-space-3x) var(--cpd-space-20x); /* TODO: Does not match the padding on Figma */
-  border-radius: 2em;
+  /* use a very large value to ensure the pill happens if the content
+  go over multiple line */
+  border-radius: 666em;
   cursor: pointer;
   -webkit-appeareance: none;
 }
@@ -26,6 +26,24 @@ limitations under the License.
   cursor: not-allowed;
   pointer-events: all !important;
 }
+
+/**
+ * SIZES
+ */
+
+.button[data-size="lg"] {
+  font: var(--cpd-font-body-lg-semibold);
+  padding: var(--cpd-space-3x) var(--cpd-space-10x);
+}
+
+.button[data-size="sm"] {
+  font: var(--cpd-font-body-md-semibold);
+  padding: var(--cpd-space-1x) var(--cpd-space-6x);
+}
+
+/**
+ * KINDS
+ */
 
 .button[data-kind="primary"] {
   color: #fff; /* TODO: Replace with a token */
@@ -43,6 +61,10 @@ limitations under the License.
   background: var(--cpd-color-gray-1200); /* TODO: Replace with a semantic token */
 }
 
+.button[data-kind="primary"][disabled] {
+  background: var(--cpd-color-gray-800);
+}
+
 .button[data-kind="secondary"] {
   border: 1px solid var(--cpd-color-gray-1400); /* TODO: Replace with a token */ 
   color: var(--cpd-color-text-primary);
@@ -56,4 +78,30 @@ limitations under the License.
 
 .button[data-kind="secondary"]:active {
   background: var(--cpd-color-gray-100); /* TODO: Replace with a semantic token */
+}
+
+.button[data-kind="secondary"][disabled] {
+  color: var(--cpd-color-gray-800);
+  border-color: var(--cpd-color-gray-800);
+  background: var(--cpd-color-theme-bg);
+}
+
+.button[data-kind="destructive"] {
+  border: 1px solid var(--cpd-color-text-action-critical); 
+  color: var(--cpd-color-text-action-critical);
+  background: var(--cpd-color-theme-bg); /* TODO: Replace with a semantic token */
+}
+
+.button[data-kind="destructive"]:hover {
+  background: var(--cpd-color-red-300); /* TODO: Replace with a semantic token */
+}
+
+.button[data-kind="destructive"]:active {
+  background: var(--cpd-color-red-200); /* TODO: Replace with a semantic token */
+}
+
+.button[data-kind="destructive"][disabled] {
+  color: var(--cpd-color-gray-800);
+  border-color: var(--cpd-color-gray-800);
+  background: var(--cpd-color-theme-bg);
 }

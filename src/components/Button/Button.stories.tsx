@@ -22,12 +22,19 @@ import { Button as ButtonComponent } from "./Button";
 export default {
   title: "Button",
   component: ButtonComponent,
-  argTypes: {},
+  argTypes: {
+    size: {
+      options: ["sm", "lg"],
+      control: { type: "inline-radio" },
+    },
+  },
   args: {},
 } as Meta<typeof ButtonComponent>;
 
 const Template: StoryFn<typeof ButtonComponent> = (args) => (
-  <ButtonComponent {...args}>Click me!</ButtonComponent>
+  <ButtonComponent {...args} disabled>
+    Click me!
+  </ButtonComponent>
 );
 
 export const Primary = Template.bind({});
@@ -38,4 +45,9 @@ Primary.args = {
 export const Secondary = Template.bind({});
 Secondary.args = {
   kind: "secondary",
+};
+
+export const Destructive = Template.bind({});
+Destructive.args = {
+  kind: "destructive",
 };

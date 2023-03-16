@@ -20,13 +20,15 @@ import styles from "./Button.module.css";
 
 type ButtonProps<C extends React.ElementType> = {
   as?: C;
-  kind?: "primary" | "secondary"; // TODO: Refine the naming
+  kind?: "primary" | "secondary" | "destructive"; // TODO: Refine the naming
+  size?: "sm" | "lg";
   className?: string;
 } & React.ComponentPropsWithoutRef<C>;
 
 export const Button = <C extends React.ElementType = "button">({
   as,
   kind = "primary",
+  size = "lg",
   children,
   className,
   ...props
@@ -39,6 +41,7 @@ export const Button = <C extends React.ElementType = "button">({
       {...props}
       className={classes}
       data-kind={kind}
+      data-size={size}
       // All elements roles should be overriden at the exceptions of anchors
       // We want them to behave like links but look like buttons
       role={as === "a" ? "link" : "button"}
