@@ -32,9 +32,7 @@ export default {
 } as Meta<typeof ButtonComponent>;
 
 const Template: StoryFn<typeof ButtonComponent> = (args) => (
-  <ButtonComponent {...args} disabled>
-    Click me!
-  </ButtonComponent>
+  <ButtonComponent {...args}>Click me!</ButtonComponent>
 );
 
 export const Primary = Template.bind({});
