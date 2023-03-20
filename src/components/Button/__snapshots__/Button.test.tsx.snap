@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button renders 1`] = `
+<DocumentFragment>
+  <button
+    class="button"
+    data-kind="primary"
+    data-size="lg"
+    role="button"
+    tabindex="0"
+  >
+    Click me!
+  </button>
+</DocumentFragment>
+`;
