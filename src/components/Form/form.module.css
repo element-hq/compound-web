@@ -1,0 +1,93 @@
+/*
+Copyright 2023  New Vector Ltd
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+
+/* Styling the Radix UI Form component */
+
+/**
+ * ROOT: Form Element
+ */
+
+.root {
+  font: var(--cpd-font-body-md-regular);
+  letter-spacing: var(--cpd-font-letter-spacing-body-md);
+}
+
+/**
+ * FIELD: Wrapper around label, control and message
+ */
+
+.field {
+  display: flex;
+  flex-direction: column;
+}
+
+/**
+ * LABEL
+ */
+
+.label {
+  font-weight: var(--cpd-font-weight-medium);
+}
+
+.label[for] {
+  cursor: pointer;
+}
+
+.label[data-invalid] {
+  color: var(--cpd-color-text-action-critical);
+}
+
+/* Currently working everywhere but on Firefox (only behind a labs flag)
+ https://developer.mozilla.org/en-US/docs/Web/CSS/:has#browser_compatibility */
+.label:has(~ .control[disabled]) {
+  color: var(--cpd-color-text-disabled);
+  cursor: not-allowed;
+}
+
+/**
+ * CONTROL
+ */
+
+.control {
+  --cpd-form-border-color: var(--cpd-color-gray-600);
+  --cpd-form-bg: var(--cpd-color-bg-canvas);
+
+  border: 1px solid var(--cpd-form-border-color);
+  background: var(--cpd-form-bg);
+  border-radius: 8px;
+  padding: var(--cpd-space-3x) var(--cpd-space-4x);
+}
+
+.control:hover {
+  --cpd-form-border-color: var(--cpd-color-gray-1100);
+}
+
+.control:focus {
+  outline: 3px solid var(--cpd-color-blue-900);
+  border-color: transparent;
+}
+
+.control[data-invalid] {
+  --cpd-form-border-color: var(--cpd-color-text-action-critical);
+}
+
+.control[disabled] {
+  --cpd-form-bg: var(--cpd-color-gray-200);
+  --cpd-form-border-color: var(--cpd-color-gray-500);
+
+  color: var(--cpd-color-text-disabled);
+  cursor: not-allowed;
+}

@@ -1021,7 +1021,7 @@
   resolved "https://registry.yarnpkg.com/@babel/regjsgen/-/regjsgen-0.8.0.tgz#f0ba69b075e1f05fb2825b7fad991e7adbb18310"
   integrity sha512-x/rqGMdzj+fWZvCOYForTghzbtqPDZ5gPwaoNGHdgDfF2QA/XZbCBp4Moo5scrkAMPhB7z26XM/AaHuIJdgauA==
 
-"@babel/runtime@^7.12.5", "@babel/runtime@^7.17.8", "@babel/runtime@^7.8.4", "@babel/runtime@^7.9.2":
+"@babel/runtime@^7.12.5", "@babel/runtime@^7.13.10", "@babel/runtime@^7.17.8", "@babel/runtime@^7.8.4", "@babel/runtime@^7.9.2":
   version "7.21.0"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.21.0.tgz#5b55c9d394e5fcf304909a8b00c07dc217b56673"
   integrity sha512-xwII0//EObnq89Ji5AKYQaRYiW/nZ3llSv29d49IuxPhKbtJoLP+9QUUZ4nVragQVtaVGeZrpB+ZtG/Pdy/POw==
@@ -1705,6 +1705,79 @@
     "@percy/cli-command" "^1.10.4"
     cross-spawn "^7.0.3"
     qs "^6.11.0"
+
+"@radix-ui/primitive@1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@radix-ui/primitive/-/primitive-1.0.0.tgz#e1d8ef30b10ea10e69c76e896f608d9276352253"
+  integrity sha512-3e7rn8FDMin4CgeL7Z/49smCA3rFYY3Ha2rUQ7HRWFadS5iCRw08ZgVT1LaNTCNqgvrUiyczLflrVrF0SRQtNA==
+  dependencies:
+    "@babel/runtime" "^7.13.10"
+
+"@radix-ui/react-compose-refs@1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@radix-ui/react-compose-refs/-/react-compose-refs-1.0.0.tgz#37595b1f16ec7f228d698590e78eeed18ff218ae"
+  integrity sha512-0KaSv6sx787/hK3eF53iOkiSLwAGlFMx5lotrqD2pTjB18KbybKoEIgkNZTKC60YECDQTKGTRcDBILwZVqVKvA==
+  dependencies:
+    "@babel/runtime" "^7.13.10"
+
+"@radix-ui/react-context@1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@radix-ui/react-context/-/react-context-1.0.0.tgz#f38e30c5859a9fb5e9aa9a9da452ee3ed9e0aee0"
+  integrity sha512-1pVM9RfOQ+n/N5PJK33kRSKsr1glNxomxONs5c49MliinBY6Yw2Q995qfBUUo0/Mbg05B/sGA0gkgPI7kmSHBg==
+  dependencies:
+    "@babel/runtime" "^7.13.10"
+
+"@radix-ui/react-form@^0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@radix-ui/react-form/-/react-form-0.0.2.tgz#1ac64048c6297e77f37c222269b444f803ee4ac0"
+  integrity sha512-+WQU4Gs4MqjYsHwh5d19Ka4CMcWeXd7WPuWYCYGtNbDRMHFG2TtgM9PlEK4Yrk7wG1f5/da6Bgtteky2ggDXUg==
+  dependencies:
+    "@babel/runtime" "^7.13.10"
+    "@radix-ui/primitive" "1.0.0"
+    "@radix-ui/react-compose-refs" "1.0.0"
+    "@radix-ui/react-context" "1.0.0"
+    "@radix-ui/react-id" "1.0.0"
+    "@radix-ui/react-label" "2.0.1"
+    "@radix-ui/react-primitive" "1.0.2"
+
+"@radix-ui/react-id@1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@radix-ui/react-id/-/react-id-1.0.0.tgz#8d43224910741870a45a8c9d092f25887bb6d11e"
+  integrity sha512-Q6iAB/U7Tq3NTolBBQbHTgclPmGWE3OlktGGqrClPozSw4vkQ1DfQAOtzgRPecKsMdJINE05iaoDUG8tRzCBjw==
+  dependencies:
+    "@babel/runtime" "^7.13.10"
+    "@radix-ui/react-use-layout-effect" "1.0.0"
+
+"@radix-ui/react-label@2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@radix-ui/react-label/-/react-label-2.0.1.tgz#c05c41cb20f7877d6e9c3eac731b11584c95b2fa"
+  integrity sha512-qcfbS3B8hTYmEO44RNcXB6pegkxRsJIbdxTMu0PEX0Luv5O2DvTIwwVYxQfUwLpM88EL84QRPLOLgwUSApMsLQ==
+  dependencies:
+    "@babel/runtime" "^7.13.10"
+    "@radix-ui/react-primitive" "1.0.2"
+
+"@radix-ui/react-primitive@1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@radix-ui/react-primitive/-/react-primitive-1.0.2.tgz#54e22f49ca59ba88d8143090276d50b93f8a7053"
+  integrity sha512-zY6G5Qq4R8diFPNwtyoLRZBxzu1Z+SXMlfYpChN7Dv8gvmx9X3qhDqiLWvKseKVJMuedFeU/Sa0Sy/Ia+t06Dw==
+  dependencies:
+    "@babel/runtime" "^7.13.10"
+    "@radix-ui/react-slot" "1.0.1"
+
+"@radix-ui/react-slot@1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@radix-ui/react-slot/-/react-slot-1.0.1.tgz#e7868c669c974d649070e9ecbec0b367ee0b4d81"
+  integrity sha512-avutXAFL1ehGvAXtPquu0YK5oz6ctS474iM3vNGQIkswrVhdrS52e3uoMQBzZhNRAIE0jBnUyXWNmSjGHhCFcw==
+  dependencies:
+    "@babel/runtime" "^7.13.10"
+    "@radix-ui/react-compose-refs" "1.0.0"
+
+"@radix-ui/react-use-layout-effect@1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@radix-ui/react-use-layout-effect/-/react-use-layout-effect-1.0.0.tgz#2fc19e97223a81de64cd3ba1dc42ceffd82374dc"
+  integrity sha512-6Tpkq+R6LOlmQb1R5NNETLG0B4YP0wc+klfXafpUCj6JGyaUc8il7/kUZ7m59rGbXGczE9Bs+iz2qloqsZBduQ==
+  dependencies:
+    "@babel/runtime" "^7.13.10"
 
 "@rollup/pluginutils@^4.2.0":
   version "4.2.1"
@@ -3059,9 +3132,9 @@
     "@typescript-eslint/types" "5.54.1"
     eslint-visitor-keys "^3.3.0"
 
-"@vector-im/compound-design-tokens@https://github.com/vector-im/compound-design-tokens#develop":
+"@vector-im/compound-design-tokens@https://github.com/vector-im/compound-design-tokens#main":
   version "0.0.2"
-  resolved "https://github.com/vector-im/compound-design-tokens#23d6005a7e865ea1eb2fdbde0b209a8f7ee75b76"
+  resolved "https://github.com/vector-im/compound-design-tokens#342145ff8044b58b967186b0efe34477e1f7c3ca"
   dependencies:
     svg2vectordrawable "^2.9.1"
 

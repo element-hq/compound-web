@@ -57,7 +57,7 @@ limitations under the License.
       url("/fonts/Inter/Inter-Bold.woff") format("woff");
 }
 
-html, body {
+html, body, input {
   font: var(--cpd-font-body-md-regular);
   color: var(--cpd-color-text-primary);
 }
