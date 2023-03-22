@@ -20,4 +20,8 @@ declare module "*.svg" {
   >;
 }
 
+declare module "*.jpg" {
+  export default string;
+}
+
 declare module "*.module.css";

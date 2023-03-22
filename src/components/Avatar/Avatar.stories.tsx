@@ -19,6 +19,8 @@ import { Meta, StoryFn } from "@storybook/react";
 
 import { Avatar as AvatarComponent } from "./Avatar";
 
+import kitten from "../../../res/images/__test__/kitten.jpg";
+
 export default {
   title: "Avatar",
   component: AvatarComponent,
@@ -27,7 +29,7 @@ export default {
     name: "Bob",
     size: "64px",
     id: "@bob:example.org",
-    src: "https://placekitten.com/200/200",
+    src: kitten,
     type: "round",
   },
 } as Meta<typeof AvatarComponent>;
@@ -52,7 +54,7 @@ NoImageFallback.args = {
 };
 
 export const LargeNoImageFallback = Template.bind({});
-NoImageFallback.args = {
+LargeNoImageFallback.args = {
   src: "",
   size: "128px",
 };
