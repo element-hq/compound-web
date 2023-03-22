@@ -14,11 +14,10 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import React from "react";
+import React, { PropsWithChildren } from "react";
 
 type TypographyProps<C extends React.ElementType> = {
   as?: C;
-  children: React.ReactNode;
   type?: "body" | "heading";
   weight?: "regular" | "semibold" | "medium" | "bold";
   size?: "xs" | "sm" | "md" | "lg";
@@ -31,7 +30,7 @@ export const Typography = <C extends React.ElementType = "p">({
   weight = "regular",
   size = "md",
   ...restProps
-}: TypographyProps<C>) => {
+}: PropsWithChildren<TypographyProps<C>>) => {
   const Component = as || "p";
 
   return (
