@@ -27,7 +27,7 @@ export default {
     name: "Bob",
     size: "64px",
     id: "@bob:example.org",
-    src: "https://placekitten.com/200/200",
+    src: "/images/__test__/kitten.jpg",
     type: "round",
   },
 } as Meta<typeof AvatarComponent>;
@@ -52,7 +52,7 @@ NoImageFallback.args = {
 };
 
 export const LargeNoImageFallback = Template.bind({});
-NoImageFallback.args = {
+LargeNoImageFallback.args = {
   src: "",
   size: "128px",
 };
