@@ -19,11 +19,10 @@ import React, { PropsWithChildren } from "react";
 import styles from "./ActionControl.module.css";
 
 import { Control, Field, Root } from "../Form";
-import { Icon } from "../Icon/Icon";
 
 type ActionControlProps = {
   className?: string;
-  icon: React.ComponentProps<typeof Icon>["icon"];
+  Icon: unknown; // Don't know how to type this?
   onActionClick: (e: React.MouseEvent) => void;
   actionLabel: string;
   disabled?: boolean;
@@ -31,22 +30,22 @@ type ActionControlProps = {
 
 export const ActionControl = ({
   children,
+  Icon,
   className,
-  icon,
   actionLabel,
   onActionClick,
   ...props
 }: PropsWithChildren<ActionControlProps>) => {
   // TODO: Update the class name to something related to the component name
   const classes = classnames(styles.actioncontrol, className);
+  // TODO: I don't know how to type this properly
+  const IconComp = Icon as typeof React.Component;
   return (
     <div className={classes}>
       <Control {...props} className={styles.input}>
         {children}
       </Control>
-      <Icon
-        icon={icon}
-        size={21} /* TODO: Define the sizing for the icon */
+      <IconComp
         onClick={onActionClick}
         className={styles.icon}
         aria-label={actionLabel}

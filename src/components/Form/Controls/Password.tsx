@@ -16,8 +16,9 @@ limitations under the License.
 
 import React, { PropsWithChildren, useCallback, useState } from "react";
 import { ActionControl } from "../../ActionControl/ActionControl";
-import { Icon } from "../../Icon/Icon";
 import { Control } from "../Control";
+
+import ThreadIcon from "../../Icon/icons/thread.svg";
 
 /**
  * Thin wrapper around Radix UI Control component
@@ -26,29 +27,21 @@ import { Control } from "../Control";
 export function PasswordControl(
   props: PropsWithChildren<React.ComponentProps<typeof Control>>
 ): JSX.Element {
-  const [icon, setIcon] =
-    useState<React.ComponentProps<typeof Icon>["icon"]>("thread");
   const [label, setLabel] = useState<"show" | "hide">("show");
+  const isHidden = label === "show";
 
   const onActionClick = useCallback(() => {
-    if (label === "show") {
-      setLabel("hide");
-      // TODO: Change the icon when it will become available
-      setIcon("thread");
-    } else {
-      setLabel("show");
-      // TODO: Change the icon when it will become available
-      setIcon("thread");
-    }
-  }, [label, icon]);
+    setLabel(isHidden ? "hide" : "show");
+  }, [label]);
 
   return (
     <ActionControl
       {...props}
-      icon={icon}
+      // TODO: Replace with the correct set of icons when they become available
+      Icon={isHidden ? ThreadIcon : ThreadIcon}
       actionLabel={label}
       onActionClick={onActionClick}
-      type={label === "show" ? "password" : "text"}
+      type={isHidden ? "password" : "text"}
     />
   );
 }

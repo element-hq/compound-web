@@ -19,13 +19,14 @@ import { Meta, StoryFn } from "@storybook/react";
 
 import { StandaloneActionControl as StandaloneActionControl } from "./ActionControl";
 import { Field, Root } from "../Form";
+import ThreadIcon from "../Icon/icons/thread.svg";
 
 export default {
   title: "ActionControl",
   component: StandaloneActionControl,
   argTypes: {},
   args: {
-    icon: "thread",
+    Icon: ThreadIcon,
   },
 } as Meta<typeof StandaloneActionControl>;
 

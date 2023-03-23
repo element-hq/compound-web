@@ -18,12 +18,13 @@ import { fireEvent, getByLabelText, render } from "@testing-library/react";
 import React from "react";
 
 import { StandaloneActionControl as ActionControl } from "./ActionControl";
+import ThreadIcon from "../Icon/icons/thread.svg";
 
 describe("ActionControl", () => {
   it("renders", () => {
     const { asFragment } = render(
       <ActionControl
-        icon="thread"
+        Icon={ThreadIcon}
         actionLabel="Click me!"
         onActionClick={() => {
           console.log("clicked!");
@@ -33,16 +34,12 @@ describe("ActionControl", () => {
     expect(asFragment()).toMatchSnapshot();
   });
 
-  /**
-   * TODO: Restore when https://github.com/vector-im/compound/issues/76
-   * is fixed
-   */
-  it.skip("trigger the action", () => {
+  it("trigger the action", () => {
     const spy = jest.fn();
 
     const { container } = render(
       <ActionControl
-        icon="thread"
+        Icon={ThreadIcon}
         actionLabel="Click me!"
         onActionClick={spy}
       />
