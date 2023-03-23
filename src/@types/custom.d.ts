@@ -15,9 +15,10 @@ limitations under the License.
 */
 
 declare module "*.svg" {
-  export const ReactComponent: React.FunctionComponent<
+  const ReactComponent: React.FunctionComponent<
     React.SVGAttributes<SVGElement>
   >;
+  export default ReactComponent;
 }
 
 declare module "*.module.css";
