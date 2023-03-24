@@ -47,18 +47,24 @@ limitations under the License.
 
 .button[data-kind="primary"] {
   color: #fff; /* TODO: Replace with a token */
-  background: var(--cpd-color-gray-1400); /* TODO: Replace with a semantic token */
+  background: var(
+    --cpd-color-gray-1400
+  ); /* TODO: Replace with a semantic token */
   border-width: 0;
 }
 
 .button[data-kind="primary"]:hover {
   color: #fff; /* TODO: Replace with a token */
-  background: var(--cpd-color-gray-1300); /* TODO: Replace with a semantic token */
+  background: var(
+    --cpd-color-gray-1300
+  ); /* TODO: Replace with a semantic token */
 }
 
 .button[data-kind="primary"]:active {
   color: #fff; /* TODO: Replace with a token */
-  background: var(--cpd-color-gray-1200); /* TODO: Replace with a semantic token */
+  background: var(
+    --cpd-color-gray-1200
+  ); /* TODO: Replace with a semantic token */
 }
 
 .button[data-kind="primary"][disabled] {
@@ -66,18 +72,24 @@ limitations under the License.
 }
 
 .button[data-kind="secondary"] {
-  border: 1px solid var(--cpd-color-gray-1400); /* TODO: Replace with a token */ 
+  border: 1px solid var(--cpd-color-gray-1400); /* TODO: Replace with a token */
   color: var(--cpd-color-text-primary);
-  background: var(--cpd-color-theme-bg); /* TODO: Replace with a semantic token */
+  background: var(
+    --cpd-color-theme-bg
+  ); /* TODO: Replace with a semantic token */
 }
 
 .button[data-kind="secondary"]:hover {
-  background: var(--cpd-color-gray-300); /* TODO: Replace with a semantic token */
+  background: var(
+    --cpd-color-gray-300
+  ); /* TODO: Replace with a semantic token */
   border-color: var(--cpd-color-gray-1300);
 }
 
 .button[data-kind="secondary"]:active {
-  background: var(--cpd-color-gray-100); /* TODO: Replace with a semantic token */
+  background: var(
+    --cpd-color-gray-100
+  ); /* TODO: Replace with a semantic token */
 }
 
 .button[data-kind="secondary"][disabled] {
@@ -87,17 +99,23 @@ limitations under the License.
 }
 
 .button[data-kind="destructive"] {
-  border: 1px solid var(--cpd-color-text-action-critical); 
+  border: 1px solid var(--cpd-color-text-action-critical);
   color: var(--cpd-color-text-action-critical);
-  background: var(--cpd-color-theme-bg); /* TODO: Replace with a semantic token */
+  background: var(
+    --cpd-color-theme-bg
+  ); /* TODO: Replace with a semantic token */
 }
 
 .button[data-kind="destructive"]:hover {
-  background: var(--cpd-color-red-300); /* TODO: Replace with a semantic token */
+  background: var(
+    --cpd-color-red-300
+  ); /* TODO: Replace with a semantic token */
 }
 
 .button[data-kind="destructive"]:active {
-  background: var(--cpd-color-red-200); /* TODO: Replace with a semantic token */
+  background: var(
+    --cpd-color-red-200
+  ); /* TODO: Replace with a semantic token */
 }
 
 .button[data-kind="destructive"][disabled] {

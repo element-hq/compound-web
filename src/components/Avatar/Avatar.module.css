@@ -18,7 +18,7 @@ limitations under the License.
   display: inline-block;
   aspect-ratio: 1 / 1;
   width: var(--cpd-avatar-size);
-  line-height: var(--cpd-avatar-size); 
+  line-height: var(--cpd-avatar-size);
   text-align: center;
   font-size: min(calc(var(--cpd-avatar-size) * 0.75), 60px);
   border-radius: var(--cpd-avatar-radius);
@@ -32,7 +32,7 @@ limitations under the License.
 
 img.avatar {
   object-fit: cover;
-  overflow: hidden; 
+  overflow: hidden;
 }
 
 .avatar:not([src]) {
@@ -40,7 +40,7 @@ img.avatar {
      and use `attr(data-color)` to avoid the style declaration from below
      but this is currently not supported in all browsers */
   background: var(--cpd-avatar-background);
-  color: #fff; 
+  color: #fff;
 }
 
 .avatar[data-color] {
