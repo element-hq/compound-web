@@ -26,5 +26,13 @@ jobs:
                   cache: "yarn"
             - name: Install deps
               run: yarn
-            - name: Lint
+            - name: Test
               run: "yarn run test --coverage"
+            - name: Upload Artifact
+              uses: actions/upload-artifact@v3
+              with:
+                  name: coverage
+                  path: |
+                      coverage
+                      !coverage/lcov-report
+
