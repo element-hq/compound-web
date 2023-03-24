@@ -14,7 +14,12 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import React, { PropsWithChildren, useCallback, useState } from "react";
+import React, {
+  PropsWithChildren,
+  useCallback,
+  useReducer,
+  useState,
+} from "react";
 import { ActionControl } from "../../ActionControl/ActionControl";
 import { Control } from "../Control";
 
@@ -27,20 +32,15 @@ import ThreadIcon from "../../Icon/icons/thread.svg";
 export function PasswordControl(
   props: PropsWithChildren<React.ComponentProps<typeof Control>>
 ): JSX.Element {
-  const [label, setLabel] = useState<"show" | "hide">("show");
-  const isHidden = label === "show";
-
-  const onActionClick = useCallback(() => {
-    setLabel(isHidden ? "hide" : "show");
-  }, [label]);
-
+  const [isHidden, toggleIsHidden] = useReducer((state) => !state, true);
   return (
     <ActionControl
       {...props}
       // TODO: Replace with the correct set of icons when they become available
       Icon={isHidden ? ThreadIcon : ThreadIcon}
-      actionLabel={label}
-      onActionClick={onActionClick}
+      // TODO: Replace with a function that deal with i18n of those values
+      actionLabel={isHidden ? "Show" : "Hide"}
+      onActionClick={() => toggleIsHidden()}
       type={isHidden ? "password" : "text"}
     />
   );
