@@ -17,17 +17,15 @@ limitations under the License.
 import React from "react";
 import { Meta, StoryFn } from "@storybook/react";
 
-import { Icon as IconComponent } from "./Icon";
+import ThreadIcon from "./icons/thread.svg";
 
 export default {
   title: "Icon",
-  component: IconComponent,
+  component: ThreadIcon,
   argTypes: {},
-} as Meta<typeof IconComponent>;
+} as Meta<typeof ThreadIcon>;
 
-const Template: StoryFn<typeof IconComponent> = () => (
-  <IconComponent icon="thread" />
-);
+const Template: StoryFn<typeof ThreadIcon> = () => <ThreadIcon />;
 
 export const Icon = Template.bind({});
 Icon.args = {};
