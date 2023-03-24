@@ -43,3 +43,10 @@ const Template: StoryFn<typeof Form.Root> = () => (
 
 export const Root = Template.bind({});
 Root.args = {};
+
+Root.parameters = {
+  design: {
+    type: "figma",
+    url: "https://www.figma.com/file/HUysJAhv6cK6p1Pc81Fxaa/Matrix-Authentication-Service-(MAS)?node-id=101%3A16968&t=gc1qRwZLEob0m7OM-1",
+  },
+};
