@@ -14,12 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import React, {
-  PropsWithChildren,
-  useCallback,
-  useReducer,
-  useState,
-} from "react";
+import React, { PropsWithChildren, useReducer } from "react";
 import { ActionControl } from "../../ActionControl/ActionControl";
 import { Control } from "../Control";
 
@@ -37,7 +32,7 @@ export function PasswordControl(
     <ActionControl
       {...props}
       // TODO: Replace with the correct set of icons when they become available
-      Icon={isHidden ? ThreadIcon : ThreadIcon}
+      Icon={isHidden ? ThreadIcon : null}
       // TODO: Replace with a function that deal with i18n of those values
       actionLabel={isHidden ? "Show" : "Hide"}
       onActionClick={() => toggleIsHidden()}
