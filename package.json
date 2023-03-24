@@ -25,7 +25,8 @@
     "percy": "percy storybook ./storybook-static",
     "postpercy": "git checkout .storybook/main.ts",
     "build-storybook": "storybook build",
-    "storybook": "storybook dev -p 6006"
+    "storybook": "storybook dev -p 6006",
+    "gen:component": "node scripts/genComponent.js"
   },
   "repository": {
     "type": "git",
