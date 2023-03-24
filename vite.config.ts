@@ -23,5 +23,19 @@ export default defineConfig({
       },
     },
   },
-  plugins: [react(), svgr()],
+  plugins: [
+    react(),
+    svgr({
+      exportAsDefault: true,
+      svgrOptions: {
+        // Using 1em in order to make SVG size inherits from text size.
+        icon: "1em",
+        svgProps: {
+          // Adding a class in case we want to add global overrides, but one
+          // should probably stick to using CSS modules most of the time
+          class: "cpd-icon",
+        },
+      },
+    }),
+  ],
 });
