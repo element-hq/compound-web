@@ -39,40 +39,57 @@ img.avatar {
   /* In the future we'd prefer to pass the HEX code as the data attr
      and use `attr(data-color)` to avoid the style declaration from below
      but this is currently not supported in all browsers */
-  background: var(--cpd-avatar-background);
-  color: #fff;
+  background: var(--cpd-avatar-bg);
+  border: 1px solid var(--cpd-avatar-border);
+  color: var(--cpd-avatar-color);
 }
 
 .avatar[data-color] {
-  --cpd-avatar-background: #368bd6; /* TODO: Replace with a compound color */
+  --cpd-avatar-bg: var(--cpd-color-blue-300);
+  --cpd-avatar-border: var(--cpd-color-blue-400);
+  --cpd-avatar-color: var(--cpd-color-blue-900);
 }
 
 .avatar[data-color="2"] {
-  --cpd-avatar-background: #ac3ba8; /* TODO: Replace with a compound color */
+  --cpd-avatar-bg: var(--cpd-color-fuchsia-300);
+  --cpd-avatar-border: var(--cpd-color-fuchsia-400);
+  --cpd-avatar-color: var(--cpd-color-fuchsia-900);
 }
 
 .avatar[data-color="3"] {
-  --cpd-avatar-background: #03b381; /* TODO: Replace with a compound color */
+  --cpd-avatar-bg: var(--cpd-color-green-300);
+  --cpd-avatar-border: var(--cpd-color-green-400);
+  --cpd-avatar-color: var(--cpd-color-green-900);
 }
 
 .avatar[data-color="4"] {
-  --cpd-avatar-background: #e64f7a; /* TODO: Replace with a compound color */
+  --cpd-avatar-bg: var(--cpd-color-pink-300);
+  --cpd-avatar-border: var(--cpd-color-pink-400);
+  --cpd-avatar-color: var(--cpd-color-pink-900);
 }
 
 .avatar[data-color="5"] {
-  --cpd-avatar-background: #ff812d; /* TODO: Replace with a compound color */
+  --cpd-avatar-bg: var(--cpd-color-orange-300);
+  --cpd-avatar-border: var(--cpd-color-orange-400);
+  --cpd-avatar-color: var(--cpd-color-orange-900);
 }
 
 .avatar[data-color="6"] {
-  --cpd-avatar-background: #2dc2c5; /* TODO: Replace with a compound color */
+  --cpd-avatar-bg: var(--cpd-color-cyan-300);
+  --cpd-avatar-border: var(--cpd-color-cyan-400);
+  --cpd-avatar-color: var(--cpd-color-cyan-900);
 }
 
 .avatar[data-color="7"] {
-  --cpd-avatar-background: #5c56f5; /* TODO: Replace with a compound color */
+  --cpd-avatar-bg: var(--cpd-color-purple-300);
+  --cpd-avatar-border: var(--cpd-color-purple-400);
+  --cpd-avatar-color: var(--cpd-color-purple-900);
 }
 
 .avatar[data-color="8"] {
-  --cpd-avatar-background: #74d12c; /* TODO: Replace with a compound color */
+  --cpd-avatar-bg: var(--cpd-color-lime-300);
+  --cpd-avatar-border: var(--cpd-color-lime-400);
+  --cpd-avatar-color: var(--cpd-color-lime-900);
 }
 
 .avatar[data-type="round"] {
