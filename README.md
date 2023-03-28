@@ -7,8 +7,7 @@
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=vector-im_compound-web&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=vector-im_compound-web)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=vector-im_compound-web&metric=coverage)](https://sonarcloud.io/summary/new_code?id=vector-im_compound-web)
 
-
-## Development
+## Development
 
 Spawn a local development environment when running the following command
 
