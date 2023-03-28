@@ -46,7 +46,7 @@ export const Button = <C extends React.ElementType = "button">({
       // We want them to behave like links but look like buttons
       role={as === "a" ? "link" : "button"}
       tabIndex={0}
-      disabled
+      disabled={true}
     >
       {children}
     </Component>
