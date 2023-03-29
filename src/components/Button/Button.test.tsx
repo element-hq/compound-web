@@ -14,8 +14,9 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import { fireEvent, getByRole, render } from "@testing-library/react";
 import React from "react";
+import { getByRole, render } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 
 import { Button } from "./Button";
 
@@ -25,11 +26,12 @@ describe("Button", () => {
     expect(asFragment()).toMatchSnapshot();
   });
 
-  it("can be clicked", () => {
+  it("can be clicked", async () => {
     const spy = jest.fn();
     const { container } = render(<Button onClick={spy}>Click me!</Button>);
 
-    fireEvent.click(getByRole(container, "button"));
+    const user = userEvent.setup();
+    await user.click(getByRole(container, "button"));
 
     expect(spy).toHaveBeenCalledTimes(1);
   });

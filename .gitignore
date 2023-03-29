@@ -7,4 +7,6 @@ storybook-static
 dist
 .stylelintcache
 
+yarn-error.log
 coverage
+yarn-error.log
