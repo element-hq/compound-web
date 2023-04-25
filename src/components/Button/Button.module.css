@@ -96,6 +96,27 @@ limitations under the License.
   background: var(--cpd-color-theme-bg);
 }
 
+.button[data-kind="tertiary"] {
+  border: none; /* TODO: Replace with a token */
+  color: var(--cpd-color-text-primary);
+  text-decoration: underline;
+  background: transparent;
+}
+
+.button[data-kind="tertiary"]:hover {
+  /* TODO: Replace with a semantic token */
+  background: var(--cpd-color-gray-200);
+}
+
+.button[data-kind="tertiary"]:active {
+  /* TODO: Replace with a semantic token */
+  background: var(--cpd-color-gray-300);
+}
+
+.button[data-kind="tertiary"][disabled] {
+  color: var(--cpd-color-text-disabled);
+}
+
 .button[data-kind="destructive"] {
   border: 1px solid var(--cpd-color-text-action-critical);
   color: var(--cpd-color-text-action-critical);
