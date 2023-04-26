@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Checkbox renders 1`] = `
+<DocumentFragment>
+  <div
+    class="checkbox"
+    data-kind="primary"
+  >
+    <input
+      type="checkbox"
+    />
+    <div
+      class="checkbox-ui"
+    />
+  </div>
+</DocumentFragment>
+`;
