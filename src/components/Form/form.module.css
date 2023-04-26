@@ -76,7 +76,7 @@ limitations under the License.
 }
 
 .control:focus {
-  outline: 3px solid var(--cpd-color-blue-900);
+  outline: 2px solid var(--cpd-color-blue-900);
   border-color: transparent;
 }
 
