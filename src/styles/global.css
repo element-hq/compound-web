@@ -66,6 +66,9 @@ input {
 
 html,
 body {
-  background: var(--cpd-color-bg-canvas-default);
   height: 100%;
+}
+
+body {
+  background: var(--cpd-color-bg-canvas-default);
 }
