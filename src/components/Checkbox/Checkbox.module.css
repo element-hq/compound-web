@@ -42,6 +42,10 @@ limitations under the License.
   border: 1px solid;
 }
 
+:checked + .checkbox-ui {
+  color: inherit; /* TODO: Replace with the checkmark code */
+}
+
 [data-kind="primary"] .checkbox-ui {
   border-color: var(--cpd-color-border-interactive-primary);
 }
@@ -53,10 +57,6 @@ limitations under the License.
 [type="checkbox"]:focus + .checkbox-ui {
   outline: 2px solid var(--cpd-color-blue-900);
   outline-offset: 1px;
-}
-
-:checked + .checkbox-ui {
-  color: inherit; /* TODO: Replace with the checkmark code */
 }
 
 .checkbox[data-kind="primary"] :checked + .checkbox-ui {
