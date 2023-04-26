@@ -59,6 +59,11 @@ Secondary.parameters = {
   },
 };
 
+export const Tertiary = Template.bind({});
+Tertiary.args = {
+  kind: "tertiary",
+};
+
 export const Destructive = Template.bind({});
 Destructive.args = {
   kind: "destructive",
