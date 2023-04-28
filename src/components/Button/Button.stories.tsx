@@ -40,12 +40,38 @@ Primary.args = {
   kind: "primary",
 };
 
+Primary.parameters = {
+  design: {
+    type: "figma",
+    url: "https://www.figma.com/file/HUysJAhv6cK6p1Pc81Fxaa/Matrix-Authentication-Service-(MAS)?node-id=101%3A16968&t=gc1qRwZLEob0m7OM-1",
+  },
+};
+
 export const Secondary = Template.bind({});
 Secondary.args = {
   kind: "secondary",
 };
 
+Secondary.parameters = {
+  design: {
+    type: "figma",
+    url: "https://www.figma.com/file/HUysJAhv6cK6p1Pc81Fxaa/Matrix-Authentication-Service-(MAS)?node-id=101%3A16968&t=gc1qRwZLEob0m7OM-1",
+  },
+};
+
+export const Tertiary = Template.bind({});
+Tertiary.args = {
+  kind: "tertiary",
+};
+
 export const Destructive = Template.bind({});
 Destructive.args = {
   kind: "destructive",
+};
+
+Destructive.parameters = {
+  design: {
+    type: "figma",
+    url: "https://www.figma.com/file/HUysJAhv6cK6p1Pc81Fxaa/Matrix-Authentication-Service-(MAS)?node-id=101%3A16968&t=gc1qRwZLEob0m7OM-1",
+  },
 };

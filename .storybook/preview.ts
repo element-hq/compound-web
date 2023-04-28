@@ -9,4 +9,22 @@ export const parameters = {
       date: /Date$/,
     },
   },
+  backgrounds: { disable: true },
+  themes: {
+    default: "light",
+    list: [
+      { name: "light", class: "cpd-theme-light", color: "#fff" },
+      { name: "dark", class: "cpd-theme-dark", color: "#101317" },
+      {
+        name: "light-high-contrast",
+        class: "cpd-theme-light-hc",
+        color: "#fff",
+      },
+      {
+        name: "dark-high-contrast",
+        class: "cpd-theme-dark-hc",
+        color: "#101317",
+      },
+    ],
+  },
 };

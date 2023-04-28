@@ -1,5 +1,5 @@
 /*
-Copyright 2023 New Vector Ltd.
+Copyright 2023  New Vector Ltd
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -14,11 +14,15 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-declare module "*.svg" {
-  const ReactComponent: React.FunctionComponent<
-    React.SVGAttributes<SVGElement>
-  >;
-  export default ReactComponent;
-}
+/**
+ * Extends Radix UI forms
+ * https://www.radix-ui.com/docs/primitives/components/form
+ */
 
-declare module "*.module.css";
+export { Root } from "./Root";
+export { Field } from "./Field";
+export { Label } from "./Label";
+export { Control } from "./Control";
+export { Message } from "./Message";
+export { ValidityState } from "./ValidityState";
+export { Submit } from "./Submit";

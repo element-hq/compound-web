@@ -21,8 +21,8 @@ limitations under the License.
    Therefore we define a unicode-range to load which excludes the glyphs
    (to avoid having to maintain a fork of Inter). */
 :root {
-  --cpd-inter-unicode-range: U+0000-20e2, U+20e4-23ce, U+23d0-24c1, U+24c3-259f, U+25c2-2664, U+2666-2763, U+2765-2b05,
-  U+2b07-2b1b, U+2b1d-10FFFF;
+  --cpd-inter-unicode-range: U+0000-20e2, U+20e4-23ce, U+23d0-24c1, U+24c3-259f,
+    U+25c2-2664, U+2666-2763, U+2765-2b05, U+2b07-2b1b, U+2b1d-10FFFF;
 }
 
 @font-face {
@@ -30,7 +30,7 @@ limitations under the License.
   font-weight: 400;
   unicode-range: var(--cpd-inter-unicode-range);
   src: url("/fonts/Inter/Inter-Regular.woff2") format("woff2"),
-      url("/fonts/Inter/Inter-Regular.woff") format("woff");
+    url("/fonts/Inter/Inter-Regular.woff") format("woff");
 }
 
 @font-face {
@@ -38,7 +38,7 @@ limitations under the License.
   font-weight: 500;
   unicode-range: var(--cpd-inter-unicode-range);
   src: url("/fonts/Inter/Inter-Medium.woff2") format("woff2"),
-      url("/fonts/Inter/Inter-Medium.woff") format("woff");
+    url("/fonts/Inter/Inter-Medium.woff") format("woff");
 }
 
 @font-face {
@@ -46,7 +46,7 @@ limitations under the License.
   font-weight: 600;
   unicode-range: var(--cpd-inter-unicode-range);
   src: url("/fonts/Inter/Inter-SemiBold.woff2") format("woff2"),
-      url("/fonts/Inter/Inter-SemiBold.woff") format("woff");
+    url("/fonts/Inter/Inter-SemiBold.woff") format("woff");
 }
 
 @font-face {
@@ -54,10 +54,21 @@ limitations under the License.
   font-weight: 700;
   unicode-range: var(--cpd-inter-unicode-range);
   src: url("/fonts/Inter/Inter-Bold.woff2") format("woff2"),
-      url("/fonts/Inter/Inter-Bold.woff") format("woff");
+    url("/fonts/Inter/Inter-Bold.woff") format("woff");
 }
 
-html, body {
+html,
+body,
+input {
   font: var(--cpd-font-body-md-regular);
   color: var(--cpd-color-text-primary);
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background: var(--cpd-color-bg-canvas-default);
 }

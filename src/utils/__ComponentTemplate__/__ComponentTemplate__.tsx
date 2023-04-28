@@ -1,5 +1,5 @@
 /*
-Copyright 2023 The Matrix.org Foundation C.I.C.
+Copyright %YEAR% %COPYRIGHT_HOLDER%
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -14,34 +14,26 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
+import classnames from "classnames";
 import React, { PropsWithChildren } from "react";
+import styles from "./__ComponentTemplate__.module.css";
 
-type TypographyProps<C extends React.ElementType> = {
+type __ComponentTemplate__Props<C extends React.ElementType> = {
   as?: C;
-  type?: "body" | "heading";
-  weight?: "regular" | "semibold" | "medium" | "bold";
-  size?: "xs" | "sm" | "md" | "lg";
+  className?: string;
 } & React.ComponentPropsWithoutRef<C>;
 
-export const Typography = <C extends React.ElementType = "p">({
+export const __ComponentTemplate__ = <C extends React.ElementType = "p">({
   as,
   children,
-  type = "body",
-  weight = "regular",
-  size = "md",
-  ...restProps
-}: PropsWithChildren<TypographyProps<C>>) => {
-  const Component = as || "p";
-
+  className,
+  ...props
+}: PropsWithChildren<__ComponentTemplate__Props<C>>) => {
+  const Component = as || "div";
+  // TODO: Update the class name to something related to the component name
+  const classes = classnames(styles.root, className);
   return (
-    <Component
-      {...restProps}
-      style={{
-        ...(restProps.style || {}),
-        font: `var(--cpd-font-${type}-${size}-${weight})`,
-        letterSpacing: `var(--cpd-font-letter-spacing-${type}-${size})`,
-      }}
-    >
+    <Component {...props} className={classes}>
       {children}
     </Component>
   );

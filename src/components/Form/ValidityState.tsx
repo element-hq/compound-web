@@ -1,5 +1,5 @@
 /*
-Copyright 2023 New Vector Ltd.
+Copyright 2023  New Vector Ltd
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -14,11 +14,16 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-declare module "*.svg" {
-  const ReactComponent: React.FunctionComponent<
-    React.SVGAttributes<SVGElement>
-  >;
-  export default ReactComponent;
-}
+import React from "react";
+import { ValidityState as RadixValidityState } from "@radix-ui/react-form";
 
-declare module "*.module.css";
+/**
+ * Thin wrapper around Radix UI ValidityState component
+ * https://www.radix-ui.com/docs/primitives/components/form#validitystate
+ */
+export function ValidityState({
+  children,
+  ...props
+}: React.ComponentProps<typeof RadixValidityState>): JSX.Element {
+  return <RadixValidityState {...props}>{children}</RadixValidityState>;
+}

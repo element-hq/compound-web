@@ -1,5 +1,5 @@
 /*
-Copyright 2023 New Vector Ltd
+Copyright %YEAR% %COPYRIGHT_HOLDER%
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -17,15 +17,24 @@ limitations under the License.
 import React from "react";
 import { Meta, StoryFn } from "@storybook/react";
 
-import ThreadIcon from "./icons/thread.svg";
+import { __ComponentTemplate__ as __ComponentTemplate__Component } from "./__ComponentTemplate__";
 
 export default {
-  title: "Icon",
-  component: ThreadIcon,
+  title: "__ComponentTemplate__",
+  component: __ComponentTemplate__Component,
   argTypes: {},
-} as Meta<typeof ThreadIcon>;
+  args: {},
+} as Meta<typeof __ComponentTemplate__Component>;
 
-const Template: StoryFn<typeof ThreadIcon> = () => <ThreadIcon />;
+const Template: StoryFn<typeof __ComponentTemplate__Component> = (args) => (
+  <__ComponentTemplate__Component {...args} />
+);
 
-export const Icon = Template.bind({});
-Icon.args = {};
+export const Round = Template.bind({});
+Round.args = {};
+Round.parameters = {
+  design: {
+    type: "figma",
+    url: "%FIGMA_URL%",
+  },
+};

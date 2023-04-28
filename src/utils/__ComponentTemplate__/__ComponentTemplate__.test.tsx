@@ -1,5 +1,5 @@
 /*
-Copyright 2023 New Vector Ltd.
+Copyright %YEAR% %COPYRIGHT_HOLDER%
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -14,11 +14,14 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-declare module "*.svg" {
-  const ReactComponent: React.FunctionComponent<
-    React.SVGAttributes<SVGElement>
-  >;
-  export default ReactComponent;
-}
+import { render } from "@testing-library/react";
+import React from "react";
 
-declare module "*.module.css";
+import { __ComponentTemplate__ } from "./__ComponentTemplate__";
+
+describe("__ComponentTemplate__", () => {
+  it("renders", () => {
+    const { asFragment } = render(<__ComponentTemplate__ />);
+    expect(asFragment()).toMatchSnapshot();
+  });
+});

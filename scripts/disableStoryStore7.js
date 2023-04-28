@@ -20,7 +20,7 @@ import fs from "fs";
  * There's currently a support issue between Storybook 7 and Percy
  * We can go around the problem by disabling `storyStoreV7` and running Percy
  * against the staticly built Storybook
- * 
+ *
  * When https://github.com/percy/percy-storybook/issues/715 will be resolved
  * we need to remove this script and run `percy storybook:start --port=6006` instead
  */
