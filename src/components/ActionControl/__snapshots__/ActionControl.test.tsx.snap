@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ActionControl renders 1`] = `
+<DocumentFragment>
+  <form
+    class="root"
+  >
+    <div
+      class="field"
+    >
+      <div
+        class="actioncontrol"
+      >
+        <input
+          autocomplete="off"
+          autocorrect="off"
+          class="control input"
+          id=":r1:"
+          name="action"
+          title=""
+        />
+        <svg
+          aria-controls=":r1:"
+          aria-label="Click me!"
+          class="icon"
+          height="24"
+          role="button"
+          width="24"
+        />
+      </div>
+    </div>
+  </form>
+</DocumentFragment>
+`;

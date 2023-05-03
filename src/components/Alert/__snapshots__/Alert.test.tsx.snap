@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Alert renders 1`] = `
+<DocumentFragment>
+  <div
+    class="alert"
+    data-type="success"
+  >
+    <svg
+      aria-hidden="true"
+      class="icon"
+      height="24"
+      width="24"
+    />
+    <div
+      class="content"
+    >
+      <p
+        class="title"
+      >
+        Title
+      </p>
+      <p
+        class="caption"
+      >
+        Success!
+      </p>
+    </div>
+  </div>
+</DocumentFragment>
+`;

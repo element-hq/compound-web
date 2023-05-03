@@ -63,3 +63,12 @@ input {
   font: var(--cpd-font-body-md-regular);
   color: var(--cpd-color-text-primary);
 }
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background: var(--cpd-color-bg-canvas-default);
+}
