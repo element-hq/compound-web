@@ -12,6 +12,8 @@ exports[`ActionControl renders 1`] = `
         class="actioncontrol"
       >
         <input
+          autocomplete="off"
+          autocorrect="off"
           class="control input"
           id=":r1:"
           name="action"
