@@ -27,30 +27,36 @@ import { Alert } from "./Alert";
 
 describe("Alert", () => {
   it("renders", () => {
-    const { asFragment } = render(<Alert type="success">Success!</Alert>);
+    const { asFragment } = render(
+      <Alert title="Title" type="success">
+        Success!
+      </Alert>
+    );
     expect(asFragment()).toMatchSnapshot();
   });
 
-  // TODO: Restore tests, loading icons in jest is not happy!
-  it.skip("has no close button by default", () => {
-    render(<Alert type="success">Click me!</Alert>);
-    expect(screen.getByLabelText("close")).not.toBeInTheDocument();
+  it("has no close button by default", () => {
+    render(
+      <Alert title="Title" type="info">
+        Click me!
+      </Alert>
+    );
+    expect(screen.queryByLabelText("Close")).not.toBeInTheDocument();
   });
 
-  // TODO: Restore tests, loading icons in jest is not happy!
-  it.skip("can have a close button", async () => {
+  it("can have a close button", async () => {
     const spy = jest.fn();
     const { container } = render(
-      <Alert type="critical" onClose={spy}>
+      <Alert title="Title" type="critical" onClose={spy}>
         Click me!
       </Alert>
     );
 
     await waitFor(() =>
-      expect(getByLabelText(container, "close")).toBeInTheDocument()
+      expect(getByLabelText(container, "Close")).toBeInTheDocument()
     );
 
-    fireEvent.click(getByLabelText(container, "close"));
+    fireEvent.click(getByLabelText(container, "Close"));
 
     expect(spy).toHaveBeenCalledTimes(1);
   });

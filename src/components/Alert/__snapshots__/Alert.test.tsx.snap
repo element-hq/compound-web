@@ -17,7 +17,9 @@ exports[`Alert renders 1`] = `
     >
       <p
         class="title"
-      />
+      >
+        Title
+      </p>
       <p
         class="caption"
       >
