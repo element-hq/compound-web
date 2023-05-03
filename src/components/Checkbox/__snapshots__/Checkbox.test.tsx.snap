@@ -11,7 +11,12 @@ exports[`Checkbox renders 1`] = `
     />
     <div
       class="checkbox-ui"
-    />
+    >
+      <svg
+        aria-hidden="true"
+        class="checkbox-check"
+      />
+    </div>
   </div>
 </DocumentFragment>
 `;
