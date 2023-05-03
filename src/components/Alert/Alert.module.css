@@ -18,7 +18,8 @@ limitations under the License.
 
 .alert {
   display: flex;
-  align-items: center;
+  align-items: start;
+  justify-content: start;
   gap: var(--cpd-space-3x);
   padding: var(--cpd-space-4x);
   border-radius: 12px;
@@ -26,80 +27,53 @@ limitations under the License.
 }
 
 .alert[data-type="success"] {
-  color: var(--cpd-color-green-600);
   background-color: var(--cpd-color-green-200);
-  border-color: var(--cpd-color-green-400);
-  box-shadow: 0 0 8px rgb(0 122 97 / 15%); /* TODO: Define as a token */
+  border-color: var(--cpd-color-green-500);
 }
 
 .alert[data-type="critical"] {
-  color: var(--cpd-color-red-600);
   background-color: var(--cpd-color-red-200);
-  border-color: var(--cpd-color-red-400);
-  box-shadow: 0 0 8px rgb(213 25 40 / 15%); /* TODO: Define as a token */
+  border-color: var(--cpd-color-red-500);
 }
 
 .alert[data-type="info"] {
-  color: var(--cpd-color-blue-600);
   background-color: var(--cpd-color-blue-200);
-  border-color: var(--cpd-color-blue-400);
-  box-shadow: 0 0 8px rgb(4 56 148 / 15%); /* TODO: Define as a token */
+  border-color: var(--cpd-color-blue-500);
 }
 
 .content {
   flex: 1;
 }
 
-[data-type="success"] .close {
-  --cpd-alert-close: var(
-    --cpd-color-green-600
-  ); /* TODO: No design value on figma */
+.title {
+  font: var(--cpd-font-body-md-semibold);
 }
 
-[data-type="critical"] .close {
-  --cpd-alert-close: var(
-    --cpd-color-red-600
-  ); /* TODO: No design value on figma */
+[data-type="success"] :is(.title, .icon) {
+  color: var(--cpd-color-green-900);
 }
 
-[data-type="info"] .close {
-  --cpd-alert-close: var(
-    --cpd-color-blue-600
-  ); /* TODO: No design value on figma */
+[data-type="critical"] :is(.title, .icon) {
+  color: var(--cpd-color-red-900);
 }
 
-[data-type="success"] .close:hover {
-  --cpd-alert-close: var(
-    --cpd-color-green-600
-  ); /* TODO: No design value on figma */
+[data-type="info"] :is(.title, .icon) {
+  color: var(--cpd-color-blue-900);
 }
 
-[data-type="critical"] .close:hover {
-  --cpd-alert-close: var(
-    --cpd-color-red-600
-  ); /* TODO: No design value on figma */
+.alert p {
+  margin: 0;
 }
 
-[data-type="info"] .close:hover {
-  --cpd-alert-close: var(
-    --cpd-color-blue-600
-  ); /* TODO: No design value on figma */
+[data-type] .close {
+  color: var(--cpd-color-gray-800);
+  border-radius: 50%;
+  padding: var(--cpd-space-scale);
+  cursor: pointer;
 }
 
-[data-type="success"] .close:active {
-  --cpd-alert-close: var(
-    --cpd-color-green-600
-  ); /* TODO: No design value on figma */
-}
-
-[data-type="critical"] .close:active {
-  --cpd-alert-close: var(
-    --cpd-color-red-600
-  ); /* TODO: No design value on figma */
-}
-
-[data-type="info"] .close:active {
-  --cpd-alert-close: var(
-    --cpd-color-blue-600
-  ); /* TODO: No design value on figma */
+.close:hover {
+  color: var(--cpd-color-icon-primary);
+  background: var(--cpd-color-alpha-gray-300);
+  cursor: pointer;
 }

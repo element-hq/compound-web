@@ -36,7 +36,9 @@ export default {
 } as Meta<typeof AlertComponent>;
 
 const Template: StoryFn<typeof AlertComponent> = (args) => (
-  <AlertComponent {...args}>Click me!</AlertComponent>
+  <AlertComponent {...args} title="Title">
+    Description
+  </AlertComponent>
 );
 
 export const Success = Template.bind({});
