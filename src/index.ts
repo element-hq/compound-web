@@ -19,5 +19,6 @@ import "./styles/global.css";
 
 import { Body } from "./components/Typography/Body";
 import { Heading } from "./components/Typography/Heading";
+import { Button } from "./components/Button/Button";
 
-export { Body, Heading };
+export { Body, Heading, Button };

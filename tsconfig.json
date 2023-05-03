@@ -22,8 +22,9 @@
 
     /* Type Checking */
     "strict": true /* Enable all strict type-checking options. */,
+    "rootDir": "./src",
     "typeRoots": ["./node_modules/@types", "./src/@types"],
-    "types": ["jest", "jest-dom", "node"],
+    "types": ["jest", "node"],
 
     /* Completeness */
     "skipLibCheck": true /* Skip type checking all .d.ts files. */
