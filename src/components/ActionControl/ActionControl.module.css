@@ -20,7 +20,7 @@ limitations under the License.
 }
 
 input.input {
-  padding-inline-end: (--cpd-space-12x);
+  padding-inline-end: var(--cpd-space-12x);
 }
 
 .icon {

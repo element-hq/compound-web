@@ -43,7 +43,7 @@ export function PasswordControl(
   props: PropsWithChildren<React.ComponentProps<typeof Control>>
 ): JSX.Element {
   const [{ icon, label, type }, togglePasswordVisibility] = useReducer(
-    (state) => (state.isHidden ? showState : hideState),
+    (state) => (!state.isHidden ? showState : hideState),
     showState
   );
   return (

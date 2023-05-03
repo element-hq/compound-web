@@ -40,7 +40,13 @@ export const ActionControl = ({
   const classes = classnames(styles.actioncontrol, className);
   return (
     <div className={classes}>
-      <Control {...props} className={styles.input} id={id}>
+      <Control
+        {...props}
+        className={styles.input}
+        id={id}
+        autoComplete="off"
+        autoCorrect="off"
+      >
         {children}
       </Control>
       <Icon
