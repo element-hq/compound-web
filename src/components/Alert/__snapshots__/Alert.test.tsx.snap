@@ -5,17 +5,24 @@ exports[`Alert renders 1`] = `
   <div
     class="alert"
     data-type="success"
-    tabindex="0"
   >
     <svg
       aria-hidden="true"
-      height="40"
-      width="40"
+      class="icon"
+      height="24"
+      width="24"
     />
     <div
       class="content"
     >
-      Success!
+      <p
+        class="title"
+      />
+      <p
+        class="caption"
+      >
+        Success!
+      </p>
     </div>
   </div>
 </DocumentFragment>

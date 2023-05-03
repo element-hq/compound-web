@@ -24,24 +24,21 @@ import CloseIcon from "@vector-im/compound-design-tokens/icons/close.svg";
 
 import styles from "./Alert.module.css";
 
-type AlertProps<C extends React.ElementType> = {
-  as?: C;
+type AlertProps = {
   type: "success" | "critical" | "info";
   title: string;
   className?: string;
   onClose?: (e: React.MouseEvent) => void;
-} & React.ComponentPropsWithoutRef<C>;
+};
 
-export const Alert = <C extends React.ElementType = "div">({
-  as,
+export const Alert = ({
   type,
   title,
   children,
   className,
   onClose,
   ...props
-}: PropsWithChildren<AlertProps<C>>): JSX.Element => {
-  const Component = as || "div";
+}: PropsWithChildren<AlertProps>): JSX.Element => {
   const classes = classNames(styles.alert, className);
 
   const renderIcon = useCallback(
@@ -59,8 +56,13 @@ export const Alert = <C extends React.ElementType = "div">({
   );
 
   return (
-    <Component {...props} className={classes} data-type={type} tabIndex={0}>
-      {renderIcon({ width: 24, height: 24, className: styles.icon })}
+    <div {...props} className={classes} data-type={type}>
+      {renderIcon({
+        width: 24,
+        height: 24,
+        className: styles.icon,
+        "aria-hidden": true,
+      })}
       <div className={styles.content}>
         <p className={styles.title}>{title}</p>
         <p className={styles.caption}>{children}</p>
@@ -76,6 +78,6 @@ export const Alert = <C extends React.ElementType = "div">({
           className={styles.close}
         />
       )}
-    </Component>
+    </div>
   );
 };
