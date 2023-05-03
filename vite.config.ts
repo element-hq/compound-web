@@ -15,7 +15,7 @@ export default defineConfig({
       fileName: "compound-web",
     },
     rollupOptions: {
-      external: ["react", "react-dom"],
+      external: ["react", "react-dom", /.*\.svg$/],
       output: {
         globals: {
           react: "React",

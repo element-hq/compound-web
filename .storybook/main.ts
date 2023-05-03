@@ -12,7 +12,7 @@ module.exports = {
     options: {},
   },
   features: {
-    storyStoreV7: true,
+    storyStoreV7: false,
   },
   docs: {
     autodocs: false,
