@@ -36,7 +36,7 @@ limitations under the License.
 
 .checkbox-ui {
   pointer-events: none;
-  width: 24px;
+  width: var(--size);
   aspect-ratio: 1 / 1;
   border-radius: 4px; /* TODO: Ought to be a token */
   border: 1px solid;
@@ -59,13 +59,26 @@ limitations under the License.
   outline-offset: 1px;
 }
 
+.checkbox-ui svg {
+  width: var(--size);
+  height: var(--size);
+}
+
+.checkbox :not(:checked) + .checkbox-ui {
+  color: transparent;
+}
+
+.checkbox :checked + .checkbox-ui {
+  color: var(--cpd-color-icon-on-solid-primary);
+}
+
 .checkbox[data-kind="primary"] :checked + .checkbox-ui {
-  background: var(--cpd-color-bg-action-primary-rest);
+  background-color: var(--cpd-color-bg-action-primary-rest);
   border-color: var(--cpd-color-bg-action-primary-rest);
 }
 
 .checkbox[data-kind="critical"] :checked + .checkbox-ui {
-  background: var(--cpd-color-bg-critical-primary);
+  background-color: var(--cpd-color-bg-critical-primary);
   border-color: var(--cpd-color-bg-critical-primary);
 }
 

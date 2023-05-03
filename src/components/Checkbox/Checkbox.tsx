@@ -17,6 +17,7 @@ limitations under the License.
 import classnames from "classnames";
 import React, { PropsWithChildren } from "react";
 import styles from "./Checkbox.module.css";
+import CheckIcon from "@vector-im/compound-design-tokens/icons/check.svg";
 
 type CheckboxProps = {
   kind?: "primary" | "critical";
@@ -32,7 +33,9 @@ export const Checkbox = ({
   return (
     <div className={classes} data-kind={kind}>
       <input {...props} type="checkbox" />
-      <div className={styles["checkbox-ui"]} />
+      <div className={styles["checkbox-ui"]}>
+        <CheckIcon aria-hidden={true} className={styles["checkbox-check"]} />
+      </div>
     </div>
   );
 };
