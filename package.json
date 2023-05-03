@@ -83,6 +83,7 @@
     "prettier": "^2.8.7",
     "storybook": "^7.0.0-beta.62",
     "storybook-addon-designs": "^7.0.0-beta.2",
+    "storybook-addon-themes": "^6.1.0",
     "stylelint": "^15.2.0",
     "stylelint-config-standard": "^30.0.1",
     "typescript": "^4.9.5",
@@ -91,7 +92,7 @@
   },
   "dependencies": {
     "@radix-ui/react-form": "^0.0.2",
-    "@vector-im/compound-design-tokens": "https://github.com/vector-im/compound-design-tokens#main",
+    "@vector-im/compound-design-tokens": "https://github.com/vector-im/compound-design-tokens#develop",
     "classnames": "^2.3.2",
     "lodash": "^4.17.21",
     "react": "^18.2.0",

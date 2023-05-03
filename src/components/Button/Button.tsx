@@ -20,7 +20,7 @@ import styles from "./Button.module.css";
 
 type ButtonProps<C extends React.ElementType> = {
   as?: C;
-  kind?: "primary" | "secondary" | "destructive"; // TODO: Refine the naming
+  kind?: "primary" | "secondary" | "tertiary" | "destructive"; // TODO: Refine the naming
   size?: "sm" | "lg";
   className?: string;
 } & React.ComponentPropsWithoutRef<C>;
