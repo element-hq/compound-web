@@ -13,13 +13,17 @@ exports[`ActionControl renders 1`] = `
       >
         <input
           class="control input"
-          id="radix-:r0:"
+          id=":r1:"
           name="action"
           title=""
         />
         <svg
+          aria-controls=":r1:"
           aria-label="Click me!"
           class="icon"
+          height="24"
+          role="button"
+          width="24"
         />
       </div>
     </div>

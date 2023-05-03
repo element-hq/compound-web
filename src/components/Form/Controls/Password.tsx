@@ -18,7 +18,22 @@ import React, { PropsWithChildren, useReducer } from "react";
 import { ActionControl } from "../../ActionControl/ActionControl";
 import { Control } from "../Control";
 
-import ThreadIcon from "../../Icon/icons/thread.svg";
+import VisibilityVisible from "@vector-im/compound-design-tokens/icons/visibility-visible.svg";
+import VisibilityInvisible from "@vector-im/compound-design-tokens/icons/visibility-invisible.svg";
+
+const showState = {
+  isHidden: true,
+  icon: VisibilityVisible,
+  label: "Show",
+  type: "password",
+};
+
+const hideState = {
+  isHidden: false,
+  icon: VisibilityInvisible,
+  label: "Hide",
+  type: "text",
+};
 
 /**
  * Thin wrapper around Radix UI Control component
@@ -27,16 +42,18 @@ import ThreadIcon from "../../Icon/icons/thread.svg";
 export function PasswordControl(
   props: PropsWithChildren<React.ComponentProps<typeof Control>>
 ): JSX.Element {
-  const [isHidden, toggleIsHidden] = useReducer((state) => !state, true);
+  const [{ icon, label, type }, togglePasswordVisibility] = useReducer(
+    (state) => (state.isHidden ? showState : hideState),
+    showState
+  );
   return (
     <ActionControl
       {...props}
-      // TODO: Replace with the correct set of icons when they become available
-      Icon={isHidden ? ThreadIcon : null}
+      Icon={icon}
       // TODO: Replace with a function that deal with i18n of those values
-      actionLabel={isHidden ? "Show" : "Hide"}
-      onActionClick={() => toggleIsHidden()}
-      type={isHidden ? "password" : "text"}
+      actionLabel={label}
+      onActionClick={() => togglePasswordVisibility()}
+      type={type}
     />
   );
 }

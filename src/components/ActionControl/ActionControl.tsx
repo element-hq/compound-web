@@ -15,14 +15,14 @@ limitations under the License.
 */
 
 import classnames from "classnames";
-import React, { PropsWithChildren } from "react";
+import React, { PropsWithChildren, useId } from "react";
 import styles from "./ActionControl.module.css";
 
 import { Control, Field, Root } from "../Form";
 
 type ActionControlProps = {
   className?: string;
-  Icon: unknown; // Don't know how to type this?
+  Icon: React.FunctionComponent<React.SVGAttributes<SVGElement>>;
   onActionClick: (e: React.MouseEvent) => void;
   actionLabel: string;
   disabled?: boolean;
@@ -36,19 +36,21 @@ export const ActionControl = ({
   onActionClick,
   ...props
 }: PropsWithChildren<ActionControlProps>) => {
-  // TODO: Update the class name to something related to the component name
+  const id = useId();
   const classes = classnames(styles.actioncontrol, className);
-  // TODO: I don't know how to type this properly
-  const IconComp = Icon as typeof React.Component;
   return (
     <div className={classes}>
-      <Control {...props} className={styles.input}>
+      <Control {...props} className={styles.input} id={id}>
         {children}
       </Control>
-      <IconComp
+      <Icon
+        width={24}
+        height={24}
         onClick={onActionClick}
         className={styles.icon}
         aria-label={actionLabel}
+        aria-controls={id}
+        role="button"
       />
     </div>
   );
