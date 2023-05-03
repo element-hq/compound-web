@@ -17,7 +17,16 @@ limitations under the License.
 import "@vector-im/compound-design-tokens/assets/web/css/compound-design-tokens.css";
 import "./styles/global.css";
 
-import { Body } from "./components/Typography/Body";
-import { Heading } from "./components/Typography/Heading";
-
-export { Body, Heading };
+export { ActionControl } from "./components/ActionControl/ActionControl";
+export { Alert } from "./components/Alert/Alert";
+export { Avatar } from "./components/Avatar/Avatar";
+export { Button } from "./components/Button/Button";
+export { Body } from "./components/Typography/Body";
+export { Control } from "./components/Form/Control";
+export { Field } from "./components/Form/Field";
+export { Label } from "./components/Form/Label";
+export { Message } from "./components/Form/Message";
+export { PasswordControl } from "./components/Form/Controls/Password";
+export { Root } from "./components/Form/Root";
+export { Submit } from "./components/Form/Submit";
+export { ValidityState } from "./components/Form/ValidityState";
