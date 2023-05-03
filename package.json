@@ -13,6 +13,10 @@
       "import": "./dist/compound-web.js",
       "require": "./dist/compound-web.umd.cjs",
       "types": "./dist/index.d.ts"
+    },
+    "./style.css": {
+      "import": "./dist/style.css",
+      "require": "./dist/style.css"
     }
   },
   "types": "./dist/index.d.ts",
