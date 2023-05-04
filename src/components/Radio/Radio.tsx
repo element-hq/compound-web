@@ -23,6 +23,9 @@ type RadioProps = {
   className?: string;
 } & React.ComponentPropsWithoutRef<"input">;
 
+/**
+ * Radio form control
+ */
 export const Radio = ({
   kind = "primary",
   className,
