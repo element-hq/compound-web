@@ -24,6 +24,7 @@ export { Button } from "./components/Button/Button";
 export { Body } from "./components/Typography/Body";
 export { Control } from "./components/Form/Control";
 export { Field } from "./components/Form/Field";
+export { Heading } from "./components/Typography/Heading";
 export { Label } from "./components/Form/Label";
 export { Message } from "./components/Form/Message";
 export { PasswordControl } from "./components/Form/Controls/Password";
