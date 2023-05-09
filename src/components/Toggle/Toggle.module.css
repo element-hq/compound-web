@@ -33,6 +33,10 @@ limitations under the License.
   cursor: pointer;
 }
 
+.toggle > input[type="checkbox"][disabled] {
+  cursor: not-allowed;
+}
+
 .toggle-ui {
   pointer-events: none;
   width: 44px;
@@ -77,15 +81,15 @@ limitations under the License.
   background: var(--cpd-color-icon-on-solid-primary);
 }
 
-[type="checkbox"][disabled] .toggle-ui {
+[type="checkbox"][disabled] + .toggle-ui {
   border-color: var(--cpd-color-border-disabled);
   background: var(--cpd-color-bg-canvas-disabled);
 }
 
-[type="checkbox"][disabled] .toggle-ui::after {
+[type="checkbox"][disabled] + .toggle-ui::after {
   background: var(--cpd-color-bg-action-primary-disabled);
 }
 
-[type="checkbox"][disabled]:checked .toggle-ui {
+[type="checkbox"][disabled]:checked + .toggle-ui {
   background: var(--cpd-color-bg-action-primary-disabled);
 }
