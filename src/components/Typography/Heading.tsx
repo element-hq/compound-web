@@ -16,6 +16,7 @@ limitations under the License.
 
 import React from "react";
 import { Typography } from "./Typography";
+import { Body } from "./Body";
 
 export const Heading = ({
   as = "h1",
@@ -26,5 +27,58 @@ export const Heading = ({
     <Typography as={as} type="heading" {...props}>
       {children}
     </Typography>
+  );
+};
+
+type HeadingProps = Omit<
+  React.ComponentProps<typeof Heading>,
+  "as" | "weight" | "size"
+>;
+
+export const H1 = ({ children, ...props }: HeadingProps) => {
+  return (
+    <Heading as="h1" weight="semibold" size="xl" {...props}>
+      {children}
+    </Heading>
+  );
+};
+
+export const H2 = ({ children, ...props }: HeadingProps) => {
+  return (
+    <Heading as="h2" weight="semibold" size="lg" {...props}>
+      {children}
+    </Heading>
+  );
+};
+
+export const H3 = ({ children, ...props }: HeadingProps) => {
+  return (
+    <Heading as="h3" weight="semibold" size="md" {...props}>
+      {children}
+    </Heading>
+  );
+};
+
+export const H4 = ({ children, ...props }: HeadingProps) => {
+  return (
+    <Heading as="h1" weight="semibold" size="sm" {...props}>
+      {children}
+    </Heading>
+  );
+};
+
+export const H5 = ({ children, ...props }: HeadingProps) => {
+  return (
+    <Body as="h5" weight="semibold" size="lg" {...props}>
+      {children}
+    </Body>
+  );
+};
+
+export const H6 = ({ children, ...props }: HeadingProps) => {
+  return (
+    <Body as="h1" weight="semibold" size="md" {...props}>
+      {children}
+    </Body>
   );
 };

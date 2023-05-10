@@ -24,7 +24,15 @@ export { Button } from "./components/Button/Button";
 export { Body } from "./components/Typography/Body";
 export { Control } from "./components/Form/Control";
 export { Field } from "./components/Form/Field";
-export { Heading } from "./components/Typography/Heading";
+export {
+  Heading,
+  H1,
+  H2,
+  H3,
+  H4,
+  H5,
+  H6,
+} from "./components/Typography/Heading";
 export { Label } from "./components/Form/Label";
 export { Message } from "./components/Form/Message";
 export { PasswordControl } from "./components/Form/Controls/Password";
