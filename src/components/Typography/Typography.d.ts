@@ -5,5 +5,5 @@ type TypographyProps<C extends React.ElementType> = {
     weight?: "regular" | "semibold" | "medium" | "bold";
     size?: "xs" | "sm" | "md" | "lg";
 } & React.ComponentPropsWithoutRef<C>;
-export declare const Typography: <C extends React.ElementType<any> = "p">({ as, children, type, weight, size, ...restProps }: React.PropsWithChildren<TypographyProps<C>>) => JSX.Element;
+export declare const Typography: <C extends React.ElementType<any> = "p">({ as, children, type, weight, size, ...restProps }: React.PropsWithChildren<TypographyProps<C>>) => React.JSX.Element;
 export {};

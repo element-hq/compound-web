@@ -1,0 +1,2 @@
+import{j as a}from"./jsx-runtime-94f6e698.js";import{T as t}from"./thread-a52da432.js";import"./index-8db94870.js";import"./_commonjsHelpers-042e6b4d.js";const d={title:"Icon",component:t,argTypes:{}},c=()=>a.jsx(t,{}),o=c.bind({});o.args={};var r,e,s;o.parameters={...o.parameters,docs:{...(r=o.parameters)==null?void 0:r.docs,source:{originalSource:"() => <ThreadIcon />",...(s=(e=o.parameters)==null?void 0:e.docs)==null?void 0:s.source}}};const I=["Icon"];export{o as Icon,I as __namedExportsOrder,d as default};
+//# sourceMappingURL=Icon.stories-74a7f6aa.js.map

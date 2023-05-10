@@ -1,3 +1,3 @@
 import React from "react";
 import { Typography } from "./Typography";
-export declare const Body: ({ as, children, ...props }: Omit<React.ComponentProps<typeof Typography>, "type">) => JSX.Element;
+export declare const Body: ({ as, children, ...props }: Omit<React.ComponentProps<typeof Typography>, "type">) => React.JSX.Element;
