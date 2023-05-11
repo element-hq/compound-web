@@ -29,32 +29,32 @@ limitations under the License.
   font-family: Inter;
   font-weight: 400;
   unicode-range: var(--cpd-inter-unicode-range);
-  src: url("/fonts/Inter/Inter-Regular.woff2") format("woff2"),
-    url("/fonts/Inter/Inter-Regular.woff") format("woff");
+  src: url("./fonts/Inter/Inter-Regular.woff2") format("woff2"),
+    url("./fonts/Inter/Inter-Regular.woff") format("woff");
 }
 
 @font-face {
   font-family: Inter;
   font-weight: 500;
   unicode-range: var(--cpd-inter-unicode-range);
-  src: url("/fonts/Inter/Inter-Medium.woff2") format("woff2"),
-    url("/fonts/Inter/Inter-Medium.woff") format("woff");
+  src: url("./fonts/Inter/Inter-Medium.woff2") format("woff2"),
+    url("./fonts/Inter/Inter-Medium.woff") format("woff");
 }
 
 @font-face {
   font-family: Inter;
   font-weight: 600;
   unicode-range: var(--cpd-inter-unicode-range);
-  src: url("/fonts/Inter/Inter-SemiBold.woff2") format("woff2"),
-    url("/fonts/Inter/Inter-SemiBold.woff") format("woff");
+  src: url("./fonts/Inter/Inter-SemiBold.woff2") format("woff2"),
+    url("./fonts/Inter/Inter-SemiBold.woff") format("woff");
 }
 
 @font-face {
   font-family: Inter;
   font-weight: 700;
   unicode-range: var(--cpd-inter-unicode-range);
-  src: url("/fonts/Inter/Inter-Bold.woff2") format("woff2"),
-    url("/fonts/Inter/Inter-Bold.woff") format("woff");
+  src: url("./fonts/Inter/Inter-Bold.woff2") format("woff2"),
+    url("./fonts/Inter/Inter-Bold.woff") format("woff");
 }
 
 html,
