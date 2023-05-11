@@ -3,9 +3,6 @@
   "version": "0.0.1",
   "description": "Compound components for the Web",
   "type": "module",
-  "files": [
-    "dist"
-  ],
   "main": "./dist/compound-web.umd.cjs",
   "module": "./dist/compound-web.js",
   "exports": {
