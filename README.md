@@ -1,4 +1,4 @@
-<p align="center"><img src="https://element.io/images/logo-ele-secondary.svg" width="300" /></p>
+<p align="center"><img src="https://compound.element.io/logo-readme.png" width="300" alt="" /></p>
 
 # Compound Web
 
