@@ -7,16 +7,14 @@
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=vector-im_compound-web&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=vector-im_compound-web)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=vector-im_compound-web&metric=coverage)](https://sonarcloud.io/summary/new_code?id=vector-im_compound-web)
 
-## Development
+React implementation of Compound – Element's design system – See full documentation on https://compound.element.io and the [Figma component library](https://www.figma.com/file/rTaQE2nIUSLav4Tg3nozq7/Compound-Web-Components?type=design&node-id=129%3A4461&t=0cvCO0bpqRPGgkwa-1)
 
-Spawn a local development environment when running the following command
+## Commands
 
-```bash
-yarn dev
-```
+| Command | Runs |
+| ------- | ---- |
+| `yarn dev` | Runs a local development environment |
+| `yarn test` | Tests all components |
+| `yarn lint` | Lints all components | 
+| `yarn gen:component $name` | Bootstraps a new component |
 
-The helper `genComponent` will generate the foundations for a new Compound component
-
-```bash
-yarn gen:component ComponentName
-```
