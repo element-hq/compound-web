@@ -14,14 +14,22 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import { render } from "@testing-library/react";
+import { getByRole, render } from "@testing-library/react";
 import React from "react";
 
 import { Checkbox } from "./Checkbox";
+import userEvent from "@testing-library/user-event";
 
 describe("Checkbox", () => {
   it("renders", () => {
     const { asFragment } = render(<Checkbox />);
     expect(asFragment()).toMatchSnapshot();
+  });
+
+  it("should not have focus after being clicked", async () => {
+    const { container } = render(<Checkbox />);
+    const checkbox = getByRole(container, "checkbox");
+    await userEvent.click(checkbox);
+    expect(checkbox).not.toHaveFocus();
   });
 });

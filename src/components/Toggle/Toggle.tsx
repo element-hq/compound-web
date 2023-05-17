@@ -16,29 +16,28 @@ limitations under the License.
 
 import classnames from "classnames";
 import React, { PropsWithChildren } from "react";
-import styles from "./Radio.module.css";
+import styles from "./Toggle.module.css";
 
-type RadioProps = {
-  kind?: "primary" | "critical";
+type ToggleProps = {
   className?: string;
   onMouseDown?: (e: React.MouseEvent<HTMLInputElement, MouseEvent>) => void;
 } & React.ComponentPropsWithoutRef<"input">;
 
 /**
- * Radio form control
+ * Standalone toggle component to be used with a Radix form control
+ * See https://www.radix-ui.com/docs/primitives/components/form#composing-with-your-own-components
  */
-export const Radio = ({
-  kind = "primary",
+export const Toggle = ({
   className,
   onMouseDown,
   ...props
-}: PropsWithChildren<RadioProps>) => {
-  const classes = classnames(styles.radio, className);
+}: PropsWithChildren<ToggleProps>) => {
+  const classes = classnames(styles.toggle, className);
   return (
-    <div className={classes} data-kind={kind}>
+    <div className={classes}>
       <input
         {...props}
-        type="radio"
+        type="checkbox"
         onMouseDown={(e) => {
           // Prevents the `focus` event from being fired when clicked
           // but still reliably works when navigating via the keyboard
@@ -46,7 +45,7 @@ export const Radio = ({
           onMouseDown?.(e);
         }}
       />
-      <div className={styles["radio-ui"]} />
+      <div className={styles["toggle-ui"]} />
     </div>
   );
 };

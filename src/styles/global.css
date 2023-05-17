@@ -67,6 +67,10 @@ input {
 html,
 body {
   height: 100%;
+
+  /* TODO: This should be a token defining the based font size for `rem` usage
+   * This is already set on Tokens Studio side, but not exposed in the tokens */
+  font-size: 16px;
 }
 
 body {

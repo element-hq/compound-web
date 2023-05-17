@@ -14,22 +14,28 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import { getByRole, render } from "@testing-library/react";
 import React from "react";
+import { Meta, StoryFn } from "@storybook/react";
 
-import { Radio } from "./Radio";
-import userEvent from "@testing-library/user-event";
+import { Toggle as ToggleComponent } from "./Toggle";
 
-describe("Radio", () => {
-  it("renders", () => {
-    const { asFragment } = render(<Radio />);
-    expect(asFragment()).toMatchSnapshot();
-  });
+export default {
+  title: "Toggle",
+  component: ToggleComponent,
+  argTypes: {},
+  args: {},
+} as Meta<typeof ToggleComponent>;
 
-  it("should not have focus after being clicked", async () => {
-    const { container } = render(<Radio />);
-    const radio = getByRole(container, "radio");
-    await userEvent.click(radio);
-    expect(radio).not.toHaveFocus();
-  });
-});
+const Template: StoryFn<typeof ToggleComponent> = (args) => (
+  <>
+    <ToggleComponent {...args} checked={false} />
+    <br />
+    <ToggleComponent {...args} checked={true} />
+  </>
+);
+
+export const Active = Template.bind({});
+Active.args = {};
+
+export const Disabled = Template.bind({});
+Disabled.args = { disabled: true };

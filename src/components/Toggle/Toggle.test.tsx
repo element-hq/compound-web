@@ -17,19 +17,19 @@ limitations under the License.
 import { getByRole, render } from "@testing-library/react";
 import React from "react";
 
-import { Radio } from "./Radio";
+import { Toggle } from "./Toggle";
 import userEvent from "@testing-library/user-event";
 
-describe("Radio", () => {
+describe("Toggle", () => {
   it("renders", () => {
-    const { asFragment } = render(<Radio />);
+    const { asFragment } = render(<Toggle />);
     expect(asFragment()).toMatchSnapshot();
   });
 
   it("should not have focus after being clicked", async () => {
-    const { container } = render(<Radio />);
-    const radio = getByRole(container, "radio");
-    await userEvent.click(radio);
-    expect(radio).not.toHaveFocus();
+    const { container } = render(<Toggle />);
+    const checkbox = getByRole(container, "checkbox");
+    await userEvent.click(checkbox);
+    expect(checkbox).not.toHaveFocus();
   });
 });
