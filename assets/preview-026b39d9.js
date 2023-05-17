@@ -1,2 +1,2 @@
 const e={actions:{argTypesRegex:"^on[A-Z].*"},controls:{matchers:{color:/(background|color)$/i,date:/Date$/}},backgrounds:{disable:!0},themes:{default:"light",list:[{name:"light",class:"cpd-theme-light",color:"#fff"},{name:"dark",class:"cpd-theme-dark",color:"#101317"},{name:"light-high-contrast",class:"cpd-theme-light-hc",color:"#fff"},{name:"dark-high-contrast",class:"cpd-theme-dark-hc",color:"#101317"}]}};export{e as parameters};
-//# sourceMappingURL=preview-6b03b864.js.map
+//# sourceMappingURL=preview-026b39d9.js.map
