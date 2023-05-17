@@ -16,15 +16,16 @@ limitations under the License.
 
 .toggle {
   display: grid;
-  width: 44px;
-  height: 24px;
+  width: 2.75rem;
+  height: 1.5rem;
+  box-sizing: border-box;
 }
 
 .toggle > * {
   grid-area: 1/1;
-  width: 44px;
-  height: 24px;
-  box-sizing: border-box;
+  width: inherit;
+  height: inherit;
+  box-sizing: inherit;
 }
 
 .toggle > input[type="checkbox"] {
@@ -39,8 +40,6 @@ limitations under the License.
 
 .toggle-ui {
   pointer-events: none;
-  width: 44px;
-  aspect-ratio: 1 / 1;
   border-radius: 9999px;
   border: 1px solid var(--cpd-color-border-interactive-primary);
   position: relative;
@@ -63,7 +62,7 @@ limitations under the License.
 .toggle-ui::after {
   content: "";
   display: block;
-  width: 20px;
+  height: 100%;
   aspect-ratio: 1 / 1;
   border-radius: 50%;
   background: var(--cpd-color-bg-action-primary-rest);
