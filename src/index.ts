@@ -36,6 +36,7 @@ export {
 export { Label } from "./components/Form/Label";
 export { Message } from "./components/Form/Message";
 export { PasswordControl } from "./components/Form/Controls/Password";
+export { Radio } from "./components/Radio/Radio";
 export { Root } from "./components/Form/Root";
 export { Submit } from "./components/Form/Submit";
 export { ValidityState } from "./components/Form/ValidityState";
