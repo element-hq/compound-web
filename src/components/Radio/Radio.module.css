@@ -15,17 +15,15 @@ limitations under the License.
 */
 
 .radio {
-  --size: 24px;
-
   display: grid;
-  width: var(--size);
-  height: var(--size);
+  width: 1.5rem;
+  aspect-ratio: 1 / 1;
 }
 
 .radio > * {
   grid-area: 1/1;
-  width: var(--size);
-  height: var(--size);
+  width: inherit;
+  height: inherit;
 }
 
 .radio > input[type="radio"] {
@@ -36,9 +34,7 @@ limitations under the License.
 
 .radio-ui {
   pointer-events: none;
-  width: 24px;
   box-sizing: border-box;
-  aspect-ratio: 1 / 1;
   border-radius: 50%;
   border: 1px solid;
   display: flex;
@@ -49,8 +45,8 @@ limitations under the License.
 .radio-ui::after {
   content: "";
   display: block;
-  width: 10px;
-  height: 10px;
+  width: 0.625em;
+  aspect-ratio: 1 / 1;
   border-radius: 50%;
   background: transparent;
 }

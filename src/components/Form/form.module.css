@@ -67,7 +67,7 @@ limitations under the License.
 
   border: 1px solid var(--cpd-form-border-color);
   background: var(--cpd-form-bg);
-  border-radius: 8px;
+  border-radius: 0.5rem;
   padding: var(--cpd-space-3x) var(--cpd-space-4x);
 }
 

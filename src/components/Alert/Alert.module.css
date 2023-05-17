@@ -22,7 +22,7 @@ limitations under the License.
   justify-content: start;
   gap: var(--cpd-space-3x);
   padding: var(--cpd-space-4x);
-  border-radius: 12px;
+  border-radius: 0.75rem;
   border: 1px solid;
 }
 
