@@ -24,7 +24,8 @@ type ToggleProps = {
 } & React.ComponentPropsWithoutRef<"input">;
 
 /**
- * Toggle form control
+ * Standalone toggle component to be used with a Radix form control
+ * See https://www.radix-ui.com/docs/primitives/components/form#composing-with-your-own-components
  */
 export const Toggle = ({
   className,
