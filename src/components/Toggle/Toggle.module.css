@@ -49,6 +49,7 @@ limitations under the License.
 
 :checked + .toggle-ui {
   background: var(--cpd-color-bg-action-primary-rest);
+  border-color: var(--cpd-color-bg-action-primary-rest);
 }
 
 [type="checkbox"]:hover + .toggle-ui {
@@ -57,6 +58,7 @@ limitations under the License.
 
 :checked:hover + .toggle-ui {
   background: var(--cpd-color-bg-action-primary-hovered);
+  border-color: var(--cpd-color-bg-action-primary-hovered);
 }
 
 .toggle-ui::after {
@@ -91,4 +93,9 @@ limitations under the License.
 
 [type="checkbox"][disabled]:checked + .toggle-ui {
   background: var(--cpd-color-bg-action-primary-disabled);
+  border-color: var(--cpd-color-bg-action-primary-disabled);
+}
+
+[type="checkbox"][disabled]:checked + .toggle-ui::after {
+  background: var(--cpd-color-icon-on-solid-primary);
 }

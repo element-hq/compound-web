@@ -27,14 +27,15 @@ export default {
 } as Meta<typeof ToggleComponent>;
 
 const Template: StoryFn<typeof ToggleComponent> = (args) => (
-  <ToggleComponent {...args} />
+  <>
+    <ToggleComponent {...args} checked={false} />
+    <br />
+    <ToggleComponent {...args} checked={true} />
+  </>
 );
 
-export const Primary = Template.bind({});
-Primary.args = {};
-Primary.parameters = {
-  design: {
-    type: "figma",
-    url: "https://www.figma.com/file/rTaQE2nIUSLav4Tg3nozq7/Compound-Web-Components?type=design&t=thoPRKw7ujYGFc8X-1",
-  },
-};
+export const Active = Template.bind({});
+Active.args = {};
+
+export const Disabled = Template.bind({});
+Disabled.args = { disabled: true };
