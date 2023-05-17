@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Link renders 1`] = `
+<DocumentFragment>
+  <a
+    class="link"
+    data-kind="primary"
+    rel="noreferrer noopener"
+  />
+</DocumentFragment>
+`;
