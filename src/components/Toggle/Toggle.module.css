@@ -45,7 +45,7 @@ limitations under the License.
   border: 1px solid var(--cpd-color-border-interactive-primary);
   position: relative;
   padding: 1px;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease;
 }
 
 :checked + .toggle-ui {
