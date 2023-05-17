@@ -22,17 +22,28 @@ import CheckIcon from "@vector-im/compound-design-tokens/icons/check.svg";
 type CheckboxProps = {
   kind?: "primary" | "critical";
   className?: string;
+  onMouseDown?: (e: React.MouseEvent<HTMLInputElement, MouseEvent>) => void;
 } & React.ComponentPropsWithoutRef<"input">;
 
 export const Checkbox = ({
   kind = "primary",
   className,
+  onMouseDown,
   ...props
 }: PropsWithChildren<CheckboxProps>) => {
   const classes = classnames(styles.checkbox, className);
   return (
     <div className={classes} data-kind={kind}>
-      <input {...props} type="checkbox" />
+      <input
+        {...props}
+        type="checkbox"
+        onMouseDown={(e) => {
+          // Prevents the `focus` event from being fired when clicked
+          // but still reliably works when navigating via the keyboard
+          e.preventDefault();
+          onMouseDown?.(e);
+        }}
+      />
       <div className={styles["checkbox-ui"]}>
         <CheckIcon aria-hidden={true} className={styles["checkbox-check"]} />
       </div>

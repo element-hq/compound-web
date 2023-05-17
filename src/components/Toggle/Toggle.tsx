@@ -20,6 +20,7 @@ import styles from "./Toggle.module.css";
 
 type ToggleProps = {
   className?: string;
+  onMouseDown?: (e: React.MouseEvent<HTMLInputElement, MouseEvent>) => void;
 } & React.ComponentPropsWithoutRef<"input">;
 
 /**
@@ -27,12 +28,22 @@ type ToggleProps = {
  */
 export const Toggle = ({
   className,
+  onMouseDown,
   ...props
 }: PropsWithChildren<ToggleProps>) => {
   const classes = classnames(styles.toggle, className);
   return (
     <div className={classes}>
-      <input {...props} type="checkbox" />
+      <input
+        {...props}
+        type="checkbox"
+        onMouseDown={(e) => {
+          // Prevents the `focus` event from being fired when clicked
+          // but still reliably works when navigating via the keyboard
+          e.preventDefault();
+          onMouseDown?.(e);
+        }}
+      />
       <div className={styles["toggle-ui"]} />
     </div>
   );

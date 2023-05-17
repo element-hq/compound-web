@@ -21,6 +21,7 @@ import styles from "./Radio.module.css";
 type RadioProps = {
   kind?: "primary" | "critical";
   className?: string;
+  onMouseDown?: (e: React.MouseEvent<HTMLInputElement, MouseEvent>) => void;
 } & React.ComponentPropsWithoutRef<"input">;
 
 /**
@@ -29,12 +30,22 @@ type RadioProps = {
 export const Radio = ({
   kind = "primary",
   className,
+  onMouseDown,
   ...props
 }: PropsWithChildren<RadioProps>) => {
   const classes = classnames(styles.radio, className);
   return (
     <div className={classes} data-kind={kind}>
-      <input {...props} type="radio" />
+      <input
+        {...props}
+        type="radio"
+        onMouseDown={(e) => {
+          // Prevents the `focus` event from being fired when clicked
+          // but still reliably works when navigating via the keyboard
+          e.preventDefault();
+          onMouseDown?.(e);
+        }}
+      />
       <div className={styles["radio-ui"]} />
     </div>
   );
