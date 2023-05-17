@@ -14,14 +14,22 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import { render } from "@testing-library/react";
+import { getByRole, render } from "@testing-library/react";
 import React from "react";
 
 import { Radio } from "./Radio";
+import userEvent from "@testing-library/user-event";
 
 describe("Radio", () => {
   it("renders", () => {
     const { asFragment } = render(<Radio />);
     expect(asFragment()).toMatchSnapshot();
+  });
+
+  it("should not have focus after being clicked", async () => {
+    const { container } = render(<Radio />);
+    const radio = getByRole(container, "radio");
+    await userEvent.click(radio);
+    expect(radio).not.toHaveFocus();
   });
 });
