@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-.checkbox {
+.radio {
   --size: 24px;
 
   display: grid;
@@ -22,91 +22,98 @@ limitations under the License.
   height: var(--size);
 }
 
-.checkbox > * {
+.radio > * {
   grid-area: 1/1;
   width: var(--size);
   height: var(--size);
 }
 
-.checkbox > input[type="checkbox"] {
+.radio > input[type="radio"] {
   opacity: 0;
   margin: 0;
   cursor: pointer;
 }
 
-.checkbox-ui {
+.radio-ui {
   pointer-events: none;
-  width: var(--size);
+  width: 24px;
   box-sizing: border-box;
   aspect-ratio: 1 / 1;
-  border-radius: 4px; /* TODO: Ought to be a token */
+  border-radius: 50%;
   border: 1px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-:checked + .checkbox-ui {
-  color: inherit; /* TODO: Replace with the checkmark code */
+.radio-ui::after {
+  content: "";
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: transparent;
 }
 
-[data-kind="primary"] .checkbox-ui {
+:checked + .radio-ui::after {
+  background: var(--cpd-color-icon-on-solid-primary);
+}
+
+:hover + .radio-ui::after {
+  background: var(--cpd-color-icon-quaternary);
+}
+
+:checked:hover + .radio-ui::after {
+  background: var(--cpd-color-icon-on-solid-primary);
+}
+
+[data-kind="primary"] .radio-ui {
   border-color: var(--cpd-color-border-interactive-primary);
 }
 
-[data-kind="critical"] .checkbox-ui {
+[data-kind="critical"] .radio-ui {
   border-color: var(--cpd-color-border-critical-primary);
 }
 
-[type="checkbox"]:focus + .checkbox-ui {
+[type="radio"]:focus + .radio-ui {
   outline: 2px solid var(--cpd-color-blue-900);
   outline-offset: 1px;
 }
 
-.checkbox-ui svg {
-  width: var(--size);
-  height: var(--size);
-}
-
-.checkbox :not(:checked) + .checkbox-ui {
-  color: transparent;
-}
-
-.checkbox :checked + .checkbox-ui {
-  color: var(--cpd-color-icon-on-solid-primary);
-}
-
-.checkbox[data-kind="primary"] :checked + .checkbox-ui {
-  background-color: var(--cpd-color-bg-action-primary-rest);
+.radio[data-kind="primary"] :checked + .radio-ui {
+  background: var(--cpd-color-bg-action-primary-rest);
   border-color: var(--cpd-color-bg-action-primary-rest);
 }
 
-.checkbox[data-kind="critical"] :checked + .checkbox-ui {
-  background-color: var(--cpd-color-bg-critical-primary);
+.radio[data-kind="critical"] :checked + .radio-ui {
+  background: var(--cpd-color-bg-critical-primary);
   border-color: var(--cpd-color-bg-critical-primary);
 }
 
-.checkbox[data-kind="primary"] [type="checkbox"]:hover + .checkbox-ui {
+.radio[data-kind="primary"] [type="radio"]:hover + .radio-ui {
   color: var(--cpd-color-icon-quaternary);
   border-color: var(--cpd-color-border-interactive-hovered);
 }
 
-.checkbox[data-kind="critical"] [type="checkbox"]:hover + .checkbox-ui {
+.radio[data-kind="critical"] [type="radio"]:hover + .radio-ui {
   color: var(--cpd-color-icon-quaternary);
   border-color: var(--cpd-color-border-critical-hovered);
 }
 
-.checkbox[data-kind] [type="checkbox"][disabled] + .checkbox-ui {
+.radio[data-kind] [type="radio"][disabled] + .radio-ui {
   border-color: var(--cpd-color-border-disabled);
   background: var(--cpd-border-disabled);
   color: var(--color-text-disabled);
 }
 
-.checkbox[data-kind] [type="checkbox"][disabled]:checked + .checkbox-ui {
+.radio[data-kind] [type="radio"][disabled]:checked + .radio-ui {
   background: var(--cpd-color-bg-action-primary-disabled);
 }
 
-.checkbox[data-kind="primary"] [type="checkbox"]:checked:hover + .checkbox-ui {
+.radio[data-kind="primary"] [type="radio"]:checked:hover + .radio-ui {
   background: var(--cpd-color-bg-action-primary-hovered);
 }
 
-.checkbox[data-kind="critical"] [type="checkbox"]:checked:hover + .checkbox-ui {
+.radio[data-kind="critical"] [type="radio"]:checked:hover + .radio-ui {
   background: var(--cpd-color-bg-critical-hovered);
 }
