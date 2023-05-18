@@ -64,7 +64,7 @@ export const ActionControl = ({
 
 export const StandaloneActionControl = (
   props: PropsWithChildren<ActionControlProps>
-): JSX.Element => {
+): React.JSX.Element => {
   return (
     <Root>
       <Field name="action">

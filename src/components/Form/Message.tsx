@@ -31,7 +31,7 @@ type MessageProps = {
 export function Message({
   children,
   ...props
-}: PropsWithChildren<MessageProps>): JSX.Element {
+}: PropsWithChildren<MessageProps>): React.JSX.Element {
   const classes = classNames(styles.message, props.className);
   return (
     <RadixMessage {...props} className={classes}>

@@ -31,7 +31,7 @@ type RootProps = {
 export function Root({
   children,
   ...props
-}: PropsWithChildren<RootProps>): JSX.Element {
+}: PropsWithChildren<RootProps>): React.JSX.Element {
   const classes = classNames(styles.root, props.className);
   return (
     <RadixRoot {...props} className={classes}>

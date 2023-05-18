@@ -24,6 +24,6 @@ import { ValidityState as RadixValidityState } from "@radix-ui/react-form";
 export function ValidityState({
   children,
   ...props
-}: React.ComponentProps<typeof RadixValidityState>): JSX.Element {
+}: React.ComponentProps<typeof RadixValidityState>): React.JSX.Element {
   return <RadixValidityState {...props}>{children}</RadixValidityState>;
 }

@@ -46,7 +46,10 @@ type SuspenseImgProps = {
   src: string;
 } & React.ImgHTMLAttributes<HTMLImageElement>;
 
-export function SuspenseImg({ src, ...props }: SuspenseImgProps): JSX.Element {
+export function SuspenseImg({
+  src,
+  ...props
+}: SuspenseImgProps): React.JSX.Element {
   /**
    * Read the cache, if the image has already been loaded, it will be displayed
    * straight away. If not, it will throw an exception that will be caught by the
