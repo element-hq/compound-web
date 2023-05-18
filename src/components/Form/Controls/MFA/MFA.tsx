@@ -45,7 +45,10 @@ export const MFAControl = React.forwardRef(function MFAControl(
     <div className={classes}>
       <input
         {...props}
-        type="text"
+        // Showing digits on mobile browsers. Using numbers is not really suited
+        // as it often adds a way to increment or decrement the current value
+        // which is not interesting for this use case
+        type="tel"
         minLength={0}
         maxLength={length}
         value={mfaDigits}
