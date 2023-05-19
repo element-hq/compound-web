@@ -26,7 +26,7 @@ exports[`PasswordControl renders 1`] = `
           name="mfa"
           placeholder="000000"
           title=""
-          type="text"
+          type="tel"
           value=""
         />
         <div
