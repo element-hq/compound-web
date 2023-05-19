@@ -17,8 +17,8 @@ limitations under the License.
 /* Styling the Radix UI Form component */
 
 /**
-* ROOT: Form Element
-*/
+ * ROOT: Form Element
+ */
 
 .root {
   font: var(--cpd-font-body-md-regular);
@@ -26,8 +26,8 @@ limitations under the License.
 }
 
 /**
-* FIELD: Wrapper around label, control and message
-*/
+ * FIELD: Wrapper around label, control and message
+ */
 
 .field {
   display: flex;
@@ -35,8 +35,8 @@ limitations under the License.
 }
 
 /**
-* LABEL
-*/
+ * LABEL
+ */
 
 .label {
   font-weight: var(--cpd-font-weight-medium);
@@ -58,8 +58,8 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/:has#browser_compatibility */
 }
 
 /**
-* CONTROL
-*/
+ * CONTROL
+ */
 
 .control {
   border: 1px solid var(--cpd-color-border-interactive-primary);
@@ -70,8 +70,9 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/:has#browser_compatibility */
 }
 
 /* Disabling the descending specificity rule to allow for selectors like below
-* It is using the "fake" element hack to style checkboxes, radio, mfa codes ...
-*/
+ * It is using the "fake" element hack to style checkboxes, radio, mfa codes ...
+ */
+
 /* stylelint-disable no-descending-specificity */
 .control:hover,
 input:hover ~ .control {
