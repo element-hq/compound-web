@@ -7,5 +7,5 @@ type MessageProps = {
  * Thin wrapper around Radix UI Message component
  * https://www.radix-ui.com/docs/primitives/components/form#message
  */
-export declare function Message({ children, ...props }: PropsWithChildren<MessageProps>): JSX.Element;
+export declare function Message({ children, ...props }: PropsWithChildren<MessageProps>): React.JSX.Element;
 export {};

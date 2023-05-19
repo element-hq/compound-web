@@ -7,5 +7,5 @@ type RootProps = {
  * Thin wrapper around Radix UI Root component
  * https://www.radix-ui.com/docs/primitives/components/form#root
  */
-export declare function Root({ children, ...props }: PropsWithChildren<RootProps>): JSX.Element;
+export declare function Root({ children, ...props }: PropsWithChildren<RootProps>): React.JSX.Element;
 export {};

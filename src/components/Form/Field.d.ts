@@ -7,5 +7,5 @@ type FieldProps = {
  * Thin wrapper around Radix UI Field component
  * https://www.radix-ui.com/docs/primitives/components/form#field
  */
-export declare function Field({ children, ...props }: PropsWithChildren<FieldProps>): JSX.Element;
+export declare function Field({ children, ...props }: PropsWithChildren<FieldProps>): React.JSX.Element;
 export {};

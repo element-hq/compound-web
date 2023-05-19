@@ -5,5 +5,5 @@ type ButtonProps<C extends React.ElementType> = {
     size?: "sm" | "lg";
     className?: string;
 } & React.ComponentPropsWithoutRef<C>;
-export declare const Button: <C extends React.ElementType<any> = "button">({ as, kind, size, children, className, ...props }: React.PropsWithChildren<ButtonProps<C>>) => JSX.Element;
+export declare const Button: <C extends React.ElementType<any> = "button">({ as, kind, size, children, className, ...props }: React.PropsWithChildren<ButtonProps<C>>) => React.JSX.Element;
 export {};

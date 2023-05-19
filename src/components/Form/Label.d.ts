@@ -7,5 +7,5 @@ type LabelProps = {
  * Thin wrapper around Radix UI Label component
  * https://www.radix-ui.com/docs/primitives/components/form#label
  */
-export declare function Label({ children, ...props }: PropsWithChildren<LabelProps>): JSX.Element;
+export declare function Label({ children, ...props }: PropsWithChildren<LabelProps>): React.JSX.Element;
 export {};

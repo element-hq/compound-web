@@ -9,5 +9,5 @@ type SubmitProps = {
  * Thin wrapper around Radix UI Submit component
  * https://www.radix-ui.com/docs/primitives/components/form#submit
  */
-export declare function Submit({ children, size, ...props }: PropsWithChildren<SubmitProps>): JSX.Element;
+export declare function Submit({ children, size, ...props }: PropsWithChildren<SubmitProps>): React.JSX.Element;
 export {};

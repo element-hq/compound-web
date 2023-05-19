@@ -5,5 +5,5 @@ type AlertProps = {
     className?: string;
     onClose?: (e: React.MouseEvent) => void;
 };
-export declare const Alert: ({ type, title, children, className, onClose, ...props }: PropsWithChildren<AlertProps>) => JSX.Element;
+export declare const Alert: ({ type, title, children, className, onClose, ...props }: PropsWithChildren<AlertProps>) => React.JSX.Element;
 export {};

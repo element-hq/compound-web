@@ -1,3 +1,4 @@
+import React from "react";
 type AvatarProps = {
     src?: string;
     id: string;
@@ -6,5 +7,5 @@ type AvatarProps = {
     className?: string;
     size?: CSSStyleDeclaration["height"];
 };
-export declare const Avatar: ({ src, id, name, type, className, size, }: AvatarProps) => JSX.Element;
+export declare const Avatar: ({ src, id, name, type, className, size, }: AvatarProps) => React.JSX.Element;
 export {};
