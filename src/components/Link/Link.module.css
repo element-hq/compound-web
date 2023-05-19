@@ -19,7 +19,7 @@ limitations under the License.
   text-decoration: underline;
   color: var(--cpd-color-text-primary);
   font-weight: var(--cpd-font-weight-medium);
-  border-radius: 9999px;
+  border-radius: var(--cpd-radius-pill-effect);
   padding-inline: 0.25rem;
 }
 
