@@ -31,7 +31,7 @@ type FieldProps = {
 export function Field({
   children,
   ...props
-}: PropsWithChildren<FieldProps>): JSX.Element {
+}: PropsWithChildren<FieldProps>): React.JSX.Element {
   const classes = classNames(styles.field, props.className);
   return (
     <RadixField {...props} className={classes}>

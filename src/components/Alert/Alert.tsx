@@ -38,7 +38,7 @@ export const Alert = ({
   className,
   onClose,
   ...props
-}: PropsWithChildren<AlertProps>): JSX.Element => {
+}: PropsWithChildren<AlertProps>): React.JSX.Element => {
   const classes = classNames(styles.alert, className);
 
   const renderIcon = useCallback(

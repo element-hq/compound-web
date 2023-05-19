@@ -32,7 +32,7 @@ export const Button = <C extends React.ElementType = "button">({
   children,
   className,
   ...props
-}: PropsWithChildren<ButtonProps<C>>): JSX.Element => {
+}: PropsWithChildren<ButtonProps<C>>): React.JSX.Element => {
   const Component = as || "button";
   const classes = classNames(styles.button, className);
 
