@@ -20,6 +20,7 @@ import { Meta, StoryFn } from "@storybook/react";
 
 import * as Form from "./index";
 import { PasswordControl } from "./Controls/Password";
+import { MFAControl } from "./Controls/MFA";
 
 export default {
   title: "Form",
@@ -35,6 +36,10 @@ const Template: StoryFn<typeof Form.Root> = () => (
     <Form.Field name="password">
       <Form.Label>Password</Form.Label>
       <PasswordControl value="sup3rS3cur3p4ssw0rd!" />
+    </Form.Field>
+    <Form.Field name="mfa">
+      <Form.Label>MFA</Form.Label>
+      <MFAControl value="123" />
     </Form.Field>
 
     <Form.Submit>Submit</Form.Submit>

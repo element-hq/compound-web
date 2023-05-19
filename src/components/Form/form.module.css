@@ -5,7 +5,7 @@ Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
 
-    http://www.apache.org/licenses/LICENSE-2.0
+http://www.apache.org/licenses/LICENSE-2.0
 
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
@@ -51,7 +51,7 @@ limitations under the License.
 }
 
 /* Currently working everywhere but on Firefox (only behind a labs flag)
- https://developer.mozilla.org/en-US/docs/Web/CSS/:has#browser_compatibility */
+https://developer.mozilla.org/en-US/docs/Web/CSS/:has#browser_compatibility */
 .label:has(~ .control[disabled]) {
   color: var(--cpd-color-text-disabled);
   cursor: not-allowed;
@@ -62,32 +62,38 @@ limitations under the License.
  */
 
 .control {
-  --cpd-form-border-color: var(--cpd-color-gray-600);
-  --cpd-form-bg: var(--cpd-color-bg-canvas);
-
-  border: 1px solid var(--cpd-form-border-color);
-  background: var(--cpd-form-bg);
-  border-radius: 8px;
+  border: 1px solid var(--cpd-color-border-interactive-primary);
+  background: var(--cpd-color-bg-canvas);
+  border-radius: 0.5rem;
   padding: var(--cpd-space-3x) var(--cpd-space-4x);
+  box-sizing: border-box;
 }
 
-.control:hover {
-  --cpd-form-border-color: var(--cpd-color-gray-1100);
+/* Disabling the descending specificity rule to allow for selectors like below
+ * It is using the "fake" element hack to style checkboxes, radio, mfa codes ...
+ */
+
+/* stylelint-disable no-descending-specificity */
+.control:hover,
+input:hover ~ .control {
+  border-color: var(--cpd-color-border-interactive-hovered);
 }
 
-.control:focus {
-  outline: 2px solid var(--cpd-color-blue-900);
+.control:focus,
+input:focus ~ .control {
+  outline: 2px solid var(--cpd-color-border-focused);
   border-color: transparent;
 }
 
-.control[data-invalid] {
-  --cpd-form-border-color: var(--cpd-color-text-action-critical);
+.control[data-invalid],
+input[data-invalid] ~ .control {
+  border-color: var(--cpd-color-text-action-critical);
 }
 
-.control[disabled] {
-  --cpd-form-bg: var(--cpd-color-gray-200);
-  --cpd-form-border-color: var(--cpd-color-gray-500);
-
+.control:disabled,
+input:disabled ~ .control {
+  background: var(--cpd-color-bg-canvas-disabled);
+  border-color: var(--cpd-color-border-disabled);
   color: var(--cpd-color-text-disabled);
   cursor: not-allowed;
 }

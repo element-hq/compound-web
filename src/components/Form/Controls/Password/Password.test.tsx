@@ -19,8 +19,8 @@ import { act, getByLabelText, render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 import { PasswordControl } from "./Password";
-import { Root } from "../Root";
-import { Field } from "../Field";
+import { Root } from "../../Root";
+import { Field } from "../../Field";
 
 describe("PasswordControl", () => {
   it("switches the input type", async () => {

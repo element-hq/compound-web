@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PasswordControl renders 1`] = `
+<DocumentFragment>
+  <form
+    class="root"
+  >
+    <div
+      class="field"
+    >
+      <label
+        class="label"
+        for="radix-:r0:"
+      >
+        MFA
+      </label>
+      <div
+        class="mfa control"
+      >
+        <input
+          autocomplete="off"
+          class="mfa-input"
+          id="radix-:r0:"
+          maxlength="6"
+          minlength="0"
+          name="mfa"
+          placeholder="000000"
+          title=""
+          type="tel"
+          value=""
+        />
+        <div
+          aria-hidden="true"
+          class="digit control"
+        />
+        <div
+          aria-hidden="true"
+          class="digit control"
+        />
+        <div
+          aria-hidden="true"
+          class="digit control"
+        />
+        <div
+          aria-hidden="true"
+          class="digit control"
+        />
+        <div
+          aria-hidden="true"
+          class="digit control"
+        />
+        <div
+          aria-hidden="true"
+          class="digit control"
+        />
+      </div>
+    </div>
+  </form>
+</DocumentFragment>
+`;
