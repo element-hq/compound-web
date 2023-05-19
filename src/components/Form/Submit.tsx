@@ -34,7 +34,7 @@ export function Submit({
   children,
   size,
   ...props
-}: PropsWithChildren<SubmitProps>): JSX.Element {
+}: PropsWithChildren<SubmitProps>): React.JSX.Element {
   const classes = classNames(styles.submit, props.className);
   return (
     <RadixSubmit {...props} asChild>

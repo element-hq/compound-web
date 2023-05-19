@@ -31,7 +31,7 @@ type ControlProps = {
 export function Control({
   children,
   ...props
-}: PropsWithChildren<ControlProps>): JSX.Element {
+}: PropsWithChildren<ControlProps>): React.JSX.Element {
   const classes = classNames(styles.control, props.className);
   return (
     <RadixControl {...props} className={classes}>

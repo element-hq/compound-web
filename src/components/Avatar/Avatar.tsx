@@ -37,7 +37,7 @@ export const Avatar = ({
   type = "round",
   className = "",
   size,
-}: AvatarProps): JSX.Element => {
+}: AvatarProps): React.JSX.Element => {
   const color = useUsernameColor(id);
   const style = {
     "--cpd-avatar-size": size,

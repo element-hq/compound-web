@@ -31,7 +31,7 @@ type LabelProps = {
 export function Label({
   children,
   ...props
-}: PropsWithChildren<LabelProps>): JSX.Element {
+}: PropsWithChildren<LabelProps>): React.JSX.Element {
   const classes = classNames(styles.label, props.className);
   return (
     <RadixLabel {...props} className={classes}>
