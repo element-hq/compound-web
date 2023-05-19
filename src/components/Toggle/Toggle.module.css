@@ -40,7 +40,7 @@ limitations under the License.
 
 .toggle-ui {
   pointer-events: none;
-  border-radius: 9999px;
+  border-radius: var(--cpd-radius-pill-effect);
   border: 1px solid var(--cpd-color-border-interactive-primary);
   position: relative;
   padding: 1px;
