@@ -21,7 +21,7 @@ import classNames from "classnames";
 type LinkProps = {
   className?: string;
   kind?: "primary" | "critical";
-} & React.HTMLProps<HTMLAnchorElement>;
+} & Omit<React.HTMLProps<HTMLAnchorElement>, "rel">;
 
 export const Link = ({
   children,
