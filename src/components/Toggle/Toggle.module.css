@@ -42,6 +42,7 @@ limitations under the License.
   pointer-events: none;
   border-radius: var(--cpd-radius-pill-effect);
   border: 1px solid var(--cpd-color-border-interactive-primary);
+  background: var(--cpd-color-bg-canvas-default);
   position: relative;
   padding: 1px;
   transition: all 0.2s ease;
