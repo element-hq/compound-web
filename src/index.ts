@@ -34,6 +34,7 @@ export {
   H6,
 } from "./components/Typography/Heading";
 export { Label } from "./components/Form/Label";
+export { Link } from "./components/Link/Link";
 export { Message } from "./components/Form/Message";
 export { PasswordControl } from "./components/Form/Controls/Password";
 export { Radio } from "./components/Radio/Radio";
