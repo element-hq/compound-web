@@ -1,0 +1,15 @@
+# Ignore everything
+/*
+
+# And then include the src/ and dist/ directories
+!/src/
+!/dist/
+
+# tsconfig.json is included to get a better "Go to definition" experience in IDEs
+!/tsconfig.json
+
+# Ignore some extra test files
+**/__snapshots__/
+**/__test__/
+**/*.stories.tsx
+**/*.test.tsx

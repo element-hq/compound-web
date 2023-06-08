@@ -14,6 +14,7 @@
     /* Emit */
     "declaration": true,
     "emitDeclarationOnly": true,
+    "declarationMap": true,
     "isolatedModules": true,
 
     /* Interop Constraints */
