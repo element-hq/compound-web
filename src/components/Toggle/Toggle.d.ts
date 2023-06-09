@@ -9,3 +9,4 @@ type ToggleProps = {
  */
 export declare const Toggle: ({ className, onMouseDown, ...props }: PropsWithChildren<ToggleProps>) => React.JSX.Element;
 export {};
+//# sourceMappingURL=Toggle.d.ts.map

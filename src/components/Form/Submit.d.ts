@@ -11,3 +11,4 @@ type SubmitProps = {
  */
 export declare function Submit({ children, size, ...props }: PropsWithChildren<SubmitProps>): React.JSX.Element;
 export {};
+//# sourceMappingURL=Submit.d.ts.map

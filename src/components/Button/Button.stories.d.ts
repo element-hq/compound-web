@@ -40,3 +40,4 @@ export declare const Destructive: import("@storybook/types").AnnotatedStoryFn<im
 } & Omit<any, "ref"> & {
     children?: React.ReactNode;
 }>;
+//# sourceMappingURL=Button.stories.d.ts.map

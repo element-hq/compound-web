@@ -9,3 +9,4 @@ type MessageProps = {
  */
 export declare function Message({ children, ...props }: PropsWithChildren<MessageProps>): React.JSX.Element;
 export {};
+//# sourceMappingURL=Message.d.ts.map

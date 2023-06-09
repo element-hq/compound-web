@@ -7,3 +7,4 @@ type TypographyProps<C extends React.ElementType> = {
 } & React.ComponentPropsWithoutRef<C>;
 export declare const Typography: <C extends React.ElementType<any> = "p">({ as, children, type, weight, size, ...restProps }: React.PropsWithChildren<TypographyProps<C>>) => React.JSX.Element;
 export {};
+//# sourceMappingURL=Typography.d.ts.map

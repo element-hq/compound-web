@@ -16,3 +16,4 @@ export declare const Heading: import("@storybook/types").AnnotatedStoryFn<import
 } & Omit<any, "ref"> & {
     children?: React.ReactNode;
 }, "type">>;
+//# sourceMappingURL=Heading.stories.d.ts.map

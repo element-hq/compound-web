@@ -12,3 +12,4 @@ export declare const Round: import("@storybook/types").AnnotatedStoryFn<import("
 } & Omit<any, "ref"> & {
     children?: React.ReactNode;
 }>;
+//# sourceMappingURL=__ComponentTemplate__.stories.d.ts.map

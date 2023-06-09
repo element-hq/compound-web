@@ -9,3 +9,4 @@ type LabelProps = {
  */
 export declare function Label({ children, ...props }: PropsWithChildren<LabelProps>): React.JSX.Element;
 export {};
+//# sourceMappingURL=Label.d.ts.map

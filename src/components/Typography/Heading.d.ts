@@ -9,3 +9,4 @@ export declare const H4: ({ children, ...props }: HeadingProps) => React.JSX.Ele
 export declare const H5: ({ children, ...props }: HeadingProps) => React.JSX.Element;
 export declare const H6: ({ children, ...props }: HeadingProps) => React.JSX.Element;
 export {};
+//# sourceMappingURL=Heading.d.ts.map

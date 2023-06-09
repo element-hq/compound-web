@@ -22,3 +22,4 @@ export declare const Round: import("@storybook/types").AnnotatedStoryFn<import("
 } & import("@radix-ui/react-form").FormControlProps & React.RefAttributes<HTMLInputElement> & {
     children?: React.ReactNode;
 }>;
+//# sourceMappingURL=ActionControl.stories.d.ts.map

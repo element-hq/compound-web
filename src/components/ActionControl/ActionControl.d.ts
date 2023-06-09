@@ -10,3 +10,4 @@ type ActionControlProps = {
 export declare const ActionControl: ({ children, Icon, className, actionLabel, onActionClick, ...props }: PropsWithChildren<ActionControlProps>) => React.JSX.Element;
 export declare const StandaloneActionControl: (props: PropsWithChildren<ActionControlProps>) => React.JSX.Element;
 export {};
+//# sourceMappingURL=ActionControl.d.ts.map

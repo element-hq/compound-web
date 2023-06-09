@@ -9,3 +9,4 @@ type RadioProps = {
  */
 export declare const Radio: ({ kind, className, onMouseDown, ...props }: PropsWithChildren<RadioProps>) => React.JSX.Element;
 export {};
+//# sourceMappingURL=Radio.d.ts.map

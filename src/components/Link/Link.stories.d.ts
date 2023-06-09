@@ -12,3 +12,4 @@ export declare const Round: import("@storybook/types").AnnotatedStoryFn<import("
 } & Omit<React.HTMLProps<HTMLAnchorElement>, "rel"> & {
     children?: React.ReactNode;
 }>;
+//# sourceMappingURL=Link.stories.d.ts.map

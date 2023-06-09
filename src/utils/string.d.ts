@@ -8,3 +8,4 @@ export declare const MX_ALIAS_PREFIX = "+";
  * @return {string} the first letter
  */
 export declare function getInitialLetter(name: string): string;
+//# sourceMappingURL=string.d.ts.map

@@ -18,3 +18,4 @@ export declare const Disabled: import("@storybook/types").AnnotatedStoryFn<impor
 } & Omit<React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>, "ref"> & {
     children?: React.ReactNode;
 }>;
+//# sourceMappingURL=Toggle.stories.d.ts.map

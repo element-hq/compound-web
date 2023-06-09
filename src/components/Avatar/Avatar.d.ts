@@ -9,3 +9,4 @@ type AvatarProps = {
 };
 export declare const Avatar: ({ src, id, name, type, className, size, }: AvatarProps) => React.JSX.Element;
 export {};
+//# sourceMappingURL=Avatar.d.ts.map

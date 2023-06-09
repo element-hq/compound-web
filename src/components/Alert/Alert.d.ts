@@ -7,3 +7,4 @@ type AlertProps = {
 };
 export declare const Alert: ({ type, title, children, className, onClose, ...props }: PropsWithChildren<AlertProps>) => React.JSX.Element;
 export {};
+//# sourceMappingURL=Alert.d.ts.map

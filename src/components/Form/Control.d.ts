@@ -9,3 +9,4 @@ type ControlProps = {
  */
 export declare function Control({ children, ...props }: PropsWithChildren<ControlProps>): React.JSX.Element;
 export {};
+//# sourceMappingURL=Control.d.ts.map

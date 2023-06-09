@@ -7,3 +7,4 @@ type ButtonProps<C extends React.ElementType> = {
 } & React.ComponentPropsWithoutRef<C>;
 export declare const Button: <C extends React.ElementType<any> = "button">({ as, kind, size, children, className, ...props }: React.PropsWithChildren<ButtonProps<C>>) => React.JSX.Element;
 export {};
+//# sourceMappingURL=Button.d.ts.map

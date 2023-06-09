@@ -39,3 +39,4 @@ export declare const LargeNoImageFallback: import("@storybook/types").AnnotatedS
     className?: string | undefined;
     size?: string | undefined;
 }>;
+//# sourceMappingURL=Avatar.stories.d.ts.map

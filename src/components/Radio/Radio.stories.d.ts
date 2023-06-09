@@ -21,3 +21,4 @@ export declare const Critical: import("@storybook/types").AnnotatedStoryFn<impor
 } & Omit<React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>, "ref"> & {
     children?: React.ReactNode;
 }>;
+//# sourceMappingURL=Radio.stories.d.ts.map

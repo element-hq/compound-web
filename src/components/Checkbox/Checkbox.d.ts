@@ -6,3 +6,4 @@ type CheckboxProps = {
 } & React.ComponentPropsWithoutRef<"input">;
 export declare const Checkbox: ({ kind, className, onMouseDown, ...props }: PropsWithChildren<CheckboxProps>) => React.JSX.Element;
 export {};
+//# sourceMappingURL=Checkbox.d.ts.map

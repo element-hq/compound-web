@@ -32,3 +32,4 @@ export declare const Info: import("@storybook/types").AnnotatedStoryFn<import("@
 } & {
     children?: React.ReactNode;
 }>;
+//# sourceMappingURL=Alert.stories.d.ts.map

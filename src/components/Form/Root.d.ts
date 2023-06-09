@@ -9,3 +9,4 @@ type RootProps = {
  */
 export declare function Root({ children, ...props }: PropsWithChildren<RootProps>): React.JSX.Element;
 export {};
+//# sourceMappingURL=Root.d.ts.map
