@@ -22,8 +22,13 @@ const config: StorybookConfig = {
   viteFinal: (config) => {
     return {
       ...config,
+
+      // In the `vite.config.ts` file, we set the `experimental.renderBuiltUrl`
+      // option, which breaks the storybook build. This clears that option.
+      experimental: undefined,
+
       publicDir: "res",
-    }
+    };
   }
 };
 
