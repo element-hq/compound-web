@@ -3,17 +3,14 @@
   "version": "0.0.1",
   "description": "Compound components for the Web",
   "type": "module",
-  "main": "./dist/compound-web.umd.cjs",
-  "module": "./dist/compound-web.js",
+  "module": "./dist/index.js",
   "exports": {
     ".": {
-      "import": "./dist/compound-web.js",
-      "require": "./dist/compound-web.umd.cjs",
+      "import": "./dist/index.js",
       "types": "./dist/index.d.ts"
     },
-    "./dist/style.css": {
-      "import": "./dist/style.css",
-      "require": "./dist/style.css"
+    "./dist/index.css": {
+      "import": "./dist/index.css"
     }
   },
   "types": "./dist/index.d.ts",
