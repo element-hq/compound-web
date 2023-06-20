@@ -1,4 +1,6 @@
-export default {
+import type { StorybookConfig } from "@storybook/react-vite";
+
+const config: StorybookConfig = {
   stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
   addons: [
     "@storybook/addon-links",
@@ -17,4 +19,17 @@ export default {
   docs: {
     autodocs: false,
   },
+  viteFinal: (config) => {
+    return {
+      ...config,
+
+      // In the `vite.config.ts` file, we set the `experimental.renderBuiltUrl`
+      // option, which breaks the storybook build. This clears that option.
+      experimental: undefined,
+
+      publicDir: "res",
+    };
+  }
 };
+
+export default config;
