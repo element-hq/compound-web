@@ -72,16 +72,14 @@ export const StackedAvatars = ({
   }, []);
 
   return (
-    <>
-      <div className={classnames(styles["stacked-avatars"], className)}>
-        {React.Children.map(children, (child) =>
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          cloneElement(child as any, {
-            type: "round", // Only supports `round` avatars
-            size, // Forces all avatars to be of the same size
-          })
-        )}
-      </div>
-    </>
+    <div className={classnames(styles["stacked-avatars"], className)}>
+      {React.Children.map(children, (child) =>
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        cloneElement(child as any, {
+          type: "round", // Only supports `round` avatars
+          size, // Forces all avatars to be of the same size
+        })
+      )}
+    </div>
   );
 };

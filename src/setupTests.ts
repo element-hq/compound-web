@@ -20,3 +20,10 @@ limitations under the License.
 // learn more: https://github.com/testing-library/jest-dom
 import "@testing-library/jest-dom";
 import "@testing-library/jest-dom/extend-expect";
+
+import { TextEncoder, TextDecoder } from "util";
+
+/**
+ * Polyfilling for `react-dom/server` as those aren't shipped with jsdom16 and above
+ */
+Object.assign(global, { TextDecoder, TextEncoder });

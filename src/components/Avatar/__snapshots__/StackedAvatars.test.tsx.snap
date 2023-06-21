@@ -4,29 +4,6 @@ exports[`StackedAvatars renders 1`] = `
 <DocumentFragment>
   <div
     class="stacked-avatars"
-  >
-    <span
-      aria-label=""
-      class="avatar"
-      data-color="3"
-      data-type="round"
-      role="img"
-      style="--cpd-avatar-size: 32px;"
-      title="@alice:example.org"
-    >
-      A
-    </span>
-    <span
-      aria-label=""
-      class="avatar"
-      data-color="8"
-      data-type="round"
-      role="img"
-      style="--cpd-avatar-size: 32px;"
-      title="@bob:example.org"
-    >
-      B
-    </span>
-  </div>
+  />
 </DocumentFragment>
 `;
