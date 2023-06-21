@@ -18,6 +18,7 @@ import React from "react";
 import { Meta, StoryFn } from "@storybook/react";
 
 import { StackedAvatars as StackedAvatarsComponent } from "./StackedAvatars";
+import { Avatar } from "./Avatar";
 
 export default {
   title: "StackedAvatar",
@@ -25,23 +26,22 @@ export default {
   argTypes: {},
   args: {
     size: "64px",
-    avatars: [
-      {
-        name: "Alice",
-        id: "@alice:example.org",
-        src: "/images/__test__/kitten.jpg",
-      },
-      {
-        name: "Bob",
-        id: "@bob:example.org",
-        src: "/images/__test__/kitten2.jpg",
-      },
-    ],
   },
 } as Meta<typeof StackedAvatarsComponent>;
 
 const Template: StoryFn<typeof StackedAvatarsComponent> = (args) => (
-  <StackedAvatarsComponent {...args} />
+  <StackedAvatarsComponent {...args}>
+    <Avatar
+      name="Alice"
+      id="@alice:example.org"
+      src="/images/__test__/kitten.jpg"
+    />
+    <Avatar
+      name="Bob"
+      id="@bob:example.org"
+      src="/images/__test__/kitten2.jpg"
+    />
+  </StackedAvatarsComponent>
 );
 
 export const StackedAvatars = Template.bind({});

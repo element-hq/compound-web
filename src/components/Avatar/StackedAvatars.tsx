@@ -15,7 +15,7 @@ limitations under the License.
 */
 
 import classnames from "classnames";
-import React from "react";
+import React, { cloneElement } from "react";
 import styles from "./Avatar.module.css";
 import { Avatar } from "./Avatar";
 
@@ -28,29 +28,28 @@ type StackedAvatarsProps = {
   avatars: Omit<React.ComponentProps<typeof Avatar>[], "type" | "size">;
 };
 
-const AVATAR_MASK_ID = "cpdAvatarClipSvg";
+// const AVATAR_MASK_ID = "cpdAvatarClipSvg";
 
 /**
  * Renders a stack of avatars and clips the content appropriately.
  *
- * This component only supports `round` avatars and forces all avatars to be
- * rendered at the same size
+ * The `type` and `size` property of the children will be overriden so they
+ * are all round and have the same size.
  */
 export const StackedAvatars = ({
-  avatars,
+  children,
   size,
   className,
-}: StackedAvatarsProps): React.JSX.Element => {
+}: React.PropsWithChildren<StackedAvatarsProps>): React.JSX.Element => {
   return (
     <div className={classnames(styles["stacked-avatars"], className)}>
-      {avatars.map((avatar) => (
-        <Avatar key={avatar.id} {...avatar} size={size} type="round" />
-      ))}
-      {/* Adds the SVG to the document if it's not been added already
-          It is then used via `clip-path` in CSS 
-      */}
-      {!document.getElementById(AVATAR_MASK_ID) &&
-        createPortal(<AvatarClipPath id={AVATAR_MASK_ID} />, document.body)}
+      {React.Children.map(children, (child) =>
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        cloneElement(child as any, {
+          type: "round", // Only supports `round` avatars
+          size, // Forces all avatars to be of the same size
+        })
+      )}
     </div>
   );
 };
