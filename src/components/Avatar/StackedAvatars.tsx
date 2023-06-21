@@ -15,20 +15,20 @@ limitations under the License.
 */
 
 import classnames from "classnames";
-import React, { cloneElement } from "react";
+import React, { cloneElement, useEffect } from "react";
+import { renderToStaticMarkup } from "react-dom/server";
 import styles from "./Avatar.module.css";
 import { Avatar } from "./Avatar";
 
 import AvatarClipPath from "./avatar-clip.mask.svg";
-import { createPortal } from "react-dom";
 
 type StackedAvatarsProps = {
   className?: string;
   size: React.ComponentProps<typeof Avatar>["size"];
-  avatars: Omit<React.ComponentProps<typeof Avatar>[], "type" | "size">;
 };
 
-// const AVATAR_MASK_ID = "cpdAvatarClipSvg";
+const AVATAR_MASK_ID = "cpdAvatarClipSvg";
+let stackedAvatarsUsageCount = 0;
 
 /**
  * Renders a stack of avatars and clips the content appropriately.
@@ -41,15 +41,47 @@ export const StackedAvatars = ({
   size,
   className,
 }: React.PropsWithChildren<StackedAvatarsProps>): React.JSX.Element => {
+  /**
+   * The `clip-path` property in CSS supports a `path()` function, however
+   * that has to use pixel values.
+   * `clipPathUnits="objectBoundingBox"` only exists inside an SVG document.
+   * Which is why we have the external `avatar-clip.mask.svg`.
+   *
+   * It is possible to load this SVG externally using `url(path/to/doc.svg#id)`
+   * But this is only supported in Firefox
+   * This leaves us with no choice but rendering SVG inline in the HTML document
+   * And making sure there is always only a single instance regardless of the
+   * amount of `StackedAvatars` instance in the document.
+   */
+  useEffect(() => {
+    if (stackedAvatarsUsageCount === 0) {
+      const svgMask = renderToStaticMarkup(
+        <AvatarClipPath id={AVATAR_MASK_ID} />
+      );
+      document.body.insertAdjacentHTML("beforeend", svgMask);
+    }
+    stackedAvatarsUsageCount++;
+    return () => {
+      stackedAvatarsUsageCount--;
+      if (stackedAvatarsUsageCount <= 0) {
+        // Cleanup the mask if there are no instances of `StackedAvatars` left
+        // on the page
+        document.getElementById(AVATAR_MASK_ID)?.remove();
+      }
+    };
+  }, []);
+
   return (
-    <div className={classnames(styles["stacked-avatars"], className)}>
-      {React.Children.map(children, (child) =>
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        cloneElement(child as any, {
-          type: "round", // Only supports `round` avatars
-          size, // Forces all avatars to be of the same size
-        })
-      )}
-    </div>
+    <>
+      <div className={classnames(styles["stacked-avatars"], className)}>
+        {React.Children.map(children, (child) =>
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          cloneElement(child as any, {
+            type: "round", // Only supports `round` avatars
+            size, // Forces all avatars to be of the same size
+          })
+        )}
+      </div>
+    </>
   );
 };
