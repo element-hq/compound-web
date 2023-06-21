@@ -15,16 +15,14 @@ limitations under the License.
 */
 
 import classnames from "classnames";
-import React, { cloneElement, useEffect } from "react";
+import React, { useEffect } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import styles from "./Avatar.module.css";
-import { Avatar } from "./Avatar";
 
 import AvatarClipPath from "./avatar-clip.mask.svg";
 
 type StackedAvatarsProps = {
   className?: string;
-  size: React.ComponentProps<typeof Avatar>["size"];
 };
 
 const AVATAR_MASK_ID = "cpdAvatarClipSvg";
@@ -33,12 +31,11 @@ let stackedAvatarsUsageCount = 0;
 /**
  * Renders a stack of avatars and clips the content appropriately.
  *
- * The `type` and `size` property of the children will be overriden so they
- * are all round and have the same size.
+ * The `type` of avatars should always be set to `round`
+ * And all the avatars should have the same size.
  */
 export const StackedAvatars = ({
   children,
-  size,
   className,
 }: React.PropsWithChildren<StackedAvatarsProps>): React.JSX.Element => {
   /**
@@ -73,13 +70,7 @@ export const StackedAvatars = ({
 
   return (
     <div className={classnames(styles["stacked-avatars"], className)}>
-      {React.Children.map(children, (child) =>
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        cloneElement(child as any, {
-          type: "round", // Only supports `round` avatars
-          size, // Forces all avatars to be of the same size
-        })
-      )}
+      {children}
     </div>
   );
 };

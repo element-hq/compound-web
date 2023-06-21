@@ -34,11 +34,13 @@ const Template: StoryFn<typeof StackedAvatarsComponent> = (args) => (
     <Avatar
       name="Alice"
       id="@alice:example.org"
+      size="200px"
       src="/images/__test__/kitten.jpg"
     />
     <Avatar
       name="Bob"
       id="@bob:example.org"
+      size="200px"
       src="/images/__test__/kitten2.jpg"
     />
   </StackedAvatarsComponent>
