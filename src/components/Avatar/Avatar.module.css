@@ -99,3 +99,26 @@ img.avatar {
 .avatar[data-type="square"] {
   --cpd-avatar-radius: 25%;
 }
+
+/**
+ * Stacked avatars 
+ */
+
+.stacked-avatars::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.stacked-avatars .avatar {
+  float: left;
+}
+
+.stacked-avatars .avatar:not(:last-child) {
+  /* injected in the document from StackedAvatars.tsx */
+  clip-path: url("#cpdAvatarClip");
+}
+
+.stacked-avatars .avatar:not(:first-child) {
+  margin-left: calc(var(--cpd-avatar-size) * -0.2);
+}
