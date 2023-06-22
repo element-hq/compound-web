@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Badge renders 1`] = `
+<DocumentFragment>
+  <span
+    class="badge"
+    data-kind="default"
+    style="font: var(--cpd-font-body-sm-medium); letter-spacing: var(--cpd-font-letter-spacing-body-sm);"
+  />
+</DocumentFragment>
+`;
