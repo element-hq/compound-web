@@ -26,7 +26,7 @@ export default {
   args: {},
 } as Meta<typeof BadgeComponent>;
 
-const Template: StoryFn<typeof BadgeComponent> = (args) => (
+const Template: StoryFn<typeof BadgeComponent> = () => (
   <>
     <BadgeComponent kind="success">Trusted</BadgeComponent>
     &nbsp;
