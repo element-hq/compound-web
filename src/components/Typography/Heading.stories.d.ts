@@ -3,7 +3,7 @@ declare const _default: import("@storybook/types").ComponentAnnotations<import("
     as?: React.ElementType<any> | undefined;
     type?: "body" | "heading" | undefined;
     weight?: "bold" | "regular" | "semibold" | "medium" | undefined;
-    size?: "sm" | "lg" | "xs" | "md" | undefined;
+    size?: "xs" | "sm" | "md" | "lg" | undefined;
 } & Omit<any, "ref"> & {
     children?: React.ReactNode;
 }, "type">>;
@@ -12,7 +12,7 @@ export declare const Heading: import("@storybook/types").AnnotatedStoryFn<import
     as?: React.ElementType<any> | undefined;
     type?: "body" | "heading" | undefined;
     weight?: "bold" | "regular" | "semibold" | "medium" | undefined;
-    size?: "sm" | "lg" | "xs" | "md" | undefined;
+    size?: "xs" | "sm" | "md" | "lg" | undefined;
 } & Omit<any, "ref"> & {
     children?: React.ReactNode;
 }, "type">>;

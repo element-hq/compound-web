@@ -1,0 +1,4 @@
+import{j as n}from"./jsx-runtime-94f6e698.js";import{B as i}from"./Body-6186b811.js";import"./index-8db94870.js";import"./_commonjsHelpers-042e6b4d.js";import"./Typography-cdf4b175.js";const l={title:"Typography",component:i,argTypes:{size:{options:["xs","sm","md","lg"],control:{type:"inline-radio"}},weight:{options:["regular","medium","semibold"],control:{type:"inline-radio"}}}},a=e=>n.jsx(i,{size:e.size,weight:e.weight,children:"The quick brown fox jumps over the lazy dog"}),o=a.bind({});o.args={size:"md",weight:"regular"};var r,s,t;o.parameters={...o.parameters,docs:{...(r=o.parameters)==null?void 0:r.docs,source:{originalSource:`args => <BodyComponent size={args.size} weight={args.weight}>
+    The quick brown fox jumps over the lazy dog
+  </BodyComponent>`,...(t=(s=o.parameters)==null?void 0:s.docs)==null?void 0:t.source}}};const y=["Body"];export{o as Body,y as __namedExportsOrder,l as default};
+//# sourceMappingURL=Body.stories-b5d0c586.js.map
