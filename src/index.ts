@@ -40,4 +40,5 @@ export { PasswordControl } from "./components/Form/Controls/Password";
 export { Radio } from "./components/Radio/Radio";
 export { Root } from "./components/Form/Root";
 export { Submit } from "./components/Form/Submit";
+export { Toggle } from "./components/Toggle/Toggle";
 export { ValidityState } from "./components/Form/ValidityState";
