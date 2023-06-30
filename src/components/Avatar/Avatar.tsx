@@ -19,7 +19,7 @@ import React, { Suspense } from "react";
 import { getInitialLetter } from "../../utils/string";
 import { SuspenseImg } from "../../utils/SuspenseImg";
 import styles from "./Avatar.module.css";
-import { useUsernameColor } from "./useUsernameColor";
+import { useIdColorHash } from "./useIdColorHash";
 
 type AvatarProps = {
   src?: string;
@@ -38,7 +38,7 @@ export const Avatar = ({
   className = "",
   size,
 }: AvatarProps): React.JSX.Element => {
-  const color = useUsernameColor(id);
+  const hash = useIdColorHash(id);
   const style = {
     "--cpd-avatar-size": size,
   } as React.CSSProperties;
@@ -47,7 +47,7 @@ export const Avatar = ({
       role="img"
       aria-label=""
       data-type={type}
-      data-color={color}
+      data-color={hash}
       className={classnames(styles.avatar, className)}
       style={style}
       title={id}

@@ -15,11 +15,12 @@ limitations under the License.
 */
 
 /**
- * Determines a color to assign to a given username
- * @param id - a Matrix username ID
- * @returns a hexadecimal color
+ * Determines a number for a given Matrix ID or room ID, helps disambiguating users
+ * who are trying to impersonate someone else.
+ * @param id - a Matrix ID or room ID
+ * @returns a hash of the ID provided
  */
-export function useUsernameColor(id: string): number {
+export function useIdColorHash(id: string): number {
   const MIN = 1;
   const MAX = 8;
   // Sum up the values of all the char codes in the string
