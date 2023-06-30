@@ -15,10 +15,10 @@ limitations under the License.
 */
 
 /**
- * Determines a number for a given Matrix ID, helps disambiguating users
+ * Determines a number for a given Matrix ID or room ID, helps disambiguating users
  * who are trying to impersonate someone else.
- * @param id - a Matrix ID
- * @returns a hash of the Matrix ID
+ * @param id - a Matrix ID or room ID
+ * @returns a hash of the ID provided
  */
 export function useIdColorHash(id: string): number {
   const MIN = 1;
