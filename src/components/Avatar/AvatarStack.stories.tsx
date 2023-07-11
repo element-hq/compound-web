@@ -17,20 +17,20 @@ limitations under the License.
 import React from "react";
 import { Meta, StoryFn } from "@storybook/react";
 
-import { StackedAvatars as StackedAvatarsComponent } from "./StackedAvatars";
+import { AvatarStack as AvatarStackComponent } from "./AvatarStack";
 import { Avatar } from "./Avatar";
 
 export default {
   title: "StackedAvatar",
-  component: StackedAvatarsComponent,
+  component: AvatarStackComponent,
   argTypes: {},
   args: {
     size: "64px",
   },
-} as Meta<typeof StackedAvatarsComponent>;
+} as Meta<typeof AvatarStackComponent>;
 
-const Template: StoryFn<typeof StackedAvatarsComponent> = (args) => (
-  <StackedAvatarsComponent {...args}>
+const Template: StoryFn<typeof AvatarStackComponent> = (args) => (
+  <AvatarStackComponent {...args}>
     <Avatar
       name="Alice"
       id="@alice:example.org"
@@ -43,8 +43,8 @@ const Template: StoryFn<typeof StackedAvatarsComponent> = (args) => (
       size="200px"
       src="/images/__test__/kitten2.jpg"
     />
-  </StackedAvatarsComponent>
+  </AvatarStackComponent>
 );
 
-export const StackedAvatars = Template.bind({});
-StackedAvatars.args = {};
+export const AvatarStack = Template.bind({});
+AvatarStack.args = {};

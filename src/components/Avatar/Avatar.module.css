@@ -115,7 +115,7 @@ img.avatar {
 }
 
 .stacked-avatars .avatar:not(:last-child) {
-  /* injected in the document from StackedAvatars.tsx */
+  /* injected in the document from AvatarStack.tsx */
   clip-path: url("#cpdAvatarClip");
 }
 
