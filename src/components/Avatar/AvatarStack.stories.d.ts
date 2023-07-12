@@ -5,9 +5,9 @@ declare const _default: import("@storybook/types").ComponentAnnotations<import("
     children?: React.ReactNode;
 }>;
 export default _default;
-export declare const StackedAvatars: import("@storybook/types").AnnotatedStoryFn<import("@storybook/react/dist/types-0a347bb9").R, {
+export declare const AvatarStack: import("@storybook/types").AnnotatedStoryFn<import("@storybook/react/dist/types-0a347bb9").R, {
     className?: string | undefined;
 } & {
     children?: React.ReactNode;
 }>;
-//# sourceMappingURL=StackedAvatar.stories.d.ts.map
+//# sourceMappingURL=AvatarStack.stories.d.ts.map

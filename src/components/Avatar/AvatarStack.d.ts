@@ -1,5 +1,5 @@
 import React from "react";
-type StackedAvatarsProps = {
+type AvatarStackProps = {
     className?: string;
 };
 /**
@@ -8,6 +8,6 @@ type StackedAvatarsProps = {
  * The `type` of avatars should always be set to `round`
  * And all the avatars should have the same size.
  */
-export declare const StackedAvatars: ({ children, className, }: React.PropsWithChildren<StackedAvatarsProps>) => React.JSX.Element;
+export declare const AvatarStack: ({ children, className, }: React.PropsWithChildren<AvatarStackProps>) => React.JSX.Element;
 export {};
-//# sourceMappingURL=StackedAvatars.d.ts.map
+//# sourceMappingURL=AvatarStack.d.ts.map
