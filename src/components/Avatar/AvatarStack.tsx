@@ -21,12 +21,12 @@ import styles from "./Avatar.module.css";
 
 import AvatarClipPath from "./avatar-clip.mask.svg";
 
-type StackedAvatarsProps = {
+type AvatarStackProps = {
   className?: string;
 };
 
 const AVATAR_MASK_ID = "cpdAvatarClipSvg";
-let stackedAvatarsUsageCount = 0;
+let AvatarStackUsageCount = 0;
 
 /**
  * Renders a stack of avatars and clips the content appropriately.
@@ -34,10 +34,10 @@ let stackedAvatarsUsageCount = 0;
  * The `type` of avatars should always be set to `round`
  * And all the avatars should have the same size.
  */
-export const StackedAvatars = ({
+export const AvatarStack = ({
   children,
   className,
-}: React.PropsWithChildren<StackedAvatarsProps>): React.JSX.Element => {
+}: React.PropsWithChildren<AvatarStackProps>): React.JSX.Element => {
   /**
    * The `clip-path` property in CSS supports a `path()` function, however
    * that has to use pixel values.
@@ -48,20 +48,20 @@ export const StackedAvatars = ({
    * But this is only supported in Firefox
    * This leaves us with no choice but rendering SVG inline in the HTML document
    * And making sure there is always only a single instance regardless of the
-   * amount of `StackedAvatars` instance in the document.
+   * amount of `AvatarStack` instance in the document.
    */
   useEffect(() => {
-    if (stackedAvatarsUsageCount === 0) {
+    if (AvatarStackUsageCount === 0) {
       const svgMask = renderToStaticMarkup(
         <AvatarClipPath id={AVATAR_MASK_ID} />
       );
       document.body.insertAdjacentHTML("beforeend", svgMask);
     }
-    stackedAvatarsUsageCount++;
+    AvatarStackUsageCount++;
     return () => {
-      stackedAvatarsUsageCount--;
-      if (stackedAvatarsUsageCount <= 0) {
-        // Cleanup the mask if there are no instances of `StackedAvatars` left
+      AvatarStackUsageCount--;
+      if (AvatarStackUsageCount <= 0) {
+        // Cleanup the mask if there are no instances of `AvatarStack` left
         // on the page
         document.getElementById(AVATAR_MASK_ID)?.remove();
       }

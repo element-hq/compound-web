@@ -17,11 +17,11 @@ limitations under the License.
 import { render } from "@testing-library/react";
 import React from "react";
 
-import { StackedAvatars } from "./StackedAvatars";
+import { AvatarStack } from "./AvatarStack";
 
 const originalImage = global.Image;
 
-describe("StackedAvatars", () => {
+describe("AvatarStack", () => {
   beforeEach(() => {
     global.Image = class extends originalImage {
       constructor() {
@@ -44,18 +44,18 @@ describe("StackedAvatars", () => {
 
   it("renders", () => {
     const { asFragment } = render(
-      <StackedAvatars avatars={avatars} size="32px" />
+      <AvatarStack avatars={avatars} size="32px" />
     );
     expect(asFragment()).toMatchSnapshot();
   });
 
   it("adds the mask to the body", () => {
-    render(<StackedAvatars avatars={avatars} size="32px" />);
+    render(<AvatarStack avatars={avatars} size="32px" />);
 
     // We can't run better assertions as `SVG` loading is mocked out in jest
     expect(document.querySelectorAll("svg")).toHaveLength(1);
 
-    render(<StackedAvatars avatars={avatars} size="32px" />);
+    render(<AvatarStack avatars={avatars} size="32px" />);
 
     // We only one instance of the mask, ever!
     expect(document.querySelectorAll("svg")).toHaveLength(1);
