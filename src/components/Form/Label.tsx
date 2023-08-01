@@ -28,14 +28,14 @@ type LabelProps = {
  * Thin wrapper around Radix UI Label component
  * https://www.radix-ui.com/docs/primitives/components/form#label
  */
-export const Label: React.FC<PropsWithChildren<LabelProps>> = ({
-  children,
-  ...props
-}) => {
+export const Label = React.forwardRef<
+  HTMLLabelElement,
+  PropsWithChildren<LabelProps>
+>(function Label({ children, ...props }, ref) {
   const classes = classNames(styles.label, props.className);
   return (
-    <RadixLabel {...props} className={classes}>
+    <RadixLabel ref={ref} {...props} className={classes}>
       {children}
     </RadixLabel>
   );
-};
+});

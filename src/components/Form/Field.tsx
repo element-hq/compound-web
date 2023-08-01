@@ -28,14 +28,14 @@ type FieldProps = {
  * Thin wrapper around Radix UI Field component
  * https://www.radix-ui.com/docs/primitives/components/form#field
  */
-export const Field: React.FC<PropsWithChildren<FieldProps>> = ({
-  children,
-  ...props
-}) => {
+export const Field = React.forwardRef<
+  HTMLDivElement,
+  PropsWithChildren<FieldProps>
+>(function Field({ children, ...props }, ref) {
   const classes = classNames(styles.field, props.className);
   return (
-    <RadixField {...props} className={classes}>
+    <RadixField ref={ref} {...props} className={classes}>
       {children}
     </RadixField>
   );
-};
+});

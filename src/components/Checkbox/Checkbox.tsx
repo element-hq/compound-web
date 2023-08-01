@@ -25,16 +25,18 @@ type CheckboxProps = {
   onMouseDown?: (e: React.MouseEvent<HTMLInputElement, MouseEvent>) => void;
 } & React.ComponentPropsWithoutRef<"input">;
 
-export const Checkbox: React.FC<PropsWithChildren<CheckboxProps>> = ({
-  kind = "primary",
-  className,
-  onMouseDown,
-  ...props
-}) => {
+export const Checkbox = React.forwardRef<
+  HTMLInputElement,
+  PropsWithChildren<CheckboxProps>
+>(function Checkbox(
+  { kind = "primary", className, onMouseDown, ...props },
+  ref,
+) {
   const classes = classnames(styles.checkbox, className);
   return (
     <div className={classes} data-kind={kind}>
       <input
+        ref={ref}
         {...props}
         type="checkbox"
         onMouseDown={(e) => {
@@ -49,4 +51,4 @@ export const Checkbox: React.FC<PropsWithChildren<CheckboxProps>> = ({
       </div>
     </div>
   );
-};
+});

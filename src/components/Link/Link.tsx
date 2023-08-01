@@ -23,14 +23,13 @@ type LinkProps = {
   kind?: "primary" | "critical";
 } & Omit<React.HTMLProps<HTMLAnchorElement>, "rel">;
 
-export const Link: React.FC<PropsWithChildren<LinkProps>> = ({
-  children,
-  className,
-  kind = "primary",
-  ...props
-}) => {
+export const Link = React.forwardRef<
+  HTMLAnchorElement,
+  PropsWithChildren<LinkProps>
+>(function Link({ children, className, kind = "primary", ...props }, ref) {
   return (
     <a
+      ref={ref}
       {...props}
       rel="noreferrer noopener"
       className={classNames(styles.link, className)}
@@ -39,4 +38,4 @@ export const Link: React.FC<PropsWithChildren<LinkProps>> = ({
       {children}
     </a>
   );
-};
+});
