@@ -3,6 +3,10 @@
   "version": "0.0.1",
   "description": "Compound components for the Web",
   "type": "module",
+  "files": [
+    "./dist/**/*"
+  ],
+  "main": "./dist/index.js",
   "module": "./dist/index.js",
   "exports": {
     ".": {
@@ -17,7 +21,6 @@
   "scripts": {
     "dev": "storybook dev -p 6006",
     "build": "rimraf dist && vite build",
-    "prepare": "rimraf dist && vite build",
     "prettier": "npx prettier --write .",
     "lint": "yarn lint:js && yarn lint:styles",
     "lint:js": "eslint --max-warnings=0 .",
