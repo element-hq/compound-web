@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "Compound components for the Web",
   "type": "module",
+  "main": "./dist/index.js",
   "module": "./dist/index.js",
   "exports": {
     ".": {
@@ -96,10 +97,22 @@
   },
   "dependencies": {
     "@radix-ui/react-form": "^0.0.3",
-    "@vector-im/compound-design-tokens": "https://github.com/vector-im/compound-design-tokens#develop",
+    "@vector-im/compound-design-tokens": "0.0.3",
     "classnames": "^2.3.2",
-    "lodash": "^4.17.21",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "lodash": "^4.17.21"
+  },
+  "peerDependencies": {
+    "@types/react": "*",
+    "@types/react-dom": "*",
+    "react": "^17 || ^18",
+    "react-dom": "^17 || ^18"
+  },
+  "peerDependenciesMeta": {
+    "@types/react": {
+      "optional": true
+    },
+    "@types/react-dom": {
+      "optional": true
+    }
   }
 }
