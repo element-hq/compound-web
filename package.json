@@ -3,15 +3,17 @@
   "version": "0.1.0",
   "description": "Compound components for the Web",
   "type": "module",
-  "main": "./dist/index.js",
-  "module": "./dist/index.js",
+  "main": "./dist/compound-web.cjs",
+  "module": "./dist/compound-web.js",
   "exports": {
     ".": {
-      "import": "./dist/index.js",
+      "require": "./dist/compound-web.cjs",
+      "import": "./dist/compound-web.js",
       "types": "./dist/index.d.ts"
     },
-    "./dist/index.css": {
-      "import": "./dist/index.css"
+    "./dist/style.css": {
+      "require": "./dist/style.css",
+      "import": "./dist/style.css"
     }
   },
   "types": "./dist/index.d.ts",
@@ -51,6 +53,7 @@
     "@babel/core": "^7.22.9",
     "@babel/preset-react": "^7.22.5",
     "@babel/preset-typescript": "^7.22.5",
+    "@fontsource/inter": "^5.0.5",
     "@percy/cli": "^1.26.2",
     "@percy/storybook": "^4.3.6",
     "@storybook/addon-actions": "7.0.27",
@@ -98,7 +101,6 @@
   },
   "dependencies": {
     "@radix-ui/react-form": "^0.0.3",
-    "@vector-im/compound-design-tokens": "0.0.3",
     "classnames": "^2.3.2",
     "lodash": "^4.17.21"
   },
@@ -106,7 +108,9 @@
     "@types/react": "*",
     "@types/react-dom": "*",
     "react": "^17 || ^18",
-    "react-dom": "^17 || ^18"
+    "react-dom": "^17 || ^18",
+    "@fontsource/inter": "^5",
+    "@vector-im/compound-design-tokens": "0.0.3"
   },
   "peerDependenciesMeta": {
     "@types/react": {

@@ -15,49 +15,8 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-/* Inter unexpectedly contains various codepoints which collide with emoji, even
-   when variation-16 is applied to request the emoji variant.  From eyeballing
-   the emoji picker, these are: 20e3, 23cf, 24c2, 25a0-25c1, 2665, 2764, 2b06, 2b1c.
-   Therefore we define a unicode-range to load which excludes the glyphs
-   (to avoid having to maintain a fork of Inter). */
 :root {
-  /* This is a false positive */
-  /* stylelint-disable unit-no-unknown */
-  --cpd-inter-unicode-range: U+0000-20e2, U+20e4-23ce, U+23d0-24c1, U+24c3-259f,
-    U+25c2-2664, U+2666-2763, U+2765-2b05, U+2b07-2b1b, U+2b1d-10FFFF;
   --cpd-radius-pill-effect: 9999px;
-}
-
-@font-face {
-  font-family: Inter;
-  font-weight: 400;
-  unicode-range: var(--cpd-inter-unicode-range);
-  src: url("../res/fonts/Inter/Inter-Regular.woff2") format("woff2"),
-    url("../res/fonts/Inter/Inter-Regular.woff") format("woff");
-}
-
-@font-face {
-  font-family: Inter;
-  font-weight: 500;
-  unicode-range: var(--cpd-inter-unicode-range);
-  src: url("../res/fonts/Inter/Inter-Medium.woff2") format("woff2"),
-    url("../res/fonts/Inter/Inter-Medium.woff") format("woff");
-}
-
-@font-face {
-  font-family: Inter;
-  font-weight: 600;
-  unicode-range: var(--cpd-inter-unicode-range);
-  src: url("../res/fonts/Inter/Inter-SemiBold.woff2") format("woff2"),
-    url("../res/fonts/Inter/Inter-SemiBold.woff") format("woff");
-}
-
-@font-face {
-  font-family: Inter;
-  font-weight: 700;
-  unicode-range: var(--cpd-inter-unicode-range);
-  src: url("../res/fonts/Inter/Inter-Bold.woff2") format("woff2"),
-    url("../res/fonts/Inter/Inter-Bold.woff") format("woff");
 }
 
 html,
