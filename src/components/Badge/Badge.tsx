@@ -24,11 +24,11 @@ type BadgeProps = {
   kind?: "default" | "success" | "critical";
 };
 
-export const Badge = ({
+export const Badge: React.FC<PropsWithChildren<BadgeProps>> = ({
   children,
   kind = "default",
   className,
-}: PropsWithChildren<BadgeProps>) => {
+}) => {
   const classes = classnames(styles.badge, className);
   return (
     <Typography

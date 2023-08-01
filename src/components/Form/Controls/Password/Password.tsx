@@ -39,9 +39,9 @@ const hideState = {
  * Thin wrapper around Radix UI Control component
  * https://www.radix-ui.com/docs/primitives/components/form#control
  */
-export function PasswordControl(
-  props: PropsWithChildren<React.ComponentProps<typeof Control>>
-): React.JSX.Element {
+export const PasswordControl: React.FC<
+  PropsWithChildren<React.ComponentProps<typeof Control>>
+> = (props) => {
   const [{ icon, label, type }, togglePasswordVisibility] = useReducer(
     (state) => (!state.isHidden ? showState : hideState),
     showState
@@ -56,4 +56,4 @@ export function PasswordControl(
       type={type}
     />
   );
-}
+};

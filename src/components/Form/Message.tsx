@@ -28,16 +28,16 @@ type MessageProps = {
  * Thin wrapper around Radix UI Message component
  * https://www.radix-ui.com/docs/primitives/components/form#message
  */
-export function Message({
+export const Message: React.FC<PropsWithChildren<MessageProps>> = ({
   children,
   ...props
-}: PropsWithChildren<MessageProps>): React.JSX.Element {
+}) => {
   const classes = classNames(styles.message, props.className);
   return (
     <RadixMessage {...props} className={classes}>
-      {/* Pending to be replaced by the alert component, see 
+      {/* Pending to be replaced by the alert component, see
           https://github.com/vector-im/compound-web/pull/6 */}
       {children}
     </RadixMessage>
   );
-}
+};

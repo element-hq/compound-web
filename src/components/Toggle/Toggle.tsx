@@ -27,11 +27,11 @@ type ToggleProps = {
  * Standalone toggle component to be used with a Radix form control
  * See https://www.radix-ui.com/docs/primitives/components/form#composing-with-your-own-components
  */
-export const Toggle = ({
+export const Toggle: React.FC<PropsWithChildren<ToggleProps>> = ({
   className,
   onMouseDown,
   ...props
-}: PropsWithChildren<ToggleProps>) => {
+}) => {
   const classes = classnames(styles.toggle, className);
   return (
     <div className={classes}>

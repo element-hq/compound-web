@@ -25,28 +25,26 @@ import { Label } from "../../Label";
 import { Control } from "../../Control";
 
 describe("PasswordControl", () => {
-  function getMfa(
-    props: React.ComponentProps<typeof MFAControl> = {}
-  ): JSX.Element {
-    return (
-      <Root>
-        <Field name="mfa">
-          <Label>MFA</Label>
-          <Control asChild>
-            <MFAControl {...props} placeholder="000000" />
-          </Control>
-        </Field>
-      </Root>
-    );
-  }
+  const MFA: React.FC<React.ComponentProps<typeof MFAControl>> = (
+    props = {}
+  ) => (
+    <Root>
+      <Field name="mfa">
+        <Label>MFA</Label>
+        <Control asChild>
+          <MFAControl {...props} placeholder="000000" />
+        </Control>
+      </Field>
+    </Root>
+  );
 
   it("renders", () => {
-    const { asFragment } = render(getMfa());
+    const { asFragment } = render(<MFA />);
     expect(asFragment()).toMatchSnapshot();
   });
 
   it("only allows digits", async () => {
-    const { getByLabelText } = render(getMfa());
+    const { getByLabelText } = render(<MFA />);
 
     const input = getByLabelText("MFA");
     await act(async () => {
@@ -57,7 +55,7 @@ describe("PasswordControl", () => {
   });
 
   it("respects max length", async () => {
-    const { getByLabelText } = render(getMfa({ length: 3 }));
+    const { getByLabelText } = render(<MFA length={3} />);
 
     const input = getByLabelText("MFA");
     await act(async () => {

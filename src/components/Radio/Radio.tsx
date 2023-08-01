@@ -27,12 +27,12 @@ type RadioProps = {
 /**
  * Radio form control
  */
-export const Radio = ({
+export const Radio: React.FC<PropsWithChildren<RadioProps>> = ({
   kind = "primary",
   className,
   onMouseDown,
   ...props
-}: PropsWithChildren<RadioProps>) => {
+}) => {
   const classes = classnames(styles.radio, className);
   return (
     <div className={classes} data-kind={kind}>
