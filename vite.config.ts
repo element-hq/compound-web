@@ -1,4 +1,4 @@
-import { defineConfig } from "vite";
+import { defineConfig } from "vitest/config";
 import { resolve } from "path";
 import browserslistToEsbuild from "browserslist-to-esbuild";
 import react from "@vitejs/plugin-react";
@@ -80,4 +80,14 @@ export default defineConfig({
     // Extract the types from the source files
     dts(),
   ],
+
+  test: {
+    environment: "jsdom",
+    globals: true,
+    setupFiles: ["src/setupTests.ts"],
+    coverage: {
+      provider: "v8",
+      reporter: ["text", "html", "lcov"],
+    },
+  },
 });

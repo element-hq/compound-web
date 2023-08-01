@@ -31,14 +31,14 @@ type AlertProps = {
   onClose?: (e: React.MouseEvent) => void;
 };
 
-export const Alert = ({
+export const Alert: React.FC<PropsWithChildren<AlertProps>> = ({
   type,
   title,
   children,
   className,
   onClose,
   ...props
-}: PropsWithChildren<AlertProps>): React.JSX.Element => {
+}: PropsWithChildren<AlertProps>) => {
   const classes = classNames(styles.alert, className);
 
   const renderIcon = useCallback(
@@ -52,7 +52,7 @@ export const Alert = ({
           return <CheckCircleIcon {...props} />;
       }
     },
-    [type]
+    [type],
   );
 
   return (

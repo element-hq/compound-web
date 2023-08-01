@@ -14,6 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
+import { vi, describe, it, expect } from "vitest";
 import {
   fireEvent,
   getByLabelText,
@@ -30,7 +31,7 @@ describe("Alert", () => {
     const { asFragment } = render(
       <Alert title="Title" type="success">
         Success!
-      </Alert>
+      </Alert>,
     );
     expect(asFragment()).toMatchSnapshot();
   });
@@ -39,21 +40,21 @@ describe("Alert", () => {
     render(
       <Alert title="Title" type="info">
         Click me!
-      </Alert>
+      </Alert>,
     );
     expect(screen.queryByLabelText("Close")).not.toBeInTheDocument();
   });
 
   it("can have a close button", async () => {
-    const spy = jest.fn();
+    const spy = vi.fn();
     const { container } = render(
       <Alert title="Title" type="critical" onClose={spy}>
         Click me!
-      </Alert>
+      </Alert>,
     );
 
     await waitFor(() =>
-      expect(getByLabelText(container, "Close")).toBeInTheDocument()
+      expect(getByLabelText(container, "Close")).toBeInTheDocument(),
     );
 
     fireEvent.click(getByLabelText(container, "Close"));

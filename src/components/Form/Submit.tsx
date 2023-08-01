@@ -30,11 +30,11 @@ type SubmitProps = {
  * Thin wrapper around Radix UI Submit component
  * https://www.radix-ui.com/docs/primitives/components/form#submit
  */
-export function Submit({
+export const Submit: React.FC<PropsWithChildren<SubmitProps>> = ({
   children,
   size,
   ...props
-}: PropsWithChildren<SubmitProps>): React.JSX.Element {
+}) => {
   const classes = classNames(styles.submit, props.className);
   return (
     <RadixSubmit {...props} asChild>
@@ -43,4 +43,4 @@ export function Submit({
       </Button>
     </RadixSubmit>
   );
-}
+};

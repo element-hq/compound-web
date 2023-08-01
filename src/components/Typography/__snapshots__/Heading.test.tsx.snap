@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Heading renders 1`] = `
+exports[`Heading > renders 1`] = `
 <DocumentFragment>
   <h1
     style="font: var(--cpd-font-heading-md-regular); letter-spacing: var(--cpd-font-letter-spacing-heading-md);"

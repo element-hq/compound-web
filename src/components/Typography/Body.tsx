@@ -17,11 +17,9 @@ limitations under the License.
 import React from "react";
 import { Typography } from "./Typography";
 
-export const Body = ({
-  as = "p",
-  children,
-  ...props
-}: Omit<React.ComponentProps<typeof Typography>, "type">) => {
+export const Body: React.FC<
+  Omit<React.ComponentProps<typeof Typography>, "type">
+> = ({ as = "p", children, ...props }) => {
   return (
     <Typography as={as} type="body" {...props}>
       {children}

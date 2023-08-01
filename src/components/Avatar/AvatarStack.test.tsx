@@ -14,6 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
+import { describe, it, expect, beforeEach, afterEach } from "vitest";
 import { render } from "@testing-library/react";
 import React from "react";
 
@@ -44,7 +45,7 @@ describe("AvatarStack", () => {
 
   it("renders", () => {
     const { asFragment } = render(
-      <AvatarStack avatars={avatars} size="32px" />
+      <AvatarStack avatars={avatars} size="32px" />,
     );
     expect(asFragment()).toMatchSnapshot();
   });

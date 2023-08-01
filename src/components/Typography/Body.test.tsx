@@ -14,6 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
+import { describe, it, expect } from "vitest";
 import { render } from "@testing-library/react";
 import React from "react";
 
@@ -22,7 +23,7 @@ import { Body } from "./Body";
 describe("Body", () => {
   it("renders", () => {
     const { container, asFragment } = render(
-      <Body>The quick brown fox jumps over the lazy dog.</Body>
+      <Body>The quick brown fox jumps over the lazy dog.</Body>,
     );
     expect(asFragment()).toMatchSnapshot();
     expect(container.querySelector("p")).not.toBeNull();

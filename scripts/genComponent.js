@@ -46,7 +46,7 @@ fs.mkdirSync(path.join(DIST_PATH, COMPONENT_NAME), { recursive: true });
 for (const extension of fileExtensions) {
   const content = fs.readFileSync(
     path.join(BASE_PATH, NAME_ID + extension),
-    "utf-8"
+    "utf-8",
   );
 
   const newFileContent = content
@@ -57,7 +57,7 @@ for (const extension of fileExtensions) {
   const filePath = path.join(
     DIST_PATH,
     COMPONENT_NAME,
-    COMPONENT_NAME + extension
+    COMPONENT_NAME + extension,
   );
   fs.writeFileSync(filePath, newFileContent, "utf-8");
   console.log(`Creating ${filePath}`);

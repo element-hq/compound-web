@@ -1,25 +1,25 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`PasswordControl renders 1`] = `
+exports[`PasswordControl > renders 1`] = `
 <DocumentFragment>
   <form
-    class="root"
+    class="_root_dc87d2"
   >
     <div
-      class="field"
+      class="_field_dc87d2"
     >
       <label
-        class="label"
+        class="_label_dc87d2"
         for="radix-:r0:"
       >
         MFA
       </label>
       <div
-        class="mfa control"
+        class="_mfa_4b8c2b _control_dc87d2"
       >
         <input
           autocomplete="off"
-          class="mfa-input"
+          class="_mfa-input_4b8c2b"
           id="radix-:r0:"
           maxlength="6"
           minlength="0"
@@ -31,27 +31,27 @@ exports[`PasswordControl renders 1`] = `
         />
         <div
           aria-hidden="true"
-          class="digit control"
+          class="_digit_4b8c2b _control_dc87d2"
         />
         <div
           aria-hidden="true"
-          class="digit control"
+          class="_digit_4b8c2b _control_dc87d2"
         />
         <div
           aria-hidden="true"
-          class="digit control"
+          class="_digit_4b8c2b _control_dc87d2"
         />
         <div
           aria-hidden="true"
-          class="digit control"
+          class="_digit_4b8c2b _control_dc87d2"
         />
         <div
           aria-hidden="true"
-          class="digit control"
+          class="_digit_4b8c2b _control_dc87d2"
         />
         <div
           aria-hidden="true"
-          class="digit control"
+          class="_digit_4b8c2b _control_dc87d2"
         />
       </div>
     </div>

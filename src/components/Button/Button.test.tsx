@@ -14,6 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
+import { vi, describe, it } from "vitest";
 import React from "react";
 import { getByRole, render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
@@ -27,7 +28,7 @@ describe("Button", () => {
   });
 
   it("can be clicked", async () => {
-    const spy = jest.fn();
+    const spy = vi.fn();
     const { container } = render(<Button onClick={spy}>Click me!</Button>);
 
     const user = userEvent.setup();
@@ -40,7 +41,7 @@ describe("Button", () => {
     const { container } = render(
       <Button as="a" href="#anchor">
         This is a link that looks like a button
-      </Button>
+      </Button>,
     );
 
     const anchor = getByRole(container, "link");

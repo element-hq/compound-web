@@ -28,14 +28,14 @@ type ControlProps = {
  * Thin wrapper around Radix UI Control component
  * https://www.radix-ui.com/docs/primitives/components/form#control
  */
-export function Control({
+export const Control: React.FC<PropsWithChildren<ControlProps>> = ({
   children,
   ...props
-}: PropsWithChildren<ControlProps>): React.JSX.Element {
+}) => {
   const classes = classNames(styles.control, props.className);
   return (
     <RadixControl {...props} className={classes}>
       {children}
     </RadixControl>
   );
-}
+};

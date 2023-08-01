@@ -23,12 +23,12 @@ type LinkProps = {
   kind?: "primary" | "critical";
 } & Omit<React.HTMLProps<HTMLAnchorElement>, "rel">;
 
-export const Link = ({
+export const Link: React.FC<PropsWithChildren<LinkProps>> = ({
   children,
   className,
   kind = "primary",
   ...props
-}: PropsWithChildren<LinkProps>) => {
+}) => {
   return (
     <a
       {...props}

@@ -28,14 +28,14 @@ type ActionControlProps = {
   disabled?: boolean;
 } & React.ComponentProps<typeof Control>;
 
-export const ActionControl = ({
+export const ActionControl: React.FC<PropsWithChildren<ActionControlProps>> = ({
   children,
   Icon,
   className,
   actionLabel,
   onActionClick,
   ...props
-}: PropsWithChildren<ActionControlProps>) => {
+}) => {
   const id = useId();
   const classes = classnames(styles.actioncontrol, className);
   return (
@@ -62,9 +62,9 @@ export const ActionControl = ({
   );
 };
 
-export const StandaloneActionControl = (
-  props: PropsWithChildren<ActionControlProps>
-): React.JSX.Element => {
+export const StandaloneActionControl: React.FC<
+  PropsWithChildren<ActionControlProps>
+> = (props) => {
   return (
     <Root>
       <Field name="action">

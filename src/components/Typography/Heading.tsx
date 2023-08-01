@@ -18,11 +18,9 @@ import React from "react";
 import { Typography } from "./Typography";
 import { Body } from "./Body";
 
-export const Heading = ({
-  as = "h1",
-  children,
-  ...props
-}: Omit<React.ComponentProps<typeof Typography>, "type">) => {
+export const Heading: React.FC<
+  Omit<React.ComponentProps<typeof Typography>, "type">
+> = ({ as = "h1", children, ...props }) => {
   return (
     <Typography as={as} type="heading" {...props}>
       {children}
@@ -35,7 +33,7 @@ type HeadingProps = Omit<
   "as" | "weight" | "size"
 >;
 
-export const H1 = ({ children, ...props }: HeadingProps) => {
+export const H1: React.FC<HeadingProps> = ({ children, ...props }) => {
   return (
     <Heading as="h1" weight="semibold" size="xl" {...props}>
       {children}
@@ -43,7 +41,7 @@ export const H1 = ({ children, ...props }: HeadingProps) => {
   );
 };
 
-export const H2 = ({ children, ...props }: HeadingProps) => {
+export const H2: React.FC<HeadingProps> = ({ children, ...props }) => {
   return (
     <Heading as="h2" weight="semibold" size="lg" {...props}>
       {children}
@@ -51,7 +49,7 @@ export const H2 = ({ children, ...props }: HeadingProps) => {
   );
 };
 
-export const H3 = ({ children, ...props }: HeadingProps) => {
+export const H3: React.FC<HeadingProps> = ({ children, ...props }) => {
   return (
     <Heading as="h3" weight="semibold" size="md" {...props}>
       {children}
@@ -59,7 +57,7 @@ export const H3 = ({ children, ...props }: HeadingProps) => {
   );
 };
 
-export const H4 = ({ children, ...props }: HeadingProps) => {
+export const H4: React.FC<HeadingProps> = ({ children, ...props }) => {
   return (
     <Heading as="h1" weight="semibold" size="sm" {...props}>
       {children}
@@ -67,7 +65,7 @@ export const H4 = ({ children, ...props }: HeadingProps) => {
   );
 };
 
-export const H5 = ({ children, ...props }: HeadingProps) => {
+export const H5: React.FC<HeadingProps> = ({ children, ...props }) => {
   return (
     <Body as="h5" weight="semibold" size="lg" {...props}>
       {children}
@@ -75,7 +73,7 @@ export const H5 = ({ children, ...props }: HeadingProps) => {
   );
 };
 
-export const H6 = ({ children, ...props }: HeadingProps) => {
+export const H6: React.FC<HeadingProps> = ({ children, ...props }) => {
   return (
     <Body as="h1" weight="semibold" size="md" {...props}>
       {children}

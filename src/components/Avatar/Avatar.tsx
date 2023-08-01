@@ -30,14 +30,14 @@ type AvatarProps = {
   size?: CSSStyleDeclaration["height"];
 };
 
-export const Avatar = ({
+export const Avatar: React.FC<AvatarProps> = ({
   src,
   id,
   name = "",
   type = "round",
   className = "",
   size,
-}: AvatarProps): React.JSX.Element => {
+}) => {
   const hash = useIdColorHash(id);
   const style = {
     "--cpd-avatar-size": size,

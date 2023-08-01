@@ -30,7 +30,7 @@ export const Typography = <C extends React.ElementType = "p">({
   weight = "regular",
   size = "md",
   ...restProps
-}: PropsWithChildren<TypographyProps<C>>) => {
+}: PropsWithChildren<TypographyProps<C>>): React.ReactElement => {
   const Component = as || "p";
 
   return (

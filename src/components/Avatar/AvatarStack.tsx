@@ -34,10 +34,9 @@ let AvatarStackUsageCount = 0;
  * The `type` of avatars should always be set to `round`
  * And all the avatars should have the same size.
  */
-export const AvatarStack = ({
-  children,
-  className,
-}: React.PropsWithChildren<AvatarStackProps>): React.JSX.Element => {
+export const AvatarStack: React.FC<
+  React.PropsWithChildren<AvatarStackProps>
+> = ({ children, className }) => {
   /**
    * The `clip-path` property in CSS supports a `path()` function, however
    * that has to use pixel values.
@@ -53,7 +52,7 @@ export const AvatarStack = ({
   useEffect(() => {
     if (AvatarStackUsageCount === 0) {
       const svgMask = renderToStaticMarkup(
-        <AvatarClipPath id={AVATAR_MASK_ID} />
+        <AvatarClipPath id={AVATAR_MASK_ID} />,
       );
       document.body.insertAdjacentHTML("beforeend", svgMask);
     }

@@ -14,6 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
+import { describe, beforeEach, expect, it } from "vitest";
 import { render, waitFor } from "@testing-library/react";
 import React from "react";
 
@@ -44,7 +45,7 @@ describe("Avatar", () => {
 
   it("replaces the placeholder with the actual image", async () => {
     const { container } = render(
-      <Avatar src="./mock.jpg" name="Bob" id="@bob:example.org" />
+      <Avatar src="./mock.jpg" name="Bob" id="@bob:example.org" />,
     );
 
     expect(container).toHaveTextContent("B");
@@ -53,7 +54,7 @@ describe("Avatar", () => {
 
   it("does not split emoji as first letter", () => {
     const { container } = render(
-      <Avatar name="🤓 John" id="@john:example.org" />
+      <Avatar name="🤓 John" id="@john:example.org" />,
     );
     expect(container).toHaveTextContent("🤓");
   });
@@ -70,6 +71,6 @@ describe("Avatar", () => {
     (id, colorNumber) => {
       const { container } = render(<Avatar name={id} id={id} />);
       expect(container.firstChild).toHaveAttribute("data-color", colorNumber);
-    }
+    },
   );
 });

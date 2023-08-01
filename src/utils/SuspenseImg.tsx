@@ -32,7 +32,7 @@ const imgCache = {
           img.src = src;
         }).then(() => {
           this.__cache.set(src, true);
-        })
+        }),
       );
     }
     if (this.__cache.get(src) instanceof Promise) {
@@ -46,10 +46,7 @@ type SuspenseImgProps = {
   src: string;
 } & React.ImgHTMLAttributes<HTMLImageElement>;
 
-export function SuspenseImg({
-  src,
-  ...props
-}: SuspenseImgProps): React.JSX.Element {
+export const SuspenseImg: React.FC<SuspenseImgProps> = ({ src, ...props }) => {
   /**
    * Read the cache, if the image has already been loaded, it will be displayed
    * straight away. If not, it will throw an exception that will be caught by the
@@ -66,4 +63,4 @@ export function SuspenseImg({
       {...props}
     />
   );
-}
+};
