@@ -4,6 +4,7 @@ import browserslistToEsbuild from "browserslist-to-esbuild";
 import react from "@vitejs/plugin-react";
 import dts from "vite-plugin-dts";
 import svgr from "vite-plugin-svgr";
+import babel from "vite-plugin-babel";
 
 export default defineConfig({
   build: {
@@ -79,5 +80,6 @@ export default defineConfig({
 
     // Extract the types from the source files
     dts(),
+    babel(),
   ],
 });
