@@ -30,7 +30,7 @@ describe("ActionControl", () => {
         onActionClick={() => {
           console.log("clicked!");
         }}
-      />
+      />,
     );
     expect(asFragment()).toMatchSnapshot();
   });
@@ -43,7 +43,7 @@ describe("ActionControl", () => {
         Icon={ThreadIcon}
         actionLabel="Click me!"
         onActionClick={spy}
-      />
+      />,
     );
 
     const actionBtn = getByLabelText(container, "Click me!");

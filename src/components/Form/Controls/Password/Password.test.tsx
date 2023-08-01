@@ -30,7 +30,7 @@ describe("PasswordControl", () => {
         <Field name="password">
           <PasswordControl value="p4ssw0rd!" />
         </Field>
-      </Root>
+      </Root>,
     );
 
     expect(container.querySelector("[type=password]")).toBeInTheDocument();

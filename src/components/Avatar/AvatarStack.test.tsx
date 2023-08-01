@@ -45,7 +45,7 @@ describe("AvatarStack", () => {
 
   it("renders", () => {
     const { asFragment } = render(
-      <AvatarStack avatars={avatars} size="32px" />
+      <AvatarStack avatars={avatars} size="32px" />,
     );
     expect(asFragment()).toMatchSnapshot();
   });

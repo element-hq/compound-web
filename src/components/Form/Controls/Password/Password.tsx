@@ -44,7 +44,7 @@ export const PasswordControl: React.FC<
 > = (props) => {
   const [{ icon, label, type }, togglePasswordVisibility] = useReducer(
     (state) => (!state.isHidden ? showState : hideState),
-    showState
+    showState,
   );
   return (
     <ActionControl

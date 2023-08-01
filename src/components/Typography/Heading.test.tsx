@@ -23,7 +23,7 @@ import { Heading } from "./Heading";
 describe("Heading", () => {
   it("renders", () => {
     const { asFragment, container } = render(
-      <Heading>The quick brown fox jumps over the lazy dog.</Heading>
+      <Heading>The quick brown fox jumps over the lazy dog.</Heading>,
     );
     expect(asFragment()).toMatchSnapshot();
     expect(container.querySelector("h1")).not.toBeNull();

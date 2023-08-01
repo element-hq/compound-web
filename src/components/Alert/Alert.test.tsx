@@ -31,7 +31,7 @@ describe("Alert", () => {
     const { asFragment } = render(
       <Alert title="Title" type="success">
         Success!
-      </Alert>
+      </Alert>,
     );
     expect(asFragment()).toMatchSnapshot();
   });
@@ -40,7 +40,7 @@ describe("Alert", () => {
     render(
       <Alert title="Title" type="info">
         Click me!
-      </Alert>
+      </Alert>,
     );
     expect(screen.queryByLabelText("Close")).not.toBeInTheDocument();
   });
@@ -50,11 +50,11 @@ describe("Alert", () => {
     const { container } = render(
       <Alert title="Title" type="critical" onClose={spy}>
         Click me!
-      </Alert>
+      </Alert>,
     );
 
     await waitFor(() =>
-      expect(getByLabelText(container, "Close")).toBeInTheDocument()
+      expect(getByLabelText(container, "Close")).toBeInTheDocument(),
     );
 
     fireEvent.click(getByLabelText(container, "Close"));

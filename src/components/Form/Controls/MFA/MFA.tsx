@@ -35,7 +35,7 @@ type MFAProps = {
  */
 export const MFAControl = React.forwardRef(function MFAControl(
   { className, length = 6, ...props }: PropsWithoutRef<MFAProps>,
-  ref: React.ForwardedRef<HTMLInputElement>
+  ref: React.ForwardedRef<HTMLInputElement>,
 ) {
   const classes = classNames(styles.mfa, className);
 
@@ -55,7 +55,7 @@ export const MFAControl = React.forwardRef(function MFAControl(
         className={styles["mfa-input"]}
         onChange={(e) => {
           setMfaDigits(
-            e.currentTarget.value.replace(/[^\d]/g, "").slice(0, length)
+            e.currentTarget.value.replace(/[^\d]/g, "").slice(0, length),
           );
         }}
         autoComplete="off"

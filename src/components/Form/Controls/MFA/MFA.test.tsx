@@ -27,7 +27,7 @@ import { Control } from "../../Control";
 
 describe("PasswordControl", () => {
   const MFA: React.FC<React.ComponentProps<typeof MFAControl>> = (
-    props = {}
+    props = {},
   ) => (
     <Root>
       <Field name="mfa">

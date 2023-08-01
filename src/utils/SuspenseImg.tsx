@@ -32,7 +32,7 @@ const imgCache = {
           img.src = src;
         }).then(() => {
           this.__cache.set(src, true);
-        })
+        }),
       );
     }
     if (this.__cache.get(src) instanceof Promise) {

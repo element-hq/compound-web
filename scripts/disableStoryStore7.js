@@ -28,5 +28,5 @@ const main = fs.readFileSync(".storybook/main.ts", "utf-8");
 fs.writeFileSync(
   ".storybook/main.ts",
   main.replace("storyStoreV7: true,", "storyStoreV7: false,"),
-  "utf-8"
+  "utf-8",
 );

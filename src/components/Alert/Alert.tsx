@@ -52,7 +52,7 @@ export const Alert: React.FC<PropsWithChildren<AlertProps>> = ({
           return <CheckCircleIcon {...props} />;
       }
     },
-    [type]
+    [type],
   );
 
   return (

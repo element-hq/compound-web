@@ -23,7 +23,7 @@ import { Body } from "./Body";
 describe("Body", () => {
   it("renders", () => {
     const { container, asFragment } = render(
-      <Body>The quick brown fox jumps over the lazy dog.</Body>
+      <Body>The quick brown fox jumps over the lazy dog.</Body>,
     );
     expect(asFragment()).toMatchSnapshot();
     expect(container.querySelector("p")).not.toBeNull();

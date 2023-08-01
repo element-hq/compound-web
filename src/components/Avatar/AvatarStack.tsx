@@ -52,7 +52,7 @@ export const AvatarStack: React.FC<
   useEffect(() => {
     if (AvatarStackUsageCount === 0) {
       const svgMask = renderToStaticMarkup(
-        <AvatarClipPath id={AVATAR_MASK_ID} />
+        <AvatarClipPath id={AVATAR_MASK_ID} />,
       );
       document.body.insertAdjacentHTML("beforeend", svgMask);
     }

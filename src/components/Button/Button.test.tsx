@@ -41,7 +41,7 @@ describe("Button", () => {
     const { container } = render(
       <Button as="a" href="#anchor">
         This is a link that looks like a button
-      </Button>
+      </Button>,
     );
 
     const anchor = getByRole(container, "link");
