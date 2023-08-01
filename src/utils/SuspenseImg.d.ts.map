@@ -1,1 +1,0 @@
-{"version":3,"file":"SuspenseImg.d.ts","sourceRoot":"","sources":["../../../src/utils/SuspenseImg.tsx"],"names":[],"mappings":"AAgBA,OAAO,KAAK,MAAM,OAAO,CAAC;AA4B1B,KAAK,gBAAgB,GAAG;IACtB,GAAG,EAAE,MAAM,CAAC;CACb,GAAG,KAAK,CAAC,iBAAiB,CAAC,gBAAgB,CAAC,CAAC;AAE9C,wBAAgB,WAAW,CAAC,EAC1B,GAAG,EACH,GAAG,KAAK,EACT,EAAE,gBAAgB,GAAG,KAAK,CAAC,GAAG,CAAC,OAAO,CAiBtC"}

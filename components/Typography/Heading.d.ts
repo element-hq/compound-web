@@ -1,0 +1,11 @@
+import React from "react";
+import { Typography } from "./Typography";
+export declare const Heading: React.FC<Omit<React.ComponentProps<typeof Typography>, "type">>;
+type HeadingProps = Omit<React.ComponentProps<typeof Heading>, "as" | "weight" | "size">;
+export declare const H1: React.FC<HeadingProps>;
+export declare const H2: React.FC<HeadingProps>;
+export declare const H3: React.FC<HeadingProps>;
+export declare const H4: React.FC<HeadingProps>;
+export declare const H5: React.FC<HeadingProps>;
+export declare const H6: React.FC<HeadingProps>;
+export {};
