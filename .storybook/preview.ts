@@ -23,5 +23,5 @@ export const decorators = [
       "dark-high-contrast": "cpd-theme-dark-hc",
     },
     defaultTheme: "light",
-  })
+  }),
 ];

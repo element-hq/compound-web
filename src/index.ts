@@ -14,9 +14,6 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import "@vector-im/compound-design-tokens/assets/web/css/compound-design-tokens.css";
-import "./styles/global.css";
-
 export { ActionControl } from "./components/ActionControl/ActionControl";
 export { Alert } from "./components/Alert/Alert";
 export { Avatar } from "./components/Avatar/Avatar";
