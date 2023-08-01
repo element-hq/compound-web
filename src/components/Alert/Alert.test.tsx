@@ -14,6 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
+import { vi, describe, it, expect } from "vitest";
 import {
   fireEvent,
   getByLabelText,
@@ -45,7 +46,7 @@ describe("Alert", () => {
   });
 
   it("can have a close button", async () => {
-    const spy = jest.fn();
+    const spy = vi.fn();
     const { container } = render(
       <Alert title="Title" type="critical" onClose={spy}>
         Click me!

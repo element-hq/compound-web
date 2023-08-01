@@ -14,6 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
+import { vi, describe, it, expect } from "vitest";
 import { fireEvent, getByLabelText, render } from "@testing-library/react";
 import React from "react";
 
@@ -35,7 +36,7 @@ describe("ActionControl", () => {
   });
 
   it("trigger the action", () => {
-    const spy = jest.fn();
+    const spy = vi.fn();
 
     const { container } = render(
       <ActionControl

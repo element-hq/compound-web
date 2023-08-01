@@ -1,15 +1,15 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Toggle renders 1`] = `
+exports[`Toggle > renders 1`] = `
 <DocumentFragment>
   <div
-    class="toggle"
+    class="_toggle_eb77c6"
   >
     <input
       type="checkbox"
     />
     <div
-      class="toggle-ui"
+      class="_toggle-ui_eb77c6"
     />
   </div>
 </DocumentFragment>
