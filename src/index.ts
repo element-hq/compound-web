@@ -17,6 +17,7 @@ limitations under the License.
 export { ActionControl } from "./components/ActionControl/ActionControl";
 export { Alert } from "./components/Alert/Alert";
 export { Avatar } from "./components/Avatar/Avatar";
+export { AvatarStack } from "./components/Avatar/AvatarStack";
 export { Button } from "./components/Button/Button";
 export { Body } from "./components/Typography/Body";
 export { Control } from "./components/Form/Control";
