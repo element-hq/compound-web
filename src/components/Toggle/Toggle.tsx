@@ -27,15 +27,15 @@ type ToggleProps = {
  * Standalone toggle component to be used with a Radix form control
  * See https://www.radix-ui.com/docs/primitives/components/form#composing-with-your-own-components
  */
-export const Toggle: React.FC<PropsWithChildren<ToggleProps>> = ({
-  className,
-  onMouseDown,
-  ...props
-}) => {
+export const Toggle = React.forwardRef<
+  HTMLInputElement,
+  PropsWithChildren<ToggleProps>
+>(function Toggle({ className, onMouseDown, ...props }, ref) {
   const classes = classnames(styles.toggle, className);
   return (
     <div className={classes}>
       <input
+        ref={ref}
         {...props}
         type="checkbox"
         onMouseDown={(e) => {
@@ -48,4 +48,4 @@ export const Toggle: React.FC<PropsWithChildren<ToggleProps>> = ({
       <div className={styles["toggle-ui"]} />
     </div>
   );
-};
+});

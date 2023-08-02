@@ -27,16 +27,15 @@ type RadioProps = {
 /**
  * Radio form control
  */
-export const Radio: React.FC<PropsWithChildren<RadioProps>> = ({
-  kind = "primary",
-  className,
-  onMouseDown,
-  ...props
-}) => {
+export const Radio = React.forwardRef<
+  HTMLInputElement,
+  PropsWithChildren<RadioProps>
+>(function Radio({ kind = "primary", className, onMouseDown, ...props }, ref) {
   const classes = classnames(styles.radio, className);
   return (
     <div className={classes} data-kind={kind}>
       <input
+        ref={ref}
         {...props}
         type="radio"
         onMouseDown={(e) => {
@@ -49,4 +48,4 @@ export const Radio: React.FC<PropsWithChildren<RadioProps>> = ({
       <div className={styles["radio-ui"]} />
     </div>
   );
-};
+});

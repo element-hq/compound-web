@@ -28,19 +28,19 @@ type ActionControlProps = {
   disabled?: boolean;
 } & React.ComponentProps<typeof Control>;
 
-export const ActionControl: React.FC<PropsWithChildren<ActionControlProps>> = ({
-  children,
-  Icon,
-  className,
-  actionLabel,
-  onActionClick,
-  ...props
-}) => {
+export const ActionControl = React.forwardRef<
+  HTMLInputElement,
+  PropsWithChildren<ActionControlProps>
+>(function ActionControl(
+  { children, Icon, className, actionLabel, onActionClick, ...props },
+  ref,
+) {
   const id = useId();
   const classes = classnames(styles.actioncontrol, className);
   return (
     <div className={classes}>
       <Control
+        ref={ref}
         {...props}
         className={styles.input}
         id={id}
@@ -60,16 +60,17 @@ export const ActionControl: React.FC<PropsWithChildren<ActionControlProps>> = ({
       />
     </div>
   );
-};
+});
 
-export const StandaloneActionControl: React.FC<
+export const StandaloneActionControl = React.forwardRef<
+  HTMLInputElement,
   PropsWithChildren<ActionControlProps>
-> = (props) => {
+>(function StandaloneActionControl(props, ref) {
   return (
     <Root>
       <Field name="action">
-        <ActionControl {...props} />
+        <ActionControl ref={ref} {...props} />
       </Field>
     </Root>
   );
-};
+});

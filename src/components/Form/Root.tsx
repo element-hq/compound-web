@@ -28,14 +28,14 @@ type RootProps = {
  * Thin wrapper around Radix UI Root component
  * https://www.radix-ui.com/docs/primitives/components/form#root
  */
-export const Root: React.FC<PropsWithChildren<RootProps>> = ({
-  children,
-  ...props
-}) => {
+export const Root = React.forwardRef<
+  HTMLFormElement,
+  PropsWithChildren<RootProps>
+>(function Root({ children, ...props }, ref) {
   const classes = classNames(styles.root, props.className);
   return (
-    <RadixRoot {...props} className={classes}>
+    <RadixRoot ref={ref} {...props} className={classes}>
       {children}
     </RadixRoot>
   );
-};
+});
