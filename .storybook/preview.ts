@@ -1,5 +1,9 @@
 import { withThemeByClassName } from "@storybook/addon-styling";
 
+import "@fontsource/inter/400.css";
+import "@fontsource/inter/500.css";
+import "@fontsource/inter/600.css";
+import "@fontsource/inter/700.css";
 import "@vector-im/compound-design-tokens/assets/web/css/compound-design-tokens.css";
 import "../src/styles/global.css";
 

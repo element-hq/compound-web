@@ -7,8 +7,14 @@ import svgr from "vite-plugin-svgr";
 
 export default defineConfig({
   build: {
+    lib: {
+      entry: resolve(__dirname, "./src/index.ts"),
+      name: "CompoundWeb",
+      fileName: "compound-web",
+      formats: ["es", "cjs"],
+    },
+
     target: browserslistToEsbuild(),
-    assetsInlineLimit: 0, // To disable assets inlining as base64 in the bundle
 
     // We expect to be used as a dependency with a bundler, so we don't need to
     // minify and let the bundler deal with the sourcemaps
@@ -17,11 +23,6 @@ export default defineConfig({
     cssMinify: false,
 
     rollupOptions: {
-      // We are *not* running in library mode because inlines all the assets.
-      // Instead, we're running in normal mode & specifying the entrypoint here.
-      // See: https://github.com/vitejs/vite/issues/3295
-      input: [resolve(__dirname, "./src/index.ts")],
-
       // Must be in sync with the list of dependencies in the package.json
       // It includes all dependencies except @vector-im/compound-design-tokens
       external: [
@@ -35,13 +36,6 @@ export default defineConfig({
 
       // Without this, none of the exports are preserved in the bundle
       preserveEntrySignatures: "strict",
-
-      output: {
-        format: "es",
-        // This keeps a flat structure in the output directory
-        entryFileNames: "[name].js",
-        assetFileNames: "[name][extname]",
-      },
     },
   },
 
