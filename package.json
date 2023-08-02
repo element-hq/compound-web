@@ -1,9 +1,9 @@
 {
   "name": "@vector-im/compound-web",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Compound components for the Web",
   "type": "module",
-  "main": "./dist/compound-web.cjs",
+  "main": "./dist/compound-web.js",
   "module": "./dist/compound-web.js",
   "exports": {
     ".": {
