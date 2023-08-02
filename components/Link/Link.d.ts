@@ -1,7 +1,7 @@
-import React, { PropsWithChildren } from "react";
+import React from "react";
 type LinkProps = {
     className?: string;
     kind?: "primary" | "critical";
 } & Omit<React.HTMLProps<HTMLAnchorElement>, "rel">;
-export declare const Link: React.FC<PropsWithChildren<LinkProps>>;
+export declare const Link: React.ForwardRefExoticComponent<Omit<React.PropsWithChildren<LinkProps>, "ref"> & React.RefAttributes<HTMLAnchorElement>>;
 export {};

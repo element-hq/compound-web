@@ -4,17 +4,17 @@ declare const _default: import("@storybook/types").ComponentAnnotations<import("
     onMouseDown?: ((e: React.MouseEvent<HTMLInputElement, MouseEvent>) => void) | undefined;
 } & Omit<React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>, "ref"> & {
     children?: React.ReactNode;
-}>;
+} & React.RefAttributes<HTMLInputElement>>;
 export default _default;
 export declare const Active: import("@storybook/types").AnnotatedStoryFn<import("@storybook/react/dist/types-0a347bb9").R, {
     className?: string | undefined;
     onMouseDown?: ((e: React.MouseEvent<HTMLInputElement, MouseEvent>) => void) | undefined;
 } & Omit<React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>, "ref"> & {
     children?: React.ReactNode;
-}>;
+} & React.RefAttributes<HTMLInputElement>>;
 export declare const Disabled: import("@storybook/types").AnnotatedStoryFn<import("@storybook/react/dist/types-0a347bb9").R, {
     className?: string | undefined;
     onMouseDown?: ((e: React.MouseEvent<HTMLInputElement, MouseEvent>) => void) | undefined;
 } & Omit<React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>, "ref"> & {
     children?: React.ReactNode;
-}>;
+} & React.RefAttributes<HTMLInputElement>>;

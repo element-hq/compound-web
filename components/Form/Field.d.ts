@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from "react";
+import React from "react";
 import { Field as RadixField } from "@radix-ui/react-form";
 type FieldProps = {
     className?: string;
@@ -7,5 +7,5 @@ type FieldProps = {
  * Thin wrapper around Radix UI Field component
  * https://www.radix-ui.com/docs/primitives/components/form#field
  */
-export declare const Field: React.FC<PropsWithChildren<FieldProps>>;
+export declare const Field: React.ForwardRefExoticComponent<Omit<React.PropsWithChildren<FieldProps>, "ref"> & React.RefAttributes<HTMLDivElement>>;
 export {};

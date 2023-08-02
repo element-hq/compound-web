@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from "react";
+import React from "react";
 import { Control } from "../Form";
 type ActionControlProps = {
     className?: string;
@@ -7,6 +7,6 @@ type ActionControlProps = {
     actionLabel: string;
     disabled?: boolean;
 } & React.ComponentProps<typeof Control>;
-export declare const ActionControl: React.FC<PropsWithChildren<ActionControlProps>>;
-export declare const StandaloneActionControl: React.FC<PropsWithChildren<ActionControlProps>>;
+export declare const ActionControl: React.ForwardRefExoticComponent<Omit<React.PropsWithChildren<ActionControlProps>, "ref"> & React.RefAttributes<HTMLInputElement>>;
+export declare const StandaloneActionControl: React.ForwardRefExoticComponent<Omit<React.PropsWithChildren<ActionControlProps>, "ref"> & React.RefAttributes<HTMLInputElement>>;
 export {};

@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from "react";
+import React from "react";
 import { Label as RadixLabel } from "@radix-ui/react-form";
 type LabelProps = {
     className?: string;
@@ -7,5 +7,5 @@ type LabelProps = {
  * Thin wrapper around Radix UI Label component
  * https://www.radix-ui.com/docs/primitives/components/form#label
  */
-export declare const Label: React.FC<PropsWithChildren<LabelProps>>;
+export declare const Label: React.ForwardRefExoticComponent<Omit<React.PropsWithChildren<LabelProps>, "ref"> & React.RefAttributes<HTMLLabelElement>>;
 export {};
