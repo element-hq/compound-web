@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import React, { PropsWithChildren } from "react";
+import React, { forwardRef, PropsWithChildren } from "react";
 import { Root as RadixRoot } from "@radix-ui/react-form";
 
 import styles from "./form.module.css";
@@ -28,14 +28,13 @@ type RootProps = {
  * Thin wrapper around Radix UI Root component
  * https://www.radix-ui.com/docs/primitives/components/form#root
  */
-export const Root = React.forwardRef<
-  HTMLFormElement,
-  PropsWithChildren<RootProps>
->(function Root({ children, ...props }, ref) {
-  const classes = classNames(styles.root, props.className);
-  return (
-    <RadixRoot ref={ref} {...props} className={classes}>
-      {children}
-    </RadixRoot>
-  );
-});
+export const Root = forwardRef<HTMLFormElement, PropsWithChildren<RootProps>>(
+  function Root({ children, ...props }, ref) {
+    const classes = classNames(styles.root, props.className);
+    return (
+      <RadixRoot ref={ref} {...props} className={classes}>
+        {children}
+      </RadixRoot>
+    );
+  },
+);

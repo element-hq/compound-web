@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import React, { PropsWithChildren } from "react";
+import React, { PropsWithChildren, forwardRef } from "react";
 import { Label as RadixLabel } from "@radix-ui/react-form";
 
 import styles from "./form.module.css";
@@ -28,7 +28,7 @@ type LabelProps = {
  * Thin wrapper around Radix UI Label component
  * https://www.radix-ui.com/docs/primitives/components/form#label
  */
-export const Label = React.forwardRef<
+export const Label = forwardRef<
   HTMLLabelElement,
   PropsWithChildren<LabelProps>
 >(function Label({ children, ...props }, ref) {

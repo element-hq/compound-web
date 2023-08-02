@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import React, { PropsWithChildren } from "react";
+import React, { forwardRef, PropsWithChildren } from "react";
 import { Control as RadixControl } from "@radix-ui/react-form";
 
 import styles from "./form.module.css";
@@ -28,7 +28,7 @@ type ControlProps = {
  * Thin wrapper around Radix UI Control component
  * https://www.radix-ui.com/docs/primitives/components/form#control
  */
-export const Control = React.forwardRef<
+export const Control = forwardRef<
   HTMLInputElement,
   PropsWithChildren<ControlProps>
 >(function Control({ children, ...props }, ref) {

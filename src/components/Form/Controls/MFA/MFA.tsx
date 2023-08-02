@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import React, { PropsWithoutRef, useState } from "react";
+import React, { forwardRef, PropsWithoutRef, useState } from "react";
 import classnames from "classnames";
 import { Control } from "../../Control";
 
@@ -33,7 +33,7 @@ type MFAProps = {
  * Thin wrapper around Radix UI Control component
  * https://www.radix-ui.com/docs/primitives/components/form#control
  */
-export const MFAControl = React.forwardRef(function MFAControl(
+export const MFAControl = forwardRef(function MFAControl(
   { className, length = 6, ...props }: PropsWithoutRef<MFAProps>,
   ref: React.ForwardedRef<HTMLInputElement>,
 ) {

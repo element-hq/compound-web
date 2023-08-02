@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import React, { PropsWithChildren, useReducer } from "react";
+import React, { forwardRef, PropsWithChildren, useReducer } from "react";
 import { ActionControl } from "../../../ActionControl/ActionControl";
 import { Control } from "../../Control";
 
@@ -39,7 +39,7 @@ const hideState = {
  * Thin wrapper around Radix UI Control component
  * https://www.radix-ui.com/docs/primitives/components/form#control
  */
-export const PasswordControl = React.forwardRef<
+export const PasswordControl = forwardRef<
   HTMLInputElement,
   PropsWithChildren<React.ComponentProps<typeof Control>>
 >(function PasswordControl(props, ref) {

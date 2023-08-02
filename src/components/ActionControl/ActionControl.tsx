@@ -15,7 +15,7 @@ limitations under the License.
 */
 
 import classnames from "classnames";
-import React, { PropsWithChildren, useId } from "react";
+import React, { PropsWithChildren, useId, forwardRef } from "react";
 import styles from "./ActionControl.module.css";
 
 import { Control, Field, Root } from "../Form";
@@ -28,7 +28,7 @@ type ActionControlProps = {
   disabled?: boolean;
 } & React.ComponentProps<typeof Control>;
 
-export const ActionControl = React.forwardRef<
+export const ActionControl = forwardRef<
   HTMLInputElement,
   PropsWithChildren<ActionControlProps>
 >(function ActionControl(
@@ -62,7 +62,7 @@ export const ActionControl = React.forwardRef<
   );
 });
 
-export const StandaloneActionControl = React.forwardRef<
+export const StandaloneActionControl = forwardRef<
   HTMLInputElement,
   PropsWithChildren<ActionControlProps>
 >(function StandaloneActionControl(props, ref) {
