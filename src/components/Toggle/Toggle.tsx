@@ -15,7 +15,7 @@ limitations under the License.
 */
 
 import classnames from "classnames";
-import React, { PropsWithChildren } from "react";
+import React, { forwardRef, PropsWithChildren } from "react";
 import styles from "./Toggle.module.css";
 
 type ToggleProps = {
@@ -27,7 +27,7 @@ type ToggleProps = {
  * Standalone toggle component to be used with a Radix form control
  * See https://www.radix-ui.com/docs/primitives/components/form#composing-with-your-own-components
  */
-export const Toggle = React.forwardRef<
+export const Toggle = forwardRef<
   HTMLInputElement,
   PropsWithChildren<ToggleProps>
 >(function Toggle({ className, onMouseDown, ...props }, ref) {

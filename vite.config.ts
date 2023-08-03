@@ -28,7 +28,9 @@ export default defineConfig({
       external: [
         "react",
         "react-dom",
+        "react-dom/server",
         "react/jsx-runtime",
+        "react/jsx-dev-runtime",
         "lodash",
         "classnames",
         "@radix-ui/react-form",
@@ -36,13 +38,6 @@ export default defineConfig({
 
       // Without this, none of the exports are preserved in the bundle
       preserveEntrySignatures: "strict",
-    },
-  },
-
-  experimental: {
-    // This ensures we're using relative paths in the generated CSS
-    renderBuiltUrl(filename: string) {
-      return `./${filename}`;
     },
   },
 

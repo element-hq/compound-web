@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import React, { PropsWithChildren } from "react";
+import React, { forwardRef, PropsWithChildren } from "react";
 import { Field as RadixField } from "@radix-ui/react-form";
 
 import styles from "./form.module.css";
@@ -28,14 +28,13 @@ type FieldProps = {
  * Thin wrapper around Radix UI Field component
  * https://www.radix-ui.com/docs/primitives/components/form#field
  */
-export const Field = React.forwardRef<
-  HTMLDivElement,
-  PropsWithChildren<FieldProps>
->(function Field({ children, ...props }, ref) {
-  const classes = classNames(styles.field, props.className);
-  return (
-    <RadixField ref={ref} {...props} className={classes}>
-      {children}
-    </RadixField>
-  );
-});
+export const Field = forwardRef<HTMLDivElement, PropsWithChildren<FieldProps>>(
+  function Field({ children, ...props }, ref) {
+    const classes = classNames(styles.field, props.className);
+    return (
+      <RadixField ref={ref} {...props} className={classes}>
+        {children}
+      </RadixField>
+    );
+  },
+);

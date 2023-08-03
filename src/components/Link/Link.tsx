@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import React, { PropsWithChildren } from "react";
+import React, { forwardRef, PropsWithChildren } from "react";
 import styles from "./Link.module.css";
 import classNames from "classnames";
 
@@ -23,19 +23,18 @@ type LinkProps = {
   kind?: "primary" | "critical";
 } & Omit<React.HTMLProps<HTMLAnchorElement>, "rel">;
 
-export const Link = React.forwardRef<
-  HTMLAnchorElement,
-  PropsWithChildren<LinkProps>
->(function Link({ children, className, kind = "primary", ...props }, ref) {
-  return (
-    <a
-      ref={ref}
-      {...props}
-      rel="noreferrer noopener"
-      className={classNames(styles.link, className)}
-      data-kind={kind}
-    >
-      {children}
-    </a>
-  );
-});
+export const Link = forwardRef<HTMLAnchorElement, PropsWithChildren<LinkProps>>(
+  function Link({ children, className, kind = "primary", ...props }, ref) {
+    return (
+      <a
+        ref={ref}
+        {...props}
+        rel="noreferrer noopener"
+        className={classNames(styles.link, className)}
+        data-kind={kind}
+      >
+        {children}
+      </a>
+    );
+  },
+);

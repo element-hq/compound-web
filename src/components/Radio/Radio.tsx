@@ -15,7 +15,7 @@ limitations under the License.
 */
 
 import classnames from "classnames";
-import React, { PropsWithChildren } from "react";
+import React, { forwardRef, PropsWithChildren } from "react";
 import styles from "./Radio.module.css";
 
 type RadioProps = {
@@ -27,7 +27,7 @@ type RadioProps = {
 /**
  * Radio form control
  */
-export const Radio = React.forwardRef<
+export const Radio = forwardRef<
   HTMLInputElement,
   PropsWithChildren<RadioProps>
 >(function Radio({ kind = "primary", className, onMouseDown, ...props }, ref) {

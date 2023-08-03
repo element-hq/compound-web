@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import React, { PropsWithChildren } from "react";
+import React, { forwardRef, PropsWithChildren } from "react";
 import { Message as RadixMessage } from "@radix-ui/react-form";
 
 import styles from "./form.module.css";
@@ -28,7 +28,7 @@ type MessageProps = {
  * Thin wrapper around Radix UI Message component
  * https://www.radix-ui.com/docs/primitives/components/form#message
  */
-export const Message = React.forwardRef<
+export const Message = forwardRef<
   HTMLSpanElement,
   PropsWithChildren<MessageProps>
 >(function Message({ children, ...props }, ref) {

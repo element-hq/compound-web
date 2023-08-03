@@ -15,7 +15,7 @@ limitations under the License.
 */
 
 import classnames from "classnames";
-import React, { PropsWithChildren } from "react";
+import React, { forwardRef, PropsWithChildren } from "react";
 import styles from "./Checkbox.module.css";
 import CheckIcon from "@vector-im/compound-design-tokens/icons/check.svg";
 
@@ -25,7 +25,7 @@ type CheckboxProps = {
   onMouseDown?: (e: React.MouseEvent<HTMLInputElement, MouseEvent>) => void;
 } & React.ComponentPropsWithoutRef<"input">;
 
-export const Checkbox = React.forwardRef<
+export const Checkbox = forwardRef<
   HTMLInputElement,
   PropsWithChildren<CheckboxProps>
 >(function Checkbox(
