@@ -3,9 +3,8 @@
 exports[`Badge > renders 1`] = `
 <DocumentFragment>
   <span
-    class="_badge_f1986f"
+    class="_font-body-sm-medium_489030 _badge_f1986f"
     data-kind="default"
-    style="font: var(--cpd-font-body-sm-medium); letter-spacing: var(--cpd-font-letter-spacing-body-sm);"
   />
 </DocumentFragment>
 `;

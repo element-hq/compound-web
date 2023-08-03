@@ -15,12 +15,16 @@ limitations under the License.
 */
 
 import React, { PropsWithChildren } from "react";
+import classNames from "classnames";
+
+import styles from "./Typography.module.css";
 
 type TypographyProps<C extends React.ElementType> = {
   as?: C;
   type?: "body" | "heading";
   weight?: "regular" | "semibold" | "medium" | "bold";
   size?: "xs" | "sm" | "md" | "lg";
+  className?: string;
 } & React.ComponentPropsWithoutRef<C>;
 
 export const Typography = <C extends React.ElementType = "p">({
@@ -29,6 +33,7 @@ export const Typography = <C extends React.ElementType = "p">({
   type = "body",
   weight = "regular",
   size = "md",
+  className,
   ...restProps
 }: PropsWithChildren<TypographyProps<C>>): React.ReactElement => {
   const Component = as || "p";
@@ -36,11 +41,10 @@ export const Typography = <C extends React.ElementType = "p">({
   return (
     <Component
       {...restProps}
-      style={{
-        ...(restProps.style || {}),
-        font: `var(--cpd-font-${type}-${size}-${weight})`,
-        letterSpacing: `var(--cpd-font-letter-spacing-${type}-${size})`,
-      }}
+      className={classNames(
+        styles[`font-${type}-${size}-${weight}`],
+        className,
+      )}
     >
       {children}
     </Component>
