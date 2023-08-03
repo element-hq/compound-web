@@ -15,14 +15,14 @@ limitations under the License.
 */
 
 import React from "react";
-import { Text } from "./Text";
+import { Typography } from "./Typography";
 
-/**
- * @deprecated use `Text` instead
- */
-export const Body: React.FC<React.ComponentProps<typeof Text>> = ({
-  children,
-  ...props
-}) => {
-  return <Text {...props}>{children}</Text>;
+export const Text: React.FC<
+  Omit<React.ComponentProps<typeof Typography>, "type">
+> = ({ as = "p", children, ...props }) => {
+  return (
+    <Typography as={as} type="body" {...props}>
+      {children}
+    </Typography>
+  );
 };
