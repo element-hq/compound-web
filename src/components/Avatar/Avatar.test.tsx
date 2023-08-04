@@ -59,6 +59,15 @@ describe("Avatar", () => {
     expect(container).toHaveTextContent("🤓");
   });
 
+  it("does not split the flag emoji as first letter", () => {
+    // This was a bug in the past, because we were relying on lodash's `split`,
+    // which handles some graphemes incorrectly.
+    const { container } = render(
+      <Avatar name="🏴󠁧󠁢󠁷󠁬󠁳󠁿 John" id="@john:example.org" />,
+    );
+    expect(container).toHaveTextContent("🏴󠁧󠁢󠁷󠁬󠁳󠁿");
+  });
+
   it.each([
     ["@bob:example.org", "8"],
     ["@alice:example.org", "3"],

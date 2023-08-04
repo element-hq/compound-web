@@ -31,8 +31,8 @@ export default defineConfig({
         "react-dom/server",
         "react/jsx-runtime",
         "react/jsx-dev-runtime",
-        "lodash",
         "classnames",
+        "graphemer",
         "@radix-ui/react-form",
       ],
 
