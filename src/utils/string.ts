@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import { split } from "lodash";
+import { split } from "lodash-es";
 
 export const MX_USERNAME_PREFIX = "@";
 export const MX_ROOM_PREFIX = "#";
