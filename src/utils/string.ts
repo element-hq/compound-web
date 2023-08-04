@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import { split } from "lodash-es";
+import GraphemeSplitter from "graphemer";
 
 export const MX_USERNAME_PREFIX = "@";
 export const MX_ROOM_PREFIX = "#";
@@ -36,6 +36,8 @@ export function getInitialLetter(name: string): string {
     name = name.substring(1);
   }
 
-  // rely on the grapheme cluster splitter in lodash so that we don't break apart compound emojis
-  return split(name, "", 1)[0];
+  // rely on a grapheme cluster splitter so that we don't break apart compound emojis
+  const splitter = new GraphemeSplitter();
+  const result = splitter.iterateGraphemes(name).next();
+  return result.done ? "" : result.value;
 }
