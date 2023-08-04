@@ -85,7 +85,6 @@
     "prettier": "3.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "rimraf": "^3.0.1",
     "storybook": "^7.0.27",
     "stylelint": "^15.10.2",
     "stylelint-config-standard": "^34.0.0",
@@ -98,7 +97,8 @@
   "dependencies": {
     "@radix-ui/react-form": "^0.0.3",
     "classnames": "^2.3.2",
-    "graphemer": "^1.4.0"
+    "graphemer": "^1.4.0",
+    "rimraf": "^3.0.1"
   },
   "peerDependencies": {
     "@fontsource/inter": "^5",
