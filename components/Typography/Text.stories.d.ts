@@ -9,7 +9,7 @@ declare const _default: import("@storybook/types").ComponentAnnotations<import("
     children?: React.ReactNode;
 }, "type">>;
 export default _default;
-export declare const Heading: import("@storybook/types").AnnotatedStoryFn<import("@storybook/react/dist/types-0a347bb9").R, Omit<{
+export declare const Text: import("@storybook/types").AnnotatedStoryFn<import("@storybook/react/dist/types-0a347bb9").R, Omit<{
     as?: React.ElementType<any> | undefined;
     type?: "body" | "heading" | undefined;
     weight?: "bold" | "regular" | "semibold" | "medium" | undefined;

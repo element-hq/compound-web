@@ -1,3 +1,6 @@
 import React from "react";
-import { Typography } from "./Typography";
-export declare const Body: React.FC<Omit<React.ComponentProps<typeof Typography>, "type">>;
+import { Text } from "./Text";
+/**
+ * @deprecated use `Text` instead
+ */
+export declare const Body: React.FC<React.ComponentProps<typeof Text>>;
