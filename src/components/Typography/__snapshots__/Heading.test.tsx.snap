@@ -3,7 +3,7 @@
 exports[`Heading > renders 1`] = `
 <DocumentFragment>
   <h1
-    style="font: var(--cpd-font-heading-md-regular); letter-spacing: var(--cpd-font-letter-spacing-heading-md);"
+    class="_font-heading-md-regular_489030"
   >
     The quick brown fox jumps over the lazy dog.
   </h1>

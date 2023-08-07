@@ -17,11 +17,11 @@ limitations under the License.
 import React from "react";
 import { Meta, StoryFn } from "@storybook/react";
 
-import { Body as BodyComponent } from "./Body";
+import { Text as TextComponent } from "./Text";
 
 export default {
   title: "Typography",
-  component: BodyComponent,
+  component: TextComponent,
   argTypes: {
     size: {
       options: ["xs", "sm", "md", "lg"],
@@ -32,16 +32,18 @@ export default {
       control: { type: "inline-radio" },
     },
   },
-} as Meta<typeof BodyComponent>;
+} as Meta<typeof TextComponent>;
 
-const Template: StoryFn<typeof BodyComponent> = (args) => (
-  <BodyComponent size={args.size} weight={args.weight}>
+const Template: StoryFn<typeof TextComponent> = (
+  args: Partial<React.ComponentProps<typeof Text>>,
+) => (
+  <TextComponent size={args.size} weight={args.weight}>
     The quick brown fox jumps over the lazy dog
-  </BodyComponent>
+  </TextComponent>
 );
 
-export const Body = Template.bind({});
-Body.args = {
+export const Text = Template.bind({});
+Text.args = {
   size: "md",
   weight: "regular",
 };
