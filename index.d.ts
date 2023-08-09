@@ -1,3 +1,6 @@
+/**
+ * Export React components
+ */
 export { ActionControl } from "./components/ActionControl/ActionControl";
 export { Alert } from "./components/Alert/Alert";
 export { Avatar } from "./components/Avatar/Avatar";
@@ -16,4 +19,9 @@ export { Root } from "./components/Form/Root";
 export { Submit } from "./components/Form/Submit";
 export { Toggle } from "./components/Toggle/Toggle";
 export { ValidityState } from "./components/Form/ValidityState";
+/**
+ * Export utility functions
+ */
+export { useIdColorHash } from "./components/Avatar/useIdColorHash";
+export { getInitialLetter } from "./utils/string";
 //# sourceMappingURL=index.d.ts.map
