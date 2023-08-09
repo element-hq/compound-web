@@ -1,11 +1,12 @@
 import React from "react";
-type AvatarProps = {
-    src?: string;
+import { SuspenseImg } from "../../utils/SuspenseImg";
+type AvatarProps = JSX.IntrinsicElements["span"] & {
+    src?: React.ComponentProps<typeof SuspenseImg>["src"];
     id: string;
     name: string;
     type?: "square" | "round";
-    className?: string;
     size?: CSSStyleDeclaration["height"];
+    onError?: React.ComponentProps<typeof SuspenseImg>["onError"];
 };
-export declare const Avatar: React.FC<AvatarProps>;
+export declare const Avatar: React.ForwardRefExoticComponent<Omit<AvatarProps, "ref"> & React.RefAttributes<HTMLSpanElement>>;
 export {};

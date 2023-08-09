@@ -1,6 +1,6 @@
 import React from "react";
-type SuspenseImgProps = {
+type SuspenseImgProps = JSX.IntrinsicElements["img"] & {
     src: string;
-} & React.ImgHTMLAttributes<HTMLImageElement>;
+};
 export declare const SuspenseImg: React.FC<SuspenseImgProps>;
 export {};
