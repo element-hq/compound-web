@@ -15,7 +15,7 @@ limitations under the License.
 */
 
 import classnames from "classnames";
-import React, { Suspense } from "react";
+import React, { Suspense, forwardRef } from "react";
 import { getInitialLetter } from "../../utils/string";
 import { SuspenseImg } from "../../utils/SuspenseImg";
 import styles from "./Avatar.module.css";
@@ -30,20 +30,19 @@ type AvatarProps = {
   size?: CSSStyleDeclaration["height"];
 };
 
-export const Avatar: React.FC<AvatarProps> = ({
-  src,
-  id,
-  name = "",
-  type = "round",
-  className = "",
-  size,
-}) => {
+export const Avatar = forwardRef<HTMLSpanElement, AvatarProps>(function Avatar(
+  { src, id, name = "", type = "round", className = "", size },
+  ref,
+) {
   const hash = useIdColorHash(id);
   const style = {
     "--cpd-avatar-size": size,
   } as React.CSSProperties;
-  const imagelessAvatar = (
+  const fallbackInitial = <>{getInitialLetter(name)}</>;
+
+  return (
     <span
+      ref={ref}
       role="img"
       aria-label=""
       data-type={type}
@@ -52,23 +51,21 @@ export const Avatar: React.FC<AvatarProps> = ({
       style={style}
       title={id}
     >
-      {getInitialLetter(name)}
+      {!src ? (
+        fallbackInitial
+      ) : (
+        <Suspense fallback={fallbackInitial}>
+          <SuspenseImg
+            src={src}
+            className={classnames(styles.image, className)}
+            data-type={type}
+            style={style}
+            width={size}
+            height={size}
+            title={id}
+          />
+        </Suspense>
+      )}
     </span>
   );
-
-  return !src ? (
-    imagelessAvatar
-  ) : (
-    <Suspense fallback={imagelessAvatar}>
-      <SuspenseImg
-        src={src}
-        className={classnames(styles.avatar, className)}
-        data-type={type}
-        style={style}
-        width={size}
-        height={size}
-        title={id}
-      />
-    </Suspense>
-  );
-};
+});

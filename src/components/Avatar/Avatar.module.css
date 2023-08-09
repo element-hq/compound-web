@@ -17,26 +17,29 @@ limitations under the License.
 .avatar {
   display: inline-block;
   box-sizing: border-box;
-  aspect-ratio: 1 / 1;
-  width: var(--cpd-avatar-size);
   line-height: var(--cpd-avatar-size);
   text-align: center;
   font-size: min(calc(var(--cpd-avatar-size) * 0.75), 60px);
-  border-radius: var(--cpd-avatar-radius);
   text-transform: uppercase;
   speak: none;
-  pointer-events: none;
   font-weight: normal;
   overflow: hidden;
   user-select: none;
 }
 
-img.avatar {
+.avatar,
+.image {
+  aspect-ratio: 1 / 1;
+  width: var(--cpd-avatar-size);
+  border-radius: var(--cpd-avatar-radius);
+}
+
+.image {
   object-fit: cover;
   overflow: hidden;
 }
 
-.avatar:not([src]) {
+.avatar:not(:has(.image)) {
   /* In the future we'd prefer to pass the HEX code as the data attr
      and use `attr(data-color)` to avoid the style declaration from below
      but this is currently not supported in all browsers */
