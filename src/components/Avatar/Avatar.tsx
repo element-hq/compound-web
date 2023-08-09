@@ -15,60 +15,68 @@ limitations under the License.
 */
 
 import classnames from "classnames";
-import React, { Suspense } from "react";
+import React, { Suspense, forwardRef } from "react";
 import { getInitialLetter } from "../../utils/string";
 import { SuspenseImg } from "../../utils/SuspenseImg";
 import styles from "./Avatar.module.css";
 import { useIdColorHash } from "./useIdColorHash";
 
-type AvatarProps = {
-  src?: string;
+type AvatarProps = JSX.IntrinsicElements["span"] & {
+  src?: React.ComponentProps<typeof SuspenseImg>["src"];
   id: string;
   name: string;
   type?: "square" | "round";
-  className?: string;
   size?: CSSStyleDeclaration["height"];
+  onError?: React.ComponentProps<typeof SuspenseImg>["onError"];
 };
 
-export const Avatar: React.FC<AvatarProps> = ({
-  src,
-  id,
-  name = "",
-  type = "round",
-  className = "",
-  size,
-}) => {
+export const Avatar = forwardRef<HTMLSpanElement, AvatarProps>(function Avatar(
+  {
+    src,
+    id,
+    name = "",
+    type = "round",
+    className = "",
+    size,
+    onError,
+    ...props
+  },
+  ref,
+) {
   const hash = useIdColorHash(id);
   const style = {
     "--cpd-avatar-size": size,
   } as React.CSSProperties;
-  const imagelessAvatar = (
+  const fallbackInitial = <>{getInitialLetter(name)}</>;
+
+  return (
     <span
+      ref={ref}
       role="img"
+      title={id}
+      {...props}
       aria-label=""
       data-type={type}
       data-color={hash}
       className={classnames(styles.avatar, className)}
       style={style}
-      title={id}
     >
-      {getInitialLetter(name)}
+      {!src ? (
+        fallbackInitial
+      ) : (
+        <Suspense fallback={fallbackInitial}>
+          <SuspenseImg
+            src={src}
+            className={classnames(styles.image, className)}
+            data-type={type}
+            style={style}
+            width={size}
+            height={size}
+            title={id}
+            onError={onError}
+          />
+        </Suspense>
+      )}
     </span>
   );
-
-  return !src ? (
-    imagelessAvatar
-  ) : (
-    <Suspense fallback={imagelessAvatar}>
-      <SuspenseImg
-        src={src}
-        className={classnames(styles.avatar, className)}
-        data-type={type}
-        style={style}
-        width={size}
-        height={size}
-        title={id}
-      />
-    </Suspense>
-  );
-};
+});
