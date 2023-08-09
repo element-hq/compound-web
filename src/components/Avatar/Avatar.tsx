@@ -67,7 +67,7 @@ export const Avatar = forwardRef<HTMLSpanElement, AvatarProps>(function Avatar(
         <Suspense fallback={fallbackInitial}>
           <SuspenseImg
             src={src}
-            className={classnames(styles.image, className)}
+            className={classnames(styles.image)}
             data-type={type}
             style={style}
             width={size}
