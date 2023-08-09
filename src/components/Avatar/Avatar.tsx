@@ -38,15 +38,13 @@ export const Avatar = forwardRef<HTMLSpanElement, AvatarProps>(function Avatar(
     type = "round",
     className = "",
     size,
+    style = {},
     onError,
     ...props
   },
   ref,
 ) {
   const hash = useIdColorHash(id);
-  const style = {
-    "--cpd-avatar-size": size,
-  } as React.CSSProperties;
   const fallbackInitial = <>{getInitialLetter(name)}</>;
 
   return (
@@ -59,7 +57,12 @@ export const Avatar = forwardRef<HTMLSpanElement, AvatarProps>(function Avatar(
       data-type={type}
       data-color={hash}
       className={classnames(styles.avatar, className)}
-      style={style}
+      style={
+        {
+          ...style,
+          "--cpd-avatar-size": size,
+        } as React.CSSProperties
+      }
     >
       {!src ? (
         fallbackInitial
