@@ -16,9 +16,6 @@ jobs:
   release:
     name: "Release & Publish"
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./app
     steps:
       - name: 🧮 Checkout code
         uses: actions/checkout@v3
@@ -46,7 +43,7 @@ jobs:
         id: npm-publish
         uses: JS-DevTools/npm-publish@v1
         with:
-          token: ${{ secrets.NPM_TOKEN }}
+          token: ${{ secrets.ELEMENT_NPM_TOKEN }}
           access: public
 
       - name: 🧬 Create release
