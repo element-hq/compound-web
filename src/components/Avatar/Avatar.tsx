@@ -21,17 +21,16 @@ import { SuspenseImg } from "../../utils/SuspenseImg";
 import styles from "./Avatar.module.css";
 import { useIdColorHash } from "./useIdColorHash";
 
-type AvatarProps = {
+type AvatarProps = JSX.IntrinsicElements["span"] & {
   src?: string;
   id: string;
   name: string;
   type?: "square" | "round";
-  className?: string;
   size?: CSSStyleDeclaration["height"];
 };
 
 export const Avatar = forwardRef<HTMLSpanElement, AvatarProps>(function Avatar(
-  { src, id, name = "", type = "round", className = "", size },
+  { src, id, name = "", type = "round", className = "", size, ...props },
   ref,
 ) {
   const hash = useIdColorHash(id);
@@ -44,12 +43,13 @@ export const Avatar = forwardRef<HTMLSpanElement, AvatarProps>(function Avatar(
     <span
       ref={ref}
       role="img"
+      title={id}
+      {...props}
       aria-label=""
       data-type={type}
       data-color={hash}
       className={classnames(styles.avatar, className)}
       style={style}
-      title={id}
     >
       {!src ? (
         fallbackInitial
