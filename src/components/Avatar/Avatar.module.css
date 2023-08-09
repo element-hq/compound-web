@@ -19,10 +19,10 @@ limitations under the License.
   box-sizing: border-box;
   line-height: var(--cpd-avatar-size);
   text-align: center;
-  font-size: min(calc(var(--cpd-avatar-size) * 0.75), 60px);
+  font-size: min(calc(var(--cpd-avatar-size) * 0.5625), 60px);
   text-transform: uppercase;
   speak: none;
-  font-weight: normal;
+  font-weight: bold;
   overflow: hidden;
   user-select: none;
 }
