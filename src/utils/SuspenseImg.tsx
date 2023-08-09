@@ -42,9 +42,9 @@ const imgCache = {
   },
 };
 
-type SuspenseImgProps = {
+type SuspenseImgProps = JSX.IntrinsicElements["img"] & {
   src: string;
-} & React.ImgHTMLAttributes<HTMLImageElement>;
+};
 
 export const SuspenseImg: React.FC<SuspenseImgProps> = ({ src, ...props }) => {
   /**

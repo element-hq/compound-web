@@ -22,15 +22,25 @@ import styles from "./Avatar.module.css";
 import { useIdColorHash } from "./useIdColorHash";
 
 type AvatarProps = JSX.IntrinsicElements["span"] & {
-  src?: string;
+  src?: React.ComponentProps<typeof SuspenseImg>["src"];
   id: string;
   name: string;
   type?: "square" | "round";
   size?: CSSStyleDeclaration["height"];
+  onError?: React.ComponentProps<typeof SuspenseImg>["onError"];
 };
 
 export const Avatar = forwardRef<HTMLSpanElement, AvatarProps>(function Avatar(
-  { src, id, name = "", type = "round", className = "", size, ...props },
+  {
+    src,
+    id,
+    name = "",
+    type = "round",
+    className = "",
+    size,
+    onError,
+    ...props
+  },
   ref,
 ) {
   const hash = useIdColorHash(id);
@@ -63,6 +73,7 @@ export const Avatar = forwardRef<HTMLSpanElement, AvatarProps>(function Avatar(
             width={size}
             height={size}
             title={id}
+            onError={onError}
           />
         </Suspense>
       )}
