@@ -31,6 +31,8 @@ jobs:
           cache: "yarn"
 
       - name: 🛠️ Setup
+        # When running `install` it also calls the `prepare` step which generates
+        # a build
         run: yarn install --pure-lockfile
 
       - name: 👊 Bump version
@@ -40,9 +42,6 @@ jobs:
           git config --global user.email 'releases@riot.im'
           git commit -am "${{ github.event.inputs.version-bump }} version bump"
           git push
-      - name: ⚙️ Build
-        run: |
-          yarn build
       - name: 🚀 Publish to npm
         id: npm-publish
         uses: JS-DevTools/npm-publish@v1
