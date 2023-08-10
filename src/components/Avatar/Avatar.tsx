@@ -34,6 +34,15 @@ type AvatarProps = (
   onError?: React.ComponentProps<typeof SuspenseImg>["onError"];
 };
 
+/**
+ * Some props warrant that the avatar become a button for accessibility purposes
+ * @param props Avatar props
+ * @returns whether the avatar should be a button or not
+ */
+function shouldBeAButton(props: Partial<AvatarProps>): boolean {
+  return !!(props.onClick || props.onKeyDown || props.onKeyUp);
+}
+
 export const Avatar = forwardRef<
   HTMLSpanElement | HTMLButtonElement,
   AvatarProps
@@ -47,7 +56,6 @@ export const Avatar = forwardRef<
     size,
     style = {},
     onError,
-    onClick,
     ...props
   },
   ref,
@@ -56,9 +64,7 @@ export const Avatar = forwardRef<
   const fallbackInitial = <>{getInitialLetter(name)}</>;
 
   return React.createElement(
-    // Preventing `span` elements to have an `onClick` as it is usually
-    // terrible for accesibility
-    onClick ? "button" : "span",
+    shouldBeAButton(props) ? "button" : "span",
     {
       ref,
       role: "img",
@@ -68,7 +74,6 @@ export const Avatar = forwardRef<
       "data-type": type,
       "data-color": hash,
       className: classnames(styles.avatar, className),
-      onClick,
       style: {
         ...style,
         "--cpd-avatar-size": size,
