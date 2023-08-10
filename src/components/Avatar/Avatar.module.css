@@ -27,6 +27,21 @@ limitations under the License.
   user-select: none;
 }
 
+button.avatar {
+  /**
+   * The avatar can be a button element, we need to reset its style
+   */
+  padding: 0;
+  border: 0;
+  appearance: none;
+  cursor: pointer;
+}
+
+button.avatar:disabled,
+button.avatar[disabled] {
+  cursor: not-allowed;
+}
+
 .avatar,
 .image {
   aspect-ratio: 1 / 1;

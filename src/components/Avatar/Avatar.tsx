@@ -21,16 +21,24 @@ import { SuspenseImg } from "../../utils/SuspenseImg";
 import styles from "./Avatar.module.css";
 import { useIdColorHash } from "./useIdColorHash";
 
-type AvatarProps = JSX.IntrinsicElements["span"] & {
+type AvatarProps = (
+  | JSX.IntrinsicElements["button"]
+  | JSX.IntrinsicElements["span"]
+) & {
+  as: "button" | "span";
   src?: React.ComponentProps<typeof SuspenseImg>["src"];
   id: string;
   name: string;
   type?: "square" | "round";
   size?: CSSStyleDeclaration["height"];
+  onClick: (e: React.MouseEvent) => void;
   onError?: React.ComponentProps<typeof SuspenseImg>["onError"];
 };
 
-export const Avatar = forwardRef<HTMLSpanElement, AvatarProps>(function Avatar(
+export const Avatar = forwardRef<
+  HTMLSpanElement | HTMLButtonElement,
+  AvatarProps
+>(function Avatar(
   {
     src,
     id,
@@ -40,6 +48,7 @@ export const Avatar = forwardRef<HTMLSpanElement, AvatarProps>(function Avatar(
     size,
     style = {},
     onError,
+    as = "span",
     ...props
   },
   ref,
@@ -47,39 +56,41 @@ export const Avatar = forwardRef<HTMLSpanElement, AvatarProps>(function Avatar(
   const hash = useIdColorHash(id);
   const fallbackInitial = <>{getInitialLetter(name)}</>;
 
-  return (
-    <span
-      ref={ref}
-      role="img"
-      title={id}
-      {...props}
-      aria-label=""
-      data-type={type}
-      data-color={hash}
-      className={classnames(styles.avatar, className)}
-      style={
-        {
-          ...style,
-          "--cpd-avatar-size": size,
-        } as React.CSSProperties
-      }
-    >
-      {!src ? (
-        fallbackInitial
-      ) : (
-        <Suspense fallback={fallbackInitial}>
-          <SuspenseImg
-            src={src}
-            className={classnames(styles.image)}
-            data-type={type}
-            style={style}
-            width={size}
-            height={size}
-            title={id}
-            onError={onError}
-          />
-        </Suspense>
-      )}
-    </span>
+  return React.createElement(
+    as,
+    {
+      ref,
+      role: "img",
+      title: id,
+      "aria-label": "",
+      ...props,
+      "data-type": type,
+      "data-color": hash,
+      className: classnames(styles.avatar, className),
+      style: {
+        ...style,
+        "--cpd-avatar-size": size,
+      } as React.CSSProperties,
+    },
+    [
+      <>
+        {!src ? (
+          fallbackInitial
+        ) : (
+          <Suspense fallback={fallbackInitial}>
+            <SuspenseImg
+              src={src}
+              className={classnames(styles.image)}
+              data-type={type}
+              style={style}
+              width={size}
+              height={size}
+              title={id}
+              onError={onError}
+            />
+          </Suspense>
+        )}
+      </>,
+    ],
   );
 });
