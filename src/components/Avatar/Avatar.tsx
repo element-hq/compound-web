@@ -26,25 +26,25 @@ type AvatarProps = (
   | JSX.IntrinsicElements["span"]
 ) & {
   /**
-   * The avatar image URL
+   * The avatar image URL, if any.
    */
   src?: React.ComponentProps<typeof SuspenseImg>["src"];
   /**
    * The Matrix ID, Room ID, or Alias to generate the color when no image source
-   * is provided. Also used as a fallback when name is empty
+   * is provided. Also used as a fallback when name is empty.
    */
   id: string;
   /**
-   * The name used for the initial letter displayed when no image source is provided
+   * The name used for the initial letter displayed when no image source is provided.
    */
   name: string;
   /**
-   * Defines the avatar type, typically round, square is usually for spaces
+   * Defines the avatar type, typically round, square is usually for spaces.
    * @default "round"
    */
   type?: "square" | "round";
   /**
-   * The avatar size
+   * The avatar size in CSS units, e.g. `"24px"`.
    */
   size?: CSSStyleDeclaration["height"];
   /**
@@ -60,7 +60,7 @@ type AvatarProps = (
    */
   onKeyUp?: (e: React.KeyboardEvent) => void;
   /**
-   * Callback when the image has failed to load
+   * Callback when the image has failed to load.
    */
   onError?: React.ComponentProps<typeof SuspenseImg>["onError"];
 };
@@ -76,7 +76,7 @@ function shouldBeAButton(props: Partial<AvatarProps>): boolean {
 
 /**
  * Avatar component that will fallback to an initial letter over a coloured
- * background if no source is provided or if the source has failed to load
+ * background if no source is provided or if the source has failed to load.
  */
 export const Avatar = forwardRef<
   HTMLSpanElement | HTMLButtonElement,
