@@ -48,15 +48,15 @@ type AvatarProps = (
    */
   size?: CSSStyleDeclaration["height"];
   /**
-   * On click handler, will turn the avatar into a button
+   * On click handler, will turn the avatar into a button element.
    */
   onClick?: (e: React.MouseEvent) => void;
   /**
-   * Key down handler, will turn the avatar into a button
+   * Key down handler, will turn the avatar into a button element.
    */
   onKeyDown?: (e: React.KeyboardEvent) => void;
   /**
-   * Key up handler, will turn the avatar into a button
+   * Key up handler, will turn the avatar into a button element.
    */
   onKeyUp?: (e: React.KeyboardEvent) => void;
   /**
