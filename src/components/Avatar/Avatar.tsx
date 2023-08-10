@@ -25,13 +25,12 @@ type AvatarProps = (
   | JSX.IntrinsicElements["button"]
   | JSX.IntrinsicElements["span"]
 ) & {
-  as: "button" | "span";
   src?: React.ComponentProps<typeof SuspenseImg>["src"];
   id: string;
   name: string;
   type?: "square" | "round";
   size?: CSSStyleDeclaration["height"];
-  onClick: (e: React.MouseEvent) => void;
+  onClick?: (e: React.MouseEvent) => void;
   onError?: React.ComponentProps<typeof SuspenseImg>["onError"];
 };
 
@@ -48,7 +47,7 @@ export const Avatar = forwardRef<
     size,
     style = {},
     onError,
-    as = "span",
+    onClick,
     ...props
   },
   ref,
@@ -57,7 +56,9 @@ export const Avatar = forwardRef<
   const fallbackInitial = <>{getInitialLetter(name)}</>;
 
   return React.createElement(
-    as,
+    // Preventing `span` elements to have an `onClick` as it is usually
+    // terrible for accesibility
+    onClick ? "button" : "span",
     {
       ref,
       role: "img",
@@ -67,6 +68,7 @@ export const Avatar = forwardRef<
       "data-type": type,
       "data-color": hash,
       className: classnames(styles.avatar, className),
+      onClick,
       style: {
         ...style,
         "--cpd-avatar-size": size,
