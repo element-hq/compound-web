@@ -46,6 +46,13 @@ Square.args = {
   type: "square",
 };
 
+export const Button = Template.bind({});
+Button.args = {
+  type: "round",
+  as: "button",
+  onClick: () => console.log("clicked!"),
+};
+
 export const NoImageFallback = Template.bind({});
 NoImageFallback.args = {
   src: "",
@@ -55,4 +62,31 @@ export const LargeNoImageFallback = Template.bind({});
 LargeNoImageFallback.args = {
   src: "",
   size: "128px",
+};
+
+const ImageLessCollection: StoryFn<typeof AvatarComponent> = (args) => (
+  <>
+    <AvatarComponent {...args} id="1" />
+    &nbsp;
+    <AvatarComponent {...args} id="2" />
+    &nbsp;
+    <AvatarComponent {...args} id="3" />
+    &nbsp;
+    <AvatarComponent {...args} id="4" />
+    &nbsp;
+    <AvatarComponent {...args} id="5" />
+    &nbsp;
+    <AvatarComponent {...args} id="6" />
+    &nbsp;
+    <AvatarComponent {...args} id="7" />
+    &nbsp;
+    <AvatarComponent {...args} id="8" />
+    &nbsp;
+  </>
+);
+
+export const AllAvatars = ImageLessCollection.bind({});
+AllAvatars.args = {
+  src: "",
+  size: "36px",
 };

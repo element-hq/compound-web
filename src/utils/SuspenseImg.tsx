@@ -56,6 +56,7 @@ export const SuspenseImg: React.FC<SuspenseImgProps> = ({ src, ...props }) => {
   imgCache.read(src);
   return (
     <img
+      loading="lazy"
       alt=""
       src={src}
       crossOrigin="anonymous"
