@@ -16,11 +16,29 @@ limitations under the License.
 
 import React from "react";
 
-const imgCache = {
+interface ImageLoadingCache {
+  /**
+   * A map of all sources loaded with this cache instance
+   * Contains a promise if the image is being loaded, and `true` if the source
+   * has succesfully been loaded.
+   */
+  __cache: Map<string, Promise<unknown> | boolean>;
+  /**
+   * Will attempt to load the source and will throw an exception until
+   * the image has been loaded succesfully.
+   * The exception will be caught by React Suspense and that will notify it to
+   * display the fallback
+   * @param src the image source.
+   * @returns true if the source has been loaded successfully
+   */
+  read: (src: string) => boolean;
+}
+
+const imgCache: ImageLoadingCache = {
   __cache: new Map<string, Promise<unknown> | boolean>(),
   read(src: string): boolean {
     if (!this.__cache.has(src)) {
-      // Create a cache entry with a promise to notify the image is still being loadedd
+      // Create a cache entry with a promise to notify the image is still being loaded
       this.__cache.set(
         src,
         new Promise((resolve) => {
@@ -43,17 +61,30 @@ const imgCache = {
 };
 
 type SuspenseImgProps = JSX.IntrinsicElements["img"] & {
+  /**
+   * The source of the image to load
+   */
   src: string;
+  /**
+   * The cache instance to drive the suspense loading
+   * Useful to override in a test environment
+   * @default imgCache a generic cache instance shared globally
+   */
+  cache?: ImageLoadingCache;
 };
 
-export const SuspenseImg: React.FC<SuspenseImgProps> = ({ src, ...props }) => {
+export const SuspenseImg: React.FC<SuspenseImgProps> = ({
+  src,
+  cache = imgCache,
+  ...props
+}) => {
   /**
    * Read the cache, if the image has already been loaded, it will be displayed
    * straight away. If not, it will throw an exception that will be caught by the
    * `<Suspense />` wrapper.
    * Once the promise is resolved, suspense will replace the fallback with the below
    */
-  imgCache.read(src);
+  cache.read(src);
   return (
     <img
       loading="lazy"

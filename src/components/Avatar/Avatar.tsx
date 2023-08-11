@@ -63,6 +63,10 @@ type AvatarProps = (
    * Callback when the image has failed to load.
    */
   onError?: React.ComponentProps<typeof SuspenseImg>["onError"];
+  /**
+   * The React Suspense cache instance to use
+   */
+  cache?: React.ComponentProps<typeof SuspenseImg>["cache"];
 };
 
 /**
@@ -91,6 +95,7 @@ export const Avatar = forwardRef<
     size,
     style = {},
     onError,
+    cache,
     ...props
   },
   ref,
@@ -129,6 +134,7 @@ export const Avatar = forwardRef<
               height={size}
               title={id}
               onError={onError}
+              cache={cache}
             />
           </Suspense>
         )}

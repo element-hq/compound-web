@@ -15,7 +15,7 @@ limitations under the License.
 */
 
 import { describe, beforeEach, expect, it } from "vitest";
-import { render, waitFor } from "@testing-library/react";
+import { getByRole, render, waitFor } from "@testing-library/react";
 import React from "react";
 
 import { Avatar } from "./Avatar";
@@ -82,4 +82,22 @@ describe("Avatar", () => {
       expect(container.firstChild).toHaveAttribute("data-color", colorNumber);
     },
   );
+
+  it("allows to override the Suspense cache", () => {
+    const cache: React.ComponentProps<typeof Avatar>["cache"] = {
+      __cache: new Map(),
+      read: () => true,
+    };
+
+    const { container } = render(
+      <Avatar
+        src="http://example.org/fake_image.png"
+        id="@bob:example.org"
+        name="Bob"
+        role="presentation"
+        cache={cache}
+      />,
+    );
+    expect(getByRole(container, "img")).toBeInTheDocument();
+  });
 });
