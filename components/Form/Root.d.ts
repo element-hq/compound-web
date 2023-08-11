@@ -1,6 +1,9 @@
 import React from "react";
 import { Root as RadixRoot } from "@radix-ui/react-form";
 type RootProps = {
+    /**
+     * The CSS class name.
+     */
     className?: string;
 } & React.ComponentProps<typeof RadixRoot>;
 /**

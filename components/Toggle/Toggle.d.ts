@@ -1,10 +1,15 @@
 import React from "react";
 /**
- * Standalone toggle component to be used with a Radix form control
- * See https://www.radix-ui.com/docs/primitives/components/form#composing-with-your-own-components
+ * A toggle component.
  */
 export declare const Toggle: React.ForwardRefExoticComponent<{
+    /**
+     * The CSS class name.
+     */
     className?: string | undefined;
+    /**
+     * On mouse down callback for the toggle.
+     */
     onMouseDown?: ((e: React.MouseEvent<HTMLInputElement, MouseEvent>) => void) | undefined;
 } & Omit<React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>, "ref"> & {
     children?: React.ReactNode;

@@ -2,7 +2,13 @@ import React, { PropsWithChildren } from "react";
 import { Submit as RadixSubmit } from "@radix-ui/react-form";
 import { Button } from "../Button/Button";
 type SubmitProps = {
+    /**
+     * The CSS class name.
+     */
     className?: string;
+    /**
+     * The t-shirt size of the submit button.
+     */
     size?: React.ComponentProps<typeof Button>["size"];
 } & React.ComponentProps<typeof RadixSubmit>;
 /**

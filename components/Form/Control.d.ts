@@ -1,6 +1,9 @@
 import React from "react";
 import { Control as RadixControl } from "@radix-ui/react-form";
 type ControlProps = {
+    /**
+     * The CSS class name.
+     */
     className?: string;
 } & React.ComponentProps<typeof RadixControl>;
 /**

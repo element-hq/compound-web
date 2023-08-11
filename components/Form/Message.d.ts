@@ -1,6 +1,9 @@
 import React from "react";
 import { Message as RadixMessage } from "@radix-ui/react-form";
 type MessageProps = {
+    /**
+     * The CSS class name.
+     */
     className?: string;
 } & React.ComponentProps<typeof RadixMessage>;
 /**

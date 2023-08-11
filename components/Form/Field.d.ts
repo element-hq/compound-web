@@ -1,6 +1,9 @@
 import React from "react";
 import { Field as RadixField } from "@radix-ui/react-form";
 type FieldProps = {
+    /**
+     * The CSS class name.
+     */
     className?: string;
 } & React.ComponentProps<typeof RadixField>;
 /**

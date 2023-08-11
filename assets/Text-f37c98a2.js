@@ -1,0 +1,2 @@
+import{j as p}from"./jsx-runtime-ffb262ed.js";import{T as a}from"./Typography-fdd3d6b2.js";const t=({as:e="p",children:r,...o})=>p.jsx(a,{as:e,type:"body",...o,children:r});try{t.displayName="Text",t.__docgenInfo={description:"A text component. Underlying HTML element can be changed using the `as`\nproperty. Will default to be a paragraph.",displayName:"Text",props:{}}}catch{}export{t as T};
+//# sourceMappingURL=Text-f37c98a2.js.map
