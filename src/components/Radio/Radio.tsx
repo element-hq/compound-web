@@ -19,13 +19,22 @@ import React, { forwardRef, PropsWithChildren } from "react";
 import styles from "./Radio.module.css";
 
 type RadioProps = {
+  /**
+   * The type of radio.
+   */
   kind?: "primary" | "critical";
+  /**
+   * The CSS class name.
+   */
   className?: string;
+  /**
+   * On mouse down callback for the radio.
+   */
   onMouseDown?: (e: React.MouseEvent<HTMLInputElement, MouseEvent>) => void;
 } & React.ComponentPropsWithoutRef<"input">;
 
 /**
- * Radio form control
+ * A radio component.
  */
 export const Radio = forwardRef<
   HTMLInputElement,
