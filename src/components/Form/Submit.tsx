@@ -22,7 +22,13 @@ import classNames from "classnames";
 import { Button } from "../Button/Button";
 
 type SubmitProps = {
+  /**
+   * The CSS class name.
+   */
   className?: string;
+  /**
+   * The t-shirt size of the submit button.
+   */
   size?: React.ComponentProps<typeof Button>["size"];
 } & React.ComponentProps<typeof RadixSubmit>;
 
