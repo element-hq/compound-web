@@ -19,10 +19,19 @@ import styles from "./Link.module.css";
 import classNames from "classnames";
 
 type LinkProps = {
+  /**
+   * The CSS class name.
+   */
   className?: string;
+  /**
+   * The type of link.
+   */
   kind?: "primary" | "critical";
 } & Omit<React.HTMLProps<HTMLAnchorElement>, "rel">;
 
+/**
+ * A link component.
+ */
 export const Link = forwardRef<HTMLAnchorElement, PropsWithChildren<LinkProps>>(
   function Link({ children, className, kind = "primary", ...props }, ref) {
     return (

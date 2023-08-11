@@ -20,11 +20,23 @@ import styles from "./Checkbox.module.css";
 import CheckIcon from "@vector-im/compound-design-tokens/icons/check.svg";
 
 type CheckboxProps = {
+  /**
+   * The type of checkbox.
+   */
   kind?: "primary" | "critical";
+  /**
+   * The CSS class name.
+   */
   className?: string;
+  /**
+   * On mouse down callback for the checkbox.
+   */
   onMouseDown?: (e: React.MouseEvent<HTMLInputElement, MouseEvent>) => void;
 } & React.ComponentPropsWithoutRef<"input">;
 
+/**
+ * A checkbox component.
+ */
 export const Checkbox = forwardRef<
   HTMLInputElement,
   PropsWithChildren<CheckboxProps>

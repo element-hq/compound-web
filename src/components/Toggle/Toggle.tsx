@@ -19,13 +19,18 @@ import React, { forwardRef, PropsWithChildren } from "react";
 import styles from "./Toggle.module.css";
 
 type ToggleProps = {
+  /**
+   * The CSS class name.
+   */
   className?: string;
+  /**
+   * On mouse down callback for the toggle.
+   */
   onMouseDown?: (e: React.MouseEvent<HTMLInputElement, MouseEvent>) => void;
 } & React.ComponentPropsWithoutRef<"input">;
 
 /**
- * Standalone toggle component to be used with a Radix form control
- * See https://www.radix-ui.com/docs/primitives/components/form#composing-with-your-own-components
+ * A toggle component.
  */
 export const Toggle = forwardRef<
   HTMLInputElement,

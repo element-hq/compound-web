@@ -20,10 +20,19 @@ import styles from "./Badge.module.css";
 import { Typography } from "../Typography/Typography";
 
 type BadgeProps = {
+  /**
+   * The CSS class name.
+   */
   className?: string;
+  /**
+   * The type of badge.
+   */
   kind?: "default" | "success" | "critical";
 };
 
+/**
+ * A Badge component.
+ */
 export const Badge: React.FC<PropsWithChildren<BadgeProps>> = ({
   children,
   kind = "default",

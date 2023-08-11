@@ -21,6 +21,9 @@ import styles from "./form.module.css";
 import classNames from "classnames";
 
 type LabelProps = {
+  /**
+   * The CSS class name.
+   */
   className?: string;
 } & React.ComponentProps<typeof RadixLabel>;
 
