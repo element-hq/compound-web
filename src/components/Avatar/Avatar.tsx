@@ -15,7 +15,7 @@ limitations under the License.
 */
 
 import classnames from "classnames";
-import React, { Suspense, forwardRef } from "react";
+import React, { forwardRef } from "react";
 import { getInitialLetter } from "../../utils/string";
 import { SuspenseImg } from "../../utils/SuspenseImg";
 import styles from "./Avatar.module.css";
@@ -63,10 +63,6 @@ type AvatarProps = (
    * Callback when the image has failed to load.
    */
   onError?: React.ComponentProps<typeof SuspenseImg>["onError"];
-  /**
-   * The React Suspense cache instance to use
-   */
-  cache?: React.ComponentProps<typeof SuspenseImg>["cache"];
 };
 
 /**
@@ -95,14 +91,10 @@ export const Avatar = forwardRef<
     size,
     style = {},
     onError,
-    cache,
     ...props
   },
   ref,
 ) {
-  const hash = useIdColorHash(id);
-  const fallbackInitial = <>{getInitialLetter(name)}</>;
-
   return React.createElement(
     shouldBeAButton(props) ? "button" : "span",
     {
@@ -112,33 +104,32 @@ export const Avatar = forwardRef<
       "aria-label": "",
       ...props,
       "data-type": type,
-      "data-color": hash,
+      "data-color": useIdColorHash(id),
       className: classnames(styles.avatar, className),
       style: {
         ...style,
         "--cpd-avatar-size": size,
       } as React.CSSProperties,
     },
-    [
-      <>
-        {!src ? (
-          fallbackInitial
-        ) : (
-          <Suspense fallback={fallbackInitial}>
-            <SuspenseImg
-              src={src}
-              className={classnames(styles.image)}
-              data-type={type}
-              style={style}
-              width={size}
-              height={size}
-              title={id}
-              onError={onError}
-              cache={cache}
-            />
-          </Suspense>
-        )}
-      </>,
-    ],
+    <React.Fragment>
+      {!src ? (
+        getInitialLetter(name)
+      ) : (
+        <img
+          loading="lazy"
+          alt=""
+          src={src}
+          crossOrigin="anonymous"
+          referrerPolicy="no-referrer"
+          className={classnames(styles.image)}
+          data-type={type}
+          style={style}
+          width={size}
+          height={size}
+          title={id}
+          onError={onError}
+        />
+      )}
+    </React.Fragment>,
   );
 });
