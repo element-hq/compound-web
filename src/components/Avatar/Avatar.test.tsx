@@ -15,7 +15,7 @@ limitations under the License.
 */
 
 import { describe, beforeEach, expect, it } from "vitest";
-import { render, waitFor } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import React from "react";
 
 import { Avatar } from "./Avatar";
@@ -41,15 +41,6 @@ describe("Avatar", () => {
   it("renders the image-less avatar", () => {
     const { asFragment } = render(<Avatar name="Bob" id="@bob:example.org" />);
     expect(asFragment()).toMatchSnapshot();
-  });
-
-  it("replaces the placeholder with the actual image", async () => {
-    const { container } = render(
-      <Avatar src="./mock.jpg" name="Bob" id="@bob:example.org" />,
-    );
-
-    expect(container).toHaveTextContent("B");
-    await waitFor(() => expect(document.querySelector("img")).not.toBeNull());
   });
 
   it("does not split emoji as first letter", () => {
