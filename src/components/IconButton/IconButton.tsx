@@ -32,7 +32,7 @@ type IconButtonProps = JSX.IntrinsicElements["button"] & {
   /**
    * The icon button indicator displayed on the top right
    */
-  indicator?: "default" | "critical";
+  indicator?: "default" | "highlight";
 };
 
 export const IconButton = forwardRef<

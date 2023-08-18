@@ -29,9 +29,19 @@ export default {
 } as Meta<typeof IconButtonComponent>;
 
 const Template: StoryFn<typeof IconButtonComponent> = (args) => (
-  <IconButtonComponent {...args}>
-    <UserIcon />
-  </IconButtonComponent>
+  <>
+    <IconButtonComponent {...args} size="32px">
+      <UserIcon />
+    </IconButtonComponent>
+
+    <IconButtonComponent {...args} size="48px">
+      <UserIcon />
+    </IconButtonComponent>
+
+    <IconButtonComponent {...args} size="64px">
+      <UserIcon />
+    </IconButtonComponent>
+  </>
 );
 
 export const Normal = Template.bind({});
@@ -42,7 +52,7 @@ WithIndicator.args = {
   indicator: "default",
 };
 
-export const WithCriticalIndicator = Template.bind({});
-WithCriticalIndicator.args = {
-  indicator: "critical",
+export const WithHighlightIndicator = Template.bind({});
+WithHighlightIndicator.args = {
+  indicator: "highlight",
 };

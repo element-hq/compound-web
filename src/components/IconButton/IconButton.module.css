@@ -15,7 +15,9 @@ limitations under the License.
 */
 
 .icon-button {
-  --cpd-icon-button-indicator-border-size: 2px;
+  --cpd-icon-button-indicator-border-size: calc(
+    var(--cpd-icon-button-size) * 0.0625
+  );
 
   width: var(--cpd-icon-button-size);
   padding: calc(var(--cpd-icon-button-size) * 0.125);
@@ -40,27 +42,26 @@ limitations under the License.
   height: 100%;
 }
 
+.icon-button[data-indicator] svg {
+  mask-image: url("./indicator-mask.svg");
+  mask-position: center center;
+  mask-repeat: no-repeat;
+  mask-size: calc(var(--cpd-icon-button-size) * 0.75);
+}
+
 .icon-button[data-indicator]::before {
   content: "";
   position: absolute;
   top: var(--cpd-icon-button-indicator-border-size);
   right: var(--cpd-icon-button-indicator-border-size);
-  width: 8px;
-  height: 8px;
+  width: calc(var(--cpd-icon-button-size) * 0.25);
+  height: calc(var(--cpd-icon-button-size) * 0.25);
   border-radius: 50%;
-
-  /* The default background color
-     TODO: Remove, and replace with a CSS mask
-   */
-  background: var(--cpd-color-icon-success-primary);
+  background: currentColor;
 }
 
-.icon-button[data-indicator="default"]::before {
+.icon-button[data-indicator="highlight"]::before {
   background: var(--cpd-color-icon-success-primary);
-}
-
-.icon-button[data-indicator="critical"]::before {
-  background: var(--cpd-color-icon-critical-primary);
 }
 
 /**
