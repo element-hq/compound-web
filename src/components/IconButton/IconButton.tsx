@@ -35,6 +35,9 @@ type IconButtonProps = JSX.IntrinsicElements["button"] & {
   indicator?: "default" | "highlight";
 };
 
+/**
+ * Display an icon as a button. Can render an indicator
+ */
 export const IconButton = forwardRef<
   HTMLButtonElement,
   PropsWithChildren<IconButtonProps>
