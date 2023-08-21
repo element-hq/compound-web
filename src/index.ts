@@ -35,6 +35,7 @@ export {
   H5,
   H6,
 } from "./components/Typography/Heading";
+export { IconButton } from "./components/IconButton/IconButton";
 export { Label } from "./components/Form/Label";
 export { Link } from "./components/Link/Link";
 export { Message } from "./components/Form/Message";
