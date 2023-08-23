@@ -19,6 +19,7 @@ export { Radio } from "./components/Radio/Radio";
 export { Root } from "./components/Form/Root";
 export { Submit } from "./components/Form/Submit";
 export { Toggle } from "./components/Toggle/Toggle";
+export { Tooltip } from "./components/Tooltip/Tooltip";
 export { ValidityState } from "./components/Form/ValidityState";
 /**
  * Export utility functions
