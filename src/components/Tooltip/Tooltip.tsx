@@ -25,12 +25,17 @@ import {
 } from "@radix-ui/react-tooltip";
 
 import styles from "./Tooltip.module.css";
+import classNames from "classnames";
 
 type TooltipProps = {
   /**
-   * The tooltip text
+   * The tooltip label
    */
-  text: string;
+  label: string;
+  /**
+   * The associated keyboard shortcut
+   */
+  shortcut?: string;
   /**
    * The side where the tooltip is rendered
    * @default bottom
@@ -67,7 +72,8 @@ type TooltipProps = {
  */
 export const Tooltip = ({
   children,
-  text,
+  label,
+  shortcut,
   side = "bottom",
   align = "center",
   onEscapeKeyDown,
@@ -86,7 +92,16 @@ export const Tooltip = ({
             onPointerDownOutside={onPointerDownOutside}
             className={styles.tooltip}
           >
-            {text}
+            {label}
+            {/* Forcing dark theme, so that we have the correct contrast when
+                using the text color secondary on a solid dark background. 
+                This is temporary and should only remain until we figure out 
+                the approach to on-solid tokens */}
+            {shortcut && (
+              <small className={classNames(styles.shortcut, "cpd-theme-dark")}>
+                {shortcut}
+              </small>
+            )}
             <Arrow width={10} height={6} className={styles.arrow} />
           </Content>
         </Portal>

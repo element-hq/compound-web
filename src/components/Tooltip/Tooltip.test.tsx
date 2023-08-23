@@ -27,7 +27,7 @@ describe("Tooltip", () => {
   });
   it("renders open by default", () => {
     const { asFragment } = render(
-      <Tooltip text="Hello world 👋" open={true}>
+      <Tooltip label="Hello world 👋" shortcut="⌘ + C" open={true}>
         <IconButton>
           <svg />
         </IconButton>
@@ -37,7 +37,7 @@ describe("Tooltip", () => {
   });
   it("renders", () => {
     const { asFragment } = render(
-      <Tooltip text="Hello world 👋">
+      <Tooltip label="Hello world 👋">
         <IconButton>
           <svg />
         </IconButton>
