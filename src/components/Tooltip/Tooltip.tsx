@@ -55,7 +55,8 @@ type TooltipProps = {
   >["onPointerDownOutside"];
   /**
    * The controlled open state of the tooltip.
-   * Must be used in conjunction with onOpenChange.
+   * You will mostly want to omit this property. Will be used the vast majority
+   * of the time during development.
    * @default undefined
    */
   open?: boolean;
@@ -73,7 +74,6 @@ export const Tooltip = ({
   onPointerDownOutside,
   open,
 }: PropsWithChildren<TooltipProps>) => {
-  // TODO: Update the class name to something related to the component name
   return (
     <Provider>
       <Root open={open} delayDuration={300}>

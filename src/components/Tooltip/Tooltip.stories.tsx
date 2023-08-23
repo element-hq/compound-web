@@ -29,7 +29,7 @@ export default {
   args: {},
 } as Meta<typeof TooltipComponent>;
 
-const Template: StoryFn<typeof TooltipComponent> = () => (
+const TemplateSide: StoryFn<typeof TooltipComponent> = () => (
   <div
     style={{
       display: "flex",
@@ -61,5 +61,35 @@ const Template: StoryFn<typeof TooltipComponent> = () => (
   </div>
 );
 
-export const Tooltip = Template.bind({});
-Tooltip.args = {};
+export const Side = TemplateSide.bind({});
+Side.args = {};
+
+const TemplateAlign: StoryFn<typeof TooltipComponent> = () => (
+  <div
+    style={{
+      display: "flex",
+      gap: "50px",
+      flexDirection: "column",
+      alignItems: "center",
+    }}
+  >
+    <TooltipComponent open={true} align="center" text="@bob:example.org">
+      <IconButton>
+        <UserIcon />
+      </IconButton>
+    </TooltipComponent>
+    <TooltipComponent open={true} align="start" text="@bob:example.org">
+      <IconButton>
+        <UserIcon />
+      </IconButton>
+    </TooltipComponent>
+    <TooltipComponent open={true} align="end" text="@bob:example.org">
+      <IconButton>
+        <UserIcon />
+      </IconButton>
+    </TooltipComponent>
+  </div>
+);
+
+export const Align = TemplateAlign.bind({});
+Align.args = {};

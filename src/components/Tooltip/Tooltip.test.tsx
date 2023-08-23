@@ -25,9 +25,19 @@ describe("Tooltip", () => {
   beforeAll(() => {
     global.ResizeObserver = require("resize-observer-polyfill");
   });
-  it("renders", () => {
+  it("renders open by default", () => {
     const { asFragment } = render(
       <Tooltip text="Hello world 👋" open={true}>
+        <IconButton>
+          <svg />
+        </IconButton>
+      </Tooltip>,
+    );
+    expect(asFragment()).toMatchSnapshot();
+  });
+  it("renders", () => {
+    const { asFragment } = render(
+      <Tooltip text="Hello world 👋">
         <IconButton>
           <svg />
         </IconButton>
