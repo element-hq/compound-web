@@ -34,6 +34,7 @@ export default defineConfig({
         "classnames",
         "graphemer",
         "@radix-ui/react-form",
+        "@radix-ui/react-tooltip",
       ],
 
       // Without this, none of the exports are preserved in the bundle
