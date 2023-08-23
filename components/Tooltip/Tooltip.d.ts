@@ -2,9 +2,13 @@ import React, { PropsWithChildren } from "react";
 import { Content } from "@radix-ui/react-tooltip";
 type TooltipProps = {
     /**
-     * The tooltip text
+     * The tooltip label
      */
-    text: string;
+    label: string;
+    /**
+     * The associated keyboard shortcut
+     */
+    shortcut?: string;
     /**
      * The side where the tooltip is rendered
      * @default bottom
@@ -36,5 +40,5 @@ type TooltipProps = {
 /**
  * A tooltip component
  */
-export declare const Tooltip: ({ children, text, side, align, onEscapeKeyDown, onPointerDownOutside, open, }: PropsWithChildren<TooltipProps>) => React.JSX.Element;
+export declare const Tooltip: ({ children, label, shortcut, side, align, onEscapeKeyDown, onPointerDownOutside, open, }: PropsWithChildren<TooltipProps>) => React.JSX.Element;
 export {};
