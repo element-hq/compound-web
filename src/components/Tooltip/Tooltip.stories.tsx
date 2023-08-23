@@ -38,22 +38,22 @@ const TemplateSide: StoryFn<typeof TooltipComponent> = () => (
       alignItems: "center",
     }}
   >
-    <TooltipComponent open={true} side="top" text="@bob:example.org">
+    <TooltipComponent open={true} side="top" label="@bob:example.org">
       <IconButton>
         <UserIcon />
       </IconButton>
     </TooltipComponent>
-    <TooltipComponent open={true} side="right" text="@bob:example.org">
+    <TooltipComponent open={true} side="right" label="@bob:example.org">
       <IconButton>
         <UserIcon />
       </IconButton>
     </TooltipComponent>
-    <TooltipComponent open={true} side="bottom" text="@bob:example.org">
+    <TooltipComponent open={true} side="bottom" label="@bob:example.org">
       <IconButton>
         <UserIcon />
       </IconButton>
     </TooltipComponent>
-    <TooltipComponent open={true} side="left" text="@bob:example.org">
+    <TooltipComponent open={true} side="left" label="@bob:example.org">
       <IconButton>
         <UserIcon />
       </IconButton>
@@ -73,17 +73,27 @@ const TemplateAlign: StoryFn<typeof TooltipComponent> = () => (
       alignItems: "center",
     }}
   >
-    <TooltipComponent open={true} align="center" text="@bob:example.org">
+    <TooltipComponent open={true} align="center" label="Copy" shortcut="⌘ + C">
       <IconButton>
         <UserIcon />
       </IconButton>
     </TooltipComponent>
-    <TooltipComponent open={true} align="start" text="@bob:example.org">
+    <TooltipComponent
+      open={true}
+      align="start"
+      label="@bob:example.org"
+      shortcut="⌘ + C"
+    >
       <IconButton>
         <UserIcon />
       </IconButton>
     </TooltipComponent>
-    <TooltipComponent open={true} align="end" text="@bob:example.org">
+    <TooltipComponent
+      open={true}
+      align="end"
+      label="@bob:example.org"
+      shortcut="⌘ + C"
+    >
       <IconButton>
         <UserIcon />
       </IconButton>
