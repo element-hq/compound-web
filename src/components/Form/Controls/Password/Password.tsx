@@ -18,19 +18,19 @@ import React, { forwardRef, PropsWithChildren, useReducer } from "react";
 import { ActionControl } from "../../../ActionControl/ActionControl";
 import { Control } from "../../Control";
 
-import VisibilityVisible from "@vector-im/compound-design-tokens/icons/visibility-visible.svg";
-import VisibilityInvisible from "@vector-im/compound-design-tokens/icons/visibility-invisible.svg";
+import VisibilityOn from "@vector-im/compound-design-tokens/icons/visibility-on.svg";
+import VisibilityOff from "@vector-im/compound-design-tokens/icons/visibility-off.svg";
 
 const showState = {
   isHidden: true,
-  icon: VisibilityVisible,
+  icon: VisibilityOn,
   label: "Show",
   type: "password",
 };
 
 const hideState = {
   isHidden: false,
-  icon: VisibilityInvisible,
+  icon: VisibilityOff,
   label: "Hide",
   type: "text",
 };
