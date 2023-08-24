@@ -40,5 +40,5 @@ type TooltipProps = {
 /**
  * A tooltip component
  */
-export declare const Tooltip: ({ children, label, shortcut, side, align, onEscapeKeyDown, onPointerDownOutside, open, }: PropsWithChildren<TooltipProps>) => React.JSX.Element;
+export declare const Tooltip: ({ children, label, shortcut, side, align, onEscapeKeyDown, onPointerDownOutside, open, }: PropsWithChildren<TooltipProps>) => JSX.Element;
 export {};
