@@ -105,7 +105,9 @@ export const Avatar = forwardRef<
       ...props,
       "data-type": type,
       "data-color": useIdColorHash(id),
-      className: classnames(styles.avatar, className),
+      className: classnames(styles.avatar, className, {
+        [styles["avatar-imageless"]]: !src,
+      }),
       style: {
         ...style,
         "--cpd-avatar-size": size,
