@@ -79,7 +79,7 @@ export const Tooltip = ({
   onEscapeKeyDown,
   onPointerDownOutside,
   open,
-}: PropsWithChildren<TooltipProps>) => {
+}: PropsWithChildren<TooltipProps>): JSX.Element => {
   return (
     <Provider>
       <Root open={open} delayDuration={300}>
