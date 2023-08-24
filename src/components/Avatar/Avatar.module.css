@@ -53,7 +53,7 @@ button.avatar:disabled {
   overflow: hidden;
 }
 
-.avatar:not(:has(.image)) {
+.avatar-imageless {
   /* In the future we'd prefer to pass the HEX code as the data attr
      and use `attr(data-color)` to avoid the style declaration from below
      but this is currently not supported in all browsers */
