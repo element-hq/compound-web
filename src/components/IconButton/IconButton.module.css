@@ -57,7 +57,7 @@ limitations under the License.
   width: calc(var(--cpd-icon-button-size) * 0.25);
   height: calc(var(--cpd-icon-button-size) * 0.25);
   border-radius: 50%;
-  background: currentColor;
+  background: currentcolor;
 }
 
 .icon-button[data-indicator="highlight"]::before {
@@ -68,7 +68,7 @@ limitations under the License.
  * Hover state
  */
 
-.icon-button:hover {
+.icon-button:not(:disabled):hover {
   color: var(--cpd-color-icon-primary);
   background: var(--cpd-color-bg-subtle-primary);
 }
