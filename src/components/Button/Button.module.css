@@ -15,9 +15,7 @@ limitations under the License.
 */
 
 .button {
-  /* use a very large value to ensure the pill happens if the content
-  go over multiple line */
-  border-radius: 666em;
+  border-radius: var(--cpd-radius-pill-effect);
   cursor: pointer;
   -webkit-appeareance: none;
 }
@@ -46,71 +44,59 @@ limitations under the License.
  */
 
 .button[data-kind="primary"] {
-  color: #fff; /* TODO: Replace with a token */
-
-  /* TODO: Replace with a semantic token */
-  background: var(--cpd-color-gray-1400);
+  color: var(--cpd-color-text-on-solid-primary);
+  background: var(--cpd-color-bg-action-primary-rest);
   border-width: 0;
 }
 
 .button[data-kind="primary"]:hover {
-  color: #fff; /* TODO: Replace with a token */
-
-  /* TODO: Replace with a semantic token */
-  background: var(--cpd-color-gray-1300);
+  background: var(--cpd-color-bg-action-primary-hovered);
 }
 
 .button[data-kind="primary"]:active {
-  color: #fff; /* TODO: Replace with a token */
-
-  /* TODO: Replace with a semantic token */
-  background: var(--cpd-color-gray-1200);
+  background: var(--cpd-color-bg-action-primary-pressed);
 }
 
 .button[data-kind="primary"][disabled] {
-  background: var(--cpd-color-gray-800);
+  color: var(--cpd-color-text-disabled);
+  background: var(--cpd-color-bg-subtle-primary);
 }
 
 .button[data-kind="secondary"] {
-  border: 1px solid var(--cpd-color-gray-1400); /* TODO: Replace with a token */
+  border: 1px solid var(--cpd-color-border-interactive-primary);
   color: var(--cpd-color-text-primary);
-
-  /* TODO: Replace with a semantic token */
-  background: var(--cpd-color-theme-bg);
+  background: var(--cpd-color-bg-canvas-default);
 }
 
 .button[data-kind="secondary"]:hover {
-  /* TODO: Replace with a semantic token */
-  background: var(--cpd-color-gray-300);
-  border-color: var(--cpd-color-gray-1300);
+  border-color: var(--cpd-color-border-interactive-hovered);
+  background: var(--cpd-color-bg-subtle-secondary);
 }
 
 .button[data-kind="secondary"]:active {
-  /* TODO: Replace with a semantic token */
-  background: var(--cpd-color-gray-100);
+  border-color: var(--cpd-color-border-interactive-hovered);
+  background: var(--cpd-color-bg-subtle-primary);
 }
 
 .button[data-kind="secondary"][disabled] {
-  color: var(--cpd-color-gray-800);
-  border-color: var(--cpd-color-gray-800);
-  background: var(--cpd-color-theme-bg);
+  border-color: var(--cpd-color-border-interactive-secondary);
+  color: var(--cpd-color-text-disabled);
+  background: var(--cpd-color-bg-subtle-secondary);
 }
 
 .button[data-kind="tertiary"] {
-  border: none; /* TODO: Replace with a token */
+  border: none;
   color: var(--cpd-color-text-primary);
   text-decoration: underline;
   background: transparent;
 }
 
 .button[data-kind="tertiary"]:hover {
-  /* TODO: Replace with a semantic token */
-  background: var(--cpd-color-gray-200);
+  background: var(--cpd-color-bg-subtle-secondary);
 }
 
 .button[data-kind="tertiary"]:active {
-  /* TODO: Replace with a semantic token */
-  background: var(--cpd-color-gray-300);
+  background: var(--cpd-color-bg-subtle-primary);
 }
 
 .button[data-kind="tertiary"][disabled] {
@@ -118,25 +104,23 @@ limitations under the License.
 }
 
 .button[data-kind="destructive"] {
-  border: 1px solid var(--cpd-color-text-action-critical);
-  color: var(--cpd-color-text-action-critical);
-
-  /* TODO: Replace with a semantic token */
-  background: var(--cpd-color-theme-bg);
+  border: 1px solid var(--cpd-color-border-critical-primary);
+  color: var(--cpd-color-text-critical-primary);
+  background: var(--cpd-color-bg-canvas-default);
 }
 
 .button[data-kind="destructive"]:hover {
-  /* TODO: Replace with a semantic token */
-  background: var(--cpd-color-red-300);
+  border-color: var(--cpd-color-border-critical-hovered);
+  background: var(--cpd-color-bg-critical-subtle);
 }
 
 .button[data-kind="destructive"]:active {
-  /* TODO: Replace with a semantic token */
-  background: var(--cpd-color-red-200);
+  border-color: var(--cpd-color-border-critical-hovered);
+  background: var(--cpd-color-bg-critical-subtle-hovered);
 }
 
 .button[data-kind="destructive"][disabled] {
-  color: var(--cpd-color-gray-800);
-  border-color: var(--cpd-color-gray-800);
-  background: var(--cpd-color-theme-bg);
+  border-color: var(--cpd-color-border-interactive-secondary);
+  color: var(--cpd-color-text-disabled);
+  background: var(--cpd-color-bg-subtle-secondary);
 }
