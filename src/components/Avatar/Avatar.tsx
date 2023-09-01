@@ -91,6 +91,7 @@ export const Avatar = forwardRef<
     size,
     style = {},
     onError,
+    title,
     ...props
   },
   ref,
@@ -128,7 +129,7 @@ export const Avatar = forwardRef<
           style={style}
           width={size}
           height={size}
-          title={id}
+          title={title}
           onError={onError}
         />
       )}
