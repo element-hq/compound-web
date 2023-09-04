@@ -17,7 +17,7 @@ limitations under the License.
 .button {
   border-radius: var(--cpd-radius-pill-effect);
   cursor: pointer;
-  -webkit-appeareance: none;
+  appearance: none;
 }
 
 .button[disabled] {

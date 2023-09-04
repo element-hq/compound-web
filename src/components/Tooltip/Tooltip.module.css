@@ -27,7 +27,7 @@ limitations under the License.
 }
 
 .shortcut {
-  font-weight: (--cpd-font-weight-normal);
+  font-weight: var(--cpd-font-weight-regular);
   color: var(--cpd-color-text-secondary);
 }
 

@@ -18,19 +18,18 @@ limitations under the License.
  * Font – Body – Extra Small
  */
 
-[class^="font-body-xs"] {
-  letter-spacing: var(--cpd-font-letter-spacing-body-xs);
-}
-
 .font-body-xs-regular {
+  letter-spacing: var(--cpd-font-letter-spacing-body-xs);
   font: var(--cpd-font-body-xs-regular);
 }
 
 .font-body-xs-semibold {
+  letter-spacing: var(--cpd-font-letter-spacing-body-xs);
   font: var(--cpd-font-body-xs-semibold);
 }
 
 .font-body-xs-medium {
+  letter-spacing: var(--cpd-font-letter-spacing-body-xs);
   font: var(--cpd-font-body-xs-medium);
 }
 
@@ -38,19 +37,18 @@ limitations under the License.
  * Font – Body – Small
  */
 
-[class^="font-body-sm"] {
-  letter-spacing: var(--cpd-font-letter-spacing-body-sm);
-}
-
 .font-body-sm-regular {
+  letter-spacing: var(--cpd-font-letter-spacing-body-sm);
   font: var(--cpd-font-body-sm-regular);
 }
 
 .font-body-sm-semibold {
+  letter-spacing: var(--cpd-font-letter-spacing-body-sm);
   font: var(--cpd-font-body-sm-semibold);
 }
 
 .font-body-sm-medium {
+  letter-spacing: var(--cpd-font-letter-spacing-body-sm);
   font: var(--cpd-font-body-sm-medium);
 }
 
@@ -58,19 +56,18 @@ limitations under the License.
  * Font – Body – Medium
  */
 
-[class^="font-body-md"] {
-  letter-spacing: var(--cpd-font-letter-spacing-body-md);
-}
-
 .font-body-md-regular {
+  letter-spacing: var(--cpd-font-letter-spacing-body-md);
   font: var(--cpd-font-body-md-regular);
 }
 
 .font-body-md-semibold {
+  letter-spacing: var(--cpd-font-letter-spacing-body-md);
   font: var(--cpd-font-body-md-semibold);
 }
 
 .font-body-md-medium {
+  letter-spacing: var(--cpd-font-letter-spacing-body-md);
   font: var(--cpd-font-body-md-medium);
 }
 
@@ -78,19 +75,18 @@ limitations under the License.
  * Font – Body – Large
  */
 
-[class^="font-body-lg"] {
-  letter-spacing: var(--cpd-font-letter-spacing-body-lg);
-}
-
 .font-body-lg-regular {
+  letter-spacing: var(--cpd-font-letter-spacing-body-lg);
   font: var(--cpd-font-body-lg-regular);
 }
 
 .font-body-lg-semibold {
+  letter-spacing: var(--cpd-font-letter-spacing-body-lg);
   font: var(--cpd-font-body-lg-semibold);
 }
 
 .font-body-lg-medium {
+  letter-spacing: var(--cpd-font-letter-spacing-body-lg);
   font: var(--cpd-font-body-lg-medium);
 }
 
@@ -98,19 +94,18 @@ limitations under the License.
  * Font – Heading – Small
  */
 
-[class^="font-heading-sm"] {
-  letter-spacing: var(--cpd-font-letter-spacing-heading-sm);
-}
-
 .font-heading-sm-regular {
+  letter-spacing: var(--cpd-font-letter-spacing-heading-sm);
   font: var(--cpd-font-heading-sm-regular);
 }
 
 .font-heading-sm-semibold {
+  letter-spacing: var(--cpd-font-letter-spacing-heading-sm);
   font: var(--cpd-font-heading-sm-semibold);
 }
 
 .font-heading-sm-medium {
+  letter-spacing: var(--cpd-font-letter-spacing-heading-sm);
   font: var(--cpd-font-heading-sm-medium);
 }
 
@@ -118,58 +113,40 @@ limitations under the License.
  * Font – Heading – Medium
  */
 
-[class^="font-heading-md"] {
-  letter-spacing: var(--cpd-font-letter-spacing-heading-md);
-}
-
 .font-heading-md-regular {
+  letter-spacing: var(--cpd-font-letter-spacing-heading-md);
   font: var(--cpd-font-heading-md-regular);
 }
 
 .font-heading-md-semibold {
+  letter-spacing: var(--cpd-font-letter-spacing-heading-md);
   font: var(--cpd-font-heading-md-semibold);
-}
-
-.font-heading-md-medium {
-  font: var(--cpd-font-heading-md-medium);
 }
 
 /**
  * Font – Heading – Large
  */
 
-[class^="font-heading-lg"] {
-  letter-spacing: var(--cpd-font-letter-spacing-heading-lg);
-}
-
 .font-heading-lg-regular {
+  letter-spacing: var(--cpd-font-letter-spacing-heading-lg);
   font: var(--cpd-font-heading-lg-regular);
 }
 
 .font-heading-lg-semibold {
+  letter-spacing: var(--cpd-font-letter-spacing-heading-lg);
   font: var(--cpd-font-heading-lg-semibold);
-}
-
-.font-heading-lg-medium {
-  font: var(--cpd-font-heading-lg-medium);
 }
 
 /**
  * Font – Heading – Extra Large
  */
 
-[class^="font-heading-xl"] {
-  letter-spacing: var(--cpd-font-letter-spacing-heading-xl);
-}
-
 .font-heading-xl-regular {
+  letter-spacing: var(--cpd-font-letter-spacing-heading-xl);
   font: var(--cpd-font-heading-xl-regular);
 }
 
 .font-heading-xl-semibold {
+  letter-spacing: var(--cpd-font-letter-spacing-heading-xl);
   font: var(--cpd-font-heading-xl-semibold);
-}
-
-.font-heading-xl-medium {
-  font: var(--cpd-font-heading-xl-medium);
 }
