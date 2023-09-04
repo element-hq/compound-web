@@ -20,6 +20,7 @@ limitations under the License.
   );
 
   width: var(--cpd-icon-button-size);
+  height: var(--cpd-icon-button-size);
   padding: calc(var(--cpd-icon-button-size) * 0.125);
   aspect-ratio: 1 / 1;
   color: var(--cpd-color-icon-tertiary);

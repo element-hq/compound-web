@@ -20,7 +20,7 @@ import React from "react";
 
 import { IconButton } from "./IconButton";
 
-import UserIcon from "@vector-im/compound-design-tokens/icons/user.svg";
+import UserIcon from "@vector-im/compound-design-tokens/icons/user-profile.svg";
 
 describe("IconButton", () => {
   it("renders", () => {
