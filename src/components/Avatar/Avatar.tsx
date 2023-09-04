@@ -91,7 +91,6 @@ export const Avatar = forwardRef<
     size,
     style = {},
     onError,
-    title,
     ...props
   },
   ref,
@@ -101,8 +100,8 @@ export const Avatar = forwardRef<
     {
       ref,
       role: "img",
-      title: id,
-      "aria-label": "",
+      // Default the aria-label to id
+      "aria-label": id,
       ...props,
       "data-type": type,
       "data-color": useIdColorHash(id),
@@ -129,7 +128,6 @@ export const Avatar = forwardRef<
           style={style}
           width={size}
           height={size}
-          title={title}
           onError={onError}
         />
       )}
