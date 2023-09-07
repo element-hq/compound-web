@@ -18,6 +18,9 @@ limitations under the License.
   border-radius: var(--cpd-radius-pill-effect);
   cursor: pointer;
   appearance: none;
+  display: flex;
+  align-items: center;
+  gap: var(--cpd-space-2x);
 }
 
 .button[disabled] {
@@ -31,12 +34,22 @@ limitations under the License.
 
 .button[data-size="lg"] {
   font: var(--cpd-font-body-lg-semibold);
-  padding: var(--cpd-space-3x) var(--cpd-space-10x);
+  padding: var(--cpd-space-2x) var(--cpd-space-10x);
+  min-height: var(--cpd-space-12x);
+}
+
+.button[data-size="lg"].hasIcon {
+  padding-inline-start: var(--cpd-space-9x);
 }
 
 .button[data-size="sm"] {
   font: var(--cpd-font-body-md-semibold);
   padding: var(--cpd-space-1x) var(--cpd-space-6x);
+  min-height: var(--cpd-space-9x);
+}
+
+.button[data-size="sm"].hasIcon {
+  padding-inline-start: var(--cpd-space-5x);
 }
 
 /**
