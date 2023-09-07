@@ -11,10 +11,20 @@ React implementation of Compound – Element's design system – See full docume
 
 ## Commands
 
-| Command | Runs |
-| ------- | ---- |
-| `yarn dev` | Runs a local development environment |
-| `yarn test` | Tests all components |
-| `yarn lint` | Lints all components | 
-| `yarn gen:component $name` | Bootstraps a new component |
+| Command                    | Runs                                 |
+| -------------------------- | ------------------------------------ |
+| `yarn dev`                 | Runs a local development environment |
+| `yarn test`                | Tests all components                 |
+| `yarn lint`                | Lints all components                 |
+| `yarn gen:component $name` | Bootstraps a new component           |
 
+## Development
+
+If you want to work on Compound Web as a linked package within a larger React application, TypeScript might complain about there being multiple copies of @types/react in the tree. You can work around this by linking Compound Web's copy of @types/react to your application's copy:
+
+```bash
+$ cd my-application/node_modules/@types/react
+$ yarn link
+$ cd ../../../../compound-web
+$ yarn link @types/react
+```

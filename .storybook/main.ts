@@ -29,7 +29,7 @@ const config: StorybookConfig = {
 
       publicDir: "res",
     };
-  }
+  },
 };
 
 export default config;
