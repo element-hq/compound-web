@@ -15,7 +15,7 @@ limitations under the License.
 */
 
 import classNames from "classnames";
-import React, { PropsWithChildren } from "react";
+import React, { ComponentType, PropsWithChildren } from "react";
 import styles from "./Button.module.css";
 
 type ButtonProps<C extends React.ElementType> = {
@@ -29,13 +29,17 @@ type ButtonProps<C extends React.ElementType> = {
    */
   kind?: "primary" | "secondary" | "tertiary" | "destructive"; // TODO: Refine the naming
   /**
-   * The t-shirt size of the button
+   * The t-shirt size of the button.
    */
   size?: "sm" | "lg";
   /**
    * The CSS class name.
    */
   className?: string;
+  /**
+   * An icon to display within the button.
+   */
+  Icon?: ComponentType<React.SVGAttributes<SVGElement>>;
 } & React.ComponentPropsWithoutRef<C>;
 
 /**
@@ -48,10 +52,14 @@ export const Button = <C extends React.ElementType = "button">({
   size = "lg",
   children,
   className,
+  Icon,
   ...props
 }: PropsWithChildren<ButtonProps<C>>): React.ReactElement => {
   const Component = as || "button";
-  const classes = classNames(styles.button, className);
+  const classes = classNames(styles.button, className, {
+    [styles.hasIcon]: Icon,
+  });
+  const iconSize = size === "lg" ? 24 : 20;
 
   return (
     <Component
@@ -64,6 +72,14 @@ export const Button = <C extends React.ElementType = "button">({
       role={as === "a" ? "link" : "button"}
       tabIndex={0}
     >
+      {Icon && (
+        <Icon
+          width={iconSize}
+          height={iconSize}
+          className={styles.icon}
+          aria-hidden={true}
+        />
+      )}
       {children}
     </Component>
   );

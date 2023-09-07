@@ -18,12 +18,22 @@ import { vi, describe, it } from "vitest";
 import React from "react";
 import { getByRole, render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import ChatIcon from "@vector-im/compound-design-tokens/icons/chat.svg";
 
 import { Button } from "./Button";
 
 describe("Button", () => {
   it("renders", () => {
     const { asFragment } = render(<Button kind="primary">Click me!</Button>);
+    expect(asFragment()).toMatchSnapshot();
+  });
+
+  it("accepts an icon", () => {
+    const { asFragment } = render(
+      <Button kind="primary" Icon={ChatIcon}>
+        With icon
+      </Button>,
+    );
     expect(asFragment()).toMatchSnapshot();
   });
 
