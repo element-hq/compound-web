@@ -4,6 +4,7 @@ declare const _default: import("@storybook/types").ComponentAnnotations<import("
     kind?: "primary" | "secondary" | "tertiary" | "destructive" | undefined;
     size?: "sm" | "lg" | undefined;
     className?: string | undefined;
+    Icon?: React.ComponentType<React.SVGAttributes<SVGElement>> | undefined;
 } & Omit<any, "ref"> & {
     children?: React.ReactNode;
 }>;
@@ -13,6 +14,7 @@ export declare const Primary: import("@storybook/types").AnnotatedStoryFn<import
     kind?: "primary" | "secondary" | "tertiary" | "destructive" | undefined;
     size?: "sm" | "lg" | undefined;
     className?: string | undefined;
+    Icon?: React.ComponentType<React.SVGAttributes<SVGElement>> | undefined;
 } & Omit<any, "ref"> & {
     children?: React.ReactNode;
 }>;
@@ -21,6 +23,7 @@ export declare const Secondary: import("@storybook/types").AnnotatedStoryFn<impo
     kind?: "primary" | "secondary" | "tertiary" | "destructive" | undefined;
     size?: "sm" | "lg" | undefined;
     className?: string | undefined;
+    Icon?: React.ComponentType<React.SVGAttributes<SVGElement>> | undefined;
 } & Omit<any, "ref"> & {
     children?: React.ReactNode;
 }>;
@@ -29,6 +32,7 @@ export declare const Tertiary: import("@storybook/types").AnnotatedStoryFn<impor
     kind?: "primary" | "secondary" | "tertiary" | "destructive" | undefined;
     size?: "sm" | "lg" | undefined;
     className?: string | undefined;
+    Icon?: React.ComponentType<React.SVGAttributes<SVGElement>> | undefined;
 } & Omit<any, "ref"> & {
     children?: React.ReactNode;
 }>;
@@ -37,6 +41,7 @@ export declare const Destructive: import("@storybook/types").AnnotatedStoryFn<im
     kind?: "primary" | "secondary" | "tertiary" | "destructive" | undefined;
     size?: "sm" | "lg" | undefined;
     className?: string | undefined;
+    Icon?: React.ComponentType<React.SVGAttributes<SVGElement>> | undefined;
 } & Omit<any, "ref"> & {
     children?: React.ReactNode;
 }>;
