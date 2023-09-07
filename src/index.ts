@@ -53,3 +53,5 @@ export { ValidityState } from "./components/Form/ValidityState";
 
 export { useIdColorHash } from "./components/Avatar/useIdColorHash";
 export { getInitialLetter } from "./utils/string";
+
+import "./styles/global.css";
