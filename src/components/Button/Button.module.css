@@ -38,7 +38,7 @@ limitations under the License.
   min-height: var(--cpd-space-12x);
 }
 
-.button[data-size="lg"].hasIcon {
+.button[data-size="lg"].has-icon {
   padding-inline-start: var(--cpd-space-9x);
 }
 
@@ -48,7 +48,7 @@ limitations under the License.
   min-height: var(--cpd-space-9x);
 }
 
-.button[data-size="sm"].hasIcon {
+.button[data-size="sm"].has-icon {
   padding-inline-start: var(--cpd-space-5x);
 }
 

@@ -18,7 +18,7 @@ import React from "react";
 import { Meta, StoryFn } from "@storybook/react";
 
 import { Button as ButtonComponent } from "./Button";
-import VisibilityVisibleIcon from "@vector-im/compound-design-tokens/icons/visibility-visible.svg";
+import VisibilityOnIcon from "@vector-im/compound-design-tokens/icons/visibility-on.svg";
 
 export default {
   title: "Button",
@@ -35,7 +35,7 @@ export default {
 const Template: StoryFn<typeof ButtonComponent> = (args) => (
   <div style={{ display: "flex", gap: 8 }}>
     <ButtonComponent {...args}>Click me!</ButtonComponent>
-    <ButtonComponent Icon={VisibilityVisibleIcon} {...args}>
+    <ButtonComponent Icon={VisibilityOnIcon} {...args}>
       Click me!
     </ButtonComponent>
   </div>
