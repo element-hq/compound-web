@@ -19,7 +19,7 @@ import { Meta, StoryFn } from "@storybook/react";
 
 import { IconButton as IconButtonComponent } from "./IconButton";
 
-import UserIcon from "@vector-im/compound-design-tokens/icons/user.svg";
+import UserIcon from "@vector-im/compound-design-tokens/icons/user-profile.svg";
 
 export default {
   title: "IconButton",

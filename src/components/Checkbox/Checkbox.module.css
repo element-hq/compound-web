@@ -95,8 +95,8 @@ limitations under the License.
 
 .checkbox[data-kind] [type="checkbox"][disabled] + .checkbox-ui {
   border-color: var(--cpd-color-border-disabled);
-  background: var(--cpd-border-disabled);
-  color: var(--color-text-disabled);
+  background: var(--cpd-color-bg-canvas-disabled);
+  color: var(--cpd-color-text-disabled);
 }
 
 .checkbox[data-kind] [type="checkbox"][disabled]:checked + .checkbox-ui {

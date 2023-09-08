@@ -57,7 +57,7 @@ export const Button = <C extends React.ElementType = "button">({
 }: PropsWithChildren<ButtonProps<C>>): React.ReactElement => {
   const Component = as || "button";
   const classes = classNames(styles.button, className, {
-    [styles.hasIcon]: Icon,
+    [styles["has-icon"]]: Icon,
   });
   const iconSize = size === "lg" ? 24 : 20;
 

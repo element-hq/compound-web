@@ -47,7 +47,7 @@ limitations under the License.
 }
 
 .label[data-invalid] {
-  color: var(--cpd-color-text-action-critical);
+  color: var(--cpd-color-text-critical-primary);
 }
 
 /* Currently working everywhere but on Firefox (only behind a labs flag)
@@ -63,7 +63,7 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/:has#browser_compatibility */
 
 .control {
   border: 1px solid var(--cpd-color-border-interactive-primary);
-  background: var(--cpd-color-bg-canvas);
+  background: var(--cpd-color-bg-canvas-default);
   border-radius: 0.5rem;
   padding: var(--cpd-space-3x) var(--cpd-space-4x);
   box-sizing: border-box;
@@ -87,7 +87,7 @@ input:focus ~ .control {
 
 .control[data-invalid],
 input[data-invalid] ~ .control {
-  border-color: var(--cpd-color-text-action-critical);
+  border-color: var(--cpd-color-text-critical-primary);
 }
 
 .control:disabled,

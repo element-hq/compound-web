@@ -20,7 +20,7 @@ import { Meta, StoryFn } from "@storybook/react";
 import { Tooltip as TooltipComponent } from "./Tooltip";
 import { IconButton } from "../IconButton/IconButton";
 
-import UserIcon from "@vector-im/compound-design-tokens/icons/user.svg";
+import UserIcon from "@vector-im/compound-design-tokens/icons/user-profile.svg";
 
 export default {
   title: "Tooltip",
