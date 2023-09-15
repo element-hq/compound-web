@@ -49,7 +49,6 @@ Square.args = {
 export const Button = Template.bind({});
 Button.args = {
   type: "round",
-  as: "button",
   onClick: () => console.log("clicked!"),
 };
 
