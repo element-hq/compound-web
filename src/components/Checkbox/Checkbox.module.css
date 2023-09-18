@@ -83,12 +83,26 @@ limitations under the License.
   border-color: var(--cpd-color-bg-critical-primary);
 }
 
-.checkbox[data-kind="primary"] [type="checkbox"]:hover + .checkbox-ui {
+@media (hover) {
+  .checkbox[data-kind="primary"] [type="checkbox"]:hover + .checkbox-ui {
+    color: var(--cpd-color-icon-quaternary);
+    border-color: var(--cpd-color-border-interactive-hovered);
+  }
+}
+
+.checkbox[data-kind="primary"] [type="checkbox"]:active + .checkbox-ui {
   color: var(--cpd-color-icon-quaternary);
   border-color: var(--cpd-color-border-interactive-hovered);
 }
 
-.checkbox[data-kind="critical"] [type="checkbox"]:hover + .checkbox-ui {
+@media (hover) {
+  .checkbox[data-kind="critical"] [type="checkbox"]:hover + .checkbox-ui {
+    color: var(--cpd-color-icon-quaternary);
+    border-color: var(--cpd-color-border-critical-hovered);
+  }
+}
+
+.checkbox[data-kind="critical"] [type="checkbox"]:active + .checkbox-ui {
   color: var(--cpd-color-icon-quaternary);
   border-color: var(--cpd-color-border-critical-hovered);
 }
@@ -103,10 +117,28 @@ limitations under the License.
   background: var(--cpd-color-bg-action-primary-disabled);
 }
 
-.checkbox[data-kind="primary"] [type="checkbox"]:checked:hover + .checkbox-ui {
+@media (hover) {
+  .checkbox[data-kind="primary"]
+    [type="checkbox"]:checked:hover
+    + .checkbox-ui {
+    background: var(--cpd-color-bg-action-primary-hovered);
+  }
+}
+
+.checkbox[data-kind="primary"] [type="checkbox"]:checked:active + .checkbox-ui {
   background: var(--cpd-color-bg-action-primary-hovered);
 }
 
-.checkbox[data-kind="critical"] [type="checkbox"]:checked:hover + .checkbox-ui {
+@media (hover) {
+  .checkbox[data-kind="critical"]
+    [type="checkbox"]:checked:hover
+    + .checkbox-ui {
+    background: var(--cpd-color-bg-critical-hovered);
+  }
+}
+
+.checkbox[data-kind="critical"]
+  [type="checkbox"]:checked:active
+  + .checkbox-ui {
   background: var(--cpd-color-bg-critical-hovered);
 }

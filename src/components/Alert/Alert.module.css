@@ -72,8 +72,15 @@ limitations under the License.
   cursor: pointer;
 }
 
-.close:hover {
+@media (hover) {
+  .close:hover {
+    color: var(--cpd-color-icon-primary);
+    background: var(--cpd-color-alpha-gray-300);
+    cursor: pointer;
+  }
+}
+
+.close:active {
   color: var(--cpd-color-icon-primary);
   background: var(--cpd-color-alpha-gray-300);
-  cursor: pointer;
 }

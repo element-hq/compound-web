@@ -74,8 +74,15 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/:has#browser_compatibility */
  */
 
 /* stylelint-disable no-descending-specificity */
-.control:hover,
-input:hover ~ .control {
+@media (hover) {
+  .control:hover,
+  input:hover ~ .control {
+    border-color: var(--cpd-color-border-interactive-hovered);
+  }
+}
+
+.control:active,
+input:active ~ .control {
   border-color: var(--cpd-color-border-interactive-hovered);
 }
 

@@ -63,8 +63,10 @@ limitations under the License.
   border-width: 0;
 }
 
-.button[data-kind="primary"]:hover {
-  background: var(--cpd-color-bg-action-primary-hovered);
+@media (hover) {
+  .button[data-kind="primary"]:hover {
+    background: var(--cpd-color-bg-action-primary-hovered);
+  }
 }
 
 .button[data-kind="primary"]:active {
@@ -82,9 +84,11 @@ limitations under the License.
   background: var(--cpd-color-bg-canvas-default);
 }
 
-.button[data-kind="secondary"]:hover {
-  border-color: var(--cpd-color-border-interactive-hovered);
-  background: var(--cpd-color-bg-subtle-secondary);
+@media (hover) {
+  .button[data-kind="secondary"]:hover {
+    border-color: var(--cpd-color-border-interactive-hovered);
+    background: var(--cpd-color-bg-subtle-secondary);
+  }
 }
 
 .button[data-kind="secondary"]:active {
@@ -105,8 +109,10 @@ limitations under the License.
   background: transparent;
 }
 
-.button[data-kind="tertiary"]:hover {
-  background: var(--cpd-color-bg-subtle-secondary);
+@media (hover) {
+  .button[data-kind="tertiary"]:hover {
+    background: var(--cpd-color-bg-subtle-secondary);
+  }
 }
 
 .button[data-kind="tertiary"]:active {
@@ -123,9 +129,11 @@ limitations under the License.
   background: var(--cpd-color-bg-canvas-default);
 }
 
-.button[data-kind="destructive"]:hover {
-  border-color: var(--cpd-color-border-critical-hovered);
-  background: var(--cpd-color-bg-critical-subtle);
+@media (hover) {
+  .button[data-kind="destructive"]:hover {
+    border-color: var(--cpd-color-border-critical-hovered);
+    background: var(--cpd-color-bg-critical-subtle);
+  }
 }
 
 .button[data-kind="destructive"]:active {
