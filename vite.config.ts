@@ -69,6 +69,10 @@ export default defineConfig({
 
     // Extract the types from the source files
     dts({
+      compilerOptions: {
+        declaration: true,
+        declarationMap: true,
+      },
       exclude: ["**/*.stories.tsx", "**/*.test.tsx", "**/*.test.ts"],
     }),
   ],
