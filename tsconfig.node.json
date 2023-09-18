@@ -1,0 +1,15 @@
+{
+  "extends": ["@tsconfig/node18/tsconfig.json"],
+  "compilerOptions": {
+    "composite": true,
+    "allowJs": true,
+    "checkJs": true,
+    "module": "ESNext",
+    "moduleResolution": "bundler"
+  },
+  "include": [
+    ".eslintrc.cjs",
+    ".storybook/",
+    "vite.config.ts"
+  ]
+}

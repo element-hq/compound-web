@@ -68,7 +68,9 @@ export default defineConfig({
     }),
 
     // Extract the types from the source files
-    dts(),
+    dts({
+      exclude: ["**/*.stories.tsx", "**/*.test.tsx", "**/*.test.ts"],
+    }),
   ],
 
   test: {

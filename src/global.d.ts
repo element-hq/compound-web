@@ -1,5 +1,5 @@
 /*
-Copyright 2023 New Vector Ltd.
+Copyright 2023  New Vector Ltd
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -18,7 +18,6 @@ declare module "*.svg" {
   const ReactComponent: React.FunctionComponent<
     React.SVGAttributes<SVGElement>
   >;
+
   export default ReactComponent;
 }
-
-declare module "*.module.css";
