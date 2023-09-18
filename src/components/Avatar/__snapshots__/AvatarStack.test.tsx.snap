@@ -4,6 +4,27 @@ exports[`AvatarStack > renders 1`] = `
 <DocumentFragment>
   <div
     class="_stacked-avatars_de1988"
-  />
+  >
+    <span
+      aria-label="@alice:example.org"
+      class="_avatar_de1988 _avatar-imageless_de1988"
+      data-color="3"
+      data-type="round"
+      role="img"
+      style="--cpd-avatar-size: 32px;"
+    >
+      A
+    </span>
+    <span
+      aria-label="@bob:example.org"
+      class="_avatar_de1988 _avatar-imageless_de1988"
+      data-color="8"
+      data-type="round"
+      role="img"
+      style="--cpd-avatar-size: 32px;"
+    >
+      B
+    </span>
+  </div>
 </DocumentFragment>
 `;

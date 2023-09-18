@@ -19,6 +19,7 @@ import { render } from "@testing-library/react";
 import React from "react";
 
 import { AvatarStack } from "./AvatarStack";
+import { Avatar } from "./Avatar";
 
 const originalImage = global.Image;
 
@@ -45,18 +46,49 @@ describe("AvatarStack", () => {
 
   it("renders", () => {
     const { asFragment } = render(
-      <AvatarStack avatars={avatars} size="32px" />,
+      <AvatarStack>
+        {avatars.map((avatar) => (
+          <Avatar
+            name={avatar.name}
+            id={avatar.id}
+            key={avatar.id}
+            size="32px"
+          />
+        ))}
+      </AvatarStack>,
     );
     expect(asFragment()).toMatchSnapshot();
   });
 
   it("adds the mask to the body", () => {
-    render(<AvatarStack avatars={avatars} size="32px" />);
+    render(
+      <AvatarStack>
+        {avatars.map((avatar) => (
+          <Avatar
+            name={avatar.name}
+            id={avatar.id}
+            key={avatar.id}
+            size="32px"
+          />
+        ))}
+      </AvatarStack>,
+    );
 
     // We can't run better assertions as `SVG` loading is mocked out in jest
     expect(document.querySelectorAll("svg")).toHaveLength(1);
 
-    render(<AvatarStack avatars={avatars} size="32px" />);
+    render(
+      <AvatarStack>
+        {avatars.map((avatar) => (
+          <Avatar
+            name={avatar.name}
+            id={avatar.id}
+            key={avatar.id}
+            size="32px"
+          />
+        ))}
+      </AvatarStack>,
+    );
 
     // We only one instance of the mask, ever!
     expect(document.querySelectorAll("svg")).toHaveLength(1);
