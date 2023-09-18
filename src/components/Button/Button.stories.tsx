@@ -20,6 +20,11 @@ import { Meta, StoryFn } from "@storybook/react";
 import { Button as ButtonComponent } from "./Button";
 import VisibilityOnIcon from "@vector-im/compound-design-tokens/icons/visibility-on.svg";
 
+type Props = {
+  kind?: "primary" | "secondary" | "tertiary" | "destructive";
+  size?: "sm" | "lg";
+};
+
 export default {
   title: "Button",
   component: ButtonComponent,
@@ -29,13 +34,20 @@ export default {
       control: { type: "inline-radio" },
     },
   },
-  args: {},
+  args: {
+    size: "sm",
+  },
 } as Meta<typeof ButtonComponent>;
 
-const Template: StoryFn<typeof ButtonComponent> = (args) => (
+const Template: StoryFn<typeof ButtonComponent> = ({ kind, size }: Props) => (
   <div style={{ display: "flex", gap: 8 }}>
-    <ButtonComponent {...args}>Click me!</ButtonComponent>
-    <ButtonComponent Icon={VisibilityOnIcon} {...args}>
+    <ButtonComponent kind={kind} size={size}>
+      Click me!
+    </ButtonComponent>
+    <ButtonComponent Icon={VisibilityOnIcon} kind={kind} size={size}>
+      Click me!
+    </ButtonComponent>
+    <ButtonComponent as="a" href="#" kind={kind} size={size}>
       Click me!
     </ButtonComponent>
   </div>
