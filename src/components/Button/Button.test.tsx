@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import { vi, describe, it } from "vitest";
+import { vi, describe, it, expect } from "vitest";
 import React from "react";
 import { getByRole, render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";

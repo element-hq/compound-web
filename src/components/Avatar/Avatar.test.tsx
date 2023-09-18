@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import { describe, beforeEach, expect, it } from "vitest";
+import { describe, beforeEach, expect, it, afterEach } from "vitest";
 import { render } from "@testing-library/react";
 import React from "react";
 
