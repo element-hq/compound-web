@@ -6,6 +6,5 @@
     "types": ["vite/client"]
   },
   "include": ["src"],
-  "exclude": ["**/*.stories.tsx"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
