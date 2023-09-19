@@ -53,11 +53,24 @@ limitations under the License.
   border-color: var(--cpd-color-bg-action-primary-rest);
 }
 
-[type="checkbox"]:hover + .toggle-ui {
+@media (hover) {
+  [type="checkbox"]:hover + .toggle-ui {
+    border-color: var(--cpd-color-border-interactive-hovered);
+  }
+}
+
+[type="checkbox"]:active + .toggle-ui {
   border-color: var(--cpd-color-border-interactive-hovered);
 }
 
-:checked:hover + .toggle-ui {
+@media (hover) {
+  :checked:hover + .toggle-ui {
+    background: var(--cpd-color-bg-action-primary-hovered);
+    border-color: var(--cpd-color-bg-action-primary-hovered);
+  }
+}
+
+:checked:active + .toggle-ui {
   background: var(--cpd-color-bg-action-primary-hovered);
   border-color: var(--cpd-color-bg-action-primary-hovered);
 }
