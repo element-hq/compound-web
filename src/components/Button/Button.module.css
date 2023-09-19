@@ -22,6 +22,7 @@ limitations under the License.
   align-items: center;
   justify-content: center;
   gap: var(--cpd-space-2x);
+  box-sizing: border-box;
 }
 
 .button[disabled] {
@@ -35,18 +36,20 @@ limitations under the License.
 
 .button[data-size="lg"] {
   font: var(--cpd-font-body-lg-semibold);
-  padding: var(--cpd-space-2x) var(--cpd-space-10x);
-  min-height: var(--cpd-space-12x);
+  padding-block: var(--cpd-space-2x);
+  padding-inline: var(--cpd-space-8x);
+  min-block-size: var(--cpd-space-12x);
 }
 
 .button[data-size="lg"].has-icon {
-  padding-inline-start: var(--cpd-space-9x);
+  padding-inline-start: var(--cpd-space-7x);
 }
 
 .button[data-size="sm"] {
   font: var(--cpd-font-body-md-semibold);
-  padding: var(--cpd-space-1x) var(--cpd-space-6x);
-  min-height: var(--cpd-space-9x);
+  padding-block: var(--cpd-space-1x);
+  padding-inline: var(--cpd-space-6x);
+  min-block-size: var(--cpd-space-9x);
 }
 
 .button[data-size="sm"].has-icon {
