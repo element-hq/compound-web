@@ -128,6 +128,6 @@ button.avatar:disabled {
   clip-path: url("#cpdAvatarClip");
 }
 
-.stacked-avatars .avatar:not(:first-child) {
+.stacked-avatars > *:not(:first-child) {
   margin-left: calc(var(--cpd-avatar-size) * -0.2);
 }
