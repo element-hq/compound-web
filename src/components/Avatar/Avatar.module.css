@@ -133,7 +133,8 @@ button.avatar:disabled {
 }
 
 .clip-path {
-  /* The SVG is invisible, but we still need to ensure it doesn't affect the
-  page's layout */
+  /* In theory the SVG is invisible, but we still need to ensure it doesn't
+  affect the page's layout or otherwise make an appearance */
   position: fixed;
+  left: -9999px;
 }
