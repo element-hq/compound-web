@@ -1,4 +1,5 @@
-import { withThemeByClassName } from "@storybook/addon-styling";
+import { withThemeByClassName } from "@storybook/addon-themes";
+import { Decorator, Parameters } from "@storybook/react";
 
 import "@fontsource/inter/400.css";
 import "@fontsource/inter/500.css";
@@ -7,7 +8,7 @@ import "@fontsource/inter/700.css";
 import "@vector-im/compound-design-tokens/assets/web/css/compound-design-tokens.css";
 import "../src/styles/global.css";
 
-export const parameters = {
+export const parameters: Parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
   controls: {
     matchers: {
@@ -18,7 +19,7 @@ export const parameters = {
   backgrounds: { disable: true },
 };
 
-export const decorators = [
+export const decorators: Decorator[] = [
   withThemeByClassName({
     themes: {
       light: "cpd-theme-light",
