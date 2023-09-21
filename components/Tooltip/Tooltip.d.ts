@@ -42,3 +42,4 @@ type TooltipProps = {
  */
 export declare const Tooltip: ({ children, label, shortcut, side, align, onEscapeKeyDown, onPointerDownOutside, open, }: PropsWithChildren<TooltipProps>) => JSX.Element;
 export {};
+//# sourceMappingURL=Tooltip.d.ts.map

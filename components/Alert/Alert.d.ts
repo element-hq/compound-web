@@ -25,3 +25,4 @@ type AlertProps = {
  */
 export declare const Alert: React.FC<PropsWithChildren<AlertProps>>;
 export {};
+//# sourceMappingURL=Alert.d.ts.map

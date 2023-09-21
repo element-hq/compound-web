@@ -12,3 +12,4 @@ type MFAProps = {
  */
 export declare const MFAControl: React.ForwardRefExoticComponent<Omit<MFAProps, "ref"> & React.RefAttributes<HTMLInputElement>>;
 export {};
+//# sourceMappingURL=MFA.d.ts.map

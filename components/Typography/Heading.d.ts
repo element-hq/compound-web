@@ -36,3 +36,4 @@ export declare const H5: React.FC<HeadingProps>;
  */
 export declare const H6: React.FC<HeadingProps>;
 export {};
+//# sourceMappingURL=Heading.d.ts.map

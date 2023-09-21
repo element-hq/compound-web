@@ -12,3 +12,4 @@ type LabelProps = {
  */
 export declare const Label: React.ForwardRefExoticComponent<Omit<React.PropsWithChildren<LabelProps>, "ref"> & React.RefAttributes<HTMLLabelElement>>;
 export {};
+//# sourceMappingURL=Label.d.ts.map

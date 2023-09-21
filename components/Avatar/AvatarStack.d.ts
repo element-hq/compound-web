@@ -10,3 +10,4 @@ type AvatarStackProps = {
  */
 export declare const AvatarStack: React.FC<React.PropsWithChildren<AvatarStackProps>>;
 export {};
+//# sourceMappingURL=AvatarStack.d.ts.map

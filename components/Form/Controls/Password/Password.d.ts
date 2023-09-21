@@ -6,3 +6,4 @@ import React from "react";
 export declare const PasswordControl: React.ForwardRefExoticComponent<Omit<React.PropsWithChildren<Omit<React.PropsWithChildren<{
     className?: string | undefined;
 } & import("@radix-ui/react-form").FormControlProps & React.RefAttributes<HTMLInputElement>>, "ref"> & React.RefAttributes<HTMLInputElement>>, "ref"> & React.RefAttributes<HTMLInputElement>>;
+//# sourceMappingURL=Password.d.ts.map

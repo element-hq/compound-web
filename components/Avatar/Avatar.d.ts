@@ -83,3 +83,4 @@ export declare const Avatar: React.ForwardRefExoticComponent<(Omit<React.ClassAt
      */
     onError?: React.ComponentProps<typeof SuspenseImg>["onError"];
 }, "ref">) & React.RefAttributes<HTMLSpanElement | HTMLButtonElement>>;
+//# sourceMappingURL=Avatar.d.ts.map

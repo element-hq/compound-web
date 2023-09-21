@@ -17,3 +17,4 @@ type SubmitProps = {
  */
 export declare const Submit: React.FC<PropsWithChildren<SubmitProps>>;
 export {};
+//# sourceMappingURL=Submit.d.ts.map

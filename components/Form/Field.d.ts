@@ -12,3 +12,4 @@ type FieldProps = {
  */
 export declare const Field: React.ForwardRefExoticComponent<Omit<React.PropsWithChildren<FieldProps>, "ref"> & React.RefAttributes<HTMLDivElement>>;
 export {};
+//# sourceMappingURL=Field.d.ts.map

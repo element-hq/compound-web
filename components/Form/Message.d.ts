@@ -12,3 +12,4 @@ type MessageProps = {
  */
 export declare const Message: React.ForwardRefExoticComponent<Omit<React.PropsWithChildren<MessageProps>, "ref"> & React.RefAttributes<HTMLSpanElement>>;
 export {};
+//# sourceMappingURL=Message.d.ts.map

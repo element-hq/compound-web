@@ -18,3 +18,4 @@ export declare const Checkbox: React.ForwardRefExoticComponent<{
 } & Omit<React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>, "ref"> & {
     children?: React.ReactNode;
 } & React.RefAttributes<HTMLInputElement>>;
+//# sourceMappingURL=Checkbox.d.ts.map

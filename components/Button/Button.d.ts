@@ -28,3 +28,4 @@ type ButtonPropsFor<C extends React.ElementType> = ButtonOwnProps & Omit<React.C
  */
 export declare const Button: ButtonComponent;
 export {};
+//# sourceMappingURL=Button.d.ts.map

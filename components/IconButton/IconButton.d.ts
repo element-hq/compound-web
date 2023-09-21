@@ -19,3 +19,4 @@ type IconButtonProps = JSX.IntrinsicElements["button"] & {
  */
 export declare const IconButton: React.ForwardRefExoticComponent<Omit<React.PropsWithChildren<IconButtonProps>, "ref"> & React.RefAttributes<HTMLButtonElement>>;
 export {};
+//# sourceMappingURL=IconButton.d.ts.map

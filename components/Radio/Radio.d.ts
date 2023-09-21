@@ -18,3 +18,4 @@ export declare const Radio: React.ForwardRefExoticComponent<{
 } & Omit<React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>, "ref"> & {
     children?: React.ReactNode;
 } & React.RefAttributes<HTMLInputElement>>;
+//# sourceMappingURL=Radio.d.ts.map

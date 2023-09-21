@@ -5,3 +5,4 @@
  * @returns a hash of the ID provided
  */
 export declare function useIdColorHash(id: string): number;
+//# sourceMappingURL=useIdColorHash.d.ts.map

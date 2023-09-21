@@ -14,3 +14,4 @@ export declare const Toggle: React.ForwardRefExoticComponent<{
 } & Omit<React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>, "ref"> & {
     children?: React.ReactNode;
 } & React.RefAttributes<HTMLInputElement>>;
+//# sourceMappingURL=Toggle.d.ts.map

@@ -12,3 +12,4 @@ type RootProps = {
  */
 export declare const Root: React.ForwardRefExoticComponent<Omit<React.PropsWithChildren<RootProps>, "ref"> & React.RefAttributes<HTMLFormElement>>;
 export {};
+//# sourceMappingURL=Root.d.ts.map

@@ -14,3 +14,4 @@ type LinkProps = {
  */
 export declare const Link: React.ForwardRefExoticComponent<Omit<React.PropsWithChildren<LinkProps>, "ref"> & React.RefAttributes<HTMLAnchorElement>>;
 export {};
+//# sourceMappingURL=Link.d.ts.map

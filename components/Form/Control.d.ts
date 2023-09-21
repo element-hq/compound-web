@@ -12,3 +12,4 @@ type ControlProps = {
  */
 export declare const Control: React.ForwardRefExoticComponent<Omit<React.PropsWithChildren<ControlProps>, "ref"> & React.RefAttributes<HTMLInputElement>>;
 export {};
+//# sourceMappingURL=Control.d.ts.map

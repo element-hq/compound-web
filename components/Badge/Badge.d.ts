@@ -14,3 +14,4 @@ type BadgeProps = {
  */
 export declare const Badge: React.FC<PropsWithChildren<BadgeProps>>;
 export {};
+//# sourceMappingURL=Badge.d.ts.map

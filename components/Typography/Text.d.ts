@@ -5,3 +5,4 @@ import { Typography } from "./Typography";
  * property. Will default to be a paragraph.
  */
 export declare const Text: React.FC<Omit<React.ComponentProps<typeof Typography>, "type">>;
+//# sourceMappingURL=Text.d.ts.map

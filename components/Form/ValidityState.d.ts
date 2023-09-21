@@ -5,3 +5,4 @@ import { ValidityState as RadixValidityState } from "@radix-ui/react-form";
  * https://www.radix-ui.com/docs/primitives/components/form#validitystate
  */
 export declare const ValidityState: React.FC<React.ComponentProps<typeof RadixValidityState>>;
+//# sourceMappingURL=ValidityState.d.ts.map
