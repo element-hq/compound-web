@@ -25,6 +25,10 @@ limitations under the License.
   font-weight: bold;
   overflow: hidden;
   user-select: none;
+
+  /* Set a background color to help with visual consistency when displaying
+   * avatars with a translucent background */
+  background: var(--cpd-color-bg-canvas-default);
 }
 
 button.avatar {
