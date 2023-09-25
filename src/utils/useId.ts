@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from "react";
 
 const react18UseId = (React as { useId?: () => string }).useId;
 
@@ -11,6 +11,6 @@ const useIdPonyFill = (): string => {
   return React.useMemo(getUniqueId, []);
 };
 
-const useId = (typeof react18UseId === "function") ? react18UseId : useIdPonyFill;
+const useId = typeof react18UseId === "function" ? react18UseId : useIdPonyFill;
 
 export default useId;
