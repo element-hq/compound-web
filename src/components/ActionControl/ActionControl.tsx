@@ -15,10 +15,11 @@ limitations under the License.
 */
 
 import classnames from "classnames";
-import React, { PropsWithChildren, useId, forwardRef } from "react";
+import React, { PropsWithChildren, forwardRef } from "react";
 import styles from "./ActionControl.module.css";
 
 import { Control, Field, Root } from "../Form";
+import useId from "../../utils/useId";
 
 type ActionControlProps = {
   /**
