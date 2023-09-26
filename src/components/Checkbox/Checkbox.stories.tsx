@@ -39,3 +39,15 @@ Critical.args = {
   kind: "critical",
 };
 Critical.parameters = {};
+
+export const Disabled = Template.bind({});
+Disabled.args = {
+  disabled: true,
+  checked: false,
+};
+
+export const DisabledChecked = Template.bind({});
+DisabledChecked.args = {
+  disabled: true,
+  checked: true,
+};
