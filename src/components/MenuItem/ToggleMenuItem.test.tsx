@@ -17,12 +17,15 @@ limitations under the License.
 import { describe, it, expect } from "vitest";
 import { render } from "@testing-library/react";
 import React from "react";
+import VisibilityOnIcon from "@vector-im/compound-design-tokens/icons/visibility-on.svg";
 
-import { Toggle } from "./Toggle";
+import { ToggleMenuItem } from "./ToggleMenuItem";
 
-describe("Toggle", () => {
+describe("ToggleMenuItem", () => {
   it("renders", () => {
-    const { asFragment } = render(<Toggle />);
+    const { asFragment } = render(
+      <ToggleMenuItem Icon={VisibilityOnIcon} label="Always show" />,
+    );
     expect(asFragment()).toMatchSnapshot();
   });
 });
