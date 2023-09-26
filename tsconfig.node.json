@@ -7,9 +7,5 @@
     "module": "ESNext",
     "moduleResolution": "bundler"
   },
-  "include": [
-    ".eslintrc.cjs",
-    ".storybook/",
-    "vite.config.ts"
-  ]
+  "include": [".eslintrc.cjs", ".storybook/", "vite.config.ts"]
 }
