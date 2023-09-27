@@ -34,7 +34,7 @@ const Template: StoryFn<typeof ToggleMenuItemComponent> = (args) => (
     <ToggleMenuItemComponent
       {...args}
       Icon={ExtensionsIcon}
-      label="Second item"
+      label="Second item with a name that's quite long"
     />
   </div>
 );
