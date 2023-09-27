@@ -20,6 +20,10 @@ import classNames from "classnames";
 
 type LinkProps = {
   /**
+   * The HTML element to use
+   */
+  as: "a" | "button";
+  /**
    * The CSS class name.
    */
   className?: string;
@@ -33,17 +37,17 @@ type LinkProps = {
  * A link component.
  */
 export const Link = forwardRef<HTMLAnchorElement, PropsWithChildren<LinkProps>>(
-  function Link({ children, className, kind = "primary", ...props }, ref) {
-    return (
-      <a
-        ref={ref}
-        {...props}
-        rel="noreferrer noopener"
-        className={classNames(styles.link, className)}
-        data-kind={kind}
-      >
-        {children}
-      </a>
+  function Link({ children, as, className, kind = "primary", ...props }, ref) {
+    return React.createElement(
+      as,
+      {
+        ref,
+        ...props,
+        rel: "noreferrer noopener",
+        className: classNames(styles.link, className),
+        "data-kind": kind,
+      },
+      children,
     );
   },
 );
