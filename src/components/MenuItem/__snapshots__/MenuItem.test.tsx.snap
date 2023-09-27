@@ -5,6 +5,7 @@ exports[`MenuItem > renders 1`] = `
   <button
     class="_item_37eef5 _interactive_37eef5"
     data-kind="critical"
+    role="menuitem"
   >
     <svg
       aria-hidden="true"
@@ -56,6 +57,7 @@ exports[`MenuItem > renders with a child 1`] = `
   <button
     class="_item_37eef5 _interactive_37eef5"
     data-kind="primary"
+    role="menuitem"
   >
     <svg
       aria-hidden="true"
@@ -112,6 +114,7 @@ exports[`MenuItem > renders without a label 1`] = `
   <button
     class="_item_37eef5 _interactive_37eef5 _no-label_37eef5"
     data-kind="primary"
+    role="menuitem"
   >
     <svg
       aria-hidden="true"
