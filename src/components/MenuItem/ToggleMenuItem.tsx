@@ -36,6 +36,7 @@ export const ToggleMenuItem = forwardRef<HTMLInputElement, Props>(
       <MenuItem
         as="label"
         htmlFor={toggleId}
+        role="menuitemcheckbox"
         className={className}
         Icon={Icon}
         label={label}
