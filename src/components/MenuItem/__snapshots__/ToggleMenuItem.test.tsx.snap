@@ -6,6 +6,7 @@ exports[`ToggleMenuItem > renders 1`] = `
     class="_item_37eef5 _interactive_37eef5"
     data-kind="primary"
     for=":r0:"
+    role="menuitemcheckbox"
   >
     <svg
       aria-hidden="true"
