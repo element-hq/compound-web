@@ -55,10 +55,3 @@ Primary.args = { kind: "primary" };
 
 export const Critical = Template.bind({});
 Critical.args = { kind: "critical" };
-
-Primary.parameters = Critical.parameters = {
-  design: {
-    type: "figma",
-    url: "https://www.figma.com/file/rTaQE2nIUSLav4Tg3nozq7/Compound-Web-Components?type=design&node-id=712-6909&mode=dev",
-  },
-};

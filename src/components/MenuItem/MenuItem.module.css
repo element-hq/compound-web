@@ -51,6 +51,7 @@ limitations under the License.
 }
 
 .nav-hint {
+  /* Hidden until the item is hovered over */
   display: none;
   flex-shrink: 0;
   margin-inline-end: calc(-1 * var(--cpd-space-2x));
@@ -95,6 +96,7 @@ button.item {
     background: var(--cpd-color-bg-critical-subtle);
   }
 
+  /* Replace the children with the navigation hint on hover */
   .item.interactive:hover > .nav-hint {
     display: initial;
   }
