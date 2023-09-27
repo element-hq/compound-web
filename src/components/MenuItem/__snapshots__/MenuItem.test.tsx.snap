@@ -106,3 +106,48 @@ exports[`MenuItem > renders with a child 1`] = `
   </button>
 </DocumentFragment>
 `;
+
+exports[`MenuItem > renders without a label 1`] = `
+<DocumentFragment>
+  <button
+    class="_item_37eef5 _interactive_37eef5 _no-label_37eef5"
+    data-kind="primary"
+  >
+    <svg
+      aria-hidden="true"
+      class="_icon_37eef5"
+      fill="none"
+      height="24"
+      viewBox="0 0 24 24"
+      width="24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M6 12C6 11.4477 5.55228 11 5 11C4.44772 11 4 11.4477 4 12C4 16.0796 7.05369 19.446 11 19.9381V21C11 21.5523 11.4477 22 12 22C12.5523 22 13 21.5523 13 21V19.9381C16.9463 19.446 20 16.0796 20 12C20 11.4477 19.5523 11 19 11C18.4477 11 18 11.4477 18 12C18 15.3137 15.3137 18 12 18C8.68629 18 6 15.3137 6 12Z"
+        fill="currentColor"
+      />
+      <path
+        clip-rule="evenodd"
+        d="M14 12V6C14 4.89543 13.1046 4 12 4C10.8954 4 10 4.89543 10 6V12C10 13.1046 10.8954 14 12 14C13.1046 14 14 13.1046 14 12ZM12 2C9.79086 2 8 3.79086 8 6V12C8 14.2091 9.79086 16 12 16C14.2091 16 16 14.2091 16 12V6C16 3.79086 14.2091 2 12 2Z"
+        fill="currentColor"
+        fill-rule="evenodd"
+      />
+    </svg>
+    <svg
+      aria-hidden="true"
+      class="_nav-hint_37eef5"
+      fill="none"
+      height="24"
+      viewBox="0 0 24 24"
+      width="24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M8.69999 17.3C8.51665 17.1167 8.42499 16.8834 8.42499 16.6C8.42499 16.3167 8.51665 16.0834 8.69999 15.9L12.6 12L8.69999 8.10005C8.51665 7.91672 8.42499 7.68338 8.42499 7.40005C8.42499 7.11672 8.51665 6.88338 8.69999 6.70005C8.88332 6.51672 9.11665 6.42505 9.39999 6.42505C9.68332 6.42505 9.91665 6.51672 10.1 6.70005L14.7 11.3C14.8 11.4 14.8708 11.5084 14.9125 11.625C14.9542 11.7417 14.975 11.8667 14.975 12C14.975 12.1334 14.9542 12.2584 14.9125 12.375C14.8708 12.4917 14.8 12.6 14.7 12.7L10.1 17.3C9.91665 17.4834 9.68332 17.575 9.39999 17.575C9.11665 17.575 8.88332 17.4834 8.69999 17.3Z"
+        fill="currentColor"
+      />
+    </svg>
+    Imagine that there might be a volume slider here in place of the label
+  </button>
+</DocumentFragment>
+`;

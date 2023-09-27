@@ -41,7 +41,8 @@ type Props<C extends MenuItemElement> = {
   /**
    * The label to show on this menu item.
    */
-  label: string;
+  // This prop is required because it's rare to not want a label
+  label: string | undefined;
   /**
    * The color variant of the menu item.
    * @default primary
@@ -71,13 +72,16 @@ export const MenuItem = <C extends MenuItemElement = "button">({
       {...props}
       className={classnames(className, styles.item, {
         [styles.interactive]: as !== "div",
+        [styles["no-label"]]: label === undefined,
       })}
       data-kind={kind}
     >
       <Icon width={24} height={24} className={styles.icon} aria-hidden={true} />
-      <Text className={styles.label} size="md" weight="medium" as="span">
-        {label}
-      </Text>
+      {label !== undefined && (
+        <Text className={styles.label} size="md" weight="medium" as="span">
+          {label}
+        </Text>
+      )}
       {navHint && (
         <ChevronRightIcon
           width={24}

@@ -31,9 +31,17 @@ limitations under the License.
   cursor: pointer;
 }
 
+.item.no-label {
+  grid-template: "icon ." auto / auto 1fr;
+}
+
 .icon {
   grid-area: icon;
   margin-inline-end: var(--cpd-space-3x);
+}
+
+.item.no-label .icon {
+  margin-inline-end: var(--cpd-space-4x);
 }
 
 .label {

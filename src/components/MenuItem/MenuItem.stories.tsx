@@ -18,6 +18,7 @@ import React from "react";
 import { Meta, StoryFn } from "@storybook/react";
 import ExtensionsIcon from "@vector-im/compound-design-tokens/icons/extensions.svg";
 import ChatIcon from "@vector-im/compound-design-tokens/icons/chat.svg";
+import SettingsLabel from "@vector-im/compound-design-tokens/icons/settings.svg";
 
 import { MenuItem as MenuItemComponent } from "./MenuItem";
 import { Text } from "../Typography/Text";
@@ -41,6 +42,11 @@ const Template: StoryFn<typeof MenuItemComponent> = (args) => (
       Icon={ExtensionsIcon}
       label="Second item with a name that's quite long"
     />
+    <MenuItemComponent {...args} Icon={SettingsLabel} label={undefined}>
+      <Text as="span" size="sm">
+        Third item without a label
+      </Text>
+    </MenuItemComponent>
   </div>
 );
 
