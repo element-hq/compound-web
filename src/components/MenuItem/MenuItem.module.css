@@ -15,8 +15,10 @@ limitations under the License.
 */
 
 .item {
-  display: flex;
+  display: grid;
+  grid-template: "icon label ." auto "empty1 label empty2" auto / auto auto 1fr;
   align-items: center;
+  justify-items: end;
   padding-block: var(--cpd-space-2x);
   padding-inline: var(--cpd-space-4x);
   box-sizing: border-box;
@@ -30,12 +32,13 @@ limitations under the License.
 }
 
 .icon {
-  flex-shrink: 0;
+  grid-area: icon;
+  margin-inline-end: var(--cpd-space-3x);
 }
 
 .label {
-  padding-inline: var(--cpd-space-3x);
-  flex-basis: 100%;
+  grid-area: label;
+  margin-inline-end: var(--cpd-space-4x);
   text-align: start;
 }
 

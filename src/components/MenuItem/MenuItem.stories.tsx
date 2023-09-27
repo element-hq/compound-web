@@ -36,7 +36,11 @@ const Template: StoryFn<typeof MenuItemComponent> = (args) => (
         99
       </Text>
     </MenuItemComponent>
-    <MenuItemComponent {...args} Icon={ExtensionsIcon} label="Second item" />
+    <MenuItemComponent
+      {...args}
+      Icon={ExtensionsIcon}
+      label="Second item with a name that's quite long"
+    />
   </div>
 );
 
