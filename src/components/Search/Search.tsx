@@ -28,7 +28,7 @@ type SearchProps = {
   className?: string;
   /**
    * The input placeholder.
-   * @default Search
+   * @default "Search…"
    */
   placeholder?: string;
   /**
@@ -39,10 +39,6 @@ type SearchProps = {
    * Event handler called when the search changes.
    */
   onChange?: (e: React.ChangeEvent) => void;
-  /**
-   * The input disabled state
-   */
-  disabled?: boolean;
 };
 
 /**
@@ -53,7 +49,6 @@ export const Search = ({
   onChange,
   // TODO: i18n needs to be setup
   placeholder = "Search…",
-  disabled,
   name,
 }: SearchProps) => {
   const classes = classnames(styles.search, className);
@@ -69,7 +64,6 @@ export const Search = ({
           placeholder={placeholder}
           onChange={onChange}
           className={styles.input}
-          disabled={disabled}
         />
       </Label>
     </Field>
