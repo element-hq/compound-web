@@ -1,0 +1,26 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Tooltip > renders 1`] = `
+<DocumentFragment>
+  <button
+    class="_icon-button_1d4528"
+    data-state="closed"
+    style="--cpd-icon-button-size: 32px;"
+  >
+    <svg />
+  </button>
+</DocumentFragment>
+`;
+
+exports[`Tooltip > renders open by default 1`] = `
+<DocumentFragment>
+  <button
+    aria-describedby="radix-:r0:"
+    class="_icon-button_1d4528"
+    data-state="instant-open"
+    style="--cpd-icon-button-size: 32px;"
+  >
+    <svg />
+  </button>
+</DocumentFragment>
+`;

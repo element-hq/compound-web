@@ -7,7 +7,7 @@ const config: StorybookConfig = {
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
     "@storybook/addon-designs",
-    "@storybook/addon-styling",
+    "@storybook/addon-themes",
   ],
   framework: {
     name: "@storybook/react-vite",
@@ -22,14 +22,9 @@ const config: StorybookConfig = {
   viteFinal: (config) => {
     return {
       ...config,
-
-      // In the `vite.config.ts` file, we set the `experimental.renderBuiltUrl`
-      // option, which breaks the storybook build. This clears that option.
-      experimental: undefined,
-
       publicDir: "res",
     };
-  }
+  },
 };
 
 export default config;

@@ -34,6 +34,7 @@ export default defineConfig({
         "classnames",
         "graphemer",
         "@radix-ui/react-form",
+        "@radix-ui/react-tooltip",
       ],
 
       // Without this, none of the exports are preserved in the bundle
@@ -67,7 +68,13 @@ export default defineConfig({
     }),
 
     // Extract the types from the source files
-    dts(),
+    dts({
+      compilerOptions: {
+        declaration: true,
+        declarationMap: true,
+      },
+      exclude: ["**/*.stories.tsx", "**/*.test.tsx", "**/*.test.ts"],
+    }),
   ],
 
   test: {

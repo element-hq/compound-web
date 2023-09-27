@@ -1,33 +1,8 @@
 {
+  "extends": ["@tsconfig/vite-react/tsconfig.json"],
   "compilerOptions": {
-    /* Visit https://aka.ms/tsconfig to read more about this file */
-
-    /* Projects */
-    /* Language and Environment */
-    "target": "es2016" /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */,
-    // "lib": [],                                        /* Specify a set of bundled library declaration files that describe the target runtime environment. */
-    "jsx": "react",
-
-    /* Modules */
-    "module": "commonjs" /* Specify what module code is generated. */,
-
-    /* Emit */
-    "declaration": true,
-    "emitDeclarationOnly": true,
-    "declarationMap": true,
-    "isolatedModules": true,
-
-    /* Interop Constraints */
-    "esModuleInterop": true /* Emit additional JavaScript to ease support for importing CommonJS modules. This enables 'allowSyntheticDefaultImports' for type compatibility. */,
-    "forceConsistentCasingInFileNames": true /* Ensure that casing is correct in imports. */,
-
-    /* Type Checking */
-    "strict": true /* Enable all strict type-checking options. */,
-    "rootDir": "./src",
-    "typeRoots": ["./node_modules/@types", "./src/@types"],
-    "types": ["node"],
-
-    /* Completeness */
-    "skipLibCheck": true /* Skip type checking all .d.ts files. */
-  }
+    "types": ["vite/client"]
+  },
+  "include": ["src"],
+  "references": [{ "path": "./tsconfig.node.json" }]
 }

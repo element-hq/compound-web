@@ -20,6 +20,7 @@ limitations under the License.
   );
 
   width: var(--cpd-icon-button-size);
+  height: var(--cpd-icon-button-size);
   padding: calc(var(--cpd-icon-button-size) * 0.125);
   aspect-ratio: 1 / 1;
   color: var(--cpd-color-icon-tertiary);
@@ -57,7 +58,7 @@ limitations under the License.
   width: calc(var(--cpd-icon-button-size) * 0.25);
   height: calc(var(--cpd-icon-button-size) * 0.25);
   border-radius: 50%;
-  background: currentColor;
+  background: currentcolor;
 }
 
 .icon-button[data-indicator="highlight"]::before {
@@ -68,12 +69,29 @@ limitations under the License.
  * Hover state
  */
 
-.icon-button:hover {
+@media (hover) {
+  .icon-button:not(:disabled):hover {
+    color: var(--cpd-color-icon-primary);
+    background: var(--cpd-color-bg-subtle-primary);
+  }
+}
+
+.icon-button:not(:disabled):active {
   color: var(--cpd-color-icon-primary);
   background: var(--cpd-color-bg-subtle-primary);
 }
 
-.icon-button[data-indicator]:is(:hover)::before {
+@media (hover) {
+  .icon-button[data-indicator]:is(:hover)::before {
+    /* Same colour as the background */
+    border: var(--cpd-icon-button-indicator-border-size) solid
+      var(--cpd-color-bg-subtle-primary);
+    top: 0;
+    right: 0;
+  }
+}
+
+.icon-button[data-indicator]:is(:active)::before {
   /* Same colour as the background */
   border: var(--cpd-icon-button-indicator-border-size) solid
     var(--cpd-color-bg-subtle-primary);

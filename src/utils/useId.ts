@@ -1,5 +1,5 @@
 /*
-Copyright 2023 The Matrix.org Foundation C.I.C.
+Copyright 2023 New Vector Ltd
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -14,15 +14,19 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-// jest-dom adds custom jest matchers for asserting on DOM nodes.
-// allows you to do things like:
-// expect(element).toHaveTextContent(/react/i)
-// learn more: https://github.com/testing-library/jest-dom
-import "@testing-library/jest-dom/vitest";
+import * as React from "react";
 
-import { TextEncoder, TextDecoder } from "util";
+const react18UseId = (React as { useId?: () => string }).useId;
 
-/**
- * Polyfilling for `react-dom/server` as those aren't shipped with jsdom16 and above
- */
-Object.assign(global, { TextDecoder, TextEncoder });
+const getUniqueId = (() => {
+  let index = 1;
+  return () => `:r${index++}:`;
+})();
+
+const useIdPonyFill = (): string => {
+  return React.useMemo(getUniqueId, []);
+};
+
+const useId = typeof react18UseId === "function" ? react18UseId : useIdPonyFill;
+
+export default useId;

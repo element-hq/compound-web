@@ -59,12 +59,20 @@ limitations under the License.
   background: var(--cpd-color-icon-on-solid-primary);
 }
 
-:hover + .radio-ui::after {
+@media (hover) {
+  :hover + .radio-ui::after {
+    background: var(--cpd-color-icon-quaternary);
+  }
+}
+
+:active + .radio-ui::after {
   background: var(--cpd-color-icon-quaternary);
 }
 
-:checked:hover + .radio-ui::after {
-  background: var(--cpd-color-icon-on-solid-primary);
+@media (hover) {
+  :checked:hover + .radio-ui::after {
+    background: var(--cpd-color-icon-on-solid-primary);
+  }
 }
 
 [data-kind="primary"] .radio-ui {
@@ -90,30 +98,56 @@ limitations under the License.
   border-color: var(--cpd-color-bg-critical-primary);
 }
 
-.radio[data-kind="primary"] [type="radio"]:hover + .radio-ui {
+@media (hover) {
+  .radio[data-kind="primary"] [type="radio"]:hover + .radio-ui {
+    color: var(--cpd-color-icon-quaternary);
+    border-color: var(--cpd-color-border-interactive-hovered);
+  }
+}
+
+.radio[data-kind="primary"] [type="radio"]:active + .radio-ui {
   color: var(--cpd-color-icon-quaternary);
   border-color: var(--cpd-color-border-interactive-hovered);
 }
 
-.radio[data-kind="critical"] [type="radio"]:hover + .radio-ui {
+@media (hover) {
+  .radio[data-kind="critical"] [type="radio"]:hover + .radio-ui {
+    color: var(--cpd-color-icon-quaternary);
+    border-color: var(--cpd-color-border-critical-hovered);
+  }
+}
+
+.radio[data-kind="critical"] [type="radio"]:active + .radio-ui {
   color: var(--cpd-color-icon-quaternary);
   border-color: var(--cpd-color-border-critical-hovered);
 }
 
 .radio[data-kind] [type="radio"][disabled] + .radio-ui {
   border-color: var(--cpd-color-border-disabled);
-  background: var(--cpd-border-disabled);
-  color: var(--color-text-disabled);
+  background: var(--cpd-color-bg-canvas-disabled);
+  color: var(--cpd-color-text-disabled);
 }
 
 .radio[data-kind] [type="radio"][disabled]:checked + .radio-ui {
   background: var(--cpd-color-bg-action-primary-disabled);
 }
 
-.radio[data-kind="primary"] [type="radio"]:checked:hover + .radio-ui {
+@media (hover) {
+  .radio[data-kind="primary"] [type="radio"]:checked:hover + .radio-ui {
+    background: var(--cpd-color-bg-action-primary-hovered);
+  }
+}
+
+.radio[data-kind="primary"] [type="radio"]:checked:active + .radio-ui {
   background: var(--cpd-color-bg-action-primary-hovered);
 }
 
-.radio[data-kind="critical"] [type="radio"]:checked:hover + .radio-ui {
+@media (hover) {
+  .radio[data-kind="critical"] [type="radio"]:checked:hover + .radio-ui {
+    background: var(--cpd-color-bg-critical-hovered);
+  }
+}
+
+.radio[data-kind="critical"] [type="radio"]:checked:active + .radio-ui {
   background: var(--cpd-color-bg-critical-hovered);
 }

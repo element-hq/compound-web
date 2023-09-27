@@ -100,12 +100,14 @@ export const Avatar = forwardRef<
     {
       ref,
       role: "img",
-      title: id,
-      "aria-label": "",
+      // Default the aria-label to id
+      "aria-label": id,
       ...props,
       "data-type": type,
       "data-color": useIdColorHash(id),
-      className: classnames(styles.avatar, className),
+      className: classnames(styles.avatar, className, {
+        [styles["avatar-imageless"]]: !src,
+      }),
       style: {
         ...style,
         "--cpd-avatar-size": size,
@@ -126,7 +128,6 @@ export const Avatar = forwardRef<
           style={style}
           width={size}
           height={size}
-          title={id}
           onError={onError}
         />
       )}

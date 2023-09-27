@@ -25,6 +25,10 @@ limitations under the License.
   font-weight: bold;
   overflow: hidden;
   user-select: none;
+
+  /* Set a background color to help with visual consistency when displaying
+   * avatars with a translucent background */
+  background: var(--cpd-color-bg-canvas-default);
 }
 
 button.avatar {
@@ -53,7 +57,7 @@ button.avatar:disabled {
   overflow: hidden;
 }
 
-.avatar:not(:has(.image)) {
+.avatar-imageless {
   /* In the future we'd prefer to pass the HEX code as the data attr
      and use `attr(data-color)` to avoid the style declaration from below
      but this is currently not supported in all browsers */
@@ -128,6 +132,13 @@ button.avatar:disabled {
   clip-path: url("#cpdAvatarClip");
 }
 
-.stacked-avatars .avatar:not(:first-child) {
+.stacked-avatars > *:not(:first-child) {
   margin-left: calc(var(--cpd-avatar-size) * -0.2);
+}
+
+.clip-path {
+  /* In theory the SVG is invisible, but we still need to ensure it doesn't
+  affect the page's layout or otherwise make an appearance */
+  position: fixed;
+  left: -9999px;
 }

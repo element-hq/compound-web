@@ -1,4 +1,17 @@
 {
   "extends": "stylelint-config-standard",
+  "plugins": ["stylelint-value-no-unknown-custom-properties"],
+  "rules": {
+    "csstools/value-no-unknown-custom-properties": [
+      true,
+      {
+        "importFrom": [
+          "./src/styles/global.css",
+          "./node_modules/@vector-im/compound-design-tokens/assets/web/css/cpd-common.css",
+          "./node_modules/@vector-im/compound-design-tokens/assets/web/css/cpd-light-mq.css"
+        ]
+      }
+    ]
+  },
   "ignoreFiles": ["dist/**/*.css"]
 }

@@ -15,47 +15,72 @@ limitations under the License.
 */
 
 import classNames from "classnames";
-import React, { PropsWithChildren } from "react";
+import React, {
+  ComponentType,
+  PropsWithChildren,
+  forwardRef,
+  ForwardedRef,
+  Ref,
+} from "react";
 import styles from "./Button.module.css";
 
-type ButtonProps<C extends React.ElementType> = {
-  /**
-   * The underlying HTML element to use. Can be a button or a link.
-   * @default "button"
-   */
-  as?: C;
+interface ButtonComponent {
+  // With the explicit `as` prop
+  <C extends React.ElementType>(
+    props: { as: C } & ButtonPropsFor<C>,
+  ): React.ReactElement;
+  // Without the explicit `as` prop, defaulting to a <button>
+  (props: ButtonPropsFor<"button">): React.ReactElement;
+}
+
+type ButtonOwnProps = PropsWithChildren<{
   /**
    * The type of button.
    */
   kind?: "primary" | "secondary" | "tertiary" | "destructive"; // TODO: Refine the naming
   /**
-   * The t-shirt size of the button
+   * The t-shirt size of the button.
    */
   size?: "sm" | "lg";
   /**
-   * The CSS class name.
+   * An icon to display within the button.
    */
-  className?: string;
-} & React.ComponentPropsWithoutRef<C>;
+  Icon?: ComponentType<React.SVGAttributes<SVGElement>>;
+}>;
+
+type ButtonPropsFor<C extends React.ElementType> = ButtonOwnProps &
+  Omit<React.ComponentPropsWithoutRef<C>, keyof ButtonOwnProps | "as"> & {
+    ref?: React.Ref<C>;
+  };
 
 /**
  * A button component that can be transformed into a link, but keep the button
  * styling using the `as` property.
  */
-export const Button = <C extends React.ElementType = "button">({
-  as,
-  kind = "primary",
-  size = "lg",
-  children,
-  className,
-  ...props
-}: PropsWithChildren<ButtonProps<C>>): React.ReactElement => {
-  const Component = as || "button";
-  const classes = classNames(styles.button, className);
+export const Button = forwardRef(function Button<
+  C extends React.ElementType = "button",
+>(
+  {
+    as,
+    kind = "primary",
+    size = "lg",
+    children,
+    className,
+    Icon,
+    ...props
+  }: ButtonPropsFor<C> & { as?: C },
+  ref: ForwardedRef<C>,
+): React.ReactElement {
+  const Component = as || ("button" as const);
+  const classes = classNames(styles.button, className, {
+    [styles["has-icon"]]: Icon,
+  });
+  const iconSize = size === "lg" ? 24 : 20;
 
   return (
     <Component
       {...props}
+      ref={ref as Ref<C>}
       className={classes}
       data-kind={kind}
       data-size={size}
@@ -64,7 +89,15 @@ export const Button = <C extends React.ElementType = "button">({
       role={as === "a" ? "link" : "button"}
       tabIndex={0}
     >
+      {Icon && (
+        <Icon
+          width={iconSize}
+          height={iconSize}
+          className={styles.icon}
+          aria-hidden={true}
+        />
+      )}
       {children}
     </Component>
   );
-};
+}) as ButtonComponent;
