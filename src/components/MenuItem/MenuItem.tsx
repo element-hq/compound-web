@@ -70,6 +70,7 @@ export const MenuItem = <C extends MenuItemElement = "button">({
 
   return (
     <Component
+      role="menuitem"
       {...props}
       className={classnames(className, styles.item, {
         [styles.interactive]: as !== "div",
