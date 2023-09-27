@@ -15,7 +15,7 @@ limitations under the License.
 */
 
 import classnames from "classnames";
-import React from "react";
+import React, { useId } from "react";
 import styles from "./Search.module.css";
 import { Field, Label } from "../Form";
 
@@ -54,13 +54,17 @@ export const Search = ({
   // TODO: i18n needs to be setup
   placeholder = "Search…",
   disabled,
+  name,
 }: SearchProps) => {
   const classes = classnames(styles.search, className);
+  const id = useId();
   return (
-    <Field name="search">
-      <Label className={classes}>
-        <SearchIcon className={styles.icon} />
+    <Field name={name} asChild>
+      <Label className={classes} htmlFor={id}>
+        <SearchIcon className={styles.icon} width={20} height={20} />
         <input
+          id={id}
+          name={name}
           type="search"
           placeholder={placeholder}
           onChange={onChange}
