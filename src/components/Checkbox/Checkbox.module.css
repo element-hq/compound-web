@@ -84,7 +84,9 @@ limitations under the License.
 }
 
 @media (hover) {
-  .checkbox[data-kind="primary"] [type="checkbox"]:not[disabled]:hover + .checkbox-ui {
+  .checkbox[data-kind="primary"]
+    [type="checkbox"]:not[disabled]:hover
+    + .checkbox-ui {
     color: var(--cpd-color-icon-quaternary);
     border-color: var(--cpd-color-border-interactive-hovered);
   }
@@ -100,13 +102,17 @@ limitations under the License.
   background: var(--cpd-color-bg-canvas-disabled);
 }
 
-.checkbox[data-kind="primary"] [type="checkbox"]:not[disabled]:active + .checkbox-ui {
+.checkbox[data-kind="primary"]
+  [type="checkbox"]:not[disabled]:active
+  + .checkbox-ui {
   color: var(--cpd-color-icon-quaternary);
   border-color: var(--cpd-color-border-interactive-hovered);
 }
 
 @media (hover) {
-  .checkbox[data-kind="critical"] [type="checkbox"]:not[disabled]:hover + .checkbox-ui {
+  .checkbox[data-kind="critical"]
+    [type="checkbox"]:not[disabled]:hover
+    + .checkbox-ui {
     color: var(--cpd-color-icon-quaternary);
     border-color: var(--cpd-color-border-critical-hovered);
   }
@@ -125,7 +131,9 @@ limitations under the License.
   }
 }
 
-.checkbox[data-kind="primary"] [type="checkbox"]:not[disabled]:checked:active + .checkbox-ui {
+.checkbox[data-kind="primary"]
+  [type="checkbox"]:not[disabled]:checked:active
+  + .checkbox-ui {
   background: var(--cpd-color-bg-action-primary-hovered);
 }
 

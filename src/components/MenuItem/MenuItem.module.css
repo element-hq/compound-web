@@ -15,8 +15,10 @@ limitations under the License.
 */
 
 .item {
-  display: flex;
+  display: grid;
+  grid-template: "icon label ." auto "empty1 label empty2" auto / auto auto 1fr;
   align-items: center;
+  justify-items: end;
   padding-block: var(--cpd-space-2x);
   padding-inline: var(--cpd-space-4x);
   box-sizing: border-box;
@@ -29,17 +31,27 @@ limitations under the License.
   cursor: pointer;
 }
 
+.item.no-label {
+  grid-template: "icon ." auto / auto 1fr;
+}
+
 .icon {
-  flex-shrink: 0;
+  grid-area: icon;
+  margin-inline-end: var(--cpd-space-3x);
+}
+
+.item.no-label .icon {
+  margin-inline-end: var(--cpd-space-4x);
 }
 
 .label {
-  padding-inline: var(--cpd-space-3x);
-  flex-basis: 100%;
+  grid-area: label;
+  margin-inline-end: var(--cpd-space-4x);
   text-align: start;
 }
 
 .nav-hint {
+  /* Hidden until the item is hovered over */
   display: none;
   flex-shrink: 0;
   margin-inline-end: calc(-1 * var(--cpd-space-2x));
@@ -84,6 +96,7 @@ button.item {
     background: var(--cpd-color-bg-critical-subtle);
   }
 
+  /* Replace the children with the navigation hint on hover */
   .item.interactive:hover > .nav-hint {
     display: initial;
   }

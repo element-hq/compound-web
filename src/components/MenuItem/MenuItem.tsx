@@ -25,7 +25,7 @@ import styles from "./MenuItem.module.css";
 import { Text } from "../Typography/Text";
 import ChevronRightIcon from "@vector-im/compound-design-tokens/icons/chevron-right.svg";
 
-type MenuItemElement = "button" | "label" | "div";
+type MenuItemElement = "button" | "label" | "a" | "div";
 
 type Props<C extends MenuItemElement> = {
   /**
@@ -33,6 +33,9 @@ type Props<C extends MenuItemElement> = {
    * @default button
    */
   as?: C;
+  /**
+   * The CSS class name.
+   */
   className?: string;
   /**
    * The icon to show on this menu item.
@@ -41,26 +44,25 @@ type Props<C extends MenuItemElement> = {
   /**
    * The label to show on this menu item.
    */
-  label: string;
+  // This prop is required because it's rare to not want a label
+  label: string | undefined;
   /**
    * The color variant of the menu item.
    * @default primary
    */
   kind?: "primary" | "critical";
-  /**
-   * Whether to replace the children with a navigation hint on hover.
-   * @default true
-   */
-  navHint?: boolean;
 } & ComponentPropsWithoutRef<C>;
 
+/**
+ * An item within a menu, acting either as a navigation button, or simply a
+ * container for other interactive elements.
+ */
 export const MenuItem = <C extends MenuItemElement = "button">({
   as,
   className,
   Icon,
   label,
   kind = "primary",
-  navHint = true,
   children,
   ...props
 }: Props<C>) => {
@@ -71,14 +73,19 @@ export const MenuItem = <C extends MenuItemElement = "button">({
       {...props}
       className={classnames(className, styles.item, {
         [styles.interactive]: as !== "div",
+        [styles["no-label"]]: label === undefined,
       })}
       data-kind={kind}
     >
       <Icon width={24} height={24} className={styles.icon} aria-hidden={true} />
-      <Text className={styles.label} size="md" weight="medium" as="span">
-        {label}
-      </Text>
-      {navHint && (
+      {label !== undefined && (
+        <Text className={styles.label} size="md" weight="medium" as="span">
+          {label}
+        </Text>
+      )}
+      {/* We use CSS to swap between this navigation hint and the provided
+      children on hover - see the styles module. */}
+      {(Component === "button" || Component === "a") && (
         <ChevronRightIcon
           width={24}
           height={24}

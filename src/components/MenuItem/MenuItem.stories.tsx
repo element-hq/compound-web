@@ -18,6 +18,7 @@ import React from "react";
 import { Meta, StoryFn } from "@storybook/react";
 import ExtensionsIcon from "@vector-im/compound-design-tokens/icons/extensions.svg";
 import ChatIcon from "@vector-im/compound-design-tokens/icons/chat.svg";
+import SettingsLabel from "@vector-im/compound-design-tokens/icons/settings.svg";
 
 import { MenuItem as MenuItemComponent } from "./MenuItem";
 import { Text } from "../Typography/Text";
@@ -36,7 +37,16 @@ const Template: StoryFn<typeof MenuItemComponent> = (args) => (
         99
       </Text>
     </MenuItemComponent>
-    <MenuItemComponent {...args} Icon={ExtensionsIcon} label="Second item" />
+    <MenuItemComponent
+      {...args}
+      Icon={ExtensionsIcon}
+      label="Second item with a name that's quite long"
+    />
+    <MenuItemComponent {...args} Icon={SettingsLabel} label={undefined}>
+      <Text as="span" size="sm">
+        Third item without a label
+      </Text>
+    </MenuItemComponent>
   </div>
 );
 
@@ -45,10 +55,3 @@ Primary.args = { kind: "primary" };
 
 export const Critical = Template.bind({});
 Critical.args = { kind: "critical" };
-
-Primary.parameters = Critical.parameters = {
-  design: {
-    type: "figma",
-    url: "https://www.figma.com/file/rTaQE2nIUSLav4Tg3nozq7/Compound-Web-Components?type=design&node-id=712-6909&mode=dev",
-  },
-};

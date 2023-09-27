@@ -39,7 +39,6 @@ export const ToggleMenuItem = forwardRef<HTMLInputElement, Props>(
         className={className}
         Icon={Icon}
         label={label}
-        navHint={false}
       >
         <Toggle id={toggleId} ref={ref} {...toggleProps} />
       </MenuItem>

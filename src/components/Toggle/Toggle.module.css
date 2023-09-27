@@ -16,8 +16,8 @@ limitations under the License.
 
 .toggle {
   display: grid;
-  width: 2.75rem;
-  height: 1.5rem;
+  width: 2.25rem;
+  height: 1.25rem;
   box-sizing: border-box;
 }
 
@@ -53,28 +53,6 @@ limitations under the License.
   border-color: var(--cpd-color-bg-action-primary-rest);
 }
 
-@media (hover) {
-  [type="checkbox"]:hover + .toggle-ui {
-    border-color: var(--cpd-color-border-interactive-hovered);
-  }
-}
-
-[type="checkbox"]:active + .toggle-ui {
-  border-color: var(--cpd-color-border-interactive-hovered);
-}
-
-@media (hover) {
-  :checked:hover + .toggle-ui {
-    background: var(--cpd-color-bg-action-primary-hovered);
-    border-color: var(--cpd-color-bg-action-primary-hovered);
-  }
-}
-
-:checked:active + .toggle-ui {
-  background: var(--cpd-color-bg-action-primary-hovered);
-  border-color: var(--cpd-color-bg-action-primary-hovered);
-}
-
 .toggle-ui::after {
   content: "";
   display: block;
@@ -98,6 +76,18 @@ ring after a simple click */
   background: var(--cpd-color-icon-on-solid-primary);
 }
 
+@media (hover) {
+  :checked:not([disabled]):hover + .toggle-ui {
+    background: var(--cpd-color-bg-action-primary-hovered);
+    border-color: var(--cpd-color-bg-action-primary-hovered);
+  }
+}
+
+:checked:active + .toggle-ui {
+  background: var(--cpd-color-bg-action-primary-hovered);
+  border-color: var(--cpd-color-bg-action-primary-hovered);
+}
+
 [type="checkbox"][disabled] + .toggle-ui {
   border-color: var(--cpd-color-border-disabled);
   background: var(--cpd-color-bg-canvas-disabled);
@@ -114,4 +104,16 @@ ring after a simple click */
 
 [type="checkbox"][disabled]:checked + .toggle-ui::after {
   background: var(--cpd-color-icon-on-solid-primary);
+}
+
+@media (hover) {
+  [type="checkbox"]:not(:checked, [disabled]):hover + .toggle-ui {
+    border-color: var(--cpd-color-border-interactive-hovered);
+    box-shadow: 0 1.2px 2.4px 0 rgba(0 0 0 / 15%);
+  }
+}
+
+[type="checkbox"]:not(:checked, [disabled]):active + .toggle-ui {
+  border-color: var(--cpd-color-border-interactive-hovered);
+  box-shadow: 0 1.2px 2.4px 0 rgba(0 0 0 / 15%);
 }
