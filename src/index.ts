@@ -41,6 +41,7 @@ export {
 export { IconButton } from "./components/IconButton/IconButton";
 export { Label } from "./components/Form/Label";
 export { Link } from "./components/Link/Link";
+export { MenuItem } from "./components/MenuItem/MenuItem";
 export { Message } from "./components/Form/Message";
 export { PasswordControl } from "./components/Form/Controls/Password";
 export { Radio } from "./components/Radio/Radio";
