@@ -23,10 +23,6 @@ type ToggleProps = {
    * The CSS class name.
    */
   className?: string;
-  /**
-   * On mouse down callback for the toggle.
-   */
-  onMouseDown?: (e: React.MouseEvent<HTMLInputElement, MouseEvent>) => void;
 } & React.ComponentPropsWithoutRef<"input">;
 
 /**
@@ -35,21 +31,11 @@ type ToggleProps = {
 export const Toggle = forwardRef<
   HTMLInputElement,
   PropsWithChildren<ToggleProps>
->(function Toggle({ className, onMouseDown, ...props }, ref) {
+>(function Toggle({ className, ...props }, ref) {
   const classes = classnames(styles.toggle, className);
   return (
     <div className={classes}>
-      <input
-        ref={ref}
-        {...props}
-        type="checkbox"
-        onMouseDown={(e) => {
-          // Prevents the `focus` event from being fired when clicked
-          // but still reliably works when navigating via the keyboard
-          e.preventDefault();
-          onMouseDown?.(e);
-        }}
-      />
+      <input ref={ref} {...props} type="checkbox" />
       <div className={styles["toggle-ui"]} />
     </div>
   );

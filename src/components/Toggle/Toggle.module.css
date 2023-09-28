@@ -64,7 +64,9 @@ limitations under the License.
   transition: all 0.2s ease-in-out;
 }
 
-[type="checkbox"]:focus + .toggle-ui {
+/* Note the use of :focus-visible rather than :focus to avoid showing the focus
+ring after a simple click */
+[type="checkbox"]:focus-visible + .toggle-ui {
   outline: 2px solid var(--cpd-color-border-focused);
   outline-offset: 1px;
 }
