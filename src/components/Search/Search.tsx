@@ -15,11 +15,12 @@ limitations under the License.
 */
 
 import classnames from "classnames";
-import React, { useId } from "react";
+import React from "react";
 import styles from "./Search.module.css";
 import { Field, Label } from "../Form";
 
 import SearchIcon from "@vector-im/compound-design-tokens/icons/search.svg";
+import useId from "../../utils/useId";
 
 type SearchProps = {
   /**
