@@ -33,6 +33,10 @@ limitations under the License.
   }
 }
 
+.search:active {
+  border-color: var(--cpd-color-border-interactive-hovered);
+}
+
 .search:focus-within {
   border-color: currentcolor;
 }
@@ -42,14 +46,14 @@ limitations under the License.
   flex-shrink: 0;
 }
 
-.search:hover .icon {
-  color: var(--cpd-color-icon-primary);
-}
-
 @media (hover) {
   .search:hover .icon {
     color: var(--cpd-color-icon-primary);
   }
+}
+
+.search:active .icon {
+  color: var(--cpd-color-icon-primary);
 }
 
 .input {
