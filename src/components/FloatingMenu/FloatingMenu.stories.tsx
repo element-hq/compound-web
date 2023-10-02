@@ -35,7 +35,7 @@ export default {
 const Template: StoryFn<typeof FloatingMenuComponent> = (args) => (
   <FloatingMenuComponent {...args} size={200} title="Settings">
     <MenuItem Icon={UserProfileIcon} label="Profile" />
-    <MenuItem Icon={NotificationsIcon} label="Notifications" />
+    <MenuItem Icon={NotificationsIcon} label="Benachrichtigungen" />
     <MenuItem Icon={ChatProblemIcon} label="Feedback" />
     <MenuDivider />
     <MenuItem kind="critical" Icon={LeaveIcon} label="Sign out" />
