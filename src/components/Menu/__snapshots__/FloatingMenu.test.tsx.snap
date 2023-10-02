@@ -4,12 +4,11 @@ exports[`FloatingMenu > renders 1`] = `
 <DocumentFragment>
   <div
     aria-labelledby=":r0:"
-    class="_menu_2a2b6b"
+    class="_menu_3295a1"
     role="menu"
-    style="inline-size: 200px;"
   >
     <h3
-      class="_font-body-sm-semibold_489030 _title_2a2b6b"
+      class="_font-body-sm-semibold_489030 _title_3295a1"
       id=":r0:"
     >
       Settings
