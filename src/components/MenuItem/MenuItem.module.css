@@ -48,6 +48,7 @@ limitations under the License.
   grid-area: label;
   margin-inline-end: var(--cpd-space-4x);
   text-align: start;
+  word-break: break-word;
 }
 
 .nav-hint {
