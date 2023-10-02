@@ -27,7 +27,7 @@ import { MenuDivider } from "../MenuItem/MenuDivider";
 describe("FloatingMenu", () => {
   it("renders", () => {
     const { asFragment } = render(
-      <FloatingMenu size={200} title="Settings">
+      <FloatingMenu title="Settings">
         <MenuItem Icon={UserProfileIcon} label="Profile" />
         <MenuDivider />
         <MenuItem kind="critical" Icon={LeaveIcon} label="Sign out" />

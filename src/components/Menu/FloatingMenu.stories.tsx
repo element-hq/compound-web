@@ -33,7 +33,8 @@ export default {
 } as Meta<typeof FloatingMenuComponent>;
 
 const Template: StoryFn<typeof FloatingMenuComponent> = (args) => (
-  <FloatingMenuComponent {...args} size={200} title="Settings">
+  // Width is fixed to demonstrate word breaking for long menu items
+  <FloatingMenuComponent {...args} style={{ inlineSize: 200 }} title="Settings">
     <MenuItem Icon={UserProfileIcon} label="Profile" />
     <MenuItem Icon={NotificationsIcon} label="Benachrichtigungen" />
     <MenuItem Icon={ChatProblemIcon} label="Feedback" />

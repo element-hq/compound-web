@@ -22,12 +22,6 @@ import { Text } from "../Typography/Text";
 
 interface Props extends ComponentPropsWithoutRef<"div"> {
   /**
-   * The size of the menu in px.
-   */
-  // TODO: Figure out whether this component should come with a standard set of
-  // T-shirt sizes
-  size: number;
-  /**
    * The menu title.
    */
   title: string;
@@ -50,7 +44,7 @@ interface Props extends ComponentPropsWithoutRef<"div"> {
 // ContextMenu will support right click / long press triggers, and both will
 // automatically morph into drawers on mobile.)
 export const FloatingMenu = forwardRef<HTMLDivElement, Props>(
-  ({ size, title, className, children, ...props }, ref) => {
+  ({ title, className, children, ...props }, ref) => {
     const titleId = useId();
     return (
       <div
@@ -58,7 +52,6 @@ export const FloatingMenu = forwardRef<HTMLDivElement, Props>(
         ref={ref}
         aria-labelledby={titleId}
         className={classnames(className, styles.menu)}
-        style={{ inlineSize: size }}
         {...props}
       >
         <Text

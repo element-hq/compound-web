@@ -24,6 +24,7 @@ limitations under the License.
   outline-offset: calc(-1 * var(--cpd-border-width-1));
   box-shadow: 0 4px 24px 0 rgba(0 0 0 / 10%);
   inline-size: fit-content;
+  max-inline-size: 300px;
   display: flex;
   flex-direction: column;
   gap: var(--cpd-space-1x);
