@@ -18,14 +18,14 @@ limitations under the License.
   --size: 24px;
 
   display: grid;
-  width: var(--size);
-  height: var(--size);
+  inline-size: var(--size);
+  block-size: var(--size);
 }
 
 .checkbox > * {
   grid-area: 1/1;
-  width: var(--size);
-  height: var(--size);
+  inline-size: var(--size);
+  block-size: var(--size);
 }
 
 .checkbox > input[type="checkbox"] {
@@ -36,7 +36,7 @@ limitations under the License.
 
 .checkbox-ui {
   pointer-events: none;
-  width: var(--size);
+  inline-size: var(--size);
   box-sizing: border-box;
   aspect-ratio: 1 / 1;
   border-radius: 4px; /* TODO: Ought to be a token */
@@ -61,8 +61,8 @@ limitations under the License.
 }
 
 .checkbox-ui svg {
-  width: var(--size);
-  height: var(--size);
+  inline-size: var(--size);
+  block-size: var(--size);
 }
 
 .checkbox :not(:checked) + .checkbox-ui {

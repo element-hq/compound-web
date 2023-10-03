@@ -15,7 +15,7 @@ limitations under the License.
 */
 
 .mfa {
-  width: fit-content;
+  inline-size: fit-content;
   display: flex;
   flex-direction: row;
   gap: 1rem;
@@ -26,13 +26,13 @@ limitations under the License.
   opacity: 0;
   position: absolute;
   inset: 0;
-  width: 100%;
-  height: 100%;
+  inline-size: 100%;
+  block-size: 100%;
   box-sizing: border-box;
 }
 
 .digit {
-  width: 3rem;
+  inline-size: 3rem;
   aspect-ratio: 1 / 1;
   border: 1px solid grey;
   text-align: center;
