@@ -22,6 +22,6 @@ type SearchProps = {
 /**
  * A standalone search component
  */
-export declare const Search: ({ className, onChange, placeholder, name, }: SearchProps) => import("react/jsx-runtime").JSX.Element;
+export declare const Search: ({ className, onChange, placeholder, name, }: SearchProps) => JSX.Element;
 export {};
 //# sourceMappingURL=Search.d.ts.map
