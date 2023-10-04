@@ -29,6 +29,7 @@ export { Text } from "./components/Typography/Text";
 export { Checkbox } from "./components/Checkbox/Checkbox";
 export { Control } from "./components/Form/Control";
 export { Field } from "./components/Form/Field";
+export { Glass } from "./components/Glass/Glass";
 export {
   Heading,
   H1,
