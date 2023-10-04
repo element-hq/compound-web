@@ -15,9 +15,13 @@ limitations under the License.
 */
 
 .glass {
-  border-radius: calc(var(--cpd-space-9x) - var(--cpd-border-width-1));
-  padding: calc(var(--cpd-space-3x) - var(--cpd-border-width-1));
-  border: var(--cpd-border-width-1) solid var(--cpd-color-alpha-gray-400);
+  border-radius: var(--cpd-space-9x);
+  padding: var(--cpd-space-3x);
+
+  /* We use an outline here to create an "inner border", rather than one that
+  adds to the component's size */
+  outline: var(--cpd-border-width-1) solid var(--cpd-color-alpha-gray-400);
+  outline-offset: calc(-1 * var(--cpd-border-width-1));
   background: var(--cpd-color-alpha-gray-400);
   backdrop-filter: blur(20px);
 }
