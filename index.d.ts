@@ -12,6 +12,7 @@ export { Text } from "./components/Typography/Text";
 export { Checkbox } from "./components/Checkbox/Checkbox";
 export { Control } from "./components/Form/Control";
 export { Field } from "./components/Form/Field";
+export { Glass } from "./components/Glass/Glass";
 export { Heading, H1, H2, H3, H4, H5, H6, } from "./components/Typography/Heading";
 export { IconButton } from "./components/IconButton/IconButton";
 export { Label } from "./components/Form/Label";
