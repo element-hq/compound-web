@@ -16,15 +16,15 @@ limitations under the License.
 
 .toggle {
   display: grid;
-  width: 2.25rem;
-  height: 1.25rem;
+  inline-size: 2.25rem;
+  block-size: 1.25rem;
   box-sizing: border-box;
 }
 
 .toggle > * {
   grid-area: 1/1;
-  width: inherit;
-  height: inherit;
+  inline-size: inherit;
+  block-size: inherit;
   box-sizing: inherit;
 }
 
@@ -56,7 +56,7 @@ limitations under the License.
 .toggle-ui::after {
   content: "";
   display: block;
-  height: 100%;
+  block-size: 100%;
   aspect-ratio: 1 / 1;
   border-radius: 50%;
   background: var(--cpd-color-bg-action-primary-rest);

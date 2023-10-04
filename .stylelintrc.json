@@ -2,7 +2,8 @@
   "extends": "stylelint-config-standard",
   "plugins": [
     "stylelint-value-no-unknown-custom-properties",
-    "stylelint-plugin-defensive-css"
+    "stylelint-plugin-defensive-css",
+    "stylelint-use-logical"
   ],
   "rules": {
     "csstools/value-no-unknown-custom-properties": [
@@ -15,7 +16,8 @@
         ]
       }
     ],
-    "plugin/use-defensive-css": [true, { "accidental-hover": true }]
+    "plugin/use-defensive-css": [true, { "accidental-hover": true }],
+    "csstools/use-logical": true
   },
   "ignoreFiles": ["dist/**/*.css"]
 }

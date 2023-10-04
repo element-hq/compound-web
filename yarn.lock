@@ -8962,6 +8962,11 @@ stylelint-plugin-defensive-css@^0.9.1:
   resolved "https://registry.yarnpkg.com/stylelint-plugin-defensive-css/-/stylelint-plugin-defensive-css-0.9.1.tgz#e9ac226ed234c52776b025a6a8551334f59067a2"
   integrity sha512-zVucZ1pVTpRX/7MCWp3MEMJ2K5hzhP/FlCptPPvspaoG+cwnofMR9TZBAbk7LT96oQyLCpqVunTP0qltfRl7fg==
 
+stylelint-use-logical@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/stylelint-use-logical/-/stylelint-use-logical-2.1.0.tgz#4d2e58418d1a5d459beb3d51552491fab1ed22ec"
+  integrity sha512-DN1boOPI6IMYTlu2KeQpH5hDEiCODHhd+AtXU0InO37wkWAuELiPwuv59HrTg2m9PYmqGTTO/QWdMBafYVPfew==
+
 stylelint-value-no-unknown-custom-properties@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/stylelint-value-no-unknown-custom-properties/-/stylelint-value-no-unknown-custom-properties-4.0.0.tgz#9255e3b09e4da3d88244d4cf03042feb5bb1f4a3"
