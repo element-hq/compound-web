@@ -51,7 +51,7 @@ export const Search = ({
   // TODO: i18n needs to be setup
   placeholder = "Search…",
   name,
-}: SearchProps) => {
+}: SearchProps): JSX.Element => {
   const classes = classnames(styles.search, className);
   const id = useId();
   return (
