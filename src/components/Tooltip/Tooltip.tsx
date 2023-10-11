@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import React, { PropsWithChildren } from "react";
+import React, { PropsWithChildren, ReactChild } from "react";
 import {
   Root,
   Trigger,
@@ -31,7 +31,7 @@ type TooltipProps = {
   /**
    * The tooltip label
    */
-  label: string;
+  label: ReactChild;
   /**
    * The associated keyboard shortcut
    */
