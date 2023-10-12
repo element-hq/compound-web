@@ -123,7 +123,19 @@ export const Focus: Story = {
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    await canvas.getByRole("textbox").focus();
+    const input = canvas.getByRole("textbox") as HTMLInputElement;
+    input.focus();
+
+    // Wait for the next tick
+    await new Promise((resolve) => setTimeout(resolve, 0));
+
+    // Add an identifier post interactions is complete
+    input.classList.add("percy-selector-placeholder");
+  },
+  parameters: {
+    percy: {
+      waitForSelector: ".percy-selector-placeholder",
+    },
   },
 };
 
@@ -141,5 +153,13 @@ export const Invalid: Story = {
     await new Promise((resolve) => setTimeout(resolve, 0));
     // radix-ui always focuses the input when invalid, which is not what we want for snapshots
     input.blur();
+
+    // Add an identifier post interactions is complete
+    input.classList.add("percy-selector-placeholder");
+  },
+  parameters: {
+    percy: {
+      waitForSelector: ".percy-selector-placeholder",
+    },
   },
 };
