@@ -6,7 +6,11 @@ type TooltipProps = {
      */
     label: string;
     /**
-     * The associated keyboard shortcut
+     * The tooltip caption
+     */
+    caption?: string;
+    /**
+     * @deprecated replaced by `caption`
      */
     shortcut?: string;
     /**
@@ -40,6 +44,6 @@ type TooltipProps = {
 /**
  * A tooltip component
  */
-export declare const Tooltip: ({ children, label, shortcut, side, align, onEscapeKeyDown, onPointerDownOutside, open, }: PropsWithChildren<TooltipProps>) => JSX.Element;
+export declare const Tooltip: ({ children, label, caption, shortcut, side, align, onEscapeKeyDown, onPointerDownOutside, open, }: PropsWithChildren<TooltipProps>) => JSX.Element;
 export {};
 //# sourceMappingURL=Tooltip.d.ts.map
