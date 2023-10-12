@@ -73,7 +73,7 @@ const TemplateAlign: StoryFn<typeof TooltipComponent> = () => (
       alignItems: "center",
     }}
   >
-    <TooltipComponent open={true} align="center" label="Copy" sublabel="⌘ + C">
+    <TooltipComponent open={true} align="center" label="Copy" caption="⌘ + C">
       <IconButton>
         <UserIcon />
       </IconButton>
@@ -82,7 +82,7 @@ const TemplateAlign: StoryFn<typeof TooltipComponent> = () => (
       open={true}
       align="start"
       label="@bob:example.org"
-      sublabel="⌘ + C"
+      caption="⌘ + C"
     >
       <IconButton>
         <UserIcon />
@@ -92,7 +92,7 @@ const TemplateAlign: StoryFn<typeof TooltipComponent> = () => (
       open={true}
       align="end"
       label="@bob:example.org"
-      sublabel="⌘ + C"
+      caption="⌘ + C"
     >
       <IconButton>
         <UserIcon />

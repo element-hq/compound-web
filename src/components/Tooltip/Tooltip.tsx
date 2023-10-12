@@ -33,11 +33,11 @@ type TooltipProps = {
    */
   label: string;
   /**
-   * The tooltip sublabel
+   * The tooltip caption
    */
-  sublabel?: string;
+  caption?: string;
   /**
-   * @deprecated replaced by `sublabel`
+   * @deprecated replaced by `caption`
    */
   shortcut?: string;
   /**
@@ -77,7 +77,7 @@ type TooltipProps = {
 export const Tooltip = ({
   children,
   label,
-  sublabel,
+  caption,
   shortcut,
   side = "bottom",
   align = "center",
@@ -102,10 +102,10 @@ export const Tooltip = ({
                 using the text color secondary on a solid dark background. 
                 This is temporary and should only remain until we figure out 
                 the approach to on-solid tokens */}
-            {(sublabel || shortcut) && (
-              <small className={classNames(styles.shortcut, "cpd-theme-dark")}>
-                {sublabel ?? shortcut}
-              </small>
+            {(caption || shortcut) && (
+              <span className={classNames(styles.caption, "cpd-theme-dark")}>
+                {caption ?? shortcut}
+              </span>
             )}
             <Arrow width={10} height={6} className={styles.arrow} />
           </Content>
