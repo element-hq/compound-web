@@ -19,12 +19,20 @@ import { Message as RadixMessage } from "@radix-ui/react-form";
 
 import styles from "./form.module.css";
 import classNames from "classnames";
+import ErrorIcon from "@vector-im/compound-design-tokens/icons/error.svg";
 
 type MessageProps = {
   /**
    * The CSS class name.
    */
   className?: string;
+
+  /**
+   * The kind of the form, either "help" or "error".
+   *
+   * @default "help"
+   */
+  kind?: "help" | "error";
 } & React.ComponentProps<typeof RadixMessage>;
 
 /**
@@ -34,12 +42,16 @@ type MessageProps = {
 export const Message = forwardRef<
   HTMLSpanElement,
   PropsWithChildren<MessageProps>
->(function Message({ children, ...props }, ref) {
+>(function Message({ children, kind = "help", ...props }, ref) {
   const classes = classNames(styles.message, props.className);
   return (
-    <RadixMessage ref={ref} {...props} className={classes}>
-      {/* Pending to be replaced by the alert component, see
-          https://github.com/vector-im/compound-web/pull/6 */}
+    <RadixMessage
+      ref={ref}
+      {...props}
+      className={classes}
+      data-invalid={kind == "error" ? true : undefined}
+    >
+      {kind == "error" && <ErrorIcon />}
       {children}
     </RadixMessage>
   );
