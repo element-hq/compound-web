@@ -32,8 +32,18 @@ limitations under the License.
 .mfa-input {
   all: unset;
 
-  /* TODO: have the font in the design tokens */
-  font-family: "Roboto Mono", monospace;
+  /* TODO: a font stack for monospace fonts should be defined in the design tokens
+   * Font stack from https://qwtel.com/posts/software/the-monospaced-system-ui-css-font-stack/#the-monospaced-system-ui-css-font-stack */
+  font-family: ui-monospace,
+             Menlo, Monaco,
+             "Cascadia Mono", "Segoe UI Mono",
+             "Roboto Mono",
+             "Oxygen Mono",
+             "Ubuntu Monospace",
+             "Source Code Pro",
+             "Fira Mono",
+             "Droid Sans Mono",
+             "Courier New", monospace;
   font-weight: bold;
 
   /* Position the input to fill the container */
@@ -51,10 +61,6 @@ limitations under the License.
 
   /* The negative margin at the end is to keep space for the cursor when the input is full */
   margin-inline-end: calc(-1 * (var(--cpd-space-10x) + var(--cpd-space-3x)));
-}
-
-.mfa-input::selection {
-  /*background: none;*/
 }
 
 .digit {
@@ -101,7 +107,6 @@ input:focus ~ .digit:not([data-filled]) {
 }
 
 .digit[data-selected] {
-  /* TODO: do not use !important */
-  border-color: var(--cpd-color-border-focused) !important;
-  background-color: var(--cpd-color-bg-info-subtle) !important;
+  border-color: var(--cpd-color-border-focused);
+  background-color: var(--cpd-color-bg-info-subtle);
 }
