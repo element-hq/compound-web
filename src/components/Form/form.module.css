@@ -142,5 +142,4 @@ input[readonly] ~ .control {
   background: var(--cpd-color-bg-subtle-secondary);
   border-color: var(--cpd-color-bg-subtle-secondary);
   color: var(--cpd-color-text-secondary);
-  cursor: not-allowed;
 }
