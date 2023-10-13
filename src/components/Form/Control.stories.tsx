@@ -21,44 +21,48 @@ import { Meta, StoryObj } from "@storybook/react";
 import { within } from "@storybook/testing-library";
 
 import * as Form from "./index";
+import { userEvent } from "@storybook/testing-library";
 
 type Props = React.ComponentProps<typeof Form.Control> & {
-  label?: string;
-  invalid?: boolean;
-  message?: string;
+  label: string;
 };
 
 export default {
   title: "Control",
   component: Form.Control,
-  render: ({ label, invalid, message, ...props }) => (
+  render: ({ label, ...props }) => (
     <Form.Root>
-      <Form.Field name="story" serverInvalid={invalid}>
-        {label && <Form.Label>{label}</Form.Label>}
+      <Form.Field name="story">
+        <Form.Label>{label}</Form.Label>
         <Form.Control {...props} />
-        {message && (
-          <Form.Message kind={invalid ? "error" : "help"}>
-            {message}
-          </Form.Message>
-        )}
+        <Form.ValidityState>
+          {(validity) =>
+            (!validity || validity.valid) && (
+              <Form.Message kind="help">Help text.</Form.Message>
+            )
+          }
+        </Form.ValidityState>
+        <Form.Message kind="error" match="patternMismatch">
+          Error text.
+        </Form.Message>
       </Form.Field>
     </Form.Root>
   ),
   parameters: {
     controls: {
       include: [
-        "value",
+        "defaultValue",
         "placeholder",
         "disabled",
+        "autoFocus",
         "readOnly",
         "label",
         "invalid",
-        "message",
       ],
     },
   },
   argTypes: {
-    value: {
+    defaultValue: {
       type: "string",
     },
     placeholder: {
@@ -67,37 +71,36 @@ export default {
     disabled: {
       type: "boolean",
     },
+    autoFocus: {
+      type: "boolean",
+    },
     readOnly: {
       type: "boolean",
     },
     label: {
       type: "string",
     },
-    invalid: {
-      type: "boolean",
-    },
-    message: {
-      type: "string",
-    },
   },
   args: {
     placeholder: "",
+    autoFocus: false,
     disabled: false,
     readOnly: false,
-    invalid: false,
-    message: "Help text.",
   },
 } satisfies Meta<Props>;
 
 type Story = StoryObj<Props>;
 
-export const Basic: Story = {
+export const Empty: Story = {
   args: {
-    label: "Basic",
+    label: "Empty",
   },
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-    (canvas.getByRole("textbox") as HTMLInputElement).value = "Basic";
+};
+
+export const Filled: Story = {
+  args: {
+    label: "Filled",
+    defaultValue: "Filled",
   },
 };
 
@@ -120,46 +123,19 @@ export const ReadOnly: Story = {
 export const Focus: Story = {
   args: {
     label: "Focus",
-  },
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-    const input = canvas.getByRole("textbox") as HTMLInputElement;
-    input.focus();
-
-    // Wait for the next tick
-    await new Promise((resolve) => setTimeout(resolve, 0));
-
-    // Add an identifier post interactions is complete
-    input.classList.add("percy-selector-placeholder");
-  },
-  parameters: {
-    percy: {
-      waitForSelector: ".percy-selector-placeholder",
-    },
+    autoFocus: true,
   },
 };
 
 export const Invalid: Story = {
   args: {
     label: "Invalid",
-    invalid: true,
+    // Invalid pattern so that the browser shows the error message
+    pattern: "[0-9]+",
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    const input = canvas.getByRole("textbox") as HTMLInputElement;
-    input.value = "Invalid";
-
-    // Wait for the next tick
-    await new Promise((resolve) => setTimeout(resolve, 0));
-    // radix-ui always focuses the input when invalid, which is not what we want for snapshots
-    input.blur();
-
-    // Add an identifier post interactions is complete
-    input.classList.add("percy-selector-placeholder");
-  },
-  parameters: {
-    percy: {
-      waitForSelector: ".percy-selector-placeholder",
-    },
+    await userEvent.type(canvas.getByRole("textbox"), "Invalid");
+    await userEvent.keyboard("{tab}");
   },
 };
