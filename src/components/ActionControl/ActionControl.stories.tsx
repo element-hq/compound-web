@@ -17,23 +17,23 @@ limitations under the License.
 import React from "react";
 import { Meta, StoryFn } from "@storybook/react";
 
-import { StandaloneActionControl as StandaloneActionControl } from "./ActionControl";
+import { ActionControl } from "./ActionControl";
 import { Field, Root } from "../Form";
 import ThreadIcon from "../Icon/icons/thread.svg";
 
 export default {
   title: "ActionControl",
-  component: StandaloneActionControl,
+  component: ActionControl,
   argTypes: {},
   args: {
     Icon: ThreadIcon,
   },
-} as Meta<typeof StandaloneActionControl>;
+} as Meta<typeof ActionControl>;
 
-const Template: StoryFn<typeof StandaloneActionControl> = (args) => (
+const Template: StoryFn<typeof ActionControl> = (args) => (
   <Root>
     <Field name="action">
-      <StandaloneActionControl {...args} />
+      <ActionControl {...args} />
     </Field>
   </Root>
 );

@@ -57,14 +57,7 @@ export const ActionControl = forwardRef<
   const classes = classnames(styles.actioncontrol, className);
   return (
     <div className={classes}>
-      <Control
-        ref={ref}
-        {...props}
-        className={styles.input}
-        id={id}
-        autoComplete="off"
-        autoCorrect="off"
-      >
+      <Control ref={ref} {...props} className={styles.input} id={id}>
         {children}
       </Control>
       <Icon
