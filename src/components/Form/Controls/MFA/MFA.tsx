@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import React, { forwardRef, PropsWithoutRef, useLayoutEffect } from "react";
+import React, { forwardRef, PropsWithoutRef } from "react";
 import * as Form from "@radix-ui/react-form";
 
 import styles from "./MFA.module.css";
@@ -53,8 +53,10 @@ export const MFAControl = forwardRef(function MFAControl(
     null,
   );
 
-  const updateSelection = (event: React.SyntheticEvent<HTMLInputElement>) => {
+  const update = (event: React.SyntheticEvent<HTMLInputElement>) => {
     const input = event.currentTarget;
+    setCurrentLength(input.value?.length);
+
     if (
       document.activeElement !== input ||
       input.selectionStart === null ||
@@ -80,17 +82,14 @@ export const MFAControl = forwardRef(function MFAControl(
         className={styles["mfa-input"]}
         pattern={`\\d{${length}}`}
         autoComplete="one-time-code"
-        onSelect={updateSelection}
-        onFocus={updateSelection}
-        onBlur={updateSelection}
-        onMouseDown={updateSelection}
-        onMouseMove={updateSelection}
-        onMouseUp={updateSelection}
+        onSelect={update}
+        onFocus={update}
+        onBlur={update}
+        onMouseDown={update}
+        onMouseMove={update}
+        onMouseUp={update}
+        onChange={update}
         ref={ref}
-        onChange={(event) => {
-          updateSelection(event);
-          setCurrentLength(event.currentTarget.value?.length);
-        }}
       />
       <Form.ValidityState>
         {(validity?: ValidityState) =>

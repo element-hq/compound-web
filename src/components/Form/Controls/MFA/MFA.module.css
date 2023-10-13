@@ -54,7 +54,7 @@ limitations under the License.
 }
 
 .mfa-input::selection {
-  background: none;
+  /*background: none;*/
 }
 
 .digit {
@@ -92,7 +92,8 @@ input[readonly] ~ .digit {
 }
 
 input:focus ~ .digit:not([data-filled]) {
-  border-color: var(--cpd-color-border-interactive-hovered);
+  outline: 2px solid var(--cpd-color-border-focused);
+  border-color: transparent;
 }
 
 .digit[data-invalid] {
@@ -101,6 +102,6 @@ input:focus ~ .digit:not([data-filled]) {
 
 .digit[data-selected] {
   /* TODO: do not use !important */
-  border-color: var(--cpd-color-border-interactive-secondary) !important;
-  background-color: var(--cpd-color-bg-subtle-secondary) !important;
+  border-color: var(--cpd-color-border-focused) !important;
+  background-color: var(--cpd-color-bg-info-subtle) !important;
 }

@@ -18,41 +18,50 @@ limitations under the License.
 import React from "react";
 
 import { Meta, StoryObj } from "@storybook/react";
-import { within } from "@storybook/testing-library";
 
 import * as Form from "../../";
 import { MFAControl } from "./MFA";
+import { within } from "@storybook/testing-library";
+import { userEvent } from "@storybook/testing-library";
 
 type Props = React.ComponentProps<typeof MFAControl> & {
   label?: string;
-  invalid?: boolean;
-  message?: string;
 };
 
 export default {
   title: "MFA",
   component: MFAControl,
-  render: ({ label, invalid, message, ...props }) => (
-    <Form.Root>
-      <Form.Field name="story" serverInvalid={invalid}>
-        {label && <Form.Label>{label}</Form.Label>}
-        <MFAControl {...props} />
-        {message && (
-          <Form.Message kind={invalid ? "error" : "help"}>
-            {message}
+  render: ({ label, ...props }) => {
+    return (
+      <Form.Root>
+        <Form.Field name="story">
+          {label && <Form.Label>{label}</Form.Label>}
+          <MFAControl {...props} />
+          <Form.ValidityState>
+            {(validity) =>
+              (!validity || validity.valid) && (
+                <Form.Message kind="help">Enter your code</Form.Message>
+              )
+            }
+          </Form.ValidityState>
+          <Form.Message kind="error" match="patternMismatch">
+            Invalid code
           </Form.Message>
-        )}
-      </Form.Field>
-    </Form.Root>
-  ),
+        </Form.Field>
+      </Form.Root>
+    );
+  },
   parameters: {
     controls: {
-      include: ["value", "disabled", "readOnly", "label", "invalid", "message"],
+      include: ["defaultValue", "disabled", "readOnly", "label"],
     },
   },
   argTypes: {
-    value: {
+    defaultValue: {
       type: "string",
+    },
+    autoFocus: {
+      type: "boolean",
     },
     disabled: {
       type: "boolean",
@@ -63,37 +72,34 @@ export default {
     label: {
       type: "string",
     },
-    invalid: {
-      type: "boolean",
-    },
-    message: {
-      type: "string",
-    },
   },
   args: {
+    defaultValue: "",
+    autoFocus: false,
     disabled: false,
     readOnly: false,
-    invalid: false,
-    message: "Help text.",
   },
 } satisfies Meta<Props>;
 
 type Story = StoryObj<Props>;
 
-export const Basic: Story = {
+export const Empty: Story = {
   args: {
-    label: "Basic",
+    label: "Empty",
   },
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-    (canvas.getByRole("textbox") as HTMLInputElement).value = "0123";
+};
+
+export const Filled: Story = {
+  args: {
+    label: "Filled",
+    defaultValue: "012345",
   },
 };
 
 export const Disabled: Story = {
   args: {
     label: "Disabled",
-    value: "012345",
+    defaultValue: "012345",
     disabled: true,
   },
 };
@@ -101,7 +107,7 @@ export const Disabled: Story = {
 export const ReadOnly: Story = {
   args: {
     label: "Read only",
-    value: "012345",
+    defaultValue: "012345",
     readOnly: true,
   },
 };
@@ -109,46 +115,18 @@ export const ReadOnly: Story = {
 export const Focus: Story = {
   args: {
     label: "Focus",
-  },
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-    const input = canvas.getByRole("textbox") as HTMLInputElement;
-    input.focus();
-
-    // Wait for the next tick
-    await new Promise((resolve) => setTimeout(resolve, 0));
-
-    // Add an identifier post interactions is complete
-    input.classList.add("percy-selector-placeholder");
-  },
-  parameters: {
-    percy: {
-      waitForSelector: ".percy-selector-placeholder",
-    },
+    defaultValue: "012",
+    autoFocus: true,
   },
 };
 
 export const Invalid: Story = {
   args: {
     label: "Invalid",
-    invalid: true,
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    const input = canvas.getByRole("textbox") as HTMLInputElement;
-    input.value = "Invalid";
-
-    // Wait for the next tick
-    await new Promise((resolve) => setTimeout(resolve, 0));
-    // radix-ui always focuses the input when invalid, which is not what we want for snapshots
-    input.blur();
-
-    // Add an identifier post interactions is complete
-    input.classList.add("percy-selector-placeholder");
-  },
-  parameters: {
-    percy: {
-      waitForSelector: ".percy-selector-placeholder",
-    },
+    await userEvent.type(canvas.getByLabelText("Invalid"), "123");
+    await userEvent.keyboard("{tab}");
   },
 };
