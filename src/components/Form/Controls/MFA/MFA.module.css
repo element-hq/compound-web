@@ -15,25 +15,92 @@ limitations under the License.
 */
 
 .mfa {
-  inline-size: fit-content;
+  --gap: var(--cpd-space-3x);
+  --digit-size: var(--cpd-space-10x);
+  --digit-height: var(--cpd-space-12x);
+
   display: flex;
+  inline-size: fit-content;
   flex-direction: row;
-  gap: 1rem;
+  gap: var(--gap);
+
+  /* The input is positioned absolutely
+     so the container needs to be positioned relatively */
   position: relative;
 }
 
 .mfa-input {
-  opacity: 0;
+  all: unset;
+
+  /* TODO: have the font in the design tokens */
+  font-family: "Roboto Mono", monospace;
+  font-weight: bold;
+
+  /* Position the input to fill the container */
   position: absolute;
   inset: 0;
-  inline-size: 100%;
-  block-size: 100%;
-  box-sizing: border-box;
+
+  /* Spacing between digits is set to the gap
+     plus the size of one digit box
+     minus the size of one character */
+  letter-spacing: calc(var(--gap) + var(--digit-size) - 1ch);
+  line-height: var(--digit-height);
+
+  /* The padding at the start positions the first digit at the middle of the digit box */
+  padding-inline-start: calc(var(--cpd-space-10x) / 2 - (1ch / 2));
+
+  /* The negative margin at the end is to keep space for the cursor when the input is full */
+  margin-inline-end: calc(-1 * (var(--cpd-space-10x) + var(--cpd-space-3x)));
+}
+
+.mfa-input::selection {
+  background: none;
 }
 
 .digit {
-  inline-size: 3rem;
-  aspect-ratio: 1 / 1;
-  border: 1px solid grey;
-  text-align: center;
+  box-sizing: border-box;
+  inline-size: var(--cpd-space-10x);
+  block-size: var(--cpd-space-12x);
+  border: 1px solid var(--cpd-color-border-interactive-primary);
+  background: var(--cpd-color-bg-canvas-default);
+  border-radius: 0.5rem;
+  padding: var(--cpd-space-3x) var(--cpd-space-4x);
+}
+
+@media (hover) {
+  input:hover ~ .digit {
+    border-color: var(--cpd-color-border-interactive-hovered);
+
+    /** TODO: have the shadow in the design tokens */
+    box-shadow: 0 1.2px 2.4px 0 rgb(0 0 0 / 15%);
+  }
+}
+
+input:disabled ~ .digit {
+  box-shadow: none;
+  background: var(--cpd-color-bg-canvas-disabled);
+  border-color: var(--cpd-color-border-disabled);
+  color: var(--cpd-color-text-disabled);
+  cursor: not-allowed;
+}
+
+input[readonly] ~ .digit {
+  box-shadow: none;
+  background: var(--cpd-color-bg-subtle-secondary);
+  border-color: var(--cpd-color-bg-subtle-secondary);
+  color: var(--cpd-color-text-secondary);
+}
+
+input:focus ~ .digit:not([data-filled]) {
+  border-color: var(--cpd-color-border-interactive-hovered);
+}
+
+.digit[data-invalid] {
+  border-color: var(--cpd-color-text-critical-primary);
+}
+
+.digit[data-selected] {
+  /* TODO: do not use !important */
+  border-color: var(--cpd-color-border-interactive-secondary) !important;
+  background-color: var(--cpd-color-bg-subtle-secondary) !important;
 }
