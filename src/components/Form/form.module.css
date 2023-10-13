@@ -21,6 +21,9 @@ limitations under the License.
  */
 
 .root {
+  display: flex;
+  flex-direction: column;
+  gap: var(--cpd-space-5x);
   font: var(--cpd-font-body-md-regular);
   letter-spacing: var(--cpd-font-letter-spacing-body-md);
 }
