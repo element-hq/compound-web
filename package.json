@@ -1,6 +1,6 @@
 {
   "name": "@vector-im/compound-web",
-  "version": "0.4.5",
+  "version": "0.5.4",
   "description": "Compound components for the Web",
   "type": "module",
   "main": "./dist/compound-web.js",
@@ -93,6 +93,7 @@
     "stylelint": "^15.10.3",
     "stylelint-config-standard": "^34.0.0",
     "stylelint-plugin-defensive-css": "^0.9.1",
+    "stylelint-use-logical": "^2.1.0",
     "stylelint-value-no-unknown-custom-properties": "^4.0.0",
     "typescript": "^5.2.2",
     "vite": "^4.4.9",

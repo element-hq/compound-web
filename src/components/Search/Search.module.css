@@ -17,7 +17,7 @@ limitations under the License.
 .search {
   border: 1px solid var(--cpd-color-border-interactive-secondary);
   border-radius: 9999px;
-  height: 36px;
+  block-size: 36px;
   box-sizing: border-box;
   color: var(--cpd-color-text-primary);
   display: flex;
@@ -61,7 +61,7 @@ limitations under the License.
   background: inherit;
   outline: 0;
   flex: 1;
-  min-width: 0;
+  min-inline-size: 0;
 }
 
 .input::placeholder {

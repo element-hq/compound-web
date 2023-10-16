@@ -48,7 +48,7 @@ button.avatar:disabled {
 .avatar,
 .image {
   aspect-ratio: 1 / 1;
-  width: var(--cpd-avatar-size);
+  inline-size: var(--cpd-avatar-size);
   border-radius: var(--cpd-avatar-radius);
 }
 
@@ -124,7 +124,7 @@ button.avatar:disabled {
 }
 
 .stacked-avatars .avatar {
-  float: left;
+  float: inline-start;
 }
 
 .stacked-avatars .avatar:not(:last-child) {
@@ -133,12 +133,12 @@ button.avatar:disabled {
 }
 
 .stacked-avatars > *:not(:first-child) {
-  margin-left: calc(var(--cpd-avatar-size) * -0.2);
+  margin-inline-start: calc(var(--cpd-avatar-size) * -0.2);
 }
 
 .clip-path {
   /* In theory the SVG is invisible, but we still need to ensure it doesn't
   affect the page's layout or otherwise make an appearance */
   position: fixed;
-  left: -9999px;
+  inset-inline-start: -9999px;
 }

@@ -1,5 +1,4 @@
 /*
-Copyright 2023 The Matrix.org Foundation C.I.C.
 Copyright 2023 New Vector Ltd
 
 Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,27 +14,20 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-:root {
-  --cpd-radius-pill-effect: 9999px;
+.glass {
+  border-radius: var(--cpd-space-9x);
+  padding: var(--cpd-space-3x);
 
-  /* Default icon and avatar size */
-  --cpd-icon-button-size: var(--cpd-space-8x);
-  --cpd-avatar-size: var(--cpd-space-16x);
+  /* We use an outline here to create an "inner border", rather than one that
+  adds to the component's size */
+  outline: var(--cpd-border-width-1) solid var(--cpd-color-alpha-gray-400);
+  outline-offset: calc(-1 * var(--cpd-border-width-1));
+  background: var(--cpd-color-alpha-gray-400);
+  backdrop-filter: blur(20px);
 }
 
-html,
-body,
-input {
-  font: var(--cpd-font-body-md-regular);
-  color: var(--cpd-color-text-primary);
-}
-
-html,
-body {
+.glass > :first-child {
+  border-radius: var(--cpd-space-6x);
+  inline-size: 100%;
   block-size: 100%;
-  font-size: var(--cpd-font-size-root);
-}
-
-body {
-  background: var(--cpd-color-bg-canvas-default);
 }

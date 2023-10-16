@@ -19,8 +19,8 @@ limitations under the License.
     var(--cpd-icon-button-size) * 0.0625
   );
 
-  width: var(--cpd-icon-button-size);
-  height: var(--cpd-icon-button-size);
+  inline-size: var(--cpd-icon-button-size);
+  block-size: var(--cpd-icon-button-size);
   padding: calc(var(--cpd-icon-button-size) * 0.125);
   aspect-ratio: 1 / 1;
   color: var(--cpd-color-icon-tertiary);
@@ -39,8 +39,8 @@ limitations under the License.
 }
 
 .icon-button svg {
-  width: 100%;
-  height: 100%;
+  inline-size: 100%;
+  block-size: 100%;
 }
 
 .icon-button[data-indicator] svg {
@@ -53,10 +53,10 @@ limitations under the License.
 .icon-button[data-indicator]::before {
   content: "";
   position: absolute;
-  top: var(--cpd-icon-button-indicator-border-size);
-  right: var(--cpd-icon-button-indicator-border-size);
-  width: calc(var(--cpd-icon-button-size) * 0.25);
-  height: calc(var(--cpd-icon-button-size) * 0.25);
+  inset-block-start: var(--cpd-icon-button-indicator-border-size);
+  inset-inline-end: var(--cpd-icon-button-indicator-border-size);
+  inline-size: calc(var(--cpd-icon-button-size) * 0.25);
+  block-size: calc(var(--cpd-icon-button-size) * 0.25);
   border-radius: 50%;
   background: currentcolor;
 }
@@ -86,8 +86,8 @@ limitations under the License.
     /* Same colour as the background */
     border: var(--cpd-icon-button-indicator-border-size) solid
       var(--cpd-color-bg-subtle-primary);
-    top: 0;
-    right: 0;
+    inset-block-start: 0;
+    inset-inline-end: 0;
   }
 }
 
@@ -95,6 +95,6 @@ limitations under the License.
   /* Same colour as the background */
   border: var(--cpd-icon-button-indicator-border-size) solid
     var(--cpd-color-bg-subtle-primary);
-  top: 0;
-  right: 0;
+  inset-block-start: 0;
+  inset-inline-end: 0;
 }

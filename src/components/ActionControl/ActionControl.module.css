@@ -15,7 +15,7 @@ limitations under the License.
 */
 
 .actioncontrol {
-  max-width: fit-content;
+  max-inline-size: fit-content;
   position: relative;
 }
 
@@ -26,9 +26,9 @@ input.input {
 .icon {
   cursor: pointer;
   position: absolute;
-  top: 50%;
+  inset-block-start: 50%;
   transform: translateY(-50%);
-  right: var(--cpd-space-4x);
+  inset-inline-end: var(--cpd-space-4x);
 }
 
 .input[disabled] + .icon {

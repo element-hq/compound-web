@@ -29,6 +29,7 @@ export { Text } from "./components/Typography/Text";
 export { Checkbox } from "./components/Checkbox/Checkbox";
 export { Control } from "./components/Form/Control";
 export { Field } from "./components/Form/Field";
+export { Glass } from "./components/Glass/Glass";
 export {
   Heading,
   H1,
@@ -47,6 +48,7 @@ export { PasswordControl } from "./components/Form/Controls/Password";
 export { Radio } from "./components/Radio/Radio";
 export { Root } from "./components/Form/Root";
 export { Submit } from "./components/Form/Submit";
+export { Search } from "./components/Search/Search";
 export { Toggle } from "./components/Toggle/Toggle";
 export { Tooltip } from "./components/Tooltip/Tooltip";
 export { ValidityState } from "./components/Form/ValidityState";

@@ -65,7 +65,7 @@ export const MenuItem = <C extends MenuItemElement = "button">({
   kind = "primary",
   children,
   ...props
-}: Props<C>) => {
+}: Props<C>): JSX.Element => {
   const Component = as ?? ("button" as ElementType);
 
   return (

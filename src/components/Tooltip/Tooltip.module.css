@@ -26,7 +26,7 @@ limitations under the License.
   text-align: center;
 }
 
-.shortcut {
+.caption {
   font-weight: var(--cpd-font-weight-regular);
   color: var(--cpd-color-text-secondary);
 }

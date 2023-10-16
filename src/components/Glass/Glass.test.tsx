@@ -1,5 +1,4 @@
 /*
-Copyright 2023 The Matrix.org Foundation C.I.C.
 Copyright 2023 New Vector Ltd
 
 Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,27 +14,19 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-:root {
-  --cpd-radius-pill-effect: 9999px;
+import { describe, it, expect } from "vitest";
+import { render } from "@testing-library/react";
+import React from "react";
 
-  /* Default icon and avatar size */
-  --cpd-icon-button-size: var(--cpd-space-8x);
-  --cpd-avatar-size: var(--cpd-space-16x);
-}
+import { Glass } from "./Glass";
 
-html,
-body,
-input {
-  font: var(--cpd-font-body-md-regular);
-  color: var(--cpd-color-text-primary);
-}
-
-html,
-body {
-  block-size: 100%;
-  font-size: var(--cpd-font-size-root);
-}
-
-body {
-  background: var(--cpd-color-bg-canvas-default);
-}
+describe("Glass", () => {
+  it("renders", () => {
+    const { asFragment } = render(
+      <Glass>
+        <div>ooh, shiny…</div>
+      </Glass>,
+    );
+    expect(asFragment()).toMatchSnapshot();
+  });
+});
