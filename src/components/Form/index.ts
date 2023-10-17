@@ -24,5 +24,5 @@ export { Field } from "./Field";
 export { Label } from "./Label";
 export { Control } from "./Control";
 export { Message } from "./Message";
-export { ValidityState } from "./ValidityState";
+export { ValidityState } from "@radix-ui/react-form";
 export { Submit } from "./Submit";

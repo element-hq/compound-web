@@ -51,7 +51,7 @@ export { Submit } from "./components/Form/Submit";
 export { Search } from "./components/Search/Search";
 export { Toggle } from "./components/Toggle/Toggle";
 export { Tooltip } from "./components/Tooltip/Tooltip";
-export { ValidityState } from "./components/Form/ValidityState";
+export { ValidityState } from "./components/Form";
 
 /**
  * Export utility functions
