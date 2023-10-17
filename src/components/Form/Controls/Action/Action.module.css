@@ -58,3 +58,8 @@ limitations under the License.
   pointer-events: none;
   color: var(--cpd-color-text-disabled);
 }
+
+.control[readonly] + .action {
+  pointer-events: none;
+  color: var(--cpd-color-text-secondary);
+}

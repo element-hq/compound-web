@@ -48,3 +48,9 @@ limitations under the License.
   color: var(--cpd-color-text-disabled);
   cursor: not-allowed;
 }
+
+.control[readonly] {
+  background: var(--cpd-color-bg-subtle-secondary);
+  border-color: var(--cpd-color-bg-subtle-secondary);
+  color: var(--cpd-color-text-secondary);
+}
