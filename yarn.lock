@@ -1294,6 +1294,11 @@
   resolved "https://registry.yarnpkg.com/@floating-ui/utils/-/utils-0.1.4.tgz#19654d1026cc410975d46445180e70a5089b3e7d"
   integrity sha512-qprfWkn82Iw821mcKofJ5Pk9wgioHicxcQMxx+5zt5GSKoqdWvgG5AxVmpmUUjzTLPVSH5auBrhI93Deayn/DA==
 
+"@fontsource/inconsolata@^5.0.8":
+  version "5.0.14"
+  resolved "https://registry.yarnpkg.com/@fontsource/inconsolata/-/inconsolata-5.0.14.tgz#5b6fbfb401bb27dfe9374b4843be09c00bfb8077"
+  integrity sha512-StdcdkSY2Q9IUJ+0YtviTnQ/SGZGqDfWJAtnIrgtS+sV/5FSD91WASHEXDVdbkeRewuiISMU1P8ypGtWHpqEkg==
+
 "@fontsource/inter@^5.0.8":
   version "5.0.8"
   resolved "https://registry.yarnpkg.com/@fontsource/inter/-/inter-5.0.8.tgz#61b50cb0eb72b14ae1938d47c4a9a91546d2a50c"
