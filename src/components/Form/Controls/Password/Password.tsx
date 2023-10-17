@@ -13,42 +13,54 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
+import React, {
+  ComponentRef,
+  forwardRef,
+  ComponentProps,
+  useReducer,
+} from "react";
+import { Control } from "@radix-ui/react-form";
 
-import React, { forwardRef, PropsWithChildren, useReducer } from "react";
-import { ActionControl } from "../Action";
-import { Control } from "../../Control";
+import { ActionInput } from "../Action";
 
 import VisibilityOn from "@vector-im/compound-design-tokens/icons/visibility-on.svg";
 import VisibilityOff from "@vector-im/compound-design-tokens/icons/visibility-off.svg";
 
 const showState = {
   isHidden: true,
-  icon: VisibilityOn,
+  icon: VisibilityOff,
   label: "Show",
   type: "password",
 };
 
 const hideState = {
   isHidden: false,
-  icon: VisibilityOff,
+  icon: VisibilityOn,
   label: "Hide",
   type: "text",
 };
 
+type Props = Omit<
+  ComponentProps<typeof ActionInput>,
+  "type" | "actionLabel" | "onActionClick" | "Icon"
+>;
+
 /**
- * Thin wrapper around Radix UI Control component
- * https://www.radix-ui.com/docs/primitives/components/form#control
+ * A password input with a toggle to show/hide the password.
+ *
+ * Standalone input to be used outside of Radix forms.
  */
-export const PasswordControl = forwardRef<
-  HTMLInputElement,
-  PropsWithChildren<React.ComponentProps<typeof Control>>
+export const PasswordInput = forwardRef<
+  ComponentRef<typeof ActionInput>,
+  Props
 >(function PasswordControl(props, ref) {
   const [{ icon, label, type }, togglePasswordVisibility] = useReducer(
     (state) => (!state.isHidden ? showState : hideState),
     showState,
   );
+
   return (
-    <ActionControl
+    <ActionInput
       ref={ref}
       {...props}
       Icon={icon}
@@ -57,5 +69,21 @@ export const PasswordControl = forwardRef<
       onActionClick={() => togglePasswordVisibility()}
       type={type}
     />
+  );
+});
+
+/**
+ * A password input with a toggle to show/hide the password.
+ *
+ * Control to be used in a Radix form.
+ */
+export const PasswordControl = forwardRef<
+  ComponentRef<typeof PasswordInput>,
+  ComponentProps<typeof PasswordInput>
+>(function PasswordControl(props, ref) {
+  return (
+    <Control asChild>
+      <PasswordInput ref={ref} {...props} />
+    </Control>
   );
 });
