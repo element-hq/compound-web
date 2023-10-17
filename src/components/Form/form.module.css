@@ -61,3 +61,37 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/:has#browser_compatibility */
   color: var(--cpd-color-text-disabled);
   cursor: not-allowed;
 }
+
+/**
+ * Help and error messages
+ */
+
+.message {
+  font: var(--cpd-font-body-sm-regular);
+  letter-spacing: var(--cpd-font-letter-spacing-body-sm);
+  margin-block-start: var(--cpd-space-2x);
+}
+
+.help-message {
+  color: var(--cpd-color-text-secondary);
+}
+
+.error-message {
+  color: var(--cpd-color-text-critical-primary);
+}
+
+/* Currently working everywhere but on Firefox (only behind a labs flag)
+https://developer.mozilla.org/en-US/docs/Web/CSS/:has#browser_compatibility */
+*:has(> input[disabled]) ~ .message {
+  color: var(--cpd-color-text-disabled);
+}
+
+.message > svg {
+  display: inline-block;
+  vertical-align: bottom;
+  margin-inline-end: var(--cpd-space-2x);
+
+  /* Calculate the size of the icon based on the font size and line height */
+  block-size: calc(1em * var(--cpd-font-line-height-regular));
+  inline-size: calc(1em * var(--cpd-font-line-height-regular));
+}

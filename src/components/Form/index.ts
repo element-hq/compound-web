@@ -28,6 +28,6 @@ export {
 export { Root } from "./Root";
 export { Field } from "./Field";
 export { Label } from "./Label";
-export { Message } from "./Message";
-export { ValidityState } from "@radix-ui/react-form";
+export { ValidityState, Message } from "@radix-ui/react-form";
+export { ErrorMessage, HelpMessage } from "./Message";
 export { Submit } from "./Submit";

@@ -58,6 +58,8 @@ export {
   Root,
   Submit,
   Message,
+  ErrorMessage,
+  HelpMessage,
   ValidityState,
   Field,
   Label,
