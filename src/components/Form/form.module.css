@@ -1,5 +1,6 @@
 /*
-Copyright 2023  New Vector Ltd
+Copyright 2023 The Matrix.org Foundation C.I.C.
+Copyright 2023 New Vector Ltd
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -21,8 +22,9 @@ limitations under the License.
  */
 
 .root {
-  font: var(--cpd-font-body-md-regular);
-  letter-spacing: var(--cpd-font-letter-spacing-body-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--cpd-space-5x);
 }
 
 /**
@@ -39,7 +41,9 @@ limitations under the License.
  */
 
 .label {
-  font-weight: var(--cpd-font-weight-medium);
+  font: var(--cpd-font-body-md-medium);
+  letter-spacing: var(--cpd-font-letter-spacing-body-md);
+  margin-block-end: var(--cpd-space-1x);
 }
 
 .label[for] {
