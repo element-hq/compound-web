@@ -25,6 +25,7 @@ import UserIcon from "@vector-im/compound-design-tokens/icons/user-profile.svg";
 export default {
   title: "Tooltip",
   component: TooltipComponent,
+  tags: ["autodocs"],
   argTypes: {},
   args: {},
 } as Meta<typeof TooltipComponent>;

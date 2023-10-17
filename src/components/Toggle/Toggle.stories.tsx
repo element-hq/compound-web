@@ -14,28 +14,39 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import React from "react";
-import { Meta, StoryFn } from "@storybook/react";
+import { Meta } from "@storybook/react";
 
 import { Toggle as ToggleComponent } from "./Toggle";
 
 export default {
   title: "Toggle",
   component: ToggleComponent,
+  tags: ["autodocs"],
   argTypes: {},
   args: {},
 } as Meta<typeof ToggleComponent>;
 
-const Template: StoryFn<typeof ToggleComponent> = (args) => (
-  <>
-    <ToggleComponent {...args} checked={false} />
-    <br />
-    <ToggleComponent {...args} checked={true} />
-  </>
-);
+export const Active = {
+  args: {
+    checked: false,
+  },
+};
 
-export const Active = Template.bind({});
-Active.args = {};
+export const Checked = {
+  args: {
+    checked: true,
+  },
+};
 
-export const Disabled = Template.bind({});
-Disabled.args = { disabled: true };
+export const Disabled = {
+  args: {
+    disabled: true,
+  },
+};
+
+export const DisabledChecked = {
+  args: {
+    disabled: true,
+    checked: true,
+  },
+};

@@ -22,8 +22,9 @@ import { IconButton as IconButtonComponent } from "./IconButton";
 import UserIcon from "@vector-im/compound-design-tokens/icons/user-profile.svg";
 
 export default {
-  title: "IconButton",
+  title: "Button/IconButton",
   component: IconButtonComponent,
+  tags: ["autodocs"],
   argTypes: {},
   args: {},
 } as Meta<typeof IconButtonComponent>;

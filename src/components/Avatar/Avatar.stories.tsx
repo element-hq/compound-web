@@ -22,6 +22,7 @@ import { Avatar as AvatarComponent } from "./Avatar";
 export default {
   title: "Avatar",
   component: AvatarComponent,
+  tags: ["autodocs"],
   argTypes: {},
   args: {
     name: "Bob",
@@ -29,6 +30,10 @@ export default {
     id: "@bob:example.org",
     src: "/images/__test__/kitten.jpg",
     type: "round",
+  },
+  design: {
+    type: "figma",
+    url: "https://www.figma.com/file/rTaQE2nIUSLav4Tg3nozq7/Compound-Web-Components?type=design&node-id=522-742&mode=dev",
   },
 } as Meta<typeof AvatarComponent>;
 

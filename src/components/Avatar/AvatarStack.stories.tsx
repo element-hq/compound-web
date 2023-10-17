@@ -21,8 +21,9 @@ import { AvatarStack as AvatarStackComponent } from "./AvatarStack";
 import { Avatar } from "./Avatar";
 
 export default {
-  title: "StackedAvatar",
+  title: "Avatar/StackedAvatar",
   component: AvatarStackComponent,
+  tags: ["autodocs"],
   argTypes: {},
   args: {
     size: "64px",

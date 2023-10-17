@@ -14,40 +14,38 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import React from "react";
-import { Meta, StoryFn } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 
-import { Checkbox as CheckboxComponent } from "./Checkbox";
+import { Checkbox } from "./Checkbox";
 
 export default {
   title: "Checkbox",
-  component: CheckboxComponent,
+  component: Checkbox,
+  tags: ["autodocs"],
   argTypes: {},
   args: {},
-} as Meta<typeof CheckboxComponent>;
+} as Meta<typeof Checkbox>;
 
-const Template: StoryFn<typeof CheckboxComponent> = (args) => (
-  <CheckboxComponent {...args} />
-);
-
-export const Primary = Template.bind({});
-Primary.args = {};
-Primary.parameters = {};
-
-export const Critical = Template.bind({});
-Critical.args = {
-  kind: "critical",
-};
-Critical.parameters = {};
-
-export const Disabled = Template.bind({});
-Disabled.args = {
-  disabled: true,
-  checked: false,
+export const Primary: StoryObj = {
+  args: {},
 };
 
-export const DisabledChecked = Template.bind({});
-DisabledChecked.args = {
-  disabled: true,
-  checked: true,
+export const Critical: StoryObj = {
+  args: {
+    kind: "critical",
+  },
+};
+
+export const Disabled: StoryObj = {
+  args: {
+    disabled: true,
+    checked: false,
+  },
+};
+
+export const DisabledChecked: StoryObj = {
+  args: {
+    disabled: true,
+    checked: true,
+  },
 };

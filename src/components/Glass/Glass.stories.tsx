@@ -23,6 +23,7 @@ import { Text } from "../Typography/Text";
 export default {
   title: "Glass",
   component: GlassComponent,
+  tags: ["autodocs"],
   argTypes: {},
   args: {},
 } as Meta<typeof GlassComponent>;

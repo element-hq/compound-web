@@ -24,6 +24,7 @@ import { ToggleMenuItem as ToggleMenuItemComponent } from "./ToggleMenuItem";
 export default {
   title: "ToggleMenuItem",
   component: ToggleMenuItemComponent,
+  tags: ["autodocs"],
   argTypes: {},
   args: {},
 } as Meta<typeof ToggleMenuItemComponent>;
