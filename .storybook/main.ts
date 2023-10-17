@@ -16,9 +16,6 @@ const config: StorybookConfig = {
   features: {
     storyStoreV7: true,
   },
-  docs: {
-    autodocs: false,
-  },
   viteFinal: (config) => {
     return {
       ...config,
