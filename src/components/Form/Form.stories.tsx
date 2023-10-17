@@ -16,42 +16,86 @@ limitations under the License.
 */
 
 import React from "react";
-import { Meta, StoryFn } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 
 import * as Form from "./index";
-import { PasswordControl } from "./Controls/Password";
-import { MFAControl } from "./Controls/MFA";
 
-export default {
-  title: "Form",
-  component: Form.Root,
-} as Meta<typeof Form.Root>;
+type Props = {
+  disabled: boolean;
+  invalid: boolean;
+  readOnly: boolean;
+};
 
-const Template: StoryFn<typeof Form.Root> = () => (
+const KitchenSink = ({ disabled, invalid, readOnly }: Props) => (
   <Form.Root>
-    <Form.Field name="mxid">
+    <Form.Field serverInvalid={invalid} name="mxid">
       <Form.Label>Username</Form.Label>
-      <Form.Control value="Hello world!" />
+      <Form.TextControl
+        disabled={disabled}
+        readOnly={readOnly}
+        defaultValue="Hello world!"
+      />
+      {invalid ? (
+        <Form.ErrorMessage>Error message.</Form.ErrorMessage>
+      ) : (
+        <Form.HelpMessage>Help message.</Form.HelpMessage>
+      )}
     </Form.Field>
-    <Form.Field name="password">
+    <Form.Field serverInvalid={invalid} name="password">
       <Form.Label>Password</Form.Label>
-      <PasswordControl value="sup3rS3cur3p4ssw0rd!" />
+      <Form.PasswordControl
+        disabled={disabled}
+        readOnly={readOnly}
+        defaultValue="sup3rS3cur3p4ssw0rd!"
+      />
+      {invalid ? (
+        <Form.ErrorMessage>Error message.</Form.ErrorMessage>
+      ) : (
+        <Form.HelpMessage>Help message.</Form.HelpMessage>
+      )}
     </Form.Field>
-    <Form.Field name="mfa">
+    <Form.Field serverInvalid={invalid} name="mfa">
       <Form.Label>MFA</Form.Label>
-      <MFAControl value="123" />
+      <Form.MFAControl
+        disabled={disabled}
+        readOnly={readOnly}
+        defaultValue="123"
+      />
+      {invalid ? (
+        <Form.ErrorMessage>Error message.</Form.ErrorMessage>
+      ) : (
+        <Form.HelpMessage>Help message.</Form.HelpMessage>
+      )}
     </Form.Field>
 
-    <Form.Submit>Submit</Form.Submit>
+    <Form.Submit disabled={disabled}>Submit</Form.Submit>
   </Form.Root>
 );
 
-export const Root = Template.bind({});
-Root.args = {};
-
-Root.parameters = {
-  design: {
-    type: "figma",
-    url: "https://www.figma.com/file/HUysJAhv6cK6p1Pc81Fxaa/Matrix-Authentication-Service-(MAS)?node-id=101%3A16968&t=gc1qRwZLEob0m7OM-1",
+export default {
+  title: "Form/Kitchen Sink",
+  component: KitchenSink,
+  argTypes: {
+    disabled: {
+      type: "boolean",
+    },
+    readOnly: {
+      type: "boolean",
+    },
+    invalid: {
+      type: "boolean",
+    },
   },
-};
+  args: {
+    disabled: false,
+    readOnly: false,
+    invalid: false,
+  },
+} as Meta<typeof KitchenSink>;
+
+type Story = StoryObj<typeof KitchenSink>;
+
+export const Normal: Story = {};
+export const Disabled: Story = { args: { disabled: true } };
+export const ReadOnly: Story = { args: { readOnly: true } };
+export const Invalid: Story = { args: { invalid: true } };
