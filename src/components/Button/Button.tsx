@@ -50,7 +50,7 @@ type ButtonOwnProps = PropsWithChildren<{
 
 type ButtonPropsFor<C extends React.ElementType> = ButtonOwnProps &
   Omit<React.ComponentPropsWithoutRef<C>, keyof ButtonOwnProps | "as"> & {
-    ref?: React.Ref<C>;
+    ref?: React.Ref<React.ComponentRef<C>>;
   };
 
 /**
