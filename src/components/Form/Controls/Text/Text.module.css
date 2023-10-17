@@ -26,6 +26,9 @@ limitations under the License.
 @media (hover) {
   .control:hover {
     border-color: var(--cpd-color-border-interactive-hovered);
+
+    /** TODO: have the shadow in the design tokens */
+    box-shadow: 0 1.2px 2.4px 0 rgb(0 0 0 / 15%);
   }
 }
 
@@ -43,6 +46,7 @@ limitations under the License.
 }
 
 .control:disabled {
+  box-shadow: none;
   background: var(--cpd-color-bg-canvas-disabled);
   border-color: var(--cpd-color-border-disabled);
   color: var(--cpd-color-text-disabled);
@@ -50,6 +54,7 @@ limitations under the License.
 }
 
 .control[readonly] {
+  box-shadow: none;
   background: var(--cpd-color-bg-subtle-secondary);
   border-color: var(--cpd-color-bg-subtle-secondary);
   color: var(--cpd-color-text-secondary);
