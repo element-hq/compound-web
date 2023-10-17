@@ -52,55 +52,7 @@ limitations under the License.
 
 /* Currently working everywhere but on Firefox (only behind a labs flag)
 https://developer.mozilla.org/en-US/docs/Web/CSS/:has#browser_compatibility */
-.label:has(~ .control[disabled]) {
-  color: var(--cpd-color-text-disabled);
-  cursor: not-allowed;
-}
-
-/**
- * CONTROL
- */
-
-.control {
-  border: 1px solid var(--cpd-color-border-interactive-primary);
-  background: var(--cpd-color-bg-canvas-default);
-  border-radius: 0.5rem;
-  padding: var(--cpd-space-3x) var(--cpd-space-4x);
-  box-sizing: border-box;
-}
-
-/* Disabling the descending specificity rule to allow for selectors like below
- * It is using the "fake" element hack to style checkboxes, radio, mfa codes ...
- */
-
-/* stylelint-disable no-descending-specificity */
-@media (hover) {
-  .control:hover,
-  input:hover ~ .control {
-    border-color: var(--cpd-color-border-interactive-hovered);
-  }
-}
-
-.control:active,
-input:active ~ .control {
-  border-color: var(--cpd-color-border-interactive-hovered);
-}
-
-.control:focus,
-input:focus ~ .control {
-  outline: 2px solid var(--cpd-color-border-focused);
-  border-color: transparent;
-}
-
-.control[data-invalid],
-input[data-invalid] ~ .control {
-  border-color: var(--cpd-color-text-critical-primary);
-}
-
-.control:disabled,
-input:disabled ~ .control {
-  background: var(--cpd-color-bg-canvas-disabled);
-  border-color: var(--cpd-color-border-disabled);
+.label:has(~ input[disabled]) {
   color: var(--cpd-color-text-disabled);
   cursor: not-allowed;
 }

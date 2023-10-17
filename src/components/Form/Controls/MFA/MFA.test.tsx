@@ -20,10 +20,7 @@ import { act, render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 import { MFAControl } from "./MFA";
-import { Root } from "../../Root";
-import { Field } from "../../Field";
-import { Label } from "../../Label";
-import { Control } from "../../Control";
+import { Root, Label, Field, Control } from "@radix-ui/react-form";
 
 describe("PasswordControl", () => {
   const MFA: React.FC<React.ComponentProps<typeof MFAControl>> = (

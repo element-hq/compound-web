@@ -2,20 +2,15 @@
 
 exports[`PasswordControl > renders 1`] = `
 <DocumentFragment>
-  <form
-    class="_root_dc87d2"
-  >
-    <div
-      class="_field_dc87d2"
-    >
+  <form>
+    <div>
       <label
-        class="_label_dc87d2"
         for="radix-:r0:"
       >
         MFA
       </label>
       <div
-        class="_container_4b8c2b _control_dc87d2"
+        class="_container_4b8c2b"
       >
         <input
           autocomplete="one-time-code"

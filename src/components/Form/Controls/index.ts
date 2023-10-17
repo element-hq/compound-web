@@ -1,5 +1,6 @@
 /*
-Copyright 2023  New Vector Ltd
+Copyright 2023 The Matrix.org Foundation C.I.C.
+Copyright 2023 New Vector Ltd
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -14,20 +15,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-export {
-  ActionControl,
-  ActionInput,
-  PasswordControl,
-  PasswordInput,
-  TextControl,
-  TextInput,
-  MFAControl,
-  MFAInput,
-} from "./Controls";
-
-export { Root } from "./Root";
-export { Field } from "./Field";
-export { Label } from "./Label";
-export { Message } from "./Message";
-export { ValidityState } from "@radix-ui/react-form";
-export { Submit } from "./Submit";
+export { ActionControl, ActionInput } from "./Action";
+export { PasswordControl, PasswordInput } from "./Password";
+export { TextControl, TextInput } from "./Text";
+export { MFAControl, MFAInput } from "./MFA";
