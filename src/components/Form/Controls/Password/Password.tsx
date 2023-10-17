@@ -15,7 +15,7 @@ limitations under the License.
 */
 
 import React, { forwardRef, PropsWithChildren, useReducer } from "react";
-import { ActionControl } from "../../../ActionControl/ActionControl";
+import { ActionControl } from "../Action";
 import { Control } from "../../Control";
 
 import VisibilityOn from "@vector-im/compound-design-tokens/icons/visibility-on.svg";

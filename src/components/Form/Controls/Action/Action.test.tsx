@@ -17,15 +17,15 @@ limitations under the License.
 import { vi, describe, it, expect } from "vitest";
 import { fireEvent, getByLabelText, render } from "@testing-library/react";
 import React from "react";
+import ChatIcon from "@vector-im/compound-design-tokens/icons/chat.svg";
 
-import { StandaloneActionControl as ActionControl } from "./ActionControl";
-import ThreadIcon from "../Icon/icons/thread.svg";
+import { ActionInput } from "./Action";
 
-describe("ActionControl", () => {
+describe("ActionInput", () => {
   it("renders", () => {
     const { asFragment } = render(
-      <ActionControl
-        Icon={ThreadIcon}
+      <ActionInput
+        Icon={ChatIcon}
         actionLabel="Click me!"
         onActionClick={() => {
           console.log("clicked!");
@@ -39,8 +39,8 @@ describe("ActionControl", () => {
     const spy = vi.fn();
 
     const { container } = render(
-      <ActionControl
-        Icon={ThreadIcon}
+      <ActionInput
+        Icon={ChatIcon}
         actionLabel="Click me!"
         onActionClick={spy}
       />,

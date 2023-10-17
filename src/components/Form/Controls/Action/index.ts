@@ -1,4 +1,5 @@
 /*
+Copyright 2023 The Matrix.org Foundation C.I.C.
 Copyright 2023 New Vector Ltd
 
 Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,24 +15,4 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-.actioncontrol {
-  max-inline-size: fit-content;
-  position: relative;
-}
-
-input.input {
-  padding-inline-end: var(--cpd-space-12x);
-}
-
-.icon {
-  cursor: pointer;
-  position: absolute;
-  inset-block-start: 50%;
-  transform: translateY(-50%);
-  inset-inline-end: var(--cpd-space-4x);
-}
-
-.input[disabled] + .icon {
-  pointer-events: none;
-  color: var(--cpd-color-text-disabled);
-}
+export { ActionInput, ActionControl } from "./Action";

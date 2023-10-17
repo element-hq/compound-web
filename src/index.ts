@@ -18,7 +18,7 @@ limitations under the License.
  * Export React components
  */
 
-export { ActionControl } from "./components/ActionControl/ActionControl";
+export { ActionControl } from "./components/Form/Controls/Action";
 export { Alert } from "./components/Alert/Alert";
 export { Avatar } from "./components/Avatar/Avatar";
 export { AvatarStack } from "./components/Avatar/AvatarStack";
