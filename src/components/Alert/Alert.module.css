@@ -18,8 +18,8 @@ limitations under the License.
 
 .alert {
   display: flex;
-  align-items: start;
-  justify-content: start;
+  align-items: flex-start;
+  justify-content: flex-start;
   gap: var(--cpd-space-3x);
   padding: var(--cpd-space-4x);
   border-radius: 12px;
