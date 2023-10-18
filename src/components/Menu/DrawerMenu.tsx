@@ -45,10 +45,7 @@ export const DrawerMenu = forwardRef<HTMLDivElement, Props>(
       {...props}
       role="menu"
     >
-      <div className={styles.body}>
-        <div role="presentation" className={styles.handle} />
-        {children}
-      </div>
+      <div className={styles.body}>{children}</div>
     </div>
   ),
 );

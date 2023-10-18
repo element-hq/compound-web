@@ -16,7 +16,6 @@ limitations under the License.
 
 .bg {
   position: fixed;
-  z-index: 100;
   inset: 0;
 
   /* TODO: This value is used across modals and menu drawers, so would be worth
@@ -26,10 +25,12 @@ limitations under the License.
 
 .drawer {
   position: fixed;
-  z-index: 101;
   background: var(--cpd-color-bg-canvas-default);
   inset-block-end: 0;
   inset-inline: 0;
+
+  /* Cap the inline content size at 520px, filling the rest of the space with
+  padding */
   padding-inline: max(0px, calc((100% - 520px) / 2));
   border-start-start-radius: var(--border-radius);
   border-start-end-radius: var(--border-radius);
@@ -74,7 +75,8 @@ limitations under the License.
   scrollbar-width: none;
 }
 
-.handle {
+.body::before {
+  content: "";
   position: absolute;
   block-size: var(--handle-block-size);
   inset-inline: calc((100% - var(--handle-inline-size)) / 2);
