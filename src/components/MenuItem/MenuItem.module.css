@@ -16,13 +16,19 @@ limitations under the License.
 
 .item {
   display: grid;
-  grid-template: "icon label ." auto "empty1 label empty2" auto / auto auto 1fr;
+  grid-template: "icon label ." auto "empty1 label empty2" auto / auto auto minmax(
+      /* Reserve space for the chevron so that the layout doesn't shift on
+      hover */
+        var(--cpd-space-4x),
+      1fr
+    );
   align-items: center;
   justify-items: end;
   padding-block: var(--cpd-space-2x);
   padding-inline: var(--cpd-space-4x);
   box-sizing: border-box;
   inline-size: 100%;
+  min-inline-size: 200px;
   color: var(--cpd-color-text-secondary);
   background: var(--cpd-color-bg-action-secondary-rest);
 }
@@ -33,6 +39,11 @@ limitations under the License.
 
 .item.no-label {
   grid-template: "icon ." auto / auto 1fr;
+}
+
+/* Items with interactive controls like toggles are larger by default */
+label.item {
+  min-inline-size: 246px;
 }
 
 .icon {
@@ -48,6 +59,7 @@ limitations under the License.
   grid-area: label;
   margin-inline-end: var(--cpd-space-4x);
   text-align: start;
+  word-break: break-word;
 }
 
 .nav-hint {
@@ -60,10 +72,6 @@ limitations under the License.
 button.item {
   appearance: none;
   border: none;
-}
-
-.item.with-chevron {
-  padding-inline-end: var(--cpd-space-2x);
 }
 
 .item[data-kind="primary"] > .label {
