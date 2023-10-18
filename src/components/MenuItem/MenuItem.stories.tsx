@@ -26,6 +26,7 @@ import { Text } from "../Typography/Text";
 export default {
   title: "MenuItem",
   component: MenuItemComponent,
+  tags: ["autodocs"],
   argTypes: {},
   args: {},
 } as Meta<typeof MenuItemComponent>;

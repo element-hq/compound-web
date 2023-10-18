@@ -28,6 +28,7 @@ type Props = {
 export default {
   title: "Button",
   component: ButtonComponent,
+  tags: ["autodocs"],
   argTypes: {
     size: {
       options: ["sm", "lg"],

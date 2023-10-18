@@ -14,28 +14,56 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import React from "react";
-import { Meta, StoryFn } from "@storybook/react";
+import { Meta } from "@storybook/react";
 
 import { Radio as RadioComponent } from "./Radio";
 
 export default {
   title: "Radio",
   component: RadioComponent,
-  argTypes: {},
-  args: {},
+  tags: ["autodocs"],
+  args: {
+    checked: false,
+    disabled: false,
+    kind: "primary",
+  },
 } as Meta<typeof RadioComponent>;
 
-const Template: StoryFn<typeof RadioComponent> = (args) => (
-  <RadioComponent {...args} />
-);
+export const Primary = {};
 
-export const Primary = Template.bind({});
-Primary.args = {};
-Primary.parameters = {};
-
-export const Critical = Template.bind({});
-Critical.args = {
-  kind: "critical",
+export const Checked = {
+  ...Primary,
+  args: {
+    checked: true,
+  },
 };
-Critical.parameters = {};
+
+export const CheckedDisabled = {
+  ...Checked,
+  args: {
+    ...Checked.args,
+    disabled: true,
+  },
+};
+
+export const Critical = {
+  args: {
+    kind: "critical",
+  },
+};
+
+export const CriticalChecked = {
+  ...Critical,
+  args: {
+    ...Critical.args,
+    checked: true,
+  },
+};
+
+export const CriticalCheckedDisabled = {
+  ...CriticalChecked,
+  args: {
+    ...CriticalChecked.args,
+    disabled: true,
+  },
+};

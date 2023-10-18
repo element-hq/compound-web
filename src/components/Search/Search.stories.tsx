@@ -23,6 +23,7 @@ import { Form } from "@radix-ui/react-form";
 export default {
   title: "Search",
   component: SearchComponent,
+  tags: ["autodocs"],
   argTypes: {},
   args: {},
 } as Meta<typeof SearchComponent>;

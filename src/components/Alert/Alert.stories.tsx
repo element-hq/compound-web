@@ -14,14 +14,14 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import React from "react";
-import { Meta, StoryFn } from "@storybook/react";
+import { Meta } from "@storybook/react";
 
 import { Alert as AlertComponent } from "./Alert";
 
 export default {
   title: "Alert",
   component: AlertComponent,
+  tags: ["autodocs"],
   argTypes: {
     type: {
       options: ["success", "critical", "info"],
@@ -29,29 +29,36 @@ export default {
     },
   },
   args: {
+    title: "Title",
+    children: "Description",
     onClose: () => {
       console.log("Clicked!");
     },
   },
 } as Meta<typeof AlertComponent>;
 
-const Template: StoryFn<typeof AlertComponent> = (args) => (
-  <AlertComponent {...args} title="Title">
-    Description
-  </AlertComponent>
-);
-
-export const Success = Template.bind({});
-Success.args = {
-  type: "success",
+export const Success = {
+  args: {
+    type: "success",
+  },
 };
 
-export const Critical = Template.bind({});
-Critical.args = {
-  type: "critical",
+export const Critical = {
+  args: {
+    type: "critical",
+  },
 };
 
-export const Info = Template.bind({});
-Info.args = {
-  type: "info",
+export const Info = {
+  args: {
+    type: "info",
+  },
+};
+
+export const WithoutClose = {
+  ...Success,
+  args: {
+    ...Success.args,
+    onClose: undefined,
+  },
 };
