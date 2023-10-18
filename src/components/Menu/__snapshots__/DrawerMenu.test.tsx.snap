@@ -11,10 +11,6 @@ exports[`DrawerMenu > renders 1`] = `
     <div
       class="_body_31bf0e"
     >
-      <div
-        class="_handle_31bf0e"
-        role="presentation"
-      />
       <button
         class="_item_831119 _interactive_831119"
         data-kind="primary"
