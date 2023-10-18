@@ -33,13 +33,22 @@ export default {
 } as Meta<typeof FloatingMenuComponent>;
 
 const Template: StoryFn<typeof FloatingMenuComponent> = (args) => (
-  // Width is fixed to demonstrate word breaking for long menu items
-  <FloatingMenuComponent {...args} style={{ inlineSize: 200 }} title="Settings">
-    <MenuItem Icon={UserProfileIcon} label="Profile" />
-    <MenuItem Icon={NotificationsIcon} label="Benachrichtigungen" />
-    <MenuItem Icon={ChatProblemIcon} label="Feedback" />
+  <FloatingMenuComponent {...args} title="Settings">
+    <MenuItem Icon={UserProfileIcon} label="Profile" onSelect={() => {}} />
+    {/* Extra long label to demonstrate word breaking */}
+    <MenuItem
+      Icon={NotificationsIcon}
+      label="Notificationsnotificationsnotifications"
+      onSelect={() => {}}
+    />
+    <MenuItem Icon={ChatProblemIcon} label="Feedback" onSelect={() => {}} />
     <MenuDivider />
-    <MenuItem kind="critical" Icon={LeaveIcon} label="Sign out" />
+    <MenuItem
+      kind="critical"
+      Icon={LeaveIcon}
+      label="Sign out"
+      onSelect={() => {}}
+    />
   </FloatingMenuComponent>
 );
 

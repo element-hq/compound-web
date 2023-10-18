@@ -28,9 +28,14 @@ describe("FloatingMenu", () => {
   it("renders", () => {
     const { asFragment } = render(
       <FloatingMenu title="Settings">
-        <MenuItem Icon={UserProfileIcon} label="Profile" />
+        <MenuItem Icon={UserProfileIcon} label="Profile" onSelect={() => {}} />
         <MenuDivider />
-        <MenuItem kind="critical" Icon={LeaveIcon} label="Sign out" />
+        <MenuItem
+          kind="critical"
+          Icon={LeaveIcon}
+          label="Sign out"
+          onSelect={() => {}}
+        />
       </FloatingMenu>,
     );
     expect(asFragment()).toMatchSnapshot();

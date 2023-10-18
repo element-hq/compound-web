@@ -36,15 +36,12 @@ interface Props extends ComponentPropsWithoutRef<"div"> {
 }
 
 /**
- * A floating menu (the kind of menu you would see on desktop).
+ * A menu in a floating box, as commonly seen on desktop.
  */
 // This an internal component not intended for export! Consumers should use it
-// via the Menu or ContextMenu components. (At the time of writing, these are
-// not yet built, but the idea is that Menu will support button triggers,
-// ContextMenu will support right click / long press triggers, and both will
-// automatically morph into drawers on mobile.)
+// via the Menu or ContextMenu components.
 export const FloatingMenu = forwardRef<HTMLDivElement, Props>(
-  ({ title, className, children, ...props }, ref) => {
+  ({ title, className, children, ...props }, ref): ReactNode => {
     const titleId = useId();
     return (
       <div
