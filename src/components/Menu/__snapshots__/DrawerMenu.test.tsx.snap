@@ -16,13 +16,13 @@ exports[`DrawerMenu > renders 1`] = `
         role="presentation"
       />
       <button
-        class="_item_37eef5 _interactive_37eef5"
+        class="_item_831119 _interactive_831119"
         data-kind="primary"
         role="menuitem"
       >
         <svg
           aria-hidden="true"
-          class="_icon_37eef5"
+          class="_icon_831119"
           fill="none"
           height="24"
           viewBox="0 0 24 24"
@@ -43,13 +43,13 @@ exports[`DrawerMenu > renders 1`] = `
           />
         </svg>
         <span
-          class="_font-body-md-medium_489030 _label_37eef5"
+          class="_font-body-md-medium_489030 _label_831119"
         >
           Profile
         </span>
         <svg
           aria-hidden="true"
-          class="_nav-hint_37eef5"
+          class="_nav-hint_831119"
           fill="none"
           height="24"
           viewBox="0 0 24 24"
@@ -63,16 +63,16 @@ exports[`DrawerMenu > renders 1`] = `
         </svg>
       </button>
       <hr
-        class="_divider_2f054a"
+        class="_divider_2a0095"
       />
       <button
-        class="_item_37eef5 _interactive_37eef5"
+        class="_item_831119 _interactive_831119"
         data-kind="critical"
         role="menuitem"
       >
         <svg
           aria-hidden="true"
-          class="_icon_37eef5"
+          class="_icon_831119"
           fill="none"
           height="24"
           viewBox="0 0 24 24"
@@ -93,13 +93,13 @@ exports[`DrawerMenu > renders 1`] = `
           />
         </svg>
         <span
-          class="_font-body-md-medium_489030 _label_37eef5"
+          class="_font-body-md-medium_489030 _label_831119"
         >
           Sign out
         </span>
         <svg
           aria-hidden="true"
-          class="_nav-hint_37eef5"
+          class="_nav-hint_831119"
           fill="none"
           height="24"
           viewBox="0 0 24 24"

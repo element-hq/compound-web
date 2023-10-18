@@ -18,41 +18,34 @@ import React from "react";
 import { Meta, StoryFn } from "@storybook/react";
 import ExtensionsIcon from "@vector-im/compound-design-tokens/icons/extensions.svg";
 import ChatIcon from "@vector-im/compound-design-tokens/icons/chat.svg";
-import SettingsLabel from "@vector-im/compound-design-tokens/icons/settings.svg";
 
-import { MenuItem as MenuItemComponent } from "./MenuItem";
-import { Text } from "../Typography/Text";
+import { ToggleMenuItem as ToggleMenuItemComponent } from "./ToggleMenuItem";
 
 export default {
-  title: "MenuItem",
-  component: MenuItemComponent,
+  title: "Menu/ToggleMenuItem",
+  component: ToggleMenuItemComponent,
   tags: ["autodocs"],
   argTypes: {},
   args: {},
-} as Meta<typeof MenuItemComponent>;
+} as Meta<typeof ToggleMenuItemComponent>;
 
-const Template: StoryFn<typeof MenuItemComponent> = (args) => (
+const Template: StoryFn<typeof ToggleMenuItemComponent> = (args) => (
   <div style={{ width: 300 }}>
-    <MenuItemComponent {...args} Icon={ChatIcon} label="First item">
-      <Text as="span" size="sm">
-        99
-      </Text>
-    </MenuItemComponent>
-    <MenuItemComponent
+    <ToggleMenuItemComponent {...args} Icon={ChatIcon} label="First item" />
+    <ToggleMenuItemComponent
       {...args}
       Icon={ExtensionsIcon}
       label="Second item with a name that's quite long"
     />
-    <MenuItemComponent {...args} Icon={SettingsLabel} label={undefined}>
-      <Text as="span" size="sm">
-        Third item without a label
-      </Text>
-    </MenuItemComponent>
   </div>
 );
 
 export const Primary = Template.bind({});
-Primary.args = { kind: "primary" };
+Primary.args = {};
 
-export const Critical = Template.bind({});
-Critical.args = { kind: "critical" };
+Primary.parameters = {
+  design: {
+    type: "figma",
+    url: "https://www.figma.com/file/rTaQE2nIUSLav4Tg3nozq7/Compound-Web-Components?type=design&node-id=712-6909&mode=dev",
+  },
+};

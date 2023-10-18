@@ -14,10 +14,14 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-.divider {
-  margin-inline: var(--cpd-space-4x);
-  margin-block: 0;
-  border: none;
-  background: var(--cpd-color-gray-400);
-  block-size: var(--cpd-border-width-1);
+import { useMediaQuery } from "./useMediaQuery";
+
+/**
+ * React hook that detects whether the primary input device is a touchscreen.
+ */
+export function useTouchscreen() {
+  // The preferred way to to this is by querying (hover: none). Empirically,
+  // Chrome on Android can end up not matching (hover: none), but still matching
+  // (pointer: coarse), so we add that condition as well for good measure.
+  return useMediaQuery("(hover: none) or (pointer: coarse)");
 }

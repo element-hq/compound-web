@@ -21,7 +21,7 @@ import useId from "../../utils/useId";
 
 type Props = Pick<
   ComponentProps<typeof MenuItem>,
-  "className" | "Icon" | "label"
+  "className" | "Icon" | "label" | "onSelect"
 > &
   Omit<ComponentProps<typeof Toggle>, "id" | "children">;
 
@@ -30,7 +30,10 @@ type Props = Pick<
  * activate the toggle.
  */
 export const ToggleMenuItem = forwardRef<HTMLInputElement, Props>(
-  function ToggleMenuItem({ className, Icon, label, ...toggleProps }, ref) {
+  function ToggleMenuItem(
+    { className, Icon, label, onSelect, ...toggleProps },
+    ref,
+  ) {
     const toggleId = useId();
     return (
       <MenuItem
@@ -40,6 +43,7 @@ export const ToggleMenuItem = forwardRef<HTMLInputElement, Props>(
         className={className}
         Icon={Icon}
         label={label}
+        onSelect={onSelect}
       >
         <Toggle id={toggleId} ref={ref} {...toggleProps} />
       </MenuItem>

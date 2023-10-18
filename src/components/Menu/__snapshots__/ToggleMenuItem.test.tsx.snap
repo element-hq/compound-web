@@ -3,14 +3,14 @@
 exports[`ToggleMenuItem > renders 1`] = `
 <DocumentFragment>
   <label
-    class="_item_37eef5 _interactive_37eef5"
+    class="_item_831119 _interactive_831119"
     data-kind="primary"
     for=":r0:"
     role="menuitemcheckbox"
   >
     <svg
       aria-hidden="true"
-      class="_icon_37eef5"
+      class="_icon_831119"
       fill="none"
       height="24"
       viewBox="0 0 24 24"
@@ -23,7 +23,7 @@ exports[`ToggleMenuItem > renders 1`] = `
       />
     </svg>
     <span
-      class="_font-body-md-medium_489030 _label_37eef5"
+      class="_font-body-md-medium_489030 _label_831119"
     >
       Always show
     </span>

@@ -42,7 +42,8 @@ export {
 export { IconButton } from "./components/IconButton/IconButton";
 export { Label } from "./components/Form/Label";
 export { Link } from "./components/Link/Link";
-export { MenuItem } from "./components/MenuItem/MenuItem";
+export { Menu } from "./components/Menu/Menu";
+export { MenuItem } from "./components/Menu/MenuItem";
 export { Message } from "./components/Form/Message";
 export { PasswordControl } from "./components/Form/Controls/Password";
 export { Radio } from "./components/Radio/Radio";
@@ -50,6 +51,7 @@ export { Root } from "./components/Form/Root";
 export { Submit } from "./components/Form/Submit";
 export { Search } from "./components/Search/Search";
 export { Toggle } from "./components/Toggle/Toggle";
+export { ToggleMenuItem } from "./components/Menu/ToggleMenuItem";
 export { Tooltip } from "./components/Tooltip/Tooltip";
 export { ValidityState } from "./components/Form/ValidityState";
 

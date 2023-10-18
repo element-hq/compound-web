@@ -19,11 +19,16 @@ import React, {
   ComponentPropsWithoutRef,
   ComponentType,
   ElementType,
+  ReactNode,
   SVGAttributes,
+  useCallback,
+  useContext,
 } from "react";
 import styles from "./MenuItem.module.css";
 import { Text } from "../Typography/Text";
 import ChevronRightIcon from "@vector-im/compound-design-tokens/icons/chevron-right.svg";
+import { MenuContext } from "./MenuContext";
+import { Item as DropdownMenuItem } from "@radix-ui/react-dropdown-menu";
 
 type MenuItemElement = "button" | "label" | "a" | "div";
 
@@ -45,13 +50,20 @@ type Props<C extends MenuItemElement> = {
    * The label to show on this menu item.
    */
   // This prop is required because it's rare to not want a label
-  label: string | undefined;
+  label: string | null;
+  /**
+   * Event callback for when the item is selected via mouse, touch, or keyboard.
+   * Calling event.preventDefault in this handler will prevent the menu from
+   * being dismissed.
+   */
+  // This prop is required because it's rare to not want a selection handler
+  onSelect: ((e: Event) => void) | null;
   /**
    * The color variant of the menu item.
    * @default primary
    */
   kind?: "primary" | "critical";
-} & ComponentPropsWithoutRef<C>;
+} & Omit<ComponentPropsWithoutRef<C>, "onSelect">;
 
 /**
  * An item within a menu, acting either as a navigation button, or simply a
@@ -62,24 +74,47 @@ export const MenuItem = <C extends MenuItemElement = "button">({
   className,
   Icon,
   label,
+  onSelect,
   kind = "primary",
   children,
+  onClick: onClickProp,
   ...props
-}: Props<C>): JSX.Element => {
+}: Props<C>): ReactNode => {
   const Component = as ?? ("button" as ElementType);
+  const interactive = as !== "div";
+  const context = useContext(MenuContext);
 
-  return (
+  const onClick = useCallback(
+    (e: Parameters<Exclude<typeof onClickProp, undefined>>[0]) => {
+      (onClickProp as ((e_: typeof e) => void) | undefined)?.(e);
+      // Radix menus automatically generate a select event and dismiss the menu
+      // as the default action, but for Vaul drawers we need to handle this
+      // manually
+      if (interactive && context?.component === "Vaul drawer") {
+        const selectEvent = new CustomEvent("menu.itemSelect", {
+          bubbles: true,
+          cancelable: true,
+        });
+        onSelect?.(selectEvent);
+        if (!selectEvent.defaultPrevented) context.onOpenChange(false);
+      }
+    },
+    [context, onSelect, interactive],
+  );
+
+  const content = (
     <Component
       role="menuitem"
       {...props}
       className={classnames(className, styles.item, {
-        [styles.interactive]: as !== "div",
-        [styles["no-label"]]: label === undefined,
+        [styles.interactive]: interactive,
+        [styles["no-label"]]: label === null,
       })}
       data-kind={kind}
+      onClick={onClick}
     >
       <Icon width={24} height={24} className={styles.icon} aria-hidden={true} />
-      {label !== undefined && (
+      {label !== null && (
         <Text className={styles.label} size="md" weight="medium" as="span">
           {label}
         </Text>
@@ -97,4 +132,17 @@ export const MenuItem = <C extends MenuItemElement = "button">({
       {children}
     </Component>
   );
+
+  if (interactive) {
+    switch (context?.component) {
+      case "Radix dropdown menu":
+        return (
+          <DropdownMenuItem onSelect={onSelect ?? undefined} asChild>
+            {content}
+          </DropdownMenuItem>
+        );
+    }
+  }
+
+  return content;
 };

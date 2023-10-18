@@ -22,8 +22,8 @@ import ChatProblemIcon from "@vector-im/compound-design-tokens/icons/chat-proble
 import LeaveIcon from "@vector-im/compound-design-tokens/icons/leave.svg";
 
 import { FloatingMenu as FloatingMenuComponent } from "./FloatingMenu";
-import { MenuItem } from "../MenuItem/MenuItem";
-import { MenuDivider } from "../MenuItem/MenuDivider";
+import { MenuItem } from "./MenuItem";
+import { MenuDivider } from "./MenuDivider";
 
 export default {
   title: "Menu/FloatingMenu",

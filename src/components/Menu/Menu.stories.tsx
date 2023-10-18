@@ -14,29 +14,38 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import React from "react";
+import React, { useState } from "react";
 import { Meta, StoryFn } from "@storybook/react";
 import UserProfileIcon from "@vector-im/compound-design-tokens/icons/user-profile.svg";
 import NotificationsIcon from "@vector-im/compound-design-tokens/icons/notifications.svg";
 import ChatProblemIcon from "@vector-im/compound-design-tokens/icons/chat-problem.svg";
 import LeaveIcon from "@vector-im/compound-design-tokens/icons/leave.svg";
 
-import { DrawerMenu as DrawerMenuComponent } from "./DrawerMenu";
-import drawerStyles from "./DrawerMenu.module.css";
+import { Menu as MenuComponent } from "./Menu";
 import { MenuItem } from "./MenuItem";
 import { MenuDivider } from "./MenuDivider";
+import { Button } from "../Button/Button";
 
 export default {
-  title: "Menu/DrawerMenu",
-  component: DrawerMenuComponent,
+  title: "Menu",
+  component: MenuComponent,
+  tags: ["autodocs"],
   argTypes: {},
   args: {},
-} as Meta<typeof DrawerMenuComponent>;
+} as Meta<typeof MenuComponent>;
 
-const Template: StoryFn<typeof DrawerMenuComponent> = (args) => (
-  <>
-    <div className={drawerStyles.bg} />
-    <DrawerMenuComponent {...args} title="Settings">
+const Template: StoryFn<typeof MenuComponent> = (args) => {
+  const [open, setOpen] = useState(true);
+
+  return (
+    <MenuComponent
+      {...args}
+      title="Settings"
+      open={open}
+      onOpenChange={setOpen}
+      trigger={<Button>Open menu</Button>}
+      align="start"
+    >
       <MenuItem Icon={UserProfileIcon} label="Profile" onSelect={() => {}} />
       <MenuItem
         Icon={NotificationsIcon}
@@ -51,9 +60,9 @@ const Template: StoryFn<typeof DrawerMenuComponent> = (args) => (
         label="Sign out"
         onSelect={() => {}}
       />
-    </DrawerMenuComponent>
-  </>
-);
+    </MenuComponent>
+  );
+};
 
-export const DrawerMenu = Template.bind({});
-DrawerMenu.args = {};
+export const Menu = Template.bind({});
+Menu.args = {};

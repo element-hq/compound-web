@@ -27,14 +27,19 @@ import { Text } from "../Typography/Text";
 describe("MenuItem", () => {
   it("renders", () => {
     const { asFragment } = render(
-      <MenuItem kind="critical" Icon={LeaveIcon} label="Leave room" />,
+      <MenuItem
+        kind="critical"
+        Icon={LeaveIcon}
+        label="Leave room"
+        onSelect={() => {}}
+      />,
     );
     expect(asFragment()).toMatchSnapshot();
   });
 
   it("renders with a child", () => {
     const { asFragment } = render(
-      <MenuItem Icon={UserProfileIcon} label="People">
+      <MenuItem Icon={UserProfileIcon} label="People" onSelect={() => {}}>
         <Text as="span" size="sm">
           10
         </Text>
@@ -45,7 +50,7 @@ describe("MenuItem", () => {
 
   it("renders without a label", () => {
     const { asFragment } = render(
-      <MenuItem Icon={MicOnOutlineIcon} label={undefined}>
+      <MenuItem Icon={MicOnOutlineIcon} label={null} onSelect={() => {}}>
         Imagine that there might be a volume slider here in place of the label
       </MenuItem>,
     );
