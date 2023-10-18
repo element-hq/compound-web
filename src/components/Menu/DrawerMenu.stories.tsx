@@ -21,36 +21,39 @@ import NotificationsIcon from "@vector-im/compound-design-tokens/icons/notificat
 import ChatProblemIcon from "@vector-im/compound-design-tokens/icons/chat-problem.svg";
 import LeaveIcon from "@vector-im/compound-design-tokens/icons/leave.svg";
 
-import { FloatingMenu as FloatingMenuComponent } from "./FloatingMenu";
+import { DrawerMenu as DrawerMenuComponent } from "./DrawerMenu";
+import drawerStyles from "./DrawerMenu.module.css";
 import { MenuItem } from "../MenuItem/MenuItem";
 import { MenuDivider } from "../MenuItem/MenuDivider";
 
 export default {
-  title: "Menu/FloatingMenu",
-  component: FloatingMenuComponent,
+  title: "Menu/DrawerMenu",
+  component: DrawerMenuComponent,
   argTypes: {},
   args: {},
-} as Meta<typeof FloatingMenuComponent>;
+} as Meta<typeof DrawerMenuComponent>;
 
-const Template: StoryFn<typeof FloatingMenuComponent> = (args) => (
-  <FloatingMenuComponent {...args} title="Settings">
-    <MenuItem Icon={UserProfileIcon} label="Profile" onSelect={() => {}} />
-    {/* Extra long label to demonstrate word breaking */}
-    <MenuItem
-      Icon={NotificationsIcon}
-      label="Notificationsnotificationsnotifications"
-      onSelect={() => {}}
-    />
-    <MenuItem Icon={ChatProblemIcon} label="Feedback" onSelect={() => {}} />
-    <MenuDivider />
-    <MenuItem
-      kind="critical"
-      Icon={LeaveIcon}
-      label="Sign out"
-      onSelect={() => {}}
-    />
-  </FloatingMenuComponent>
+const Template: StoryFn<typeof DrawerMenuComponent> = (args) => (
+  <>
+    <div className={drawerStyles.bg} />
+    <DrawerMenuComponent {...args} title="Settings">
+      <MenuItem Icon={UserProfileIcon} label="Profile" onSelect={() => {}} />
+      <MenuItem
+        Icon={NotificationsIcon}
+        label="Notifications"
+        onSelect={() => {}}
+      />
+      <MenuItem Icon={ChatProblemIcon} label="Feedback" onSelect={() => {}} />
+      <MenuDivider />
+      <MenuItem
+        kind="critical"
+        Icon={LeaveIcon}
+        label="Sign out"
+        onSelect={() => {}}
+      />
+    </DrawerMenuComponent>
+  </>
 );
 
-export const FloatingMenu = Template.bind({});
-FloatingMenu.args = {};
+export const DrawerMenu = Template.bind({});
+DrawerMenu.args = {};
