@@ -26,6 +26,7 @@ export { Badge } from "./components/Badge/Badge";
 export { Button } from "./components/Button/Button";
 export { Body } from "./components/Typography/Body";
 export { Text } from "./components/Typography/Text";
+export { ContextMenu } from "./components/Menu/ContextMenu";
 export { Checkbox } from "./components/Checkbox/Checkbox";
 export { Control } from "./components/Form/Control";
 export { Field } from "./components/Form/Field";

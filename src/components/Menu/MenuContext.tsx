@@ -20,7 +20,7 @@ interface MenuData {
   /**
    * The family of components used to render this menu.
    */
-  component: "Vaul drawer" | "Radix dropdown menu";
+  component: "Vaul drawer" | "Radix dropdown menu" | "Radix context menu";
   /**
    * Event handler called when the open state of the menu changes.
    */

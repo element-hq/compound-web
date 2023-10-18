@@ -29,6 +29,7 @@ import { Text } from "../Typography/Text";
 import ChevronRightIcon from "@vector-im/compound-design-tokens/icons/chevron-right.svg";
 import { MenuContext } from "./MenuContext";
 import { Item as DropdownMenuItem } from "@radix-ui/react-dropdown-menu";
+import { Item as ContextMenuItem } from "@radix-ui/react-context-menu";
 
 type MenuItemElement = "button" | "label" | "a" | "div";
 
@@ -140,6 +141,12 @@ export const MenuItem = <C extends MenuItemElement = "button">({
           <DropdownMenuItem onSelect={onSelect ?? undefined} asChild>
             {content}
           </DropdownMenuItem>
+        );
+      case "Radix context menu":
+        return (
+          <ContextMenuItem onSelect={onSelect ?? undefined} asChild>
+            {content}
+          </ContextMenuItem>
         );
     }
   }
