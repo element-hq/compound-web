@@ -75,7 +75,6 @@ export const Button = forwardRef(function Button<
   const classes = classNames(styles.button, className, {
     [styles["has-icon"]]: Icon,
   });
-  const iconSize = size === "lg" ? 24 : 20;
 
   return (
     <Component
@@ -91,8 +90,8 @@ export const Button = forwardRef(function Button<
     >
       {Icon && (
         <Icon
-          width={iconSize}
-          height={iconSize}
+          width={20}
+          height={20}
           className={styles.icon}
           aria-hidden={true}
         />
