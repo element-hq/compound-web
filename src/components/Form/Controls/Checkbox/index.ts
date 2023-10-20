@@ -1,4 +1,5 @@
 /*
+Copyright 2023 The Matrix.org Foundation C.I.C.
 Copyright 2023 New Vector Ltd
 
 Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,38 +15,4 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import { Meta, StoryObj } from "@storybook/react";
-
-import { Checkbox } from "./Checkbox";
-
-export default {
-  title: "Checkbox",
-  component: Checkbox,
-  tags: ["autodocs"],
-  argTypes: {},
-  args: {},
-} as Meta<typeof Checkbox>;
-
-export const Primary: StoryObj = {
-  args: {},
-};
-
-export const Critical: StoryObj = {
-  args: {
-    kind: "critical",
-  },
-};
-
-export const Disabled: StoryObj = {
-  args: {
-    disabled: true,
-    checked: false,
-  },
-};
-
-export const DisabledChecked: StoryObj = {
-  args: {
-    disabled: true,
-    checked: true,
-  },
-};
+export { CheckboxControl, CheckboxInput } from "./Checkbox";

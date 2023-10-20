@@ -25,7 +25,6 @@ export { Badge } from "./components/Badge/Badge";
 export { Button } from "./components/Button/Button";
 export { Body } from "./components/Typography/Body";
 export { Text } from "./components/Typography/Text";
-export { Checkbox } from "./components/Checkbox/Checkbox";
 export { Glass } from "./components/Glass/Glass";
 export {
   Heading,
@@ -55,6 +54,10 @@ export {
   PasswordInput,
   MFAControl,
   MFAInput,
+  CheckboxControl,
+  CheckboxInput,
+  /* Legacy export name */
+  CheckboxInput as Checkbox,
   Root,
   Submit,
   Message,

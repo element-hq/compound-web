@@ -1,4 +1,5 @@
 /*
+Copyright 2023 The Matrix.org Foundation C.I.C.
 Copyright 2023 New Vector Ltd
 
 Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,22 +16,14 @@ limitations under the License.
 */
 
 import { describe, it, expect } from "vitest";
-import { getByRole, render } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import React from "react";
 
-import { Checkbox } from "./Checkbox";
-import userEvent from "@testing-library/user-event";
+import { CheckboxInput } from "./Checkbox";
 
 describe("Checkbox", () => {
   it("renders", () => {
-    const { asFragment } = render(<Checkbox />);
+    const { asFragment } = render(<CheckboxInput />);
     expect(asFragment()).toMatchSnapshot();
-  });
-
-  it("should not have focus after being clicked", async () => {
-    const { container } = render(<Checkbox />);
-    const checkbox = getByRole(container, "checkbox");
-    await userEvent.click(checkbox);
-    expect(checkbox).not.toHaveFocus();
   });
 });

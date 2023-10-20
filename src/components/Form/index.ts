@@ -23,6 +23,8 @@ export {
   TextInput,
   MFAControl,
   MFAInput,
+  CheckboxControl,
+  CheckboxInput,
 } from "./Controls";
 
 export { Root } from "./Root";
