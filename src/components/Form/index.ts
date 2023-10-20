@@ -29,6 +29,7 @@ export {
 
 export { Root } from "./Root";
 export { Field } from "./Field";
+export { InlineField } from "./InlineField";
 export { Label } from "./Label";
 export { ValidityState, Message } from "@radix-ui/react-form";
 export { ErrorMessage, HelpMessage } from "./Message";

@@ -65,6 +65,7 @@ export {
   HelpMessage,
   ValidityState,
   Field,
+  InlineField,
   Label,
 } from "./components/Form";
 export * as Form from "./components/Form";

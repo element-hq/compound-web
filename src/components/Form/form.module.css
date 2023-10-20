@@ -34,6 +34,30 @@ limitations under the License.
 .field {
   display: flex;
   flex-direction: column;
+  gap: var(--cpd-space-1x);
+}
+
+.inline-field {
+  display: flex;
+  flex-direction: row;
+  gap: var(--cpd-space-5x);
+}
+
+.inline-field-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.inline-field-control {
+  /* The control should have the same height as the label */
+  block-size: calc(
+    var(--cpd-font-size-body-md) * var(--cpd-font-line-height-regular)
+  );
+
+  /* Align the control in the middle of the label */
+  display: flex;
+  align-items: center;
 }
 
 /**
@@ -43,7 +67,6 @@ limitations under the License.
 .label {
   font: var(--cpd-font-body-md-medium);
   letter-spacing: var(--cpd-font-letter-spacing-body-md);
-  margin-block-end: var(--cpd-space-1x);
 }
 
 .label[for] {
@@ -54,10 +77,16 @@ limitations under the License.
   color: var(--cpd-color-text-critical-primary);
 }
 
+.inline-field-body .label {
+  /* When the label is inline, it should be using regular font weight, not medium */
+  font: var(--cpd-font-body-md-regular);
+}
+
 /* Currently working everywhere but on Firefox (only behind a labs flag)
 https://developer.mozilla.org/en-US/docs/Web/CSS/:has#browser_compatibility */
 .label:has(~ * input[disabled]),
-.label:has(~ input[disabled]) {
+.label:has(~ input[disabled]),
+.inline-field-control:has(input[disabled]) ~ .inline-field-body .label {
   color: var(--cpd-color-text-disabled);
   cursor: not-allowed;
 }
@@ -69,7 +98,7 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/:has#browser_compatibility */
 .message {
   font: var(--cpd-font-body-sm-regular);
   letter-spacing: var(--cpd-font-letter-spacing-body-sm);
-  margin-block-start: var(--cpd-space-2x);
+  margin-block-start: var(--cpd-space-1x);
 }
 
 .help-message {
@@ -82,7 +111,9 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/:has#browser_compatibility */
 
 /* Currently working everywhere but on Firefox (only behind a labs flag)
 https://developer.mozilla.org/en-US/docs/Web/CSS/:has#browser_compatibility */
-*:has(> input[disabled]) ~ .message {
+input[disabled] ~ .message,
+*:has(input[disabled]) ~ .message,
+.inline-field-control:has(input[disabled]) ~ .inline-field-body .message {
   color: var(--cpd-color-text-disabled);
 }
 

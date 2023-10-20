@@ -41,6 +41,7 @@ const KitchenSink = ({ disabled, invalid, readOnly }: Props) => (
         <Form.HelpMessage>Help message.</Form.HelpMessage>
       )}
     </Form.Field>
+
     <Form.Field serverInvalid={invalid} name="password">
       <Form.Label>Password</Form.Label>
       <Form.PasswordControl
@@ -54,6 +55,7 @@ const KitchenSink = ({ disabled, invalid, readOnly }: Props) => (
         <Form.HelpMessage>Help message.</Form.HelpMessage>
       )}
     </Form.Field>
+
     <Form.Field serverInvalid={invalid} name="mfa">
       <Form.Label>MFA</Form.Label>
       <Form.MFAControl
@@ -67,6 +69,25 @@ const KitchenSink = ({ disabled, invalid, readOnly }: Props) => (
         <Form.HelpMessage>Help message.</Form.HelpMessage>
       )}
     </Form.Field>
+
+    <Form.InlineField
+      serverInvalid={invalid}
+      name="remember"
+      control={
+        <Form.CheckboxControl
+          disabled={disabled}
+          readOnly={readOnly}
+          defaultChecked={true}
+        />
+      }
+    >
+      <Form.Label>Remember me</Form.Label>
+      {invalid ? (
+        <Form.ErrorMessage>Error message.</Form.ErrorMessage>
+      ) : (
+        <Form.HelpMessage>Help message.</Form.HelpMessage>
+      )}
+    </Form.InlineField>
 
     <Form.Submit disabled={disabled}>Submit</Form.Submit>
   </Form.Root>
