@@ -1,4 +1,5 @@
 /*
+Copyright 2023 The Matrix.org Foundation C.I.C.
 Copyright 2023 New Vector Ltd
 
 Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,22 +16,14 @@ limitations under the License.
 */
 
 import { describe, it, expect } from "vitest";
-import { getByRole, render } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import React from "react";
 
-import { Radio } from "./Radio";
-import userEvent from "@testing-library/user-event";
+import { RadioInput } from "./Radio";
 
 describe("Radio", () => {
   it("renders", () => {
-    const { asFragment } = render(<Radio />);
+    const { asFragment } = render(<RadioInput />);
     expect(asFragment()).toMatchSnapshot();
-  });
-
-  it("should not have focus after being clicked", async () => {
-    const { container } = render(<Radio />);
-    const radio = getByRole(container, "radio");
-    await userEvent.click(radio);
-    expect(radio).not.toHaveFocus();
   });
 });

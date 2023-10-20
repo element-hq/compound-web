@@ -89,6 +89,44 @@ const KitchenSink = ({ disabled, invalid, readOnly }: Props) => (
       )}
     </Form.InlineField>
 
+    <Form.InlineField
+      serverInvalid={invalid}
+      name="radio"
+      control={
+        <Form.RadioControl
+          disabled={disabled}
+          readOnly={readOnly}
+          defaultChecked={true}
+        />
+      }
+    >
+      <Form.Label>Option 1</Form.Label>
+      {invalid ? (
+        <Form.ErrorMessage>Error message.</Form.ErrorMessage>
+      ) : (
+        <Form.HelpMessage>Help message.</Form.HelpMessage>
+      )}
+    </Form.InlineField>
+
+    <Form.InlineField
+      serverInvalid={invalid}
+      name="radio"
+      control={
+        <Form.RadioControl
+          disabled={disabled}
+          readOnly={readOnly}
+          defaultChecked={true}
+        />
+      }
+    >
+      <Form.Label>Option 2</Form.Label>
+      {invalid ? (
+        <Form.ErrorMessage>Error message.</Form.ErrorMessage>
+      ) : (
+        <Form.HelpMessage>Help message.</Form.HelpMessage>
+      )}
+    </Form.InlineField>
+
     <Form.Submit disabled={disabled}>Submit</Form.Submit>
   </Form.Root>
 );

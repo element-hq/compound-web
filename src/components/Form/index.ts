@@ -25,6 +25,8 @@ export {
   MFAInput,
   CheckboxControl,
   CheckboxInput,
+  RadioControl,
+  RadioInput,
 } from "./Controls";
 
 export { Root } from "./Root";

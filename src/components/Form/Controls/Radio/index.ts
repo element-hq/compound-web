@@ -15,9 +15,4 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-export { ActionControl, ActionInput } from "./Action";
-export { PasswordControl, PasswordInput } from "./Password";
-export { TextControl, TextInput } from "./Text";
-export { MFAControl, MFAInput } from "./MFA";
-export { CheckboxControl, CheckboxInput } from "./Checkbox";
 export { RadioControl, RadioInput } from "./Radio";

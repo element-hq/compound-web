@@ -38,7 +38,6 @@ export {
 export { IconButton } from "./components/IconButton/IconButton";
 export { Link } from "./components/Link/Link";
 export { MenuItem } from "./components/MenuItem/MenuItem";
-export { Radio } from "./components/Radio/Radio";
 export { Search } from "./components/Search/Search";
 export { Toggle } from "./components/Toggle/Toggle";
 export { Tooltip } from "./components/Tooltip/Tooltip";
@@ -58,6 +57,10 @@ export {
   CheckboxInput,
   /* Legacy export name */
   CheckboxInput as Checkbox,
+  RadioControl,
+  RadioInput,
+  /* Legacy export name */
+  RadioInput as Radio,
   Root,
   Submit,
   Message,
