@@ -127,6 +127,25 @@ const KitchenSink = ({ disabled, invalid, readOnly }: Props) => (
       )}
     </Form.InlineField>
 
+    <Form.InlineField
+      serverInvalid={invalid}
+      name="toggle"
+      control={
+        <Form.ToggleControl
+          disabled={disabled}
+          readOnly={readOnly}
+          defaultChecked={true}
+        />
+      }
+    >
+      <Form.Label>Toggle</Form.Label>
+      {invalid ? (
+        <Form.ErrorMessage>Error message.</Form.ErrorMessage>
+      ) : (
+        <Form.HelpMessage>Help message.</Form.HelpMessage>
+      )}
+    </Form.InlineField>
+
     <Form.Submit disabled={disabled}>Submit</Form.Submit>
   </Form.Root>
 );

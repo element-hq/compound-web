@@ -27,6 +27,8 @@ export {
   CheckboxInput,
   RadioControl,
   RadioInput,
+  ToggleControl,
+  ToggleInput,
 } from "./Controls";
 
 export { Root } from "./Root";

@@ -39,7 +39,6 @@ export { IconButton } from "./components/IconButton/IconButton";
 export { Link } from "./components/Link/Link";
 export { MenuItem } from "./components/MenuItem/MenuItem";
 export { Search } from "./components/Search/Search";
-export { Toggle } from "./components/Toggle/Toggle";
 export { Tooltip } from "./components/Tooltip/Tooltip";
 
 export {
@@ -61,6 +60,10 @@ export {
   RadioInput,
   /* Legacy export name */
   RadioInput as Radio,
+  ToggleControl,
+  ToggleInput,
+  /* Legacy export name */
+  ToggleInput as Toggle,
   Root,
   Submit,
   Message,

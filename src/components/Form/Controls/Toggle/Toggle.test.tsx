@@ -18,11 +18,11 @@ import { describe, it, expect } from "vitest";
 import { render } from "@testing-library/react";
 import React from "react";
 
-import { Toggle } from "./Toggle";
+import { ToggleInput } from "./Toggle";
 
 describe("Toggle", () => {
   it("renders", () => {
-    const { asFragment } = render(<Toggle />);
+    const { asFragment } = render(<ToggleInput />);
     expect(asFragment()).toMatchSnapshot();
   });
 });

@@ -1,4 +1,5 @@
 /*
+Copyright 2023 The Matrix.org Foundation C.I.C.
 Copyright 2023 New Vector Ltd
 
 Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,46 +15,48 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-.toggle {
+.container {
   display: grid;
   inline-size: 2.25rem;
   block-size: 1.25rem;
   box-sizing: border-box;
 }
 
-.toggle > * {
+.container > * {
   grid-area: 1/1;
   inline-size: inherit;
   block-size: inherit;
   box-sizing: inherit;
 }
 
-.toggle > input[type="checkbox"] {
+.container > .input {
   opacity: 0;
   margin: 0;
   cursor: pointer;
 }
 
-.toggle > input[type="checkbox"][disabled] {
+.container > .input[disabled] {
   cursor: not-allowed;
 }
 
-.toggle-ui {
+.ui {
   pointer-events: none;
   border-radius: var(--cpd-radius-pill-effect);
   border: 1px solid var(--cpd-color-border-interactive-primary);
   background: var(--cpd-color-bg-canvas-default);
   position: relative;
   padding: 1px;
-  transition: all 0.2s ease;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+  transition-property: background-color, border-color;
 }
 
-:checked + .toggle-ui {
+:checked + .ui {
   background: var(--cpd-color-bg-action-primary-rest);
   border-color: var(--cpd-color-bg-action-primary-rest);
 }
 
-.toggle-ui::after {
+.ui::after {
   content: "";
   display: block;
   block-size: 100%;
@@ -61,59 +64,62 @@ limitations under the License.
   border-radius: 50%;
   background: var(--cpd-color-bg-action-primary-rest);
   transform: translateX(0);
-  transition: all 0.2s ease-in-out;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+  transition-property: background-color, transform;
 }
 
 /* Note the use of :focus-visible rather than :focus to avoid showing the focus
 ring after a simple click */
-[type="checkbox"]:focus-visible + .toggle-ui {
+.input:focus-visible + .ui {
   outline: 2px solid var(--cpd-color-border-focused);
   outline-offset: 1px;
 }
 
-:checked + .toggle-ui::after {
+:checked + .ui::after {
   transform: translateX(100%);
   background: var(--cpd-color-icon-on-solid-primary);
 }
 
 @media (hover) {
-  :checked:not([disabled]):hover + .toggle-ui {
+  :checked:not([disabled]):hover + .ui {
     background: var(--cpd-color-bg-action-primary-hovered);
     border-color: var(--cpd-color-bg-action-primary-hovered);
   }
 }
 
-:checked:active + .toggle-ui {
+:checked:active + .ui {
   background: var(--cpd-color-bg-action-primary-hovered);
   border-color: var(--cpd-color-bg-action-primary-hovered);
 }
 
-[type="checkbox"][disabled] + .toggle-ui {
+.input[disabled] + .ui {
   border-color: var(--cpd-color-border-disabled);
   background: var(--cpd-color-bg-canvas-disabled);
 }
 
-[type="checkbox"][disabled] + .toggle-ui::after {
+.input[disabled] + .ui::after {
   background: var(--cpd-color-bg-action-primary-disabled);
 }
 
-[type="checkbox"][disabled]:checked + .toggle-ui {
+.input[disabled]:checked + .ui {
   background: var(--cpd-color-bg-action-primary-disabled);
   border-color: var(--cpd-color-bg-action-primary-disabled);
 }
 
-[type="checkbox"][disabled]:checked + .toggle-ui::after {
+.input[disabled]:checked + .ui::after {
   background: var(--cpd-color-icon-on-solid-primary);
 }
 
 @media (hover) {
-  [type="checkbox"]:not(:checked, [disabled]):hover + .toggle-ui {
+  .input:not(:checked, [disabled]):hover + .ui {
     border-color: var(--cpd-color-border-interactive-hovered);
-    box-shadow: 0 1.2px 2.4px 0 rgba(0 0 0 / 15%);
+
+    /** TODO: have the shadow in the design tokens */
+    box-shadow: 0 1.2px 2.4px 0 rgb(0 0 0 / 15%);
   }
 }
 
-[type="checkbox"]:not(:checked, [disabled]):active + .toggle-ui {
+.input:not(:checked, [disabled]):active + .ui {
   border-color: var(--cpd-color-border-interactive-hovered);
-  box-shadow: 0 1.2px 2.4px 0 rgba(0 0 0 / 15%);
 }

@@ -1,4 +1,5 @@
 /*
+Copyright 2023 The Matrix.org Foundation C.I.C.
 Copyright 2023 New Vector Ltd
 
 Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,39 +15,4 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import { Meta } from "@storybook/react";
-
-import { Toggle as ToggleComponent } from "./Toggle";
-
-export default {
-  title: "Toggle",
-  component: ToggleComponent,
-  tags: ["autodocs"],
-  argTypes: {},
-  args: {},
-} as Meta<typeof ToggleComponent>;
-
-export const Active = {
-  args: {
-    checked: false,
-  },
-};
-
-export const Checked = {
-  args: {
-    checked: true,
-  },
-};
-
-export const Disabled = {
-  args: {
-    disabled: true,
-  },
-};
-
-export const DisabledChecked = {
-  args: {
-    disabled: true,
-    checked: true,
-  },
-};
+export { ToggleControl, ToggleInput } from "./Toggle";

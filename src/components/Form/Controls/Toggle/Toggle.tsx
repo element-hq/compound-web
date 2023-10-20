@@ -1,4 +1,5 @@
 /*
+Copyright 2023 The Matrix.org Foundation C.I.C.
 Copyright 2023 New Vector Ltd
 
 Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,28 +16,48 @@ limitations under the License.
 */
 
 import classnames from "classnames";
-import React, { forwardRef, PropsWithChildren } from "react";
+import React, {
+  ComponentProps,
+  ComponentRef,
+  forwardRef,
+  PropsWithChildren,
+} from "react";
 import styles from "./Toggle.module.css";
+import { Control } from "@radix-ui/react-form";
 
 type ToggleProps = {
   /**
    * The CSS class name.
    */
   className?: string;
-} & React.ComponentPropsWithoutRef<"input">;
+} & Omit<ComponentProps<"input">, "type">;
 
 /**
  * A toggle component.
  */
-export const Toggle = forwardRef<
+export const ToggleInput = forwardRef<
   HTMLInputElement,
   PropsWithChildren<ToggleProps>
 >(function Toggle({ className, ...props }, ref) {
-  const classes = classnames(styles.toggle, className);
+  const classes = classnames(styles.container, className);
   return (
     <div className={classes}>
-      <input ref={ref} {...props} type="checkbox" />
-      <div className={styles["toggle-ui"]} />
+      <input ref={ref} className={styles.input} {...props} type="checkbox" />
+      <div className={styles.ui} />
     </div>
+  );
+});
+
+/**
+ * A styled checkbox input wrapped in a `Control` component, for use in Radix forms.
+ */
+export const ToggleControl = forwardRef<
+  ComponentRef<typeof ToggleInput>,
+  ComponentProps<typeof ToggleInput>
+>(function ToggleControl(props, ref) {
+  return (
+    <Control asChild>
+      <ToggleInput ref={ref} {...props} />
+    </Control>
   );
 });
