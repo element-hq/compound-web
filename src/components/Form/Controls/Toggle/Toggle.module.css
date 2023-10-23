@@ -51,7 +51,7 @@ limitations under the License.
   transition-property: background-color, border-color;
 }
 
-:checked + .ui {
+.input:checked + .ui {
   background: var(--cpd-color-bg-action-primary-rest);
   border-color: var(--cpd-color-bg-action-primary-rest);
 }
@@ -93,6 +93,19 @@ ring after a simple click */
   border-color: var(--cpd-color-bg-action-primary-hovered);
 }
 
+.input[readonly] {
+  pointer-events: none;
+}
+
+.input[readonly] + .ui {
+  border-color: var(--cpd-color-border-interactive-secondary);
+  background: var(--cpd-color-bg-subtle-secondary);
+}
+
+.input[readonly] + .ui::after {
+  background: var(--cpd-color-icon-secondary);
+}
+
 .input[disabled] + .ui {
   border-color: var(--cpd-color-border-disabled);
   background: var(--cpd-color-bg-canvas-disabled);
@@ -100,6 +113,15 @@ ring after a simple click */
 
 .input[disabled] + .ui::after {
   background: var(--cpd-color-bg-action-primary-disabled);
+}
+
+.input[readonly]:checked + .ui {
+  border-color: var(--cpd-color-icon-secondary);
+  background: var(--cpd-color-icon-secondary);
+}
+
+.input[readonly]:checked + .ui::after {
+  background: var(--cpd-color-icon-on-solid-primary);
 }
 
 .input[disabled]:checked + .ui {
@@ -112,7 +134,7 @@ ring after a simple click */
 }
 
 @media (hover) {
-  .input:not(:checked, [disabled]):hover + .ui {
+  .input:not(:checked, [disabled], [readonly]):hover + .ui {
     border-color: var(--cpd-color-border-interactive-hovered);
 
     /** TODO: have the shadow in the design tokens */
@@ -120,6 +142,6 @@ ring after a simple click */
   }
 }
 
-.input:not(:checked, [disabled]):active + .ui {
+.input:not(:checked, [disabled], [readonly]):active + .ui {
   border-color: var(--cpd-color-border-interactive-hovered);
 }

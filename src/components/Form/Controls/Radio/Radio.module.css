@@ -71,6 +71,15 @@ limitations under the License.
   outline-offset: 1px;
 }
 
+.input[readonly] {
+  pointer-events: none;
+}
+
+.input[readonly] + .ui {
+  border-color: var(--cpd-color-border-interactive-secondary);
+  background: var(--cpd-color-bg-subtle-secondary);
+}
+
 .input[disabled] + .ui {
   border-color: var(--cpd-color-border-disabled);
   background: var(--cpd-color-bg-canvas-disabled);
@@ -81,34 +90,38 @@ limitations under the License.
   background: var(--cpd-color-bg-action-primary-disabled);
 }
 
+.input[readonly]:checked + .ui::after {
+  background-color: var(--cpd-color-icon-secondary);
+}
+
 @media (hover) {
-  .input:not([disabled], :checked):hover + .ui {
+  .input:not([disabled], [readonly], :checked):hover + .ui {
     border-color: var(--cpd-color-border-interactive-hovered);
 
     /** TODO: have the shadow in the design tokens */
     box-shadow: 0 1.2px 2.4px 0 rgb(0 0 0 / 15%);
   }
 
-  .input:not([disabled], :checked):hover + .ui::after {
+  .input:not([disabled], [readonly], :checked):hover + .ui::after {
     background: var(--cpd-color-icon-quaternary);
   }
 
-  .input:not([disabled]):checked:hover + .ui {
+  .input:not([disabled], [readonly]):checked:hover + .ui {
     border-color: var(--cpd-color-bg-action-primary-hovered);
     background: var(--cpd-color-bg-action-primary-hovered);
   }
 
-  .input[data-invalid]:not([disabled]):checked:hover + .ui {
+  .input[data-invalid]:not([disabled], [readonly]):checked:hover + .ui {
     border-color: var(--cpd-color-bg-critical-hovered);
     background: var(--cpd-color-bg-critical-hovered);
   }
 }
 
-.input[data-invalid]:not([disabled], :checked) + .ui {
+.input[data-invalid]:not([disabled], [readonly], :checked) + .ui {
   border-color: var(--cpd-color-border-critical-primary);
 }
 
-.input[data-invalid]:not([disabled]):checked + .ui {
+.input[data-invalid]:not([disabled], [readonly]):checked + .ui {
   background-color: var(--cpd-color-bg-critical-primary);
   border-color: var(--cpd-color-bg-critical-primary);
 }

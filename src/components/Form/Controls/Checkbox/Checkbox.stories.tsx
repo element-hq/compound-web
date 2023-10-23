@@ -95,6 +95,26 @@ export const DisabledChecked: Story = {
   },
 };
 
+export const ReadonlyUnchecked: Story = {
+  args: { readOnly: true },
+  parameters: {
+    design: {
+      type: "figma",
+      url: "https://www.figma.com/file/rTaQE2nIUSLav4Tg3nozq7/Compound-Web-Components?type=design&node-id=2457-24843",
+    },
+  },
+};
+
+export const ReadonlyChecked: Story = {
+  args: { defaultChecked: true, readOnly: true },
+  parameters: {
+    design: {
+      type: "figma",
+      url: "https://www.figma.com/file/rTaQE2nIUSLav4Tg3nozq7/Compound-Web-Components?type=design&node-id=2457-24844",
+    },
+  },
+};
+
 export const InvalidUnchecked: Story = {
   args: { invalid: true },
   parameters: {

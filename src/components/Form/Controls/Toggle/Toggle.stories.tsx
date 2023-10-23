@@ -78,6 +78,31 @@ export const DisabledChecked: Story = {
   },
 };
 
+export const ReadonlyUnchecked: Story = {
+  args: {
+    readOnly: true,
+  },
+  parameters: {
+    design: {
+      type: "figma",
+      url: "https://www.figma.com/file/rTaQE2nIUSLav4Tg3nozq7/Compound-Web-Components?type=design&node-id=2457-26212",
+    },
+  },
+};
+
+export const ReadonlyChecked: Story = {
+  args: {
+    readOnly: true,
+    defaultChecked: true,
+  },
+  parameters: {
+    design: {
+      type: "figma",
+      url: "https://www.figma.com/file/rTaQE2nIUSLav4Tg3nozq7/Compound-Web-Components?type=design&node-id=2457-26215",
+    },
+  },
+};
+
 export const Focused: Story = {
   args: {
     autoFocus: true,
