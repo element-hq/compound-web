@@ -42,10 +42,3 @@ const Template: StoryFn<typeof ToggleMenuItemComponent> = (args) => (
 
 export const Primary = Template.bind({});
 Primary.args = {};
-
-Primary.parameters = {
-  design: {
-    type: "figma",
-    url: "https://www.figma.com/file/rTaQE2nIUSLav4Tg3nozq7/Compound-Web-Components?type=design&node-id=712-6909&mode=dev",
-  },
-};
