@@ -38,6 +38,10 @@ type SeparatorProps = {
 
 const SPACING_CUSTOM_PROP = "--cpd-separator-spacing";
 
+/**
+ * A separator component
+ * Note: Only supports `React.RefObject`
+ */
 export const Separator = forwardRef(
   (
     {
