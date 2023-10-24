@@ -17,7 +17,9 @@ limitations under the License.
 // eslint-disable-next-line no-restricted-imports
 import * as React from "react";
 
-const react18UseId = (React as { useId?: () => string }).useId;
+// This abomination appears to be needed for consumers that rely on Webpack until
+// https://github.com/webpack/webpack/issues/14814 is fixed
+const react18UseId = (React as any)["useId".toString()];
 
 const getUniqueId = (() => {
   let index = 1;
