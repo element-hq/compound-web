@@ -19,6 +19,7 @@ import * as React from "react";
 
 // This abomination appears to be needed for consumers that rely on Webpack until
 // https://github.com/webpack/webpack/issues/14814 is fixed
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const react18UseId = (React as any)["useId".toString()];
 
 const getUniqueId = (() => {
