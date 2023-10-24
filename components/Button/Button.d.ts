@@ -20,7 +20,7 @@ type ButtonOwnProps = PropsWithChildren<{
     Icon?: ComponentType<React.SVGAttributes<SVGElement>>;
 }>;
 type ButtonPropsFor<C extends React.ElementType> = ButtonOwnProps & Omit<React.ComponentPropsWithoutRef<C>, keyof ButtonOwnProps | "as"> & {
-    ref?: React.Ref<C>;
+    ref?: React.Ref<React.ComponentRef<C>>;
 };
 /**
  * A button component that can be transformed into a link, but keep the button

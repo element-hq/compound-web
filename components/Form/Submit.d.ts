@@ -1,20 +1,9 @@
-import React, { PropsWithChildren } from "react";
-import { Submit as RadixSubmit } from "@radix-ui/react-form";
+import React, { ComponentPropsWithoutRef } from "react";
 import { Button } from "../Button/Button";
-type SubmitProps = {
-    /**
-     * The CSS class name.
-     */
-    className?: string;
-    /**
-     * The t-shirt size of the submit button.
-     */
-    size?: React.ComponentProps<typeof Button>["size"];
-} & React.ComponentProps<typeof RadixSubmit>;
+type SubmitProps = Omit<ComponentPropsWithoutRef<typeof Button>, "submit" | "as">;
 /**
- * Thin wrapper around Radix UI Submit component
- * https://www.radix-ui.com/docs/primitives/components/form#submit
+ * A stylised submit button for forms.
  */
-export declare const Submit: React.FC<PropsWithChildren<SubmitProps>>;
+export declare const Submit: React.ForwardRefExoticComponent<SubmitProps & React.RefAttributes<HTMLButtonElement>>;
 export {};
 //# sourceMappingURL=Submit.d.ts.map

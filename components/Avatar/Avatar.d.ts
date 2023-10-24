@@ -4,7 +4,7 @@ import { SuspenseImg } from "../../utils/SuspenseImg";
  * Avatar component that will fallback to an initial letter over a coloured
  * background if no source is provided or if the source has failed to load.
  */
-export declare const Avatar: React.ForwardRefExoticComponent<(Omit<React.ClassAttributes<HTMLSpanElement> & React.HTMLAttributes<HTMLSpanElement> & {
+export declare const Avatar: React.ForwardRefExoticComponent<(Omit<React.ClassAttributes<HTMLButtonElement> & React.ButtonHTMLAttributes<HTMLButtonElement> & {
     /**
      * The avatar image URL, if any.
      */
@@ -43,7 +43,7 @@ export declare const Avatar: React.ForwardRefExoticComponent<(Omit<React.ClassAt
      * Callback when the image has failed to load.
      */
     onError?: React.ComponentProps<typeof SuspenseImg>["onError"];
-}, "ref"> | Omit<React.ClassAttributes<HTMLButtonElement> & React.ButtonHTMLAttributes<HTMLButtonElement> & {
+}, "ref"> | Omit<React.ClassAttributes<HTMLSpanElement> & React.HTMLAttributes<HTMLSpanElement> & {
     /**
      * The avatar image URL, if any.
      */
@@ -82,5 +82,5 @@ export declare const Avatar: React.ForwardRefExoticComponent<(Omit<React.ClassAt
      * Callback when the image has failed to load.
      */
     onError?: React.ComponentProps<typeof SuspenseImg>["onError"];
-}, "ref">) & React.RefAttributes<HTMLSpanElement | HTMLButtonElement>>;
+}, "ref">) & React.RefAttributes<HTMLButtonElement | HTMLSpanElement>>;
 //# sourceMappingURL=Avatar.d.ts.map

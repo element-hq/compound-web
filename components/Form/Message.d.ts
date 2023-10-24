@@ -1,15 +1,18 @@
 import React from "react";
-import { Message as RadixMessage } from "@radix-ui/react-form";
+import { Message } from "@radix-ui/react-form";
 type MessageProps = {
     /**
      * The CSS class name.
      */
     className?: string;
-} & React.ComponentProps<typeof RadixMessage>;
+} & React.ComponentProps<typeof Message>;
 /**
- * Thin wrapper around Radix UI Message component
- * https://www.radix-ui.com/docs/primitives/components/form#message
+ * An error message to display below a form control.
  */
-export declare const Message: React.ForwardRefExoticComponent<Omit<React.PropsWithChildren<MessageProps>, "ref"> & React.RefAttributes<HTMLSpanElement>>;
+export declare const ErrorMessage: React.ForwardRefExoticComponent<Omit<React.PropsWithChildren<MessageProps>, "ref"> & React.RefAttributes<HTMLSpanElement>>;
+/**
+ * A help message to display below a form control.
+ */
+export declare const HelpMessage: React.ForwardRefExoticComponent<Omit<React.PropsWithChildren<MessageProps>, "ref"> & React.RefAttributes<HTMLSpanElement>>;
 export {};
 //# sourceMappingURL=Message.d.ts.map

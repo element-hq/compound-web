@@ -1,15 +1,10 @@
 import React from "react";
-import { Control } from "../../Control";
 type MFAProps = {
     className?: string;
     length?: number;
-    value?: string;
     disabled?: boolean;
-} & React.ComponentProps<typeof Control>;
-/**
- * Thin wrapper around Radix UI Control component
- * https://www.radix-ui.com/docs/primitives/components/form#control
- */
-export declare const MFAControl: React.ForwardRefExoticComponent<Omit<MFAProps, "ref"> & React.RefAttributes<HTMLInputElement>>;
+} & Omit<React.ComponentProps<"input">, "type" | "inputMode" | "pattern" | "autoComplete">;
+export declare const MFAInput: React.ForwardRefExoticComponent<Omit<MFAProps, "ref"> & React.RefAttributes<HTMLInputElement>>;
+export declare const MFAControl: React.ForwardRefExoticComponent<Omit<Omit<MFAProps, "ref"> & React.RefAttributes<HTMLInputElement>, "ref"> & React.RefAttributes<HTMLInputElement>>;
 export {};
 //# sourceMappingURL=MFA.d.ts.map
