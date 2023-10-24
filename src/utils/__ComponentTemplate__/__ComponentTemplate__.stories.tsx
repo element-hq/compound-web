@@ -24,10 +24,6 @@ export default {
   tags: ["autodocs"],
   argTypes: {},
   args: {},
-  design: {
-    type: "figma",
-    url: "%FIGMA_URL%",
-  },
 } as Meta<typeof __ComponentTemplate__Component>;
 
 export const Default = {
