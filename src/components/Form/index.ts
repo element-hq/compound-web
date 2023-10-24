@@ -14,15 +14,27 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-/**
- * Extends Radix UI forms
- * https://www.radix-ui.com/docs/primitives/components/form
- */
+export {
+  ActionControl,
+  ActionInput,
+  PasswordControl,
+  PasswordInput,
+  TextControl,
+  TextInput,
+  MFAControl,
+  MFAInput,
+  CheckboxControl,
+  CheckboxInput,
+  RadioControl,
+  RadioInput,
+  ToggleControl,
+  ToggleInput,
+} from "./Controls";
 
 export { Root } from "./Root";
 export { Field } from "./Field";
+export { InlineField } from "./InlineField";
 export { Label } from "./Label";
-export { Control } from "./Control";
-export { Message } from "./Message";
-export { ValidityState } from "./ValidityState";
+export { ValidityState, Message } from "@radix-ui/react-form";
+export { ErrorMessage, HelpMessage } from "./Message";
 export { Submit } from "./Submit";

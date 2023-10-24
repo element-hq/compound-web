@@ -1,5 +1,6 @@
 /*
-Copyright 2023  New Vector Ltd
+Copyright 2023 The Matrix.org Foundation C.I.C.
+Copyright 2023 New Vector Ltd
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -14,66 +15,108 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import React, { forwardRef, PropsWithoutRef, useState } from "react";
-import classnames from "classnames";
-import { Control } from "../../Control";
+import React, {
+  ComponentProps,
+  ComponentRef,
+  forwardRef,
+  PropsWithoutRef,
+} from "react";
 
 import styles from "./MFA.module.css";
-import formStyles from "../../form.module.css";
 import classNames from "classnames";
+import { Control } from "@radix-ui/react-form";
+
+type DigitProps = {
+  filled: boolean;
+  selected: boolean;
+};
+
+const Digit: React.FC<DigitProps> = ({ filled, selected }) => (
+  <div
+    className={styles.digit}
+    aria-hidden="true"
+    data-filled={filled ? "" : undefined}
+    data-selected={selected ? "" : undefined}
+  />
+);
 
 type MFAProps = {
   className?: string;
   length?: number;
-  value?: string;
   disabled?: boolean;
-} & React.ComponentProps<typeof Control>;
+} & Omit<
+  React.ComponentProps<"input">,
+  "type" | "inputMode" | "pattern" | "autoComplete"
+>;
 
-/**
- * Thin wrapper around Radix UI Control component
- * https://www.radix-ui.com/docs/primitives/components/form#control
- */
-export const MFAControl = forwardRef(function MFAControl(
+export const MFAInput = forwardRef(function MFAInput(
   { className, length = 6, ...props }: PropsWithoutRef<MFAProps>,
   ref: React.ForwardedRef<HTMLInputElement>,
 ) {
-  const classes = classNames(styles.mfa, className);
+  const classes = classNames(styles.container, className);
+  const [currentLength, setCurrentLength] = React.useState(0);
+  const [selection, setSelection] = React.useState<null | [number, number]>(
+    null,
+  );
 
-  const [mfaDigits, setMfaDigits] = useState(props.value ?? "");
+  const update = (event: React.SyntheticEvent<HTMLInputElement>) => {
+    const input = event.currentTarget;
+    setCurrentLength(input.value?.length);
+
+    if (
+      document.activeElement !== input ||
+      input.selectionStart === null ||
+      input.selectionEnd === null
+    ) {
+      setSelection(null);
+    } else {
+      setSelection([input.selectionStart, input.selectionEnd]);
+    }
+  };
 
   return (
     <div className={classes}>
       <input
         {...props}
+        inputMode="numeric"
         // Showing digits on mobile browsers. Using numbers is not really suited
         // as it often adds a way to increment or decrement the current value
         // which is not interesting for this use case
-        type="tel"
+        type="text"
         minLength={0}
         maxLength={length}
-        value={mfaDigits}
-        className={styles["mfa-input"]}
-        onChange={(e) => {
-          setMfaDigits(
-            e.currentTarget.value.replace(/[^\d]/g, "").slice(0, length),
-          );
-        }}
-        autoComplete="off"
+        className={styles.control}
+        pattern={`\\d{${length}}`}
+        autoComplete="one-time-code"
+        onSelect={update}
+        onFocus={update}
+        onBlur={update}
+        onMouseDown={update}
+        onMouseMove={update}
+        onMouseUp={update}
+        onChange={update}
         ref={ref}
       />
-      {Array(length)
-        .fill(0)
-        .map((_, index) => {
-          return (
-            <div
-              key={`digit-${index}`}
-              className={classnames(styles.digit, formStyles.control)}
-              aria-hidden="true"
-            >
-              {mfaDigits.charAt(index) ?? ""}
-            </div>
-          );
-        })}
+      {Array.from(Array(length).keys()).map((index) => (
+        <Digit
+          key={index}
+          filled={index < currentLength}
+          selected={
+            !!selection && index >= selection[0] && index < selection[1]
+          }
+        />
+      ))}
     </div>
+  );
+});
+
+export const MFAControl = forwardRef<
+  ComponentRef<typeof MFAInput>,
+  ComponentProps<typeof MFAInput>
+>(function ActionControl(props, ref) {
+  return (
+    <Control asChild>
+      <MFAInput ref={ref} {...props} />
+    </Control>
   );
 });

@@ -1,5 +1,5 @@
 /*
-Copyright 2023  New Vector Ltd
+Copyright 2023 New Vector Ltd
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -14,4 +14,15 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-export { PasswordControl, PasswordInput } from "./Password";
+import { describe, it, expect } from "vitest";
+import { render } from "@testing-library/react";
+import React from "react";
+
+import { ToggleInput } from "./Toggle";
+
+describe("Toggle", () => {
+  it("renders", () => {
+    const { asFragment } = render(<ToggleInput />);
+    expect(asFragment()).toMatchSnapshot();
+  });
+});
