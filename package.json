@@ -1,6 +1,6 @@
 {
   "name": "@vector-im/compound-web",
-  "version": "0.5.4",
+  "version": "0.6.0",
   "description": "Compound components for the Web",
   "type": "module",
   "main": "./dist/compound-web.js",
@@ -52,8 +52,8 @@
   },
   "homepage": "https://github.com/vector-im/compound-web#readme",
   "devDependencies": {
-    "@fontsource/inter": "^5.0.8",
     "@fontsource/inconsolata": "^5.0.8",
+    "@fontsource/inter": "^5.0.8",
     "@percy/cli": "^1.27.1",
     "@percy/storybook": "^4.3.6",
     "@storybook/addon-designs": "7.0.5",
@@ -109,8 +109,8 @@
     "graphemer": "^1.4.0"
   },
   "peerDependencies": {
-    "@fontsource/inter": "^5",
     "@fontsource/inconsolata": "^5",
+    "@fontsource/inter": "^5",
     "@types/react": "*",
     "@types/react-dom": "*",
     "@vector-im/compound-design-tokens": "^0.0.6",
