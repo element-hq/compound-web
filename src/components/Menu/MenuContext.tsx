@@ -14,13 +14,23 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import { createContext } from "react";
+import { ComponentType, ReactNode, createContext } from "react";
 
-interface MenuData {
+export interface MenuItemWrapperProps {
   /**
-   * The family of components used to render this menu.
+   * Event callback for when the item is selected via mouse, touch, or keyboard.
+   * Calling event.preventDefault in this handler will prevent the menu from
+   * being dismissed.
    */
-  component: "Vaul drawer" | "Radix dropdown menu" | "Radix context menu";
+  onSelect: (e: Event) => void;
+  children: ReactNode;
+}
+
+export interface MenuData {
+  /**
+   * A component that wraps interactive menu items.
+   */
+  MenuItemWrapper: ComponentType<MenuItemWrapperProps> | null;
   /**
    * Event handler called when the open state of the menu changes.
    */

@@ -28,8 +28,6 @@ import styles from "./MenuItem.module.css";
 import { Text } from "../Typography/Text";
 import ChevronRightIcon from "@vector-im/compound-design-tokens/icons/chevron-right.svg";
 import { MenuContext } from "./MenuContext";
-import { Item as DropdownMenuItem } from "@radix-ui/react-dropdown-menu";
-import { Item as ContextMenuItem } from "@radix-ui/react-context-menu";
 
 type MenuItemElement = "button" | "label" | "a" | "div";
 
@@ -82,25 +80,23 @@ export const MenuItem = <C extends MenuItemElement = "button">({
   ...props
 }: Props<C>): ReactNode => {
   const Component = as ?? ("button" as ElementType);
-  const interactive = as !== "div";
   const context = useContext(MenuContext);
 
   const onClick = useCallback(
     (e: Parameters<Exclude<typeof onClickProp, undefined>>[0]) => {
       (onClickProp as ((e_: typeof e) => void) | undefined)?.(e);
-      // Radix menus automatically generate a select event and dismiss the menu
-      // as the default action, but for Vaul drawers we need to handle this
-      // manually
-      if (interactive && context?.component === "Vaul drawer") {
+      // If there is no wrapper component to automatically handle onSelect, we
+      // need to handle it manually, dismissing the menu as the default action
+      if (onSelect !== null && context?.MenuItemWrapper == null) {
         const selectEvent = new CustomEvent("menu.itemSelect", {
           bubbles: true,
           cancelable: true,
         });
-        onSelect?.(selectEvent);
-        if (!selectEvent.defaultPrevented) context.onOpenChange(false);
+        onSelect(selectEvent);
+        if (!selectEvent.defaultPrevented) context?.onOpenChange(false);
       }
     },
-    [context, onSelect, interactive],
+    [context, onSelect],
   );
 
   const content = (
@@ -108,7 +104,7 @@ export const MenuItem = <C extends MenuItemElement = "button">({
       role="menuitem"
       {...props}
       className={classnames(className, styles.item, {
-        [styles.interactive]: interactive,
+        [styles.interactive]: onSelect !== null,
         [styles["no-label"]]: label === null,
       })}
       data-kind={kind}
@@ -134,22 +130,11 @@ export const MenuItem = <C extends MenuItemElement = "button">({
     </Component>
   );
 
-  if (interactive) {
-    switch (context?.component) {
-      case "Radix dropdown menu":
-        return (
-          <DropdownMenuItem onSelect={onSelect ?? undefined} asChild>
-            {content}
-          </DropdownMenuItem>
-        );
-      case "Radix context menu":
-        return (
-          <ContextMenuItem onSelect={onSelect ?? undefined} asChild>
-            {content}
-          </ContextMenuItem>
-        );
-    }
-  }
-
-  return content;
+  return context?.MenuItemWrapper == null || onSelect === null ? (
+    content
+  ) : (
+    <context.MenuItemWrapper onSelect={onSelect}>
+      {content}
+    </context.MenuItemWrapper>
+  );
 };

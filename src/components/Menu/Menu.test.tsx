@@ -23,14 +23,15 @@ import { Menu } from "./Menu";
 import { MenuItem } from "./MenuItem";
 import { Button } from "../Button/Button";
 import userEvent from "@testing-library/user-event";
-import { useTouchscreen } from "../../utils/useTouchscreen";
+import { getPlatform } from "../../utils/platform";
 
-vi.mock("../../utils/useTouchscreen", () => ({
-  useTouchscreen: vi.fn(() => false),
-}));
+vi.mock("../../utils/platform", () => ({ getPlatform: vi.fn(() => "other") }));
 
-async function withTouchscreen(continuation: () => Promise<void>) {
-  const mock = vi.mocked(useTouchscreen).mockReturnValue(true);
+async function withPlatform(
+  platform: ReturnType<typeof getPlatform>,
+  continuation: () => Promise<void>,
+) {
+  const mock = vi.mocked(getPlatform).mockReturnValue(platform);
   try {
     await continuation();
   } finally {
@@ -79,7 +80,7 @@ describe("Menu", () => {
 
   it("closes as a drawer menu", async () => {
     // Simulate a touchscreen so that the menu turns into a drawer
-    await withTouchscreen(async () => {
+    await withPlatform("android", async () => {
       const onOpenChange = vi.fn();
       render(
         <Menu
@@ -108,7 +109,7 @@ describe("Menu", () => {
   });
 
   it("doesn't close if preventDefault is called", async () => {
-    await withTouchscreen(async () => {
+    await withPlatform("ios", async () => {
       const onOpenChange = vi.fn();
       render(
         <Menu

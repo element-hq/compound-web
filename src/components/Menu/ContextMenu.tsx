@@ -15,14 +15,20 @@ limitations under the License.
 */
 
 import React, { FC, ReactNode, useCallback, useMemo, useState } from "react";
-import { Root, Trigger, Portal, Content } from "@radix-ui/react-context-menu";
+import {
+  Root,
+  Trigger,
+  Portal,
+  Content,
+  ContextMenuItem,
+} from "@radix-ui/react-context-menu";
 import { FloatingMenu } from "./FloatingMenu";
 import { Drawer } from "vaul";
 import classnames from "classnames";
 import drawerStyles from "./DrawerMenu.module.css";
-import { MenuContext } from "./MenuContext";
-import { useTouchscreen } from "../../utils/useTouchscreen";
+import { MenuContext, MenuData, MenuItemWrapperProps } from "./MenuContext";
 import { DrawerMenu } from "./DrawerMenu";
+import { getPlatform } from "../../utils/platform";
 
 interface Props {
   /**
@@ -45,6 +51,15 @@ interface Props {
   children: ReactNode;
 }
 
+const ContextMenuItemWrapper: FC<MenuItemWrapperProps> = ({
+  onSelect,
+  children,
+}) => (
+  <ContextMenuItem onSelect={onSelect ?? undefined} asChild>
+    {children}
+  </ContextMenuItem>
+);
+
 /**
  * A menu opened by right-clicking or long-pressing another UI element.
  */
@@ -63,56 +78,49 @@ export const ContextMenu: FC<Props> = ({
     [setOpen, onOpenChangeProp],
   );
 
-  // Normally, the menu takes the form of a floating box. But on mobile (which
-  // we detect by looking for whether the primary input device is a
-  // touchscreen), the menu should morph into a drawer
-  const touchscreen = useTouchscreen();
-  const context = useMemo(
+  // Normally, the menu takes the form of a floating box. But on Android and
+  // iOS, the menu should morph into a drawer
+  const platform = getPlatform();
+  const drawer = platform === "android" || platform === "ios";
+  const context: MenuData = useMemo(
     () => ({
-      component: touchscreen
-        ? ("Vaul drawer" as const)
-        : ("Radix context menu" as const),
+      MenuItemWrapper: drawer ? null : ContextMenuItemWrapper,
       onOpenChange,
     }),
-    [touchscreen, onOpenChange],
+    [onOpenChange],
   );
   const children = (
     <MenuContext.Provider value={context}>{childrenProp}</MenuContext.Provider>
   );
 
-  switch (context.component) {
-    case "Vaul drawer":
-      // This is a small hack: Vaul drawers only support buttons as triggers, so
-      // we end up mounting an empty Radix context menu tree alongside the
-      // drawer tree, purely so we can use its Trigger component (which supports
-      // touch for free). The resulting behavior and DOM tree looks exactly the
-      // same as if Vaul provided a long-press trigger of its own, so I think
-      // this is fine.
-      return (
-        <>
-          <Root onOpenChange={onOpenChange}>
-            <Trigger asChild>{trigger}</Trigger>
-          </Root>
-          <Drawer.Root open={open} onOpenChange={onOpenChange}>
-            <Drawer.Portal>
-              <Drawer.Overlay className={classnames(drawerStyles.bg)} />
-              <Drawer.Content asChild>
-                <DrawerMenu title={title}>{children}</DrawerMenu>
-              </Drawer.Content>
-            </Drawer.Portal>
-          </Drawer.Root>
-        </>
-      );
-    case "Radix context menu":
-      return (
-        <Root onOpenChange={onOpenChange}>
-          <Trigger asChild>{trigger}</Trigger>
-          <Portal>
-            <Content asChild>
-              <FloatingMenu title={title}>{children}</FloatingMenu>
-            </Content>
-          </Portal>
-        </Root>
-      );
-  }
+  // This is a small hack: Vaul drawers only support buttons as triggers, so
+  // we end up mounting an empty Radix context menu tree alongside the
+  // drawer tree, purely so we can use its Trigger component (which supports
+  // touch for free). The resulting behavior and DOM tree looks exactly the
+  // same as if Vaul provided a long-press trigger of its own, so I think
+  // this is fine.
+  return drawer ? (
+    <>
+      <Root onOpenChange={onOpenChange}>
+        <Trigger asChild>{trigger}</Trigger>
+      </Root>
+      <Drawer.Root open={open} onOpenChange={onOpenChange}>
+        <Drawer.Portal>
+          <Drawer.Overlay className={classnames(drawerStyles.bg)} />
+          <Drawer.Content asChild>
+            <DrawerMenu title={title}>{children}</DrawerMenu>
+          </Drawer.Content>
+        </Drawer.Portal>
+      </Drawer.Root>
+    </>
+  ) : (
+    <Root onOpenChange={onOpenChange}>
+      <Trigger asChild>{trigger}</Trigger>
+      <Portal>
+        <Content asChild>
+          <FloatingMenu title={title}>{children}</FloatingMenu>
+        </Content>
+      </Portal>
+    </Root>
+  );
 };

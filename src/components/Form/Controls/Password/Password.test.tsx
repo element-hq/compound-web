@@ -19,21 +19,14 @@ import React from "react";
 import { act, getByLabelText, render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
-import { PasswordControl } from "./Password";
-import { Root } from "../../Root";
-import { Field } from "../../Field";
+import { PasswordInput } from "./Password";
 
 describe("PasswordControl", () => {
   it("switches the input type", async () => {
-    const { container } = render(
-      <Root>
-        <Field name="password">
-          <PasswordControl value="p4ssw0rd!" />
-        </Field>
-      </Root>,
-    );
+    const { container } = render(<PasswordInput defaultValue="p4ssw0rd!" />);
 
     expect(container.querySelector("[type=password]")).toBeInTheDocument();
+    expect(container).toMatchSnapshot("invisible");
 
     const user = userEvent.setup();
 
@@ -43,11 +36,13 @@ describe("PasswordControl", () => {
 
     expect(container.querySelector("[type=password]")).not.toBeInTheDocument();
     expect(container.querySelector("[type=text]")).toBeInTheDocument();
+    expect(container).toMatchSnapshot("visible");
 
     await act(async () => {
       await user.click(getByLabelText(container, "Hide"));
     });
 
     expect(container.querySelector("[type=password]")).toBeInTheDocument();
+    expect(container).toMatchSnapshot("invisible");
   });
 });

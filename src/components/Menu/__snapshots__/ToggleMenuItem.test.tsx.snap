@@ -28,14 +28,15 @@ exports[`ToggleMenuItem > renders 1`] = `
       Always show
     </span>
     <div
-      class="_toggle_eb77c6"
+      class="_container_adcb29"
     >
       <input
+        class="_input_adcb29"
         id=":r0:"
         type="checkbox"
       />
       <div
-        class="_toggle-ui_eb77c6"
+        class="_ui_adcb29"
       />
     </div>
   </label>

@@ -15,7 +15,8 @@ limitations under the License.
 */
 
 import React, { forwardRef, PropsWithChildren } from "react";
-import { Message as RadixMessage } from "@radix-ui/react-form";
+import { Message } from "@radix-ui/react-form";
+import ErrorIcon from "@vector-im/compound-design-tokens/icons/error.svg";
 
 import styles from "./form.module.css";
 import classNames from "classnames";
@@ -25,22 +26,39 @@ type MessageProps = {
    * The CSS class name.
    */
   className?: string;
-} & React.ComponentProps<typeof RadixMessage>;
+} & React.ComponentProps<typeof Message>;
 
 /**
- * Thin wrapper around Radix UI Message component
- * https://www.radix-ui.com/docs/primitives/components/form#message
+ * An error message to display below a form control.
  */
-export const Message = forwardRef<
+export const ErrorMessage = forwardRef<
   HTMLSpanElement,
   PropsWithChildren<MessageProps>
->(function Message({ children, ...props }, ref) {
-  const classes = classNames(styles.message, props.className);
+>(function ErrorMessage({ children, className, ...props }, ref) {
+  const classes = classNames(
+    styles.message,
+    styles["error-message"],
+    className,
+  );
   return (
-    <RadixMessage ref={ref} {...props} className={classes}>
-      {/* Pending to be replaced by the alert component, see
-          https://github.com/vector-im/compound-web/pull/6 */}
+    <Message ref={ref} {...props} className={classes}>
+      <ErrorIcon />
       {children}
-    </RadixMessage>
+    </Message>
+  );
+});
+
+/**
+ * A help message to display below a form control.
+ */
+export const HelpMessage = forwardRef<
+  HTMLSpanElement,
+  PropsWithChildren<MessageProps>
+>(function HelpMessage({ children, className, ...props }, ref) {
+  const classes = classNames(styles.message, styles["help-message"], className);
+  return (
+    <Message ref={ref} {...props} className={classes}>
+      {children}
+    </Message>
   );
 });

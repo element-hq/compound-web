@@ -23,10 +23,6 @@ import { ContextMenu } from "./ContextMenu";
 import { MenuItem } from "./MenuItem";
 import userEvent from "@testing-library/user-event";
 
-vi.mock("../../utils/useTouchscreen", () => ({
-  useTouchscreen: vi.fn(() => false),
-}));
-
 describe("ContextMenu", () => {
   it("opens by right-clicking", async () => {
     const onOpenChange = vi.fn();
