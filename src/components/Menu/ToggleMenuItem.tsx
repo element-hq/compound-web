@@ -16,14 +16,14 @@ limitations under the License.
 
 import React, { ComponentProps, forwardRef } from "react";
 import { MenuItem } from "./MenuItem";
-import { Toggle } from "../Toggle/Toggle";
+import { ToggleInput } from "../Form/Controls/Toggle";
 import useId from "../../utils/useId";
 
 type Props = Pick<
   ComponentProps<typeof MenuItem>,
   "className" | "Icon" | "label" | "onSelect"
 > &
-  Omit<ComponentProps<typeof Toggle>, "id" | "children">;
+  Omit<ComponentProps<typeof ToggleInput>, "id" | "children">;
 
 /**
  * A menu item with a toggle control. Clicking anywhere on the surface will
@@ -45,7 +45,7 @@ export const ToggleMenuItem = forwardRef<HTMLInputElement, Props>(
         label={label}
         onSelect={onSelect}
       >
-        <Toggle id={toggleId} ref={ref} {...toggleProps} />
+        <ToggleInput id={toggleId} ref={ref} {...toggleProps} />
       </MenuItem>
     );
   },

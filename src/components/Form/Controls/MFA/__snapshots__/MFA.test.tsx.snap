@@ -2,56 +2,52 @@
 
 exports[`PasswordControl > renders 1`] = `
 <DocumentFragment>
-  <form
-    class="_root_dc87d2"
-  >
-    <div
-      class="_field_dc87d2"
-    >
+  <form>
+    <div>
       <label
-        class="_label_dc87d2"
         for="radix-:r0:"
       >
         MFA
       </label>
       <div
-        class="_mfa_4b8c2b _control_dc87d2"
+        class="_container_4b8c2b"
       >
         <input
-          autocomplete="off"
-          class="_mfa-input_4b8c2b"
+          autocomplete="one-time-code"
+          class="_control_4b8c2b"
           id="radix-:r0:"
+          inputmode="numeric"
           maxlength="6"
           minlength="0"
           name="mfa"
+          pattern="\\\\d{6}"
           placeholder="000000"
           title=""
-          type="tel"
-          value=""
+          type="text"
         />
         <div
           aria-hidden="true"
-          class="_digit_4b8c2b _control_dc87d2"
+          class="_digit_4b8c2b"
         />
         <div
           aria-hidden="true"
-          class="_digit_4b8c2b _control_dc87d2"
+          class="_digit_4b8c2b"
         />
         <div
           aria-hidden="true"
-          class="_digit_4b8c2b _control_dc87d2"
+          class="_digit_4b8c2b"
         />
         <div
           aria-hidden="true"
-          class="_digit_4b8c2b _control_dc87d2"
+          class="_digit_4b8c2b"
         />
         <div
           aria-hidden="true"
-          class="_digit_4b8c2b _control_dc87d2"
+          class="_digit_4b8c2b"
         />
         <div
           aria-hidden="true"
-          class="_digit_4b8c2b _control_dc87d2"
+          class="_digit_4b8c2b"
         />
       </div>
     </div>

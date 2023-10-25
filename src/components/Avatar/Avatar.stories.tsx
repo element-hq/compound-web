@@ -31,10 +31,6 @@ export default {
     src: "/images/__test__/kitten.jpg",
     type: "round",
   },
-  design: {
-    type: "figma",
-    url: "https://www.figma.com/file/rTaQE2nIUSLav4Tg3nozq7/Compound-Web-Components?type=design&node-id=522-742&mode=dev",
-  },
 } as Meta<typeof AvatarComponent>;
 
 const Template: StoryFn<typeof AvatarComponent> = (args) => (

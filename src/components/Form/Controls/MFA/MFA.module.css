@@ -1,5 +1,6 @@
 /*
-Copyright 2023  New Vector Ltd
+Copyright 2023 The Matrix.org Foundation C.I.C.
+Copyright 2023 New Vector Ltd
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -14,26 +15,95 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-.mfa {
-  inline-size: fit-content;
+.container {
+  --gap: var(--cpd-space-3x);
+  --digit-size: var(--cpd-space-10x);
+  --digit-height: var(--cpd-space-12x);
+
   display: flex;
+  inline-size: fit-content;
   flex-direction: row;
-  gap: 1rem;
+  gap: var(--gap);
+
+  /* The input is positioned absolutely
+     so the container needs to be positioned relatively */
   position: relative;
 }
 
-.mfa-input {
-  opacity: 0;
+.control {
+  all: unset;
+
+  /** TODO: semantic token */
+  font-family: var(--cpd-font-family-mono), ui-monospace, monospace;
+  font-weight: 700;
+
+  /* Position the input to fill the container */
   position: absolute;
   inset: 0;
-  inline-size: 100%;
-  block-size: 100%;
-  box-sizing: border-box;
+
+  /* Spacing between digits is set to the gap
+     plus the size of one digit box
+     minus the size of one character */
+  letter-spacing: calc(var(--gap) + var(--digit-size) - 1ch);
+  line-height: var(--digit-height);
+
+  /* The padding at the start positions the first digit at the middle of the digit box */
+  padding-inline-start: calc(var(--cpd-space-10x) / 2 - (1ch / 2));
+
+  /* The negative margin at the end is to keep space for the cursor when the input is full */
+  margin-inline-end: calc(-1 * (var(--cpd-space-10x) + var(--cpd-space-3x)));
 }
 
 .digit {
-  inline-size: 3rem;
-  aspect-ratio: 1 / 1;
-  border: 1px solid grey;
-  text-align: center;
+  box-sizing: border-box;
+  inline-size: var(--cpd-space-10x);
+  block-size: var(--cpd-space-12x);
+  border: 1px solid var(--cpd-color-border-interactive-primary);
+  background: var(--cpd-color-bg-canvas-default);
+  border-radius: 0.5rem;
+  padding: var(--cpd-space-3x) var(--cpd-space-4x);
+}
+
+@media (hover) {
+  .control:hover ~ .digit {
+    border-color: var(--cpd-color-border-interactive-hovered);
+
+    /** TODO: have the shadow in the design tokens */
+    box-shadow: 0 1.2px 2.4px 0 rgb(0 0 0 / 15%);
+  }
+}
+
+.control:disabled {
+  color: var(--cpd-color-text-disabled);
+  cursor: not-allowed;
+}
+
+.control:disabled ~ .digit {
+  box-shadow: none;
+  background: var(--cpd-color-bg-canvas-disabled);
+  border-color: var(--cpd-color-border-disabled);
+}
+
+.control[readonly] {
+  color: var(--cpd-color-text-secondary);
+}
+
+.control[readonly] ~ .digit {
+  box-shadow: none;
+  background: var(--cpd-color-bg-subtle-secondary);
+  border-color: var(--cpd-color-bg-subtle-secondary);
+}
+
+.control[data-invalid] ~ .digit {
+  border-color: var(--cpd-color-text-critical-primary);
+}
+
+.control:focus ~ .digit:not([data-filled]) {
+  outline: 2px solid var(--cpd-color-border-focused);
+  border-color: transparent;
+}
+
+.digit[data-selected] {
+  border-color: var(--cpd-color-border-focused);
+  background-color: var(--cpd-color-bg-info-subtle);
 }
