@@ -15,14 +15,20 @@ limitations under the License.
 */
 
 import React, { FC, ReactNode, useMemo } from "react";
-import { Root, Trigger, Portal, Content } from "@radix-ui/react-dropdown-menu";
+import {
+  Root,
+  Trigger,
+  Portal,
+  Content,
+  DropdownMenuItem,
+} from "@radix-ui/react-dropdown-menu";
 import { FloatingMenu } from "./FloatingMenu";
 import { Drawer } from "vaul";
 import classnames from "classnames";
 import drawerMenu from "./DrawerMenu.module.css";
-import { MenuContext } from "./MenuContext";
+import { MenuContext, MenuData, MenuItemWrapperProps } from "./MenuContext";
 import { DrawerMenu } from "./DrawerMenu";
-import { useTouchscreen } from "../../utils/useTouchscreen";
+import { getPlatform } from "../../utils/platform";
 
 interface Props {
   /**
@@ -61,6 +67,15 @@ interface Props {
   align?: "start" | "center" | "end";
 }
 
+const DropdownMenuItemWrapper: FC<MenuItemWrapperProps> = ({
+  onSelect,
+  children,
+}) => (
+  <DropdownMenuItem onSelect={onSelect ?? undefined} asChild>
+    {children}
+  </DropdownMenuItem>
+);
+
 /**
  * A menu opened by pressing a button.
  */
@@ -73,46 +88,39 @@ export const Menu: FC<Props> = ({
   side = "bottom",
   align = "center",
 }) => {
-  // Normally, the menu takes the form of a floating box. But on mobile (which
-  // we detect by looking for whether the primary input device is a
-  // touchscreen), the menu should morph into a drawer
-  const touchscreen = useTouchscreen();
-  const context = useMemo(
+  // Normally, the menu takes the form of a floating box. But on Android and
+  // iOS, the menu should morph into a drawer
+  const platform = getPlatform();
+  const drawer = platform === "android" || platform === "ios";
+  const context: MenuData = useMemo(
     () => ({
-      component: touchscreen
-        ? ("Vaul drawer" as const)
-        : ("Radix dropdown menu" as const),
+      MenuItemWrapper: drawer ? null : DropdownMenuItemWrapper,
       onOpenChange,
     }),
-    [touchscreen, onOpenChange],
+    [onOpenChange],
   );
   const children = (
     <MenuContext.Provider value={context}>{childrenProp}</MenuContext.Provider>
   );
 
-  switch (context.component) {
-    case "Vaul drawer":
-      return (
-        <Drawer.Root open={open} onOpenChange={onOpenChange}>
-          <Drawer.Trigger asChild>{trigger}</Drawer.Trigger>
-          <Drawer.Portal>
-            <Drawer.Overlay className={classnames(drawerMenu.bg)} />
-            <Drawer.Content asChild>
-              <DrawerMenu title={title}>{children}</DrawerMenu>
-            </Drawer.Content>
-          </Drawer.Portal>
-        </Drawer.Root>
-      );
-    case "Radix dropdown menu":
-      return (
-        <Root open={open} onOpenChange={onOpenChange}>
-          <Trigger asChild>{trigger}</Trigger>
-          <Portal>
-            <Content asChild side={side} align={align} sideOffset={8}>
-              <FloatingMenu title={title}>{children}</FloatingMenu>
-            </Content>
-          </Portal>
-        </Root>
-      );
-  }
+  return drawer ? (
+    <Drawer.Root open={open} onOpenChange={onOpenChange}>
+      <Drawer.Trigger asChild>{trigger}</Drawer.Trigger>
+      <Drawer.Portal>
+        <Drawer.Overlay className={classnames(drawerMenu.bg)} />
+        <Drawer.Content asChild>
+          <DrawerMenu title={title}>{children}</DrawerMenu>
+        </Drawer.Content>
+      </Drawer.Portal>
+    </Drawer.Root>
+  ) : (
+    <Root open={open} onOpenChange={onOpenChange}>
+      <Trigger asChild>{trigger}</Trigger>
+      <Portal>
+        <Content asChild side={side} align={align} sideOffset={8}>
+          <FloatingMenu title={title}>{children}</FloatingMenu>
+        </Content>
+      </Portal>
+    </Root>
+  );
 };

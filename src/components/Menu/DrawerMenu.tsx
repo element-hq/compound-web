@@ -16,7 +16,7 @@ limitations under the License.
 
 import React, { ComponentPropsWithoutRef, ReactNode, forwardRef } from "react";
 import styles from "./DrawerMenu.module.css";
-import { platform } from "../../utils/platform";
+import { getPlatform } from "../../utils/platform";
 import classNames from "classnames";
 
 interface Props extends ComponentPropsWithoutRef<"div"> {
@@ -41,7 +41,7 @@ export const DrawerMenu = forwardRef<HTMLDivElement, Props>(
       ref={ref}
       className={classNames(className, styles.drawer)}
       aria-label={title}
-      data-platform={platform}
+      data-platform={getPlatform()}
       {...props}
       role="menu"
     >
