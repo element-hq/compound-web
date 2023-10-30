@@ -24,12 +24,12 @@ exports[`Alert > renders 1`] = `
       class="_content_6cfd7b"
     >
       <p
-        class="_title_6cfd7b"
+        class="_font-body-md-semibold_489030"
       >
         Title
       </p>
       <p
-        class="_caption_6cfd7b"
+        class="_font-body-sm-regular_489030"
       >
         Success!
       </p>

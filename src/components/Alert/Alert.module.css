@@ -22,7 +22,7 @@ limitations under the License.
   justify-content: start;
   gap: var(--cpd-space-3x);
   padding: var(--cpd-space-4x);
-  border-radius: 12px;
+  border-radius: 8px;
   border: 1px solid;
 }
 
@@ -45,10 +45,6 @@ limitations under the License.
   flex: 1;
 }
 
-.title {
-  font: var(--cpd-font-body-md-semibold);
-}
-
 [data-type="success"] :is(.title, .icon) {
   color: var(--cpd-color-green-900);
 }
@@ -63,24 +59,4 @@ limitations under the License.
 
 .alert p {
   margin: 0;
-}
-
-[data-type] .close {
-  color: var(--cpd-color-gray-800);
-  border-radius: 50%;
-  padding: var(--cpd-space-scale);
-  cursor: pointer;
-}
-
-@media (hover) {
-  .close:hover {
-    color: var(--cpd-color-icon-primary);
-    background: var(--cpd-color-alpha-gray-300);
-    cursor: pointer;
-  }
-}
-
-.close:active {
-  color: var(--cpd-color-icon-primary);
-  background: var(--cpd-color-alpha-gray-300);
 }

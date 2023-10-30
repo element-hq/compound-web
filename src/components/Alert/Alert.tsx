@@ -23,6 +23,8 @@ import InfoIcon from "@vector-im/compound-design-tokens/icons/info.svg";
 import CloseIcon from "@vector-im/compound-design-tokens/icons/close.svg";
 
 import styles from "./Alert.module.css";
+import { Text } from "../Typography/Text";
+import { IconButton } from "../IconButton/IconButton";
 
 type AlertProps = {
   /**
@@ -82,20 +84,32 @@ export const Alert: React.FC<PropsWithChildren<AlertProps>> = ({
         "aria-hidden": true,
       })}
       <div className={styles.content}>
-        <p className={styles.title}>{title}</p>
-        <p className={styles.caption}>{children}</p>
+        <Text size="md" weight="semibold">
+          {title}
+        </Text>
+        <Text size="sm" weight="regular">
+          {children}
+        </Text>
       </div>
       {/* TODO: Setup an i18n function for the aria label below */}
       {onClose && (
-        <CloseIcon
+        <IconButton
+          onClick={onClose}
+          aria-label="Close"
+          role="button"
+          className={styles.close}
+        >
+          <CloseIcon />
+        </IconButton>
+      )}
+      {/* <CloseIcon
           width={16}
           height={16}
           onClick={onClose}
           aria-label="Close"
           role="button"
           className={styles.close}
-        />
-      )}
+        /> */}
     </div>
   );
 };
