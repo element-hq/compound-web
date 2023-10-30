@@ -9,7 +9,7 @@ const addons = [
 ];
 
 if (process.env.NODE_ENV === "development") {
-  addons.push("@storybook/addon-a11y")
+  addons.push("@storybook/addon-a11y");
 }
 
 const config: StorybookConfig = {
