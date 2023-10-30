@@ -1,6 +1,6 @@
 {
   "name": "@vector-im/compound-web",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "description": "Compound components for the Web",
   "type": "module",
   "main": "./dist/compound-web.js",
@@ -74,7 +74,7 @@
     "@types/react": "^18.2.21",
     "@typescript-eslint/eslint-plugin": "^6.7.0",
     "@typescript-eslint/parser": "^6.7.0",
-    "@vector-im/compound-design-tokens": "0.0.6",
+    "@vector-im/compound-design-tokens": "0.0.7",
     "@vitejs/plugin-react": "^4.0.4",
     "@vitest/coverage-v8": "^0.34.4",
     "browserslist-to-esbuild": "^1.2.0",
@@ -106,6 +106,7 @@
     "@radix-ui/react-context-menu": "^2.1.5",
     "@radix-ui/react-dropdown-menu": "^2.0.6",
     "@radix-ui/react-form": "^0.0.3",
+    "@radix-ui/react-separator": "^1.0.3",
     "@radix-ui/react-tooltip": "^1.0.6",
     "classnames": "^2.3.2",
     "graphemer": "^1.4.0",
@@ -116,7 +117,7 @@
     "@fontsource/inter": "^5",
     "@types/react": "*",
     "@types/react-dom": "*",
-    "@vector-im/compound-design-tokens": "^0.0.6",
+    "@vector-im/compound-design-tokens": ">=0.0.6 <0.1.0",
     "react": "^17 || ^18",
     "react-dom": "^17 || ^18"
   },
