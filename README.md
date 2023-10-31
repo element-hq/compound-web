@@ -30,14 +30,13 @@ $ yarn link @types/react
 ```
 
 ### Release
- 
+
 To release a new version of Compound Web:
+
 1. Review the changes since last released and choose the [appropriate](https://semver.org/) version bump (major, minor, patch).
 1. Run the [Release npm package](https://github.com/vector-im/compound-web/actions/workflows/npm_release.yml) action, inputting the version bump.
    The action will:
-    - add a commit bumping the version in `package.json`
-    - publish the package to npm
-    - tag a release on Github
+   - add a commit bumping the version in `package.json`
+   - publish the package to npm
+   - tag a release on Github
 1. Manually add a changelog to the [release on github](https://github.com/vector-im/compound-web/releases).
-
-
