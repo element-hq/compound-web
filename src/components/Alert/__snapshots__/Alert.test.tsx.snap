@@ -3,7 +3,7 @@
 exports[`Alert > renders actions 1`] = `
 <DocumentFragment>
   <div
-    class="_alert_6cfd7b _with-actions_6cfd7b"
+    class="_alert_6cfd7b"
     data-type="info"
   >
     <svg

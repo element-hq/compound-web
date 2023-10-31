@@ -17,24 +17,15 @@ limitations under the License.
 /* TODO: Review entire file for semantic token definiton */
 
 .alert {
-  --gap: var(--cpd-space-3x);
-  --padding: var(--cpd-space-4x);
-
+  container-type: inline-size;
+  container-name: alert;
   display: flex;
   align-items: start;
   justify-content: start;
-  gap: var(--gap);
-  padding: var(--padding);
+  gap: var(--cpd-space-3x);
+  padding: var(--cpd-space-4x);
   border-radius: 8px;
   border: 1px solid;
-
-  /* calculate magic width for text content based on min total width of 600
-  minus padding, icon + gap, close + gap
-  TODO 600px should be a token */
-  --wrap-magic-width: calc(
-    600px - var(--padding) - var(--padding) - var(--gap) - var(--gap) - 24px -
-      var(--cpd-icon-button-size)
-  );
 }
 
 .alert[data-type="success"] {
@@ -59,14 +50,8 @@ limitations under the License.
   gap: var(--cpd-space-3x);
 }
 
-.with-actions .content {
-  flex-wrap: wrap;
-}
-
 .text-content {
   flex: 1 1 0;
-  inline-size: min(100%, var(--wrap-magic-width));
-  min-inline-size: min(100%, var(--wrap-magic-width));
 }
 
 [data-type="success"] :is(.title, .icon) {
@@ -95,4 +80,17 @@ limitations under the License.
 
 .icon {
   flex-shrink: 0;
+}
+
+/* @TODO 600px break should be a token */
+
+/* wrap actions into a stacked layout when the alert is <=600px */
+@container alert (max-width: 600px) {
+  .content {
+    flex-wrap: wrap;
+  }
+
+  .text-content {
+    flex: 1 0 100%;
+  }
 }

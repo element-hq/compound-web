@@ -41,6 +41,7 @@ type AlertProps = {
   className?: string;
   /**
    * Actions that will be displayed to the right of the content
+   * Wraps and stacks actions under content when alert's size is <=600px
    * eg
    * ```
    * <Alert
@@ -71,10 +72,7 @@ export const Alert: React.FC<PropsWithChildren<AlertProps>> = ({
   onClose,
   ...props
 }: PropsWithChildren<AlertProps>) => {
-  const classes = classNames(styles.alert, {
-    className,
-    [styles["with-actions"]]: !!actions,
-  });
+  const classes = classNames(styles.alert, className);
 
   const renderIcon = useCallback(
     (props: React.ComponentProps<typeof ErrorIcon>) => {
