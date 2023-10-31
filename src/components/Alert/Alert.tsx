@@ -40,6 +40,10 @@ type AlertProps = {
    */
   className?: string;
   /**
+   *
+   */
+  actions?: React.ReactNode;
+  /**
    * Event callback when dismissing the alert. Determines the display of the
    * "close" button at the top right of the alert.
    * @param e the event parameters
@@ -56,10 +60,14 @@ export const Alert: React.FC<PropsWithChildren<AlertProps>> = ({
   title,
   children,
   className,
+  actions,
   onClose,
   ...props
 }: PropsWithChildren<AlertProps>) => {
-  const classes = classNames(styles.alert, className);
+  const classes = classNames(styles.alert, {
+    className,
+    [styles["with-actions"]]: !!actions,
+  });
 
   const renderIcon = useCallback(
     (props: React.ComponentProps<typeof ErrorIcon>) => {
@@ -84,12 +92,15 @@ export const Alert: React.FC<PropsWithChildren<AlertProps>> = ({
         "aria-hidden": true,
       })}
       <div className={styles.content}>
-        <Text size="md" weight="semibold">
-          {title}
-        </Text>
-        <Text size="sm" weight="regular">
-          {children}
-        </Text>
+        <div className={styles["text-content"]}>
+          <Text size="md" weight="semibold">
+            {title}
+          </Text>
+          <Text size="sm" weight="regular">
+            {children}
+          </Text>
+        </div>
+        {actions && <div className={styles.actions}>{actions}</div>}
       </div>
       {/* TODO: Setup an i18n function for the aria label below */}
       {onClose && (
