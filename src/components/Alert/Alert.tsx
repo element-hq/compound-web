@@ -40,7 +40,8 @@ type AlertProps = {
    */
   className?: string;
   /**
-   *
+   * Alert actions that will be displayed to the right of the message
+   * in the alert
    */
   actions?: React.ReactNode;
   /**
