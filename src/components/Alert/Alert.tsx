@@ -102,14 +102,6 @@ export const Alert: React.FC<PropsWithChildren<AlertProps>> = ({
           <CloseIcon />
         </IconButton>
       )}
-      {/* <CloseIcon
-          width={16}
-          height={16}
-          onClick={onClose}
-          aria-label="Close"
-          role="button"
-          className={styles.close}
-        /> */}
     </div>
   );
 };
