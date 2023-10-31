@@ -35,6 +35,12 @@ export default {
       console.log("Clicked!");
     },
   },
+  parameters: {
+    design: {
+      type: "figma",
+      url: "https://www.figma.com/file/rTaQE2nIUSLav4Tg3nozq7/Compound-Web-Components?type=design&node-id=795-7802&mode=design&t=g71gv6nZdJA7QSGB-0",
+    },
+  },
 } as Meta<typeof AlertComponent>;
 
 export const Success = {
