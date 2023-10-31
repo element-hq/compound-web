@@ -15,6 +15,7 @@ export { Link } from "./components/Link/Link";
 export { MenuItem } from "./components/MenuItem/MenuItem";
 export { Search } from "./components/Search/Search";
 export { Separator } from "./components/Separator/Separator";
+export { ToggleMenuItem } from "./components/MenuItem/ToggleMenuItem";
 export { Tooltip } from "./components/Tooltip/Tooltip";
 export { TextControl, TextControl as Control, TextInput, ActionControl, ActionInput, PasswordControl, PasswordInput, MFAControl, MFAInput, CheckboxControl, CheckboxInput, CheckboxInput as Checkbox, RadioControl, RadioInput, RadioInput as Radio, ToggleControl, ToggleInput, ToggleInput as Toggle, Root, Submit, Message, ErrorMessage, HelpMessage, ValidityState, Field, InlineField, Label, } from "./components/Form";
 export * as Form from "./components/Form";
