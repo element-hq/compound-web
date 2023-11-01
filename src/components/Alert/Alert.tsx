@@ -40,6 +40,18 @@ type AlertProps = {
    */
   className?: string;
   /**
+   * Actions that will be displayed to the right of the content
+   * Wraps and stacks actions under content when alert's size is <=600px
+   * eg
+   * ```
+   * <Alert
+   *  title='Title'
+   *  actions={<Button onClick={doSomething}>Yes</Button>}
+   * />
+   * ```
+   */
+  actions?: React.ReactNode;
+  /**
    * Event callback when dismissing the alert. Determines the display of the
    * "close" button at the top right of the alert.
    * @param e the event parameters
@@ -56,6 +68,7 @@ export const Alert: React.FC<PropsWithChildren<AlertProps>> = ({
   title,
   children,
   className,
+  actions,
   onClose,
   ...props
 }: PropsWithChildren<AlertProps>) => {
@@ -84,12 +97,15 @@ export const Alert: React.FC<PropsWithChildren<AlertProps>> = ({
         "aria-hidden": true,
       })}
       <div className={styles.content}>
-        <Text size="md" weight="semibold">
-          {title}
-        </Text>
-        <Text size="sm" weight="regular">
-          {children}
-        </Text>
+        <div className={styles["text-content"]}>
+          <Text size="md" weight="semibold">
+            {title}
+          </Text>
+          <Text size="sm" weight="regular">
+            {children}
+          </Text>
+        </div>
+        {actions && <div className={styles.actions}>{actions}</div>}
       </div>
       {/* TODO: Setup an i18n function for the aria label below */}
       {onClose && (
