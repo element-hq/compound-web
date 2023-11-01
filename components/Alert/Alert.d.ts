@@ -13,6 +13,18 @@ type AlertProps = {
      */
     className?: string;
     /**
+     * Actions that will be displayed to the right of the content
+     * Wraps and stacks actions under content when alert's size is <=600px
+     * eg
+     * ```
+     * <Alert
+     *  title='Title'
+     *  actions={<Button onClick={doSomething}>Yes</Button>}
+     * />
+     * ```
+     */
+    actions?: React.ReactNode;
+    /**
      * Event callback when dismissing the alert. Determines the display of the
      * "close" button at the top right of the alert.
      * @param e the event parameters
