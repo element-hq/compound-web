@@ -6,6 +6,7 @@ const addons = [
   "@storybook/addon-interactions",
   "@storybook/addon-designs",
   "@storybook/addon-themes",
+  "storybook-addon-jsx",
 ];
 
 if (process.env.NODE_ENV === "development") {

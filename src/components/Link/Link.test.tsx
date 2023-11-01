@@ -18,11 +18,23 @@ import { describe, it, expect } from "vitest";
 import { render } from "@testing-library/react";
 import React from "react";
 
-import { Link } from "./Link";
+import Meta, { Default, Primary, Critical } from "./Link.stories";
+import { composeStory } from "@storybook/react";
 
 describe("Link", () => {
-  it("renders", () => {
-    const { asFragment } = render(<Link />);
+  it("renders a primary link by default", () => {
+    const Component = composeStory(Default, Meta);
+    const { asFragment } = render(<Component />);
+    expect(asFragment()).toMatchSnapshot();
+  });
+  it("renders a primary link", () => {
+    const Component = composeStory(Primary, Meta);
+    const { asFragment } = render(<Component />);
+    expect(asFragment()).toMatchSnapshot();
+  });
+  it("renders a critical link", () => {
+    const Component = composeStory(Critical, Meta);
+    const { asFragment } = render(<Component />);
     expect(asFragment()).toMatchSnapshot();
   });
 });
