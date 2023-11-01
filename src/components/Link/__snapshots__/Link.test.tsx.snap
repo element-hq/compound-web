@@ -1,11 +1,37 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Link > renders 1`] = `
+exports[`Link > renders a critical link 1`] = `
+<DocumentFragment>
+  <a
+    class="_link_379d57"
+    data-kind="critical"
+    rel="noreferrer noopener"
+  >
+    Text link
+  </a>
+</DocumentFragment>
+`;
+
+exports[`Link > renders a primary link 1`] = `
 <DocumentFragment>
   <a
     class="_link_379d57"
     data-kind="primary"
     rel="noreferrer noopener"
-  />
+  >
+    Text link
+  </a>
+</DocumentFragment>
+`;
+
+exports[`Link > renders a primary link by default 1`] = `
+<DocumentFragment>
+  <a
+    class="_link_379d57"
+    data-kind="primary"
+    rel="noreferrer noopener"
+  >
+    Text link
+  </a>
 </DocumentFragment>
 `;

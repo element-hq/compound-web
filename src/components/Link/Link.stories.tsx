@@ -14,8 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import React from "react";
-import { Meta, StoryFn } from "@storybook/react";
+import { Meta } from "@storybook/react";
 
 import { Link as LinkComponent } from "./Link";
 
@@ -23,13 +22,35 @@ export default {
   title: "Link",
   component: LinkComponent,
   tags: ["autodocs"],
-  argTypes: {},
-  args: {},
+  argTypes: {
+    kind: {
+      options: ["primary", "critical"],
+      control: { type: "inline-radio" },
+    },
+  },
+  args: {
+    children: "Text link",
+  },
+  parameters: {
+    design: {
+      type: "figma",
+      url: "https://www.figma.com/file/rTaQE2nIUSLav4Tg3nozq7/Compound-Web-Components?type=design&node-id=645-3494&mode=design&t=NC76puFaYAA5i3V4-0",
+    },
+  },
 } as Meta<typeof LinkComponent>;
 
-const Template: StoryFn<typeof LinkComponent> = (args) => (
-  <LinkComponent {...args}>Text link</LinkComponent>
-);
+export const Default = {
+  // no args, test default kind
+};
 
-export const Round = Template.bind({});
-Round.args = {};
+export const Primary = {
+  args: {
+    kind: "primary",
+  },
+};
+
+export const Critical = {
+  args: {
+    kind: "critical",
+  },
+};
