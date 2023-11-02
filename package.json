@@ -13,7 +13,8 @@
     },
     "./dist/style.css": {
       "require": "./dist/style.css",
-      "import": "./dist/style.css"
+      "import": "./dist/style.css",
+      "style": "./dist/style.css"
     }
   },
   "types": "./dist/index.d.ts",
