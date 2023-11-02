@@ -1,0 +1,49 @@
+.item {
+    align-items: center;
+    display: flex;
+    gap: var(--cpd-space-2x);
+}
+
+.iconPlaceholder {
+    width: 24px;
+}
+
+button.toggle[data-size="sm"] {
+    background: none;
+    color: var(--cpd-color-text-primary);
+    padding: var(--cpd-space-5x);
+    transition: background-color 100ms linear;
+}
+
+button.toggle[data-size="sm"].open[data-size="sm"] {
+    background: var(--cpd-color-border-interactive-secondary);
+}
+
+button.toggle[data-size="sm"]:hover {
+    animation-duration: 250ms;
+    background: var(--cpd-color-border-interactive-secondary);
+}
+
+.floatingMenu {
+    z-index: 1;
+    position: absolute;
+    top: 110%;
+    left: -35%;
+    direction:rtl;
+}
+
+.floatingMenu > * {
+    direction:ltr;
+}
+
+.floatingMenuWrapper {
+    position: relative;
+}
+
+.menuitem {
+    margin-left: 1em;
+}
+.menuitem > input {
+    color: red;
+    background-color: black;
+}

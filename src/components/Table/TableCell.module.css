@@ -1,0 +1,25 @@
+.tableCell {
+    padding: var(--cpd-space-4x);
+    border-bottom: var(--cpd-border-width-1) solid var(--cpd-color-border-interactive-secondary);
+
+    color: var(--cpd-color-text-primary);
+    font-size: var(--cpd-font-size-body-sm);
+}
+
+.tableCellPrimary {
+    color: var(--cpd-color-text-success-primary);
+    font-size: var(--cpd-font-size-body-md);
+    font-weight: var(--cpd-font-weight-semibold);
+}
+
+.tableCellPrimary.tableCellDisabled {
+    color: var(--cpd-color-text-disabled);
+}
+
+.tableCellCheckbox {
+    width: 24px;
+}
+
+.tableCellCentred {
+    text-align: center;
+}

@@ -21,6 +21,8 @@ import { SuspenseImg } from "../../utils/SuspenseImg";
 import styles from "./Avatar.module.css";
 import { useIdColorHash } from "./useIdColorHash";
 
+export type OnAvatarErrorHandler = React.ComponentProps<typeof SuspenseImg>["onError"];
+
 type AvatarProps = (
   | JSX.IntrinsicElements["button"]
   | JSX.IntrinsicElements["span"]
@@ -62,7 +64,7 @@ type AvatarProps = (
   /**
    * Callback when the image has failed to load.
    */
-  onError?: React.ComponentProps<typeof SuspenseImg>["onError"];
+  onError?: OnAvatarErrorHandler;
 };
 
 /**
