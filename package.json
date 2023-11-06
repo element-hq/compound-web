@@ -9,12 +9,12 @@
     ".": {
       "require": "./dist/compound-web.cjs",
       "import": "./dist/compound-web.js",
-      "types": "./dist/index.d.ts"
+      "types": "./dist/index.d.ts",
+      "style": "./dist/style.css"
     },
     "./dist/style.css": {
       "require": "./dist/style.css",
-      "import": "./dist/style.css",
-      "style": "./dist/style.css"
+      "import": "./dist/style.css"
     }
   },
   "types": "./dist/index.d.ts",
