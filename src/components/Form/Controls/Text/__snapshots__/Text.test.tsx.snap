@@ -42,15 +42,6 @@ exports[`<Text /> > renders a read only input 1`] = `
 </div>
 `;
 
-exports[`<Text /> > renders an Empty input 1`] = `
-<div>
-  <input
-    class="_control_a839aa"
-    placeholder=""
-  />
-</div>
-`;
-
 exports[`<Text /> > renders an empty input 1`] = `
 <div>
   <input
