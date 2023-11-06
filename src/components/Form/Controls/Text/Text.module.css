@@ -59,3 +59,12 @@ limitations under the License.
   border-color: var(--cpd-color-bg-subtle-secondary);
   color: var(--cpd-color-text-secondary);
 }
+
+/**
+* Disable contextual alternate ligatures in inputs
+* https://github.com/rsms/inter/issues/222
+* https://github.com/rsms/inter/blob/master/src/features/calt.fea
+*/
+.disable-ligatures {
+  font-feature-settings: "calt" 0;
+}

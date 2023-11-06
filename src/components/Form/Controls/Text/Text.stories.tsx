@@ -36,6 +36,7 @@ export default {
         "autoFocus",
         "readOnly",
         "dataInvalid",
+        "disableLigatures",
       ],
     },
   },
@@ -58,6 +59,9 @@ export default {
     invalid: {
       type: "boolean",
     },
+    disableLigatures: {
+      type: "boolean",
+    },
   },
   render: ({ invalid, ...restArgs }) => (
     <TextInput data-invalid={invalid || undefined} {...restArgs} />
@@ -68,6 +72,7 @@ export default {
     disabled: false,
     readOnly: false,
     invalid: false,
+    disableLigatures: false,
   },
 } satisfies Meta<Props>;
 
@@ -85,10 +90,27 @@ export const Empty: Story = {
 export const Filled: Story = {
   args: {
     /**
-     * Use this text to check ligatures are disabled in inputs
+     * Use this text to check ligatures are displayed in inputs
      * Once visual testing is reinstated
      */
-    defaultValue: "-> 1x2x3 1/4",
+    defaultValue: "-> 1x2x3",
+  },
+  parameters: {
+    design: {
+      type: "figma",
+      url: "https://www.figma.com/file/rTaQE2nIUSLav4Tg3nozq7/Compound-Web-Components?type=design&node-id=792-2724",
+    },
+  },
+};
+
+export const WithoutLigatures: Story = {
+  args: {
+    /**
+     * Use this text to check ligatures are disabled by disableLigatures
+     * Once visual testing is reinstated
+     */
+    defaultValue: "-> 1x2x3",
+    disableLigatures: true,
   },
   parameters: {
     design: {

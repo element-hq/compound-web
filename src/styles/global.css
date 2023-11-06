@@ -37,22 +37,13 @@ body,
 input {
   font: var(--cpd-font-body-md-regular);
   color: var(--cpd-color-text-primary);
+  font-feature-settings: var(--cpd-font-feature-settings);
 }
 
 html,
 body {
   block-size: 100%;
   font-size: var(--cpd-font-size-root);
-  font-feature-settings: var(--cpd-font-feature-settings);
-}
-
-/**
-* Disable contextual alternate ligatures in inputs
-* https://github.com/rsms/inter/issues/222
-* https://github.com/rsms/inter/blob/master/src/features/calt.fea
-*/
-input {
-  font-feature-settings: "calt" 0;
 }
 
 body {
