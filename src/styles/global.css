@@ -49,8 +49,9 @@ body {
 }
 
 /**
-* Disable ligatures in inputs
+* Disable contextual alternate ligatures in inputs
 * https://github.com/rsms/inter/issues/222
+* https://github.com/rsms/inter/blob/master/src/features/calt.fea
 */
 input {
   font-feature-settings: "calt" 0;
