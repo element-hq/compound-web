@@ -88,7 +88,7 @@ export const Filled: Story = {
      * Use this text to check ligatures are disabled in inputs
      * Once visual testing is reinstated
      */
-    defaultValue: "Difficult waffles",
+    defaultValue: "-> 1x2x3 1/4",
   },
   parameters: {
     design: {
