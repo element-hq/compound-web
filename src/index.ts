@@ -42,6 +42,7 @@ export { Search } from "./components/Search/Search";
 export { Separator } from "./components/Separator/Separator";
 export { ToggleMenuItem } from "./components/MenuItem/ToggleMenuItem";
 export { Tooltip } from "./components/Tooltip/Tooltip";
+export * from "./components/Table";
 
 export {
   TextControl,
