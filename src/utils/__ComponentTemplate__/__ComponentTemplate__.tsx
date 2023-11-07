@@ -15,26 +15,29 @@ limitations under the License.
 */
 
 import classnames from "classnames";
-import React, { PropsWithChildren } from "react";
+import React, { forwardRef, PropsWithChildren } from "react";
 import styles from "./__ComponentTemplate__.module.css";
 
-type __ComponentTemplate__Props<C extends React.ElementType> = {
-  as?: C;
+type __ComponentTemplate__Props = {
   className?: string;
-} & React.ComponentPropsWithoutRef<C>;
+} & React.HTMLAttributes<HTMLDivElement>;
 
-export const __ComponentTemplate__ = <C extends React.ElementType = "p">({
-  as,
-  children,
-  className,
-  ...props
-}: PropsWithChildren<__ComponentTemplate__Props<C>>) => {
-  const Component = as || "div";
+export const __ComponentTemplate__ = forwardRef<
+  HTMLDivElement,
+  __ComponentTemplate__Props
+>(function __ComponentTemplate__(
+  {
+    children,
+    className,
+    ...props
+  }: PropsWithChildren<__ComponentTemplate__Props>,
+  ref,
+) {
   // TODO: Update the class name to something related to the component name
   const classes = classnames(styles.root, className);
   return (
-    <Component {...props} className={classes}>
+    <div {...props} className={classes} ref={ref}>
       {children}
-    </Component>
+    </div>
   );
-};
+});

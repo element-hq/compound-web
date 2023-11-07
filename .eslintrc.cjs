@@ -18,6 +18,19 @@ module.exports = {
     sourceType: "module",
   },
   rules: {
+    "no-restricted-imports": [
+      "error",
+      {
+        paths: [
+          {
+            name: "react",
+            importNames: ["useId"],
+            message:
+              "'useId' is only available in React 18. Please use the ponyfill from 'utils/useId' instead.",
+          },
+        ],
+      },
+    ],
     "prettier/prettier": "error",
   },
   plugins: ["prettier", "react", "@typescript-eslint", "matrix-org"],

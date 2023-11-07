@@ -22,6 +22,7 @@ import { Avatar as AvatarComponent } from "./Avatar";
 export default {
   title: "Avatar",
   component: AvatarComponent,
+  tags: ["autodocs"],
   argTypes: {},
   args: {
     name: "Bob",

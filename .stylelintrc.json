@@ -1,6 +1,10 @@
 {
   "extends": "stylelint-config-standard",
-  "plugins": ["stylelint-value-no-unknown-custom-properties"],
+  "plugins": [
+    "stylelint-value-no-unknown-custom-properties",
+    "stylelint-plugin-defensive-css",
+    "stylelint-use-logical"
+  ],
   "rules": {
     "csstools/value-no-unknown-custom-properties": [
       true,
@@ -11,7 +15,9 @@
           "./node_modules/@vector-im/compound-design-tokens/assets/web/css/cpd-light-mq.css"
         ]
       }
-    ]
+    ],
+    "plugin/use-defensive-css": [true, { "accidental-hover": true }],
+    "csstools/use-logical": true
   },
   "ignoreFiles": ["dist/**/*.css"]
 }

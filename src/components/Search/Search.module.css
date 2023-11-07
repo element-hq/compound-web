@@ -1,0 +1,79 @@
+/*
+Copyright 2023 New Vector Ltd
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+
+.search {
+  border: 1px solid var(--cpd-color-border-interactive-secondary);
+  border-radius: 9999px;
+  block-size: 36px;
+  box-sizing: border-box;
+  color: var(--cpd-color-text-primary);
+  display: flex;
+  flex-direction: row;
+  gap: var(--cpd-space-2x);
+  align-items: center;
+  padding: var(--cpd-space-1-5x) var(--cpd-space-3x);
+}
+
+@media (hover) {
+  .search:hover {
+    border-color: var(--cpd-color-border-interactive-hovered);
+  }
+}
+
+.search:active {
+  border-color: var(--cpd-color-border-interactive-hovered);
+}
+
+.search:focus-within {
+  border-color: currentcolor;
+}
+
+.icon {
+  color: var(--cpd-color-icon-secondary);
+  flex-shrink: 0;
+}
+
+@media (hover) {
+  .search:hover .icon {
+    color: var(--cpd-color-icon-primary);
+  }
+}
+
+.search:active .icon {
+  color: var(--cpd-color-icon-primary);
+}
+
+.input {
+  border: 0;
+  background: inherit;
+  outline: 0;
+  flex: 1;
+  min-inline-size: 0;
+}
+
+.input::placeholder {
+  color: var(--cpd-color-text-placeholder);
+}
+
+.input:focus::placeholder {
+  color: var(--cpd-color-text-secondary);
+}
+
+@media (hover) {
+  .search:hover .input::placeholder {
+    color: var(--cpd-color-text-secondary);
+  }
+}

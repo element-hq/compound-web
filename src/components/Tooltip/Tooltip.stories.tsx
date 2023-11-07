@@ -25,6 +25,7 @@ import UserIcon from "@vector-im/compound-design-tokens/icons/user-profile.svg";
 export default {
   title: "Tooltip",
   component: TooltipComponent,
+  tags: ["autodocs"],
   argTypes: {},
   args: {},
 } as Meta<typeof TooltipComponent>;
@@ -73,7 +74,7 @@ const TemplateAlign: StoryFn<typeof TooltipComponent> = () => (
       alignItems: "center",
     }}
   >
-    <TooltipComponent open={true} align="center" label="Copy" shortcut="⌘ + C">
+    <TooltipComponent open={true} align="center" label="Copy" caption="⌘ + C">
       <IconButton>
         <UserIcon />
       </IconButton>
@@ -82,7 +83,7 @@ const TemplateAlign: StoryFn<typeof TooltipComponent> = () => (
       open={true}
       align="start"
       label="@bob:example.org"
-      shortcut="⌘ + C"
+      caption="⌘ + C"
     >
       <IconButton>
         <UserIcon />
@@ -92,7 +93,7 @@ const TemplateAlign: StoryFn<typeof TooltipComponent> = () => (
       open={true}
       align="end"
       label="@bob:example.org"
-      shortcut="⌘ + C"
+      caption="⌘ + C"
     >
       <IconButton>
         <UserIcon />

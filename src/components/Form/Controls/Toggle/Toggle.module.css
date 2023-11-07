@@ -1,0 +1,147 @@
+/*
+Copyright 2023 The Matrix.org Foundation C.I.C.
+Copyright 2023 New Vector Ltd
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+
+.container {
+  display: grid;
+  inline-size: 2.25rem;
+  block-size: 1.25rem;
+  box-sizing: border-box;
+}
+
+.container > * {
+  grid-area: 1/1;
+  inline-size: inherit;
+  block-size: inherit;
+  box-sizing: inherit;
+}
+
+.container > .input {
+  opacity: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+.container > .input[disabled] {
+  cursor: not-allowed;
+}
+
+.ui {
+  pointer-events: none;
+  border-radius: var(--cpd-radius-pill-effect);
+  border: 1px solid var(--cpd-color-border-interactive-primary);
+  background: var(--cpd-color-bg-canvas-default);
+  position: relative;
+  padding: 1px;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+  transition-property: background-color, border-color;
+}
+
+.input:checked + .ui {
+  background: var(--cpd-color-bg-action-primary-rest);
+  border-color: var(--cpd-color-bg-action-primary-rest);
+}
+
+.ui::after {
+  content: "";
+  display: block;
+  block-size: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  background: var(--cpd-color-bg-action-primary-rest);
+  transform: translateX(0);
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+  transition-property: background-color, transform;
+}
+
+/* Note the use of :focus-visible rather than :focus to avoid showing the focus
+ring after a simple click */
+.input:focus-visible + .ui {
+  outline: 2px solid var(--cpd-color-border-focused);
+  outline-offset: 1px;
+}
+
+:checked + .ui::after {
+  transform: translateX(100%);
+  background: var(--cpd-color-icon-on-solid-primary);
+}
+
+@media (hover) {
+  :checked:not([disabled]):hover + .ui {
+    background: var(--cpd-color-bg-action-primary-hovered);
+    border-color: var(--cpd-color-bg-action-primary-hovered);
+  }
+}
+
+:checked:active + .ui {
+  background: var(--cpd-color-bg-action-primary-hovered);
+  border-color: var(--cpd-color-bg-action-primary-hovered);
+}
+
+.input[readonly] {
+  pointer-events: none;
+}
+
+.input[readonly] + .ui {
+  border-color: var(--cpd-color-border-interactive-secondary);
+  background: var(--cpd-color-bg-subtle-secondary);
+}
+
+.input[readonly] + .ui::after {
+  background: var(--cpd-color-icon-secondary);
+}
+
+.input[disabled] + .ui {
+  border-color: var(--cpd-color-border-disabled);
+  background: var(--cpd-color-bg-canvas-disabled);
+}
+
+.input[disabled] + .ui::after {
+  background: var(--cpd-color-bg-action-primary-disabled);
+}
+
+.input[readonly]:checked + .ui {
+  border-color: var(--cpd-color-icon-secondary);
+  background: var(--cpd-color-icon-secondary);
+}
+
+.input[readonly]:checked + .ui::after {
+  background: var(--cpd-color-icon-on-solid-primary);
+}
+
+.input[disabled]:checked + .ui {
+  background: var(--cpd-color-bg-action-primary-disabled);
+  border-color: var(--cpd-color-bg-action-primary-disabled);
+}
+
+.input[disabled]:checked + .ui::after {
+  background: var(--cpd-color-icon-on-solid-primary);
+}
+
+@media (hover) {
+  .input:not(:checked, [disabled], [readonly]):hover + .ui {
+    border-color: var(--cpd-color-border-interactive-hovered);
+
+    /** TODO: have the shadow in the design tokens */
+    box-shadow: 0 1.2px 2.4px 0 rgb(0 0 0 / 15%);
+  }
+}
+
+.input:not(:checked, [disabled], [readonly]):active + .ui {
+  border-color: var(--cpd-color-border-interactive-hovered);
+}

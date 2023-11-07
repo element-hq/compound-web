@@ -17,12 +17,14 @@ limitations under the License.
 /* TODO: Review entire file for semantic token definiton */
 
 .alert {
+  container-type: inline-size;
+  container-name: alert;
   display: flex;
   align-items: start;
   justify-content: start;
   gap: var(--cpd-space-3x);
   padding: var(--cpd-space-4x);
-  border-radius: 12px;
+  border-radius: 8px;
   border: 1px solid;
 }
 
@@ -43,10 +45,13 @@ limitations under the License.
 
 .content {
   flex: 1;
+  display: flex;
+  flex-direction: row;
+  gap: var(--cpd-space-3x);
 }
 
-.title {
-  font: var(--cpd-font-body-md-semibold);
+.text-content {
+  flex: 1 1 0;
 }
 
 [data-type="success"] :is(.title, .icon) {
@@ -65,22 +70,27 @@ limitations under the License.
   margin: 0;
 }
 
-[data-type] .close {
-  color: var(--cpd-color-gray-800);
-  border-radius: 50%;
-  padding: var(--cpd-space-scale);
-  cursor: pointer;
+.actions {
+  flex: 0;
+  display: flex;
+  flex-direction: row;
+  gap: var(--cpd-space-1x);
+  align-self: center;
 }
 
-@media (hover) {
-  .close:hover {
-    color: var(--cpd-color-icon-primary);
-    background: var(--cpd-color-alpha-gray-300);
-    cursor: pointer;
+.icon {
+  flex-shrink: 0;
+}
+
+/* @TODO 600px break should be a token */
+
+/* wrap actions into a stacked layout when the alert is <=600px */
+@container alert (max-width: 600px) {
+  .content {
+    flex-wrap: wrap;
   }
-}
 
-.close:active {
-  color: var(--cpd-color-icon-primary);
-  background: var(--cpd-color-alpha-gray-300);
+  .text-content {
+    flex: 1 0 100%;
+  }
 }

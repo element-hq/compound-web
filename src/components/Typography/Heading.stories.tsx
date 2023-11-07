@@ -23,13 +23,15 @@ import { Heading as HeadingComponent } from "./Heading";
 export default {
   title: "Typography",
   component: HeadingComponent,
-  size: {
-    options: ["xs", "sm", "md", "lg"],
-    control: { type: "inline-radio" },
-  },
-  weight: {
-    options: ["regular", "medium", "semibold"],
-    control: { type: "inline-radio" },
+  argTypes: {
+    size: {
+      options: ["xs", "sm", "md", "lg"],
+      control: { type: "inline-radio" },
+    },
+    weight: {
+      options: ["regular", "medium", "semibold"],
+      control: { type: "inline-radio" },
+    },
   },
 } as Meta<typeof HeadingComponent>;
 

@@ -22,6 +22,7 @@ import { Link as LinkComponent } from "./Link";
 export default {
   title: "Link",
   component: LinkComponent,
+  tags: ["autodocs"],
   argTypes: {},
   args: {},
 } as Meta<typeof LinkComponent>;

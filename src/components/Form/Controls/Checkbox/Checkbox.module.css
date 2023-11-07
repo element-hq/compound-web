@@ -1,0 +1,119 @@
+/*
+Copyright 2023 The Matrix.org Foundation C.I.C.
+Copyright 2023 New Vector Ltd
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+
+.container {
+  --size: 20px;
+
+  display: grid;
+  inline-size: var(--size);
+  block-size: var(--size);
+}
+
+.input,
+.ui {
+  box-sizing: border-box;
+  grid-area: 1/1;
+  inline-size: var(--size);
+  block-size: var(--size);
+}
+
+.input {
+  opacity: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+.ui {
+  pointer-events: none;
+  border-radius: 4px; /* TODO: Ought to be a token */
+  border: 1px solid;
+  border-color: var(--cpd-color-border-interactive-primary);
+
+  /** Default, rest state */
+  color: transparent;
+}
+
+.ui svg {
+  inline-size: var(--size);
+  block-size: var(--size);
+
+  /* compensate for the parent border */
+  margin: -1px;
+}
+
+.input:checked + .ui {
+  color: var(--cpd-color-icon-on-solid-primary);
+  background-color: var(--cpd-color-bg-action-primary-rest);
+  border-color: var(--cpd-color-bg-action-primary-rest);
+}
+
+.input:focus-visible + .ui {
+  outline: 2px solid var(--cpd-color-border-focused);
+  outline-offset: 1px;
+}
+
+.input[disabled] + .ui {
+  border-color: var(--cpd-color-border-disabled);
+  background: var(--cpd-color-bg-canvas-disabled);
+}
+
+.input[readonly] {
+  pointer-events: none;
+}
+
+.input[readonly] + .ui {
+  border-color: var(--cpd-color-border-interactive-secondary);
+  background: var(--cpd-color-bg-subtle-secondary);
+}
+
+.input[disabled]:checked + .ui {
+  border-color: var(--cpd-color-bg-action-primary-disabled);
+  background: var(--cpd-color-bg-action-primary-disabled);
+}
+
+.input[readonly]:checked + .ui {
+  color: var(--cpd-color-icon-secondary);
+}
+
+@media (hover) {
+  .input:not([disabled], [readonly], :checked):hover + .ui {
+    color: var(--cpd-color-icon-quaternary);
+    border-color: var(--cpd-color-border-interactive-hovered);
+
+    /** TODO: have the shadow in the design tokens */
+    box-shadow: 0 1.2px 2.4px 0 rgb(0 0 0 / 15%);
+  }
+
+  .input:not([disabled], [readonly]):checked:hover + .ui {
+    border-color: var(--cpd-color-bg-action-primary-hovered);
+    background: var(--cpd-color-bg-action-primary-hovered);
+  }
+
+  .input[data-invalid]:not([disabled], [readonly]):checked:hover + .ui {
+    border-color: var(--cpd-color-bg-critical-hovered);
+    background: var(--cpd-color-bg-critical-hovered);
+  }
+}
+
+.input[data-invalid]:not([disabled], :checked, [readonly]) + .ui {
+  border-color: var(--cpd-color-border-critical-primary);
+}
+
+.input[data-invalid]:not([disabled], [readonly]):checked + .ui {
+  background-color: var(--cpd-color-bg-critical-primary);
+  border-color: var(--cpd-color-bg-critical-primary);
+}
