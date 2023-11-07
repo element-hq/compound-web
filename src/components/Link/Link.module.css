@@ -21,14 +21,6 @@ limitations under the License.
   font-weight: var(--cpd-font-weight-medium);
   border-radius: var(--cpd-radius-pill-effect);
   padding-inline: 0.25rem;
-  padding-block: 0;
-  border: 0;
-  background: transparent;
-  font-size: inherit;
-}
-
-button.link {
-  appearance: none;
 }
 
 .link[data-kind="primary"] {
@@ -40,10 +32,6 @@ button.link {
 }
 
 @media (hover) {
-  .link {
-    cursor: pointer;
-  }
-
   .link[data-kind="primary"]:hover {
     background: var(--cpd-color-gray-300);
   }
