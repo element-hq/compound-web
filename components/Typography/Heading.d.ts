@@ -1,9 +1,12 @@
 import React from "react";
 import { Typography } from "./Typography";
+type TypographyProps = React.ComponentProps<typeof Typography>;
 /**
  * A heading component.
  */
-export declare const Heading: React.FC<Omit<React.ComponentProps<typeof Typography>, "type">>;
+export declare const Heading: React.FC<Omit<TypographyProps, "type"> & {
+    size?: Exclude<TypographyProps["size"], "xs">;
+}>;
 type HeadingProps = Omit<React.ComponentProps<typeof Heading>, "as" | "weight" | "size">;
 /**
  * A Heading level-1 styled component. Underlying HTML element can be changed
