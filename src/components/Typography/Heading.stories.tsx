@@ -25,7 +25,7 @@ export default {
   component: HeadingComponent,
   argTypes: {
     size: {
-      options: ["xs", "sm", "md", "lg"],
+      options: ["sm", "md", "lg", "xl"],
       control: { type: "inline-radio" },
     },
     weight: {
