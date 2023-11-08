@@ -22,6 +22,11 @@ type NavBarProps = {
    * The CSS class name
    */
   className?: string;
+
+  /**
+   * Require a label for navigation landmarks
+   */
+  "aria-label": string;
 };
 
 /**
@@ -30,10 +35,11 @@ type NavBarProps = {
 export const NavBar = ({
   children,
   className,
+  ...rest
 }: React.PropsWithChildren<NavBarProps>) => {
   const classes = classNames(className, styles["nav-bar"]);
   return (
-    <nav className={classes}>
+    <nav role="navigation" {...rest} className={classes}>
       <ul className={styles["nav-bar-items"]}>{children}</ul>
     </nav>
   );

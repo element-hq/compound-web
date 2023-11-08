@@ -13,25 +13,39 @@
 // limitations under the License.
 
 import React from "react";
-import type { Meta, StoryObj } from "@storybook/react";
 import { NavBar, NavItem } from ".";
 
-const meta = {
-  title: "UI/Nav Bar",
+export default {
+  title: "Nav",
   component: NavBar,
   tags: ["autodocs"],
-  render: (props: React.ComponentProps<typeof NavBar>): React.ReactElement => (
-    <NavBar {...props}>
-      <NavItem href="">Sessions</NavItem>
-      <NavItem href="" onClick={() => {}} active>
-        Profile
-      </NavItem>
-      <NavItem href="https://example.com">External</NavItem>
-    </NavBar>
-  ),
-} satisfies Meta<typeof NavBar>;
+  parameters: {
+    controls: {
+      include: ["aria-label"],
+    },
+    design: {
+      type: "figma",
+      url: "https://www.figma.com/file/rTaQE2nIUSLav4Tg3nozq7/Compound-Web-Components?type=design&node-id=669-2723&mode=design&t=9Hy0h7BBDH0kJ2Ow-0",
+    },
+  },
+  args: {
+    "aria-label": "Main",
+  },
+};
 
-export default meta;
-type Story = StoryObj<typeof NavBar>;
-
-export const Basic: Story = {};
+export const Default = {
+  args: {
+    children: (
+      <>
+        <NavItem onClick={() => {}}>Info</NavItem>
+        <NavItem onClick={() => {}} active>
+          People
+        </NavItem>
+        <NavItem onClick={() => {}} disabled>
+          Disabled
+        </NavItem>
+        <NavItem href="https://example.com">External</NavItem>
+      </>
+    ),
+  },
+};

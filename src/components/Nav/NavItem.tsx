@@ -1,57 +1,105 @@
-// Copyright 2022 The Matrix.org Foundation C.I.C.
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//     http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
+/*
+Copyright 2022 The Matrix.org Foundation C.I.C.
+Copyright 2023 New Vector Ltd
 
-import React from "react";
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+
+import React, {
+  AnchorHTMLAttributes,
+  ButtonHTMLAttributes,
+  MouseEventHandler,
+} from "react";
 import type { XOR } from "ts-xor";
 
 import styles from "./Nav.module.css";
-import { Link } from "../Link/Link";
 
 type NavItemProps = {
   active?: boolean;
 };
 
-type NavItemLinkProps = {
+type NavItemLinkProps = Omit<
+  AnchorHTMLAttributes<HTMLAnchorElement>,
+  "style" | "className"
+> & {
   href: string;
 } & NavItemProps;
 
-type NavItemButtonProps = {
-  onClick: (e: React.MouseEvent) => void;
+type NavItemButtonProps = Omit<
+  ButtonHTMLAttributes<HTMLButtonElement>,
+  "style" | "className"
+> & {
+  onClick: MouseEventHandler<HTMLButtonElement>;
 } & NavItemProps;
 
-/**
- * A navigation item component to be used with a navigation bar
- */
-export const NavItem = ({
+const NavItemLink = ({
   children,
   active = false,
   href,
   onClick,
-}: React.PropsWithChildren<XOR<NavItemLinkProps, NavItemButtonProps>>) => {
+  ...rest
+}: React.PropsWithChildren<NavItemLinkProps>) => (
+  <a
+    href={href}
+    onClick={onClick}
+    className={styles["nav-item"]}
+    aria-current={active ? "page" : undefined}
+    {...rest}
+  >
+    {children}
+  </a>
+);
+
+const NavItemButton = ({
+  children,
+  active = false,
+  disabled,
+  onClick,
+  ...rest
+}: React.PropsWithChildren<NavItemButtonProps>) => (
+  <button
+    onClick={onClick}
+    className={styles["nav-item"]}
+    aria-current={active ? true : undefined}
+    disabled={disabled}
+    {...rest}
+  >
+    {children}
+  </button>
+);
+
+const renderAsLink = (
+  props: React.PropsWithChildren<XOR<NavItemLinkProps, NavItemButtonProps>>,
+): props is React.PropsWithChildren<NavItemLinkProps> => !!props.href;
+
+/**
+ * A navigation item component to be used with a navigation bar.
+ * Will render an anchor when href is provided, otherwise a button element.
+ */
+export const NavItem = (
+  props: React.PropsWithChildren<XOR<NavItemLinkProps, NavItemButtonProps>>,
+) => {
+  // https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-current
   return (
-    <li className={styles["nav-tab"]} data-current={active ? true : undefined}>
-      <Link
-        as={href ? "a" : "button"}
-        href={href}
-        onClick={onClick}
-        className={styles["nav-item"]}
-        aria-current={active ? "page" : undefined}
-      >
-        {children}
-      </Link>
+    <li
+      className={styles["nav-tab"]}
+      data-current={props.active ? true : undefined}
+    >
+      {renderAsLink(props) ? (
+        <NavItemLink {...props} />
+      ) : (
+        <NavItemButton {...props} />
+      )}
     </li>
   );
 };
-
-export default NavItem;

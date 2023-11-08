@@ -1,45 +1,155 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`NavItem > render an active <NavItem /> 1`] = `
-<li
-  className="_navTab_8603fc"
-  data-current={true}
->
-  <a
-    aria-current="page"
-    className="_navItem_8603fc"
-    href="/"
-    onClick={[Function]}
+exports[`<NavItem /> > render a Active item 1`] = `
+<div>
+  <nav
+    aria-label="Testing"
+    class="_nav-bar_eb2dec"
+    role="navigation"
   >
-    Active
-  </a>
-</li>
+    <ul
+      class="_nav-bar-items_eb2dec"
+    >
+      <li
+        class="_nav-tab_eb2dec"
+        data-current="true"
+      >
+        <button
+          aria-current="true"
+          class="_nav-item_eb2dec"
+        >
+          Sessions
+        </button>
+      </li>
+    </ul>
+  </nav>
+</div>
 `;
 
-exports[`NavItem > render an inactive <NavItem /> 1`] = `
-<li
-  className="_navTab_8603fc"
->
-  <a
-    className="_navItem_8603fc"
-    href="/sessions-overview"
-    onClick={[Function]}
+exports[`<NavItem /> > render a ActiveDisabled item 1`] = `
+<div>
+  <nav
+    aria-label="Testing"
+    class="_nav-bar_eb2dec"
+    role="navigation"
   >
-    Inactive
-  </a>
-</li>
+    <ul
+      class="_nav-bar-items_eb2dec"
+    >
+      <li
+        class="_nav-tab_eb2dec"
+        data-current="true"
+      >
+        <button
+          aria-current="true"
+          class="_nav-item_eb2dec"
+          disabled=""
+        >
+          Sessions
+        </button>
+      </li>
+    </ul>
+  </nav>
+</div>
 `;
 
-exports[`NavItem > renders a different route 1`] = `
-<li
-  className="_navTab_8603fc"
->
-  <a
-    className="_navItem_8603fc"
-    href="/sessions-overview"
-    onClick={[Function]}
+exports[`<NavItem /> > render a ActiveLink item 1`] = `
+<div>
+  <nav
+    aria-label="Testing"
+    class="_nav-bar_eb2dec"
+    role="navigation"
   >
-    Sessions
-  </a>
-</li>
+    <ul
+      class="_nav-bar-items_eb2dec"
+    >
+      <li
+        class="_nav-tab_eb2dec"
+        data-current="true"
+      >
+        <a
+          aria-current="page"
+          class="_nav-item_eb2dec"
+          href="https://example.org"
+        >
+          Sessions
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>
+`;
+
+exports[`<NavItem /> > render a Disabled item 1`] = `
+<div>
+  <nav
+    aria-label="Testing"
+    class="_nav-bar_eb2dec"
+    role="navigation"
+  >
+    <ul
+      class="_nav-bar-items_eb2dec"
+    >
+      <li
+        class="_nav-tab_eb2dec"
+      >
+        <button
+          class="_nav-item_eb2dec"
+          disabled=""
+        >
+          Sessions
+        </button>
+      </li>
+    </ul>
+  </nav>
+</div>
+`;
+
+exports[`<NavItem /> > render a Link item 1`] = `
+<div>
+  <nav
+    aria-label="Testing"
+    class="_nav-bar_eb2dec"
+    role="navigation"
+  >
+    <ul
+      class="_nav-bar-items_eb2dec"
+    >
+      <li
+        class="_nav-tab_eb2dec"
+      >
+        <a
+          class="_nav-item_eb2dec"
+          href="https://example.org"
+        >
+          Sessions
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>
+`;
+
+exports[`<NavItem /> > render a default item 1`] = `
+<div>
+  <nav
+    aria-label="Testing"
+    class="_nav-bar_eb2dec"
+    role="navigation"
+  >
+    <ul
+      class="_nav-bar-items_eb2dec"
+    >
+      <li
+        class="_nav-tab_eb2dec"
+      >
+        <button
+          class="_nav-item_eb2dec"
+        >
+          Sessions
+        </button>
+      </li>
+    </ul>
+  </nav>
+</div>
 `;

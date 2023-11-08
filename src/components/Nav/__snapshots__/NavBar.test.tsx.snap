@@ -1,0 +1,56 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`<NavBar /> > render a default nav bar 1`] = `
+<div>
+  <nav
+    aria-label="Main"
+    class="_nav-bar_eb2dec"
+    role="navigation"
+  >
+    <ul
+      class="_nav-bar-items_eb2dec"
+    >
+      <li
+        class="_nav-tab_eb2dec"
+      >
+        <button
+          class="_nav-item_eb2dec"
+        >
+          Info
+        </button>
+      </li>
+      <li
+        class="_nav-tab_eb2dec"
+        data-current="true"
+      >
+        <button
+          aria-current="true"
+          class="_nav-item_eb2dec"
+        >
+          People
+        </button>
+      </li>
+      <li
+        class="_nav-tab_eb2dec"
+      >
+        <button
+          class="_nav-item_eb2dec"
+          disabled=""
+        >
+          Disabled
+        </button>
+      </li>
+      <li
+        class="_nav-tab_eb2dec"
+      >
+        <a
+          class="_nav-item_eb2dec"
+          href="https://example.com"
+        >
+          External
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>
+`;
