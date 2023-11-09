@@ -18,11 +18,16 @@ import React from "react";
 import { Typography } from "./Typography";
 import { Text } from "./Text";
 
+type TypographyProps = React.ComponentProps<typeof Typography>;
+
 /**
  * A heading component.
  */
 export const Heading: React.FC<
-  Omit<React.ComponentProps<typeof Typography>, "type">
+  Omit<TypographyProps, "type"> & {
+    // xs is not a valid heading size
+    size?: Exclude<TypographyProps["size"], "xs">;
+  }
 > = ({ as = "h1", children, ...props }) => {
   return (
     <Typography as={as} type="heading" {...props}>
