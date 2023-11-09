@@ -21,7 +21,7 @@ import { composeStories } from "@storybook/react";
 
 import * as stories from "./Text.stories";
 
-const { Empty, Filled, WithoutLigatures, Disabled, ReadOnly, Invalid } =
+const { Empty, Filled, WithLigatures, Disabled, ReadOnly, Invalid } =
   composeStories(stories);
 
 describe("<Text />", () => {
@@ -33,8 +33,8 @@ describe("<Text />", () => {
     const { container } = render(<Filled />);
     expect(container).toMatchSnapshot();
   });
-  it("renders a input with ligatures disabled", () => {
-    const { container } = render(<WithoutLigatures />);
+  it("renders a input with ligatures enable", () => {
+    const { container } = render(<WithLigatures />);
     expect(container).toMatchSnapshot();
   });
   it("renders a disabled input", () => {

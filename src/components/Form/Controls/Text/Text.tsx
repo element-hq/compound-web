@@ -28,12 +28,12 @@ type TextProps = {
   className?: string;
 
   /**
-   * Disable contextual alternate ligatures on input text
-   * For example on a username field
+   * Enable contextual alternate ligatures on input text
+   * For example on an in-place editing field
    * https://github.com/rsms/inter/issues/222
    * https://github.com/rsms/inter/blob/master/src/features/calt.fea
    */
-  disableLigatures?: boolean;
+  enableLigatures?: boolean;
 } & ComponentProps<"input">;
 
 /**
@@ -44,7 +44,7 @@ export const TextInput = forwardRef<HTMLInputElement, TextProps>(
     const classes = classNames(
       styles.control,
       props.className,
-      props.disableLigatures && styles["disable-ligatures"],
+      props.enableLigatures && styles["enable-ligatures"],
     );
     return <input ref={ref} {...props} className={classes} />;
   },

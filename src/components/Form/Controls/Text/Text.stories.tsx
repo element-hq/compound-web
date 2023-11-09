@@ -36,7 +36,7 @@ export default {
         "autoFocus",
         "readOnly",
         "dataInvalid",
-        "disableLigatures",
+        "enableLigatures",
       ],
     },
   },
@@ -59,7 +59,7 @@ export default {
     invalid: {
       type: "boolean",
     },
-    disableLigatures: {
+    enableLigatures: {
       type: "boolean",
     },
   },
@@ -72,7 +72,7 @@ export default {
     disabled: false,
     readOnly: false,
     invalid: false,
-    disableLigatures: false,
+    enableLigatures: undefined,
   },
 } satisfies Meta<Props>;
 
@@ -90,7 +90,7 @@ export const Empty: Story = {
 export const Filled: Story = {
   args: {
     /**
-     * Use this text to check ligatures are displayed in inputs
+     * Use this text to check ligatures are not displayed in inputs
      * Once visual testing is reinstated
      */
     defaultValue: "-> 1x2x3",
@@ -103,14 +103,14 @@ export const Filled: Story = {
   },
 };
 
-export const WithoutLigatures: Story = {
+export const WithLigatures: Story = {
   args: {
     /**
-     * Use this text to check ligatures are disabled by disableLigatures
+     * Use this text to check ligatures are enabled by enableLigatures
      * Once visual testing is reinstated
      */
     defaultValue: "-> 1x2x3",
-    disableLigatures: true,
+    enableLigatures: true,
   },
   parameters: {
     design: {
