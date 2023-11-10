@@ -58,6 +58,7 @@ export const Typography = <C extends React.ElementType = "p">({
     <Component
       {...restProps}
       className={classNames(
+        styles.typography,
         styles[`font-${type}-${size}-${weight}`],
         className,
       )}

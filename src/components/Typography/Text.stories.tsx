@@ -14,8 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import React from "react";
-import { Meta, StoryFn } from "@storybook/react";
+import { Meta } from "@storybook/react";
 
 import { Text as TextComponent } from "./Text";
 
@@ -31,19 +30,20 @@ export default {
       options: ["regular", "medium", "semibold"],
       control: { type: "inline-radio" },
     },
+    children: {
+      type: "string",
+    },
+  },
+  args: {
+    children: "The quick brown fox jumps over the lazy dog",
+    size: "md",
+    weight: "regular",
   },
 } as Meta<typeof TextComponent>;
 
-const Template: StoryFn<typeof TextComponent> = (
-  args: Partial<React.ComponentProps<typeof Text>>,
-) => (
-  <TextComponent size={args.size} weight={args.weight}>
-    The quick brown fox jumps over the lazy dog
-  </TextComponent>
-);
-
-export const Text = Template.bind({});
-Text.args = {
-  size: "md",
-  weight: "regular",
+export const Text = {};
+export const Ligatures = {
+  args: {
+    children: "-> 1x2x3",
+  },
 };

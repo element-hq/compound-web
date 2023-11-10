@@ -37,12 +37,12 @@ exports[`Alert > renders actions 1`] = `
         class="_text-content_6cfd7b"
       >
         <p
-          class="_font-body-md-semibold_489030"
+          class="_typography_489030 _font-body-md-semibold_489030"
         >
           Long title. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
         </p>
         <p
-          class="_font-body-sm-regular_489030"
+          class="_typography_489030 _font-body-sm-regular_489030"
         >
           Actions are vertically centered against alert content. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
         </p>
@@ -121,12 +121,12 @@ exports[`Alert > renders critical 1`] = `
         class="_text-content_6cfd7b"
       >
         <p
-          class="_font-body-md-semibold_489030"
+          class="_typography_489030 _font-body-md-semibold_489030"
         >
           Title
         </p>
         <p
-          class="_font-body-sm-regular_489030"
+          class="_typography_489030 _font-body-sm-regular_489030"
         >
           Description
         </p>
@@ -193,12 +193,12 @@ exports[`Alert > renders info 1`] = `
         class="_text-content_6cfd7b"
       >
         <p
-          class="_font-body-md-semibold_489030"
+          class="_typography_489030 _font-body-md-semibold_489030"
         >
           Title
         </p>
         <p
-          class="_font-body-sm-regular_489030"
+          class="_typography_489030 _font-body-sm-regular_489030"
         >
           Description
         </p>
@@ -255,12 +255,12 @@ exports[`Alert > renders success 1`] = `
         class="_text-content_6cfd7b"
       >
         <p
-          class="_font-body-md-semibold_489030"
+          class="_typography_489030 _font-body-md-semibold_489030"
         >
           Title
         </p>
         <p
-          class="_font-body-sm-regular_489030"
+          class="_typography_489030 _font-body-sm-regular_489030"
         >
           Description
         </p>

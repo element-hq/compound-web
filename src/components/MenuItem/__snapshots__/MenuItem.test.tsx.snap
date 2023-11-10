@@ -30,7 +30,7 @@ exports[`MenuItem > renders 1`] = `
       />
     </svg>
     <span
-      class="_font-body-md-medium_489030 _label_37eef5"
+      class="_typography_489030 _font-body-md-medium_489030 _label_37eef5"
     >
       Leave room
     </span>
@@ -82,7 +82,7 @@ exports[`MenuItem > renders with a child 1`] = `
       />
     </svg>
     <span
-      class="_font-body-md-medium_489030 _label_37eef5"
+      class="_typography_489030 _font-body-md-medium_489030 _label_37eef5"
     >
       People
     </span>
@@ -101,7 +101,7 @@ exports[`MenuItem > renders with a child 1`] = `
       />
     </svg>
     <span
-      class="_font-body-sm-regular_489030"
+      class="_typography_489030 _font-body-sm-regular_489030"
     >
       10
     </span>

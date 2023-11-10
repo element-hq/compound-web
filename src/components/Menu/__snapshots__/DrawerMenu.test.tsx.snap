@@ -39,7 +39,7 @@ exports[`DrawerMenu > renders 1`] = `
           />
         </svg>
         <span
-          class="_font-body-md-medium_489030 _label_37eef5"
+          class="_typography_489030 _font-body-md-medium_489030 _label_37eef5"
         >
           Profile
         </span>
@@ -89,7 +89,7 @@ exports[`DrawerMenu > renders 1`] = `
           />
         </svg>
         <span
-          class="_font-body-md-medium_489030 _label_37eef5"
+          class="_typography_489030 _font-body-md-medium_489030 _label_37eef5"
         >
           Sign out
         </span>
