@@ -21,16 +21,6 @@ exports[`<Text /> > renders a filled input 1`] = `
 </div>
 `;
 
-exports[`<Text /> > renders a input with ligatures disabled 1`] = `
-<div>
-  <input
-    class="_control_a839aa _disable-ligatures_a839aa"
-    placeholder=""
-    value="-> 1x2x3"
-  />
-</div>
-`;
-
 exports[`<Text /> > renders a input with ligatures enable 1`] = `
 <div>
   <input

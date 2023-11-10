@@ -24,6 +24,18 @@ import MicOnOutlineIcon from "@vector-im/compound-design-tokens/icons/mic-on-out
 import { MenuItem } from "./MenuItem";
 import { Text } from "../Typography/Text";
 
+import * as stories from "./MenuItem.stories";
+import { composeStories } from "@storybook/react";
+
+const {
+  Primary,
+  Critical,
+  PrimaryDisabled,
+  CriticalDisabled,
+  WithALongLabel,
+  WithALongLabelAndChildren,
+} = composeStories(stories);
+
 describe("MenuItem", () => {
   it("renders", () => {
     const { asFragment } = render(
@@ -50,5 +62,30 @@ describe("MenuItem", () => {
       </MenuItem>,
     );
     expect(asFragment()).toMatchSnapshot();
+  });
+
+  it("renders a Primary menu item", () => {
+    const { container } = render(<Primary />);
+    expect(container).toMatchSnapshot();
+  });
+  it("renders a Critical menu item", () => {
+    const { container } = render(<Critical />);
+    expect(container).toMatchSnapshot();
+  });
+  it("renders a Primary Disabled menu item", () => {
+    const { container } = render(<PrimaryDisabled />);
+    expect(container).toMatchSnapshot();
+  });
+  it("renders a Critical Disabled menu item", () => {
+    const { container } = render(<CriticalDisabled />);
+    expect(container).toMatchSnapshot();
+  });
+  it("renders a menu item with a long label", () => {
+    const { container } = render(<WithALongLabel />);
+    expect(container).toMatchSnapshot();
+  });
+  it("renders a menu item with a long label and children", () => {
+    const { container } = render(<WithALongLabelAndChildren />);
+    expect(container).toMatchSnapshot();
   });
 });

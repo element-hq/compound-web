@@ -121,3 +121,13 @@ button.item {
 .item.interactive[data-kind="critical"]:active {
   background: var(--cpd-color-bg-critical-subtle);
 }
+
+.item[data-kind].disabled {
+  pointer-events: none;
+}
+
+.item[data-kind].disabled > .label,
+.item[data-kind].disabled > .icon,
+.item[data-kind].disabled > .nav-hint {
+  color: var(--cpd-color-text-disabled);
+}

@@ -51,6 +51,8 @@ type Props<C extends MenuItemElement> = {
    * @default primary
    */
   kind?: "primary" | "critical";
+
+  disabled?: boolean;
 } & ComponentPropsWithoutRef<C>;
 
 /**
@@ -64,6 +66,7 @@ export const MenuItem = <C extends MenuItemElement = "button">({
   label,
   kind = "primary",
   children,
+  disabled,
   ...props
 }: Props<C>): JSX.Element => {
   const Component = as ?? ("button" as ElementType);
@@ -75,8 +78,10 @@ export const MenuItem = <C extends MenuItemElement = "button">({
       className={classnames(className, styles.item, {
         [styles.interactive]: as !== "div",
         [styles["no-label"]]: label === undefined,
+        [styles["disabled"]]: disabled,
       })}
       data-kind={kind}
+      disabled={disabled}
     >
       <Icon width={24} height={24} className={styles.icon} aria-hidden={true} />
       {label !== undefined && (
