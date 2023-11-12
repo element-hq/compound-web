@@ -23,11 +23,12 @@ type Props<C extends MenuItemElement> = {
      * @default primary
      */
     kind?: "primary" | "critical";
+    disabled?: boolean;
 } & ComponentPropsWithoutRef<C>;
 /**
  * An item within a menu, acting either as a navigation button, or simply a
  * container for other interactive elements.
  */
-export declare const MenuItem: <C extends MenuItemElement = "button">({ as, className, Icon, label, kind, children, ...props }: Props<C>) => JSX.Element;
+export declare const MenuItem: <C extends MenuItemElement = "button">({ as, className, Icon, label, kind, children, disabled, ...props }: Props<C>) => JSX.Element;
 export {};
 //# sourceMappingURL=MenuItem.d.ts.map
