@@ -21,13 +21,63 @@ import { Tooltip as TooltipComponent } from "./Tooltip";
 import { IconButton } from "../IconButton/IconButton";
 
 import UserIcon from "@vector-im/compound-design-tokens/icons/user-profile.svg";
+import { Text } from "../Typography/Text";
 
 export default {
   title: "Tooltip",
   component: TooltipComponent,
   tags: ["autodocs"],
-  argTypes: {},
-  args: {},
+  controls: {
+    include: [
+      "side",
+      "align",
+      "open",
+      "label",
+      "caption",
+      "isTriggerInteractive",
+    ],
+  },
+  argTypes: {
+    side: {
+      control: "inline-radio",
+      options: ["left", "right", "top", "bottom"],
+    },
+    align: {
+      control: "inline-radio",
+      options: ["center", "start", "end"],
+    },
+    open: {
+      control: "boolean",
+    },
+    isTriggerInteractive: {
+      control: "boolean",
+    },
+    label: {
+      control: "string",
+    },
+    caption: {
+      control: "string",
+    },
+  },
+  args: {
+    side: "left",
+    align: "center",
+    open: undefined,
+    label: "@bob:example.org",
+    caption: undefined,
+    children: (
+      <IconButton data-testid="testbutton">
+        <UserIcon />
+      </IconButton>
+    ),
+  },
+  decorators: [
+    (Story: StoryFn) => (
+      <div style={{ padding: 100 }}>
+        <Story />
+      </div>
+    ),
+  ],
 } as Meta<typeof TooltipComponent>;
 
 const TemplateSide: StoryFn<typeof TooltipComponent> = () => (
@@ -104,3 +154,59 @@ const TemplateAlign: StoryFn<typeof TooltipComponent> = () => (
 
 export const Align = TemplateAlign.bind({});
 Align.args = {};
+
+export const Default = {
+  args: {
+    // unset to test defaults
+    side: undefined,
+    align: undefined,
+  },
+};
+
+export const WithCaption = {
+  args: {
+    ...Default.args,
+    label: "Copy",
+    caption: "⌘ + C",
+  },
+};
+
+export const ForcedOpen = {
+  args: {
+    ...Default.args,
+    open: true,
+    label: "I'm always open",
+  },
+};
+
+export const ForcedClose = {
+  args: {
+    ...Default.args,
+    open: false,
+    label: "You can't see me",
+    children: <Text>No tooltip to see here</Text>,
+  },
+};
+
+export const InteractiveTrigger = {
+  args: {
+    ...Default.args,
+    isTriggerInteractive: true,
+    label: "Shown with delay",
+  },
+};
+
+export const NonInteractiveTrigger = {
+  args: {
+    ...Default.args,
+    isTriggerInteractive: false,
+    label: "Shown without delay",
+    children: (
+      <span>
+        <IconButton data-testid="testbutton">
+          <UserIcon />
+        </IconButton>
+      </span>
+    ),
+  },
+};
