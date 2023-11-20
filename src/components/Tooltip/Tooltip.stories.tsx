@@ -202,11 +202,9 @@ export const NonInteractiveTrigger = {
     isTriggerInteractive: false,
     label: "Shown without delay",
     children: (
-      <span>
-        <IconButton data-testid="testbutton" disabled>
-          <UserIcon />
-        </IconButton>
-      </span>
+      <IconButton data-testid="testbutton" disabled>
+        <UserIcon />
+      </IconButton>
     ),
   },
 };

@@ -73,8 +73,11 @@ type TooltipProps = {
   open?: boolean;
   /**
    * Whether the trigger element is interactive.
-   * When trigger is interactive tooltip will be shown after a 300ms delay.
-   * When trigger is not interactive tooltip will be shown instantly when pointer enters trigger.
+   * When trigger is interactive:
+   *      - tooltip will be shown after a 300ms delay.
+   * When trigger is not interactive:
+   *      - tooltip will be shown instantly when pointer enters trigger.
+   *      - trigger will be wrapped in a focusable span.
    * @default true
    */
   isTriggerInteractive?: boolean;
@@ -98,7 +101,13 @@ export const Tooltip = ({
   return (
     <Provider>
       <Root open={open} delayDuration={isTriggerInteractive ? 300 : 0}>
-        <Trigger asChild>{children}</Trigger>
+        <Trigger asChild>
+          {isTriggerInteractive ? (
+            children
+          ) : (
+            <span tabIndex={0}>{children}</span>
+          )}
+        </Trigger>
         <Portal>
           <Content
             side={side}
