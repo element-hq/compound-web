@@ -30,6 +30,8 @@ limitations under the License.
   * correct ligatures and the proper dynamic metric spacing.
   */
   --cpd-font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+  --cpd-separator-spacing: var(--cpd-space-2x);
+  --cpd-separator-inset: 0;
 }
 
 html,

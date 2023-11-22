@@ -23,7 +23,7 @@ import LeaveIcon from "@vector-im/compound-design-tokens/icons/leave.svg";
 
 import { FloatingMenu as FloatingMenuComponent } from "./FloatingMenu";
 import { MenuItem } from "./MenuItem";
-import { MenuDivider } from "./MenuDivider";
+import { Separator } from "../Separator/Separator";
 
 export default {
   title: "Menu/FloatingMenu",
@@ -42,7 +42,7 @@ const Template: StoryFn<typeof FloatingMenuComponent> = (args) => (
       onSelect={() => {}}
     />
     <MenuItem Icon={ChatProblemIcon} label="Feedback" onSelect={() => {}} />
-    <MenuDivider />
+    <Separator />
     <MenuItem
       kind="critical"
       Icon={LeaveIcon}

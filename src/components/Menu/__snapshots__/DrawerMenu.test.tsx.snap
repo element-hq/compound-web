@@ -58,8 +58,10 @@ exports[`DrawerMenu > renders 1`] = `
           />
         </svg>
       </button>
-      <hr
-        class="_divider_2a0095"
+      <div
+        class="_separator_162edc"
+        data-orientation="horizontal"
+        role="separator"
       />
       <button
         class="_item_831119 _interactive_831119"
