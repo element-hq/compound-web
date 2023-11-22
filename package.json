@@ -1,6 +1,6 @@
 {
   "name": "@vector-im/compound-web",
-  "version": "0.6.1",
+  "version": "0.8.1",
   "description": "Compound components for the Web",
   "type": "module",
   "main": "./dist/compound-web.js",
@@ -9,7 +9,8 @@
     ".": {
       "require": "./dist/compound-web.cjs",
       "import": "./dist/compound-web.js",
-      "types": "./dist/index.d.ts"
+      "types": "./dist/index.d.ts",
+      "style": "./dist/style.css"
     },
     "./dist/style.css": {
       "require": "./dist/style.css",
@@ -56,6 +57,7 @@
     "@fontsource/inter": "^5.0.8",
     "@percy/cli": "^1.27.1",
     "@percy/storybook": "^4.3.6",
+    "@storybook/addon-a11y": "^7.5.1",
     "@storybook/addon-designs": "7.0.5",
     "@storybook/addon-essentials": "7.4.2",
     "@storybook/addon-interactions": "7.4.2",

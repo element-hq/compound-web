@@ -3,7 +3,7 @@
 exports[`Badge > renders 1`] = `
 <DocumentFragment>
   <span
-    class="_font-body-sm-medium_489030 _badge_f1986f"
+    class="_typography_489030 _font-body-sm-medium_489030 _badge_f1986f"
     data-kind="default"
   />
 </DocumentFragment>

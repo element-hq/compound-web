@@ -23,7 +23,7 @@ import LeaveIcon from "@vector-im/compound-design-tokens/icons/leave.svg";
 
 import { Menu as MenuComponent } from "./Menu";
 import { MenuItem } from "./MenuItem";
-import { MenuDivider } from "./MenuDivider";
+import { Separator } from "../Separator/Separator";
 import { Button } from "../Button/Button";
 
 export default {
@@ -53,7 +53,7 @@ const Template: StoryFn<typeof MenuComponent> = (args) => {
         onSelect={() => {}}
       />
       <MenuItem Icon={ChatProblemIcon} label="Feedback" onSelect={() => {}} />
-      <MenuDivider />
+      <Separator />
       <MenuItem
         kind="critical"
         Icon={LeaveIcon}

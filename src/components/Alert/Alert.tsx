@@ -23,6 +23,8 @@ import InfoIcon from "@vector-im/compound-design-tokens/icons/info.svg";
 import CloseIcon from "@vector-im/compound-design-tokens/icons/close.svg";
 
 import styles from "./Alert.module.css";
+import { Text } from "../Typography/Text";
+import { IconButton } from "../IconButton/IconButton";
 
 type AlertProps = {
   /**
@@ -37,6 +39,18 @@ type AlertProps = {
    * The CSS class name.
    */
   className?: string;
+  /**
+   * Actions that will be displayed to the right of the content
+   * Wraps and stacks actions under content when alert's size is <=600px
+   * eg
+   * ```
+   * <Alert
+   *  title='Title'
+   *  actions={<Button onClick={doSomething}>Yes</Button>}
+   * />
+   * ```
+   */
+  actions?: React.ReactNode;
   /**
    * Event callback when dismissing the alert. Determines the display of the
    * "close" button at the top right of the alert.
@@ -54,6 +68,7 @@ export const Alert: React.FC<PropsWithChildren<AlertProps>> = ({
   title,
   children,
   className,
+  actions,
   onClose,
   ...props
 }: PropsWithChildren<AlertProps>) => {
@@ -82,19 +97,26 @@ export const Alert: React.FC<PropsWithChildren<AlertProps>> = ({
         "aria-hidden": true,
       })}
       <div className={styles.content}>
-        <p className={styles.title}>{title}</p>
-        <p className={styles.caption}>{children}</p>
+        <div className={styles["text-content"]}>
+          <Text size="md" weight="semibold">
+            {title}
+          </Text>
+          <Text size="sm" weight="regular">
+            {children}
+          </Text>
+        </div>
+        {actions && <div className={styles.actions}>{actions}</div>}
       </div>
       {/* TODO: Setup an i18n function for the aria label below */}
       {onClose && (
-        <CloseIcon
-          width={16}
-          height={16}
+        <IconButton
           onClick={onClose}
           aria-label="Close"
           role="button"
           className={styles.close}
-        />
+        >
+          <CloseIcon />
+        </IconButton>
       )}
     </div>
   );

@@ -23,7 +23,7 @@ exports[`ToggleMenuItem > renders 1`] = `
       />
     </svg>
     <span
-      class="_font-body-md-medium_489030 _label_831119"
+      class="_typography_489030 _font-body-md-medium_489030 _label_831119"
     >
       Always show
     </span>

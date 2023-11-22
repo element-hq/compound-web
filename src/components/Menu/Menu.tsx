@@ -40,7 +40,9 @@ interface Props {
    */
   open: boolean;
   /**
-   * Event handler called when the open state of the menu changes.
+   * Event handler called when the open state of the menu changes. This includes
+   * anything like clicking the trigger, selecting a menu item, or dismissing
+   * the menu with the mouse or keyboard.
    */
   onOpenChange: (open: boolean) => void;
   /**

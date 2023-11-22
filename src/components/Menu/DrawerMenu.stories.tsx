@@ -24,7 +24,7 @@ import LeaveIcon from "@vector-im/compound-design-tokens/icons/leave.svg";
 import { DrawerMenu as DrawerMenuComponent } from "./DrawerMenu";
 import drawerStyles from "./DrawerMenu.module.css";
 import { MenuItem } from "./MenuItem";
-import { MenuDivider } from "./MenuDivider";
+import { Separator } from "../Separator/Separator";
 
 export default {
   title: "Menu/DrawerMenu",
@@ -44,7 +44,7 @@ const Template: StoryFn<typeof DrawerMenuComponent> = (args) => (
         onSelect={() => {}}
       />
       <MenuItem Icon={ChatProblemIcon} label="Feedback" onSelect={() => {}} />
-      <MenuDivider />
+      <Separator />
       <MenuItem
         kind="critical"
         Icon={LeaveIcon}

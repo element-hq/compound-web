@@ -23,35 +23,55 @@ import {
   waitFor,
 } from "@testing-library/react";
 import React from "react";
+import { composeStory } from "@storybook/react";
 
-import { Alert } from "./Alert";
+import Meta, {
+  Success,
+  Critical,
+  Info,
+  WithActions,
+  WithoutClose,
+} from "./Alert.stories";
 
 describe("Alert", () => {
-  it("renders", () => {
-    const { asFragment } = render(
-      <Alert title="Title" type="success">
-        Success!
-      </Alert>,
-    );
+  it("renders success", () => {
+    const Component = composeStory(Success, Meta);
+    const { asFragment } = render(<Component />);
+    expect(asFragment()).toMatchSnapshot();
+  });
+
+  it("renders critical", () => {
+    const Component = composeStory(Critical, Meta);
+    const { asFragment } = render(<Component />);
+    expect(asFragment()).toMatchSnapshot();
+  });
+
+  it("renders info", () => {
+    const Component = composeStory(Info, Meta);
+    const { asFragment } = render(<Component />);
     expect(asFragment()).toMatchSnapshot();
   });
 
   it("has no close button by default", () => {
-    render(
-      <Alert title="Title" type="info">
-        Click me!
-      </Alert>,
-    );
+    const Component = composeStory(WithoutClose, Meta);
+    render(<Component />);
+
     expect(screen.queryByLabelText("Close")).not.toBeInTheDocument();
   });
 
   it("can have a close button", async () => {
     const spy = vi.fn();
-    const { container } = render(
-      <Alert title="Title" type="critical" onClose={spy}>
-        Click me!
-      </Alert>,
+    const Component = composeStory(
+      {
+        ...Success,
+        args: {
+          ...Success.args,
+          onClose: spy,
+        },
+      },
+      Meta,
     );
+    const { container } = render(<Component />);
 
     await waitFor(() =>
       expect(getByLabelText(container, "Close")).toBeInTheDocument(),
@@ -60,5 +80,11 @@ describe("Alert", () => {
     fireEvent.click(getByLabelText(container, "Close"));
 
     expect(spy).toHaveBeenCalledTimes(1);
+  });
+
+  it("renders actions", () => {
+    const Component = composeStory(WithActions, Meta);
+    const { asFragment } = render(<Component />);
+    expect(asFragment()).toMatchSnapshot();
   });
 });

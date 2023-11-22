@@ -17,12 +17,17 @@ limitations under the License.
 import React from "react";
 import { Typography } from "./Typography";
 
+type TypographyProps = React.ComponentProps<typeof Typography>;
+
 /**
  * A text component. Underlying HTML element can be changed using the `as`
  * property. Will default to be a paragraph.
  */
 export const Text: React.FC<
-  Omit<React.ComponentProps<typeof Typography>, "type">
+  Omit<TypographyProps, "type"> & {
+    // xl is not a valid text size
+    size?: Exclude<TypographyProps["size"], "xl">;
+  }
 > = ({ as = "p", children, ...props }) => {
   return (
     <Typography as={as} type="body" {...props}>

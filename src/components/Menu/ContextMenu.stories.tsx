@@ -23,7 +23,7 @@ import LeaveIcon from "@vector-im/compound-design-tokens/icons/leave.svg";
 
 import { ContextMenu as ContextMenuComponent } from "./ContextMenu";
 import { MenuItem } from "./MenuItem";
-import { MenuDivider } from "./MenuDivider";
+import { Separator } from "../Separator/Separator";
 
 export default {
   title: "Menu/ContextMenu",
@@ -64,7 +64,7 @@ const Template: StoryFn<typeof ContextMenuComponent> = (args) => {
         onSelect={() => {}}
       />
       <MenuItem Icon={ChatProblemIcon} label="Feedback" onSelect={() => {}} />
-      <MenuDivider />
+      <Separator />
       <MenuItem
         kind="critical"
         Icon={LeaveIcon}

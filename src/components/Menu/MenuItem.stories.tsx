@@ -27,32 +27,99 @@ export default {
   title: "Menu/MenuItem",
   component: MenuItemComponent,
   tags: ["autodocs"],
-  argTypes: {},
-  args: {},
-} as Meta<typeof MenuItemComponent>;
-
-const Template: StoryFn<typeof MenuItemComponent> = (args) => (
-  <div style={{ width: 300 }}>
-    <MenuItemComponent {...args} Icon={ChatIcon} label="First item">
+  argTypes: {
+    onClick: { action: "clicked!" },
+  },
+  args: {
+    label: "Menu item",
+    children: (
       <Text as="span" size="sm">
         99
       </Text>
-    </MenuItemComponent>
-    <MenuItemComponent
-      {...args}
-      Icon={ExtensionsIcon}
-      label="Second item with a name that's quite long"
-    />
-    <MenuItemComponent {...args} Icon={SettingsLabel} label={null}>
+    ),
+    Icon: ChatIcon,
+  },
+  decorators: [
+    (Story: StoryFn) => (
+      <div style={{ width: 300 }}>
+        <Story />
+      </div>
+    ),
+  ],
+} as Meta<typeof MenuItemComponent>;
+
+export const Example = {
+  render: () => (
+    <div style={{ width: 300 }}>
+      <MenuItemComponent Icon={ChatIcon} label="First item" onSelect={() => {}}>
+        <Text as="span" size="sm">
+          99
+        </Text>
+      </MenuItemComponent>
+      <MenuItemComponent
+        Icon={ExtensionsIcon}
+        label="Second item with a name that's quite long"
+        onSelect={() => {}}
+      />
+      <MenuItemComponent Icon={SettingsLabel} label={null} onSelect={() => {}}>
+        <Text as="span" size="sm">
+          Third item without a label
+        </Text>
+      </MenuItemComponent>
+    </div>
+  ),
+};
+
+export const Primary = {
+  args: {
+    kind: "primary",
+  },
+};
+
+export const Critical = {
+  args: {
+    kind: "critical",
+  },
+};
+
+export const PrimaryDisabled = {
+  args: {
+    ...Primary.args,
+    disabled: true,
+  },
+};
+
+export const CriticalDisabled = {
+  args: {
+    ...Critical.args,
+    disabled: true,
+  },
+};
+
+export const WithoutLabel = {
+  args: {
+    ...Primary.args,
+    label: undefined,
+  },
+};
+
+export const WithALongLabel = {
+  args: {
+    ...Primary.args,
+    label:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  },
+};
+
+export const WithALongLabelAndChildren = {
+  args: {
+    ...Primary.args,
+    label:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, empor incididunt ut labore et dolore magna aliqua.",
+    children: (
       <Text as="span" size="sm">
-        Third item without a label
+        Longer children too
       </Text>
-    </MenuItemComponent>
-  </div>
-);
-
-export const Primary = Template.bind({});
-Primary.args = { kind: "primary" };
-
-export const Critical = Template.bind({});
-Critical.args = { kind: "critical" };
+    ),
+  },
+};

@@ -41,6 +41,8 @@ export { Link } from "./components/Link/Link";
 export { Menu } from "./components/Menu/Menu";
 export { MenuItem } from "./components/Menu/MenuItem";
 export { Search } from "./components/Search/Search";
+export { Separator } from "./components/Separator/Separator";
+export { ToggleMenuItem } from "./components/Menu/ToggleMenuItem";
 export { Tooltip } from "./components/Tooltip/Tooltip";
 
 export {

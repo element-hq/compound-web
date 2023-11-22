@@ -1,0 +1,63 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`<Text /> > renders a disabled input 1`] = `
+<div>
+  <input
+    class="_control_a839aa"
+    disabled=""
+    placeholder=""
+    value="Disabled"
+  />
+</div>
+`;
+
+exports[`<Text /> > renders a filled input 1`] = `
+<div>
+  <input
+    class="_control_a839aa"
+    placeholder=""
+    value="-> 1x2x3"
+  />
+</div>
+`;
+
+exports[`<Text /> > renders a input with ligatures enable 1`] = `
+<div>
+  <input
+    class="_control_a839aa _enable-ligatures_a839aa"
+    placeholder=""
+    value="-> 1x2x3"
+  />
+</div>
+`;
+
+exports[`<Text /> > renders a read only input 1`] = `
+<div>
+  <input
+    class="_control_a839aa"
+    placeholder=""
+    readonly=""
+    value="Read only"
+  />
+</div>
+`;
+
+exports[`<Text /> > renders an empty input 1`] = `
+<div>
+  <input
+    class="_control_a839aa"
+    placeholder=""
+  />
+</div>
+`;
+
+exports[`<Text /> > renders an invalid input 1`] = `
+<div>
+  <input
+    class="_control_a839aa"
+    data-invalid="true"
+    placeholder=""
+    value="Invalid"
+  />
+</div>
+`;
