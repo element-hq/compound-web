@@ -8,7 +8,7 @@ exports[`FloatingMenu > renders 1`] = `
     role="menu"
   >
     <h3
-      class="_font-body-sm-semibold_489030 _title_3295a1"
+      class="_typography_489030 _font-body-sm-semibold_489030 _title_3295a1"
       id=":r0:"
     >
       Settings
@@ -41,7 +41,7 @@ exports[`FloatingMenu > renders 1`] = `
         />
       </svg>
       <span
-        class="_font-body-md-medium_489030 _label_831119"
+        class="_typography_489030 _font-body-md-medium_489030 _label_831119"
       >
         Profile
       </span>
@@ -91,7 +91,7 @@ exports[`FloatingMenu > renders 1`] = `
         />
       </svg>
       <span
-        class="_font-body-md-medium_489030 _label_831119"
+        class="_typography_489030 _font-body-md-medium_489030 _label_831119"
       >
         Sign out
       </span>

@@ -21,6 +21,13 @@ limitations under the License.
   border-radius: 0.5rem;
   padding: var(--cpd-space-3x) var(--cpd-space-4x);
   box-sizing: border-box;
+
+  /**
+  * Disable contextual alternate ligatures in inputs
+  * https://github.com/rsms/inter/issues/222
+  * https://github.com/rsms/inter/blob/master/src/features/calt.fea
+  */
+  font-feature-settings: "calt" 0;
 }
 
 @media (hover) {
@@ -58,4 +65,8 @@ limitations under the License.
   background: var(--cpd-color-bg-subtle-secondary);
   border-color: var(--cpd-color-bg-subtle-secondary);
   color: var(--cpd-color-text-secondary);
+}
+
+.control.enable-ligatures {
+  font-feature-settings: var(--cpd-font-feature-settings);
 }

@@ -36,7 +36,7 @@ type TypographyProps<C extends React.ElementType> = {
   /**
    * The t-shirt size of the content.
    */
-  size?: "xs" | "sm" | "md" | "lg";
+  size?: "xs" | "sm" | "md" | "lg" | "xl";
   /**
    * The CSS class name.
    */
@@ -58,6 +58,7 @@ export const Typography = <C extends React.ElementType = "p">({
     <Component
       {...restProps}
       className={classNames(
+        styles.typography,
         styles[`font-${type}-${size}-${weight}`],
         className,
       )}
