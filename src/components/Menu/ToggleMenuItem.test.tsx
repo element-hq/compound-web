@@ -24,7 +24,11 @@ import { ToggleMenuItem } from "./ToggleMenuItem";
 describe("ToggleMenuItem", () => {
   it("renders", () => {
     const { asFragment } = render(
-      <ToggleMenuItem Icon={VisibilityOnIcon} label="Always show" />,
+      <ToggleMenuItem
+        Icon={VisibilityOnIcon}
+        label="Always show"
+        onSelect={() => {}}
+      />,
     );
     expect(asFragment()).toMatchSnapshot();
   });

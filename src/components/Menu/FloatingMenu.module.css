@@ -31,6 +31,9 @@ limitations under the License.
   flex-direction: column;
   gap: var(--cpd-space-1x);
   padding-block: var(--cpd-space-5x) var(--cpd-space-4x);
+
+  --cpd-separator-spacing: 0;
+  --cpd-separator-inset: var(--cpd-space-4x);
 }
 
 @keyframes slide-in {

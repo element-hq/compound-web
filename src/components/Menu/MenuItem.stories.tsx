@@ -24,7 +24,7 @@ import { MenuItem as MenuItemComponent } from "./MenuItem";
 import { Text } from "../Typography/Text";
 
 export default {
-  title: "MenuItem",
+  title: "Menu/MenuItem",
   component: MenuItemComponent,
   tags: ["autodocs"],
   argTypes: {
@@ -51,7 +51,7 @@ export default {
 export const Example = {
   render: () => (
     <div style={{ width: 300 }}>
-      <MenuItemComponent Icon={ChatIcon} label="First item">
+      <MenuItemComponent Icon={ChatIcon} label="First item" onSelect={() => {}}>
         <Text as="span" size="sm">
           99
         </Text>
@@ -59,8 +59,9 @@ export const Example = {
       <MenuItemComponent
         Icon={ExtensionsIcon}
         label="Second item with a name that's quite long"
+        onSelect={() => {}}
       />
-      <MenuItemComponent Icon={SettingsLabel} label={undefined}>
+      <MenuItemComponent Icon={SettingsLabel} label={null} onSelect={() => {}}>
         <Text as="span" size="sm">
           Third item without a label
         </Text>

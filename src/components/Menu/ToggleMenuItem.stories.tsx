@@ -22,7 +22,7 @@ import ChatIcon from "@vector-im/compound-design-tokens/icons/chat.svg";
 import { ToggleMenuItem as ToggleMenuItemComponent } from "./ToggleMenuItem";
 
 export default {
-  title: "ToggleMenuItem",
+  title: "Menu/ToggleMenuItem",
   component: ToggleMenuItemComponent,
   tags: ["autodocs"],
   argTypes: {},
