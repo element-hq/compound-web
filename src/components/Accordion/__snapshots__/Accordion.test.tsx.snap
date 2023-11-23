@@ -1,0 +1,454 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`<Accordion /> > renders an uncontrolled multiple accordion 1`] = `
+<div>
+  <div
+    class="_root_eebbdc"
+    data-orientation="vertical"
+  >
+    <div
+      class="_root_eebbdc"
+      data-orientation="vertical"
+      data-state="closed"
+    >
+      <h3
+        data-orientation="vertical"
+        data-state="closed"
+      >
+        <button
+          aria-controls="radix-:rd:"
+          aria-expanded="false"
+          class="_trigger_eebbdc"
+          data-orientation="vertical"
+          data-radix-collection-item=""
+          data-state="closed"
+          id="radix-:rc:"
+          type="button"
+        >
+          Item 1
+          <svg
+            aria-hidden="true"
+            class="_icon_eebbdc"
+            fill="none"
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M8.70005 17.3C8.51672 17.1167 8.42505 16.8834 8.42505 16.6C8.42505 16.3167 8.51672 16.0834 8.70005 15.9L12.6 12L8.70005 8.10005C8.51672 7.91672 8.42505 7.68338 8.42505 7.40005C8.42505 7.11672 8.51672 6.88338 8.70005 6.70005C8.88338 6.51672 9.11672 6.42505 9.40005 6.42505C9.68338 6.42505 9.91672 6.51672 10.1 6.70005L14.7 11.3C14.8 11.4 14.8709 11.5084 14.9125 11.625C14.9542 11.7417 14.975 11.8667 14.975 12C14.975 12.1334 14.9542 12.2584 14.9125 12.375C14.8709 12.4917 14.8 12.6 14.7 12.7L10.1 17.3C9.91672 17.4834 9.68338 17.575 9.40005 17.575C9.11672 17.575 8.88338 17.4834 8.70005 17.3Z"
+              fill="currentColor"
+            />
+          </svg>
+        </button>
+      </h3>
+      <div
+        aria-labelledby="radix-:rc:"
+        class="_content_eebbdc"
+        data-orientation="vertical"
+        data-state="closed"
+        hidden=""
+        id="radix-:rd:"
+        role="region"
+        style="--radix-accordion-content-height: var(--radix-collapsible-content-height); --radix-accordion-content-width: var(--radix-collapsible-content-width);"
+      />
+    </div>
+    <div
+      class="_root_eebbdc"
+      data-orientation="vertical"
+      data-state="closed"
+    >
+      <h3
+        data-orientation="vertical"
+        data-state="closed"
+      >
+        <button
+          aria-controls="radix-:rf:"
+          aria-expanded="false"
+          class="_trigger_eebbdc"
+          data-orientation="vertical"
+          data-radix-collection-item=""
+          data-state="closed"
+          id="radix-:re:"
+          type="button"
+        >
+          Item 2
+          <svg
+            aria-hidden="true"
+            class="_icon_eebbdc"
+            fill="none"
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M8.70005 17.3C8.51672 17.1167 8.42505 16.8834 8.42505 16.6C8.42505 16.3167 8.51672 16.0834 8.70005 15.9L12.6 12L8.70005 8.10005C8.51672 7.91672 8.42505 7.68338 8.42505 7.40005C8.42505 7.11672 8.51672 6.88338 8.70005 6.70005C8.88338 6.51672 9.11672 6.42505 9.40005 6.42505C9.68338 6.42505 9.91672 6.51672 10.1 6.70005L14.7 11.3C14.8 11.4 14.8709 11.5084 14.9125 11.625C14.9542 11.7417 14.975 11.8667 14.975 12C14.975 12.1334 14.9542 12.2584 14.9125 12.375C14.8709 12.4917 14.8 12.6 14.7 12.7L10.1 17.3C9.91672 17.4834 9.68338 17.575 9.40005 17.575C9.11672 17.575 8.88338 17.4834 8.70005 17.3Z"
+              fill="currentColor"
+            />
+          </svg>
+        </button>
+      </h3>
+      <div
+        aria-labelledby="radix-:re:"
+        class="_content_eebbdc"
+        data-orientation="vertical"
+        data-state="closed"
+        hidden=""
+        id="radix-:rf:"
+        role="region"
+        style="--radix-accordion-content-height: var(--radix-collapsible-content-height); --radix-accordion-content-width: var(--radix-collapsible-content-width);"
+      />
+    </div>
+    <div
+      class="_root_eebbdc"
+      data-orientation="vertical"
+      data-state="closed"
+    >
+      <h3
+        data-orientation="vertical"
+        data-state="closed"
+      >
+        <button
+          aria-controls="radix-:rh:"
+          aria-expanded="false"
+          class="_trigger_eebbdc"
+          data-orientation="vertical"
+          data-radix-collection-item=""
+          data-state="closed"
+          id="radix-:rg:"
+          type="button"
+        >
+          Item 3
+          <svg
+            aria-hidden="true"
+            class="_icon_eebbdc"
+            fill="none"
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M8.70005 17.3C8.51672 17.1167 8.42505 16.8834 8.42505 16.6C8.42505 16.3167 8.51672 16.0834 8.70005 15.9L12.6 12L8.70005 8.10005C8.51672 7.91672 8.42505 7.68338 8.42505 7.40005C8.42505 7.11672 8.51672 6.88338 8.70005 6.70005C8.88338 6.51672 9.11672 6.42505 9.40005 6.42505C9.68338 6.42505 9.91672 6.51672 10.1 6.70005L14.7 11.3C14.8 11.4 14.8709 11.5084 14.9125 11.625C14.9542 11.7417 14.975 11.8667 14.975 12C14.975 12.1334 14.9542 12.2584 14.9125 12.375C14.8709 12.4917 14.8 12.6 14.7 12.7L10.1 17.3C9.91672 17.4834 9.68338 17.575 9.40005 17.575C9.11672 17.575 8.88338 17.4834 8.70005 17.3Z"
+              fill="currentColor"
+            />
+          </svg>
+        </button>
+      </h3>
+      <div
+        aria-labelledby="radix-:rg:"
+        class="_content_eebbdc"
+        data-orientation="vertical"
+        data-state="closed"
+        hidden=""
+        id="radix-:rh:"
+        role="region"
+        style="--radix-accordion-content-height: var(--radix-collapsible-content-height); --radix-accordion-content-width: var(--radix-collapsible-content-width);"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Accordion /> > renders an uncontrolled single accordion 1`] = `
+<div>
+  <div
+    class="_root_eebbdc"
+    data-orientation="vertical"
+  >
+    <div
+      class="_root_eebbdc"
+      data-orientation="vertical"
+      data-state="closed"
+    >
+      <h3
+        data-orientation="vertical"
+        data-state="closed"
+      >
+        <button
+          aria-controls="radix-:r7:"
+          aria-expanded="false"
+          class="_trigger_eebbdc"
+          data-orientation="vertical"
+          data-radix-collection-item=""
+          data-state="closed"
+          id="radix-:r6:"
+          type="button"
+        >
+          Item 1
+          <svg
+            aria-hidden="true"
+            class="_icon_eebbdc"
+            fill="none"
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M8.70005 17.3C8.51672 17.1167 8.42505 16.8834 8.42505 16.6C8.42505 16.3167 8.51672 16.0834 8.70005 15.9L12.6 12L8.70005 8.10005C8.51672 7.91672 8.42505 7.68338 8.42505 7.40005C8.42505 7.11672 8.51672 6.88338 8.70005 6.70005C8.88338 6.51672 9.11672 6.42505 9.40005 6.42505C9.68338 6.42505 9.91672 6.51672 10.1 6.70005L14.7 11.3C14.8 11.4 14.8709 11.5084 14.9125 11.625C14.9542 11.7417 14.975 11.8667 14.975 12C14.975 12.1334 14.9542 12.2584 14.9125 12.375C14.8709 12.4917 14.8 12.6 14.7 12.7L10.1 17.3C9.91672 17.4834 9.68338 17.575 9.40005 17.575C9.11672 17.575 8.88338 17.4834 8.70005 17.3Z"
+              fill="currentColor"
+            />
+          </svg>
+        </button>
+      </h3>
+      <div
+        aria-labelledby="radix-:r6:"
+        class="_content_eebbdc"
+        data-orientation="vertical"
+        data-state="closed"
+        hidden=""
+        id="radix-:r7:"
+        role="region"
+        style="--radix-accordion-content-height: var(--radix-collapsible-content-height); --radix-accordion-content-width: var(--radix-collapsible-content-width);"
+      />
+    </div>
+    <div
+      class="_root_eebbdc"
+      data-orientation="vertical"
+      data-state="closed"
+    >
+      <h3
+        data-orientation="vertical"
+        data-state="closed"
+      >
+        <button
+          aria-controls="radix-:r9:"
+          aria-expanded="false"
+          class="_trigger_eebbdc"
+          data-orientation="vertical"
+          data-radix-collection-item=""
+          data-state="closed"
+          id="radix-:r8:"
+          type="button"
+        >
+          Item 2
+          <svg
+            aria-hidden="true"
+            class="_icon_eebbdc"
+            fill="none"
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M8.70005 17.3C8.51672 17.1167 8.42505 16.8834 8.42505 16.6C8.42505 16.3167 8.51672 16.0834 8.70005 15.9L12.6 12L8.70005 8.10005C8.51672 7.91672 8.42505 7.68338 8.42505 7.40005C8.42505 7.11672 8.51672 6.88338 8.70005 6.70005C8.88338 6.51672 9.11672 6.42505 9.40005 6.42505C9.68338 6.42505 9.91672 6.51672 10.1 6.70005L14.7 11.3C14.8 11.4 14.8709 11.5084 14.9125 11.625C14.9542 11.7417 14.975 11.8667 14.975 12C14.975 12.1334 14.9542 12.2584 14.9125 12.375C14.8709 12.4917 14.8 12.6 14.7 12.7L10.1 17.3C9.91672 17.4834 9.68338 17.575 9.40005 17.575C9.11672 17.575 8.88338 17.4834 8.70005 17.3Z"
+              fill="currentColor"
+            />
+          </svg>
+        </button>
+      </h3>
+      <div
+        aria-labelledby="radix-:r8:"
+        class="_content_eebbdc"
+        data-orientation="vertical"
+        data-state="closed"
+        hidden=""
+        id="radix-:r9:"
+        role="region"
+        style="--radix-accordion-content-height: var(--radix-collapsible-content-height); --radix-accordion-content-width: var(--radix-collapsible-content-width);"
+      />
+    </div>
+    <div
+      class="_root_eebbdc"
+      data-orientation="vertical"
+      data-state="closed"
+    >
+      <h3
+        data-orientation="vertical"
+        data-state="closed"
+      >
+        <button
+          aria-controls="radix-:rb:"
+          aria-expanded="false"
+          class="_trigger_eebbdc"
+          data-orientation="vertical"
+          data-radix-collection-item=""
+          data-state="closed"
+          id="radix-:ra:"
+          type="button"
+        >
+          Item 3
+          <svg
+            aria-hidden="true"
+            class="_icon_eebbdc"
+            fill="none"
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M8.70005 17.3C8.51672 17.1167 8.42505 16.8834 8.42505 16.6C8.42505 16.3167 8.51672 16.0834 8.70005 15.9L12.6 12L8.70005 8.10005C8.51672 7.91672 8.42505 7.68338 8.42505 7.40005C8.42505 7.11672 8.51672 6.88338 8.70005 6.70005C8.88338 6.51672 9.11672 6.42505 9.40005 6.42505C9.68338 6.42505 9.91672 6.51672 10.1 6.70005L14.7 11.3C14.8 11.4 14.8709 11.5084 14.9125 11.625C14.9542 11.7417 14.975 11.8667 14.975 12C14.975 12.1334 14.9542 12.2584 14.9125 12.375C14.8709 12.4917 14.8 12.6 14.7 12.7L10.1 17.3C9.91672 17.4834 9.68338 17.575 9.40005 17.575C9.11672 17.575 8.88338 17.4834 8.70005 17.3Z"
+              fill="currentColor"
+            />
+          </svg>
+        </button>
+      </h3>
+      <div
+        aria-labelledby="radix-:ra:"
+        class="_content_eebbdc"
+        data-orientation="vertical"
+        data-state="closed"
+        hidden=""
+        id="radix-:rb:"
+        role="region"
+        style="--radix-accordion-content-height: var(--radix-collapsible-content-height); --radix-accordion-content-width: var(--radix-collapsible-content-width);"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Accordion /> > renders an uncontrolled single accordion by default 1`] = `
+<div>
+  <div
+    class="_root_eebbdc"
+    data-orientation="vertical"
+  >
+    <div
+      class="_root_eebbdc"
+      data-orientation="vertical"
+      data-state="closed"
+    >
+      <h3
+        data-orientation="vertical"
+        data-state="closed"
+      >
+        <button
+          aria-controls="radix-:r1:"
+          aria-expanded="false"
+          class="_trigger_eebbdc"
+          data-orientation="vertical"
+          data-radix-collection-item=""
+          data-state="closed"
+          id="radix-:r0:"
+          type="button"
+        >
+          Item 1
+          <svg
+            aria-hidden="true"
+            class="_icon_eebbdc"
+            fill="none"
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M8.70005 17.3C8.51672 17.1167 8.42505 16.8834 8.42505 16.6C8.42505 16.3167 8.51672 16.0834 8.70005 15.9L12.6 12L8.70005 8.10005C8.51672 7.91672 8.42505 7.68338 8.42505 7.40005C8.42505 7.11672 8.51672 6.88338 8.70005 6.70005C8.88338 6.51672 9.11672 6.42505 9.40005 6.42505C9.68338 6.42505 9.91672 6.51672 10.1 6.70005L14.7 11.3C14.8 11.4 14.8709 11.5084 14.9125 11.625C14.9542 11.7417 14.975 11.8667 14.975 12C14.975 12.1334 14.9542 12.2584 14.9125 12.375C14.8709 12.4917 14.8 12.6 14.7 12.7L10.1 17.3C9.91672 17.4834 9.68338 17.575 9.40005 17.575C9.11672 17.575 8.88338 17.4834 8.70005 17.3Z"
+              fill="currentColor"
+            />
+          </svg>
+        </button>
+      </h3>
+      <div
+        aria-labelledby="radix-:r0:"
+        class="_content_eebbdc"
+        data-orientation="vertical"
+        data-state="closed"
+        hidden=""
+        id="radix-:r1:"
+        role="region"
+        style="--radix-accordion-content-height: var(--radix-collapsible-content-height); --radix-accordion-content-width: var(--radix-collapsible-content-width);"
+      />
+    </div>
+    <div
+      class="_root_eebbdc"
+      data-orientation="vertical"
+      data-state="closed"
+    >
+      <h3
+        data-orientation="vertical"
+        data-state="closed"
+      >
+        <button
+          aria-controls="radix-:r3:"
+          aria-expanded="false"
+          class="_trigger_eebbdc"
+          data-orientation="vertical"
+          data-radix-collection-item=""
+          data-state="closed"
+          id="radix-:r2:"
+          type="button"
+        >
+          Item 2
+          <svg
+            aria-hidden="true"
+            class="_icon_eebbdc"
+            fill="none"
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M8.70005 17.3C8.51672 17.1167 8.42505 16.8834 8.42505 16.6C8.42505 16.3167 8.51672 16.0834 8.70005 15.9L12.6 12L8.70005 8.10005C8.51672 7.91672 8.42505 7.68338 8.42505 7.40005C8.42505 7.11672 8.51672 6.88338 8.70005 6.70005C8.88338 6.51672 9.11672 6.42505 9.40005 6.42505C9.68338 6.42505 9.91672 6.51672 10.1 6.70005L14.7 11.3C14.8 11.4 14.8709 11.5084 14.9125 11.625C14.9542 11.7417 14.975 11.8667 14.975 12C14.975 12.1334 14.9542 12.2584 14.9125 12.375C14.8709 12.4917 14.8 12.6 14.7 12.7L10.1 17.3C9.91672 17.4834 9.68338 17.575 9.40005 17.575C9.11672 17.575 8.88338 17.4834 8.70005 17.3Z"
+              fill="currentColor"
+            />
+          </svg>
+        </button>
+      </h3>
+      <div
+        aria-labelledby="radix-:r2:"
+        class="_content_eebbdc"
+        data-orientation="vertical"
+        data-state="closed"
+        hidden=""
+        id="radix-:r3:"
+        role="region"
+        style="--radix-accordion-content-height: var(--radix-collapsible-content-height); --radix-accordion-content-width: var(--radix-collapsible-content-width);"
+      />
+    </div>
+    <div
+      class="_root_eebbdc"
+      data-orientation="vertical"
+      data-state="closed"
+    >
+      <h3
+        data-orientation="vertical"
+        data-state="closed"
+      >
+        <button
+          aria-controls="radix-:r5:"
+          aria-expanded="false"
+          class="_trigger_eebbdc"
+          data-orientation="vertical"
+          data-radix-collection-item=""
+          data-state="closed"
+          id="radix-:r4:"
+          type="button"
+        >
+          Item 3
+          <svg
+            aria-hidden="true"
+            class="_icon_eebbdc"
+            fill="none"
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M8.70005 17.3C8.51672 17.1167 8.42505 16.8834 8.42505 16.6C8.42505 16.3167 8.51672 16.0834 8.70005 15.9L12.6 12L8.70005 8.10005C8.51672 7.91672 8.42505 7.68338 8.42505 7.40005C8.42505 7.11672 8.51672 6.88338 8.70005 6.70005C8.88338 6.51672 9.11672 6.42505 9.40005 6.42505C9.68338 6.42505 9.91672 6.51672 10.1 6.70005L14.7 11.3C14.8 11.4 14.8709 11.5084 14.9125 11.625C14.9542 11.7417 14.975 11.8667 14.975 12C14.975 12.1334 14.9542 12.2584 14.9125 12.375C14.8709 12.4917 14.8 12.6 14.7 12.7L10.1 17.3C9.91672 17.4834 9.68338 17.575 9.40005 17.575C9.11672 17.575 8.88338 17.4834 8.70005 17.3Z"
+              fill="currentColor"
+            />
+          </svg>
+        </button>
+      </h3>
+      <div
+        aria-labelledby="radix-:r4:"
+        class="_content_eebbdc"
+        data-orientation="vertical"
+        data-state="closed"
+        hidden=""
+        id="radix-:r5:"
+        role="region"
+        style="--radix-accordion-content-height: var(--radix-collapsible-content-height); --radix-accordion-content-width: var(--radix-collapsible-content-width);"
+      />
+    </div>
+  </div>
+</div>
+`;
