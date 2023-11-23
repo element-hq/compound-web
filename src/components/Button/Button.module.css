@@ -26,7 +26,7 @@ limitations under the License.
   font: var(--cpd-font-body-md-semibold);
 }
 
-.button[disabled] {
+.button[aria-disabled="true"] {
   cursor: not-allowed;
   pointer-events: all !important;
 }
@@ -76,7 +76,7 @@ limitations under the License.
   background: var(--cpd-color-bg-action-primary-pressed);
 }
 
-.button[data-kind="primary"][disabled] {
+.button[data-kind="primary"][aria-disabled="true"] {
   color: var(--cpd-color-text-disabled);
   background: var(--cpd-color-bg-subtle-primary);
 }
@@ -100,7 +100,7 @@ limitations under the License.
   background: var(--cpd-color-bg-subtle-primary);
 }
 
-.button[data-kind="secondary"][disabled] {
+.button[data-kind="secondary"][aria-disabled="true"] {
   border-color: var(--cpd-color-border-interactive-secondary);
   color: var(--cpd-color-text-disabled);
   background: var(--cpd-color-bg-subtle-secondary);
@@ -124,7 +124,7 @@ limitations under the License.
   background: var(--cpd-color-bg-subtle-primary);
 }
 
-.button[data-kind="tertiary"][disabled] {
+.button[data-kind="tertiary"][aria-disabled="true"] {
   color: var(--cpd-color-text-disabled);
 }
 
@@ -147,7 +147,7 @@ limitations under the License.
   background: var(--cpd-color-bg-critical-subtle-hovered);
 }
 
-.button[data-kind="destructive"][disabled] {
+.button[data-kind="destructive"][aria-disabled="true"] {
   border-color: var(--cpd-color-border-interactive-secondary);
   color: var(--cpd-color-text-disabled);
   background: var(--cpd-color-bg-subtle-secondary);
