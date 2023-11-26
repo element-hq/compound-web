@@ -44,7 +44,7 @@ export type UnstyledButtonPropsFor<C extends React.ElementType> =
     };
 
 /**
- * Unstyled button component. Provides disabling, and optional rendering as anchor functionality.
+ * Unstyled button component. Can be disabled and optionalally rendered as an anchor.
  * Intended to be wrapped with styles and exported as new button type - eg `IconButton` or `Button`.
  *
  * Not to be used externally.
