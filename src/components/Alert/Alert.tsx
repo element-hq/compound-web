@@ -24,7 +24,7 @@ import CloseIcon from "@vector-im/compound-design-tokens/icons/close.svg";
 
 import styles from "./Alert.module.css";
 import { Text } from "../Typography/Text";
-import { IconButton } from "../IconButton/IconButton";
+import { IconButton } from "../Button";
 
 type AlertProps = {
   /**

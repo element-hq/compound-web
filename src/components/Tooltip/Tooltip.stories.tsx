@@ -18,7 +18,7 @@ import React from "react";
 import { Meta, StoryFn } from "@storybook/react";
 
 import { Tooltip as TooltipComponent } from "./Tooltip";
-import { IconButton } from "../IconButton/IconButton";
+import { IconButton } from "../Button";
 
 import UserIcon from "@vector-im/compound-design-tokens/icons/user-profile.svg";
 

@@ -3,8 +3,10 @@
 exports[`IconButton > renders 1`] = `
 <DocumentFragment>
   <button
-    class="_icon-button_1d4528"
+    class="_icon-button_e3253e"
+    role="button"
     style="--cpd-icon-button-size: 32px;"
+    tabindex="0"
   >
     <svg
       class="cpd-icon"

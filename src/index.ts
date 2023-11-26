@@ -22,7 +22,7 @@ export { Alert } from "./components/Alert/Alert";
 export { Avatar } from "./components/Avatar/Avatar";
 export { AvatarStack } from "./components/Avatar/AvatarStack";
 export { Badge } from "./components/Badge/Badge";
-export { Button } from "./components/Button/Button";
+export { Button, IconButton } from "./components/Button";
 export { Body } from "./components/Typography/Body";
 export { Text } from "./components/Typography/Text";
 export { Glass } from "./components/Glass/Glass";
@@ -35,7 +35,6 @@ export {
   H5,
   H6,
 } from "./components/Typography/Heading";
-export { IconButton } from "./components/IconButton/IconButton";
 export { Link } from "./components/Link/Link";
 export { Menu } from "./components/Menu/Menu";
 export { MenuItem } from "./components/Menu/MenuItem";

@@ -3,9 +3,11 @@
 exports[`Tooltip > renders 1`] = `
 <DocumentFragment>
   <button
-    class="_icon-button_1d4528"
+    class="_icon-button_e3253e"
     data-state="closed"
+    role="button"
     style="--cpd-icon-button-size: 32px;"
+    tabindex="0"
   >
     <svg />
   </button>
@@ -16,9 +18,11 @@ exports[`Tooltip > renders open by default 1`] = `
 <DocumentFragment>
   <button
     aria-describedby="radix-:r0:"
-    class="_icon-button_1d4528"
+    class="_icon-button_e3253e"
     data-state="instant-open"
+    role="button"
     style="--cpd-icon-button-size: 32px;"
+    tabindex="0"
   >
     <svg />
   </button>
