@@ -18,6 +18,12 @@ type ButtonOwnProps = PropsWithChildren<{
      * An icon to display within the button.
      */
     Icon?: ComponentType<React.SVGAttributes<SVGElement>>;
+    /**
+     * Note that disabled attribute is not added to buttons, so that disabled buttons are discoverable by keyboard.
+     * `aria-disabled` attribute is used to indicate button is disabled.
+     * Event handlers are not passed to disabled buttons (onClick, onSubmit).
+     */
+    disabled?: boolean;
 }>;
 type ButtonPropsFor<C extends React.ElementType> = ButtonOwnProps & Omit<React.ComponentPropsWithoutRef<C>, keyof ButtonOwnProps | "as"> & {
     ref?: React.Ref<React.ComponentRef<C>>;
