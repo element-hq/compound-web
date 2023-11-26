@@ -17,18 +17,37 @@ limitations under the License.
 import { describe, it, expect } from "vitest";
 import { render } from "@testing-library/react";
 import React from "react";
+import { composeStories } from "@storybook/react";
 
-import { IconButton } from "./IconButton";
+import * as stories from "./IconButton.stories";
 
-import UserIcon from "@vector-im/compound-design-tokens/icons/user-profile.svg";
+const {
+  Default,
+  DefaultDisabled,
+  WithIndicator,
+  WithHighlightIndicator,
+  WithIndicatorDisabled,
+} = composeStories(stories);
 
 describe("IconButton", () => {
-  it("renders", () => {
-    const { asFragment } = render(
-      <IconButton>
-        <UserIcon />
-      </IconButton>,
-    );
-    expect(asFragment()).toMatchSnapshot();
+  it("renders a Default IconButton", () => {
+    const { container } = render(<Default />);
+    expect(container).toMatchSnapshot();
+  });
+  it("renders a DefaultDisabled IconButton", () => {
+    const { container } = render(<DefaultDisabled />);
+    expect(container).toMatchSnapshot();
+  });
+  it("renders a WithIndicator IconButton", () => {
+    const { container } = render(<WithIndicator />);
+    expect(container).toMatchSnapshot();
+  });
+  it("renders a WithHighlightIndicator IconButton", () => {
+    const { container } = render(<WithHighlightIndicator />);
+    expect(container).toMatchSnapshot();
+  });
+  it("renders a WithIndicatorDisabled IconButton", () => {
+    const { container } = render(<WithIndicatorDisabled />);
+    expect(container).toMatchSnapshot();
   });
 });
