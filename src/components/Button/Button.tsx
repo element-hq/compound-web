@@ -46,6 +46,12 @@ type ButtonOwnProps = PropsWithChildren<{
    * An icon to display within the button.
    */
   Icon?: ComponentType<React.SVGAttributes<SVGElement>>;
+  /**
+   * Note that disabled attribute is not added to buttons, so that disabled buttons are discoverable by keyboard.
+   * `aria-disabled` attribute is used to indicate button is disabled.
+   * Event handlers are not passed to disabled buttons (onClick, onSubmit).
+   */
+  disabled?: boolean;
 }>;
 
 type ButtonPropsFor<C extends React.ElementType> = ButtonOwnProps &
@@ -67,6 +73,7 @@ export const Button = forwardRef(function Button<
     children,
     className,
     Icon,
+    disabled,
     ...props
   }: ButtonPropsFor<C> & { as?: C },
   ref: ForwardedRef<C>,
@@ -76,9 +83,17 @@ export const Button = forwardRef(function Button<
     [styles["has-icon"]]: Icon,
   });
 
+  const { onClick, onSubmit, ...restProps } = props;
+  const eventHandlers = disabled
+    ? {}
+    : {
+        onClick,
+        onSubmit,
+      };
+
   return (
     <Component
-      {...props}
+      {...restProps}
       ref={ref as Ref<C>}
       className={classes}
       data-kind={kind}
@@ -87,6 +102,8 @@ export const Button = forwardRef(function Button<
       // We want them to behave like links but look like buttons
       role={as === "a" ? "link" : "button"}
       tabIndex={0}
+      {...eventHandlers}
+      aria-disabled={disabled}
     >
       {Icon && (
         <Icon
