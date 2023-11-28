@@ -14,62 +14,125 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import React from "react";
-import { Meta, StoryFn } from "@storybook/react";
+import { Meta } from "@storybook/react";
 
 import { Button as ButtonComponent } from "./Button";
 import VisibilityOnIcon from "@vector-im/compound-design-tokens/icons/visibility-on.svg";
-
-type Props = {
-  kind?: "primary" | "secondary" | "tertiary" | "destructive";
-  size?: "sm" | "lg";
-};
 
 export default {
   title: "Button",
   component: ButtonComponent,
   tags: ["autodocs"],
+  parameters: {
+    actions: { argTypesRegex: "^on.*" },
+  },
   argTypes: {
     size: {
       options: ["sm", "lg"],
       control: { type: "inline-radio" },
     },
+    kind: {
+      options: ["primary", "secondary", "tertiary", "destructive"],
+      control: { type: "inline-radio" },
+    },
+    disabled: {
+      type: "boolean",
+    },
+    as: {
+      options: ["a", "button"],
+      control: { type: "inline-radio" },
+    },
+    Icon: {
+      options: [undefined, "VisibilityOnIcon"],
+      mapping: {
+        VisibilityOnIcon: VisibilityOnIcon,
+        undefined: undefined,
+      },
+      control: { type: "inline-radio" },
+    },
+    onClick: { action: "onClick" },
   },
   args: {
-    size: "sm",
+    size: "lg",
+    as: undefined,
+    disabled: false,
+    children: "Click me!",
   },
 } as Meta<typeof ButtonComponent>;
 
-const Template: StoryFn<typeof ButtonComponent> = ({ kind, size }: Props) => (
-  <div style={{ display: "flex", gap: 8 }}>
-    <ButtonComponent kind={kind} size={size}>
-      Click me!
-    </ButtonComponent>
-    <ButtonComponent Icon={VisibilityOnIcon} kind={kind} size={size}>
-      Click me!
-    </ButtonComponent>
-    <ButtonComponent as="a" href="#" kind={kind} size={size}>
-      Click me!
-    </ButtonComponent>
-  </div>
-);
-
-export const Primary = Template.bind({});
-Primary.args = {
-  kind: "primary",
+export const Default = {
+  args: {
+    // test component defaults
+    kind: undefined,
+    size: undefined,
+  },
 };
 
-export const Secondary = Template.bind({});
-Secondary.args = {
-  kind: "secondary",
+export const Small = {
+  args: {
+    // test component defaults
+    kind: undefined,
+    size: "sm",
+  },
 };
 
-export const Tertiary = Template.bind({});
-Tertiary.args = {
-  kind: "tertiary",
+export const Primary = {
+  args: {
+    kind: "primary",
+  },
 };
 
-export const Destructive = Template.bind({});
-Destructive.args = {
-  kind: "destructive",
+export const Secondary = {
+  args: {
+    kind: "secondary",
+  },
+};
+
+export const Tertiary = {
+  args: {
+    kind: "tertiary",
+  },
+};
+
+export const Destructive = {
+  args: {
+    kind: "destructive",
+  },
+};
+
+export const WithIcon = {
+  args: {
+    ...Primary.args,
+    Icon: VisibilityOnIcon,
+  },
+};
+
+export const SmallWithIcon = {
+  args: {
+    ...Primary.args,
+    size: "sm",
+    Icon: VisibilityOnIcon,
+  },
+};
+
+export const Disabled = {
+  args: {
+    ...Primary.args,
+    disabled: true,
+  },
+};
+
+export const Link = {
+  args: {
+    ...Primary.args,
+    as: "a",
+    href: "https://example.org",
+  },
+};
+
+export const LinkDisabled = {
+  args: {
+    ...Link.args,
+    disabled: true,
+  },
 };
