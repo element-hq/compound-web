@@ -18,6 +18,7 @@ limitations under the License.
  * Export React components
  */
 
+export * as Accordion from "./components/Accordion";
 export { Alert } from "./components/Alert/Alert";
 export { Avatar } from "./components/Avatar/Avatar";
 export { AvatarStack } from "./components/Avatar/AvatarStack";
