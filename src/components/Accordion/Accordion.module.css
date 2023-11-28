@@ -33,7 +33,6 @@ limitations under the License.
   transform-origin: center center;
   transition: 300ms ease;
   color: var(--cpd-color-icon-secondary);
-
   flex-shrink: 0;
 }
 

@@ -39,7 +39,7 @@ export default {
   },
   decorators: [
     (Story: StoryFn) => (
-      <Root collapsible>
+      <Root collapsible type="single">
         <Story />
       </Root>
     ),

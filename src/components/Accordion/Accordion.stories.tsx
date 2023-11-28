@@ -31,6 +31,7 @@ export default {
     onValueChange: { action: "onValueChange" },
   },
   args: {
+    collapsible: true,
     children: (
       <>
         <Item trigger="Item 1" value="item1">

@@ -21,34 +21,6 @@ import * as RadixAccordion from "@radix-ui/react-accordion";
 
 import styles from "./Accordion.module.css";
 
-type SingleAccordionProps = {
-  /**
-   * Determines whether one or multiple items can be opened at the same time.
-   * Default is single
-   */
-  type?: "single";
-  /**
-   * The controlled value of the item(s) to expand. Must be used in conjunction with onValueChange.
-   * When value is undefined, Accordion will manage its own expanded state
-   * When type is single, should be a single string or null
-   * Whent type is multiple, should be an array of strings
-   */
-  value?: string | null;
-  /**
-   * Event handler called when the expanded state of an item changes,
-   * Called with the suggested new `value`:
-   *  - when collapsing the only expanded item will be called with an empty string or empty array
-   *  - when type is multiple will be called with array of all open items
-   */
-  onValueChange?: (value?: string) => void;
-};
-
-type MultipleAccordionProps = {
-  type?: "multiple";
-  value?: string[];
-  onValueChange?: (value?: string[]) => void;
-};
-
 /**
  * See https://www.radix-ui.com/primitives/docs/components/accordion#root
  */
@@ -57,14 +29,7 @@ type AccordionProps = {
    * The CSS class name.
    */
   className?: string;
-
-  /**
-   * Whether all items can be closed
-   * Default is true
-   */
-  collapsible?: boolean;
-} & React.ComponentProps<typeof RadixAccordion.Root> &
-  (SingleAccordionProps | MultipleAccordionProps);
+} & React.ComponentProps<typeof RadixAccordion.Root>;
 
 /**
  * Thin wrapper around Radix UI Accordion component
@@ -72,25 +37,13 @@ type AccordionProps = {
  * See radix documentation: https://www.radix-ui.com/primitives/docs/components/accordion
  */
 export const Root = forwardRef<HTMLDivElement, AccordionProps>(function Root(
-  {
-    children,
-    className,
-    type,
-    collapsible = true,
-    ...props
-  }: PropsWithChildren<AccordionProps>,
+  { children, className, ...props }: PropsWithChildren<AccordionProps>,
   ref,
 ) {
   // TODO: Update the class name to something related to the component name
   const classes = classNames(styles.root, className);
   return (
-    <RadixAccordion.Root
-      {...props}
-      className={classes}
-      ref={ref}
-      type={type}
-      collapsible={collapsible}
-    >
+    <RadixAccordion.Root {...props} className={classes} ref={ref}>
       {children}
     </RadixAccordion.Root>
   );
