@@ -77,10 +77,16 @@ type TooltipProps = {
    *      - tooltip will be shown after a 300ms delay.
    * When trigger is not interactive:
    *      - tooltip will be shown instantly when pointer enters trigger.
-   *      - trigger will be wrapped in a focusable span.
+   *      - trigger will be wrapped in a span with a tab index from prop nonInteractiveTriggerTabIndex
    * @default true
    */
   isTriggerInteractive?: boolean;
+  /**
+   * Tab index to apply to the span wrapping non interactive tooltip triggers.
+   * Only used when `isTriggerInteractive` is falsy.
+   * @default 0
+   */
+  nonInteractiveTriggerTabIndex?: number;
 };
 
 /**
@@ -96,6 +102,7 @@ export const Tooltip = ({
   onEscapeKeyDown,
   onPointerDownOutside,
   isTriggerInteractive = true,
+  nonInteractiveTriggerTabIndex = 0,
   open,
 }: PropsWithChildren<TooltipProps>): JSX.Element => {
   return (
@@ -105,7 +112,7 @@ export const Tooltip = ({
           {isTriggerInteractive ? (
             children
           ) : (
-            <span tabIndex={0}>{children}</span>
+            <span tabIndex={nonInteractiveTriggerTabIndex}>{children}</span>
           )}
         </Trigger>
         <Portal>

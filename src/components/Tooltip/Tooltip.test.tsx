@@ -19,10 +19,16 @@ import { cleanup, fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
 
 import * as stories from "./Tooltip.stories";
-import { composeStories } from "@storybook/react";
+import { composeStories, composeStory } from "@storybook/react";
 
-const { Default, WithCaption, ForcedOpen, ForcedClose, InteractiveTrigger } =
-  composeStories(stories);
+const {
+  Default,
+  WithCaption,
+  ForcedOpen,
+  ForcedClose,
+  InteractiveTrigger,
+  NonInteractiveTrigger,
+} = composeStories(stories);
 
 describe("Tooltip", () => {
   beforeAll(() => {
@@ -62,6 +68,32 @@ describe("Tooltip", () => {
     fireEvent.focus(trigger);
     // tooltip shown
     expect(await screen.findByRole("tooltip")).toMatchSnapshot();
+  });
+
+  it("opens tooltip on focus where trigger is non interactive", async () => {
+    const { container } = render(<NonInteractiveTrigger />);
+
+    expect(container).toMatchSnapshot();
+    const trigger = screen.getByTestId("testbutton");
+    fireEvent.focus(trigger);
+    // tooltip shown
+    expect(await screen.findByRole("tooltip")).toMatchSnapshot();
+  });
+
+  it("overrides default tab index for non interactive triggers", async () => {
+    const Component = composeStory(
+      {
+        ...stories.NonInteractiveTrigger,
+        args: {
+          ...stories.NonInteractiveTrigger.args,
+          nonInteractiveTriggerTabIndex: -1,
+        },
+      },
+      stories.default,
+    );
+    const { container } = render(<Component />);
+
+    expect(container).toMatchSnapshot();
   });
 
   it("renders with caption", async () => {
