@@ -14,43 +14,55 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import React from "react";
+import React, { useState } from "react";
 import { Meta, StoryFn } from "@storybook/react";
 import UserProfileIcon from "@vector-im/compound-design-tokens/icons/user-profile.svg";
 import NotificationsIcon from "@vector-im/compound-design-tokens/icons/notifications.svg";
 import ChatProblemIcon from "@vector-im/compound-design-tokens/icons/chat-problem.svg";
 import LeaveIcon from "@vector-im/compound-design-tokens/icons/leave.svg";
 
-import { FloatingMenu as FloatingMenuComponent } from "./FloatingMenu";
+import { Menu as MenuComponent } from "./Menu";
 import { MenuItem } from "./MenuItem";
 import { Separator } from "../Separator/Separator";
+import { Button } from "../Button/Button";
 
 export default {
-  title: "Menu/FloatingMenu",
-  component: FloatingMenuComponent,
+  title: "Menu",
+  component: MenuComponent,
+  tags: ["autodocs"],
   argTypes: {},
   args: {},
-} as Meta<typeof FloatingMenuComponent>;
+} as Meta<typeof MenuComponent>;
 
-const Template: StoryFn<typeof FloatingMenuComponent> = (args) => (
-  <FloatingMenuComponent {...args} title="Settings">
-    <MenuItem Icon={UserProfileIcon} label="Profile" onSelect={() => {}} />
-    {/* Extra long label to demonstrate word breaking */}
-    <MenuItem
-      Icon={NotificationsIcon}
-      label="Notificationsnotificationsnotifications"
-      onSelect={() => {}}
-    />
-    <MenuItem Icon={ChatProblemIcon} label="Feedback" onSelect={() => {}} />
-    <Separator />
-    <MenuItem
-      kind="critical"
-      Icon={LeaveIcon}
-      label="Sign out"
-      onSelect={() => {}}
-    />
-  </FloatingMenuComponent>
-);
+const Template: StoryFn<typeof MenuComponent> = (args) => {
+  const [open, setOpen] = useState(true);
 
-export const FloatingMenu = Template.bind({});
-FloatingMenu.args = {};
+  return (
+    <MenuComponent
+      {...args}
+      title="Settings"
+      open={open}
+      onOpenChange={setOpen}
+      trigger={<Button>Open menu</Button>}
+      align="start"
+    >
+      <MenuItem Icon={UserProfileIcon} label="Profile" onSelect={() => {}} />
+      <MenuItem
+        Icon={NotificationsIcon}
+        label="Notifications"
+        onSelect={() => {}}
+      />
+      <MenuItem Icon={ChatProblemIcon} label="Feedback" onSelect={() => {}} />
+      <Separator />
+      <MenuItem
+        kind="critical"
+        Icon={LeaveIcon}
+        label="Sign out"
+        onSelect={() => {}}
+      />
+    </MenuComponent>
+  );
+};
+
+export const Menu = Template.bind({});
+Menu.args = {};

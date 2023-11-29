@@ -37,10 +37,11 @@ export {
 } from "./components/Typography/Heading";
 export { IconButton } from "./components/IconButton/IconButton";
 export { Link } from "./components/Link/Link";
-export { MenuItem } from "./components/MenuItem/MenuItem";
+export { Menu } from "./components/Menu/Menu";
+export { MenuItem } from "./components/Menu/MenuItem";
 export { Search } from "./components/Search/Search";
 export { Separator } from "./components/Separator/Separator";
-export { ToggleMenuItem } from "./components/MenuItem/ToggleMenuItem";
+export { ToggleMenuItem } from "./components/Menu/ToggleMenuItem";
 export { Tooltip } from "./components/Tooltip/Tooltip";
 
 export {

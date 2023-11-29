@@ -15,19 +15,17 @@ limitations under the License.
 */
 
 .separator {
-  --cpd-separator-spacing: var(--cpd-space-2x);
-
   background-color: var(--cpd-color-gray-400);
 }
 
 .separator[data-orientation="horizontal"] {
   margin-block: var(--cpd-separator-spacing);
+  margin-inline: var(--cpd-separator-inset);
   block-size: 1px;
-  inline-size: 100%;
 }
 
 .separator[data-orientation="vertical"] {
   margin-inline: var(--cpd-separator-spacing);
-  block-size: 100%;
+  margin-block: var(--cpd-separator-inset);
   inline-size: 1px;
 }

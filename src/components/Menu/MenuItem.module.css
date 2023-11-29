@@ -41,11 +41,6 @@ limitations under the License.
   grid-template: "icon ." auto / auto 1fr;
 }
 
-/* Items with interactive controls like toggles are larger by default */
-label.item {
-  min-inline-size: 246px;
-}
-
 .icon {
   grid-area: icon;
   margin-inline-end: var(--cpd-space-3x);
@@ -119,7 +114,7 @@ button.item {
 }
 
 .item.interactive[data-kind="critical"]:active {
-  background: var(--cpd-color-bg-critical-subtle);
+  background: var(--cpd-color-bg-critical-subtle-hovered);
 }
 
 .item[data-kind].disabled {

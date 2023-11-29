@@ -19,11 +19,15 @@ import React, {
   ComponentPropsWithoutRef,
   ComponentType,
   ElementType,
+  ReactNode,
   SVGAttributes,
+  useCallback,
+  useContext,
 } from "react";
 import styles from "./MenuItem.module.css";
 import { Text } from "../Typography/Text";
 import ChevronRightIcon from "@vector-im/compound-design-tokens/icons/chevron-right.svg";
+import { MenuContext } from "./MenuContext";
 
 type MenuItemElement = "button" | "label" | "a" | "div";
 
@@ -45,15 +49,21 @@ type Props<C extends MenuItemElement> = {
    * The label to show on this menu item.
    */
   // This prop is required because it's rare to not want a label
-  label: string | undefined;
+  label: string | null;
+  /**
+   * Event callback for when the item is selected via mouse, touch, or keyboard.
+   * Calling event.preventDefault in this handler will prevent the menu from
+   * being dismissed.
+   */
+  // This prop is required because it's rare to not want a selection handler
+  onSelect: ((e: Event) => void) | null;
   /**
    * The color variant of the menu item.
    * @default primary
    */
   kind?: "primary" | "critical";
-
   disabled?: boolean;
-} & ComponentPropsWithoutRef<C>;
+} & Omit<ComponentPropsWithoutRef<C>, "onSelect">;
 
 /**
  * An item within a menu, acting either as a navigation button, or simply a
@@ -64,27 +74,48 @@ export const MenuItem = <C extends MenuItemElement = "button">({
   className,
   Icon,
   label,
+  onSelect,
   kind = "primary",
   children,
+  onClick: onClickProp,
   disabled,
   ...props
-}: Props<C>): JSX.Element => {
+}: Props<C>): ReactNode => {
   const Component = as ?? ("button" as ElementType);
+  const context = useContext(MenuContext);
 
-  return (
+  const onClick = useCallback(
+    (e: Parameters<Exclude<typeof onClickProp, undefined>>[0]) => {
+      (onClickProp as ((e_: typeof e) => void) | undefined)?.(e);
+      // If there is no wrapper component to automatically handle onSelect, we
+      // need to handle it manually, dismissing the menu as the default action
+      if (onSelect !== null && context?.MenuItemWrapper == null) {
+        const selectEvent = new CustomEvent("menu.itemSelect", {
+          bubbles: true,
+          cancelable: true,
+        });
+        onSelect(selectEvent);
+        if (!selectEvent.defaultPrevented) context?.onOpenChange(false);
+      }
+    },
+    [context, onSelect],
+  );
+
+  const content = (
     <Component
       role="menuitem"
       {...props}
       className={classnames(className, styles.item, {
-        [styles.interactive]: as !== "div",
-        [styles["no-label"]]: label === undefined,
+        [styles.interactive]: onSelect !== null,
+        [styles["no-label"]]: label === null,
         [styles["disabled"]]: disabled,
       })}
       data-kind={kind}
+      onClick={onClick}
       disabled={disabled}
     >
       <Icon width={24} height={24} className={styles.icon} aria-hidden={true} />
-      {label !== undefined && (
+      {label !== null && (
         <Text className={styles.label} size="md" weight="medium" as="span">
           {label}
         </Text>
@@ -101,5 +132,13 @@ export const MenuItem = <C extends MenuItemElement = "button">({
       )}
       {children}
     </Component>
+  );
+
+  return context?.MenuItemWrapper == null || onSelect === null ? (
+    content
+  ) : (
+    <context.MenuItemWrapper onSelect={onSelect}>
+      {content}
+    </context.MenuItemWrapper>
   );
 };

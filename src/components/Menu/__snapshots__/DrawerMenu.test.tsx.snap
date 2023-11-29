@@ -12,13 +12,13 @@ exports[`DrawerMenu > renders 1`] = `
       class="_body_31bf0e"
     >
       <button
-        class="_item_37eef5 _interactive_37eef5"
+        class="_item_831119 _interactive_831119"
         data-kind="primary"
         role="menuitem"
       >
         <svg
           aria-hidden="true"
-          class="_icon_37eef5"
+          class="_icon_831119"
           fill="none"
           height="24"
           viewBox="0 0 24 24"
@@ -39,13 +39,13 @@ exports[`DrawerMenu > renders 1`] = `
           />
         </svg>
         <span
-          class="_typography_489030 _font-body-md-medium_489030 _label_37eef5"
+          class="_typography_489030 _font-body-md-medium_489030 _label_831119"
         >
           Profile
         </span>
         <svg
           aria-hidden="true"
-          class="_nav-hint_37eef5"
+          class="_nav-hint_831119"
           fill="none"
           height="24"
           viewBox="0 0 24 24"
@@ -58,17 +58,19 @@ exports[`DrawerMenu > renders 1`] = `
           />
         </svg>
       </button>
-      <hr
-        class="_divider_2f054a"
+      <div
+        class="_separator_162edc"
+        data-orientation="horizontal"
+        role="separator"
       />
       <button
-        class="_item_37eef5 _interactive_37eef5"
+        class="_item_831119 _interactive_831119"
         data-kind="critical"
         role="menuitem"
       >
         <svg
           aria-hidden="true"
-          class="_icon_37eef5"
+          class="_icon_831119"
           fill="none"
           height="24"
           viewBox="0 0 24 24"
@@ -89,13 +91,13 @@ exports[`DrawerMenu > renders 1`] = `
           />
         </svg>
         <span
-          class="_typography_489030 _font-body-md-medium_489030 _label_37eef5"
+          class="_typography_489030 _font-body-md-medium_489030 _label_831119"
         >
           Sign out
         </span>
         <svg
           aria-hidden="true"
-          class="_nav-hint_37eef5"
+          class="_nav-hint_831119"
           fill="none"
           height="24"
           viewBox="0 0 24 24"
