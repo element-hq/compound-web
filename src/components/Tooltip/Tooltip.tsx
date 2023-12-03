@@ -83,7 +83,7 @@ type TooltipProps = {
   isTriggerInteractive?: boolean;
   /**
    * Tab index to apply to the span wrapping non interactive tooltip triggers.
-   * Only used when `isTriggerInteractive` is falsy.
+   * Only used when `isTriggerInteractive` is false.
    * @default 0
    */
   nonInteractiveTriggerTabIndex?: number;
