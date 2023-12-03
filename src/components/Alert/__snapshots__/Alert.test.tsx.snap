@@ -72,9 +72,10 @@ exports[`Alert > renders actions 1`] = `
     </div>
     <button
       aria-label="Close"
-      class="_icon-button_1d4528 _close_6cfd7b"
+      class="_icon-button_e3253e _close_6cfd7b"
       role="button"
       style="--cpd-icon-button-size: 32px;"
+      tabindex="0"
     >
       <svg
         class="cpd-icon"
@@ -134,9 +135,10 @@ exports[`Alert > renders critical 1`] = `
     </div>
     <button
       aria-label="Close"
-      class="_icon-button_1d4528 _close_6cfd7b"
+      class="_icon-button_e3253e _close_6cfd7b"
       role="button"
       style="--cpd-icon-button-size: 32px;"
+      tabindex="0"
     >
       <svg
         class="cpd-icon"
@@ -206,9 +208,10 @@ exports[`Alert > renders info 1`] = `
     </div>
     <button
       aria-label="Close"
-      class="_icon-button_1d4528 _close_6cfd7b"
+      class="_icon-button_e3253e _close_6cfd7b"
       role="button"
       style="--cpd-icon-button-size: 32px;"
+      tabindex="0"
     >
       <svg
         class="cpd-icon"
@@ -268,9 +271,10 @@ exports[`Alert > renders success 1`] = `
     </div>
     <button
       aria-label="Close"
-      class="_icon-button_1d4528 _close_6cfd7b"
+      class="_icon-button_e3253e _close_6cfd7b"
       role="button"
       style="--cpd-icon-button-size: 32px;"
+      tabindex="0"
     >
       <svg
         class="cpd-icon"

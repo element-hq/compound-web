@@ -25,8 +25,18 @@ export default {
   title: "Button/IconButton",
   component: IconButtonComponent,
   tags: ["autodocs"],
-  argTypes: {},
-  args: {},
+  parameters: {
+    actions: { argTypesRegex: "^on.*" },
+  },
+  argTypes: {
+    control: { type: "boolean" },
+    onClick: { action: "onClick" },
+  },
+  args: {
+    size: "32px",
+    disabled: false,
+    children: <UserIcon />,
+  },
 } as Meta<typeof IconButtonComponent>;
 
 const Template: StoryFn<typeof IconButtonComponent> = (args) => (
@@ -45,15 +55,27 @@ const Template: StoryFn<typeof IconButtonComponent> = (args) => (
   </>
 );
 
-export const Normal = Template.bind({});
-Normal.args = {};
+export const Demo = Template.bind({});
 
-export const WithIndicator = Template.bind({});
-WithIndicator.args = {
-  indicator: "default",
+export const Default = { args: {} };
+export const DefaultDisabled = {
+  args: {
+    disabled: true,
+  },
 };
-
-export const WithHighlightIndicator = Template.bind({});
-WithHighlightIndicator.args = {
-  indicator: "highlight",
+export const WithIndicator = {
+  args: {
+    indicator: "default",
+  },
+};
+export const WithIndicatorDisabled = {
+  args: {
+    indicator: "default",
+    disabled: true,
+  },
+};
+export const WithHighlightIndicator = {
+  args: {
+    indicator: "highlight",
+  },
 };
