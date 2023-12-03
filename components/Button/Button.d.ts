@@ -1,4 +1,5 @@
 import React, { ComponentType, PropsWithChildren } from "react";
+import { UnstyledButtonPropsFor } from "./UnstyledButton";
 interface ButtonComponent {
     <C extends React.ElementType>(props: {
         as: C;
@@ -18,16 +19,8 @@ type ButtonOwnProps = PropsWithChildren<{
      * An icon to display within the button.
      */
     Icon?: ComponentType<React.SVGAttributes<SVGElement>>;
-    /**
-     * Note that disabled attribute is not added to buttons, so that disabled buttons are discoverable by keyboard.
-     * `aria-disabled` attribute is used to indicate button is disabled.
-     * Event handlers are not passed to disabled buttons (onClick, onSubmit).
-     */
-    disabled?: boolean;
 }>;
-type ButtonPropsFor<C extends React.ElementType> = ButtonOwnProps & Omit<React.ComponentPropsWithoutRef<C>, keyof ButtonOwnProps | "as"> & {
-    ref?: React.Ref<React.ComponentRef<C>>;
-};
+type ButtonPropsFor<C extends React.ElementType> = ButtonOwnProps & UnstyledButtonPropsFor<C>;
 /**
  * A button component that can be transformed into a link, but keep the button
  * styling using the `as` property.

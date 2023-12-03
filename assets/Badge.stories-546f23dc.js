@@ -1,0 +1,8 @@
+import{j as e}from"./jsx-runtime-f6d73c06.js";import{c as l}from"./index-e131923d.js";import{T as m}from"./Typography-1dd46c86.js";import"./index-8ee6c85d.js";import"./_commonjsHelpers-de833af9.js";const p="_badge_qipht_17",u={badge:p},a=({children:t,kind:o="default",className:c})=>{const i=l(u.badge,c);return e.jsx(m,{as:"span",size:"sm",weight:"medium",className:i,"data-kind":o,children:t})};try{a.displayName="Badge",a.__docgenInfo={description:"A Badge component.",displayName:"Badge",props:{className:{defaultValue:null,description:"The CSS class name.",name:"className",required:!1,type:{name:"string"}},kind:{defaultValue:{value:"default"},description:"The type of badge.",name:"kind",required:!1,type:{name:"enum",value:[{value:'"critical"'},{value:'"default"'},{value:'"success"'}]}}}}}catch{}const h={title:"Badge",component:a,argTypes:{},args:{}},g=()=>e.jsxs(e.Fragment,{children:[e.jsx(a,{kind:"success",children:"Trusted"})," ",e.jsx(a,{kind:"critical",children:"Not trusted"})," ",e.jsx(a,{kind:"default",children:"Public room"})]}),s=g.bind({});s.args={};var n,d,r;s.parameters={...s.parameters,docs:{...(n=s.parameters)==null?void 0:n.docs,source:{originalSource:`() => <>
+    <BadgeComponent kind="success">Trusted</BadgeComponent>
+    &nbsp;
+    <BadgeComponent kind="critical">Not trusted</BadgeComponent>
+    &nbsp;
+    <BadgeComponent kind="default">Public room</BadgeComponent>
+  </>`,...(r=(d=s.parameters)==null?void 0:d.docs)==null?void 0:r.source}}};const k=["Badge"];export{s as Badge,k as __namedExportsOrder,h as default};
+//# sourceMappingURL=Badge.stories-546f23dc.js.map
