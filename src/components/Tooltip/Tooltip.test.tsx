@@ -65,6 +65,7 @@ describe("Tooltip", () => {
     render(<InteractiveTrigger />);
     const trigger = screen.getByTestId("testbutton");
 
+    expect(screen.queryByRole("tooltip")).not.toBeInTheDocument();
     fireEvent.focus(trigger);
     // tooltip shown
     expect(await screen.findByRole("tooltip")).toMatchSnapshot();
@@ -74,6 +75,7 @@ describe("Tooltip", () => {
     const { container } = render(<NonInteractiveTrigger />);
 
     expect(container).toMatchSnapshot();
+    expect(screen.queryByRole("tooltip")).not.toBeInTheDocument();
     const trigger = screen.getByTestId("testbutton");
     fireEvent.focus(trigger);
     // tooltip shown

@@ -21,7 +21,6 @@ import { Tooltip as TooltipComponent } from "./Tooltip";
 import { IconButton } from "../IconButton/IconButton";
 
 import UserIcon from "@vector-im/compound-design-tokens/icons/user-profile.svg";
-import { Text } from "../Typography/Text";
 
 export default {
   title: "Tooltip",
@@ -184,7 +183,7 @@ export const ForcedClose = {
     ...Default.args,
     open: false,
     label: "You can't see me",
-    children: <Text>No tooltip to see here</Text>,
+    children: <span>No tooltip to see here</span>,
   },
 };
 

@@ -109,12 +109,11 @@ exports[`Tooltip > renders closed by default 1`] = `
   <div
     style="padding: 100px;"
   >
-    <p
-      class="_typography_489030 _font-body-md-regular_489030"
+    <span
       data-state="closed"
     >
       No tooltip to see here
-    </p>
+    </span>
   </div>
 </DocumentFragment>
 `;
