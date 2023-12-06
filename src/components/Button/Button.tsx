@@ -23,6 +23,7 @@ import React, {
   Ref,
 } from "react";
 import styles from "./Button.module.css";
+import { UnstyledButton, UnstyledButtonPropsFor } from "./UnstyledButton";
 
 interface ButtonComponent {
   // With the explicit `as` prop
@@ -46,18 +47,10 @@ type ButtonOwnProps = PropsWithChildren<{
    * An icon to display within the button.
    */
   Icon?: ComponentType<React.SVGAttributes<SVGElement>>;
-  /**
-   * Note that disabled attribute is not added to buttons, so that disabled buttons are discoverable by keyboard.
-   * `aria-disabled` attribute is used to indicate button is disabled.
-   * Event handlers are not passed to disabled buttons (onClick, onSubmit).
-   */
-  disabled?: boolean;
 }>;
 
 type ButtonPropsFor<C extends React.ElementType> = ButtonOwnProps &
-  Omit<React.ComponentPropsWithoutRef<C>, keyof ButtonOwnProps | "as"> & {
-    ref?: React.Ref<React.ComponentRef<C>>;
-  };
+  UnstyledButtonPropsFor<C>;
 
 /**
  * A button component that can be transformed into a link, but keep the button
@@ -78,32 +71,20 @@ export const Button = forwardRef(function Button<
   }: ButtonPropsFor<C> & { as?: C },
   ref: ForwardedRef<C>,
 ): React.ReactElement {
-  const Component = as || ("button" as const);
   const classes = classNames(styles.button, className, {
     [styles["has-icon"]]: Icon,
   });
 
-  const { onClick, onSubmit, ...restProps } = props;
-  const eventHandlers = disabled
-    ? {}
-    : {
-        onClick,
-        onSubmit,
-      };
-
   return (
-    <Component
-      {...restProps}
+    <UnstyledButton
+      {...props}
+      as={as || ("button" as const)}
       ref={ref as Ref<C>}
       className={classes}
-      data-kind={kind}
       data-size={size}
-      // All elements roles should be overriden at the exceptions of anchors
-      // We want them to behave like links but look like buttons
-      role={as === "a" ? "link" : "button"}
+      data-kind={kind}
       tabIndex={0}
-      {...eventHandlers}
-      aria-disabled={disabled}
+      disabled={disabled}
     >
       {Icon && (
         <Icon
@@ -114,6 +95,6 @@ export const Button = forwardRef(function Button<
         />
       )}
       {children}
-    </Component>
+    </UnstyledButton>
   );
 }) as ButtonComponent;

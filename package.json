@@ -1,6 +1,6 @@
 {
   "name": "@vector-im/compound-web",
-  "version": "0.9.1",
+  "version": "0.9.2",
   "description": "Compound components for the Web",
   "type": "module",
   "main": "./dist/compound-web.js",

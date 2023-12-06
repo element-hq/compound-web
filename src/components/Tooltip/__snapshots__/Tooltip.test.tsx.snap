@@ -20,10 +20,12 @@ exports[`Tooltip > opens tooltip on focus where trigger is non interactive 1`] =
       tabindex="0"
     >
       <button
-        class="_icon-button_1d4528"
+        aria-disabled="true"
+        class="_icon-button_e3253e"
         data-testid="testbutton"
-        disabled=""
+        role="button"
         style="--cpd-icon-button-size: 32px;"
+        tabindex="0"
       >
         <svg
           class="cpd-icon"
@@ -72,10 +74,12 @@ exports[`Tooltip > overrides default tab index for non interactive triggers 1`] 
       tabindex="-1"
     >
       <button
-        class="_icon-button_1d4528"
+        aria-disabled="true"
+        class="_icon-button_e3253e"
         data-testid="testbutton"
-        disabled=""
+        role="button"
         style="--cpd-icon-button-size: 32px;"
+        tabindex="0"
       >
         <svg
           class="cpd-icon"
@@ -135,10 +139,12 @@ exports[`Tooltip > renders open by default 1`] = `
   >
     <button
       aria-describedby="radix-:r0:"
-      class="_icon-button_1d4528"
+      class="_icon-button_e3253e"
       data-state="instant-open"
       data-testid="testbutton"
+      role="button"
       style="--cpd-icon-button-size: 32px;"
+      tabindex="0"
     >
       <svg
         class="cpd-icon"
@@ -182,10 +188,12 @@ exports[`Tooltip > renders with caption 1`] = `
     style="padding: 100px;"
   >
     <button
-      class="_icon-button_1d4528"
+      class="_icon-button_e3253e"
       data-state="closed"
       data-testid="testbutton"
+      role="button"
       style="--cpd-icon-button-size: 32px;"
+      tabindex="0"
     >
       <svg
         class="cpd-icon"
