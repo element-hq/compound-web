@@ -1,4 +1,4 @@
-import { ComponentPropsWithoutRef, ComponentType, ReactNode, SVGAttributes } from "react";
+import { ComponentPropsWithoutRef, ComponentType, SVGAttributes } from "react";
 type MenuItemElement = "button" | "label" | "a" | "div";
 type Props<C extends MenuItemElement> = {
     /**
@@ -35,6 +35,6 @@ type Props<C extends MenuItemElement> = {
  * An item within a menu, acting either as a navigation button, or simply a
  * container for other interactive elements.
  */
-export declare const MenuItem: <C extends MenuItemElement = "button">({ as, className, Icon, label, onSelect, kind, children, onClick: onClickProp, disabled, ...props }: Props<C>) => Exclude<ReactNode, undefined>;
+export declare const MenuItem: <C extends MenuItemElement = "button">({ as, className, Icon, label, onSelect, kind, children, onClick: onClickProp, disabled, ...props }: Props<C>) => JSX.Element;
 export {};
 //# sourceMappingURL=MenuItem.d.ts.map
