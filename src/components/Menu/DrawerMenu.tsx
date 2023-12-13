@@ -36,7 +36,7 @@ interface Props extends ComponentPropsWithoutRef<"div"> {
 // This an internal component not intended for export! Consumers should use it
 // via the Menu or ContextMenu components.
 export const DrawerMenu = forwardRef<HTMLDivElement, Props>(
-  ({ title, children, className, ...props }, ref): ReactNode => (
+  ({ title, children, className, ...props }, ref) => (
     <div
       ref={ref}
       className={classNames(className, styles.drawer)}
