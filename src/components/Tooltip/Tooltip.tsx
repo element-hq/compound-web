@@ -64,11 +64,29 @@ type TooltipProps = {
   >["onPointerDownOutside"];
   /**
    * The controlled open state of the tooltip.
+   * When true, the tooltip is always open. When false, the tooltip is always hidden.
+   * When undefined, the tooltip will manage its own open state.
    * You will mostly want to omit this property. Will be used the vast majority
    * of the time during development.
    * @default undefined
    */
   open?: boolean;
+  /**
+   * Whether the trigger element is interactive.
+   * When trigger is interactive:
+   *      - tooltip will be shown after a 300ms delay.
+   * When trigger is not interactive:
+   *      - tooltip will be shown instantly when pointer enters trigger.
+   *      - trigger will be wrapped in a span with a tab index from prop nonInteractiveTriggerTabIndex
+   * @default true
+   */
+  isTriggerInteractive?: boolean;
+  /**
+   * Tab index to apply to the span wrapping non interactive tooltip triggers.
+   * Only used when `isTriggerInteractive` is false.
+   * @default 0
+   */
+  nonInteractiveTriggerTabIndex?: number;
 };
 
 /**
@@ -83,12 +101,20 @@ export const Tooltip = ({
   align = "center",
   onEscapeKeyDown,
   onPointerDownOutside,
+  isTriggerInteractive = true,
+  nonInteractiveTriggerTabIndex = 0,
   open,
 }: PropsWithChildren<TooltipProps>): JSX.Element => {
   return (
     <Provider>
-      <Root open={open} delayDuration={300}>
-        <Trigger asChild>{children}</Trigger>
+      <Root open={open} delayDuration={isTriggerInteractive ? 300 : 0}>
+        <Trigger asChild>
+          {isTriggerInteractive ? (
+            children
+          ) : (
+            <span tabIndex={nonInteractiveTriggerTabIndex}>{children}</span>
+          )}
+        </Trigger>
         <Portal>
           <Content
             side={side}

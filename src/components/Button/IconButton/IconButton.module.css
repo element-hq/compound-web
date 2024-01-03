@@ -33,7 +33,7 @@ limitations under the License.
   line-height: 0;
 }
 
-.icon-button:disabled {
+.icon-button[aria-disabled="true"] {
   color: var(--cpd-color-icon-disabled);
   cursor: not-allowed;
 }
@@ -70,19 +70,19 @@ limitations under the License.
  */
 
 @media (hover) {
-  .icon-button:not(:disabled):hover {
+  .icon-button:not([aria-disabled="true"]):hover {
     color: var(--cpd-color-icon-primary);
     background: var(--cpd-color-bg-subtle-primary);
   }
 }
 
-.icon-button:not(:disabled):active {
+.icon-button:not([aria-disabled="true"]):active {
   color: var(--cpd-color-icon-primary);
   background: var(--cpd-color-bg-subtle-primary);
 }
 
 @media (hover) {
-  .icon-button[data-indicator]:is(:hover)::before {
+  .icon-button:not([aria-disabled="true"])[data-indicator]:is(:hover)::before {
     /* Same colour as the background */
     border: var(--cpd-icon-button-indicator-border-size) solid
       var(--cpd-color-bg-subtle-primary);
@@ -91,7 +91,7 @@ limitations under the License.
   }
 }
 
-.icon-button[data-indicator]:is(:active)::before {
+.icon-button:not([aria-disabled="true"])[data-indicator]:is(:active)::before {
   /* Same colour as the background */
   border: var(--cpd-icon-button-indicator-border-size) solid
     var(--cpd-color-bg-subtle-primary);

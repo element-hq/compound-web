@@ -1,5 +1,5 @@
 /*
-Copyright 2023 New Vector Ltd
+Copyright 2023  New Vector Ltd
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -14,21 +14,5 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import { describe, it, expect } from "vitest";
-import { render } from "@testing-library/react";
-import React from "react";
-
-import { IconButton } from "./IconButton";
-
-import UserIcon from "@vector-im/compound-design-tokens/icons/user-profile.svg";
-
-describe("IconButton", () => {
-  it("renders", () => {
-    const { asFragment } = render(
-      <IconButton>
-        <UserIcon />
-      </IconButton>,
-    );
-    expect(asFragment()).toMatchSnapshot();
-  });
-});
+export { Button } from "./Button";
+export { IconButton } from "./IconButton/IconButton";

@@ -19,7 +19,6 @@ import React, {
   ComponentPropsWithoutRef,
   ComponentType,
   ElementType,
-  ReactNode,
   SVGAttributes,
   useCallback,
   useContext,
@@ -80,7 +79,7 @@ export const MenuItem = <C extends MenuItemElement = "button">({
   onClick: onClickProp,
   disabled,
   ...props
-}: Props<C>): ReactNode => {
+}: Props<C>): JSX.Element => {
   const Component = as ?? ("button" as ElementType);
   const context = useContext(MenuContext);
 

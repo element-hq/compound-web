@@ -18,22 +18,25 @@ import React, { PropsWithChildren, forwardRef } from "react";
 import classnames from "classnames";
 
 import styles from "./IconButton.module.css";
+import { UnstyledButton } from "../UnstyledButton";
+import { UnstyledButtonPropsFor } from "../UnstyledButton";
 
-type IconButtonProps = JSX.IntrinsicElements["button"] & {
-  /**
-   * The CSS class name.
-   */
-  className?: string;
-  /**
-   * The avatar size in CSS units, e.g. `"24px"`.
-   * @default 32px
-   */
-  size?: CSSStyleDeclaration["height"];
-  /**
-   * The icon button indicator displayed on the top right
-   */
-  indicator?: "default" | "highlight";
-};
+type IconButtonProps = UnstyledButtonPropsFor<"button"> &
+  JSX.IntrinsicElements["button"] & {
+    /**
+     * The CSS class name.
+     */
+    className?: string;
+    /**
+     * The avatar size in CSS units, e.g. `"24px"`.
+     * @default 32px
+     */
+    size?: CSSStyleDeclaration["height"];
+    /**
+     * The icon button indicator displayed on the top right
+     */
+    indicator?: "default" | "highlight";
+  };
 
 /**
  * Display an icon as a button. Can render an indicator
@@ -47,7 +50,8 @@ export const IconButton = forwardRef<
 ) {
   const classes = classnames(styles["icon-button"], className);
   return (
-    <button
+    <UnstyledButton
+      as="button"
       ref={ref}
       className={classes}
       style={
@@ -60,6 +64,6 @@ export const IconButton = forwardRef<
       data-indicator={indicator}
     >
       {React.Children.only(children)}
-    </button>
+    </UnstyledButton>
   );
 });

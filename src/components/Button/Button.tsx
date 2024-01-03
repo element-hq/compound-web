@@ -23,6 +23,7 @@ import React, {
   Ref,
 } from "react";
 import styles from "./Button.module.css";
+import { UnstyledButton, UnstyledButtonPropsFor } from "./UnstyledButton";
 
 interface ButtonComponent {
   // With the explicit `as` prop
@@ -49,9 +50,7 @@ type ButtonOwnProps = PropsWithChildren<{
 }>;
 
 type ButtonPropsFor<C extends React.ElementType> = ButtonOwnProps &
-  Omit<React.ComponentPropsWithoutRef<C>, keyof ButtonOwnProps | "as"> & {
-    ref?: React.Ref<React.ComponentRef<C>>;
-  };
+  UnstyledButtonPropsFor<C>;
 
 /**
  * A button component that can be transformed into a link, but keep the button
@@ -67,26 +66,25 @@ export const Button = forwardRef(function Button<
     children,
     className,
     Icon,
+    disabled,
     ...props
   }: ButtonPropsFor<C> & { as?: C },
   ref: ForwardedRef<C>,
 ): React.ReactElement {
-  const Component = as || ("button" as const);
   const classes = classNames(styles.button, className, {
     [styles["has-icon"]]: Icon,
   });
 
   return (
-    <Component
+    <UnstyledButton
       {...props}
+      as={as || ("button" as const)}
       ref={ref as Ref<C>}
       className={classes}
-      data-kind={kind}
       data-size={size}
-      // All elements roles should be overriden at the exceptions of anchors
-      // We want them to behave like links but look like buttons
-      role={as === "a" ? "link" : "button"}
+      data-kind={kind}
       tabIndex={0}
+      disabled={disabled}
     >
       {Icon && (
         <Icon
@@ -97,6 +95,6 @@ export const Button = forwardRef(function Button<
         />
       )}
       {children}
-    </Component>
+    </UnstyledButton>
   );
 }) as ButtonComponent;

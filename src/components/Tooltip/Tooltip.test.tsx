@@ -14,35 +14,97 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import { describe, it, expect, beforeAll } from "vitest";
-import { render } from "@testing-library/react";
+import { describe, it, expect, beforeAll, afterEach } from "vitest";
+import { cleanup, fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
 
-import { Tooltip } from "./Tooltip";
-import { IconButton } from "../IconButton/IconButton";
+import * as stories from "./Tooltip.stories";
+import { composeStories, composeStory } from "@storybook/react";
+
+const {
+  Default,
+  WithCaption,
+  ForcedOpen,
+  ForcedClose,
+  InteractiveTrigger,
+  NonInteractiveTrigger,
+} = composeStories(stories);
 
 describe("Tooltip", () => {
   beforeAll(() => {
     global.ResizeObserver = require("resize-observer-polyfill");
   });
+
+  afterEach(cleanup);
+
   it("renders open by default", () => {
-    const { asFragment } = render(
-      <Tooltip label="Hello world 👋" caption="⌘ + C" open={true}>
-        <IconButton>
-          <svg />
-        </IconButton>
-      </Tooltip>,
-    );
+    const { asFragment } = render(<ForcedOpen />);
+    // trigger rendered
     expect(asFragment()).toMatchSnapshot();
+    // tooltip shown
+    expect(screen.getByRole("tooltip")).toMatchSnapshot();
   });
-  it("renders", () => {
-    const { asFragment } = render(
-      <Tooltip label="Hello world 👋">
-        <IconButton>
-          <svg />
-        </IconButton>
-      </Tooltip>,
-    );
+
+  it("renders closed by default", () => {
+    const { asFragment } = render(<ForcedClose />);
     expect(asFragment()).toMatchSnapshot();
+    // no tooltip
+    expect(screen.queryByRole("tooltip")).not.toBeInTheDocument();
+  });
+
+  it("renders default tooltip", async () => {
+    render(<Default />);
+    const trigger = screen.getByTestId("testbutton");
+
+    fireEvent.focus(trigger);
+    // tooltip shown
+    expect(await screen.findByRole("tooltip")).toMatchSnapshot();
+  });
+
+  it("opens tooltip on focus", async () => {
+    render(<InteractiveTrigger />);
+    const trigger = screen.getByTestId("testbutton");
+
+    expect(screen.queryByRole("tooltip")).not.toBeInTheDocument();
+    fireEvent.focus(trigger);
+    // tooltip shown
+    expect(await screen.findByRole("tooltip")).toMatchSnapshot();
+  });
+
+  it("opens tooltip on focus where trigger is non interactive", async () => {
+    const { container } = render(<NonInteractiveTrigger />);
+
+    expect(container).toMatchSnapshot();
+    expect(screen.queryByRole("tooltip")).not.toBeInTheDocument();
+    const trigger = screen.getByTestId("testbutton");
+    fireEvent.focus(trigger);
+    // tooltip shown
+    expect(await screen.findByRole("tooltip")).toMatchSnapshot();
+  });
+
+  it("overrides default tab index for non interactive triggers", async () => {
+    const Component = composeStory(
+      {
+        ...stories.NonInteractiveTrigger,
+        args: {
+          ...stories.NonInteractiveTrigger.args,
+          nonInteractiveTriggerTabIndex: -1,
+        },
+      },
+      stories.default,
+    );
+    const { container } = render(<Component />);
+
+    expect(container).toMatchSnapshot();
+  });
+
+  it("renders with caption", async () => {
+    const { asFragment } = render(<WithCaption />);
+    expect(asFragment()).toMatchSnapshot();
+    const trigger = screen.getByTestId("testbutton");
+
+    fireEvent.focus(trigger);
+    // tooltip shown
+    expect(await screen.findByRole("tooltip")).toMatchSnapshot();
   });
 });
