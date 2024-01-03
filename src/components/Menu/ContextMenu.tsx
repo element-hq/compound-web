@@ -46,6 +46,13 @@ interface Props {
    */
   trigger: ReactNode;
   /**
+   * Whether the functionality of this menu is available through some other
+   * keyboard-accessible means. Preferably this should be true, because context
+   * menus are potentially difficult to discover, but if false the trigger will
+   * become focusable so that it can be opened via keyboard navigation.
+   */
+  hasAccessibleAlternative: boolean;
+  /**
    * The menu contents.
    */
   children: ReactNode;
@@ -66,7 +73,8 @@ const ContextMenuItemWrapper: FC<MenuItemWrapperProps> = ({
 export const ContextMenu: FC<Props> = ({
   title,
   onOpenChange: onOpenChangeProp,
-  trigger,
+  trigger: triggerProp,
+  hasAccessibleAlternative,
   children: childrenProp,
 }) => {
   const [open, setOpen] = useState(false);
@@ -93,6 +101,16 @@ export const ContextMenu: FC<Props> = ({
     <MenuContext.Provider value={context}>{childrenProp}</MenuContext.Provider>
   );
 
+  const trigger = (
+    <Trigger
+      aria-haspopup="menu"
+      tabIndex={hasAccessibleAlternative ? undefined : 0}
+      asChild
+    >
+      {triggerProp}
+    </Trigger>
+  );
+
   // This is a small hack: Vaul drawers only support buttons as triggers, so
   // we end up mounting an empty Radix context menu tree alongside the
   // drawer tree, purely so we can use its Trigger component (which supports
@@ -101,9 +119,7 @@ export const ContextMenu: FC<Props> = ({
   // this is fine.
   return drawer ? (
     <>
-      <Root onOpenChange={onOpenChange}>
-        <Trigger asChild>{trigger}</Trigger>
-      </Root>
+      <Root onOpenChange={onOpenChange}>{trigger}</Root>
       <Drawer.Root open={open} onOpenChange={onOpenChange}>
         <Drawer.Portal>
           <Drawer.Overlay className={classnames(drawerStyles.bg)} />
@@ -115,7 +131,7 @@ export const ContextMenu: FC<Props> = ({
     </>
   ) : (
     <Root onOpenChange={onOpenChange}>
-      <Trigger asChild>{trigger}</Trigger>
+      {trigger}
       <Portal>
         <Content asChild>
           <FloatingMenu title={title}>{children}</FloatingMenu>

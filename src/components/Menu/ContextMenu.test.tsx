@@ -31,6 +31,7 @@ describe("ContextMenu", () => {
         title="Settings"
         onOpenChange={onOpenChange}
         trigger={<div>Open menu</div>}
+        hasAccessibleAlternative
       >
         <MenuItem Icon={UserProfileIcon} label="Profile" onSelect={() => {}} />
       </ContextMenu>,

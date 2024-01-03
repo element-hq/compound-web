@@ -56,6 +56,7 @@ const Template: StoryFn<typeof ContextMenuComponent> = (args) => {
           Right click or long press to open menu
         </div>
       }
+      hasAccessibleAlternative={false}
     >
       <MenuItem Icon={UserProfileIcon} label="Profile" onSelect={() => {}} />
       <MenuItem
