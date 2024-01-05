@@ -8,6 +8,7 @@ export { Badge } from "./components/Badge/Badge";
 export { Button, IconButton } from "./components/Button";
 export { Body } from "./components/Typography/Body";
 export { Text } from "./components/Typography/Text";
+export { ContextMenu } from "./components/Menu/ContextMenu";
 export { Glass } from "./components/Glass/Glass";
 export { Heading, H1, H2, H3, H4, H5, H6, } from "./components/Typography/Heading";
 export { Link } from "./components/Link/Link";
