@@ -25,6 +25,7 @@ export { Badge } from "./components/Badge/Badge";
 export { Button, IconButton } from "./components/Button";
 export { Body } from "./components/Typography/Body";
 export { Text } from "./components/Typography/Text";
+export { ContextMenu } from "./components/Menu/ContextMenu";
 export { Glass } from "./components/Glass/Glass";
 export {
   Heading,
