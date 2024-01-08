@@ -1,0 +1,7 @@
+.tableRowClickable {
+    cursor: pointer;
+}
+
+.tableRow:hover {
+    background-color: var(--cpd-color-bg-action-secondary-hovered);
+}

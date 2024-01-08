@@ -1,0 +1,33 @@
+.tableHeadline {
+    display: flex;
+    flex-direction: column;
+    gap: var(--cpd-space-4x);
+}
+
+.tableHeadlineTitle {
+    color: var(--cpd-color-text-primary);
+    flex-grow: 1;
+    font-size: var(--cpd-font-size-heading-sm);
+    font-weight: var(--cpd-font-weight-semibold);
+}
+
+.paginationAndInfo {
+    position: relative;
+    align-items: center;
+    display: flex;
+    gap: var(--cpd-space-2x);
+}
+
+.tableHeadlinePages {
+    color: var(--cpd-color-text-secondary);
+    font-size: var(--cpd-font-size-body-sm);
+    margin-right: auto;
+}
+
+/* Equivalent to Bootstrap lg breakpoint */
+@media (min-width: 992px) {
+    .tableHeadline {
+        align-items: center;
+        flex-direction: row;
+    }
+}

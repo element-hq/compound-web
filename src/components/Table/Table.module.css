@@ -1,0 +1,22 @@
+.table {
+    border-collapse: collapse;
+    margin-bottom: var(--cpd-space-13x);
+    width: 100%;
+}
+
+.tableHeader {
+    border-bottom: var(--cpd-border-width-1) solid var(--cpd-color-border-interactive-secondary);
+    color: var(--cpd-color-text-secondary);
+    font-size: var(--cpd-font-size-body-xs);
+    font-weight: var(--cpd-font-weight-regular);
+    padding: var(--cpd-space-4x);
+    text-transform: uppercase;
+}
+
+.tableHeaderCentred {
+    text-align: center;
+}
+
+.tableHeaderCheckbox {
+    width: 24px;
+}

@@ -1,0 +1,13 @@
+.avatarCell {
+    align-items: center;
+    display: flex;
+    gap: var(--cpd-space-3x);
+}
+
+.avatar {
+    flex-shrink: 0;
+}
+
+.userId {
+    min-width: 0;
+}

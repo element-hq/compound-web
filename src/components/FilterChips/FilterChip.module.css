@@ -1,0 +1,17 @@
+.filterChip {
+    /* disable padding here and move to the button inside */
+    padding: 0;
+}
+
+.filterChip:hover {
+    background-color: var(--cpd-color-gray-500);
+}
+
+.filterChipButton {
+    align-items: center;
+    display: flex;
+    gap: var(--cpd-space-1x);
+    /* apply compound badge padding here */
+    padding: var(--cpd-space-1x) var(--cpd-space-3x);
+    white-space: nowrap;
+}

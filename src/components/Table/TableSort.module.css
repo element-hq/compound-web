@@ -1,0 +1,15 @@
+.tableSortItem {
+    align-items: center;
+    display: flex;
+    gap: var(--cpd-space-2x);
+}
+
+.iconPlaceholder {
+    width: 24px;
+}
+
+.toggle {
+    background: transparent;
+    border: 0;
+    color: var(--cpd-color-text-primary);
+}

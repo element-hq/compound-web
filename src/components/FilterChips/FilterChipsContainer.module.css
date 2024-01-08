@@ -1,0 +1,5 @@
+.filterChipsContainer {
+    display: flex;
+    flex-flow: wrap;
+    gap: var(--cpd-space-2x);
+}
