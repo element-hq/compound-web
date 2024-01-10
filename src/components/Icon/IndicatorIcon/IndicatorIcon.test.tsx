@@ -1,5 +1,5 @@
 /*
-Copyright 2023 New Vector Ltd
+Copyright 2024 New Vector Ltd
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -19,24 +19,14 @@ import { render } from "@testing-library/react";
 import React from "react";
 import { composeStories } from "@storybook/react";
 
-import * as stories from "./IconButton.stories";
+import * as stories from "./IndicatorIcon.stories";
 
-const {
-  Default,
-  DefaultDisabled,
-  WithIndicator,
-  WithSuccessIndicator,
-  WithCriticalIndicator,
-  WithIndicatorDisabled,
-} = composeStories(stories);
+const { Default, WithIndicator, WithSuccessIndicator, WithCriticalIndicator } =
+  composeStories(stories);
 
 describe("IconButton", () => {
   it("renders a Default IconButton", () => {
     const { container } = render(<Default />);
-    expect(container).toMatchSnapshot();
-  });
-  it("renders a DefaultDisabled IconButton", () => {
-    const { container } = render(<DefaultDisabled />);
     expect(container).toMatchSnapshot();
   });
   it("renders a WithIndicator IconButton", () => {
@@ -49,10 +39,6 @@ describe("IconButton", () => {
   });
   it("renders a WithCriticalIndicator IconButton", () => {
     const { container } = render(<WithCriticalIndicator />);
-    expect(container).toMatchSnapshot();
-  });
-  it("renders a WithIndicatorDisabled IconButton", () => {
-    const { container } = render(<WithIndicatorDisabled />);
     expect(container).toMatchSnapshot();
   });
 });

@@ -1,5 +1,5 @@
 /*
-Copyright 2023 New Vector Ltd
+Copyright 2024 New Vector Ltd
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -17,13 +17,13 @@ limitations under the License.
 import React from "react";
 import { Meta, StoryFn } from "@storybook/react";
 
-import { IconButton as IconButtonComponent } from "./IconButton";
+import { IndicatorIcon as IndicatorIconComponent } from "./IndicatorIcon";
 
-import UserIcon from "@vector-im/compound-design-tokens/icons/user-profile.svg";
+import ThreadIcon from "@vector-im/compound-design-tokens/icons/threads.svg";
 
 export default {
-  title: "Button/IconButton",
-  component: IconButtonComponent,
+  title: "Icon/IndicatorIcon",
+  component: IndicatorIconComponent,
   tags: ["autodocs"],
   parameters: {
     actions: { argTypesRegex: "^on.*" },
@@ -35,43 +35,44 @@ export default {
   args: {
     size: "32px",
     disabled: false,
-    children: <UserIcon />,
+    children: <ThreadIcon />,
   },
-} as Meta<typeof IconButtonComponent>;
+} as Meta<typeof IndicatorIconComponent>;
 
-const Template: StoryFn<typeof IconButtonComponent> = (args) => (
+const Template: StoryFn<typeof IndicatorIconComponent> = (args) => (
   <>
-    <IconButtonComponent {...args} size="32px">
-      <UserIcon />
-    </IconButtonComponent>
+    <IndicatorIconComponent {...args} size="32px">
+      <ThreadIcon />
+    </IndicatorIconComponent>
 
-    <IconButtonComponent {...args} size="48px">
-      <UserIcon />
-    </IconButtonComponent>
+    <IndicatorIconComponent {...args} size="48px">
+      <ThreadIcon />
+    </IndicatorIconComponent>
 
-    <IconButtonComponent {...args} size="64px">
-      <UserIcon />
-    </IconButtonComponent>
+    <IndicatorIconComponent {...args} size="64px">
+      <ThreadIcon />
+    </IndicatorIconComponent>
+
+    <IndicatorIconComponent {...args} size="32px" indicator="default">
+      <ThreadIcon />
+    </IndicatorIconComponent>
+
+    <IndicatorIconComponent {...args} size="48px" indicator="default">
+      <ThreadIcon />
+    </IndicatorIconComponent>
+
+    <IndicatorIconComponent {...args} size="64px" indicator="default">
+      <ThreadIcon />
+    </IndicatorIconComponent>
   </>
 );
 
 export const Demo = Template.bind({});
 
 export const Default = { args: {} };
-export const DefaultDisabled = {
-  args: {
-    disabled: true,
-  },
-};
 export const WithIndicator = {
   args: {
     indicator: "default",
-  },
-};
-export const WithIndicatorDisabled = {
-  args: {
-    indicator: "default",
-    disabled: true,
   },
 };
 export const WithSuccessIndicator = {

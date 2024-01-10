@@ -1,0 +1,60 @@
+/*
+Copyright 2024 New Vector Ltd
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+
+.indicator-icon {
+  /* This is called 'button size' but the docs say 'icon size' */
+  inline-size: var(--cpd-icon-button-size);
+  block-size: var(--cpd-icon-button-size);
+
+  --cpd-icon-button-indicator-border-size: calc(
+    var(--cpd-icon-button-size) * 0.0625
+  );
+
+  aspect-ratio: 1 / 1;
+  color: var(--cpd-color-icon-tertiary);
+  position: relative;
+}
+
+.indicator-icon svg {
+  inline-size: 100%;
+  block-size: 100%;
+}
+
+.indicator-icon[data-indicator] svg {
+  mask-image: url("./indicator-mask.svg");
+  mask-position: center center;
+  mask-repeat: no-repeat;
+  mask-size: calc(var(--cpd-icon-button-size) * 0.85);
+}
+
+.indicator-icon[data-indicator]::before {
+  content: "";
+  position: absolute;
+  inset-block-start: var(--cpd-icon-button-indicator-border-size);
+  inset-inline-end: var(--cpd-icon-button-indicator-border-size);
+  inline-size: calc(var(--cpd-icon-button-size) * 0.25);
+  block-size: calc(var(--cpd-icon-button-size) * 0.25);
+  border-radius: 50%;
+  background: currentcolor;
+}
+
+.indicator-icon[data-indicator="success"]::before {
+  background: var(--cpd-color-icon-success-primary);
+}
+
+.indicator-icon[data-indicator="critical"]::before {
+  background: var(--cpd-color-icon-critical-primary);
+}

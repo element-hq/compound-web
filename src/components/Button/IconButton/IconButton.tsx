@@ -20,6 +20,7 @@ import classnames from "classnames";
 import styles from "./IconButton.module.css";
 import { UnstyledButton } from "../UnstyledButton";
 import { UnstyledButtonPropsFor } from "../UnstyledButton";
+import { IndicatorIcon } from "../../Icon/IndicatorIcon/IndicatorIcon";
 
 type IconButtonProps = UnstyledButtonPropsFor<"button"> &
   JSX.IntrinsicElements["button"] & {
@@ -33,9 +34,15 @@ type IconButtonProps = UnstyledButtonPropsFor<"button"> &
      */
     size?: CSSStyleDeclaration["height"];
     /**
-     * The icon button indicator displayed on the top right
+     * The icon button indicator dot displayed on the top right
+     * As in IndicatorIcon
      */
-    indicator?: "default" | "highlight";
+    indicator?: "default" | "success" | "critical";
+
+    /**
+     * Whether the button is interactable
+     */
+    disabled?: boolean;
   };
 
 /**
@@ -45,7 +52,7 @@ export const IconButton = forwardRef<
   HTMLButtonElement,
   PropsWithChildren<IconButtonProps>
 >(function IconButton(
-  { children, className, indicator, size = "32px", style, ...props },
+  { children, className, indicator, size = "32px", style, disabled, ...props },
   ref,
 ) {
   const classes = classnames(styles["icon-button"], className);
@@ -60,10 +67,17 @@ export const IconButton = forwardRef<
           ...style,
         } as React.CSSProperties
       }
+      disabled={disabled}
       {...props}
       data-indicator={indicator}
     >
-      {React.Children.only(children)}
+      <IndicatorIcon
+        indicator={indicator}
+        size={size}
+        colour={disabled ? "var(--cpd-color-icon-disabled)" : undefined}
+      >
+        {React.Children.only(children)}
+      </IndicatorIcon>
     </UnstyledButton>
   );
 });

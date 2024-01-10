@@ -21,48 +21,21 @@ limitations under the License.
 
   inline-size: var(--cpd-icon-button-size);
   block-size: var(--cpd-icon-button-size);
-  padding: calc(var(--cpd-icon-button-size) * 0.125);
+  padding: 0px;
   aspect-ratio: 1 / 1;
   color: var(--cpd-color-icon-tertiary);
-  border: 0;
+  border: 0px;
   appearance: none;
   cursor: pointer;
   border-radius: 50%;
   position: relative;
   background: transparent;
-  line-height: 0;
+  line-height: 0px;
 }
 
 .icon-button[aria-disabled="true"] {
   color: var(--cpd-color-icon-disabled);
   cursor: not-allowed;
-}
-
-.icon-button svg {
-  inline-size: 100%;
-  block-size: 100%;
-}
-
-.icon-button[data-indicator] svg {
-  mask-image: url("./indicator-mask.svg");
-  mask-position: center center;
-  mask-repeat: no-repeat;
-  mask-size: calc(var(--cpd-icon-button-size) * 0.75);
-}
-
-.icon-button[data-indicator]::before {
-  content: "";
-  position: absolute;
-  inset-block-start: var(--cpd-icon-button-indicator-border-size);
-  inset-inline-end: var(--cpd-icon-button-indicator-border-size);
-  inline-size: calc(var(--cpd-icon-button-size) * 0.25);
-  block-size: calc(var(--cpd-icon-button-size) * 0.25);
-  border-radius: 50%;
-  background: currentcolor;
-}
-
-.icon-button[data-indicator="highlight"]::before {
-  background: var(--cpd-color-icon-success-primary);
 }
 
 /**
