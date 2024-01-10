@@ -1,5 +1,5 @@
 /*
-Copyright 2023 New Vector Ltd
+Copyright 2023-2024 New Vector Ltd
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -29,10 +29,6 @@ type TooltipProps = {
    * The tooltip caption
    */
   caption?: string;
-  /**
-   * @deprecated replaced by `caption`
-   */
-  shortcut?: string;
   /**
    * The side where the tooltip is rendered
    * @default bottom
@@ -89,7 +85,6 @@ export const Tooltip = ({
   children,
   label,
   caption,
-  shortcut,
   side = "bottom",
   align = "center",
   onEscapeKeyDown,
@@ -120,9 +115,9 @@ export const Tooltip = ({
               using the text color secondary on a solid dark background. 
               This is temporary and should only remain until we figure out 
               the approach to on-solid tokens */}
-          {(caption || shortcut) && (
+          {caption && (
             <span className={classNames(styles.caption, "cpd-theme-dark")}>
-              {caption ?? shortcut}
+              {caption}
             </span>
           )}
           <Arrow width={10} height={6} className={styles.arrow} />
