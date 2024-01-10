@@ -15,14 +15,7 @@ limitations under the License.
 */
 
 import React, { PropsWithChildren } from "react";
-import {
-  Root,
-  Trigger,
-  Portal,
-  Content,
-  Arrow,
-  Provider,
-} from "@radix-ui/react-tooltip";
+import { Root, Trigger, Portal, Content, Arrow } from "@radix-ui/react-tooltip";
 
 import styles from "./Tooltip.module.css";
 import classNames from "classnames";
@@ -101,37 +94,35 @@ export const Tooltip = ({
   open,
 }: PropsWithChildren<TooltipProps>): JSX.Element => {
   return (
-    <Provider>
-      <Root open={open} delayDuration={isTriggerInteractive ? 300 : 0}>
-        <Trigger asChild>
-          {isTriggerInteractive ? (
-            children
-          ) : (
-            <span tabIndex={nonInteractiveTriggerTabIndex}>{children}</span>
+    <Root open={open} delayDuration={isTriggerInteractive ? 300 : 0}>
+      <Trigger asChild>
+        {isTriggerInteractive ? (
+          children
+        ) : (
+          <span tabIndex={nonInteractiveTriggerTabIndex}>{children}</span>
+        )}
+      </Trigger>
+      <Portal>
+        <Content
+          side={side}
+          align={align}
+          onEscapeKeyDown={onEscapeKeyDown}
+          onPointerDownOutside={onPointerDownOutside}
+          className={styles.tooltip}
+        >
+          {label}
+          {/* Forcing dark theme, so that we have the correct contrast when
+              using the text color secondary on a solid dark background. 
+              This is temporary and should only remain until we figure out 
+              the approach to on-solid tokens */}
+          {caption && (
+            <span className={classNames(styles.caption, "cpd-theme-dark")}>
+              {caption}
+            </span>
           )}
-        </Trigger>
-        <Portal>
-          <Content
-            side={side}
-            align={align}
-            onEscapeKeyDown={onEscapeKeyDown}
-            onPointerDownOutside={onPointerDownOutside}
-            className={styles.tooltip}
-          >
-            {label}
-            {/* Forcing dark theme, so that we have the correct contrast when
-                using the text color secondary on a solid dark background. 
-                This is temporary and should only remain until we figure out 
-                the approach to on-solid tokens */}
-            {caption && (
-              <span className={classNames(styles.caption, "cpd-theme-dark")}>
-                {caption}
-              </span>
-            )}
-            <Arrow width={10} height={6} className={styles.arrow} />
-          </Content>
-        </Portal>
-      </Root>
-    </Provider>
+          <Arrow width={10} height={6} className={styles.arrow} />
+        </Content>
+      </Portal>
+    </Root>
   );
 };

@@ -20,17 +20,20 @@ import React from "react";
 import ChatIcon from "@vector-im/compound-design-tokens/icons/chat.svg";
 
 import { ActionInput } from "./Action";
+import { TooltipProvider } from "../../../Tooltip/TooltipProvider";
 
 describe("ActionInput", () => {
   it("renders", () => {
     const { asFragment } = render(
-      <ActionInput
-        Icon={ChatIcon}
-        actionLabel="Click me!"
-        onActionClick={() => {
-          console.log("clicked!");
-        }}
-      />,
+      <TooltipProvider>
+        <ActionInput
+          Icon={ChatIcon}
+          actionLabel="Click me!"
+          onActionClick={() => {
+            console.log("clicked!");
+          }}
+        />
+      </TooltipProvider>,
     );
     expect(asFragment()).toMatchSnapshot();
   });
@@ -39,11 +42,13 @@ describe("ActionInput", () => {
     const spy = vi.fn();
 
     const { container } = render(
-      <ActionInput
-        Icon={ChatIcon}
-        actionLabel="Click me!"
-        onActionClick={spy}
-      />,
+      <TooltipProvider>
+        <ActionInput
+          Icon={ChatIcon}
+          actionLabel="Click me!"
+          onActionClick={spy}
+        />
+      </TooltipProvider>,
     );
 
     const actionBtn = getByLabelText(container, "Click me!");
