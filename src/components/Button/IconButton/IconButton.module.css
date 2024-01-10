@@ -21,10 +21,10 @@ limitations under the License.
 
   inline-size: var(--cpd-icon-button-size);
   block-size: var(--cpd-icon-button-size);
-  padding: 0px;
+  padding: 0;
   aspect-ratio: 1 / 1;
   color: var(--cpd-color-icon-tertiary);
-  border: 0px;
+  border: 0;
   appearance: none;
   cursor: pointer;
   border-radius: 50%;
