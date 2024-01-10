@@ -10,10 +10,6 @@ type TooltipProps = {
      */
     caption?: string;
     /**
-     * @deprecated replaced by `caption`
-     */
-    shortcut?: string;
-    /**
      * The side where the tooltip is rendered
      * @default bottom
      */
@@ -62,6 +58,6 @@ type TooltipProps = {
 /**
  * A tooltip component
  */
-export declare const Tooltip: ({ children, label, caption, shortcut, side, align, onEscapeKeyDown, onPointerDownOutside, isTriggerInteractive, nonInteractiveTriggerTabIndex, open, }: PropsWithChildren<TooltipProps>) => JSX.Element;
+export declare const Tooltip: ({ children, label, caption, side, align, onEscapeKeyDown, onPointerDownOutside, isTriggerInteractive, nonInteractiveTriggerTabIndex, open, }: PropsWithChildren<TooltipProps>) => JSX.Element;
 export {};
 //# sourceMappingURL=Tooltip.d.ts.map
