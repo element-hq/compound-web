@@ -79,7 +79,7 @@ exports[`Alert > renders actions 1`] = `
     >
       <div
         class="_indicator-icon_ab1fc6"
-        style="--cpd-icon-button-size: 32px;"
+        style="--cpd-icon-button-size: calc(32px * 0.75);"
       >
         <svg
           class="cpd-icon"
@@ -147,7 +147,7 @@ exports[`Alert > renders critical 1`] = `
     >
       <div
         class="_indicator-icon_ab1fc6"
-        style="--cpd-icon-button-size: 32px;"
+        style="--cpd-icon-button-size: calc(32px * 0.75);"
       >
         <svg
           class="cpd-icon"
@@ -225,7 +225,7 @@ exports[`Alert > renders info 1`] = `
     >
       <div
         class="_indicator-icon_ab1fc6"
-        style="--cpd-icon-button-size: 32px;"
+        style="--cpd-icon-button-size: calc(32px * 0.75);"
       >
         <svg
           class="cpd-icon"
@@ -293,7 +293,7 @@ exports[`Alert > renders success 1`] = `
     >
       <div
         class="_indicator-icon_ab1fc6"
-        style="--cpd-icon-button-size: 32px;"
+        style="--cpd-icon-button-size: calc(32px * 0.75);"
       >
         <svg
           class="cpd-icon"

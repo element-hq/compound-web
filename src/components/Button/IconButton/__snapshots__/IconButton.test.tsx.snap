@@ -11,7 +11,7 @@ exports[`IconButton > renders a Default IconButton 1`] = `
   >
     <div
       class="_indicator-icon_ab1fc6"
-      style="--cpd-icon-button-size: 32px;"
+      style="--cpd-icon-button-size: calc(32px * 0.75);"
     >
       <svg
         class="cpd-icon"
@@ -50,7 +50,7 @@ exports[`IconButton > renders a DefaultDisabled IconButton 1`] = `
   >
     <div
       class="_indicator-icon_ab1fc6"
-      style="--cpd-icon-button-size: 32px; --cpd-color-icon-tertiary: var(--cpd-color-icon-disabled);"
+      style="--cpd-icon-button-size: calc(32px * 0.75); --cpd-color-icon-tertiary: var(--cpd-color-icon-disabled);"
     >
       <svg
         class="cpd-icon"
@@ -91,7 +91,7 @@ exports[`IconButton > renders a WithCriticalIndicator IconButton 1`] = `
     <div
       class="_indicator-icon_ab1fc6"
       data-indicator="critical"
-      style="--cpd-icon-button-size: 32px;"
+      style="--cpd-icon-button-size: calc(32px * 0.75);"
     >
       <svg
         class="cpd-icon"
@@ -132,7 +132,7 @@ exports[`IconButton > renders a WithIndicator IconButton 1`] = `
     <div
       class="_indicator-icon_ab1fc6"
       data-indicator="default"
-      style="--cpd-icon-button-size: 32px;"
+      style="--cpd-icon-button-size: calc(32px * 0.75);"
     >
       <svg
         class="cpd-icon"
@@ -173,7 +173,7 @@ exports[`IconButton > renders a WithIndicatorDisabled IconButton 1`] = `
     <div
       class="_indicator-icon_ab1fc6"
       data-indicator="default"
-      style="--cpd-icon-button-size: 32px; --cpd-color-icon-tertiary: var(--cpd-color-icon-disabled);"
+      style="--cpd-icon-button-size: calc(32px * 0.75); --cpd-color-icon-tertiary: var(--cpd-color-icon-disabled);"
     >
       <svg
         class="cpd-icon"
@@ -214,7 +214,7 @@ exports[`IconButton > renders a WithSuccessIndicator IconButton 1`] = `
     <div
       class="_indicator-icon_ab1fc6"
       data-indicator="success"
-      style="--cpd-icon-button-size: 32px;"
+      style="--cpd-icon-button-size: calc(32px * 0.75);"
     >
       <svg
         class="cpd-icon"

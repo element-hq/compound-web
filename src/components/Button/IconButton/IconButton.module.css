@@ -21,7 +21,8 @@ limitations under the License.
 
   inline-size: var(--cpd-icon-button-size);
   block-size: var(--cpd-icon-button-size);
-  padding: 0;
+  /* the icon is 0.75 the size of the button, so add padding to put it in the middle */
+  padding: calc(var(--cpd-icon-button-size) * 0.125);
   aspect-ratio: 1 / 1;
   color: var(--cpd-color-icon-tertiary);
   border: 0;
