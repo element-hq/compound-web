@@ -73,7 +73,7 @@ export const IconButton = forwardRef<
     >
       <IndicatorIcon
         indicator={indicator}
-        size={`calc(${size} * 0.75)`}
+        size="100%"
         colour={disabled ? "var(--cpd-color-icon-disabled)" : undefined}
       >
         {React.Children.only(children)}

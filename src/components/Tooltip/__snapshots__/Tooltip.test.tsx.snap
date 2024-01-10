@@ -29,7 +29,7 @@ exports[`Tooltip > opens tooltip on focus where trigger is non interactive 1`] =
       >
         <div
           class="_indicator-icon_ab1fc6"
-          style="--cpd-icon-button-size: calc(32px * 0.75); --cpd-color-icon-tertiary: var(--cpd-color-icon-disabled);"
+          style="--cpd-icon-button-size: 100%; --cpd-color-icon-tertiary: var(--cpd-color-icon-disabled);"
         >
           <svg
             class="cpd-icon"
@@ -88,7 +88,7 @@ exports[`Tooltip > overrides default tab index for non interactive triggers 1`] 
       >
         <div
           class="_indicator-icon_ab1fc6"
-          style="--cpd-icon-button-size: calc(32px * 0.75); --cpd-color-icon-tertiary: var(--cpd-color-icon-disabled);"
+          style="--cpd-icon-button-size: 100%; --cpd-color-icon-tertiary: var(--cpd-color-icon-disabled);"
         >
           <svg
             class="cpd-icon"
@@ -158,7 +158,7 @@ exports[`Tooltip > renders open by default 1`] = `
     >
       <div
         class="_indicator-icon_ab1fc6"
-        style="--cpd-icon-button-size: calc(32px * 0.75);"
+        style="--cpd-icon-button-size: 100%;"
       >
         <svg
           class="cpd-icon"
@@ -212,7 +212,7 @@ exports[`Tooltip > renders with caption 1`] = `
     >
       <div
         class="_indicator-icon_ab1fc6"
-        style="--cpd-icon-button-size: calc(32px * 0.75);"
+        style="--cpd-icon-button-size: 100%;"
       >
         <svg
           class="cpd-icon"
