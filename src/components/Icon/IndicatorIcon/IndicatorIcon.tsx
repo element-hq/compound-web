@@ -26,7 +26,7 @@ type IconButtonProps = {
   className?: string;
   /**
    * The icon size in CSS units, e.g. `"24px"`.
-   * @default 32px
+   * @default 100%
    */
   size?: CSSStyleDeclaration["height"];
   /**
@@ -43,7 +43,13 @@ type IconButtonProps = {
 export const IndicatorIcon = forwardRef<
   HTMLButtonElement,
   PropsWithChildren<IconButtonProps>
->(function IconButton({ children, className, size, colour, indicator }) {
+>(function IconButton({
+  children,
+  className,
+  size = "100%",
+  colour,
+  indicator,
+}) {
   const classes = classnames(styles["indicator-icon"], className);
   return (
     <div
