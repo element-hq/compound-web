@@ -34,6 +34,7 @@ export default defineConfig({
         "classnames",
         "graphemer",
         "vaul",
+        "@radix-ui/react-context-menu",
         "@radix-ui/react-dropdown-menu",
         "@radix-ui/react-form",
         "@radix-ui/react-tooltip",

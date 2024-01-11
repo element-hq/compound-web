@@ -14,13 +14,14 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import React from "react";
+import React, { FC, ReactNode } from "react";
 import { Meta, StoryFn } from "@storybook/react";
 
 import { Tooltip as TooltipComponent } from "./Tooltip";
 import { IconButton } from "../Button";
 
 import UserIcon from "@vector-im/compound-design-tokens/icons/user-profile.svg";
+import { TooltipProvider } from "./TooltipProvider";
 
 export default {
   title: "Tooltip",
@@ -72,14 +73,20 @@ export default {
   },
   decorators: [
     (Story: StoryFn) => (
-      <div style={{ padding: 100 }}>
-        <Story />
-      </div>
+      <TooltipProvider>
+        <div style={{ padding: 100 }}>
+          <Story />
+        </div>
+      </TooltipProvider>
     ),
   ],
 } as Meta<typeof TooltipComponent>;
 
-const TemplateSide: StoryFn<typeof TooltipComponent> = () => (
+interface LayoutProps {
+  children: ReactNode;
+}
+
+const Layout: FC<LayoutProps> = ({ children }) => (
   <div
     style={{
       display: "flex",
@@ -88,67 +95,46 @@ const TemplateSide: StoryFn<typeof TooltipComponent> = () => (
       alignItems: "center",
     }}
   >
-    <TooltipComponent open={true} side="top" label="@bob:example.org">
-      <IconButton>
-        <UserIcon />
-      </IconButton>
-    </TooltipComponent>
-    <TooltipComponent open={true} side="right" label="@bob:example.org">
-      <IconButton>
-        <UserIcon />
-      </IconButton>
-    </TooltipComponent>
-    <TooltipComponent open={true} side="bottom" label="@bob:example.org">
-      <IconButton>
-        <UserIcon />
-      </IconButton>
-    </TooltipComponent>
-    <TooltipComponent open={true} side="left" label="@bob:example.org">
-      <IconButton>
-        <UserIcon />
-      </IconButton>
-    </TooltipComponent>
+    {children}
   </div>
+);
+
+const TemplateSide: StoryFn<typeof TooltipComponent> = () => (
+  <Layout>
+    {(["top", "right", "bottom", "left"] as const).map((side) => (
+      <TooltipComponent key={side} open side={side} label="@bob:example.org">
+        <IconButton>
+          <UserIcon />
+        </IconButton>
+      </TooltipComponent>
+    ))}
+  </Layout>
 );
 
 export const Side = TemplateSide.bind({});
 Side.args = {};
 
 const TemplateAlign: StoryFn<typeof TooltipComponent> = () => (
-  <div
-    style={{
-      display: "flex",
-      gap: "50px",
-      flexDirection: "column",
-      alignItems: "center",
-    }}
-  >
+  <Layout>
     <TooltipComponent open={true} align="center" label="Copy" caption="⌘ + C">
       <IconButton>
         <UserIcon />
       </IconButton>
     </TooltipComponent>
-    <TooltipComponent
-      open={true}
-      align="start"
-      label="@bob:example.org"
-      caption="⌘ + C"
-    >
-      <IconButton>
-        <UserIcon />
-      </IconButton>
-    </TooltipComponent>
-    <TooltipComponent
-      open={true}
-      align="end"
-      label="@bob:example.org"
-      caption="⌘ + C"
-    >
-      <IconButton>
-        <UserIcon />
-      </IconButton>
-    </TooltipComponent>
-  </div>
+    {(["start", "end"] as const).map((align) => (
+      <TooltipComponent
+        key={align}
+        open
+        align={align}
+        label="@bob:example.org"
+        caption="⌘ + C"
+      >
+        <IconButton>
+          <UserIcon />
+        </IconButton>
+      </TooltipComponent>
+    ))}
+  </Layout>
 );
 
 export const Align = TemplateAlign.bind({});

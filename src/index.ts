@@ -25,6 +25,7 @@ export { Badge } from "./components/Badge/Badge";
 export { Button, IconButton } from "./components/Button";
 export { Body } from "./components/Typography/Body";
 export { Text } from "./components/Typography/Text";
+export { ContextMenu } from "./components/Menu/ContextMenu";
 export { Glass } from "./components/Glass/Glass";
 export {
   Heading,
@@ -42,6 +43,7 @@ export { Search } from "./components/Search/Search";
 export { Separator } from "./components/Separator/Separator";
 export { ToggleMenuItem } from "./components/Menu/ToggleMenuItem";
 export { Tooltip } from "./components/Tooltip/Tooltip";
+export { TooltipProvider } from "./components/Tooltip/TooltipProvider";
 
 export {
   TextControl,
