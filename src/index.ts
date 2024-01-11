@@ -36,6 +36,7 @@ export {
   H5,
   H6,
 } from "./components/Typography/Heading";
+export { IndicatorIcon } from "./components/Icon/IndicatorIcon/IndicatorIcon";
 export { Link } from "./components/Link/Link";
 export { Menu } from "./components/Menu/Menu";
 export { MenuItem } from "./components/Menu/MenuItem";
