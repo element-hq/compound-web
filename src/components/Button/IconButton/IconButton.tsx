@@ -29,7 +29,8 @@ type IconButtonProps = UnstyledButtonPropsFor<"button"> &
      */
     className?: string;
     /**
-     * The avatar size in CSS units, e.g. `"24px"`.
+     * The size of the button in CSS units, e.g. `"24px"`.
+     * Note that this is the size of the *button* itself: the icon will be 0.75 * this size
      * @default 32px
      */
     size?: CSSStyleDeclaration["height"];
