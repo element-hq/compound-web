@@ -19,7 +19,7 @@ import { Meta, StoryFn } from "@storybook/react";
 
 import { IndicatorIcon as IndicatorIconComponent } from "./IndicatorIcon";
 
-import ThreadIcon from "@vector-im/compound-design-tokens/icons/threads.svg";
+import ThreadIcon from "@vector-im/compound-design-tokens/icons/threads-solid.svg";
 
 export default {
   title: "Icon/IndicatorIcon",
