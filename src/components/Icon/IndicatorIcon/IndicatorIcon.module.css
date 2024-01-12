@@ -27,7 +27,6 @@ limitations under the License.
   /* This is called 'button size' but the docs say 'icon size' */
   inline-size: var(--cpd-icon-button-size);
   block-size: var(--cpd-icon-button-size);
-
   aspect-ratio: 1 / 1;
   color: var(--cpd-color-icon-tertiary);
   position: relative;
@@ -48,12 +47,14 @@ limitations under the License.
 .indicator-icon[data-indicator]::before {
   content: "";
   position: absolute;
+
   /* The dot is 1/12th above & to the right of the canvas */
-  top: -8.3333%;
-  right: -8.3333%;
+  inset-block-start: -8.3333%;
+  inset-inline-end: -8.3333%;
+
   /* and is 1/3rd the size of the canvas */
-  width: 33.3333%;
-  height: 33.333%;
+  inline-size: 33.3333%;
+  block-size: 33.333%;
   border-radius: 50%;
   background: currentcolor;
 }
