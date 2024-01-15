@@ -96,6 +96,17 @@ export const CriticalDisabled = {
   },
 };
 
+function SimpleComponent() {
+  return <div style={{ height: 24, width: 48, backgroundColor: "teal" }} />;
+}
+
+export const IconIsComponent = {
+  args: {
+    ...Primary.args,
+    Icon: <SimpleComponent />,
+  },
+};
+
 export const WithoutLabel = {
   args: {
     ...Primary.args,

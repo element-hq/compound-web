@@ -32,6 +32,7 @@ const {
   Critical,
   PrimaryDisabled,
   CriticalDisabled,
+  IconIsComponent,
   WithALongLabel,
   WithALongLabelAndChildren,
 } = composeStories(stories);
@@ -66,6 +67,11 @@ describe("MenuItem", () => {
         Imagine that there might be a volume slider here in place of the label
       </MenuItem>,
     );
+    expect(asFragment()).toMatchSnapshot();
+  });
+
+  it("renders with an component as an Icon", () => {
+    const { asFragment } = render(<IconIsComponent />);
     expect(asFragment()).toMatchSnapshot();
   });
 

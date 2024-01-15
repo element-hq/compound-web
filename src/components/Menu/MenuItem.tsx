@@ -19,6 +19,8 @@ import React, {
   ComponentPropsWithoutRef,
   ComponentType,
   ElementType,
+  isValidElement,
+  ReactNode,
   SVGAttributes,
   useCallback,
   useContext,
@@ -43,7 +45,7 @@ type Props<C extends MenuItemElement> = {
   /**
    * The icon to show on this menu item.
    */
-  Icon: ComponentType<SVGAttributes<SVGElement>>;
+  Icon: ComponentType<SVGAttributes<SVGElement>> | ReactNode;
   /**
    * The label to show on this menu item.
    */
@@ -100,6 +102,10 @@ export const MenuItem = <C extends MenuItemElement = "button">({
     [context, onSelect],
   );
 
+  const iconIsReactElement = isValidElement(Icon);
+  const componentIcon = Icon as ReactNode;
+  const SvgIcon = Icon as ComponentType<SVGAttributes<SVGElement>>;
+
   const content = (
     <Component
       role="menuitem"
@@ -113,7 +119,17 @@ export const MenuItem = <C extends MenuItemElement = "button">({
       onClick={onClick}
       disabled={disabled}
     >
-      <Icon width={24} height={24} className={styles.icon} aria-hidden={true} />
+      {iconIsReactElement ? (
+        <div className={styles.icon}>{componentIcon}</div>
+      ) : (
+        <SvgIcon
+          width={24}
+          height={24}
+          className={styles.icon}
+          aria-hidden={true}
+        />
+      )}
+
       {label !== null && (
         <Text className={styles.label} size="md" weight="medium" as="span">
           {label}
