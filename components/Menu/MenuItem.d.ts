@@ -1,4 +1,4 @@
-import { ComponentPropsWithoutRef, ComponentType, SVGAttributes } from "react";
+import { ComponentPropsWithoutRef, ComponentType, ReactNode, SVGAttributes } from "react";
 type MenuItemElement = "button" | "label" | "a" | "div";
 type Props<C extends MenuItemElement> = {
     /**
@@ -12,8 +12,9 @@ type Props<C extends MenuItemElement> = {
     className?: string;
     /**
      * The icon to show on this menu item.
+     * When `Icon` is a ReactNode, it should spread the props
      */
-    Icon: ComponentType<SVGAttributes<SVGElement>>;
+    Icon: ComponentType<SVGAttributes<SVGElement>> | ReactNode;
     /**
      * The label to show on this menu item.
      */

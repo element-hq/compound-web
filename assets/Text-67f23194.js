@@ -1,0 +1,8 @@
+import{j as n}from"./jsx-runtime-f6d73c06.js";import{r as o}from"./index-8ee6c85d.js";import{$ as c}from"./index-473717ad.js";import{c as u}from"./index-e131923d.js";const p="_control_9gon8_18",r={control:p,"enable-ligatures":"_enable-ligatures_9gon8_70"},s=o.forwardRef(function(e,a){const i=u(r.control,e.className,e.enableLigatures&&r["enable-ligatures"]);return n.jsx("input",{ref:a,...e,className:i})}),l=o.forwardRef(function(e,a){return n.jsx(c,{asChild:!0,children:n.jsx(s,{ref:a,...e})})});try{s.displayName="TextInput",s.__docgenInfo={description:"A styled text input, for standalone use.",displayName:"TextInput",props:{className:{defaultValue:null,description:"The CSS class name.",name:"className",required:!1,type:{name:"string"}},enableLigatures:{defaultValue:null,description:`Enable contextual alternate ligatures on input text
+For example on an in-place editing field
+https://github.com/rsms/inter/issues/222
+https://github.com/rsms/inter/blob/master/src/features/calt.fea`,name:"enableLigatures",required:!1,type:{name:"boolean"}}}}}catch{}try{l.displayName="TextControl",l.__docgenInfo={description:"A styled text input wrapped in a `Control` component, for use in Radix forms.",displayName:"TextControl",props:{className:{defaultValue:null,description:"The CSS class name.",name:"className",required:!1,type:{name:"string"}},enableLigatures:{defaultValue:null,description:`Enable contextual alternate ligatures on input text
+For example on an in-place editing field
+https://github.com/rsms/inter/issues/222
+https://github.com/rsms/inter/blob/master/src/features/calt.fea`,name:"enableLigatures",required:!1,type:{name:"boolean"}}}}}catch{}export{l as T,s as a};
+//# sourceMappingURL=Text-67f23194.js.map
