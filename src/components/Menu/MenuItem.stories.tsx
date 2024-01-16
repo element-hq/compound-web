@@ -96,8 +96,13 @@ export const CriticalDisabled = {
   },
 };
 
-function SimpleComponent() {
-  return <div style={{ height: 24, width: 48, backgroundColor: "teal" }} />;
+function SimpleComponent(props: object) {
+  return (
+    <div
+      style={{ height: 24, width: 48, backgroundColor: "teal" }}
+      {...props}
+    />
+  );
 }
 
 export const IconIsComponent = {

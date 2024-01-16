@@ -441,11 +441,8 @@ exports[`MenuItem > renders with an component as an Icon 1`] = `
     >
       <div
         class="_icon_831119"
-      >
-        <div
-          style="height: 24px; width: 48px; background-color: teal;"
-        />
-      </div>
+        style="height: 24px; width: 48px; background-color: teal;"
+      />
       <span
         class="_typography_489030 _font-body-md-medium_489030 _label_831119"
       >

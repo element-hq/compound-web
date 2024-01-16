@@ -29,6 +29,7 @@ import styles from "./MenuItem.module.css";
 import { Text } from "../Typography/Text";
 import ChevronRightIcon from "@vector-im/compound-design-tokens/icons/chevron-right.svg";
 import { MenuContext } from "./MenuContext";
+import { Slot } from "@radix-ui/react-slot";
 
 type MenuItemElement = "button" | "label" | "a" | "div";
 
@@ -44,6 +45,7 @@ type Props<C extends MenuItemElement> = {
   className?: string;
   /**
    * The icon to show on this menu item.
+   * When `Icon` is a ReactNode, it should spread the props
    */
   Icon: ComponentType<SVGAttributes<SVGElement>> | ReactNode;
   /**
@@ -120,7 +122,7 @@ export const MenuItem = <C extends MenuItemElement = "button">({
       disabled={disabled}
     >
       {iconIsReactElement ? (
-        <div className={styles.icon}>{componentIcon}</div>
+        <Slot className={styles.icon}>{componentIcon}</Slot>
       ) : (
         <SvgIcon
           width={24}
