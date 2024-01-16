@@ -19,6 +19,8 @@ import React, {
   ComponentPropsWithoutRef,
   ComponentType,
   ElementType,
+  isValidElement,
+  ReactNode,
   SVGAttributes,
   useCallback,
   useContext,
@@ -27,6 +29,7 @@ import styles from "./MenuItem.module.css";
 import { Text } from "../Typography/Text";
 import ChevronRightIcon from "@vector-im/compound-design-tokens/icons/chevron-right.svg";
 import { MenuContext } from "./MenuContext";
+import { Slot } from "@radix-ui/react-slot";
 
 type MenuItemElement = "button" | "label" | "a" | "div";
 
@@ -42,8 +45,9 @@ type Props<C extends MenuItemElement> = {
   className?: string;
   /**
    * The icon to show on this menu item.
+   * When `Icon` is a ReactNode, it should spread the props
    */
-  Icon: ComponentType<SVGAttributes<SVGElement>>;
+  Icon: ComponentType<SVGAttributes<SVGElement>> | ReactNode;
   /**
    * The label to show on this menu item.
    */
@@ -100,6 +104,10 @@ export const MenuItem = <C extends MenuItemElement = "button">({
     [context, onSelect],
   );
 
+  const iconIsReactElement = isValidElement(Icon);
+  const componentIcon = Icon as ReactNode;
+  const SvgIcon = Icon as ComponentType<SVGAttributes<SVGElement>>;
+
   const content = (
     <Component
       role="menuitem"
@@ -113,7 +121,17 @@ export const MenuItem = <C extends MenuItemElement = "button">({
       onClick={onClick}
       disabled={disabled}
     >
-      <Icon width={24} height={24} className={styles.icon} aria-hidden={true} />
+      {iconIsReactElement ? (
+        <Slot className={styles.icon}>{componentIcon}</Slot>
+      ) : (
+        <SvgIcon
+          width={24}
+          height={24}
+          className={styles.icon}
+          aria-hidden={true}
+        />
+      )}
+
       {label !== null && (
         <Text className={styles.label} size="md" weight="medium" as="span">
           {label}
