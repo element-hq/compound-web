@@ -11,6 +11,7 @@ export { Text } from "./components/Typography/Text";
 export { ContextMenu } from "./components/Menu/ContextMenu";
 export { Glass } from "./components/Glass/Glass";
 export { Heading, H1, H2, H3, H4, H5, H6, } from "./components/Typography/Heading";
+export { IndicatorIcon } from "./components/Icon/IndicatorIcon/IndicatorIcon";
 export { Link } from "./components/Link/Link";
 export { Menu } from "./components/Menu/Menu";
 export { MenuItem } from "./components/Menu/MenuItem";
