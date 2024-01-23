@@ -1,0 +1,68 @@
+/*
+Copyright 2024 New Vector Ltd
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+
+/*
+ * Note this is very closely coupled to the indicator mask SVG as this masks out
+ * the icon behind to draw the 'stroke' around the indicator dot.
+ *
+ * The SVG is a 24x24px black square with a circle of radius 6 positioned
+ * 4px above and to the right of the canvas. This is the size of the indicator
+ * dot plus the stroke (dimensions calculated from the figma).
+ */
+
+.indicator-icon {
+  /* This is called 'button size' but the docs say 'icon size' */
+  inline-size: var(--cpd-icon-button-size);
+  block-size: var(--cpd-icon-button-size);
+  aspect-ratio: 1 / 1;
+  color: var(--cpd-color-icon-tertiary);
+  position: relative;
+}
+
+.indicator-icon svg {
+  inline-size: 100%;
+  block-size: 100%;
+}
+
+.indicator-icon[data-indicator] svg {
+  mask-image: url("./indicator-mask.svg");
+  mask-position: center center;
+  mask-repeat: no-repeat;
+  mask-size: 100%;
+}
+
+.indicator-icon[data-indicator]::before {
+  content: "";
+  position: absolute;
+
+  /* The dot is 1/12th above & to the right of the canvas */
+  inset-block-start: -8.3333%;
+  inset-inline-end: -8.3333%;
+
+  /* and is 1/3rd the size of the canvas */
+  inline-size: 33.3333%;
+  block-size: 33.333%;
+  border-radius: 50%;
+  background: currentcolor;
+}
+
+.indicator-icon[data-indicator="success"]::before {
+  background: var(--cpd-color-icon-success-primary);
+}
+
+.indicator-icon[data-indicator="critical"]::before {
+  background: var(--cpd-color-icon-critical-primary);
+}
