@@ -1,5 +1,5 @@
 /*
-Copyright 2023 New Vector Ltd
+Copyright 2023-2024 New Vector Ltd
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -15,17 +15,27 @@ limitations under the License.
 */
 
 .separator {
-  background-color: var(--cpd-color-gray-400);
+  --cpd-separator-color: var(--cpd-color-gray-400);
+  --cpd-separator-size: 1px;
+  background-color: var(--cpd-separator-color);
+}
+
+.separator[data-kind="secondary"] {
+  --cpd-separator-color: var(--cpd-color-gray-300);
+}
+
+.separator[data-kind="section"] {
+  --cpd-separator-size: 2px;
 }
 
 .separator[data-orientation="horizontal"] {
   margin-block: var(--cpd-separator-spacing);
   margin-inline: var(--cpd-separator-inset);
-  block-size: 1px;
+  block-size: var(--cpd-separator-size);
 }
 
 .separator[data-orientation="vertical"] {
   margin-inline: var(--cpd-separator-spacing);
   margin-block: var(--cpd-separator-inset);
-  inline-size: 1px;
+  inline-size: var(--cpd-separator-size);
 }

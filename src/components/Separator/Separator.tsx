@@ -1,5 +1,5 @@
 /*
-Copyright 2023 New Vector Ltd
+Copyright 2023-2024 New Vector Ltd
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -31,15 +31,21 @@ type SeparatorProps = {
    */
   className?: string;
   /**
-   * The spacing on either side of the separator
+   * The spacing on either side of the separator.
+   * @default var(--cpd-space-2x)
    */
   spacing?: string;
+  /**
+   * The style of separator.
+   * @default primary
+   */
+  kind?: "primary" | "secondary" | "section";
 } & ComponentProps<typeof RadixSeparator.Root>;
 
 const SPACING_CUSTOM_PROP = "--cpd-separator-spacing";
 
 /**
- * A separator component
+ * A separator component.
  * Note: Only supports `React.RefObject`
  */
 export const Separator = forwardRef(
@@ -47,6 +53,7 @@ export const Separator = forwardRef(
     {
       className,
       spacing = "var(--cpd-space-2x)",
+      kind = "primary",
       ...props
     }: PropsWithoutRef<SeparatorProps>,
     ref?: Ref<HTMLDivElement>,
@@ -65,7 +72,14 @@ export const Separator = forwardRef(
       }
     }, [spacing]);
 
-    return <RadixSeparator.Root {...props} className={classes} ref={ref} />;
+    return (
+      <RadixSeparator.Root
+        {...props}
+        className={classes}
+        ref={ref}
+        data-kind={kind}
+      />
+    );
   },
 );
 
