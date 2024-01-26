@@ -22,8 +22,10 @@ import React, {
   Ref,
   forwardRef,
   useEffect,
+  useRef,
 } from "react";
 import styles from "./Separator.module.css";
+import { useMergedRefs } from "../../utils/useMergedRefs";
 
 type SeparatorProps = {
   /**
@@ -46,30 +48,26 @@ const SPACING_CUSTOM_PROP = "--cpd-separator-spacing";
 
 /**
  * A separator component.
- * Note: Only supports `React.RefObject`
  */
 export const Separator = forwardRef(
   (
     {
       className,
-      spacing = "var(--cpd-space-2x)",
+      spacing, // Default provided via global.css
       kind = "primary",
       ...props
     }: PropsWithoutRef<SeparatorProps>,
-    ref?: Ref<HTMLDivElement>,
+    theirRef?: Ref<HTMLDivElement>,
   ) => {
     const classes = classnames(styles.separator, className);
+    const ourRef = useRef<HTMLDivElement | null>(null);
+    const ref = useMergedRefs(ourRef, theirRef ?? null);
 
     useEffect(() => {
-      // Casting to `RefObject` as everything here should use this type.
-      // Functions refs are not something we wish to support and string refs
-      // are already unsupported with `forwardRef`.
-      const style = (ref as React.RefObject<HTMLDivElement>)?.current?.style;
-      if (spacing) {
-        style?.setProperty(SPACING_CUSTOM_PROP, spacing);
-      } else {
-        style?.removeProperty(SPACING_CUSTOM_PROP);
-      }
+      const style = ourRef.current?.style;
+      spacing
+        ? style?.setProperty(SPACING_CUSTOM_PROP, spacing)
+        : style?.removeProperty(SPACING_CUSTOM_PROP);
     }, [spacing]);
 
     return (

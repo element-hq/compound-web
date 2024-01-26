@@ -62,6 +62,7 @@ exports[`FloatingMenu > renders 1`] = `
     </button>
     <div
       class="_separator_162edc"
+      data-kind="primary"
       data-orientation="horizontal"
       role="separator"
     />
