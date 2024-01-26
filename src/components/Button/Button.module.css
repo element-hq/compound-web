@@ -24,6 +24,12 @@ limitations under the License.
   gap: var(--cpd-space-2x);
   box-sizing: border-box;
   font: var(--cpd-font-body-md-semibold);
+  transition-duration: 0.1s;
+  transition-property: color, background-color, border-color;
+}
+
+.button > svg {
+  transition: color 0.1s;
 }
 
 .button[aria-disabled="true"] {
