@@ -1,5 +1,5 @@
 /*
-Copyright 2023  New Vector Ltd
+Copyright 2023-2024 New Vector Ltd
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -37,8 +37,10 @@ interface ButtonComponent {
 type ButtonOwnProps = PropsWithChildren<{
   /**
    * The type of button.
+   * Note: "destructive" is deprecated, please use the destructive prop in
+   * conjunction with another button kind.
    */
-  kind?: "primary" | "secondary" | "tertiary" | "destructive"; // TODO: Refine the naming
+  kind?: "primary" | "secondary" | "tertiary" | "destructive";
   /**
    * The t-shirt size of the button.
    */
@@ -47,6 +49,11 @@ type ButtonOwnProps = PropsWithChildren<{
    * An icon to display within the button.
    */
   Icon?: ComponentType<React.SVGAttributes<SVGElement>>;
+  /**
+   * Whether this button triggers a destructive action.
+   * @default false
+   */
+  destructive?: boolean;
 }>;
 
 type ButtonPropsFor<C extends React.ElementType> = ButtonOwnProps &
@@ -61,18 +68,26 @@ export const Button = forwardRef(function Button<
 >(
   {
     as,
-    kind = "primary",
+    kind: kindProp = "primary",
     size = "lg",
     children,
     className,
     Icon,
+    destructive: destructiveProp,
     disabled,
     ...props
   }: ButtonPropsFor<C> & { as?: C },
   ref: ForwardedRef<C>,
 ): React.ReactElement {
+  // Fallback for the deprecated "destructive" kind
+  const [kind, destructive] =
+    kindProp === "destructive"
+      ? ["secondary", true]
+      : [kindProp, destructiveProp];
+
   const classes = classNames(styles.button, className, {
     [styles["has-icon"]]: Icon,
+    [styles.destructive]: destructive,
   });
 
   return (
