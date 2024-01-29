@@ -56,7 +56,7 @@ limitations under the License.
   inline-size: 33.3333%;
   block-size: 33.333%;
   border-radius: 50%;
-  background: currentcolor;
+  background: var(--cpd-color-icon-primary);
 }
 
 .indicator-icon[data-indicator="success"]::before {
