@@ -9,6 +9,8 @@ interface ButtonComponent {
 type ButtonOwnProps = PropsWithChildren<{
     /**
      * The type of button.
+     * Note: "destructive" is deprecated, please use the destructive prop in
+     * conjunction with another button kind.
      */
     kind?: "primary" | "secondary" | "tertiary" | "destructive";
     /**
@@ -19,6 +21,11 @@ type ButtonOwnProps = PropsWithChildren<{
      * An icon to display within the button.
      */
     Icon?: ComponentType<React.SVGAttributes<SVGElement>>;
+    /**
+     * Whether this button triggers a destructive action.
+     * @default false
+     */
+    destructive?: boolean;
 }>;
 type ButtonPropsFor<C extends React.ElementType> = ButtonOwnProps & UnstyledButtonPropsFor<C>;
 /**
