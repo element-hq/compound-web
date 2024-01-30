@@ -77,12 +77,42 @@ exports[`Button > renders a LinkDisabled button 1`] = `
 </div>
 `;
 
+exports[`Button > renders a Primary Destructive button 1`] = `
+<div>
+  <button
+    aria-disabled="false"
+    class="_button_2a1efe _destructive_2a1efe"
+    data-kind="primary"
+    data-size="lg"
+    role="button"
+    tabindex="0"
+  >
+    Click me!
+  </button>
+</div>
+`;
+
 exports[`Button > renders a Primary button 1`] = `
 <div>
   <button
     aria-disabled="false"
     class="_button_2a1efe"
     data-kind="primary"
+    data-size="lg"
+    role="button"
+    tabindex="0"
+  >
+    Click me!
+  </button>
+</div>
+`;
+
+exports[`Button > renders a Secondary Destructive button 1`] = `
+<div>
+  <button
+    aria-disabled="false"
+    class="_button_2a1efe _destructive_2a1efe"
+    data-kind="secondary"
     data-size="lg"
     role="button"
     tabindex="0"
@@ -146,6 +176,21 @@ exports[`Button > renders a SmallWithIcon button 1`] = `
         fill="currentColor"
       />
     </svg>
+    Click me!
+  </button>
+</div>
+`;
+
+exports[`Button > renders a Tertiary Destructive button 1`] = `
+<div>
+  <button
+    aria-disabled="false"
+    class="_button_2a1efe _destructive_2a1efe"
+    data-kind="tertiary"
+    data-size="lg"
+    role="button"
+    tabindex="0"
+  >
     Click me!
   </button>
 </div>
