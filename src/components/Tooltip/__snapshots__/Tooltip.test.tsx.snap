@@ -251,7 +251,7 @@ exports[`Tooltip > renders with caption 2`] = `
   <span
     class="_caption_9b26f8 cpd-theme-dark"
   >
-    ⌘ + C
+    Ctrl + C
   </span>
 </span>
 `;
