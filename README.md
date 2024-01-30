@@ -18,13 +18,15 @@ React implementation of Compound – Element's design system – See full docume
 
 ### Testing
 
-| Command       | Runs                              |
-| ------------- | --------------------------------- |
-| `yarn test`   | Runs unit tests                   |
-| `yarn e2e`    | Runs end-to-end tests             |
-| `yarn e2e -u` | Updates end-to-end test snapshots |
+| Command              | Runs                              |
+| -------------------- | --------------------------------- |
+| `yarn test`          | Runs unit tests                   |
+| `yarn e2e:docker`    | Runs end-to-end tests             |
+| `yarn e2e:docker -u` | Updates end-to-end test snapshots |
 
 All components are expected to come with comprehensive unit tests and visual tests. We use Playwright to run visual tests on every story present in Storybook, so story coverage is really important! It helps us validate component implementations against the designs and prevents visual regressions at the same time.
+
+We recommend running the end-to-end tests via Docker as shown above to get consistent text rendering for screenshots.
 
 ### Linking
 
