@@ -10,3 +10,6 @@ dist
 yarn-error.log
 coverage
 yarn-error.log
+
+/playwright-report
+/test-results

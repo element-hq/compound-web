@@ -32,9 +32,10 @@ export default {
       control: { type: "inline-radio" },
     },
     kind: {
-      options: ["primary", "secondary", "tertiary", "destructive"],
+      options: ["primary", "secondary", "tertiary"],
       control: { type: "inline-radio" },
     },
+    destructive: { type: "boolean" },
     disabled: {
       type: "boolean",
     },
@@ -55,6 +56,7 @@ export default {
   args: {
     size: "lg",
     as: undefined,
+    destructive: false,
     disabled: false,
     children: "Click me!",
   },
@@ -82,9 +84,23 @@ export const Primary = {
   },
 };
 
+export const PrimaryDestructive = {
+  args: {
+    kind: "primary",
+    destructive: true,
+  },
+};
+
 export const Secondary = {
   args: {
     kind: "secondary",
+  },
+};
+
+export const SecondaryDestructive = {
+  args: {
+    kind: "secondary",
+    destructive: true,
   },
 };
 
@@ -94,9 +110,10 @@ export const Tertiary = {
   },
 };
 
-export const Destructive = {
+export const TertiaryDestructive = {
   args: {
-    kind: "destructive",
+    kind: "tertiary",
+    destructive: true,
   },
 };
 

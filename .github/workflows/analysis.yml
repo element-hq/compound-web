@@ -1,0 +1,80 @@
+name: Analysis
+on:
+  pull_request: {}
+  push:
+    branches: [develop, main]
+jobs:
+  lint:
+    name: "Lint"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          cache: "yarn"
+      - name: Install deps
+        run: yarn install --frozen-lockfile
+      - name: Lint
+        run: "yarn run lint"
+      - name: Check formatting
+        run: "yarn run prettier:check"
+  test:
+    name: "Unit test"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          cache: "yarn"
+      - name: Install deps
+        run: yarn install --frozen-lockfile
+      - name: Test
+        run: "yarn run test --coverage"
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: coverage
+          path: |
+            coverage
+            !coverage/lcov-report
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONARCLOUD_TOKEN }}
+  e2e:
+    name: "Test end-to-end"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          cache: "yarn"
+      - name: Install deps
+        run: yarn install --frozen-lockfile
+      - name: Build Storybook
+        run: yarn build-storybook
+      - name: Get Playwright version
+        run: echo "PLAYWRIGHT_VERSION=$(yarn info @playwright/test -A --json | jq -r .data.version)" >> $GITHUB_ENV
+      - name: Cache Playwright binaries
+        uses: actions/cache@v3
+        id: playwright-cache
+        with:
+          path: |
+            ~/.cache/ms-playwright
+          key: ${{ runner.os }}-playwright-${{ env.PLAYWRIGHT_VERSION }}
+      - name: Install Playwright binaries
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
+        run: yarn playwright install --with-deps
+      - name: Run Playwright tests
+        # We use this action to get a virtual frame buffer for the browsers
+        uses: coactions/setup-xvfb@b6b4fcfb9f5a895edadc3bc76318fae0ac17c8b3 # v1
+        with:
+          run: yarn playwright test -j 100%
+      - name: Upload Playwright report
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: html-report--attempt-${{ github.run_attempt }}
+          path: playwright-report
+          retention-days: 14

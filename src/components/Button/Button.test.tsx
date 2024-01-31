@@ -1,5 +1,5 @@
 /*
-Copyright 2023 New Vector Ltd
+Copyright 2023-2024 New Vector Ltd
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -27,9 +27,11 @@ const {
   Default,
   Small,
   Primary,
+  PrimaryDestructive,
   Secondary,
+  SecondaryDestructive,
   Tertiary,
-  Destructive,
+  TertiaryDestructive,
   WithIcon,
   SmallWithIcon,
   Disabled,
@@ -50,16 +52,24 @@ describe("Button", () => {
     const { container } = render(<Primary />);
     expect(container).toMatchSnapshot();
   });
+  it("renders a Primary Destructive button", () => {
+    const { container } = render(<PrimaryDestructive />);
+    expect(container).toMatchSnapshot();
+  });
   it("renders a Secondary button", () => {
     const { container } = render(<Secondary />);
+    expect(container).toMatchSnapshot();
+  });
+  it("renders a Secondary Destructive button", () => {
+    const { container } = render(<SecondaryDestructive />);
     expect(container).toMatchSnapshot();
   });
   it("renders a Tertiary button", () => {
     const { container } = render(<Tertiary />);
     expect(container).toMatchSnapshot();
   });
-  it("renders a Destructive button", () => {
-    const { container } = render(<Destructive />);
+  it("renders a Tertiary Destructive button", () => {
+    const { container } = render(<TertiaryDestructive />);
     expect(container).toMatchSnapshot();
   });
   it("renders a WithIcon button", () => {
