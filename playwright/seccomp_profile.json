@@ -1,10 +1,6 @@
 {
   "comment": "Allow create user namespaces (recommended by https://playwright.dev/docs/docker#crawling-and-scraping for rootless use of the Playwright Docker image)",
-  "names": [
-    "clone",
-    "setns",
-    "unshare"
-  ],
+  "names": ["clone", "setns", "unshare"],
   "action": "SCMP_ACT_ALLOW",
   "args": [],
   "includes": {},
