@@ -17,6 +17,7 @@ limitations under the License.
 .separator {
   --cpd-separator-color: var(--cpd-color-gray-400);
   --cpd-separator-size: 1px;
+
   background-color: var(--cpd-separator-color);
 }
 
