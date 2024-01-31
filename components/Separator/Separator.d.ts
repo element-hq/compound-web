@@ -6,13 +6,18 @@ type SeparatorProps = {
      */
     className?: string;
     /**
-     * The spacing on either side of the separator
+     * The spacing on either side of the separator.
+     * @default var(--cpd-space-2x)
      */
     spacing?: string;
+    /**
+     * The style of separator.
+     * @default primary
+     */
+    kind?: "primary" | "secondary" | "section";
 } & ComponentProps<typeof RadixSeparator.Root>;
 /**
- * A separator component
- * Note: Only supports `React.RefObject`
+ * A separator component.
  */
 export declare const Separator: React.ForwardRefExoticComponent<Omit<SeparatorProps, "ref"> & React.RefAttributes<HTMLDivElement>>;
 export {};
