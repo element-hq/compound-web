@@ -116,7 +116,12 @@ Side.args = {};
 
 const TemplateAlign: StoryFn<typeof TooltipComponent> = () => (
   <Layout>
-    <TooltipComponent open={true} align="center" label="Copy" caption="Ctrl + C">
+    <TooltipComponent
+      open={true}
+      align="center"
+      label="Copy"
+      caption="Ctrl + C"
+    >
       <IconButton>
         <UserIcon />
       </IconButton>
