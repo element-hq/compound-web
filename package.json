@@ -27,7 +27,7 @@
     "lint:styles": "npx stylelint 'src/**/*.css'",
     "test": "vitest",
     "e2e": "playwright test",
-    "e2e:docker": "docker run --rm --network host -v $(pwd)/../:/work/ -v /var/run/docker.sock:/var/run/docker.sock -v /tmp/:/tmp/ --init -it $(docker build -q playwright)",
+    "e2e:docker": "docker run --rm --network host --ipc=host --security-opt seccomp=playwright/seccomp_profile.json -v $(pwd)/../:/work/ -v /var/run/docker.sock:/var/run/docker.sock -v /tmp/:/tmp/ --init -it $(docker build --build-arg UID=$(id -u) --build-arg GID=$(id -g) -q playwright)",
     "build-storybook": "storybook build",
     "storybook": "storybook dev -p 6006",
     "gen:component": "node scripts/genComponent.js"
