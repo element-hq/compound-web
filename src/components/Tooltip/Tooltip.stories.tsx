@@ -116,7 +116,12 @@ Side.args = {};
 
 const TemplateAlign: StoryFn<typeof TooltipComponent> = () => (
   <Layout>
-    <TooltipComponent open={true} align="center" label="Copy" caption="⌘ + C">
+    <TooltipComponent
+      open={true}
+      align="center"
+      label="Copy"
+      caption="Ctrl + C"
+    >
       <IconButton>
         <UserIcon />
       </IconButton>
@@ -127,7 +132,7 @@ const TemplateAlign: StoryFn<typeof TooltipComponent> = () => (
         open
         align={align}
         label="@bob:example.org"
-        caption="⌘ + C"
+        caption="Ctrl + C"
       >
         <IconButton>
           <UserIcon />
@@ -152,7 +157,7 @@ export const WithCaption = {
   args: {
     ...Default.args,
     label: "Copy",
-    caption: "⌘ + C",
+    caption: "Ctrl + C",
   },
 };
 
