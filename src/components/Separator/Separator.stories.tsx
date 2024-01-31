@@ -26,7 +26,8 @@ export default {
   args: {},
 } as Meta<typeof SeparatorComponent>;
 
-export const Default = {
-  args: {},
-  parameters: {},
-};
+export const Primary = { args: { kind: "primary" } };
+
+export const Secondary = { args: { kind: "secondary" } };
+
+export const Section = { args: { kind: "section" } };
