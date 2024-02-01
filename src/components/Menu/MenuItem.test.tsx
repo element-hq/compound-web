@@ -19,7 +19,7 @@ import { render } from "@testing-library/react";
 import React from "react";
 import LeaveIcon from "@vector-im/compound-design-tokens/icons/leave.svg";
 import UserProfileIcon from "@vector-im/compound-design-tokens/icons/user-profile.svg";
-import MicOnOutlineIcon from "@vector-im/compound-design-tokens/icons/mic-on-outline.svg";
+import MicOnIcon from "@vector-im/compound-design-tokens/icons/mic-on.svg";
 
 import { MenuItem } from "./MenuItem";
 import { Text } from "../Typography/Text";
@@ -63,7 +63,7 @@ describe("MenuItem", () => {
 
   it("renders without a label", () => {
     const { asFragment } = render(
-      <MenuItem Icon={MicOnOutlineIcon} label={null} onSelect={() => {}}>
+      <MenuItem Icon={MicOnIcon} label={null} onSelect={() => {}}>
         Imagine that there might be a volume slider here in place of the label
       </MenuItem>,
     );
