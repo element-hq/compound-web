@@ -60,12 +60,12 @@ describe("Avatar", () => {
   });
 
   it.each([
-    ["@bob:example.org", "8"],
+    ["@bob:example.org", "4"],
     ["@alice:example.org", "3"],
     ["@charlie:example.org", "5"],
-    ["@dan:example.org", "8"],
-    ["@elena:example.org", "2"],
-    ["@fanny:example.org", "1"],
+    ["@dan:example.org", "4"],
+    ["@elena:example.org", "4"],
+    ["@fanny:example.org", "3"],
   ])(
     "has a deterministic color based on the id passed to it, %s",
     (id, colorNumber) => {

@@ -78,10 +78,6 @@ const ImageLessCollection: StoryFn<typeof AvatarComponent> = (args) => (
     &nbsp;
     <AvatarComponent {...args} id="6" />
     &nbsp;
-    <AvatarComponent {...args} id="7" />
-    &nbsp;
-    <AvatarComponent {...args} id="8" />
-    &nbsp;
   </>
 );
 
