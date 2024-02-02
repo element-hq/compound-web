@@ -18,7 +18,7 @@ exports[`AvatarStack > renders 1`] = `
     <span
       aria-label="@bob:example.org"
       class="_avatar_de1988 _avatar-imageless_de1988"
-      data-color="8"
+      data-color="4"
       data-type="round"
       role="img"
       style="--cpd-avatar-size: 32px;"

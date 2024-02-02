@@ -22,7 +22,7 @@ limitations under the License.
  */
 export function useIdColorHash(id: string): number {
   const MIN = 1;
-  const MAX = 8;
+  const MAX = 6;
   // Sum up the values of all the char codes in the string
   const charCodeSum = id.split("").reduce((sum, char) => {
     return sum + char.charCodeAt(0);

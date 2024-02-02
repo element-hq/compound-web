@@ -3502,9 +3502,9 @@
   integrity sha512-FbtmBWCcSa2J4zL781Zf1p5YUBXQomPEcep9QZCfRfQgTxz3pJWiDFLebohZ9fFntX5ibzOkSsrJ0TEew8cAog==
 
 "@types/q@^1.5.1":
-  version "1.5.6"
-  resolved "https://registry.yarnpkg.com/@types/q/-/q-1.5.6.tgz#a6edffe8283910e46dc7a573621f928e6b47fa56"
-  integrity sha512-IKjZ8RjTSwD4/YG+2gtj7BPFRB/lNbWKTiSj3M7U/TD2B7HfYCxvp2Zz6xA2WIY7pAuL1QOUPw8gQRbUrrq4fQ==
+  version "1.5.8"
+  resolved "https://registry.yarnpkg.com/@types/q/-/q-1.5.8.tgz#95f6c6a08f2ad868ba230ead1d2d7f7be3db3837"
+  integrity sha512-hroOstUScF6zhIi+5+x0dzqrHA1EJi+Irri6b1fxolMTqqHIV/Cg77EtnQcZqZCu8hR3mX2BzIxN4/GzI68Kfw==
 
 "@types/qs@*", "@types/qs@^6.9.5":
   version "6.9.8"
@@ -3721,10 +3721,10 @@
     "@typescript-eslint/types" "6.7.3"
     eslint-visitor-keys "^3.4.1"
 
-"@vector-im/compound-design-tokens@0.0.7":
-  version "0.0.7"
-  resolved "https://registry.yarnpkg.com/@vector-im/compound-design-tokens/-/compound-design-tokens-0.0.7.tgz#b0716dd4782dd95900491e45b003b58f93748024"
-  integrity sha512-RCQc6qr+s8cp4xKbNi/I3OL43uPCH+N4L9vYf0r+qwRy4WCKdI4QL0TBTV4bOo8hF49z8e+BgU5ZIu5TVQXNMQ==
+"@vector-im/compound-design-tokens@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@vector-im/compound-design-tokens/-/compound-design-tokens-1.0.0.tgz#4fe7744bbe0bd093b064d42ca8bb475862bb2ce7"
+  integrity sha512-/hKAxE/WsmnNZamlSmLoFeAhNDhRpFdJYuY8NrPLaS/dKS/QRnty6UYzs9yWOVNFeiBfkNsrb7wYIFMrYWSRJw==
   dependencies:
     svg2vectordrawable "^2.9.1"
 

@@ -71,7 +71,7 @@
     "@types/react": "^18.2.21",
     "@typescript-eslint/eslint-plugin": "^6.7.0",
     "@typescript-eslint/parser": "^6.7.0",
-    "@vector-im/compound-design-tokens": "0.0.7",
+    "@vector-im/compound-design-tokens": "^1.0.0",
     "@vitejs/plugin-react": "^4.0.4",
     "@vitest/coverage-v8": "^0.34.4",
     "browserslist-to-esbuild": "^1.2.0",
@@ -116,7 +116,7 @@
     "@fontsource/inter": "^5",
     "@types/react": "*",
     "@types/react-dom": "*",
-    "@vector-im/compound-design-tokens": ">=0.0.6 <0.1.0",
+    "@vector-im/compound-design-tokens": ">=1.0.0 <2.0.0",
     "react": "^17 || ^18",
     "react-dom": "^17 || ^18"
   },
