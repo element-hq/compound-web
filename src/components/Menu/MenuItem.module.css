@@ -19,7 +19,7 @@ limitations under the License.
   grid-template: "icon label ." auto "empty1 label empty2" auto / auto auto minmax(
       /* Reserve space for the chevron so that the layout doesn't shift on
       hover */
-        var(--cpd-space-4x),
+        var(--cpd-space-2x),
       1fr
     );
   align-items: center;
@@ -61,7 +61,6 @@ limitations under the License.
   /* Hidden until the item is hovered over */
   display: none;
   flex-shrink: 0;
-  margin-inline-end: calc(-1 * var(--cpd-space-2x));
 }
 
 button.item {

@@ -141,10 +141,15 @@ export const MenuItem = <C extends MenuItemElement = "button">({
       children on hover - see the styles module. */}
       {(Component === "button" || Component === "a") && (
         <ChevronRightIcon
-          width={24}
+          width={8}
           height={24}
           className={styles["nav-hint"]}
           aria-hidden={true}
+          /* The SVG is a small icon in a large canvas. It probably ought to be
+             cropped, but we can adjust the viewBox here to chop off the horizontal
+             space to get it closer to the right hand edge.
+           */
+          viewBox="8 0 8 24"
         />
       )}
       {children}
