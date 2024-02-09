@@ -58,6 +58,24 @@ describe("Menu", () => {
     expect(onOpenChange).toHaveBeenLastCalledWith(true);
   });
 
+  it("doesn't open if disabled", async () => {
+    const onOpenChange = vi.fn();
+    render(
+      <Menu
+        title="Settings"
+        open={false}
+        onOpenChange={onOpenChange}
+        trigger={<Button disabled>Open menu</Button>}
+      >
+        <MenuItem Icon={UserProfileIcon} label="Profile" onSelect={() => {}} />
+      </Menu>,
+    );
+
+    expect(screen.queryByRole("menu")).toBe(null);
+    await userEvent.click(screen.getByRole("button"));
+    expect(onOpenChange).not.toHaveBeenCalled();
+  });
+
   it("closes as a floating menu", async () => {
     const onOpenChange = vi.fn();
     render(
