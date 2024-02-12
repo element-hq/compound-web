@@ -1,4 +1,4 @@
-import{j as X}from"./jsx-runtime-f6d73c06.js";import{c as Pr}from"./index-e131923d.js";import{r as mt}from"./index-8ee6c85d.js";import{s as Dt,A as zt}from"./Avatar-0e9d46df.js";import"./_commonjsHelpers-de833af9.js";var re={};/**
+import{j as X}from"./jsx-runtime-f6d73c06.js";import{c as Pr}from"./index-e131923d.js";import{r as mt}from"./index-8ee6c85d.js";import{s as Dt,A as zt}from"./Avatar-e1479d52.js";import"./_commonjsHelpers-de833af9.js";var re={};/**
  * @license React
  * react-dom-server-legacy.browser.production.min.js
  *
@@ -28,4 +28,4 @@ import{j as X}from"./jsx-runtime-f6d73c06.js";import{c as Pr}from"./index-e13192
     <Avatar name="Alice" id="@alice:example.org" size="200px" src="/images/__test__/kitten.jpg" />
     <Avatar name="Bob" id="@bob:example.org" size="200px" src="/images/__test__/kitten2.jpg" />
   </AvatarStackComponent>`,...(Bn=(Mn=ae.parameters)==null?void 0:Mn.docs)==null?void 0:Bn.source}}};const Gl=["AvatarStack"];export{ae as AvatarStack,Gl as __namedExportsOrder,Xl as default};
-//# sourceMappingURL=AvatarStack.stories-c133ad63.js.map
+//# sourceMappingURL=AvatarStack.stories-7f96f58f.js.map
