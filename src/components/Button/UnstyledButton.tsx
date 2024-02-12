@@ -29,7 +29,7 @@ type UnstyledButtonProps = PropsWithChildren<{
   /**
    * Note that disabled attribute is not added to buttons, so that disabled buttons are discoverable by keyboard.
    * `aria-disabled` attribute is used to indicate button is disabled.
-   * Event handlers are not passed to disabled buttons (onClick, onSubmit).
+   * Event handlers are not passed to disabled buttons (onClick, onSubmit, etc.)
    */
   disabled?: boolean;
 }>;
@@ -44,7 +44,7 @@ export type UnstyledButtonPropsFor<C extends React.ElementType> =
     };
 
 /**
- * Unstyled button component. Can be disabled and optionalally rendered as an anchor.
+ * Unstyled button component. Can be disabled and optionally rendered as an anchor.
  * Intended to be wrapped with styles and exported as new button type - eg `IconButton` or `Button`.
  *
  * Not to be used externally.
@@ -63,12 +63,26 @@ export const UnstyledButton = forwardRef(function UnstyledButton<
 ): React.ReactElement {
   const Component = as || ("button" as const);
 
-  const { onClick, onSubmit, ...restProps } = props;
+  const {
+    onClick,
+    onSubmit,
+    onPointerDown,
+    onPointerUp,
+    onKeyDown,
+    onKeyUp,
+    onKeyPress,
+    ...restProps
+  } = props;
   const eventHandlers = disabled
     ? {}
     : {
         onClick,
         onSubmit,
+        onPointerDown,
+        onPointerUp,
+        onKeyDown,
+        onKeyUp,
+        onKeyPress,
       };
 
   return (
