@@ -22,6 +22,7 @@ limitations under the License.
   font-size: min(calc(var(--cpd-avatar-size) * 0.5625), 60px);
   text-transform: uppercase;
   speak: none;
+  font-family: var(--cpd-font-family-sans);
   font-weight: bold;
   overflow: hidden;
   user-select: none;
