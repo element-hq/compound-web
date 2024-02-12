@@ -40,12 +40,10 @@ type TextProps = {
  * A styled text input, for standalone use.
  */
 export const TextInput = forwardRef<HTMLInputElement, TextProps>(
-  function TextInput(props, ref) {
-    const classes = classNames(
-      styles.control,
-      props.className,
-      props.enableLigatures && styles["enable-ligatures"],
-    );
+  function TextInput({ className, enableLigatures, ...props }, ref) {
+    const classes = classNames(styles.control, className, {
+      [styles["enable-ligatures"]]: enableLigatures,
+    });
     return <input ref={ref} {...props} className={classes} />;
   },
 );

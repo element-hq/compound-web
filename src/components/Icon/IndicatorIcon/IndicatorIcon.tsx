@@ -41,18 +41,16 @@ type IconButtonProps = {
 };
 
 export const IndicatorIcon = forwardRef<
-  HTMLButtonElement,
+  HTMLDivElement,
   PropsWithChildren<IconButtonProps>
->(function IconButton({
-  children,
-  className,
-  size = "100%",
-  colour,
-  indicator,
-}) {
+>(function IconButton(
+  { children, className, size = "100%", colour, indicator },
+  ref,
+) {
   const classes = classnames(styles["indicator-icon"], className);
   return (
     <div
+      ref={ref}
       className={classes}
       data-indicator={indicator}
       style={
