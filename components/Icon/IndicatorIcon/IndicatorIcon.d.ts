@@ -21,6 +21,6 @@ type IconButtonProps = {
 };
 export declare const IndicatorIcon: React.ForwardRefExoticComponent<IconButtonProps & {
     children?: React.ReactNode;
-} & React.RefAttributes<HTMLButtonElement>>;
+} & React.RefAttributes<HTMLDivElement>>;
 export {};
 //# sourceMappingURL=IndicatorIcon.d.ts.map
