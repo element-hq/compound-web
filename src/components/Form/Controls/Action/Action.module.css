@@ -22,6 +22,12 @@ limitations under the License.
 .control {
   flex: 1;
   padding-inline-end: var(--cpd-space-12x) !important;
+
+  /* From the flexbox spec:
+   *   "By default, flex items won’t shrink below their minimum content size"
+   * This allows the element to shrink lower than its natural default size.
+   */
+  min-inline-size: 0;
 }
 
 .action {
