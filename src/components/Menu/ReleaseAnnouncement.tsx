@@ -22,6 +22,7 @@ import React, {
   PropsWithChildren,
   SetStateAction,
   useContext,
+  useRef,
   useState,
 } from "react";
 import {
@@ -37,6 +38,8 @@ import {
   useMergeRefs,
   useRole,
   useId,
+  FloatingArrow,
+  arrow,
 } from "@floating-ui/react";
 import { Text } from "../Typography/Text";
 import { Button } from "../Button";
@@ -84,6 +87,7 @@ function useReleaseAnnouncement({
   const [open, setOpen] = useState(true);
   const [labelId, setLabelId] = useState<string | undefined>();
   const [descriptionId, setDescriptionId] = useState<string | undefined>();
+  const arrowRef = useRef(null);
 
   const data = useFloating({
     placement,
@@ -91,13 +95,17 @@ function useReleaseAnnouncement({
     onOpenChange: setOpen,
     whileElementsMounted: autoUpdate,
     middleware: [
-      offset(5),
+      // arrow height 12px + 4px padding
+      offset(16),
       flip({
         crossAxis: placement.includes("-"),
         fallbackAxisSideDirection: "end",
         padding: 5,
       }),
-      shift({ padding: 5 }),
+      shift(),
+      arrow({
+        element: arrowRef,
+      }),
     ],
   });
 
@@ -120,6 +128,7 @@ function useReleaseAnnouncement({
       description,
       closeLabel,
       onClose,
+      arrowRef,
     }),
     [
       open,
@@ -132,6 +141,7 @@ function useReleaseAnnouncement({
       description,
       closeLabel,
       onClose,
+      arrowRef,
     ],
   );
 }
@@ -187,8 +197,11 @@ interface ReleaseAnnouncementContainerProps {}
 function ReleaseAnnouncementContainer({
   children,
 }: PropsWithChildren<ReleaseAnnouncementContainerProps>) {
-  const { context: floatingContext, ...context } =
-    useReleaseAnnouncementContext();
+  const {
+    context: floatingContext,
+    arrowRef,
+    ...context
+  } = useReleaseAnnouncementContext();
 
   if (!floatingContext.open) return null;
 
@@ -203,6 +216,12 @@ function ReleaseAnnouncementContainer({
           {...context.getFloatingProps()}
           className={styles.content}
         >
+          <FloatingArrow
+            ref={arrowRef}
+            context={floatingContext}
+            width={20}
+            height={12}
+          />
           {children}
         </div>
       </FloatingFocusManager>

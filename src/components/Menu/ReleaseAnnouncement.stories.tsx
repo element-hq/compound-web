@@ -20,7 +20,7 @@ import { Button } from "../Button";
 import { ReleaseAnnouncement as ReleaseAnnouncementComponent } from "./ReleaseAnnouncement";
 
 export default {
-  title: "Menu/ReleaseAnnouncement",
+  title: "Release Announcement",
   component: ReleaseAnnouncementComponent,
   tags: ["autodocs"],
   argTypes: {},
