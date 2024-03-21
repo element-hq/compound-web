@@ -15,7 +15,7 @@ limitations under the License.
 */
 
 import { Meta, StoryFn } from "@storybook/react";
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "../Button";
 import { ReleaseAnnouncement as ReleaseAnnouncementComponent } from "./ReleaseAnnouncement";
 
@@ -33,9 +33,15 @@ export default {
 } as Meta<typeof ReleaseAnnouncementComponent>;
 
 const Template: StoryFn<typeof ReleaseAnnouncementComponent> = (args) => {
+  const [open, setOpen] = useState(true);
+
   return (
-    <ReleaseAnnouncementComponent {...args}>
-      <Button>Open menu</Button>
+    <ReleaseAnnouncementComponent
+      {...args}
+      open={open}
+      onClick={() => setOpen(false)}
+    >
+      <Button onClick={() => setOpen((_open) => !_open)}>Open menu</Button>
     </ReleaseAnnouncementComponent>
   );
 };

@@ -19,6 +19,7 @@ import React, {
   createContext,
   Dispatch,
   isValidElement,
+  MouseEventHandler,
   PropsWithChildren,
   SetStateAction,
   useContext,
@@ -46,10 +47,12 @@ import { Button } from "../Button";
 import styles from "./ReleaseAnnouncement.module.css";
 
 interface ReleaseAnnouncementProps {
+  open: boolean;
   header: string;
   description: string;
   closeLabel: string;
   placement?: Placement;
+  onClick: MouseEventHandler<HTMLButtonElement>;
 }
 
 export function ReleaseAnnouncement({
@@ -69,22 +72,18 @@ export function ReleaseAnnouncement({
   );
 }
 
-interface UseReleaseAnnouncementProps {
-  header: string;
-  description: string;
-  closeLabel: string;
+interface UseReleaseAnnouncementProps extends ReleaseAnnouncementProps {
   placement: Placement;
-  onClose?: () => void;
 }
 
 function useReleaseAnnouncement({
+  open,
   header,
   description,
   closeLabel,
   placement,
-  onClose,
+  onClick,
 }: UseReleaseAnnouncementProps) {
-  const [open, setOpen] = useState(true);
   const [labelId, setLabelId] = useState<string | undefined>();
   const [descriptionId, setDescriptionId] = useState<string | undefined>();
   const arrowRef = useRef(null);
@@ -92,7 +91,6 @@ function useReleaseAnnouncement({
   const data = useFloating({
     placement,
     open,
-    onOpenChange: setOpen,
     whileElementsMounted: autoUpdate,
     middleware: [
       // arrow height 12px + 4px padding
@@ -117,7 +115,6 @@ function useReleaseAnnouncement({
   return React.useMemo(
     () => ({
       open,
-      setOpen,
       ...interactions,
       ...data,
       labelId,
@@ -127,12 +124,11 @@ function useReleaseAnnouncement({
       header,
       description,
       closeLabel,
-      onClose,
+      onClick,
       arrowRef,
     }),
     [
       open,
-      setOpen,
       interactions,
       data,
       labelId,
@@ -140,7 +136,7 @@ function useReleaseAnnouncement({
       header,
       description,
       closeLabel,
-      onClose,
+      onClick,
       arrowRef,
     ],
   );
@@ -200,7 +196,7 @@ function ReleaseAnnouncementContainer({
   const {
     context: floatingContext,
     arrowRef,
-    ...context
+    ...rest
   } = useReleaseAnnouncementContext();
 
   if (!floatingContext.open) return null;
@@ -209,11 +205,11 @@ function ReleaseAnnouncementContainer({
     <FloatingPortal>
       <FloatingFocusManager context={floatingContext}>
         <div
-          ref={context.refs.setFloating}
-          style={context.floatingStyles}
-          aria-labelledby={context.labelId}
-          aria-describedby={context.descriptionId}
-          {...context.getFloatingProps()}
+          ref={rest.refs.setFloating}
+          style={rest.floatingStyles}
+          aria-labelledby={rest.labelId}
+          aria-describedby={rest.descriptionId}
+          {...rest.getFloatingProps()}
           className={styles.content}
         >
           <FloatingArrow
@@ -236,8 +232,7 @@ function ReleaseAnnouncementContent() {
     header,
     description,
     closeLabel,
-    onClose,
-    setOpen,
+    onClick,
   } = useReleaseAnnouncementContext();
   const labelId = useId();
   const descriptionId = useId();
@@ -277,10 +272,7 @@ function ReleaseAnnouncementContent() {
         size="sm"
         kind="secondary"
         className={styles.button}
-        onClick={() => {
-          setOpen(false);
-          onClose?.();
-        }}
+        onClick={onClick}
       >
         {closeLabel}
       </Button>
