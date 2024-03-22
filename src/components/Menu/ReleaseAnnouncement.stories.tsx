@@ -41,7 +41,9 @@ const Template: StoryFn<typeof ReleaseAnnouncementComponent> = (args) => {
       open={open}
       onClick={() => setOpen(false)}
     >
-      <Button onClick={() => setOpen((_open) => !_open)}>Open menu</Button>
+      <Button aria-label="open menu" onClick={() => setOpen((_open) => !_open)}>
+        Open menu
+      </Button>
     </ReleaseAnnouncementComponent>
   );
 };
