@@ -26,7 +26,7 @@ export const ReleaseAnnouncementContext = createContext<ContextType>(null);
 /**
  * Provides the context for the ReleaseAnnouncement components.
  */
-export const useReleaseAnnouncementContext = () => {
+export function useReleaseAnnouncementContext() {
   const context = useContext(ReleaseAnnouncementContext);
 
   if (context == null) {
@@ -36,4 +36,4 @@ export const useReleaseAnnouncementContext = () => {
   }
 
   return context;
-};
+}
