@@ -14,48 +14,40 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import React, {
-  cloneElement,
-  createContext,
-  Dispatch,
-  isValidElement,
-  MouseEventHandler,
-  PropsWithChildren,
-  SetStateAction,
-  useContext,
-  useRef,
-  useState,
-} from "react";
+import React, { cloneElement, isValidElement, PropsWithChildren } from "react";
 import {
-  autoUpdate,
-  flip,
   FloatingPortal,
   FloatingFocusManager,
-  offset,
   Placement,
-  shift,
-  useFloating,
-  useInteractions,
   useMergeRefs,
-  useRole,
-  useId,
   FloatingArrow,
-  arrow,
 } from "@floating-ui/react";
 import { Text } from "../Typography/Text";
 import { Button } from "../Button";
 import styles from "./ReleaseAnnouncement.module.css";
+import {
+  useReleaseAnnouncementContext,
+  ReleaseAnnouncementContext,
+} from "./ReleaseAnnouncementContext";
+import { useReleaseAnnouncement } from "./ReleaseAnnouncementHook";
 
-interface ReleaseAnnouncementProps {
-  open: boolean;
-  header: string;
-  description: string;
-  closeLabel: string;
+type UseReleaseAnnouncementParam = Parameters<typeof useReleaseAnnouncement>[0];
+
+interface ReleaseAnnouncementProps
+  extends Omit<UseReleaseAnnouncementParam, "placement"> {
   placement?: Placement;
-  onClick: MouseEventHandler<HTMLButtonElement>;
 }
 
+/**
+ * The ReleaseAnnouncement component is a floating component that appears next to an anchor.
+ * @param children - Act as an anchor, the component will be displayed alongside of it.
+ * @param placement - The placement of the component
+ * @constructor
+ */
 export function ReleaseAnnouncement({
+  /**
+   * The children anchor should be a single valid React element.
+   */
   children,
   placement = "bottom",
   ...props
@@ -72,103 +64,18 @@ export function ReleaseAnnouncement({
   );
 }
 
-interface UseReleaseAnnouncementProps extends ReleaseAnnouncementProps {
-  placement: Placement;
-}
-
-function useReleaseAnnouncement({
-  open,
-  header,
-  description,
-  closeLabel,
-  placement,
-  onClick,
-}: UseReleaseAnnouncementProps) {
-  const [labelId, setLabelId] = useState<string | undefined>();
-  const [descriptionId, setDescriptionId] = useState<string | undefined>();
-  const arrowRef = useRef(null);
-
-  const data = useFloating({
-    placement,
-    open,
-    whileElementsMounted: autoUpdate,
-    middleware: [
-      // arrow height 12px + 4px padding
-      offset(16),
-      flip({
-        crossAxis: placement.includes("-"),
-        fallbackAxisSideDirection: "end",
-        padding: 5,
-      }),
-      shift(),
-      arrow({
-        element: arrowRef,
-      }),
-    ],
-  });
-
-  const context = data.context;
-
-  const role = useRole(context);
-  const interactions = useInteractions([role]);
-
-  return React.useMemo(
-    () => ({
-      open,
-      ...interactions,
-      ...data,
-      labelId,
-      descriptionId,
-      setLabelId,
-      setDescriptionId,
-      header,
-      description,
-      closeLabel,
-      onClick,
-      arrowRef,
-    }),
-    [
-      open,
-      interactions,
-      data,
-      labelId,
-      descriptionId,
-      header,
-      description,
-      closeLabel,
-      onClick,
-      arrowRef,
-    ],
-  );
-}
-
-type ContextType =
-  | (ReturnType<typeof useReleaseAnnouncement> & {
-      setLabelId: Dispatch<SetStateAction<string | undefined>>;
-      setDescriptionId: Dispatch<SetStateAction<string | undefined>>;
-    })
-  | null;
-
-const ReleaseAnnouncementContext = createContext<ContextType>(null);
-
-const useReleaseAnnouncementContext = () => {
-  const context = useContext(ReleaseAnnouncementContext);
-
-  if (context == null) {
-    throw new Error(
-      "ReleaseAnnouncement components must be wrapped in <ReleaseAnnouncement />",
-    );
-  }
-
-  return context;
-};
-
-interface ReleaseAnnouncementAnchorProps {}
-
-function ReleaseAnnouncementAnchor({
-  children,
-}: PropsWithChildren<ReleaseAnnouncementAnchorProps>) {
+/**
+ * The anchor for the ReleaseAnnouncement components.
+ * The Release Announcement will appear next to this element.
+ * @param children - should be a single valid React element
+ * @constructor
+ */
+function ReleaseAnnouncementAnchor({ children }: PropsWithChildren) {
   const context = useReleaseAnnouncementContext();
+
+  // TODO Find a cleaner way to handle this
+  // The children can have a ref and we don't want to discard it
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const childrenRef = (children as any).ref;
   const ref = useMergeRefs([context.refs.setReference, childrenRef]);
 
@@ -188,11 +95,13 @@ function ReleaseAnnouncementAnchor({
   );
 }
 
-interface ReleaseAnnouncementContainerProps {}
-
-function ReleaseAnnouncementContainer({
-  children,
-}: PropsWithChildren<ReleaseAnnouncementContainerProps>) {
+/**
+ * The container for the ReleaseAnnouncement components.
+ * Manage focus and positioning of the children.
+ * @param children
+ * @constructor
+ */
+function ReleaseAnnouncementContainer({ children }: PropsWithChildren) {
   const {
     context: floatingContext,
     arrowRef,
@@ -215,6 +124,7 @@ function ReleaseAnnouncementContainer({
           <FloatingArrow
             ref={arrowRef}
             context={floatingContext}
+            // design absolute value
             width={20}
             height={12}
           />
@@ -225,28 +135,18 @@ function ReleaseAnnouncementContainer({
   );
 }
 
+/**
+ * The content of the ReleaseAnnouncement component.
+ * ---------------------------------------------------------------
+ * - The header in a bold text                  -------------    -
+ * - A description in a regular text           | Close button |  -
+ * - Description can be on multiple lines       -------------    -
+ * ---------------------------------------------------------------
+ * @constructor
+ */
 function ReleaseAnnouncementContent() {
-  const {
-    setLabelId,
-    setDescriptionId,
-    header,
-    description,
-    closeLabel,
-    onClick,
-  } = useReleaseAnnouncementContext();
-  const labelId = useId();
-  const descriptionId = useId();
-
-  // Only sets `aria-describedby` and `aria-labelledby` on the ReleaseAnnouncementContainer component
-  // if this component is mounted inside it.
-  React.useLayoutEffect(() => {
-    setLabelId(labelId);
-    setDescriptionId(descriptionId);
-    return () => {
-      setLabelId(undefined);
-      setDescriptionId(undefined);
-    };
-  }, [labelId, descriptionId, setLabelId, setDescriptionId]);
+  const { labelId, descriptionId, header, description, closeLabel, onClick } =
+    useReleaseAnnouncementContext();
 
   return (
     <>

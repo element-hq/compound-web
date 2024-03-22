@@ -19,8 +19,22 @@ limitations under the License.
   max-inline-size: 320px;
   border-radius: var(--cpd-space-3x);
   background: var(--cpd-color-bg-action-primary-rest);
-  box-shadow: 0 4px 24px 0 rgb(0 0 0 / 10%);
   padding: var(--cpd-space-4x) var(--cpd-space-5x);
+
+  /* from figma */
+  box-shadow: 0 4px 24px 0 rgb(0 0 0 / 10%);
+
+  /*
+  * Grid, we want to have the following layout:
+  * ----------------------------------
+  * -  ---------------   ----------  -
+  * -  | heading     |   |        |  -
+  * -  --------------    | button |  -
+  * -  ---------------   | button |  -
+  * -  | description |   |        |  -
+  * -  ---------------   ----------  -
+  * ----------------------------------
+  */
   display: grid;
   grid-template-columns: auto auto;
   grid-template-rows: auto auto;
