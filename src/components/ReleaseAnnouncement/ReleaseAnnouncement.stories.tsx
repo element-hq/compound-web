@@ -48,5 +48,17 @@ const Template: StoryFn<typeof ReleaseAnnouncementComponent> = (args) => {
   );
 };
 
-export const ReleaseAnnouncement = Template.bind({});
-ReleaseAnnouncement.args = {};
+export const Default = Template.bind({});
+Default.args = {};
+
+export const MultiLinesContent = Template.bind({});
+MultiLinesContent.args = {
+  header: "A multi line header which is taking multiple lines",
+  description:
+    "A multi line description which is taking multiple lines. The OK button should be horizontally centred.",
+};
+
+export const BottomPlacement = Template.bind({});
+BottomPlacement.args = {
+  placement: "bottom",
+};

@@ -17,10 +17,8 @@ limitations under the License.
 import {
   arrow,
   autoUpdate,
-  flip,
   offset,
   Placement,
-  shift,
   useFloating,
   useId,
   useInteractions,
@@ -79,12 +77,6 @@ export function useReleaseAnnouncement({
     middleware: [
       // arrow height 12px + 4px padding
       offset(16),
-      flip({
-        crossAxis: placement.includes("-"),
-        fallbackAxisSideDirection: "end",
-        padding: 5,
-      }),
-      shift(),
       // add the little arrow along with the floating content
       arrow({
         element: arrowRef,
