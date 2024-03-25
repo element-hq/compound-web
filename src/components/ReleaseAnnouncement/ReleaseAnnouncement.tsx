@@ -29,7 +29,7 @@ import {
   useReleaseAnnouncementContext,
   ReleaseAnnouncementContext,
 } from "./ReleaseAnnouncementContext";
-import { useReleaseAnnouncement } from "./ReleaseAnnouncementHook";
+import { useReleaseAnnouncement } from "./useReleaseAnnouncement";
 
 type UseReleaseAnnouncementParam = Parameters<typeof useReleaseAnnouncement>[0];
 

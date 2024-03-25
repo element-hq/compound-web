@@ -15,7 +15,7 @@ limitations under the License.
 */
 
 import { createContext, useContext } from "react";
-import { useReleaseAnnouncement } from "./ReleaseAnnouncementHook";
+import { useReleaseAnnouncement } from "./useReleaseAnnouncement";
 
 type ContextType = ReturnType<typeof useReleaseAnnouncement> | null;
 /**
