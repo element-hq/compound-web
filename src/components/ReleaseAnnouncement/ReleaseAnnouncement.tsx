@@ -70,7 +70,7 @@ export function ReleaseAnnouncement({
  * @param children - should be a single valid React element
  * @constructor
  */
-function ReleaseAnnouncementAnchor({ children }: PropsWithChildren) {
+function ReleaseAnnouncementAnchor({ children }: Readonly<PropsWithChildren>) {
   const context = useReleaseAnnouncementContext();
 
   // TODO Find a cleaner way to handle this
