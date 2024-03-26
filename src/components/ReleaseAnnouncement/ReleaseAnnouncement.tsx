@@ -37,7 +37,7 @@ interface ReleaseAnnouncementProps
   extends Omit<UseReleaseAnnouncementParam, "placement"> {
   /**
    * The placement of the component
-   * @default "bottom"
+   * @default "right"
    */
   placement?: Placement;
 }
@@ -54,7 +54,7 @@ export function ReleaseAnnouncement({
    * The children anchor should be a single valid React element.
    */
   children,
-  placement = "bottom",
+  placement = "right",
   ...props
 }: PropsWithChildren<ReleaseAnnouncementProps>) {
   const context = useReleaseAnnouncement({ placement, ...props });
