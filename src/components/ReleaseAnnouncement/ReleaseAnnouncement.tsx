@@ -35,6 +35,10 @@ type UseReleaseAnnouncementParam = Parameters<typeof useReleaseAnnouncement>[0];
 
 interface ReleaseAnnouncementProps
   extends Omit<UseReleaseAnnouncementParam, "placement"> {
+  /**
+   * The placement of the component
+   * @default "bottom"
+   */
   placement?: Placement;
 }
 
