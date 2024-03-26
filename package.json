@@ -113,6 +113,7 @@
     "vaul": "^0.7.0"
   },
   "peerDependencies": {
+    "@floating-ui/react-dom": "^2.0.8",
     "@fontsource/inconsolata": "^5",
     "@fontsource/inter": "^5",
     "@types/react": "*",
