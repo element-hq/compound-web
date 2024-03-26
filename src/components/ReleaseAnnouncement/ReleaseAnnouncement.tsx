@@ -39,7 +39,8 @@ interface ReleaseAnnouncementProps
 }
 
 /**
- * The ReleaseAnnouncement component is a floating component that appears next to an anchor.
+ * The ReleaseAnnouncement component purpose is to inform the use of a new available feature.
+ * This component is a floating component that will appear next to an anchor.
  * @param children - Act as an anchor, the component will be displayed alongside of it.
  * @param placement - The placement of the component
  * @constructor
