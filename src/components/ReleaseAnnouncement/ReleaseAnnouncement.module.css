@@ -57,3 +57,7 @@ limitations under the License.
   color: var(--cpd-color-bg-subtle-secondary);
   grid-area: 1 / 2 / 3 / 3;
 }
+
+.arrow {
+  fill: var(--cpd-color-bg-action-primary-rest);
+}

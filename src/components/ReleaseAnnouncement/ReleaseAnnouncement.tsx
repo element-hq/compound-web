@@ -132,6 +132,7 @@ function ReleaseAnnouncementContainer({ children }: PropsWithChildren) {
             // design absolute value
             width={20}
             height={12}
+            className={styles.arrow}
           />
           {children}
         </div>
