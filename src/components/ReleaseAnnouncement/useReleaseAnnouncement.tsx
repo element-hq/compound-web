@@ -17,8 +17,10 @@ limitations under the License.
 import {
   arrow,
   autoUpdate,
+  limitShift,
   offset,
   Placement,
+  shift,
   useFloating,
   useId,
   useInteractions,
@@ -77,6 +79,7 @@ export function useReleaseAnnouncement({
     middleware: [
       // arrow height 12px + 4px padding
       offset(16),
+      shift({ limiter: limitShift({ offset: 50 }) }),
       // add the little arrow along with the floating content
       arrow({
         element: arrowRef,
