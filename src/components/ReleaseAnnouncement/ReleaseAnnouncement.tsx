@@ -122,7 +122,7 @@ function ReleaseAnnouncementContainer({ children }: PropsWithChildren) {
 
   return (
     <FloatingPortal>
-      <FloatingFocusManager context={floatingContext}>
+      <FloatingFocusManager context={floatingContext} modal={false}>
         <div
           ref={rest.refs.setFloating}
           style={rest.floatingStyles}
