@@ -14,7 +14,12 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import React, { cloneElement, isValidElement, PropsWithChildren } from "react";
+import React, {
+  cloneElement,
+  isValidElement,
+  PropsWithChildren,
+  RefObject,
+} from "react";
 import {
   FloatingPortal,
   FloatingFocusManager,
@@ -43,7 +48,7 @@ interface ReleaseAnnouncementProps
 }
 
 /**
- * The ReleaseAnnouncement component purpose is to inform the use of a new available feature.
+ * The ReleaseAnnouncement component purpose is to inform the user of a new available feature.
  * This component is a floating component that will appear next to an anchor.
  * @param children - Act as an anchor, the component will be displayed alongside of it.
  * @param placement - The placement of the component
@@ -78,10 +83,10 @@ export function ReleaseAnnouncement({
 function ReleaseAnnouncementAnchor({ children }: Readonly<PropsWithChildren>) {
   const context = useReleaseAnnouncementContext();
 
-  // TODO Find a cleaner way to handle this
   // The children can have a ref and we don't want to discard it
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const childrenRef = (children as any).ref;
+  // Doing a dirty cast to get the optional ref
+  const childrenRef = (children as unknown as { ref?: RefObject<HTMLElement> })
+    ?.ref;
   const ref = useMergeRefs([context.refs.setReference, childrenRef]);
 
   if (!isValidElement(children)) {
