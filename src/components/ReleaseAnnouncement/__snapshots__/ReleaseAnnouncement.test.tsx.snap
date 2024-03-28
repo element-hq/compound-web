@@ -1,0 +1,118 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ReleaseAnnouncement > renders 1`] = `
+<div
+  data-floating-ui-inert=""
+>
+  <button
+    aria-controls=":r2:"
+    aria-expanded="true"
+    aria-haspopup="dialog"
+    aria-label="open menu"
+    class="_button_2a1efe"
+    data-kind="primary"
+    data-size="lg"
+    data-state="open"
+    role="button"
+    tabindex="0"
+  >
+    Open menu
+  </button>
+  <span
+    data-floating-ui-focus-guard=""
+    data-type="outside"
+    role="button"
+    style="border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: fixed; white-space: nowrap; width: 1px; top: 0px; left: 0px;"
+    tabindex="0"
+  />
+  <span
+    aria-owns=":r4:"
+    style="border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: fixed; white-space: nowrap; width: 1px; top: 0px; left: 0px;"
+  />
+  <span
+    data-floating-ui-focus-guard=""
+    data-type="outside"
+    role="button"
+    style="border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: fixed; white-space: nowrap; width: 1px; top: 0px; left: 0px;"
+    tabindex="0"
+  />
+</div>
+`;
+
+exports[`ReleaseAnnouncement > renders the component at the bottom of the trigger button 1`] = `
+<div
+  data-floating-ui-inert=""
+>
+  <button
+    aria-controls=":re:"
+    aria-expanded="true"
+    aria-haspopup="dialog"
+    aria-label="open menu"
+    class="_button_2a1efe"
+    data-kind="primary"
+    data-size="lg"
+    data-state="open"
+    role="button"
+    tabindex="0"
+  >
+    Open menu
+  </button>
+  <span
+    data-floating-ui-focus-guard=""
+    data-type="outside"
+    role="button"
+    style="border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: fixed; white-space: nowrap; width: 1px; top: 0px; left: 0px;"
+    tabindex="0"
+  />
+  <span
+    aria-owns=":rg:"
+    style="border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: fixed; white-space: nowrap; width: 1px; top: 0px; left: 0px;"
+  />
+  <span
+    data-floating-ui-focus-guard=""
+    data-type="outside"
+    role="button"
+    style="border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: fixed; white-space: nowrap; width: 1px; top: 0px; left: 0px;"
+    tabindex="0"
+  />
+</div>
+`;
+
+exports[`ReleaseAnnouncement > renders with a long label header and description 1`] = `
+<div
+  data-floating-ui-inert=""
+>
+  <button
+    aria-controls=":r8:"
+    aria-expanded="true"
+    aria-haspopup="dialog"
+    aria-label="open menu"
+    class="_button_2a1efe"
+    data-kind="primary"
+    data-size="lg"
+    data-state="open"
+    role="button"
+    tabindex="0"
+  >
+    Open menu
+  </button>
+  <span
+    data-floating-ui-focus-guard=""
+    data-type="outside"
+    role="button"
+    style="border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: fixed; white-space: nowrap; width: 1px; top: 0px; left: 0px;"
+    tabindex="0"
+  />
+  <span
+    aria-owns=":ra:"
+    style="border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: fixed; white-space: nowrap; width: 1px; top: 0px; left: 0px;"
+  />
+  <span
+    data-floating-ui-focus-guard=""
+    data-type="outside"
+    role="button"
+    style="border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: fixed; white-space: nowrap; width: 1px; top: 0px; left: 0px;"
+    tabindex="0"
+  />
+</div>
+`;
