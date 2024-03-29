@@ -19,7 +19,7 @@ limitations under the License.
   max-inline-size: 320px;
   border-radius: var(--cpd-space-3x);
   background: var(--cpd-color-bg-action-primary-rest);
-  padding: var(--cpd-space-4x) var(--cpd-space-5x);
+  padding: var(--cpd-space-5x) var(--cpd-space-6x);
 
   /* from figma */
   box-shadow: 0 4px 24px 0 rgb(0 0 0 / 10%);
@@ -36,26 +36,27 @@ limitations under the License.
   * ----------------------------------
   */
   display: grid;
-  grid-template-columns: auto auto;
-  grid-template-rows: auto auto;
+  grid-template:
+    "header button" auto
+    "description button" auto;
   align-items: center;
   column-gap: var(--cpd-space-6x);
 }
 
-.heading {
+.header {
   margin: 0;
   color: var(--cpd-color-text-on-solid-primary);
-  grid-area: 1 / 1 / 2 /2;
+  grid-area: header;
 }
 
 .description {
   color: var(--cpd-color-gray-500);
-  grid-area: 2 / 1 / 3 / 2;
+  grid-area: description;
 }
 
 .button {
   color: var(--cpd-color-bg-subtle-secondary);
-  grid-area: 1 / 2 / 3 / 3;
+  grid-area: button;
 }
 
 .arrow {

@@ -8,7 +8,6 @@ exports[`ReleaseAnnouncement > renders 1`] = `
     aria-controls=":r2:"
     aria-expanded="true"
     aria-haspopup="dialog"
-    aria-label="open menu"
     class="_button_2a1efe"
     data-kind="primary"
     data-size="lg"

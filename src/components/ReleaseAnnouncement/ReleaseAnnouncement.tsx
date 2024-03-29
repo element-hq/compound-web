@@ -161,7 +161,7 @@ function ReleaseAnnouncementContent() {
       <Text
         as="h3"
         id={labelId}
-        className={styles.heading}
+        className={styles.header}
         size="lg"
         weight="semibold"
       >
