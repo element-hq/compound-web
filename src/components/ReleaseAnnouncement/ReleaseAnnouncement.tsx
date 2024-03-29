@@ -18,7 +18,7 @@ import React, {
   cloneElement,
   isValidElement,
   PropsWithChildren,
-  RefObject,
+  Ref,
 } from "react";
 import {
   FloatingPortal,
@@ -84,8 +84,7 @@ function ReleaseAnnouncementAnchor({ children }: Readonly<PropsWithChildren>) {
 
   // The children can have a ref and we don't want to discard it
   // Doing a dirty cast to get the optional ref
-  const childrenRef = (children as unknown as { ref?: RefObject<HTMLElement> })
-    ?.ref;
+  const childrenRef = (children as unknown as { ref?: Ref<HTMLElement> })?.ref;
   const ref = useMergeRefs([context.refs.setReference, childrenRef]);
 
   if (!isValidElement(children)) {
