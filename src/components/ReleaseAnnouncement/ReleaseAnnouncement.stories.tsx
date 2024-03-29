@@ -41,9 +41,7 @@ const Template: StoryFn<typeof ReleaseAnnouncementComponent> = (args) => {
       open={open}
       onClick={() => setOpen(false)}
     >
-      <Button aria-label="open menu" onClick={() => setOpen((_open) => !_open)}>
-        Open menu
-      </Button>
+      <Button onClick={() => setOpen((_open) => !_open)}>Open menu</Button>
     </ReleaseAnnouncementComponent>
   );
 };
@@ -55,7 +53,7 @@ export const MultiLinesContent = Template.bind({});
 MultiLinesContent.args = {
   header: "A multi line header which is taking multiple lines",
   description:
-    "A multi line description which is taking multiple lines. The OK button should be horizontally centred.",
+    "A multi line description which is taking multiple lines. The OK button should be vertically centred.",
 };
 
 export const BottomPlacement = Template.bind({});
