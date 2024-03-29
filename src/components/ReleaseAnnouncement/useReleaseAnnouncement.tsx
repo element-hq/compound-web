@@ -30,7 +30,7 @@ import { MouseEventHandler, useMemo, useRef } from "react";
 
 interface UseReleaseAnnouncementProps {
   /**
-   * Open or not the release announcement.
+   * Whether the release announcement is open.
    */
   open: boolean;
   /**

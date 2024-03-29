@@ -52,7 +52,6 @@ interface ReleaseAnnouncementProps
  * This component is a floating component that will appear next to an anchor.
  * @param children - Act as an anchor, the component will be displayed alongside of it.
  * @param placement - The placement of the component
- * @constructor
  */
 export function ReleaseAnnouncement({
   /**
@@ -109,7 +108,6 @@ function ReleaseAnnouncementAnchor({ children }: Readonly<PropsWithChildren>) {
  * The container for the ReleaseAnnouncement components.
  * Manage focus and positioning of the children.
  * @param children
- * @constructor
  */
 function ReleaseAnnouncementContainer({ children }: PropsWithChildren) {
   const {
@@ -153,7 +151,6 @@ function ReleaseAnnouncementContainer({ children }: PropsWithChildren) {
  * - A description in a regular text           | Close button |  -
  * - Description can be on multiple lines       -------------    -
  * ---------------------------------------------------------------
- * @constructor
  */
 function ReleaseAnnouncementContent() {
   const { labelId, descriptionId, header, description, closeLabel, onClick } =
