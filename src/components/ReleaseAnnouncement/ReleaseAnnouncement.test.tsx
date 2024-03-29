@@ -18,25 +18,42 @@
 
 import { composeStories } from "@storybook/react";
 import * as stories from "./ReleaseAnnouncement.stories";
-import { describe, it, expect } from "vitest";
-import { render } from "@testing-library/react";
+import { describe, it, expect, vi } from "vitest";
+import { render, screen } from "@testing-library/react";
 import React from "react";
+import { ReleaseAnnouncement } from "./ReleaseAnnouncement";
+import { Button } from "../Button";
 
 const { Default, MultiLinesContent, BottomPlacement } = composeStories(stories);
 
 describe("ReleaseAnnouncement", () => {
-  it("renders", () => {
-    const { container } = render(<Default />);
-    expect(container).toMatchSnapshot();
+  it("renders", async () => {
+    render(<Default />);
+    expect(await screen.findByRole("dialog")).toMatchSnapshot();
   });
 
-  it("renders with a long label header and description", () => {
-    const { container } = render(<MultiLinesContent />);
-    expect(container).toMatchSnapshot();
+  it("renders with a long label header and description", async () => {
+    render(<MultiLinesContent />);
+    expect(await screen.findByRole("dialog")).toMatchSnapshot();
   });
 
-  it("renders the component at the bottom of the trigger button", () => {
-    const { container } = render(<BottomPlacement />);
-    expect(container).toMatchSnapshot();
+  it("renders the component at the bottom of the trigger button", async () => {
+    render(<BottomPlacement />);
+    expect(await screen.findByRole("dialog")).toMatchSnapshot();
+  });
+
+  it("renders the component when closed", async () => {
+    render(
+      <ReleaseAnnouncement
+        open={false}
+        header="header"
+        description="description"
+        closeLabel="Ok"
+        onClick={vi.fn()}
+      >
+        <Button>Open</Button>
+      </ReleaseAnnouncement>,
+    );
+    expect(screen.queryByRole("dialog")).toBeNull();
   });
 });
