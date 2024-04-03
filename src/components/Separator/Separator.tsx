@@ -25,7 +25,7 @@ import React, {
   useRef,
 } from "react";
 import styles from "./Separator.module.css";
-import { useMergedRefs } from "../../utils/useMergedRefs";
+import { useMergeRefs } from "@floating-ui/react";
 
 type SeparatorProps = {
   /**
@@ -61,7 +61,7 @@ export const Separator = forwardRef(
   ) => {
     const classes = classnames(styles.separator, className);
     const ourRef = useRef<HTMLDivElement | null>(null);
-    const ref = useMergedRefs(ourRef, theirRef ?? null);
+    const ref = useMergeRefs([ourRef, theirRef]);
 
     useEffect(() => {
       const style = ourRef.current?.style;
