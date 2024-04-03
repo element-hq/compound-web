@@ -17,6 +17,7 @@ limitations under the License.
 import React, {
   cloneElement,
   isValidElement,
+  JSX,
   PropsWithChildren,
   Ref,
 } from "react";
@@ -60,7 +61,7 @@ export function ReleaseAnnouncement({
   children,
   placement = "right",
   ...props
-}: PropsWithChildren<ReleaseAnnouncementProps>) {
+}: PropsWithChildren<ReleaseAnnouncementProps>): JSX.Element {
   const context = useReleaseAnnouncement({ placement, ...props });
 
   return (
@@ -79,7 +80,9 @@ export function ReleaseAnnouncement({
  * @param children - should be a single valid React element
  * @constructor
  */
-function ReleaseAnnouncementAnchor({ children }: Readonly<PropsWithChildren>) {
+function ReleaseAnnouncementAnchor({
+  children,
+}: Readonly<PropsWithChildren>): JSX.Element {
   const context = useReleaseAnnouncementContext();
 
   // The children can have a ref and we don't want to discard it
@@ -108,7 +111,9 @@ function ReleaseAnnouncementAnchor({ children }: Readonly<PropsWithChildren>) {
  * Manage focus and positioning of the children.
  * @param children
  */
-function ReleaseAnnouncementContainer({ children }: PropsWithChildren) {
+function ReleaseAnnouncementContainer({
+  children,
+}: PropsWithChildren): JSX.Element | null {
   const {
     context: floatingContext,
     arrowRef,
@@ -151,7 +156,7 @@ function ReleaseAnnouncementContainer({ children }: PropsWithChildren) {
  * - Description can be on multiple lines       -------------    -
  * ---------------------------------------------------------------
  */
-function ReleaseAnnouncementContent() {
+function ReleaseAnnouncementContent(): JSX.Element {
   const { labelId, descriptionId, header, description, closeLabel, onClick } =
     useReleaseAnnouncementContext();
 
