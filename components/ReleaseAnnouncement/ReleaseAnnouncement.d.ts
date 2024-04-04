@@ -1,4 +1,4 @@
-import { PropsWithChildren } from "react";
+import { JSX, PropsWithChildren } from "react";
 import { Placement } from "@floating-ui/react";
 import { useReleaseAnnouncement } from "./useReleaseAnnouncement";
 type UseReleaseAnnouncementParam = Parameters<typeof useReleaseAnnouncement>[0];
@@ -19,6 +19,6 @@ export declare function ReleaseAnnouncement({
 /**
  * The children anchor should be a single valid React element.
  */
-children, placement, ...props }: PropsWithChildren<ReleaseAnnouncementProps>): import("react/jsx-runtime").JSX.Element;
+children, placement, ...props }: PropsWithChildren<ReleaseAnnouncementProps>): JSX.Element;
 export {};
 //# sourceMappingURL=ReleaseAnnouncement.d.ts.map
