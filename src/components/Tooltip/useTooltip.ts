@@ -21,6 +21,7 @@ import {
   autoUpdate,
   flip,
   offset,
+  OpenChangeReason,
   Placement,
   shift,
   useDismiss,
@@ -35,14 +36,40 @@ import { useMemo, useRef, useState } from "react";
 
 interface UseTooltipProps {
   /**
-   * Whether the tooltip is open.
+   * The controlled open state of the tooltip.
+   * When true, the tooltip is always open. When false, the tooltip is always hidden.
+   * When undefined, the tooltip will manage its own open state.
+   * You will mostly want to omit this property. Will be used the vast majority
+   * of the time during development.
+   * @default undefined
    */
   open?: boolean;
   /**
    * The placement of the release announcement.
    */
   placement: Placement;
-  onOpenChange?: (open: boolean) => void;
+  /**
+   * The caption of the tooltip.
+   */
+  caption?: string;
+  /**
+   * The event handler for the open change.
+   * If provided, the tooltip will be in controlled mode.
+   */
+  onOpenChange?: (
+    open: boolean,
+    event?: Event | undefined,
+    reason?: OpenChangeReason | undefined,
+  ) => void;
+  /**
+   * Whether the trigger element is interactive.
+   * When trigger is interactive:
+   *      - tooltip will be shown after a 300ms delay.
+   * When trigger is not interactive:
+   *      - tooltip will be shown instantly when pointer enters trigger.
+   *      - trigger will be wrapped in a span with a tab index from prop nonInteractiveTriggerTabIndex
+   * @default true
+   */
   isTriggerInteractive: boolean;
 }
 
@@ -51,6 +78,7 @@ export function useTooltip({
   placement,
   onOpenChange: setControlledOpen,
   isTriggerInteractive,
+  caption,
 }: UseTooltipProps) {
   // Set on `aria-labelledby` attribute
   const labelId = useId();
@@ -89,6 +117,7 @@ export function useTooltip({
   const hover = useHover(context, {
     move: false,
     enabled: controlledOpen === undefined,
+    // Show tooltip after a delay when trigger is interactive
     delay: { open: isTriggerInteractive ? 300 : 0 },
   });
   const focus = useFocus(context, {
@@ -102,7 +131,7 @@ export function useTooltip({
   return useMemo(
     () => ({
       labelId,
-      captionId,
+      captionId: caption ? captionId : undefined,
       open,
       setOpen,
       ...interactions,

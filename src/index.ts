@@ -43,9 +43,7 @@ export { MenuItem } from "./components/Menu/MenuItem";
 export { Search } from "./components/Search/Search";
 export { Separator } from "./components/Separator/Separator";
 export { ToggleMenuItem } from "./components/Menu/ToggleMenuItem";
-export { Tooltip as TooltipLegacy } from "./components/Tooltip/Tooltip";
-export { Tooltip2 as Tooltip } from "./components/Tooltip/Tooltip2";
-export { TooltipProvider } from "./components/Tooltip/TooltipProvider";
+export { Tooltip } from "./components/Tooltip/Tooltip";
 export { ReleaseAnnouncement } from "./components/ReleaseAnnouncement";
 
 export {

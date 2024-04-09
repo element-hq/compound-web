@@ -14,8 +14,8 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import { describe, it, expect, beforeAll, afterEach } from "vitest";
-import { cleanup, fireEvent, render, screen } from "@testing-library/react";
+import { describe, it, expect } from "vitest";
+import { fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
 
 import * as stories from "./Tooltip.stories";
@@ -31,12 +31,6 @@ const {
 } = composeStories(stories);
 
 describe("Tooltip", () => {
-  beforeAll(() => {
-    global.ResizeObserver = require("resize-observer-polyfill");
-  });
-
-  afterEach(cleanup);
-
   it("renders open by default", () => {
     const { asFragment } = render(<ForcedOpen />);
     // trigger rendered

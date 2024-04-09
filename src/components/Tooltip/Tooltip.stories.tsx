@@ -14,37 +14,24 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import React, { FC, ReactNode } from "react";
-import { Meta, StoryFn } from "@storybook/react";
-
+import { Placement as PlacementType } from "@floating-ui/react";
 import { Tooltip as TooltipComponent } from "./Tooltip";
 import { IconButton } from "../Button";
-
 import UserIcon from "@vector-im/compound-design-tokens/icons/user-profile.svg";
-import { TooltipProvider } from "./TooltipProvider";
+import { Meta, StoryFn } from "@storybook/react";
+import React, { FC, ReactNode } from "react";
 
 export default {
   title: "Tooltip",
   component: TooltipComponent,
   tags: ["autodocs"],
   controls: {
-    include: [
-      "side",
-      "align",
-      "open",
-      "label",
-      "caption",
-      "isTriggerInteractive",
-    ],
+    include: ["placement", "open", "label", "caption", "isTriggerInteractive"],
   },
   argTypes: {
-    side: {
+    placement: {
       control: "inline-radio",
-      options: ["left", "right", "top", "bottom"],
-    },
-    align: {
-      control: "inline-radio",
-      options: ["center", "start", "end"],
+      options: ["top", "right", "left", "bottom"],
     },
     open: {
       control: "boolean",
@@ -60,11 +47,10 @@ export default {
     },
   },
   args: {
-    side: "left",
-    align: "center",
-    open: undefined,
+    placement: "left",
     label: "@bob:example.org",
-    caption: undefined,
+    // needed, to prevent the tooltip to be in controlled mode
+    onOpenChange: undefined,
     children: (
       <IconButton data-testid="testbutton">
         <UserIcon />
@@ -73,11 +59,9 @@ export default {
   },
   decorators: [
     (Story: StoryFn) => (
-      <TooltipProvider>
-        <div style={{ padding: 100 }}>
-          <Story />
-        </div>
-      </TooltipProvider>
+      <div style={{ padding: 100 }}>
+        <Story />
+      </div>
     ),
   ],
 } as Meta<typeof TooltipComponent>;
@@ -99,40 +83,25 @@ const Layout: FC<LayoutProps> = ({ children }) => (
   </div>
 );
 
-const TemplateSide: StoryFn<typeof TooltipComponent> = () => (
+const TemplatePlacement: StoryFn<typeof TooltipComponent> = () => (
   <Layout>
-    {(["top", "right", "bottom", "left"] as const).map((side) => (
-      <TooltipComponent key={side} open side={side} label="@bob:example.org">
-        <IconButton>
-          <UserIcon />
-        </IconButton>
-      </TooltipComponent>
-    ))}
-  </Layout>
-);
-
-export const Side = TemplateSide.bind({});
-Side.args = {};
-
-const TemplateAlign: StoryFn<typeof TooltipComponent> = () => (
-  <Layout>
-    <TooltipComponent
-      open={true}
-      align="center"
-      label="Copy"
-      caption="Ctrl + C"
-    >
-      <IconButton>
-        <UserIcon />
-      </IconButton>
-    </TooltipComponent>
-    {(["start", "end"] as const).map((align) => (
+    {(
+      [
+        "top",
+        "top-start",
+        "right",
+        "right-end",
+        "bottom",
+        "bottom-end",
+        "left",
+        "left-start",
+      ] as Array<PlacementType>
+    ).map((placement) => (
       <TooltipComponent
-        key={align}
-        open
-        align={align}
+        key={placement}
+        open={true}
+        placement={placement}
         label="@bob:example.org"
-        caption="Ctrl + C"
       >
         <IconButton>
           <UserIcon />
@@ -142,14 +111,13 @@ const TemplateAlign: StoryFn<typeof TooltipComponent> = () => (
   </Layout>
 );
 
-export const Align = TemplateAlign.bind({});
-Align.args = {};
+export const Placement = TemplatePlacement.bind({});
+Placement.args = {};
 
 export const Default = {
   args: {
     // unset to test defaults
-    side: undefined,
-    align: undefined,
+    placement: undefined,
   },
 };
 
