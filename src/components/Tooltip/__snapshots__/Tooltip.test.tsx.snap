@@ -7,7 +7,7 @@ exports[`Tooltip > opens tooltip on focus 1`] = `
   class="_tooltip_9b26f8"
   id=":ri:"
   role="tooltip"
-  style="position: absolute; left: 0px; top: 0px; transform: translate(5px, 8px);"
+  style="position: absolute; left: 0px; top: 0px; transform: translate(5px, 6px);"
   tabindex="-1"
 >
   <svg
@@ -94,7 +94,7 @@ exports[`Tooltip > opens tooltip on focus where trigger is non interactive 2`] =
   class="_tooltip_9b26f8"
   id=":ro:"
   role="tooltip"
-  style="position: absolute; left: 0px; top: 0px; transform: translate(5px, 8px);"
+  style="position: absolute; left: 0px; top: 0px; transform: translate(5px, 6px);"
   tabindex="-1"
 >
   <svg
@@ -195,7 +195,7 @@ exports[`Tooltip > renders default tooltip 1`] = `
   class="_tooltip_9b26f8"
   id=":rc:"
   role="tooltip"
-  style="position: absolute; left: 0px; top: 0px; transform: translate(5px, 8px);"
+  style="position: absolute; left: 0px; top: 0px; transform: translate(5px, 6px);"
   tabindex="-1"
 >
   <svg
@@ -360,7 +360,7 @@ exports[`Tooltip > renders with caption 2`] = `
   class="_tooltip_9b26f8"
   id=":r12:"
   role="tooltip"
-  style="position: absolute; left: 0px; top: 0px; transform: translate(5px, 8px);"
+  style="position: absolute; left: 0px; top: 0px; transform: translate(5px, 6px);"
   tabindex="-1"
 >
   <svg

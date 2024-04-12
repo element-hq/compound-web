@@ -98,8 +98,8 @@ export function useTooltip({
     onOpenChange: setOpen,
     whileElementsMounted: autoUpdate,
     middleware: [
-      // arrow height 6px + 2px padding
-      offset(8),
+      // arrow height 6px
+      offset(6),
       flip({
         crossAxis: placement.includes("-"),
         fallbackAxisSideDirection: "start",
