@@ -22,7 +22,6 @@ import { Meta, StoryObj } from "@storybook/react";
 import { PasswordInput } from "./";
 import { within } from "@storybook/testing-library";
 import { userEvent } from "@storybook/testing-library";
-import { TooltipProvider } from "../../../Tooltip/TooltipProvider";
 
 type Props = { invalid?: boolean } & React.ComponentProps<typeof PasswordInput>;
 
@@ -63,9 +62,7 @@ export default {
     },
   },
   render: ({ invalid, ...restArgs }) => (
-    <TooltipProvider>
-      <PasswordInput data-invalid={invalid || undefined} {...restArgs} />
-    </TooltipProvider>
+    <PasswordInput data-invalid={invalid || undefined} {...restArgs} />
   ),
   args: {
     placeholder: "",

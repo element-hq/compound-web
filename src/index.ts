@@ -44,7 +44,6 @@ export { Search } from "./components/Search/Search";
 export { Separator } from "./components/Separator/Separator";
 export { ToggleMenuItem } from "./components/Menu/ToggleMenuItem";
 export { Tooltip } from "./components/Tooltip/Tooltip";
-export { TooltipProvider } from "./components/Tooltip/TooltipProvider";
 export { ReleaseAnnouncement } from "./components/ReleaseAnnouncement";
 
 export {

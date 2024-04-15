@@ -20,15 +20,10 @@ import { act, getByLabelText, render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 import { PasswordInput } from "./Password";
-import { TooltipProvider } from "../../../Tooltip/TooltipProvider";
 
 describe("PasswordControl", () => {
   it("switches the input type", async () => {
-    const { container } = render(
-      <TooltipProvider>
-        <PasswordInput defaultValue="p4ssw0rd!" />
-      </TooltipProvider>,
-    );
+    const { container } = render(<PasswordInput defaultValue="p4ssw0rd!" />);
 
     expect(container.querySelector("[type=password]")).toBeInTheDocument();
     expect(container).toMatchSnapshot("invisible");

@@ -14,52 +14,34 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import React, { PropsWithChildren } from "react";
-import { Root, Trigger, Portal, Content, Arrow } from "@radix-ui/react-tooltip";
+import { TooltipContext, useTooltipContext } from "./TooltipContext";
+import {
+  FloatingArrow,
+  FloatingPortal,
+  Placement,
+  useMergeRefs,
+} from "@floating-ui/react";
+import React, {
+  PropsWithChildren,
+  Ref,
+  JSX,
+  isValidElement,
+  cloneElement,
+} from "react";
 
-import styles from "./Tooltip.module.css";
 import classNames from "classnames";
+import styles from "./Tooltip.module.css";
+import { useTooltip } from "./useTooltip";
 
-type TooltipProps = {
+type UseTooltipParam = Parameters<typeof useTooltip>[0];
+
+interface TooltipProps
+  extends Omit<UseTooltipParam, "placement" | "isTriggerInteractive"> {
   /**
-   * The tooltip label
+   * The placement of the component
+   * @default "bottom"
    */
-  label: string;
-  /**
-   * The tooltip caption
-   */
-  caption?: string;
-  /**
-   * The side where the tooltip is rendered
-   * @default bottom
-   */
-  side?: React.ComponentProps<typeof Content>["side"];
-  /**
-   * The preferred alignment against the trigger.
-   * May change when collisions occur.
-   * @default center
-   */
-  align?: React.ComponentProps<typeof Content>["align"];
-  /**
-   * Event handler called when the escape key is down.
-   */
-  onEscapeKeyDown?: React.ComponentProps<typeof Content>["onEscapeKeyDown"];
-  /**
-   * Event handler called when a pointer event occurs outside
-   * the bounds of the component.
-   */
-  onPointerDownOutside?: React.ComponentProps<
-    typeof Content
-  >["onPointerDownOutside"];
-  /**
-   * The controlled open state of the tooltip.
-   * When true, the tooltip is always open. When false, the tooltip is always hidden.
-   * When undefined, the tooltip will manage its own open state.
-   * You will mostly want to omit this property. Will be used the vast majority
-   * of the time during development.
-   * @default undefined
-   */
-  open?: boolean;
+  placement?: Placement;
   /**
    * Whether the trigger element is interactive.
    * When trigger is interactive:
@@ -71,58 +53,114 @@ type TooltipProps = {
    */
   isTriggerInteractive?: boolean;
   /**
-   * Tab index to apply to the span wrapping non interactive tooltip triggers.
-   * Only used when `isTriggerInteractive` is false.
+   * The tab index for the non interactive trigger.
    * @default 0
    */
   nonInteractiveTriggerTabIndex?: number;
-};
+  /**
+   * The tooltip label
+   */
+  label: string;
+}
 
 /**
  * A tooltip component
  */
-export const Tooltip = ({
+export function Tooltip({
   children,
-  label,
-  caption,
-  side = "bottom",
-  align = "center",
-  onEscapeKeyDown,
-  onPointerDownOutside,
+  placement = "bottom",
   isTriggerInteractive = true,
   nonInteractiveTriggerTabIndex = 0,
-  open,
-}: PropsWithChildren<TooltipProps>): JSX.Element => {
+  label,
+  ...props
+}: PropsWithChildren<TooltipProps>) {
+  const context = useTooltip({ placement, isTriggerInteractive, ...props });
+
   return (
-    <Root open={open} delayDuration={isTriggerInteractive ? 300 : 0}>
-      <Trigger asChild>
+    <TooltipContext.Provider value={context}>
+      <TooltipAnchor>
         {isTriggerInteractive ? (
           children
         ) : (
           <span tabIndex={nonInteractiveTriggerTabIndex}>{children}</span>
         )}
-      </Trigger>
-      <Portal>
-        <Content
-          side={side}
-          align={align}
-          onEscapeKeyDown={onEscapeKeyDown}
-          onPointerDownOutside={onPointerDownOutside}
-          className={styles.tooltip}
-        >
-          {label}
-          {/* Forcing dark theme, so that we have the correct contrast when
-              using the text color secondary on a solid dark background. 
-              This is temporary and should only remain until we figure out 
+      </TooltipAnchor>
+      <TooltipContent>
+        <span id={context.labelId}>{label}</span>
+        {/* Forcing dark theme, so that we have the correct contrast when
+              using the text color secondary on a solid dark background.
+              This is temporary and should only remain until we figure out
               the approach to on-solid tokens */}
-          {caption && (
-            <span className={classNames(styles.caption, "cpd-theme-dark")}>
-              {caption}
-            </span>
-          )}
-          <Arrow width={10} height={6} className={styles.arrow} />
-        </Content>
-      </Portal>
-    </Root>
+        {props.caption && (
+          <span
+            id={context.captionId}
+            className={classNames(styles.caption, "cpd-theme-dark")}
+          >
+            {props.caption}
+          </span>
+        )}
+      </TooltipContent>
+    </TooltipContext.Provider>
   );
-};
+}
+
+/**
+ * The content of the tooltip
+ * @param children
+ */
+function TooltipContent({
+  children,
+}: Readonly<PropsWithChildren>): JSX.Element | null {
+  const { context: floatingContext, arrowRef, ...rest } = useTooltipContext();
+
+  if (!floatingContext.open) return null;
+
+  return (
+    <FloatingPortal>
+      <div
+        ref={rest.refs.setFloating}
+        aria-labelledby={rest.labelId}
+        aria-describedby={rest.captionId || rest.labelId}
+        style={rest.floatingStyles}
+        {...rest.getFloatingProps()}
+        className={styles.tooltip}
+      >
+        <FloatingArrow
+          ref={arrowRef}
+          context={floatingContext}
+          // design absolute value
+          width={10}
+          height={6}
+          className={styles.arrow}
+        />
+        {children}
+      </div>
+    </FloatingPortal>
+  );
+}
+
+/**
+ * The anchor of the tooltip
+ * @param children
+ */
+function TooltipAnchor({ children }: Readonly<PropsWithChildren>): JSX.Element {
+  const context = useTooltipContext();
+
+  // The children can have a ref and we don't want to discard it
+  // Doing a dirty cast to get the optional ref
+  const childrenRef = (children as unknown as { ref?: Ref<HTMLElement> })?.ref;
+  const ref = useMergeRefs([context.refs.setReference, childrenRef]);
+
+  if (!isValidElement(children)) {
+    throw new Error("Tooltip anchor must be a single valid React element");
+  }
+
+  return cloneElement(
+    children,
+    context.getReferenceProps({
+      ref,
+      ...children.props,
+      "data-state": context.open ? "open" : "closed",
+    }),
+  );
+}

@@ -31,7 +31,6 @@ const icons = {
 };
 
 import { ActionInput } from "./";
-import { TooltipProvider } from "../../../Tooltip/TooltipProvider";
 
 type Props = { invalid?: boolean } & React.ComponentProps<typeof ActionInput>;
 
@@ -89,9 +88,7 @@ export default {
     },
   },
   render: ({ invalid, ...restArgs }) => (
-    <TooltipProvider>
-      <ActionInput data-invalid={invalid || undefined} {...restArgs} />
-    </TooltipProvider>
+    <ActionInput data-invalid={invalid || undefined} {...restArgs} />
   ),
   args: {
     placeholder: "",
