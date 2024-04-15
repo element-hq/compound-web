@@ -1,43 +1,13 @@
-import React, { PropsWithChildren } from "react";
-import { Content } from "@radix-ui/react-tooltip";
-type TooltipProps = {
+import { Placement } from "@floating-ui/react";
+import { PropsWithChildren } from "react";
+import { useTooltip } from "./useTooltip";
+type UseTooltipParam = Parameters<typeof useTooltip>[0];
+interface TooltipProps extends Omit<UseTooltipParam, "placement" | "isTriggerInteractive"> {
     /**
-     * The tooltip label
+     * The placement of the component
+     * @default "bottom"
      */
-    label: string;
-    /**
-     * The tooltip caption
-     */
-    caption?: string;
-    /**
-     * The side where the tooltip is rendered
-     * @default bottom
-     */
-    side?: React.ComponentProps<typeof Content>["side"];
-    /**
-     * The preferred alignment against the trigger.
-     * May change when collisions occur.
-     * @default center
-     */
-    align?: React.ComponentProps<typeof Content>["align"];
-    /**
-     * Event handler called when the escape key is down.
-     */
-    onEscapeKeyDown?: React.ComponentProps<typeof Content>["onEscapeKeyDown"];
-    /**
-     * Event handler called when a pointer event occurs outside
-     * the bounds of the component.
-     */
-    onPointerDownOutside?: React.ComponentProps<typeof Content>["onPointerDownOutside"];
-    /**
-     * The controlled open state of the tooltip.
-     * When true, the tooltip is always open. When false, the tooltip is always hidden.
-     * When undefined, the tooltip will manage its own open state.
-     * You will mostly want to omit this property. Will be used the vast majority
-     * of the time during development.
-     * @default undefined
-     */
-    open?: boolean;
+    placement?: Placement;
     /**
      * Whether the trigger element is interactive.
      * When trigger is interactive:
@@ -49,15 +19,18 @@ type TooltipProps = {
      */
     isTriggerInteractive?: boolean;
     /**
-     * Tab index to apply to the span wrapping non interactive tooltip triggers.
-     * Only used when `isTriggerInteractive` is false.
+     * The tab index for the non interactive trigger.
      * @default 0
      */
     nonInteractiveTriggerTabIndex?: number;
-};
+    /**
+     * The tooltip label
+     */
+    label: string;
+}
 /**
  * A tooltip component
  */
-export declare const Tooltip: ({ children, label, caption, side, align, onEscapeKeyDown, onPointerDownOutside, isTriggerInteractive, nonInteractiveTriggerTabIndex, open, }: PropsWithChildren<TooltipProps>) => JSX.Element;
+export declare function Tooltip({ children, placement, isTriggerInteractive, nonInteractiveTriggerTabIndex, label, ...props }: PropsWithChildren<TooltipProps>): import("react/jsx-runtime").JSX.Element;
 export {};
 //# sourceMappingURL=Tooltip.d.ts.map
