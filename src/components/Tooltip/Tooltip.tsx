@@ -73,7 +73,7 @@ export function Tooltip({
   nonInteractiveTriggerTabIndex = 0,
   label,
   ...props
-}: PropsWithChildren<TooltipProps>) {
+}: PropsWithChildren<TooltipProps>): JSX.Element {
   const context = useTooltip({ placement, isTriggerInteractive, ...props });
 
   return (
