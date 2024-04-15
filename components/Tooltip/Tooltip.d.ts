@@ -1,5 +1,5 @@
 import { Placement } from "@floating-ui/react";
-import { PropsWithChildren } from "react";
+import { PropsWithChildren, JSX } from "react";
 import { useTooltip } from "./useTooltip";
 type UseTooltipParam = Parameters<typeof useTooltip>[0];
 interface TooltipProps extends Omit<UseTooltipParam, "placement" | "isTriggerInteractive"> {
@@ -31,6 +31,6 @@ interface TooltipProps extends Omit<UseTooltipParam, "placement" | "isTriggerInt
 /**
  * A tooltip component
  */
-export declare function Tooltip({ children, placement, isTriggerInteractive, nonInteractiveTriggerTabIndex, label, ...props }: PropsWithChildren<TooltipProps>): import("react/jsx-runtime").JSX.Element;
+export declare function Tooltip({ children, placement, isTriggerInteractive, nonInteractiveTriggerTabIndex, label, ...props }: PropsWithChildren<TooltipProps>): JSX.Element;
 export {};
 //# sourceMappingURL=Tooltip.d.ts.map
