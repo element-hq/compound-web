@@ -122,6 +122,7 @@ export function useTooltip({
   });
   const focus = useFocus(context, {
     enabled: controlledOpen === undefined,
+    visibleOnly: false,
   });
   const dismiss = useDismiss(context);
   const role = useRole(context, { role: "tooltip" });
