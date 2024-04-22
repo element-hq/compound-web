@@ -15,7 +15,7 @@ export default create({
   barBg: "#ffffff",
 
   brandTitle: "Compound Web",
-  brandUrl: "https://vector-im.github.io/compound-web/",
+  brandUrl: "https://compound.element.io",
   brandImage: "https://element.io/images/logo-ele-secondary.svg",
   brandTarget: "_self",
 });
