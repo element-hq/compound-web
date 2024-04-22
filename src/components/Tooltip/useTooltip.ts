@@ -37,6 +37,7 @@ import { useMemo, useRef, useState } from "react";
 interface UseTooltipProps {
   /**
    * The controlled open state of the tooltip.
+   * If provided, the tooltip will be in controlled mode.
    * When true, the tooltip is always open. When false, the tooltip is always hidden.
    * When undefined, the tooltip will manage its own open state.
    * You will mostly want to omit this property. Will be used the vast majority
@@ -54,7 +55,6 @@ interface UseTooltipProps {
   caption?: string;
   /**
    * The event handler for the open change.
-   * If provided, the tooltip will be in controlled mode.
    */
   onOpenChange?: (
     open: boolean,
@@ -76,7 +76,7 @@ interface UseTooltipProps {
 export function useTooltip({
   open: controlledOpen,
   placement,
-  onOpenChange: setControlledOpen,
+  onOpenChange,
   isTriggerInteractive,
   caption,
 }: UseTooltipProps) {
@@ -90,7 +90,15 @@ export function useTooltip({
 
   // Use controlledOpen if it is provided, otherwise use uncontrolledOpen
   const open = controlledOpen ?? uncontrolledOpen;
-  const setOpen = setControlledOpen ?? setUncontrolledOpen;
+  const setOpen = (
+    open: boolean,
+    event?: Event | undefined,
+    reason?: OpenChangeReason | undefined,
+  ) => {
+    onOpenChange?.(open, event, reason);
+    // we are in uncontrolled mode
+    if (controlledOpen === undefined) setUncontrolledOpen(open);
+  };
 
   const data = useFloating({
     placement,
