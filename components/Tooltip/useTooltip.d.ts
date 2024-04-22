@@ -2,6 +2,7 @@ import { OpenChangeReason, Placement } from "@floating-ui/react";
 interface UseTooltipProps {
     /**
      * The controlled open state of the tooltip.
+     * If provided, the tooltip will be in controlled mode.
      * When true, the tooltip is always open. When false, the tooltip is always hidden.
      * When undefined, the tooltip will manage its own open state.
      * You will mostly want to omit this property. Will be used the vast majority
@@ -19,7 +20,6 @@ interface UseTooltipProps {
     caption?: string;
     /**
      * The event handler for the open change.
-     * If provided, the tooltip will be in controlled mode.
      */
     onOpenChange?: (open: boolean, event?: Event | undefined, reason?: OpenChangeReason | undefined) => void;
     /**
@@ -33,7 +33,7 @@ interface UseTooltipProps {
      */
     isTriggerInteractive: boolean;
 }
-export declare function useTooltip({ open: controlledOpen, placement, onOpenChange: setControlledOpen, isTriggerInteractive, caption, }: UseTooltipProps): {
+export declare function useTooltip({ open: controlledOpen, placement, onOpenChange, isTriggerInteractive, caption, }: UseTooltipProps): {
     arrowRef: import("react").MutableRefObject<null>;
     placement: Placement;
     strategy: import("@floating-ui/utils").Strategy;
