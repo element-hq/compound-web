@@ -101,7 +101,11 @@ function ReleaseAnnouncementAnchor({
     context.getReferenceProps({
       ref,
       ...children.props,
-      "data-state": context.open ? "open" : "closed",
+      // If the ReleaseAnnouncement is open, we need manually aria-describedby.
+      // The RA has the dialog role and it's not adding automatically the aria-describedby.
+      ...(context.open && {
+        "aria-describedby": context.getFloatingProps().id,
+      }),
     }),
   );
 }
