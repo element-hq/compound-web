@@ -13,7 +13,6 @@ exports[`ActionInput > renders 1`] = `
       aria-controls=":r0:"
       aria-label="Click me!"
       class="_action_1689d3"
-      data-state="closed"
       type="button"
     >
       <svg

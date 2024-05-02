@@ -160,7 +160,6 @@ function TooltipAnchor({ children }: Readonly<PropsWithChildren>): JSX.Element {
     context.getReferenceProps({
       ref,
       ...children.props,
-      "data-state": context.open ? "open" : "closed",
     }),
   );
 }
