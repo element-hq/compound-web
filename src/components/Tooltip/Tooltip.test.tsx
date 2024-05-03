@@ -23,7 +23,8 @@ import { composeStories, composeStory } from "@storybook/react";
 
 const {
   Default,
-  WithCaption,
+  WithStringCaption,
+  WithComponentCaption,
   ForcedOpen,
   ForcedClose,
   InteractiveTrigger,
@@ -92,8 +93,18 @@ describe("Tooltip", () => {
     expect(container).toMatchSnapshot();
   });
 
-  it("renders with caption", async () => {
-    const { asFragment } = render(<WithCaption />);
+  it("renders with string caption", async () => {
+    const { asFragment } = render(<WithStringCaption />);
+    expect(asFragment()).toMatchSnapshot();
+    const trigger = screen.getByTestId("testbutton");
+
+    fireEvent.focus(trigger);
+    // tooltip shown
+    expect(await screen.findByRole("tooltip")).toMatchSnapshot();
+  });
+
+  it("renders with component caption", async () => {
+    const { asFragment } = render(<WithComponentCaption />);
     expect(asFragment()).toMatchSnapshot();
     const trigger = screen.getByTestId("testbutton");
 

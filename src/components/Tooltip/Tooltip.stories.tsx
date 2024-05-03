@@ -121,11 +121,23 @@ export const Default = {
   },
 };
 
-export const WithCaption = {
+export const WithStringCaption = {
+  args: {
+    ...Default.args,
+    label: "I can have a caption",
+    caption: "My beautiful caption",
+  },
+};
+
+export const WithComponentCaption = {
   args: {
     ...Default.args,
     label: "Copy",
-    caption: "Ctrl + C",
+    caption: (
+      <div>
+        <kbd>Ctrl</kbd> + <kbd>C</kbd>
+      </div>
+    ),
   },
 };
 
