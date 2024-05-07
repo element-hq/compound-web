@@ -1,4 +1,5 @@
 import { OpenChangeReason, Placement } from "@floating-ui/react";
+import { JSX } from "react";
 interface UseTooltipProps {
     /**
      * The controlled open state of the tooltip.
@@ -16,8 +17,10 @@ interface UseTooltipProps {
     placement: Placement;
     /**
      * The caption of the tooltip.
+     * JSX.Element can be used to provide accessibility content like kbd element.
+     * Keep in mind, the caption should not be used for interactive content.
      */
-    caption?: string;
+    caption?: string | JSX.Element;
     /**
      * The event handler for the open change.
      */
@@ -79,6 +82,7 @@ export declare function useTooltip({ open: controlledOpen, placement, onOpenChan
     }) | undefined) => Record<string, unknown>;
     labelId: string;
     captionId: string | undefined;
+    caption: string | JSX.Element | undefined;
     open: boolean;
     setOpen: (open: boolean, event?: Event | undefined, reason?: OpenChangeReason | undefined) => void;
 };
