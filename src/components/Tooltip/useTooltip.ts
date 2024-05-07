@@ -32,7 +32,7 @@ import {
   useInteractions,
   useRole,
 } from "@floating-ui/react";
-import { useMemo, useRef, useState } from "react";
+import { useMemo, useRef, useState, JSX } from "react";
 
 interface UseTooltipProps {
   /**
@@ -51,8 +51,10 @@ interface UseTooltipProps {
   placement: Placement;
   /**
    * The caption of the tooltip.
+   * JSX.Element can be used to provide accessibility content like kbd element.
+   * Keep in mind, the caption should not be used for interactive content.
    */
-  caption?: string;
+  caption?: string | JSX.Element;
   /**
    * The event handler for the open change.
    */
@@ -141,12 +143,13 @@ export function useTooltip({
     () => ({
       labelId,
       captionId: caption ? captionId : undefined,
+      caption,
       open,
       setOpen,
       ...interactions,
       ...data,
       arrowRef,
     }),
-    [labelId, captionId, open, setOpen, interactions, data, arrowRef],
+    [labelId, captionId, caption, open, setOpen, interactions, data, arrowRef],
   );
 }

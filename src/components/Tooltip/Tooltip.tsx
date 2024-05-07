@@ -87,20 +87,32 @@ export function Tooltip({
       </TooltipAnchor>
       <TooltipContent>
         <span id={context.labelId}>{label}</span>
-        {/* Forcing dark theme, so that we have the correct contrast when
-              using the text color secondary on a solid dark background.
-              This is temporary and should only remain until we figure out
-              the approach to on-solid tokens */}
-        {props.caption && (
-          <span
-            id={context.captionId}
-            className={classNames(styles.caption, "cpd-theme-dark")}
-          >
-            {props.caption}
-          </span>
-        )}
+        <Caption />
       </TooltipContent>
     </TooltipContext.Provider>
+  );
+}
+
+function Caption() {
+  const { caption, captionId } = useTooltipContext();
+  if (!caption) return null;
+
+  const isCaptionString = typeof caption === "string";
+  const Container = isCaptionString ? "span" : "div";
+
+  /**
+   * Forcing dark theme, so that we have the correct contrast when
+   * using the text color secondary on a solid dark background.
+   * This is temporary and should only remain until we figure out
+   * the approach to on-solid tokens
+   **/
+  return (
+    <Container
+      id={captionId}
+      className={classNames(styles.caption, "cpd-theme-dark")}
+    >
+      {caption}
+    </Container>
   );
 }
 
