@@ -52,7 +52,6 @@ interface UseTooltipProps {
   /**
    * The caption of the tooltip.
    * JSX.Element can be used to provide accessibility content like kbd element.
-   * **The props need to be forwarded to the caption element.**
    * Keep in mind, the caption should not be used for interactive content.
    */
   caption?: string | JSX.Element;

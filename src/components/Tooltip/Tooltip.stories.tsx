@@ -134,9 +134,9 @@ export const WithComponentCaption = {
     ...Default.args,
     label: "Copy",
     caption: (
-      <div>
+      <>
         <kbd>Ctrl</kbd> + <kbd>C</kbd>
-      </div>
+      </>
     ),
   },
 };
