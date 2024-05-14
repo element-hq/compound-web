@@ -138,8 +138,7 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
         <div className={styles.controls}>
           <TextInput ref={ref} {...props} className={styles.control} />
           <div className={styles["button-group"]}>
-            <div
-              role="button"
+            <button
               className={classnames(styles.button, styles["primary-button"], {
                 [styles["primary-button-disabled"]]: saveDisabled,
               })}
@@ -149,8 +148,8 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
               aria-disabled={saveDisabled}
             >
               <CheckIcon />
-            </div>
-            <div
+            </button>
+            <button
               role="button"
               className={styles.button}
               onClick={onCancel}
@@ -158,7 +157,7 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
               aria-label={cancelButtonLabel}
             >
               <CancelIcon />
-            </div>
+            </button>
           </div>
         </div>
         {error && (
