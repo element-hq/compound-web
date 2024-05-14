@@ -107,7 +107,7 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
     const id = useId();
     const labelId = useId();
     const classes = classnames(styles.container, className, {
-      [styles.containerError]: Boolean(error),
+      [styles["container-error"]]: Boolean(error),
     });
 
     const saveDisabled = Boolean(error) || !valueIsChanged;
@@ -137,11 +137,11 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
         </div>
         <div className={styles.controls}>
           <TextInput ref={ref} {...props} className={styles.control} />
-          <div className={styles.buttonGroup}>
+          <div className={styles["button-group"]}>
             <div
               role="button"
-              className={classnames(styles.button, styles.primaryButton, {
-                [styles.primaryButtonDisabled]: saveDisabled,
+              className={classnames(styles.button, styles["primary-button"], {
+                [styles["primary-button-disabled"]]: saveDisabled,
               })}
               onClick={onSaveButonClicked}
               aria-controls={id}
@@ -162,17 +162,17 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
           </div>
         </div>
         {error && (
-          <div className={styles.captionLine}>
+          <div className={styles["caption-line"]}>
             <ErrorIcon
               className={classnames(
-                styles.captionIcon,
-                styles.captionIconError,
+                styles["caption-icon"],
+                styles["caption-icon-error"],
               )}
             />
             <span
               className={classnames(
-                styles.captionText,
-                styles.captionTextError,
+                styles["caption-text"],
+                styles["caption-text-error"],
               )}
             >
               {error}
@@ -180,19 +180,19 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
           </div>
         )}
         {savedLabel && showSaved && (
-          <div className={styles.captionLine}>
+          <div className={styles["caption-line"]}>
             <div
               className={classnames(
-                styles.captionIcon,
-                styles.captionIconSaved,
+                styles["caption-icon"],
+                styles["caption-icon-saved"],
               )}
             >
               <CheckIcon />
             </div>
             <span
               className={classnames(
-                styles.captionText,
-                styles.captionTextSaved,
+                styles["caption-text"],
+                styles["caption-text-saved"],
               )}
             >
               {savedLabel}

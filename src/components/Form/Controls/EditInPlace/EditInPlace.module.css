@@ -15,13 +15,13 @@ limitations under the License.
 */
 
 .container {
-  min-height: 110px;
+  min-block-size: 110px;
 }
 
 .label {
   font-size: 15px;
   font-weight: 500;
-  margin-bottom: 4px;
+  margin-block-end: 4px;
 }
 
 .controls {
@@ -30,98 +30,100 @@ limitations under the License.
   gap: 15px;
 }
 
-.buttonGroup {
+.button-group {
   display: none;
   position: relative;
-  top: 5px;
+  inset-block-start: 5px;
   grid-template-columns: 1fr 1fr;
   gap: 7px;
 }
 
 .button {
   display: flex;
-  width: 36px;
-  height: 36px;
+  inline-size: 36px;
+  block-size: 36px;
   border: 1px solid var(--cpd-color-border-interactive-secondary);
   border-radius: 20px;
   background-color: transparent;
   text-align: center;
 }
 
-.primaryButton {
+.primary-button {
   background-color: var(--cpd-color-bg-action-primary-rest);
   border-color: var(--cpd-color-bg-action-primary-rest);
+
   svg {
     color: var(--cpd-color-icon-on-solid-primary);
   }
 }
 
-.primaryButtonDisabled {
+.primary-button-disabled {
   background-color: var(--cpd-color-bg-subtle-primary);
   border-color: var(--cpd-color-bg-subtle-primary);
+
   svg {
     color: var(--cpd-color-icon-disabled);
   }
 }
 
 .button svg {
-  width: 24px;
-  height: 24px;
+  inline-size: 24px;
+  block-size: 24px;
   margin: auto;
 }
 
 .control {
-  width: 100%;
+  inline-size: 100%;
 }
 
-.container:focus-within .buttonGroup {
+.container:focus-within .button-group {
   display: inline-grid;
 }
 
-.containerError .control {
+.container-error .control {
   border-color: var(--cpd-color-border-critical-primary);
 }
 
-.containerError .label {
+.container-error .label {
   color: var(--cpd-color-text-critical-primary);
 }
 
-.captionLine {
-  margin-top: var(--cpd-space-2x);
+.caption-line {
+  margin-block-start: var(--cpd-space-2x);
 }
 
-.captionIcon {
+.caption-icon {
   display: inline-block;
   vertical-align: middle;
-  width: 20px;
-  height: 20px;
-  margin-right: var(--cpd-space-2x);
+  inline-size: 20px;
+  block-size: 20px;
+  margin-inline-end: var(--cpd-space-2x);
 }
 
-.captionIconError {
+.caption-icon-error {
   color: var(--cpd-color-icon-critical-primary);
 }
 
-.captionIconSaved {
+.caption-icon-saved {
   background-color: var(--cpd-color-icon-success-primary);
   border-radius: 20px;
   text-align: center;
-  margin-right: var(--cpd-space-2x);
+  margin-inline-end: var(--cpd-space-2x);
 
   svg {
     color: var(--cpd-color-icon-on-solid-primary);
   }
 }
 
-.captionText {
+.caption-text {
   vertical-align: middle;
   font-size: 13px;
 }
 
-.captionTextError {
+.caption-text-error {
   color: var(--cpd-color-text-critical-primary);
 }
 
-.captionTextSaved {
+.caption-text-saved {
   color: var(--cpd-color-text-success-primary);
 }
