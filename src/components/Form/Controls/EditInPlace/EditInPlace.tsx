@@ -15,7 +15,7 @@ limitations under the License.
 */
 
 import classnames from "classnames";
-import React, { forwardRef, useCallback } from "react";
+import React, { forwardRef, useCallback, useRef } from "react";
 import styles from "./EditInPlace.module.css";
 import { TextInput } from "../Text";
 import useId from "../../../../utils/useId";
@@ -114,13 +114,21 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
 
     const [showSaved, setShowSaved] = React.useState(false);
 
+    const hideTimer = useRef<NodeJS.Timeout | null>(null);
+
+    React.useEffect(() => {
+      return () => {
+        if (hideTimer.current) clearTimeout(hideTimer.current);
+      };
+    });
+
     const onSaveButonClicked = useCallback(async () => {
       if (saveDisabled) return;
 
       try {
         onSave();
         setShowSaved(true);
-        setTimeout(() => {
+        hideTimer.current = setTimeout(() => {
           setShowSaved(false);
         }, 2000);
       } catch (e) {
