@@ -158,6 +158,15 @@ export const ForcedClose = {
   },
 };
 
+export const ForcedDisabled = {
+  args: {
+    ...Default.args,
+    disabled: true,
+    label: "You can't see me",
+    children: <span>No tooltip to see here</span>,
+  },
+};
+
 export const InteractiveTrigger = {
   args: {
     ...Default.args,

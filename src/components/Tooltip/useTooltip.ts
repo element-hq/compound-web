@@ -45,6 +45,12 @@ interface UseTooltipProps {
    * @default undefined
    */
   open?: boolean;
+
+  /**
+   * Whether the tooltip should be forced to be in a closed state.
+   */
+  disabled?: boolean;
+
   /**
    * The placement of the release announcement.
    */
@@ -77,6 +83,7 @@ interface UseTooltipProps {
 
 export function useTooltip({
   open: controlledOpen,
+  disabled = false,
   placement,
   onOpenChange,
   isTriggerInteractive,
@@ -91,7 +98,7 @@ export function useTooltip({
   const [uncontrolledOpen, setUncontrolledOpen] = useState(false);
 
   // Use controlledOpen if it is provided, otherwise use uncontrolledOpen
-  const open = controlledOpen ?? uncontrolledOpen;
+  const open = disabled ? false : controlledOpen ?? uncontrolledOpen;
   const setOpen = (
     open: boolean,
     event?: Event | undefined,

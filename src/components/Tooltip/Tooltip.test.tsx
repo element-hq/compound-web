@@ -27,6 +27,7 @@ const {
   WithComponentCaption,
   ForcedOpen,
   ForcedClose,
+  ForcedDisabled,
   InteractiveTrigger,
   NonInteractiveTrigger,
 } = composeStories(stories);
@@ -42,6 +43,13 @@ describe("Tooltip", () => {
 
   it("renders closed by default", () => {
     const { asFragment } = render(<ForcedClose />);
+    expect(asFragment()).toMatchSnapshot();
+    // no tooltip
+    expect(screen.queryByRole("tooltip")).not.toBeInTheDocument();
+  });
+
+  it("renders disabled", () => {
+    const { asFragment } = render(<ForcedDisabled />);
     expect(asFragment()).toMatchSnapshot();
     // no tooltip
     expect(screen.queryByRole("tooltip")).not.toBeInTheDocument();
