@@ -16,6 +16,7 @@ limitations under the License.
 
 import React from "react";
 import { Meta, StoryFn } from "@storybook/react";
+import { fn } from "@storybook/test";
 
 import { IndicatorIcon as IndicatorIconComponent } from "./IndicatorIcon";
 
@@ -25,9 +26,6 @@ export default {
   title: "Icon/IndicatorIcon",
   component: IndicatorIconComponent,
   tags: ["autodocs"],
-  parameters: {
-    actions: { argTypesRegex: "^on.*" },
-  },
   argTypes: {
     control: { type: "boolean" },
     onClick: { action: "onClick" },
@@ -36,6 +34,7 @@ export default {
     size: "32px",
     disabled: false,
     children: <ThreadIcon />,
+    onClick: fn(),
   },
 } as Meta<typeof IndicatorIconComponent>;
 

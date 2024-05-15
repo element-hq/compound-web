@@ -6,7 +6,6 @@ const addons = [
   "@storybook/addon-interactions",
   "@storybook/addon-designs",
   "@storybook/addon-themes",
-  "storybook-addon-jsx",
 ];
 
 if (process.env.NODE_ENV === "development") {
@@ -15,23 +14,28 @@ if (process.env.NODE_ENV === "development") {
 
 const config: StorybookConfig = {
   stories: [
-    "../src/**/*.mdx",
     "../src/**/!(__ComponentTemplate__)*.stories.@(js|jsx|ts|tsx)",
   ],
+
   addons,
+
   framework: {
     name: "@storybook/react-vite",
     options: {},
   },
-  features: {
-    storyStoreV7: true,
-  },
+
   viteFinal: (config) => {
     return {
       ...config,
       publicDir: "res",
     };
   },
+
+  docs: {},
+
+  typescript: {
+    reactDocgen: "react-docgen-typescript"
+  }
 };
 
 export default config;
