@@ -46,7 +46,7 @@ const stories = JSON.parse(fs.readFileSync(storiesPath, "utf8"))
 // Perform visual testing on each story
 for (const story of Object.values(stories)) {
   // Ignore things that are not stories (e.g. doc pages)
-  if (story.type !== "story") {
+  if (story.type === "story") {
     test(`${story.title} ${story.name}`, async ({ page }) => {
       const search = new URLSearchParams({ viewMode: "story", id: story.id });
       await page.goto(`iframe.html?${search.toString()}`, {
