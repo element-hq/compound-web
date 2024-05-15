@@ -170,12 +170,10 @@ function TooltipAnchor({ children }: Readonly<PropsWithChildren>): JSX.Element {
   const element = useMemo(() => {
     if (!isValidElement(children)) return;
 
-    const props =
-      isValidElement(children) &&
-      context.getReferenceProps({
-        ref,
-        ...childrenProps,
-      });
+    const props = context.getReferenceProps({
+      ref,
+      ...childrenProps,
+    });
     return cloneElement(children, props);
   }, [ref, children, childrenProps]);
 
