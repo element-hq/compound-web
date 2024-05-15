@@ -121,7 +121,6 @@ export const Avatar = forwardRef<
           loading="lazy"
           alt=""
           src={src}
-          crossOrigin="anonymous"
           referrerPolicy="no-referrer"
           className={classnames(styles.image)}
           data-type={type}
