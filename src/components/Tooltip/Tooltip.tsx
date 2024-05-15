@@ -175,7 +175,7 @@ function TooltipAnchor({ children }: Readonly<PropsWithChildren>): JSX.Element {
       ...childrenProps,
     });
     return cloneElement(children, props);
-  }, [ref, children, childrenProps]);
+  }, [context, ref, children, childrenProps]);
 
   if (!element) {
     throw new Error("Tooltip anchor must be a single valid React element");
