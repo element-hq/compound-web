@@ -17,8 +17,9 @@ limitations under the License.
 import { expect, test } from "@playwright/test";
 import fs from "fs";
 
-interface Story {
+interface StoryEntry {
   id: string;
+  type: string;
   title: string;
   name: string;
   importPath: string;
@@ -26,15 +27,12 @@ interface Story {
 }
 
 interface Stories {
-  [id: string]: Story;
+  [id: string]: StoryEntry;
 }
 
 test.describe.configure({ mode: "parallel" });
 
-const storiesPath = new URL(
-  "../storybook-static/stories.json",
-  import.meta.url,
-);
+const storiesPath = new URL("../storybook-static/index.json", import.meta.url);
 if (!fs.existsSync(storiesPath)) {
   console.error(
     "Storybook manifest not found, please rebuild with 'yarn build-storybook'",
@@ -43,12 +41,12 @@ if (!fs.existsSync(storiesPath)) {
 }
 
 const stories = JSON.parse(fs.readFileSync(storiesPath, "utf8"))
-  .stories as Stories;
+  .entries as Stories;
 
 // Perform visual testing on each story
 for (const story of Object.values(stories)) {
   // Ignore things that are not stories (e.g. doc pages)
-  if (story.tags.includes("story")) {
+  if (story.type !== "story") {
     test(`${story.title} ${story.name}`, async ({ page }) => {
       const search = new URLSearchParams({ viewMode: "story", id: story.id });
       await page.goto(`iframe.html?${search.toString()}`, {
