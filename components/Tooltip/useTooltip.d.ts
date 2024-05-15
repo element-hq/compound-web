@@ -12,6 +12,10 @@ interface UseTooltipProps {
      */
     open?: boolean;
     /**
+     * Whether the tooltip should be forced to be in a closed state.
+     */
+    disabled?: boolean;
+    /**
      * The placement of the release announcement.
      */
     placement: Placement;
@@ -36,7 +40,7 @@ interface UseTooltipProps {
      */
     isTriggerInteractive: boolean;
 }
-export declare function useTooltip({ open: controlledOpen, placement, onOpenChange, isTriggerInteractive, caption, }: UseTooltipProps): {
+export declare function useTooltip({ open: controlledOpen, disabled, placement, onOpenChange, isTriggerInteractive, caption, }: UseTooltipProps): {
     arrowRef: import("react").MutableRefObject<null>;
     placement: Placement;
     strategy: import("@floating-ui/utils").Strategy;
