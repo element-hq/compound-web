@@ -174,6 +174,7 @@ function TooltipAnchor({ children }: Readonly<PropsWithChildren>): JSX.Element {
         ...children.props,
       });
     return cloneElement(children, props);
+    // We need to check `isValidElement` to infer the type of `children`
   }, [ref, children, isValidElement(children) && children.props]);
 
   if (!element) {
