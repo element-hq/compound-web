@@ -164,6 +164,9 @@ function TooltipAnchor({ children }: Readonly<PropsWithChildren>): JSX.Element {
   const childrenRef = (children as unknown as { ref?: Ref<HTMLElement> })?.ref;
   const ref = useMergeRefs([context.refs.setReference, childrenRef]);
 
+  // We need to check `isValidElement` to infer the type of `children`
+  const childrenProps = isValidElement(children) && children.props;
+
   const element = useMemo(() => {
     if (!isValidElement(children)) return;
 
@@ -171,11 +174,10 @@ function TooltipAnchor({ children }: Readonly<PropsWithChildren>): JSX.Element {
       isValidElement(children) &&
       context.getReferenceProps({
         ref,
-        ...children.props,
+        ...childrenProps,
       });
     return cloneElement(children, props);
-    // We need to check `isValidElement` to infer the type of `children`
-  }, [ref, children, isValidElement(children) && children.props]);
+  }, [ref, children, childrenProps]);
 
   if (!element) {
     throw new Error("Tooltip anchor must be a single valid React element");
