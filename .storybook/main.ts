@@ -13,9 +13,7 @@ if (process.env.NODE_ENV === "development") {
 }
 
 const config: StorybookConfig = {
-  stories: [
-    "../src/**/!(__ComponentTemplate__)*.stories.@(js|jsx|ts|tsx)",
-  ],
+  stories: ["../src/**/!(__ComponentTemplate__)*.stories.@(js|jsx|ts|tsx)"],
 
   addons,
 
@@ -34,8 +32,8 @@ const config: StorybookConfig = {
   docs: {},
 
   typescript: {
-    reactDocgen: "react-docgen-typescript"
-  }
+    reactDocgen: "react-docgen-typescript",
+  },
 };
 
 export default config;
