@@ -1,4 +1,4 @@
-import React from "react";
+import React from '../../../node_modules/react';
 import { SuspenseImg } from "../../utils/SuspenseImg";
 /**
  * Avatar component that will fallback to an initial letter over a coloured

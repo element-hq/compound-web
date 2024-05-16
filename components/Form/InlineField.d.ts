@@ -1,4 +1,4 @@
-import React, { ReactElement } from "react";
+import React, { ReactElement } from '../../../node_modules/react';
 import { Field } from "@radix-ui/react-form";
 type Props = {
     /**

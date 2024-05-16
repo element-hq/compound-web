@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from "react";
+import React, { PropsWithChildren } from '../../../node_modules/react';
 type AlertProps = {
     /**
      * The type of alert

@@ -1,4 +1,4 @@
-import { ComponentPropsWithoutRef, ComponentType, ReactNode, SVGAttributes } from "react";
+import { ComponentPropsWithoutRef, ComponentType, ReactNode, SVGAttributes } from '../../../node_modules/react';
 type MenuItemElement = "button" | "label" | "a" | "div";
 type Props<C extends MenuItemElement> = {
     /**

@@ -1,4 +1,4 @@
-import React from "react";
+import React from '../../../node_modules/react';
 import { Field as RadixField } from "@radix-ui/react-form";
 type FieldProps = {
     /**

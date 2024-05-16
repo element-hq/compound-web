@@ -1,5 +1,5 @@
 import { Placement } from "@floating-ui/react";
-import { MouseEventHandler } from "react";
+import { MouseEventHandler } from '../../../node_modules/react';
 interface UseReleaseAnnouncementProps {
     /**
      * Whether the release announcement is open.
@@ -36,10 +36,10 @@ export declare function useReleaseAnnouncement({ open, header, description, clos
     description: string;
     closeLabel: string;
     onClick: MouseEventHandler<HTMLButtonElement>;
-    arrowRef: import("react").MutableRefObject<null>;
-    getReferenceProps: (userProps?: import("react").HTMLProps<Element> | undefined) => Record<string, unknown>;
-    getFloatingProps: (userProps?: import("react").HTMLProps<HTMLElement> | undefined) => Record<string, unknown>;
-    getItemProps: (userProps?: (Omit<import("react").HTMLProps<HTMLElement>, "selected" | "active"> & {
+    arrowRef: import('../../../node_modules/react').MutableRefObject<null>;
+    getReferenceProps: (userProps?: import('../../../node_modules/react').HTMLProps<Element> | undefined) => Record<string, unknown>;
+    getFloatingProps: (userProps?: import('../../../node_modules/react').HTMLProps<HTMLElement> | undefined) => Record<string, unknown>;
+    getItemProps: (userProps?: (Omit<import('../../../node_modules/react').HTMLProps<HTMLElement>, "selected" | "active"> & {
         active?: boolean | undefined;
         selected?: boolean | undefined;
     }) | undefined) => Record<string, unknown>;
@@ -50,10 +50,10 @@ export declare function useReleaseAnnouncement({ open, header, description, clos
     y: number;
     isPositioned: boolean;
     update: () => void;
-    floatingStyles: import("react").CSSProperties;
+    floatingStyles: import('../../../node_modules/react').CSSProperties;
     refs: {
-        reference: import("react").MutableRefObject<import("@floating-ui/react-dom").ReferenceType | null>;
-        floating: import("react").MutableRefObject<HTMLElement | null>;
+        reference: import('../../../node_modules/react').MutableRefObject<import("@floating-ui/react-dom").ReferenceType | null>;
+        floating: import('../../../node_modules/react').MutableRefObject<HTMLElement | null>;
         setReference: (node: import("@floating-ui/react-dom").ReferenceType | null) => void;
         setFloating: (node: HTMLElement | null) => void;
     } & import("@floating-ui/react").ExtendedRefs<import("@floating-ui/react").ReferenceType>;
@@ -69,11 +69,11 @@ export declare function useReleaseAnnouncement({ open, header, description, clos
         middlewareData: import("@floating-ui/core").MiddlewareData;
         isPositioned: boolean;
         update: () => void;
-        floatingStyles: import("react").CSSProperties;
+        floatingStyles: import('../../../node_modules/react').CSSProperties;
         open: boolean;
         onOpenChange: (open: boolean, event?: Event | undefined, reason?: import("@floating-ui/react").OpenChangeReason | undefined) => void;
         events: import("@floating-ui/react").FloatingEvents;
-        dataRef: import("react").MutableRefObject<import("@floating-ui/react").ContextData>;
+        dataRef: import('../../../node_modules/react').MutableRefObject<import("@floating-ui/react").ContextData>;
         nodeId: string | undefined;
         floatingId: string;
         refs: import("@floating-ui/react").ExtendedRefs<import("@floating-ui/react").ReferenceType>;

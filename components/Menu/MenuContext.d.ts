@@ -1,4 +1,4 @@
-import { ComponentType, ReactNode } from "react";
+import { ComponentType, ReactNode } from '../../../node_modules/react';
 export interface MenuItemWrapperProps {
     /**
      * Event callback for when the item is selected via mouse, touch, or keyboard.
@@ -22,5 +22,5 @@ export interface MenuData {
  * A React context providing information about the menu in which a given
  * component resides.
  */
-export declare const MenuContext: import("react").Context<MenuData | null>;
+export declare const MenuContext: import('../../../node_modules/react').Context<MenuData | null>;
 //# sourceMappingURL=MenuContext.d.ts.map

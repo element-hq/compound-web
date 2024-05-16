@@ -1,4 +1,4 @@
-import React, { ComponentProps } from "react";
+import React, { ComponentProps } from '../../../../../node_modules/react';
 type ToggleProps = {
     /**
      * The CSS class name.

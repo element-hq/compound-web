@@ -1,4 +1,4 @@
-import React, { ComponentProps } from "react";
+import React, { ComponentProps } from '../../../../../node_modules/react';
 type Props = {
     /**
      * The CSS class name.

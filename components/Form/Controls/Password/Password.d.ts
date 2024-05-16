@@ -1,4 +1,4 @@
-import React, { ComponentProps } from "react";
+import React, { ComponentProps } from '../../../../../node_modules/react';
 import { ActionInput } from "../Action";
 type Props = Omit<ComponentProps<typeof ActionInput>, "type" | "actionLabel" | "onActionClick" | "Icon">;
 /**

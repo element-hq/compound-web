@@ -1,4 +1,4 @@
-import React from "react";
+import React from '../../../node_modules/react';
 import { Label as RadixLabel } from "@radix-ui/react-form";
 type LabelProps = {
     /**

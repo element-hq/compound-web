@@ -1,5 +1,5 @@
 import * as RadixSeparator from "@radix-ui/react-separator";
-import React, { ComponentProps } from "react";
+import React, { ComponentProps } from '../../../node_modules/react';
 type SeparatorProps = {
     /**
      * The CSS class name.

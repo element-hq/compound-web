@@ -1,5 +1,5 @@
 import { Placement } from "@floating-ui/react";
-import { PropsWithChildren, JSX } from "react";
+import { PropsWithChildren, JSX } from '../../../node_modules/react';
 import { useTooltip } from "./useTooltip";
 type UseTooltipParam = Parameters<typeof useTooltip>[0];
 interface TooltipProps extends Omit<UseTooltipParam, "placement" | "isTriggerInteractive"> {

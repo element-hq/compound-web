@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from "react";
+import React, { PropsWithChildren } from '../../../node_modules/react';
 interface ButtonComponent {
     <C extends React.ElementType>(props: {
         as: C;

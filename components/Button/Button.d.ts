@@ -1,4 +1,4 @@
-import React, { ComponentType, PropsWithChildren } from "react";
+import React, { ComponentType, PropsWithChildren } from '../../../node_modules/react';
 import { UnstyledButtonPropsFor } from "./UnstyledButton";
 interface ButtonComponent {
     <C extends React.ElementType>(props: {
