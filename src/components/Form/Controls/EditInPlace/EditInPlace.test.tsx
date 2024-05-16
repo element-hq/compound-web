@@ -14,14 +14,13 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import { describe, it, expect, vi } from "vitest";
+import { describe, it, expect, vi, afterEach } from "vitest";
 import React from "react";
 import { render, screen } from "@testing-library/react";
 
 import { EditInPlace } from "./EditInPlace";
 import { Root, Field, Control } from "@radix-ui/react-form";
 import { userEvent } from "@storybook/test";
-import { afterEach } from "node:test";
 import { act } from "react-dom/test-utils";
 
 type EditInPlaceTestProps = {
@@ -134,7 +133,7 @@ describe("PasswordControl", () => {
     expect(screen.queryByText("Saved")).not.toBeInTheDocument();
   });
 
-  it("does not called onSave if cancel pressed", async () => {
+  it("does not call onSave if cancel pressed", async () => {
     const onSave = vi.fn();
     render(<EditInPlaceTest onSave={onSave} value="Changed" />);
 
