@@ -41,11 +41,10 @@ type Props = {
   value: string;
 
   /**
-   * Whether the value has been changed from its initial value. If false,
-   * the save button will be disabled.
-   * Default: false
+   * The 'initial' value of the field. If the current value is equal to this, the save
+   * button will be disabled (as it will be considered not to have changed)
    */
-  valueIsChanged?: boolean;
+  initialValue: string;
 
   /**
    * Event handler for when the user has edited the value in the text box
@@ -78,7 +77,7 @@ type Props = {
   /**
    * The label for the save button
    */
-  saveButtonLabel?: string;
+  saveButtonLabel: string;
 
   /**
    * The label for the cancel button
@@ -93,7 +92,7 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
   function EditInPlace(
     {
       className,
-      valueIsChanged,
+      initialValue,
       onSave,
       onCancel,
       saveButtonLabel,
@@ -106,11 +105,12 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
   ) {
     const id = useId();
     const labelId = useId();
+    const errorTextId = useId();
     const classes = classnames(styles.container, className, {
       [styles["container-error"]]: Boolean(error),
     });
 
-    const saveDisabled = Boolean(error) || !valueIsChanged;
+    const saveDisabled = Boolean(error) || props.value === initialValue;
 
     const [showSaved, setShowSaved] = React.useState(false);
 
@@ -120,11 +120,9 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
       return () => {
         if (hideTimer.current) clearTimeout(hideTimer.current);
       };
-    });
+    }, []);
 
     const onSaveButonClicked = useCallback(async () => {
-      if (saveDisabled) return;
-
       try {
         onSave();
         setShowSaved(true);
@@ -136,7 +134,7 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
         // 'saved' label, obviously. The user of the component can update the error to
         // show what failed.
       }
-    }, []);
+    }, [setShowSaved, onSave, hideTimer]);
 
     return (
       <div className={classes} id={id}>
@@ -144,7 +142,13 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
           {props.label}
         </div>
         <div className={styles.controls}>
-          <TextInput ref={ref} {...props} className={styles.control} />
+          <TextInput
+            ref={ref}
+            {...props}
+            className={styles.control}
+            aria-invalid={Boolean(error)}
+            aria-errormessage={error ? errorTextId : undefined}
+          />
           <div className={styles["button-group"]}>
             <button
               className={classnames(styles.button, styles["primary-button"], {
@@ -153,7 +157,7 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
               onClick={onSaveButonClicked}
               aria-controls={id}
               aria-label={saveButtonLabel}
-              aria-disabled={saveDisabled}
+              disabled={saveDisabled}
             >
               <CheckIcon />
             </button>
@@ -177,6 +181,7 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
               )}
             />
             <span
+              id={errorTextId}
               className={classnames(
                 styles["caption-text"],
                 styles["caption-text-error"],

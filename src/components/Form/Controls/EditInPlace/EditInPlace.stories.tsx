@@ -32,7 +32,7 @@ export default {
         "onSave",
         "onCancel",
         "value",
-        "valueIsChanged",
+        "initialValue",
         "error",
         "savedLabel",
         "saveButtonLabel",
@@ -47,8 +47,8 @@ export default {
     value: {
       type: "string",
     },
-    valueIsChanged: {
-      type: "boolean",
+    initialValue: {
+      type: "string",
     },
     onChange: {
       action: "changed",
