@@ -40,10 +40,10 @@ export default {
       control: "boolean",
     },
     label: {
-      control: "string",
+      control: "text",
     },
     caption: {
-      control: "string",
+      control: "text",
     },
   },
   args: {
@@ -153,6 +153,15 @@ export const ForcedClose = {
   args: {
     ...Default.args,
     open: false,
+    label: "You can't see me",
+    children: <span>No tooltip to see here</span>,
+  },
+};
+
+export const ForcedDisabled = {
+  args: {
+    ...Default.args,
+    disabled: true,
     label: "You can't see me",
     children: <span>No tooltip to see here</span>,
   },

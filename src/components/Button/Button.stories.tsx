@@ -15,6 +15,7 @@ limitations under the License.
 */
 
 import { Meta } from "@storybook/react";
+import { fn } from "@storybook/test";
 
 import { Button as ButtonComponent } from "./Button";
 import VisibilityOnIcon from "@vector-im/compound-design-tokens/icons/visibility-on.svg";
@@ -23,9 +24,6 @@ export default {
   title: "Button",
   component: ButtonComponent,
   tags: ["autodocs"],
-  parameters: {
-    actions: { argTypesRegex: "^on.*" },
-  },
   argTypes: {
     size: {
       options: ["sm", "lg"],
@@ -59,6 +57,7 @@ export default {
     destructive: false,
     disabled: false,
     children: "Click me!",
+    onClick: fn(),
   },
 } as Meta<typeof ButtonComponent>;
 
