@@ -18,6 +18,7 @@ exports[`PasswordControl > renders 1`] = `
           class="_controls_980156"
         >
           <input
+            aria-invalid="false"
             class="_control_a839aa _control_980156"
             id="radix-:r0:"
             label="Edit Me"
@@ -30,8 +31,9 @@ exports[`PasswordControl > renders 1`] = `
           >
             <button
               aria-controls=":r1:"
-              aria-disabled="true"
+              aria-label="Save"
               class="_button_980156 _primary-button_980156 _primary-button-disabled_980156"
+              disabled=""
             >
               <svg
                 class="cpd-icon"
@@ -48,6 +50,7 @@ exports[`PasswordControl > renders 1`] = `
             </button>
             <button
               aria-controls=":r1:"
+              aria-label="Cancel"
               class="_button_980156"
               role="button"
             >
