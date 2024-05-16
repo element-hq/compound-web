@@ -20,8 +20,8 @@ import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
 
 import { PasswordInput } from "./";
-import { within } from "@storybook/testing-library";
-import { userEvent } from "@storybook/testing-library";
+import { within } from "@storybook/test";
+import { userEvent } from "@storybook/test";
 
 type Props = { invalid?: boolean } & React.ComponentProps<typeof PasswordInput>;
 

@@ -1,6 +1,5 @@
 import { withThemeByClassName } from "@storybook/addon-themes";
 import { Decorator, Parameters } from "@storybook/react";
-import { jsxDecorator } from "storybook-addon-jsx";
 
 import "@fontsource/inconsolata/700.css";
 import "@fontsource/inter/400.css";
@@ -31,5 +30,5 @@ export const decorators: Decorator[] = [
     },
     defaultTheme: "light",
   }),
-  jsxDecorator,
 ];
+export const tags = ["autodocs"];

@@ -40,10 +40,10 @@ export default {
       control: "boolean",
     },
     label: {
-      control: "string",
+      control: "text",
     },
     caption: {
-      control: "string",
+      control: "text",
     },
   },
   args: {
