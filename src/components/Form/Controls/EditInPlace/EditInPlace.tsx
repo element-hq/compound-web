@@ -137,7 +137,7 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
     const onCancelButtonClicked = useCallback(() => {
       cancelButtonRef.current?.blur();
       onCancel();
-    });
+    }, [cancelButtonRef, onCancel]);
 
     return (
       <div className={classes} id={id}>
