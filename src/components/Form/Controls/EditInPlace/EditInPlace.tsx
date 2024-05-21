@@ -47,12 +47,6 @@ type Props = {
   initialValue: string;
 
   /**
-   * Event handler for when the user has edited the value in the text box
-   * (but not yet saved/confirmed it)
-   */
-  onChange: (value: string) => void;
-
-  /**
    * Callback for when the user confirms the change
    */
   onSave: () => Promise<void>;

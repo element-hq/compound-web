@@ -15,7 +15,7 @@ limitations under the License.
 */
 
 import { describe, it, expect, vi, afterEach } from "vitest";
-import React from "react";
+import React, { ChangeEvent } from "react";
 import { render, screen } from "@testing-library/react";
 
 import { EditInPlace } from "./EditInPlace";
@@ -26,7 +26,9 @@ import { act } from "react-dom/test-utils";
 type EditInPlaceTestProps = {
   error?: string;
   value?: string;
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
   onSave?: () => Promise<void>;
+  onCancel?: () => void;
 };
 
 describe("PasswordControl", () => {
@@ -38,9 +40,9 @@ describe("PasswordControl", () => {
             label="Edit Me"
             value={props.value ?? "Edit this text"}
             error={props.error}
-            onChange={() => {}}
+            onChange={props.onChange ?? (() => {})}
             onSave={props.onSave ?? (() => Promise.resolve())}
-            onCancel={() => {}}
+            onCancel={props.onCancel ?? (() => {})}
             saveButtonLabel="Save"
             cancelButtonLabel="Cancel"
             savedLabel={"Saved"}
@@ -58,6 +60,23 @@ describe("PasswordControl", () => {
   it("renders", () => {
     const { asFragment } = render(<EditInPlaceTest />);
     expect(asFragment()).toMatchSnapshot();
+  });
+
+  it("calls onChange when text edited", async () => {
+    let value;
+    const onChange = vi
+      .fn()
+      .mockImplementation((e: ChangeEvent<HTMLInputElement>) => {
+        value = e.target.value;
+      });
+    render(<EditInPlaceTest onChange={onChange} />);
+
+    const input = screen.getByRole("textbox");
+    // nb. we don't test updating the value here so we only type one character
+    await userEvent.type(input, "!");
+
+    expect(onChange).toHaveBeenCalled();
+    expect(value).toEqual("Edit this text!");
   });
 
   it("field is valid if no error specified", () => {
@@ -106,6 +125,15 @@ describe("PasswordControl", () => {
     await userEvent.click(screen.getByRole("button", { name: "Save" }));
 
     expect(onSave).toHaveBeenCalled();
+  });
+
+  it("calls onCancel when cancel button pressed", async () => {
+    const onCancel = vi.fn();
+    render(<EditInPlaceTest onCancel={onCancel} value="Changed" />);
+
+    await userEvent.click(screen.getByRole("button", { name: "Cancel" }));
+
+    expect(onCancel).toHaveBeenCalled();
   });
 
   it("displays saved label for 2 seconds after save", async () => {

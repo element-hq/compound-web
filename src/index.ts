@@ -78,6 +78,7 @@ export {
   Field,
   InlineField,
   Label,
+  EditInPlace,
 } from "./components/Form";
 export * as Form from "./components/Form";
 
