@@ -71,9 +71,11 @@ describe("PasswordControl", () => {
       });
     render(<EditInPlaceTest onChange={onChange} />);
 
-    const input = screen.getByRole("textbox");
-    // nb. we don't test updating the value here so we only type one character
-    await userEvent.type(input, "!");
+    await act(async () => {
+      const input = screen.getByRole("textbox");
+      // nb. we don't test updating the value here so we only type one character
+      await userEvent.type(input, "!");
+    });
 
     expect(onChange).toHaveBeenCalled();
     expect(value).toEqual("Edit this text!");
@@ -122,7 +124,9 @@ describe("PasswordControl", () => {
     const onSave = vi.fn();
     render(<EditInPlaceTest onSave={onSave} value="Changed" />);
 
-    await userEvent.click(screen.getByRole("button", { name: "Save" }));
+    await act(async () => {
+      await userEvent.click(screen.getByRole("button", { name: "Save" }));
+    });
 
     expect(onSave).toHaveBeenCalled();
   });
@@ -145,6 +149,17 @@ describe("PasswordControl", () => {
     expect(document.activeElement).not.toEqual(input);
   });
 
+  it("unfocuses the input when the save calllback promise resolves", async () => {
+    render(<EditInPlaceTest value="Changed" />);
+
+    await act(async () => {
+      await userEvent.click(screen.getByRole("button", { name: "Save" }));
+    });
+
+    const input = screen.getByRole("textbox");
+    expect(document.activeElement).not.toEqual(input);
+  });
+
   it("displays saved label for 2 seconds after save", async () => {
     vi.useFakeTimers();
     const user = userEvent.setup({ advanceTimers: vi.advanceTimersByTime });
@@ -153,7 +168,9 @@ describe("PasswordControl", () => {
 
     expect(screen.queryByText("Saved")).not.toBeInTheDocument();
 
-    await user.click(screen.getByRole("button", { name: "Save" }));
+    await act(async () => {
+      await user.click(screen.getByRole("button", { name: "Save" }));
+    });
 
     expect(screen.getByText("Saved")).toBeInTheDocument();
 

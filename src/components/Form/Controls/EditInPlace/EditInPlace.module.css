@@ -77,7 +77,7 @@ limitations under the License.
   inline-size: 100%;
 }
 
-.container:focus-within .button-group {
+.control:focus ~ .button-group {
   display: inline-grid;
 }
 

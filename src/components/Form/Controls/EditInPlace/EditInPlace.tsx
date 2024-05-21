@@ -15,7 +15,12 @@ limitations under the License.
 */
 
 import classnames from "classnames";
-import React, { forwardRef, useCallback, useRef } from "react";
+import React, {
+  forwardRef,
+  useCallback,
+  useImperativeHandle,
+  useRef,
+} from "react";
 import styles from "./EditInPlace.module.css";
 import { TextInput } from "../Text";
 import useId from "../../../../utils/useId";
@@ -130,13 +135,6 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
       }
     }, [setShowSaved, onSave, hideTimer]);
 
-    const cancelButtonRef = useRef<HTMLButtonElement>(null);
-
-    const onCancelButtonClick = useCallback(() => {
-      cancelButtonRef.current?.blur();
-      onCancel();
-    }, []);
-
     return (
       <div className={classes} id={id}>
         <div className={styles.label} id={labelId}>
@@ -164,9 +162,8 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
             </button>
             <button
               role="button"
-              ref={cancelButtonRef}
               className={styles.button}
-              onClick={onCancelButtonClick}
+              onClick={onCancel}
               aria-controls={id}
               aria-label={cancelButtonLabel}
             >
