@@ -15,12 +15,7 @@ limitations under the License.
 */
 
 import classnames from "classnames";
-import React, {
-  forwardRef,
-  useCallback,
-  useImperativeHandle,
-  useRef,
-} from "react";
+import React, { forwardRef, useCallback, useRef } from "react";
 import styles from "./EditInPlace.module.css";
 import { TextInput } from "../Text";
 import useId from "../../../../utils/useId";
