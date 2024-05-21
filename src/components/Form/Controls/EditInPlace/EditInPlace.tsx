@@ -130,6 +130,13 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
       }
     }, [setShowSaved, onSave, hideTimer]);
 
+    const cancelButtonRef = useRef<HTMLButtonElement>(null);
+
+    const onCancelButtonClick = useCallback(() => {
+      cancelButtonRef.current?.blur();
+      onCancel();
+    }, []);
+
     return (
       <div className={classes} id={id}>
         <div className={styles.label} id={labelId}>
@@ -157,8 +164,9 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
             </button>
             <button
               role="button"
+              ref={cancelButtonRef}
               className={styles.button}
-              onClick={onCancel}
+              onClick={onCancelButtonClick}
               aria-controls={id}
               aria-label={cancelButtonLabel}
             >

@@ -136,6 +136,15 @@ describe("PasswordControl", () => {
     expect(onCancel).toHaveBeenCalled();
   });
 
+  it("unfocuses the input when cancel button pressed", async () => {
+    render(<EditInPlaceTest value="Changed" />);
+
+    const input = screen.getByRole("textbox");
+    await userEvent.click(screen.getByRole("button", { name: "Cancel" }));
+
+    expect(document.activeElement).not.toEqual(input);
+  });
+
   it("displays saved label for 2 seconds after save", async () => {
     vi.useFakeTimers();
     const user = userEvent.setup({ advanceTimers: vi.advanceTimersByTime });
