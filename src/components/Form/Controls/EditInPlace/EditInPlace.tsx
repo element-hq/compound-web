@@ -115,6 +115,9 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
 
     const hideTimer = useRef<NodeJS.Timeout | null>(null);
 
+    const saveButtonRef = useRef<HTMLButtonElement | null>(null);
+    const cancelButtonRef = useRef<HTMLButtonElement | null>(null);
+
     React.useEffect(() => {
       return () => {
         if (hideTimer.current) clearTimeout(hideTimer.current);
@@ -123,7 +126,8 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
 
     const onSaveButonClicked = useCallback(async () => {
       try {
-        onSave();
+        await onSave();
+        saveButtonRef.current?.blur();
         setShowSaved(true);
         hideTimer.current = setTimeout(() => {
           setShowSaved(false);
@@ -134,6 +138,11 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
         // show what failed.
       }
     }, [setShowSaved, onSave, hideTimer]);
+
+    const onCancelButtonClicked = useCallback(() => {
+      cancelButtonRef.current?.blur();
+      onCancel();
+    });
 
     return (
       <div className={classes} id={id}>
@@ -153,6 +162,7 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
               className={classnames(styles.button, styles["primary-button"], {
                 [styles["primary-button-disabled"]]: saveDisabled,
               })}
+              ref={saveButtonRef}
               onClick={onSaveButonClicked}
               aria-controls={id}
               aria-label={saveButtonLabel}
@@ -162,8 +172,9 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
             </button>
             <button
               role="button"
+              ref={cancelButtonRef}
               className={styles.button}
-              onClick={onCancel}
+              onClick={onCancelButtonClicked}
               aria-controls={id}
               aria-label={cancelButtonLabel}
             >
