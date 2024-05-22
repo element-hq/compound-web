@@ -39,6 +39,10 @@ export default {
         "cancelButtonLabel",
       ],
     },
+    design: {
+      type: "figma",
+      url: "https://www.figma.com/file/rTaQE2nIUSLav4Tg3nozq7/Compound-Web-Components?type=design&node-id=4335-2016&mode=design&t=BvxRca0YDRaq20IR-0",
+    },
   },
   argTypes: {
     label: {
@@ -83,11 +87,24 @@ export default {
 
 type Story = StoryObj<Props>;
 
-export const Empty: Story = {
-  parameters: {
-    design: {
-      type: "figma",
-      url: "https://www.figma.com/file/rTaQE2nIUSLav4Tg3nozq7/Compound-Web-Components?type=design&node-id=4335-2016&mode=design&t=BvxRca0YDRaq20IR-0",
-    },
+export const Empty: Story = {};
+
+export const WithText: Story = {
+  args: {
+    initialValue: "Hello, Computer",
+    value: "Hello, Computer",
+  },
+};
+
+export const Edited: Story = {
+  args: {
+    initialValue: "",
+    value: "Hello, World",
+  },
+};
+
+export const WithError: Story = {
+  args: {
+    error: "I am a teapot",
   },
 };
