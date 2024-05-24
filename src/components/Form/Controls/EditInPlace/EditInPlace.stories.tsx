@@ -51,7 +51,7 @@ export default {
     value: {
       type: "string",
     },
-    initialValue: {
+    disableSaveButton: {
       type: "string",
     },
     onChange: {
