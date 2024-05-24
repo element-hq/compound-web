@@ -91,15 +91,14 @@ export const Empty: Story = {};
 
 export const WithText: Story = {
   args: {
-    initialValue: "Hello, Computer",
     value: "Hello, Computer",
   },
 };
 
-export const Edited: Story = {
+export const SaveDisabled: Story = {
   args: {
-    initialValue: "",
     value: "Hello, World",
+    disableSaveButton: true,
   },
 };
 

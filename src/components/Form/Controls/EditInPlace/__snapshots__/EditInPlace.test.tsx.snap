@@ -32,8 +32,7 @@ exports[`PasswordControl > renders 1`] = `
             <button
               aria-controls=":r1:"
               aria-label="Save"
-              class="_button_980156 _primary-button_980156 _primary-button-disabled_980156"
-              disabled=""
+              class="_button_980156 _primary-button_980156"
             >
               <svg
                 class="cpd-icon"

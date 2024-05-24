@@ -26,6 +26,7 @@ import { act } from "react-dom/test-utils";
 type EditInPlaceTestProps = {
   error?: string;
   value?: string;
+  disableSaveButton?: boolean;
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
   onSave?: () => Promise<void>;
   onCancel?: () => void;
@@ -46,7 +47,7 @@ describe("PasswordControl", () => {
             saveButtonLabel="Save"
             cancelButtonLabel="Cancel"
             savedLabel={"Saved"}
-            initialValue={"Edit this text"}
+            disableSaveButton={props.disableSaveButton}
           />
         </Control>
       </Field>
@@ -101,20 +102,14 @@ describe("PasswordControl", () => {
     expect(errorText.id).toEqual(input.getAttribute("aria-errormessage"));
   });
 
-  it("should disable save button if there's an error", () => {
-    render(<EditInPlaceTest error="Missing Left Falangey" />);
+  it("should disable save button if told to", () => {
+    render(<EditInPlaceTest disableSaveButton={true} />);
 
     const saveButton = screen.getByRole("button", { name: "Save" });
     expect(saveButton).toBeDisabled();
   });
 
-  it("disables save button when value not changed", () => {
-    render(<EditInPlaceTest />);
-
-    expect(screen.getByRole("button", { name: "Save" })).toBeDisabled();
-  });
-
-  it("enables save button when value is changed", () => {
+  it("enables save button by default", () => {
     render(<EditInPlaceTest value="Something else" />);
 
     expect(screen.getByRole("button", { name: "Save" })).toBeEnabled();

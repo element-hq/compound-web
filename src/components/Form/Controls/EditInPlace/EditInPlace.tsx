@@ -41,12 +41,6 @@ type Props = {
   value: string;
 
   /**
-   * The 'initial' value of the field. If the current value is equal to this, the save
-   * button will be disabled (as it will be considered not to have changed)
-   */
-  initialValue: string;
-
-  /**
    * Callback for when the user confirms the change
    */
   onSave: () => Promise<void>;
@@ -74,6 +68,12 @@ type Props = {
   saveButtonLabel: string;
 
   /**
+   * True to disable the save button, false to enasble.
+   * Default: false (enabled)
+   */
+  disableSaveButton?: boolean;
+
+  /**
    * The label for the cancel button
    */
   cancelButtonLabel?: string;
@@ -86,11 +86,11 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
   function EditInPlace(
     {
       className,
-      initialValue,
       onSave,
       onCancel,
       saveButtonLabel,
       cancelButtonLabel,
+      disableSaveButton,
       error,
       savedLabel,
       ...props
@@ -103,8 +103,6 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
     const classes = classnames(styles.container, className, {
       [styles["container-error"]]: Boolean(error),
     });
-
-    const saveDisabled = Boolean(error) || props.value === initialValue;
 
     const [showSaved, setShowSaved] = React.useState(false);
 
@@ -155,13 +153,13 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
           <div className={styles["button-group"]}>
             <button
               className={classnames(styles.button, styles["primary-button"], {
-                [styles["primary-button-disabled"]]: saveDisabled,
+                [styles["primary-button-disabled"]]: disableSaveButton,
               })}
               ref={saveButtonRef}
               onClick={onSaveButonClicked}
               aria-controls={id}
               aria-label={saveButtonLabel}
-              disabled={saveDisabled}
+              disabled={disableSaveButton}
             >
               <CheckIcon />
             </button>
