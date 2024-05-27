@@ -26,14 +26,24 @@ type TextProps = {
    * The CSS class name.
    */
   className?: string;
+
+  /**
+   * Enable contextual alternate ligatures on input text
+   * For example on an in-place editing field
+   * https://github.com/rsms/inter/issues/222
+   * https://github.com/rsms/inter/blob/master/src/features/calt.fea
+   */
+  enableLigatures?: boolean;
 } & ComponentProps<"input">;
 
 /**
  * A styled text input, for standalone use.
  */
 export const TextInput = forwardRef<HTMLInputElement, TextProps>(
-  function TextInput(props, ref) {
-    const classes = classNames(styles.control, props.className);
+  function TextInput({ className, enableLigatures, ...props }, ref) {
+    const classes = classNames(styles.control, className, {
+      [styles["enable-ligatures"]]: enableLigatures,
+    });
     return <input ref={ref} {...props} className={classes} />;
   },
 );

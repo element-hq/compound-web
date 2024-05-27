@@ -150,3 +150,15 @@ limitations under the License.
   letter-spacing: var(--cpd-font-letter-spacing-heading-xl);
   font: var(--cpd-font-heading-xl-semibold);
 }
+
+/**
+  * Reset font-feature-settings after letter-spacing has been tweaked.
+  * We want to apply Inter Dynamic metrics (https://rsms.me/inter/dynmetrics/)
+  * We need to tweak the `letter-spacing` property and doing so, disables by
+  * default the optional ligatures
+  * `font-feature-settings` allows us to override this behaviour and have the
+  * correct ligatures and the proper dynamic metric spacing.
+  */
+.typography {
+  font-feature-settings: var(--cpd-font-feature-settings);
+}

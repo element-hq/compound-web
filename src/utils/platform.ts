@@ -14,13 +14,10 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-/**
- * The platform on which the application is running.
- */
 // The granularity of this value is kind of arbitrary: it distinguishes exactly
 // the platforms that this library needs to know about in order to correctly
 // implement the designs.
-export let platform: "android" | "ios" | "other";
+let platform: "android" | "ios" | "other";
 
 if (/android/i.test(navigator.userAgent)) {
   platform = "android";
@@ -34,3 +31,9 @@ if (/android/i.test(navigator.userAgent)) {
 } else {
   platform = "other";
 }
+
+/**
+ * Gets the platform on which the application is running.
+ */
+// This is a function rather than a constant value so that it can be mocked
+export const getPlatform = () => platform;

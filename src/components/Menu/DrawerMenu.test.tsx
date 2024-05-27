@@ -21,15 +21,15 @@ import UserProfileIcon from "@vector-im/compound-design-tokens/icons/user-profil
 import LeaveIcon from "@vector-im/compound-design-tokens/icons/leave.svg";
 
 import { DrawerMenu } from "./DrawerMenu";
-import { MenuItem } from "../MenuItem/MenuItem";
-import { MenuDivider } from "../MenuItem/MenuDivider";
+import { MenuItem } from "./MenuItem";
+import { Separator } from "../Separator/Separator";
 
 describe("DrawerMenu", () => {
   it("renders", () => {
     const { asFragment } = render(
       <DrawerMenu title="Settings">
         <MenuItem Icon={UserProfileIcon} label="Profile" onSelect={() => {}} />
-        <MenuDivider />
+        <Separator />
         <MenuItem
           kind="critical"
           Icon={LeaveIcon}

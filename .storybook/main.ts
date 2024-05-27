@@ -13,23 +13,26 @@ if (process.env.NODE_ENV === "development") {
 }
 
 const config: StorybookConfig = {
-  stories: [
-    "../src/**/*.mdx",
-    "../src/**/!(__ComponentTemplate__)*.stories.@(js|jsx|ts|tsx)",
-  ],
+  stories: ["../src/**/!(__ComponentTemplate__)*.stories.@(js|jsx|ts|tsx)"],
+
   addons,
+
   framework: {
     name: "@storybook/react-vite",
     options: {},
   },
-  features: {
-    storyStoreV7: true,
-  },
+
   viteFinal: (config) => {
     return {
       ...config,
       publicDir: "res",
     };
+  },
+
+  docs: {},
+
+  typescript: {
+    reactDocgen: "react-docgen-typescript",
   },
 };
 

@@ -16,7 +16,7 @@ limitations under the License.
 
 import React, { ComponentPropsWithoutRef, ReactNode, forwardRef } from "react";
 import styles from "./DrawerMenu.module.css";
-import { platform } from "../../utils/platform";
+import { getPlatform } from "../../utils/platform";
 import classNames from "classnames";
 
 interface Props extends ComponentPropsWithoutRef<"div"> {
@@ -36,12 +36,12 @@ interface Props extends ComponentPropsWithoutRef<"div"> {
 // This an internal component not intended for export! Consumers should use it
 // via the Menu or ContextMenu components.
 export const DrawerMenu = forwardRef<HTMLDivElement, Props>(
-  ({ title, children, className, ...props }, ref): ReactNode => (
+  ({ title, children, className, ...props }, ref) => (
     <div
       ref={ref}
       className={classNames(className, styles.drawer)}
       aria-label={title}
-      data-platform={platform}
+      data-platform={getPlatform()}
       {...props}
       role="menu"
     >

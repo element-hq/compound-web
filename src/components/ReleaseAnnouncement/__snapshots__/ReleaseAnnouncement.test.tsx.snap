@@ -1,0 +1,229 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ReleaseAnnouncement > renders 1`] = `
+<div
+  aria-describedby=":r1:"
+  aria-labelledby=":r0:"
+  class="_content_219739"
+  id=":r2:"
+  role="dialog"
+  style="position: absolute; left: 0px; top: 0px; transform: translate(16px, 50px);"
+  tabindex="-1"
+>
+  <svg
+    aria-hidden="true"
+    class="_arrow_219739"
+    height="20"
+    style="position: absolute; pointer-events: none; right: calc(100% - 0px); transform: rotate(90deg); top: -1px;"
+    viewBox="0 0 20 20"
+    width="20"
+  >
+    <path
+      d="M0,0 H20 L10,12 Q10,12 10,12 Z"
+      stroke="none"
+    />
+    <clippath
+      id=":r5:"
+    >
+      <rect
+        height="20"
+        width="20"
+        x="0"
+        y="0"
+      />
+    </clippath>
+  </svg>
+  <h3
+    class="_typography_489030 _font-body-lg-semibold_489030 _header_219739"
+    id=":r0:"
+  >
+    Notifications have moved
+  </h3>
+  <span
+    class="_typography_489030 _font-body-sm-regular_489030 _description_219739"
+    id=":r1:"
+  >
+    From now on, click the icon here to view your notifications.
+  </span>
+  <button
+    class="_button_2a1efe _button_219739"
+    data-kind="secondary"
+    data-size="sm"
+    role="button"
+    tabindex="0"
+  >
+    Ok
+  </button>
+</div>
+`;
+
+exports[`ReleaseAnnouncement > renders the component at the bottom of the trigger button 1`] = `
+<div
+  aria-describedby=":rd:"
+  aria-labelledby=":rc:"
+  class="_content_219739"
+  id=":re:"
+  role="dialog"
+  style="position: absolute; left: 0px; top: 0px; transform: translate(50px, 16px);"
+  tabindex="-1"
+>
+  <svg
+    aria-hidden="true"
+    class="_arrow_219739"
+    height="20"
+    style="position: absolute; pointer-events: none; bottom: 100%; transform: rotate(180deg); left: -1px;"
+    viewBox="0 0 20 20"
+    width="20"
+  >
+    <path
+      d="M0,0 H20 L10,12 Q10,12 10,12 Z"
+      stroke="none"
+    />
+    <clippath
+      id=":rh:"
+    >
+      <rect
+        height="20"
+        width="20"
+        x="0"
+        y="0"
+      />
+    </clippath>
+  </svg>
+  <h3
+    class="_typography_489030 _font-body-lg-semibold_489030 _header_219739"
+    id=":rc:"
+  >
+    Notifications have moved
+  </h3>
+  <span
+    class="_typography_489030 _font-body-sm-regular_489030 _description_219739"
+    id=":rd:"
+  >
+    From now on, click the icon here to view your notifications.
+  </span>
+  <button
+    class="_button_2a1efe _button_219739"
+    data-kind="secondary"
+    data-size="sm"
+    role="button"
+    tabindex="0"
+  >
+    Ok
+  </button>
+</div>
+`;
+
+exports[`ReleaseAnnouncement > renders the component when closed 1`] = `
+<div
+  aria-describedby=":rj:"
+  aria-labelledby=":ri:"
+  class="_content_219739"
+  id=":rk:"
+  role="dialog"
+  style="position: absolute; left: 0px; top: 0px; transform: translate(50px, 16px);"
+  tabindex="-1"
+>
+  <svg
+    aria-hidden="true"
+    class="_arrow_219739"
+    height="20"
+    style="position: absolute; pointer-events: none; bottom: 100%; transform: rotate(180deg); left: -1px;"
+    viewBox="0 0 20 20"
+    width="20"
+  >
+    <path
+      d="M0,0 H20 L10,12 Q10,12 10,12 Z"
+      stroke="none"
+    />
+    <clippath
+      id=":rn:"
+    >
+      <rect
+        height="20"
+        width="20"
+        x="0"
+        y="0"
+      />
+    </clippath>
+  </svg>
+  <h3
+    class="_typography_489030 _font-body-lg-semibold_489030 _header_219739"
+    id=":ri:"
+  >
+    Notifications have moved
+  </h3>
+  <span
+    class="_typography_489030 _font-body-sm-regular_489030 _description_219739"
+    id=":rj:"
+  >
+    From now on, click the icon here to view your notifications.
+  </span>
+  <button
+    class="_button_2a1efe _button_219739"
+    data-kind="secondary"
+    data-size="sm"
+    role="button"
+    tabindex="0"
+  >
+    Ok
+  </button>
+</div>
+`;
+
+exports[`ReleaseAnnouncement > renders with a long label header and description 1`] = `
+<div
+  aria-describedby=":r7:"
+  aria-labelledby=":r6:"
+  class="_content_219739"
+  id=":r8:"
+  role="dialog"
+  style="position: absolute; left: 0px; top: 0px; transform: translate(16px, 50px);"
+  tabindex="-1"
+>
+  <svg
+    aria-hidden="true"
+    class="_arrow_219739"
+    height="20"
+    style="position: absolute; pointer-events: none; right: calc(100% - 0px); transform: rotate(90deg); top: -1px;"
+    viewBox="0 0 20 20"
+    width="20"
+  >
+    <path
+      d="M0,0 H20 L10,12 Q10,12 10,12 Z"
+      stroke="none"
+    />
+    <clippath
+      id=":rb:"
+    >
+      <rect
+        height="20"
+        width="20"
+        x="0"
+        y="0"
+      />
+    </clippath>
+  </svg>
+  <h3
+    class="_typography_489030 _font-body-lg-semibold_489030 _header_219739"
+    id=":r6:"
+  >
+    A multi line header which is taking multiple lines
+  </h3>
+  <span
+    class="_typography_489030 _font-body-sm-regular_489030 _description_219739"
+    id=":r7:"
+  >
+    A multi line description which is taking multiple lines. The OK button should be vertically centred.
+  </span>
+  <button
+    class="_button_2a1efe _button_219739"
+    data-kind="secondary"
+    data-size="sm"
+    role="button"
+    tabindex="0"
+  >
+    Ok
+  </button>
+</div>
+`;

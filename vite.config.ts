@@ -33,6 +33,9 @@ export default defineConfig({
         "react/jsx-dev-runtime",
         "classnames",
         "graphemer",
+        "vaul",
+        "@radix-ui/react-context-menu",
+        "@radix-ui/react-dropdown-menu",
         "@radix-ui/react-form",
         "@radix-ui/react-tooltip",
       ],
@@ -80,6 +83,7 @@ export default defineConfig({
   test: {
     environment: "jsdom",
     globals: true,
+    include: ["src/**/*.test.?(c|m)[vt]s?(x)"],
     setupFiles: ["src/setupTests.ts"],
     coverage: {
       provider: "v8",

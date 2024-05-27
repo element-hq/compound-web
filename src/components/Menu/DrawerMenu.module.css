@@ -73,6 +73,9 @@ limitations under the License.
   contain: paint;
   overflow: auto;
   scrollbar-width: none;
+
+  --cpd-separator-spacing: 0;
+  --cpd-separator-inset: var(--cpd-space-4x);
 }
 
 .body::before {

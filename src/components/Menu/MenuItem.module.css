@@ -1,0 +1,127 @@
+/*
+Copyright 2023 New Vector Ltd
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+
+.item {
+  display: grid;
+  grid-template: "icon label ." auto "empty1 label empty2" auto / auto auto minmax(
+      /* Reserve space for the chevron so that the layout doesn't shift on
+      hover */
+        var(--cpd-space-2x),
+      1fr
+    );
+  align-items: center;
+  justify-items: end;
+  padding-block: var(--cpd-space-2x);
+  padding-inline: var(--cpd-space-4x);
+  box-sizing: border-box;
+  inline-size: 100%;
+  min-inline-size: 200px;
+  color: var(--cpd-color-text-secondary);
+  background: var(--cpd-color-bg-action-secondary-rest);
+}
+
+.item.interactive {
+  cursor: pointer;
+}
+
+.item.no-label {
+  grid-template: "icon ." auto / auto 1fr;
+}
+
+.icon {
+  grid-area: icon;
+  margin-inline-end: var(--cpd-space-3x);
+}
+
+.item.no-label .icon {
+  margin-inline-end: var(--cpd-space-4x);
+}
+
+.label {
+  grid-area: label;
+  margin-inline-end: var(--cpd-space-4x);
+  text-align: start;
+  word-break: break-word;
+}
+
+.nav-hint {
+  /* Hidden until the item is hovered over */
+  display: none;
+  flex-shrink: 0;
+}
+
+button.item {
+  appearance: none;
+  border: none;
+}
+
+.item[data-kind="primary"] > .label {
+  color: var(--cpd-color-text-primary);
+}
+
+.item[data-kind="primary"] > .icon {
+  color: var(--cpd-color-icon-primary);
+}
+
+.item[data-kind="primary"] > .nav-hint {
+  color: var(--cpd-color-icon-tertiary);
+}
+
+.item[data-kind="critical"] > .label {
+  color: var(--cpd-color-text-critical-primary);
+}
+
+.item[data-kind="critical"] > .icon,
+.item[data-kind="critical"] > .nav-hint {
+  color: var(--cpd-color-icon-critical-primary);
+}
+
+@media (hover) {
+  .item.interactive[data-kind="primary"]:hover {
+    background: var(--cpd-color-bg-action-secondary-hovered);
+  }
+
+  .item.interactive[data-kind="critical"]:hover {
+    background: var(--cpd-color-bg-critical-subtle);
+  }
+
+  /* Replace the children with the navigation hint on hover */
+  .item.interactive:hover > .nav-hint {
+    display: initial;
+  }
+
+  .item.interactive:hover > .nav-hint ~ * {
+    display: none;
+  }
+}
+
+.item.interactive[data-kind="primary"]:active {
+  background: var(--cpd-color-bg-action-secondary-pressed);
+}
+
+.item.interactive[data-kind="critical"]:active {
+  background: var(--cpd-color-bg-critical-subtle-hovered);
+}
+
+.item[data-kind].disabled {
+  pointer-events: none;
+}
+
+.item[data-kind].disabled > .label,
+.item[data-kind].disabled > .icon,
+.item[data-kind].disabled > .nav-hint {
+  color: var(--cpd-color-text-disabled);
+}

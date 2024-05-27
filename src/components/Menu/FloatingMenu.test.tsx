@@ -21,15 +21,15 @@ import UserProfileIcon from "@vector-im/compound-design-tokens/icons/user-profil
 import LeaveIcon from "@vector-im/compound-design-tokens/icons/leave.svg";
 
 import { FloatingMenu } from "./FloatingMenu";
-import { MenuItem } from "../MenuItem/MenuItem";
-import { MenuDivider } from "../MenuItem/MenuDivider";
+import { MenuItem } from "./MenuItem";
+import { Separator } from "../Separator/Separator";
 
 describe("FloatingMenu", () => {
   it("renders", () => {
     const { asFragment } = render(
       <FloatingMenu title="Settings">
         <MenuItem Icon={UserProfileIcon} label="Profile" onSelect={() => {}} />
-        <MenuDivider />
+        <Separator />
         <MenuItem
           kind="critical"
           Icon={LeaveIcon}

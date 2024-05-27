@@ -22,9 +22,10 @@ export { Alert } from "./components/Alert/Alert";
 export { Avatar } from "./components/Avatar/Avatar";
 export { AvatarStack } from "./components/Avatar/AvatarStack";
 export { Badge } from "./components/Badge/Badge";
-export { Button } from "./components/Button/Button";
+export { Button, IconButton } from "./components/Button";
 export { Body } from "./components/Typography/Body";
 export { Text } from "./components/Typography/Text";
+export { ContextMenu } from "./components/Menu/ContextMenu";
 export { Glass } from "./components/Glass/Glass";
 export {
   Heading,
@@ -35,14 +36,16 @@ export {
   H5,
   H6,
 } from "./components/Typography/Heading";
-export { IconButton } from "./components/IconButton/IconButton";
+export { IndicatorIcon } from "./components/Icon/IndicatorIcon/IndicatorIcon";
 export { Link } from "./components/Link/Link";
-export { MenuItem } from "./components/MenuItem/MenuItem";
 export { NavBar, NavItem } from "./components/Nav";
+export { Menu } from "./components/Menu/Menu";
+export { MenuItem } from "./components/Menu/MenuItem";
 export { Search } from "./components/Search/Search";
 export { Separator } from "./components/Separator/Separator";
-export { ToggleMenuItem } from "./components/MenuItem/ToggleMenuItem";
+export { ToggleMenuItem } from "./components/Menu/ToggleMenuItem";
 export { Tooltip } from "./components/Tooltip/Tooltip";
+export { ReleaseAnnouncement } from "./components/ReleaseAnnouncement";
 
 export {
   TextControl,

@@ -31,3 +31,4 @@ export const decorators: Decorator[] = [
     defaultTheme: "light",
   }),
 ];
+export const tags = ["autodocs"];
