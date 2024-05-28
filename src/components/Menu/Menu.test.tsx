@@ -150,4 +150,18 @@ describe("Menu", () => {
       expect(onOpenChange).not.toHaveBeenCalledWith(false);
     });
   });
+
+  it("renders without title if none supplied", async () => {
+    render(
+      <Menu
+        open={true}
+        onOpenChange={vi.fn()}
+        trigger={<Button>Open menu</Button>}
+      >
+        <MenuItem Icon={UserProfileIcon} label="Profile" onSelect={() => {}} />
+      </Menu>,
+    );
+
+    expect(screen.queryByRole("heading")).toBe(null);
+  });
 });
