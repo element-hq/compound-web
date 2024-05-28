@@ -23,7 +23,7 @@ interface Props extends ComponentPropsWithoutRef<"div"> {
   /**
    * The menu title.
    */
-  title: string;
+  title?: string;
   /**
    * The menu contents.
    */

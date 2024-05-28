@@ -34,7 +34,7 @@ interface Props {
   /**
    * The menu title.
    */
-  title: string;
+  title?: string;
   /**
    * Whether the menu is open.
    */

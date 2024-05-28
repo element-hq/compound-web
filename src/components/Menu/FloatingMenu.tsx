@@ -20,11 +20,22 @@ import styles from "./FloatingMenu.module.css";
 import useId from "../../utils/useId";
 import { Text } from "../Typography/Text";
 
+interface TitleProps {
+  title: string;
+  id: string;
+}
+
+const MenuTitle: React.FC<TitleProps> = ({ title, id }) => (
+  <Text as="h3" id={id} className={styles.title} size="sm" weight="semibold">
+    {title}
+  </Text>
+);
+
 interface Props extends ComponentPropsWithoutRef<"div"> {
   /**
    * The menu title.
    */
-  title: string;
+  title?: string;
   /**
    * The CSS class.
    */
@@ -47,19 +58,11 @@ export const FloatingMenu = forwardRef<HTMLDivElement, Props>(
       <div
         role="menu"
         ref={ref}
-        aria-labelledby={titleId}
+        aria-labelledby={title ? titleId : undefined}
         className={classnames(className, styles.menu)}
         {...props}
       >
-        <Text
-          as="h3"
-          id={titleId}
-          className={styles.title}
-          size="sm"
-          weight="semibold"
-        >
-          {title}
-        </Text>
+        {title && <MenuTitle title={title} id={titleId} />}
         {children}
       </div>
     );
