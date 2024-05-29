@@ -56,7 +56,7 @@ interface Props extends ComponentPropsWithoutRef<"div"> {
 // This an internal component not intended for export! Consumers should use it
 // via the Menu or ContextMenu components.
 export const FloatingMenu = forwardRef<HTMLDivElement, Props>(
-  ({ title, showTitle, className, children, ...props }, ref) => {
+  ({ title, showTitle = true, className, children, ...props }, ref) => {
     const titleId = useId();
     return (
       <div
