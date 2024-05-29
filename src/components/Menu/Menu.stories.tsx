@@ -70,5 +70,6 @@ Menu.args = {
 
 export const WithoutTitle = Template.bind({});
 WithoutTitle.args = {
-  title: undefined,
+  title: "Untitled Menu",
+  showTitle: false,
 };
