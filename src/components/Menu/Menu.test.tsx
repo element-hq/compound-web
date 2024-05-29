@@ -151,12 +151,14 @@ describe("Menu", () => {
     });
   });
 
-  it("renders without title if none supplied", async () => {
+  it("renders without title if showTitle is false", async () => {
     render(
       <Menu
         open={true}
         onOpenChange={vi.fn()}
         trigger={<Button>Open menu</Button>}
+        title="Untitleed Menu"
+        showTitle={false}
       >
         <MenuItem Icon={UserProfileIcon} label="Profile" onSelect={() => {}} />
       </Menu>,

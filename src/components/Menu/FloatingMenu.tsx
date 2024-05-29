@@ -35,7 +35,11 @@ interface Props extends ComponentPropsWithoutRef<"div"> {
   /**
    * The menu title.
    */
-  title?: string;
+  title: string;
+  /**
+   * Whether to show the title. If false, the title will be hidden but still used as a label for screen readers.
+   */
+  showTitle?: boolean;
   /**
    * The CSS class.
    */
@@ -52,17 +56,18 @@ interface Props extends ComponentPropsWithoutRef<"div"> {
 // This an internal component not intended for export! Consumers should use it
 // via the Menu or ContextMenu components.
 export const FloatingMenu = forwardRef<HTMLDivElement, Props>(
-  ({ title, className, children, ...props }, ref) => {
+  ({ title, showTitle, className, children, ...props }, ref) => {
     const titleId = useId();
     return (
       <div
         role="menu"
         ref={ref}
+        aria-label={showTitle ? undefined : title}
         aria-labelledby={title ? titleId : undefined}
         className={classnames(className, styles.menu)}
         {...props}
       >
-        {title && <MenuTitle title={title} id={titleId} />}
+        {showTitle && <MenuTitle title={title} id={titleId} />}
         {children}
       </div>
     );
