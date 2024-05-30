@@ -63,7 +63,7 @@ export const FloatingMenu = forwardRef<HTMLDivElement, Props>(
         role="menu"
         ref={ref}
         aria-label={showTitle ? undefined : title}
-        aria-labelledby={title ? titleId : undefined}
+        aria-labelledby={showTitle ? titleId : undefined}
         className={classnames(className, styles.menu)}
         {...props}
       >
