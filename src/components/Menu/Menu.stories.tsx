@@ -40,7 +40,6 @@ const Template: StoryFn<typeof MenuComponent> = (args) => {
   return (
     <MenuComponent
       {...args}
-      title="Settings"
       open={open}
       onOpenChange={setOpen}
       trigger={<Button>Open menu</Button>}
@@ -65,4 +64,12 @@ const Template: StoryFn<typeof MenuComponent> = (args) => {
 };
 
 export const Menu = Template.bind({});
-Menu.args = {};
+Menu.args = {
+  title: "Today's Menu",
+};
+
+export const WithoutTitle = Template.bind({});
+WithoutTitle.args = {
+  title: "Untitled Menu",
+  showTitle: false,
+};
