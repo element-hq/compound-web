@@ -19,7 +19,6 @@ limitations under the License.
   background-color: var(--cpd-color-alpha-gray-1300);
   color: var(--cpd-color-text-on-solid-primary);
   border-radius: 99px;
-  font-size: 13px;
-  font-weight: 500;
+  font-size: var(--cpd-font-body-sm-medium);
   padding: var(--cpd-space-2x) var(--cpd-space-4x);
 }
