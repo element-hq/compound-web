@@ -86,6 +86,7 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
   function EditInPlace(
     {
       className,
+      label,
       onSave,
       onCancel,
       saveButtonLabel,
@@ -140,13 +141,14 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
     return (
       <div className={classes} id={id}>
         <div className={styles.label} id={labelId}>
-          {props.label}
+          {label}
         </div>
         <div className={styles.controls}>
           <TextInput
             ref={ref}
             {...props}
             className={styles.control}
+            aria-labelledby={labelId}
             aria-invalid={Boolean(error)}
             aria-errormessage={error ? errorTextId : undefined}
           />

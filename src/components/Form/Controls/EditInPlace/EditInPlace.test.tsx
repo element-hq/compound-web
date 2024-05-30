@@ -32,7 +32,7 @@ type EditInPlaceTestProps = {
   onCancel?: () => void;
 };
 
-describe("PasswordControl", () => {
+describe("EditInPlace", () => {
   const EditInPlaceTest = (props: EditInPlaceTestProps) => (
     <Root>
       <Field name="editInPlace">
