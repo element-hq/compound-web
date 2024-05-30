@@ -1,6 +1,5 @@
 /*
-Copyright 2023 The Matrix.org Foundation C.I.C.
-Copyright 2023 New Vector Ltd
+Copyright 2024 New Vector Ltd
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -15,11 +14,19 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-export { ActionControl, ActionInput } from "./Action";
-export { PasswordControl, PasswordInput } from "./Password";
-export { TextControl, TextInput } from "./Text";
-export { MFAControl, MFAInput } from "./MFA";
-export { CheckboxControl, CheckboxInput } from "./Checkbox";
-export { RadioControl, RadioInput } from "./Radio";
-export { ToggleControl, ToggleInput } from "./Toggle";
-export { EditInPlace } from "./EditInPlace";
+import { expect, test } from "@playwright/test";
+
+test.describe("EditInPlace", () => {
+  test("should render save & cancel buttons correctly", async ({ page }) => {
+    await page.goto(
+      `iframe.html?viewMode=story&id=form-controls-editinplace--empty`,
+      {
+        waitUntil: "networkidle",
+      },
+    );
+
+    await page.getByLabel("Label").focus();
+
+    await expect(page).toHaveScreenshot({ fullPage: true });
+  });
+});

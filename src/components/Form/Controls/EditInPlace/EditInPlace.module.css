@@ -1,0 +1,130 @@
+/*
+Copyright 2024 New Vector Ltd
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+
+.container {
+  min-block-size: 110px;
+}
+
+.label {
+  font-size: 15px;
+  font-weight: 500;
+  margin-block-end: 4px;
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 15px;
+}
+
+.button-group {
+  display: none;
+  position: relative;
+  inset-block-start: 5px;
+  grid-template-columns: 1fr 1fr;
+  gap: 7px;
+}
+
+.button {
+  display: flex;
+  inline-size: 36px;
+  block-size: 36px;
+  border: 1px solid var(--cpd-color-border-interactive-secondary);
+  border-radius: 20px;
+  background-color: transparent;
+  text-align: center;
+  cursor: pointer;
+}
+
+.primary-button {
+  background-color: var(--cpd-color-bg-action-primary-rest);
+  border-color: var(--cpd-color-bg-action-primary-rest);
+
+  svg {
+    color: var(--cpd-color-icon-on-solid-primary);
+  }
+}
+
+.primary-button-disabled {
+  background-color: var(--cpd-color-bg-subtle-primary);
+  border-color: var(--cpd-color-bg-subtle-primary);
+
+  svg {
+    color: var(--cpd-color-icon-disabled);
+  }
+}
+
+.button svg {
+  inline-size: 24px;
+  block-size: 24px;
+  margin: auto;
+}
+
+.control {
+  inline-size: 100%;
+}
+
+.container:focus-within .button-group {
+  display: inline-grid;
+}
+
+.container-error .control {
+  border-color: var(--cpd-color-border-critical-primary);
+}
+
+.container-error .label {
+  color: var(--cpd-color-text-critical-primary);
+}
+
+.caption-line {
+  margin-block-start: var(--cpd-space-2x);
+}
+
+.caption-icon {
+  display: inline-block;
+  vertical-align: middle;
+  inline-size: 20px;
+  block-size: 20px;
+  margin-inline-end: var(--cpd-space-2x);
+}
+
+.caption-icon-error {
+  color: var(--cpd-color-icon-critical-primary);
+}
+
+.caption-icon-saved {
+  background-color: var(--cpd-color-icon-success-primary);
+  border-radius: 20px;
+  text-align: center;
+  margin-inline-end: var(--cpd-space-2x);
+
+  svg {
+    color: var(--cpd-color-icon-on-solid-primary);
+  }
+}
+
+.caption-text {
+  vertical-align: middle;
+  font-size: 13px;
+}
+
+.caption-text-error {
+  color: var(--cpd-color-text-critical-primary);
+}
+
+.caption-text-saved {
+  color: var(--cpd-color-text-success-primary);
+}
