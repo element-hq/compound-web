@@ -20,11 +20,26 @@ import styles from "./FloatingMenu.module.css";
 import useId from "../../utils/useId";
 import { Text } from "../Typography/Text";
 
+interface TitleProps {
+  title: string;
+  id: string;
+}
+
+const MenuTitle: React.FC<TitleProps> = ({ title, id }) => (
+  <Text as="h3" id={id} className={styles.title} size="sm" weight="semibold">
+    {title}
+  </Text>
+);
+
 interface Props extends ComponentPropsWithoutRef<"div"> {
   /**
    * The menu title.
    */
   title: string;
+  /**
+   * Whether to show the title. If false, the title will be hidden but still used as a label for screen readers.
+   */
+  showTitle?: boolean;
   /**
    * The CSS class.
    */
@@ -41,25 +56,18 @@ interface Props extends ComponentPropsWithoutRef<"div"> {
 // This an internal component not intended for export! Consumers should use it
 // via the Menu or ContextMenu components.
 export const FloatingMenu = forwardRef<HTMLDivElement, Props>(
-  ({ title, className, children, ...props }, ref) => {
+  ({ title, showTitle = true, className, children, ...props }, ref) => {
     const titleId = useId();
     return (
       <div
         role="menu"
         ref={ref}
-        aria-labelledby={titleId}
+        aria-label={showTitle ? undefined : title}
+        aria-labelledby={showTitle ? titleId : undefined}
         className={classnames(className, styles.menu)}
         {...props}
       >
-        <Text
-          as="h3"
-          id={titleId}
-          className={styles.title}
-          size="sm"
-          weight="semibold"
-        >
-          {title}
-        </Text>
+        {showTitle && <MenuTitle title={title} id={titleId} />}
         {children}
       </div>
     );
