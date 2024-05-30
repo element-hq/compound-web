@@ -21,7 +21,7 @@ export { ToggleMenuItem } from "./components/Menu/ToggleMenuItem";
 export { Tooltip } from "./components/Tooltip/Tooltip";
 export { ReleaseAnnouncement } from "./components/ReleaseAnnouncement";
 export { Toast } from "./components/Toast/Toast";
-export { TextControl, TextControl as Control, TextInput, ActionControl, ActionInput, PasswordControl, PasswordInput, MFAControl, MFAInput, CheckboxControl, CheckboxInput, CheckboxInput as Checkbox, RadioControl, RadioInput, RadioInput as Radio, ToggleControl, ToggleInput, ToggleInput as Toggle, Root, Submit, Message, ErrorMessage, HelpMessage, ValidityState, Field, InlineField, Label, } from "./components/Form";
+export { TextControl, TextControl as Control, TextInput, ActionControl, ActionInput, PasswordControl, PasswordInput, MFAControl, MFAInput, CheckboxControl, CheckboxInput, CheckboxInput as Checkbox, RadioControl, RadioInput, RadioInput as Radio, ToggleControl, ToggleInput, ToggleInput as Toggle, Root, Submit, Message, ErrorMessage, HelpMessage, ValidityState, Field, InlineField, Label, EditInPlace, } from "./components/Form";
 export * as Form from "./components/Form";
 /**
  * Export utility functions
