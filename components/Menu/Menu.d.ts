@@ -1,9 +1,15 @@
 import { FC, ReactNode } from '../../../node_modules/react';
 interface Props {
     /**
-     * The menu title.
+     * The menu title. This can be hidden with `showTitle={false}` in which case it will only
+     * be a label for screen readers.
      */
     title: string;
+    /**
+     * Controls whether the title is displayed (see `title` prop). Titles are only displayed on
+     * web: on mobile, this parameter is ignored.
+     */
+    showTitle?: boolean;
     /**
      * Whether the menu is open.
      */

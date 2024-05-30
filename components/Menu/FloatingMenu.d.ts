@@ -5,6 +5,10 @@ interface Props extends ComponentPropsWithoutRef<"div"> {
      */
     title: string;
     /**
+     * Whether to show the title. If false, the title will be hidden but still used as a label for screen readers.
+     */
+    showTitle?: boolean;
+    /**
      * The CSS class.
      */
     className?: string;
