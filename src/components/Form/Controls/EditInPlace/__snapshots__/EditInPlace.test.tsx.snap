@@ -49,6 +49,7 @@ exports[`EditInPlace > renders 1`] = `
             aria-label="Cancel"
             class="_button_980156"
             role="button"
+            type="button"
           >
             <svg
               class="cpd-icon"
