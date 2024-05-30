@@ -32,9 +32,15 @@ import { getPlatform } from "../../utils/platform";
 
 interface Props {
   /**
-   * The menu title.
+   * The menu title. This can be hidden with `showTitle={false}` in which case it will only
+   * be a label for screen readers.
    */
   title: string;
+  /**
+   * Controls whether the title is displayed (see `title` prop). Titles are only displayed on
+   * web: on mobile, this parameter is ignored.
+   */
+  showTitle?: boolean;
   /**
    * Whether the menu is open.
    */
@@ -83,6 +89,7 @@ const DropdownMenuItemWrapper: FC<MenuItemWrapperProps> = ({
  */
 export const Menu: FC<Props> = ({
   title,
+  showTitle = true,
   open,
   onOpenChange,
   trigger,
@@ -130,7 +137,9 @@ export const Menu: FC<Props> = ({
             event.preventDefault();
           }}
         >
-          <FloatingMenu title={title}>{children}</FloatingMenu>
+          <FloatingMenu title={title} showTitle={showTitle}>
+            {children}
+          </FloatingMenu>
         </Content>
       </Portal>
     </Root>
