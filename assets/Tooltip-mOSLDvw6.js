@@ -3,9 +3,9 @@ When trigger is interactive:
      - tooltip will be shown after a 300ms delay.
 When trigger is not interactive:
      - tooltip will be shown instantly when pointer enters trigger.
-     - trigger will be wrapped in a span with a tab index from prop nonInteractiveTriggerTabIndex`,name:"isTriggerInteractive",required:!1,type:{name:"boolean"}},nonInteractiveTriggerTabIndex:{defaultValue:{value:"0"},description:"The tab index for the non interactive trigger.",name:"nonInteractiveTriggerTabIndex",required:!1,type:{name:"number"}},label:{defaultValue:null,description:"The tooltip label",name:"label",required:!0,type:{name:"string"}},caption:{defaultValue:null,description:`The caption of the tooltip.
+     - trigger will be wrapped in a span with a tab index from prop nonInteractiveTriggerTabIndex`,name:"isTriggerInteractive",required:!1,type:{name:"boolean"}},nonInteractiveTriggerTabIndex:{defaultValue:{value:"0"},description:"The tab index for the non interactive trigger.",name:"nonInteractiveTriggerTabIndex",required:!1,type:{name:"number"}},label:{defaultValue:null,description:"The tooltip label",name:"label",required:!0,type:{name:"string"}},disabled:{defaultValue:null,description:"Whether the tooltip should be forced to be in a closed state.",name:"disabled",required:!1,type:{name:"boolean"}},caption:{defaultValue:null,description:`The caption of the tooltip.
 JSX.Element can be used to provide accessibility content like kbd element.
-Keep in mind, the caption should not be used for interactive content.`,name:"caption",required:!1,type:{name:"string | Element"}},disabled:{defaultValue:null,description:"Whether the tooltip should be forced to be in a closed state.",name:"disabled",required:!1,type:{name:"boolean"}},open:{defaultValue:{value:"undefined"},description:`The controlled open state of the tooltip.
+Keep in mind, the caption should not be used for interactive content.`,name:"caption",required:!1,type:{name:"string | Element"}},open:{defaultValue:{value:"undefined"},description:`The controlled open state of the tooltip.
 If provided, the tooltip will be in controlled mode.
 When true, the tooltip is always open. When false, the tooltip is always hidden.
 When undefined, the tooltip will manage its own open state.
