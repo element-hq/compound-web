@@ -126,6 +126,17 @@ describe("EditInPlace", () => {
     expect(onSave).toHaveBeenCalled();
   });
 
+  it("calls save callback if enter pressed in the text box", async () => {
+    const onSave = vi.fn();
+    render(<EditInPlaceTest onSave={onSave} value="Changed" />);
+
+    await act(async () => {
+      await userEvent.type(screen.getByRole("textbox"), "{enter}");
+    });
+
+    expect(onSave).toHaveBeenCalled();
+  });
+
   it("calls onCancel when cancel button pressed", async () => {
     const onCancel = vi.fn();
     render(<EditInPlaceTest onCancel={onCancel} value="Changed" />);
