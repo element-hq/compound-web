@@ -1,0 +1,7 @@
+import{j as e}from"./jsx-runtime-DoxjgJx5.js";import{c as o}from"./index-C2KoGaFq.js";import{T as c}from"./Typography-D3xp_TI7.js";import"./index-Cu9bd8lq.js";const i="_badge_qipht_17",l={badge:i},a=({children:t,kind:n="default",className:d})=>{const r=o(l.badge,d);return e.jsx(c,{as:"span",size:"sm",weight:"medium",className:r,"data-kind":n,children:t})};try{a.displayName="Badge",a.__docgenInfo={description:"A Badge component.",displayName:"Badge",props:{className:{defaultValue:null,description:"The CSS class name.",name:"className",required:!1,type:{name:"string"}},kind:{defaultValue:{value:"default"},description:"The type of badge.",name:"kind",required:!1,type:{name:"enum",value:[{value:'"success"'},{value:'"critical"'},{value:'"default"'}]}}}}}catch{}const B={title:"Badge",component:a,argTypes:{},args:{}},m=()=>e.jsxs(e.Fragment,{children:[e.jsx(a,{kind:"success",children:"Trusted"})," ",e.jsx(a,{kind:"critical",children:"Not trusted"})," ",e.jsx(a,{kind:"default",children:"Public room"})]}),s=m.bind({});s.args={};s.parameters={...s.parameters,docs:{...s.parameters?.docs,source:{originalSource:`() => <>
+    <BadgeComponent kind="success">Trusted</BadgeComponent>
+    &nbsp;
+    <BadgeComponent kind="critical">Not trusted</BadgeComponent>
+    &nbsp;
+    <BadgeComponent kind="default">Public room</BadgeComponent>
+  </>`,...s.parameters?.docs?.source}}};const _=["Badge"];export{s as Badge,_ as __namedExportsOrder,B as default};
