@@ -80,7 +80,9 @@ type Props = {
 } & React.ComponentProps<typeof TextInput>;
 
 /**
- * A text box with save/cancel buttons that appear when the field is active
+ * A text box with save/cancel buttons that appear when the field is active.
+ * Since thios control has its own 'save' button, it should *not* appear as part
+ * of a larger form: it exists as its own form that submits separately.
  */
 export const EditInPlace = forwardRef<HTMLInputElement, Props>(
   function EditInPlace(
