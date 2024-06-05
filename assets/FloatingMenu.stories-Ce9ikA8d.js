@@ -1,8 +1,0 @@
-import{j as o}from"./jsx-runtime-DoxjgJx5.js";import{S as a}from"./user-profile-CB1AInEY.js";import{S as r,a as s,b as l}from"./leave-ZJppWO3C.js";import{F as n}from"./FloatingMenu-B9kME6Vc.js";import{M as t}from"./MenuItem-Miu66NHR.js";import{S as c}from"./Separator-DECRglHy.js";import"./index-Cu9bd8lq.js";import"./index-C2KoGaFq.js";import"./useId-D5m2XpUu.js";import"./Text-lUtLr7CN.js";import"./Typography-D3xp_TI7.js";import"./index-icJLasaE.js";import"./index-CZs6vfAl.js";import"./index-MTP5U5xA.js";import"./floating-ui.react-C9uQe9t5.js";const C={title:"Menu/FloatingMenu",component:n,argTypes:{},args:{}},m=i=>o.jsxs(n,{...i,title:"Settings",children:[o.jsx(t,{Icon:a,label:"Profile",onSelect:()=>{}}),o.jsx(t,{Icon:r,label:"Notificationsnotificationsnotifications",onSelect:()=>{}}),o.jsx(t,{Icon:s,label:"Feedback",onSelect:()=>{}}),o.jsx(c,{}),o.jsx(t,{kind:"critical",Icon:l,label:"Sign out",onSelect:()=>{}})]}),e=m.bind({});e.args={};e.parameters={...e.parameters,docs:{...e.parameters?.docs,source:{originalSource:`args => <FloatingMenuComponent {...args} title="Settings">
-    <MenuItem Icon={UserProfileIcon} label="Profile" onSelect={() => {}} />
-    {/* Extra long label to demonstrate word breaking */}
-    <MenuItem Icon={NotificationsIcon} label="Notificationsnotificationsnotifications" onSelect={() => {}} />
-    <MenuItem Icon={ChatProblemIcon} label="Feedback" onSelect={() => {}} />
-    <Separator />
-    <MenuItem kind="critical" Icon={LeaveIcon} label="Sign out" onSelect={() => {}} />
-  </FloatingMenuComponent>`,...e.parameters?.docs?.source}}};const N=["FloatingMenu"];export{e as FloatingMenu,N as __namedExportsOrder,C as default};
