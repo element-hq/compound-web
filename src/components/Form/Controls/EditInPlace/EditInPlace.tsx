@@ -15,7 +15,7 @@ limitations under the License.
 */
 
 import classnames from "classnames";
-import React, { forwardRef, useCallback, useRef } from "react";
+import React, { FormEvent, forwardRef, useCallback, useRef } from "react";
 import styles from "./EditInPlace.module.css";
 import { TextInput } from "../Text";
 import useId from "../../../../utils/useId";
@@ -80,7 +80,9 @@ type Props = {
 } & React.ComponentProps<typeof TextInput>;
 
 /**
- * A text box with save/cancel buttons that appear when the field is active
+ * A text box with save/cancel buttons that appear when the field is active.
+ * Since thios control has its own 'save' button, it should *not* appear as part
+ * of a larger form: it exists as its own form that submits separately.
  */
 export const EditInPlace = forwardRef<HTMLInputElement, Props>(
   function EditInPlace(
@@ -118,20 +120,24 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
       };
     }, []);
 
-    const onSaveButonClicked = useCallback(async () => {
-      try {
-        await onSave();
-        saveButtonRef.current?.blur();
-        setShowSaved(true);
-        hideTimer.current = setTimeout(() => {
-          setShowSaved(false);
-        }, 2000);
-      } catch (e) {
-        // We don't really need to do anything here, we just don't want to display the
-        // 'saved' label, obviously. The user of the component can update the error to
-        // show what failed.
-      }
-    }, [setShowSaved, onSave, hideTimer]);
+    const onFormSubmit = useCallback(
+      async (e: FormEvent) => {
+        e.preventDefault();
+        try {
+          await onSave();
+          saveButtonRef.current?.blur();
+          setShowSaved(true);
+          hideTimer.current = setTimeout(() => {
+            setShowSaved(false);
+          }, 2000);
+        } catch (e) {
+          // We don't really need to do anything here, we just don't want to display the
+          // 'saved' label, obviously. The user of the component can update the error to
+          // show what failed.
+        }
+      },
+      [setShowSaved, onSave, hideTimer],
+    );
 
     const onCancelButtonClicked = useCallback(() => {
       cancelButtonRef.current?.blur();
@@ -139,7 +145,7 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
     }, [cancelButtonRef, onCancel]);
 
     return (
-      <div className={classes} id={id}>
+      <form className={classes} id={id} onSubmit={onFormSubmit}>
         <div className={styles.label} id={labelId}>
           {label}
         </div>
@@ -154,11 +160,11 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
           />
           <div className={styles["button-group"]}>
             <button
+              type="submit"
               className={classnames(styles.button, styles["primary-button"], {
                 [styles["primary-button-disabled"]]: disableSaveButton,
               })}
               ref={saveButtonRef}
-              onClick={onSaveButonClicked}
               aria-controls={id}
               aria-label={saveButtonLabel}
               disabled={disableSaveButton}
@@ -166,6 +172,7 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
               <CheckIcon />
             </button>
             <button
+              type="button"
               role="button"
               ref={cancelButtonRef}
               className={styles.button}
@@ -216,7 +223,7 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
             </span>
           </div>
         )}
-      </div>
+      </form>
     );
   },
 );
