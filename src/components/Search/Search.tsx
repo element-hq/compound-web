@@ -39,7 +39,7 @@ type SearchProps = {
   /**
    * Event handler called when the search changes.
    */
-  onChange?: (e: React.ChangeEvent) => void;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 /**
