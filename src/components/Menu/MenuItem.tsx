@@ -71,6 +71,7 @@ type Props<C extends MenuItemElement> = {
 /**
  * An item within a menu, acting either as a navigation button, or simply a
  * container for other interactive elements.
+ * Must be used within a compound Menu or other `menu` or `menubar` aria role subtree.
  */
 export const MenuItem = <C extends MenuItemElement = "button">({
   as,

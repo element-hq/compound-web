@@ -28,6 +28,7 @@ type Props = Pick<
 /**
  * A menu item with a toggle control. Clicking anywhere on the surface will
  * activate the toggle.
+ * Must be used within a compound Menu or other `menu` or `menubar` aria role subtree.
  */
 export const ToggleMenuItem = forwardRef<HTMLInputElement, Props>(
   function ToggleMenuItem(
