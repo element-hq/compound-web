@@ -18,6 +18,8 @@ import React, { ComponentProps, forwardRef } from "react";
 import { MenuItem } from "./MenuItem";
 import { ToggleInput } from "../Form/Controls/Toggle";
 import useId from "../../utils/useId";
+import styles from "./MenuItem.module.css";
+import { Text } from "../Typography/Text";
 
 type Props = Pick<
   ComponentProps<typeof MenuItem>,
@@ -36,17 +38,19 @@ export const ToggleMenuItem = forwardRef<HTMLInputElement, Props>(
     ref,
   ) {
     const toggleId = useId();
+    // We render the label ourselves as a `label` element cannot have role `menuitemcheckbox`
     return (
       <MenuItem
-        as="label"
-        htmlFor={toggleId}
         role="menuitemcheckbox"
         className={className}
         Icon={Icon}
-        label={label}
+        label={null}
         onSelect={onSelect}
         aria-checked={toggleProps.checked}
       >
+        <Text className={styles.label} size="md" weight="medium" as="label" htmlFor={toggleId}>
+          {label}
+        </Text>
         <ToggleInput id={toggleId} ref={ref} {...toggleProps} />
       </MenuItem>
     );
