@@ -41,6 +41,7 @@ export const ToggleMenuItem = forwardRef<HTMLInputElement, Props>(
     // We render the label ourselves as a `label` element cannot have role `menuitemcheckbox`
     return (
       <MenuItem
+        as="div"
         role="menuitemcheckbox"
         className={className}
         Icon={Icon}
