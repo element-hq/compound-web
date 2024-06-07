@@ -3,7 +3,7 @@
 exports[`ToggleMenuItem > renders 1`] = `
 <DocumentFragment>
   <div
-    class="_item_831119 _interactive_831119 _no-label_831119"
+    class="_item_843593 _item_831119 _interactive_831119 _no-label_831119"
     data-kind="primary"
     role="menuitemcheckbox"
   >

@@ -20,6 +20,6 @@ limitations under the License.
       /* Reserve space for the chevron so that the layout doesn't shift on
       hover */
         var(--cpd-space-2x),
-        1fr
+      1fr
     ) !important;
 }
