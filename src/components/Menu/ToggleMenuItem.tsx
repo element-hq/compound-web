@@ -48,7 +48,13 @@ export const ToggleMenuItem = forwardRef<HTMLInputElement, Props>(
         onSelect={onSelect}
         aria-checked={toggleProps.checked}
       >
-        <Text className={styles.label} size="md" weight="medium" as="label" htmlFor={toggleId}>
+        <Text
+          className={styles.label}
+          size="md"
+          weight="medium"
+          as="label"
+          htmlFor={toggleId}
+        >
           {label}
         </Text>
         <ToggleInput id={toggleId} ref={ref} {...toggleProps} />
