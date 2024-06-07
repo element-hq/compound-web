@@ -15,11 +15,13 @@ limitations under the License.
 */
 
 import React, { ComponentProps, forwardRef } from "react";
+import classNames from "classnames";
 import { MenuItem } from "./MenuItem";
 import { ToggleInput } from "../Form/Controls/Toggle";
 import useId from "../../utils/useId";
-import styles from "./MenuItem.module.css";
 import { Text } from "../Typography/Text";
+import menuItemStyles from "./MenuItem.module.css";
+import styles from "./ToggleMenuItem.module.css";
 
 type Props = Pick<
   ComponentProps<typeof MenuItem>,
@@ -43,14 +45,14 @@ export const ToggleMenuItem = forwardRef<HTMLInputElement, Props>(
       <MenuItem
         as="div"
         role="menuitemcheckbox"
-        className={className}
+        className={classNames(styles.item, className)}
         Icon={Icon}
         label={null}
         onSelect={onSelect}
         aria-checked={toggleProps.checked}
       >
         <Text
-          className={styles.label}
+          className={menuItemStyles.label}
           size="md"
           weight="medium"
           as="label"
