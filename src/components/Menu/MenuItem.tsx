@@ -126,7 +126,6 @@ export const MenuItem = <C extends MenuItemElement = "button">({
       data-kind={kind}
       onClick={onClick}
       disabled={disabled}
-      manualLabel
     >
       {iconIsReactElement ? (
         <Slot className={styles.icon}>{componentIcon}</Slot>
