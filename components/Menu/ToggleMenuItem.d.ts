@@ -5,6 +5,7 @@ type Props = Pick<ComponentProps<typeof MenuItem>, "className" | "Icon" | "label
 /**
  * A menu item with a toggle control. Clicking anywhere on the surface will
  * activate the toggle.
+ * Must be used within a compound Menu or other `menu` or `menubar` aria role subtree.
  */
 export declare const ToggleMenuItem: React.ForwardRefExoticComponent<Omit<Props, "ref"> & React.RefAttributes<HTMLInputElement>>;
 export {};

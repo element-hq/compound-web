@@ -1,4 +1,5 @@
 import { ComponentPropsWithoutRef, ComponentType, ReactNode, SVGAttributes } from '../../../node_modules/react';
+import { Text } from "../Typography/Text";
 type MenuItemElement = "button" | "label" | "a" | "div";
 type Props<C extends MenuItemElement> = {
     /**
@@ -20,6 +21,10 @@ type Props<C extends MenuItemElement> = {
      */
     label: string | null;
     /**
+     * Additional properties to pass to the Text label component.
+     */
+    labelProps?: ComponentPropsWithoutRef<typeof Text>;
+    /**
      * Event callback for when the item is selected via mouse, touch, or keyboard.
      * Calling event.preventDefault in this handler will prevent the menu from
      * being dismissed.
@@ -35,7 +40,8 @@ type Props<C extends MenuItemElement> = {
 /**
  * An item within a menu, acting either as a navigation button, or simply a
  * container for other interactive elements.
+ * Must be used within a compound Menu or other `menu` or `menubar` aria role subtree.
  */
-export declare const MenuItem: <C extends MenuItemElement = "button">({ as, className, Icon, label, onSelect, kind, children, onClick: onClickProp, disabled, ...props }: Props<C>) => JSX.Element;
+export declare const MenuItem: <C extends MenuItemElement = "button">({ as, className, Icon, label, labelProps, onSelect, kind, children, onClick: onClickProp, disabled, ...props }: Props<C>) => JSX.Element;
 export {};
 //# sourceMappingURL=MenuItem.d.ts.map
