@@ -68,7 +68,7 @@ type Props = {
   saveButtonLabel: string;
 
   /**
-   * True to disable the save button, false to enasble.
+   * True to disable the save button, false to enable.
    * Default: false (enabled)
    */
   disableSaveButton?: boolean;
