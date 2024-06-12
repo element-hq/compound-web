@@ -23,6 +23,7 @@ import useId from "../../../../utils/useId";
 import CheckIcon from "@vector-im/compound-design-tokens/icons/check.svg";
 import CancelIcon from "@vector-im/compound-design-tokens/icons/close.svg";
 import ErrorIcon from "@vector-im/compound-design-tokens/icons/error.svg";
+import { InlineSpinner } from "../../../InlineSpinner/InlineSpinner";
 
 type Props = {
   /**
@@ -68,6 +69,11 @@ type Props = {
   saveButtonLabel: string;
 
   /**
+   * The label for the 'in progress' saving caption
+   */
+  savingLabel: string;
+
+  /**
    * True to disable the save button, false to enable.
    * Default: false (enabled)
    */
@@ -96,6 +102,7 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
       disableSaveButton,
       error,
       savedLabel,
+      savingLabel,
       ...props
     },
     ref,
@@ -208,6 +215,19 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
               )}
             >
               {error}
+            </span>
+          </div>
+        )}
+        {saving && (
+          <div className={styles["caption-line"]}>
+            <InlineSpinner />
+            <span
+              className={classnames(
+                styles["caption-text"],
+                styles["caption-text-saving"],
+              )}
+            >
+              {savingLabel}
             </span>
           </div>
         )}
