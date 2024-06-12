@@ -37,6 +37,7 @@ export default {
         "savedLabel",
         "saveButtonLabel",
         "cancelButtonLabel",
+        "disableSaveButton",
       ],
     },
     design: {
@@ -52,7 +53,7 @@ export default {
       type: "string",
     },
     disableSaveButton: {
-      type: "string",
+      type: "boolean",
     },
     onChange: {
       action: "changed",
