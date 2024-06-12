@@ -76,6 +76,7 @@ limitations under the License.
   inline-size: 100%;
 }
 
+.container-show-buttons .button-group,
 .container:focus-within .button-group {
   display: inline-grid;
 }
