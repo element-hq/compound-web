@@ -14,26 +14,11 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import GraphemeSplitter from "graphemer";
+import { graphemeSegments } from "unicode-segmenter/grapheme";
 
 export const MX_USERNAME_PREFIX = "@";
 export const MX_ROOM_PREFIX = "#";
 export const MX_ALIAS_PREFIX = "+";
-
-/**
- * The CommonJS output of the graphemer package looks wrong,
- * this is a workaround
- * To remove when https://github.com/flmnt/graphemer/issues/11 is fixed
- * @param value the constructor or wrapper with `default`
- * @returns the Graphemer constructor
- */
-function interopDefault<T>(value: T): T {
-  if ((value as unknown as { default: T }).default) {
-    return (value as unknown as { default: T }).default;
-  }
-
-  return value;
-}
 
 /**
  * returns the first (non-sigil) character of 'name',
@@ -52,7 +37,6 @@ export function getInitialLetter(name: string): string {
   }
 
   // rely on a grapheme cluster splitter so that we don't break apart compound emojis
-  const splitter = new (interopDefault(GraphemeSplitter))();
-  const result = splitter.iterateGraphemes(name).next();
-  return result.done ? "" : result.value;
+  const result = graphemeSegments(name).next();
+  return result.done ? "" : result.value.segment;
 }
