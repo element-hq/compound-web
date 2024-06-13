@@ -92,6 +92,7 @@ limitations under the License.
 .caption-line {
   margin-block-start: var(--cpd-space-2x);
   display: flex;
+  align-items: center;
   gap: var(--cpd-space-2x);
 }
 
