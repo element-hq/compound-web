@@ -111,7 +111,6 @@
     "@radix-ui/react-tooltip": "^1.0.6",
     "@storybook/manager-api": "^8.1.1",
     "classnames": "^2.3.2",
-    "graphemer": "^1.4.0",
     "vaul": "^0.7.0"
   },
   "peerDependencies": {
