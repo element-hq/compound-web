@@ -68,7 +68,7 @@ type Props = {
   saveButtonLabel: string;
 
   /**
-   * True to disable the save button, false to enasble.
+   * True to disable the save button, false to enable.
    * Default: false (enabled)
    */
   disableSaveButton?: boolean;
@@ -103,11 +103,14 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
     const id = useId();
     const labelId = useId();
     const errorTextId = useId();
-    const classes = classnames(styles.container, className, {
-      [styles["container-error"]]: Boolean(error),
-    });
 
     const [showSaved, setShowSaved] = React.useState(false);
+    const [saving, setSaving] = React.useState(false);
+
+    const classes = classnames(styles.container, className, {
+      [styles["container-error"]]: Boolean(error),
+      [styles["container-show-buttons"]]: saving,
+    });
 
     const hideTimer = useRef<NodeJS.Timeout | null>(null);
 
@@ -124,6 +127,7 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
       async (e: FormEvent) => {
         e.preventDefault();
         try {
+          setSaving(true);
           await onSave();
           saveButtonRef.current?.blur();
           setShowSaved(true);
@@ -134,6 +138,8 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
           // We don't really need to do anything here, we just don't want to display the
           // 'saved' label, obviously. The user of the component can update the error to
           // show what failed.
+        } finally {
+          setSaving(false);
         }
       },
       [setShowSaved, onSave, hideTimer],
@@ -157,6 +163,7 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
             aria-labelledby={labelId}
             aria-invalid={Boolean(error)}
             aria-errormessage={error ? errorTextId : undefined}
+            disabled={saving}
           />
           <div className={styles["button-group"]}>
             <button
@@ -167,7 +174,7 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
               ref={saveButtonRef}
               aria-controls={id}
               aria-label={saveButtonLabel}
-              disabled={disableSaveButton}
+              disabled={disableSaveButton || saving}
             >
               <CheckIcon />
             </button>
@@ -179,6 +186,7 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
               onClick={onCancelButtonClicked}
               aria-controls={id}
               aria-label={cancelButtonLabel}
+              disabled={saving}
             >
               <CancelIcon />
             </button>
