@@ -32,7 +32,6 @@ export default defineConfig({
         "react/jsx-runtime",
         "react/jsx-dev-runtime",
         "classnames",
-        "graphemer",
         "vaul",
         "@radix-ui/react-context-menu",
         "@radix-ui/react-dropdown-menu",
