@@ -73,6 +73,9 @@ export default {
     saveButtonLabel: {
       type: "string",
     },
+    savingLabel: {
+      type: "string",
+    },
     cancelButtonLabel: {
       type: "string",
     },
@@ -83,6 +86,7 @@ export default {
     value: "",
     saveButtonLabel: "Save",
     cancelButtonLabel: "Cancel",
+    savingLabel: "Saving...",
   },
 } satisfies Meta<Props>;
 

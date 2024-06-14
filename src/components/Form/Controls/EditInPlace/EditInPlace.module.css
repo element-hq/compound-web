@@ -91,14 +91,15 @@ limitations under the License.
 
 .caption-line {
   margin-block-start: var(--cpd-space-2x);
+  display: flex;
+  align-items: center;
+  gap: var(--cpd-space-2x);
 }
 
 .caption-icon {
   display: inline-block;
-  vertical-align: middle;
   inline-size: 20px;
   block-size: 20px;
-  margin-inline-end: var(--cpd-space-2x);
 }
 
 .caption-icon-error {
@@ -107,18 +108,28 @@ limitations under the License.
 
 .caption-icon-saved {
   background-color: var(--cpd-color-icon-success-primary);
+
+  /*
+   * We are trying to match the size of the error icon which
+   * is displayed 20px big but has 2px of border in an SVG
+   * with a viewBox of 24x24...
+   */
+  inline-size: calc(20px * (20 / 24));
+  block-size: calc(20px * (20 / 24));
+  margin: calc(2px * (20 / 24));
   border-radius: 20px;
   text-align: center;
-  margin-inline-end: var(--cpd-space-2x);
 
   svg {
     color: var(--cpd-color-icon-on-solid-primary);
+    position: relative;
+    inset-block-start: -1px;
   }
 }
 
 .caption-text {
-  vertical-align: middle;
-  font-size: 13px;
+  font-size: var(--cpd-font-body-sm-medium);
+  font-weight: var(--cpd-font-weight-medium);
 }
 
 .caption-text-error {
@@ -127,4 +138,8 @@ limitations under the License.
 
 .caption-text-saved {
   color: var(--cpd-color-text-success-primary);
+}
+
+.caption-text-saving {
+  color: var(--cpd-color-text-secondary);
 }

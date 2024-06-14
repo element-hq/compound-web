@@ -48,6 +48,7 @@ describe("EditInPlace", () => {
             cancelButtonLabel="Cancel"
             savedLabel={"Saved"}
             disableSaveButton={props.disableSaveButton}
+            savingLabel="Saving..."
           />
         </Control>
       </Field>
