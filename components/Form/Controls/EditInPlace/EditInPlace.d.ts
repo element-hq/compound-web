@@ -36,6 +36,10 @@ type Props = {
      */
     saveButtonLabel: string;
     /**
+     * The label for the 'in progress' saving caption
+     */
+    savingLabel: string;
+    /**
      * True to disable the save button, false to enable.
      * Default: false (enabled)
      */
