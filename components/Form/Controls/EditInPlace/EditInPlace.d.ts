@@ -48,6 +48,10 @@ type Props = {
      * The label for the cancel button
      */
     cancelButtonLabel?: string;
+    /**
+     * If true, disabled the entire component to disallow editing.
+     */
+    disabled?: boolean;
 } & React.ComponentProps<typeof TextInput>;
 /**
  * A text box with save/cancel buttons that appear when the field is active.
