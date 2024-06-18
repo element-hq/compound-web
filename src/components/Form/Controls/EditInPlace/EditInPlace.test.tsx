@@ -30,6 +30,7 @@ type EditInPlaceTestProps = {
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
   onSave?: () => Promise<void>;
   onCancel?: () => void;
+  disabled?: boolean;
 };
 
 describe("EditInPlace", () => {
@@ -49,6 +50,7 @@ describe("EditInPlace", () => {
             savedLabel={"Saved"}
             disableSaveButton={props.disableSaveButton}
             savingLabel="Saving..."
+            disabled={props.disabled}
           />
         </Control>
       </Field>
@@ -201,5 +203,12 @@ describe("EditInPlace", () => {
     await userEvent.click(screen.getByRole("button", { name: "Cancel" }));
 
     expect(onSave).not.toHaveBeenCalled();
+  });
+
+  it("disables control when disabled", () => {
+    render(<EditInPlaceTest value="Changed" disabled={true} />);
+
+    const input = screen.getByRole("textbox");
+    expect(input).toBeDisabled();
   });
 });
