@@ -143,3 +143,8 @@ limitations under the License.
 .caption-text-saving {
   color: var(--cpd-color-text-secondary);
 }
+
+.caption-text-help {
+  font: var(--cpd-font-body-sm-regular);
+  color: var(--cpd-color-text-secondary);
+}
