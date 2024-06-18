@@ -83,6 +83,11 @@ type Props = {
    * The label for the cancel button
    */
   cancelButtonLabel?: string;
+
+  /**
+   * If true, disabled the entire component to disallow editing.
+   */
+  disabled?: boolean;
 } & React.ComponentProps<typeof TextInput>;
 
 /**
@@ -103,6 +108,7 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
       error,
       savedLabel,
       savingLabel,
+      disabled,
       ...props
     },
     ref,
@@ -170,7 +176,7 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
             aria-labelledby={labelId}
             aria-invalid={Boolean(error)}
             aria-errormessage={error ? errorTextId : undefined}
-            disabled={saving}
+            disabled={disabled || saving}
           />
           <div className={styles["button-group"]}>
             <button
