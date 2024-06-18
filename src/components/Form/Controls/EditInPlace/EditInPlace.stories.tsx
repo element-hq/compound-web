@@ -38,6 +38,7 @@ export default {
         "saveButtonLabel",
         "cancelButtonLabel",
         "disableSaveButton",
+        "disabled",
       ],
     },
     design: {
@@ -79,6 +80,9 @@ export default {
     cancelButtonLabel: {
       type: "string",
     },
+    disabled: {
+      type: "boolean",
+    },
   },
   render: ({ ...restArgs }) => <EditInPlace {...restArgs} />,
   args: {
@@ -110,5 +114,11 @@ export const SaveDisabled: Story = {
 export const WithError: Story = {
   args: {
     error: "I am a teapot",
+  },
+};
+
+export const WithHelpText: Story = {
+  args: {
+    helpLabel: "Optional help text.",
   },
 };

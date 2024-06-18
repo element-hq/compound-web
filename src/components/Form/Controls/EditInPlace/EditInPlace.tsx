@@ -15,7 +15,7 @@ limitations under the License.
 */
 
 import classnames from "classnames";
-import React, { FormEvent, forwardRef, useCallback, useRef } from "react";
+import React, { FormEvent, forwardRef, useCallback, useRef, JSX } from "react";
 import styles from "./EditInPlace.module.css";
 import { TextInput } from "../Text";
 import useId from "../../../../utils/useId";
@@ -83,6 +83,16 @@ type Props = {
    * The label for the cancel button
    */
   cancelButtonLabel?: string;
+
+  /**
+   * Label to be displayed under the input as a help text
+   */
+  helpLabel?: string;
+
+  /**
+   * If true, disabled the entire component to disallow editing.
+   */
+  disabled?: boolean;
 } & React.ComponentProps<typeof TextInput>;
 
 /**
@@ -103,6 +113,8 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
       error,
       savedLabel,
       savingLabel,
+      helpLabel,
+      disabled,
       ...props
     },
     ref,
@@ -170,7 +182,7 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
             aria-labelledby={labelId}
             aria-invalid={Boolean(error)}
             aria-errormessage={error ? errorTextId : undefined}
-            disabled={saving}
+            disabled={disabled || saving}
           />
           <div className={styles["button-group"]}>
             <button
@@ -199,59 +211,139 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
             </button>
           </div>
         </div>
-        {error && (
-          <div className={styles["caption-line"]}>
-            <ErrorIcon
-              className={classnames(
-                styles["caption-icon"],
-                styles["caption-icon-error"],
-              )}
-            />
-            <span
-              id={errorTextId}
-              className={classnames(
-                styles["caption-text"],
-                styles["caption-text-error"],
-              )}
-            >
-              {error}
-            </span>
-          </div>
-        )}
-        {saving && (
-          <div className={styles["caption-line"]}>
-            <InlineSpinner />
-            <span
-              className={classnames(
-                styles["caption-text"],
-                styles["caption-text-saving"],
-              )}
-            >
-              {savingLabel}
-            </span>
-          </div>
-        )}
-        {savedLabel && showSaved && (
-          <div className={styles["caption-line"]}>
-            <div
-              className={classnames(
-                styles["caption-icon"],
-                styles["caption-icon-saved"],
-              )}
-            >
-              <CheckIcon />
-            </div>
-            <span
-              className={classnames(
-                styles["caption-text"],
-                styles["caption-text-saved"],
-              )}
-            >
-              {savedLabel}
-            </span>
-          </div>
-        )}
+        <Labels
+          error={error}
+          errorTextId={errorTextId}
+          saving={saving}
+          savingLabel={savingLabel}
+          showSaved={showSaved}
+          savedLabel={savedLabel}
+          helpLabel={helpLabel}
+        />
       </form>
     );
   },
 );
+
+/**
+ * The labels that appear below the input box.
+ */
+interface LabelsProps {
+  /**
+   * The error message to display
+   */
+  error?: string;
+  /**
+   * The ID of the error text element
+   */
+  errorTextId: string;
+  /**
+   * True if the form is saving
+   */
+  saving: boolean;
+  /**
+   * The label to display while saving
+   */
+  savingLabel?: string;
+  /**
+   * The label to display when the form has been saved
+   */
+  savedLabel?: string;
+  /**
+   * True to show the saved label
+   */
+  showSaved?: boolean;
+  /**
+   * The label to display as a help message
+   */
+  helpLabel?: string;
+}
+
+function Labels({
+  error,
+  errorTextId,
+  saving,
+  savingLabel,
+  savedLabel,
+  showSaved,
+  helpLabel,
+}: LabelsProps): JSX.Element {
+  const labels: JSX.Element[] = [];
+  if (error) {
+    labels.push(
+      <div className={styles["caption-line"]} key="error">
+        <ErrorIcon
+          className={classnames(
+            styles["caption-icon"],
+            styles["caption-icon-error"],
+          )}
+        />
+        <span
+          id={errorTextId}
+          className={classnames(
+            styles["caption-text"],
+            styles["caption-text-error"],
+          )}
+        >
+          {error}
+        </span>
+      </div>,
+    );
+  }
+
+  if (saving) {
+    labels.push(
+      <div className={styles["caption-line"]} key="saving">
+        <InlineSpinner />
+        <span
+          className={classnames(
+            styles["caption-text"],
+            styles["caption-text-saving"],
+          )}
+        >
+          {savingLabel}
+        </span>
+      </div>,
+    );
+  }
+
+  if (savedLabel && showSaved) {
+    labels.push(
+      <div className={styles["caption-line"]} key="saved">
+        <div
+          className={classnames(
+            styles["caption-icon"],
+            styles["caption-icon-saved"],
+          )}
+        >
+          <CheckIcon />
+        </div>
+        <span
+          className={classnames(
+            styles["caption-text"],
+            styles["caption-text-saved"],
+          )}
+        >
+          {savedLabel}
+        </span>
+      </div>,
+    );
+  }
+
+  if (labels.length === 0 && helpLabel) {
+    labels.push(
+      <span
+        className={classnames(
+          styles["caption-line"],
+          styles["caption-text"],
+          styles["caption-text-help"],
+        )}
+        key="help"
+      >
+        {helpLabel}
+      </span>,
+    );
+  }
+
+  return <>{labels}</>;
+}

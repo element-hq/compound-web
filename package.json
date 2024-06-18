@@ -1,6 +1,6 @@
 {
   "name": "@vector-im/compound-web",
-  "version": "4.6.0",
+  "version": "4.6.1",
   "description": "Compound components for the Web",
   "type": "module",
   "main": "./dist/compound-web.js",
@@ -58,6 +58,7 @@
     "@storybook/addon-interactions": "^8.1.1",
     "@storybook/addon-links": "^8.1.1",
     "@storybook/addon-themes": "^8.1.1",
+    "@storybook/manager-api": "^8.1.1",
     "@storybook/react": "^8.1.1",
     "@storybook/react-vite": "^8.1.1",
     "@storybook/test": "^8.1.1",
@@ -109,7 +110,6 @@
     "@radix-ui/react-separator": "^1.0.3",
     "@radix-ui/react-slot": "^1.0.2",
     "@radix-ui/react-tooltip": "^1.0.6",
-    "@storybook/manager-api": "^8.1.1",
     "classnames": "^2.3.2",
     "vaul": "^0.7.0"
   },
