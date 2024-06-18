@@ -52,8 +52,8 @@ limitations under the License.
 }
 
 .input:checked + .ui {
-  background: var(--cpd-color-bg-action-primary-rest);
-  border-color: var(--cpd-color-bg-action-primary-rest);
+  background: var(--cpd-color-bg-accent-rest);
+  border-color: var(--cpd-color-bg-accent-rest);
 }
 
 .ui::after {
@@ -62,7 +62,7 @@ limitations under the License.
   block-size: 100%;
   aspect-ratio: 1 / 1;
   border-radius: 50%;
-  background: var(--cpd-color-bg-action-primary-rest);
+  background: var(--cpd-color-icon-secondary);
   transform: translateX(0);
   transition-duration: 0.2s;
   transition-timing-function: ease-in-out;
@@ -83,14 +83,14 @@ ring after a simple click */
 
 @media (hover) {
   :checked:not([disabled]):hover + .ui {
-    background: var(--cpd-color-bg-action-primary-hovered);
-    border-color: var(--cpd-color-bg-action-primary-hovered);
+    background: var(--cpd-color-bg-accent-hovered);
+    border-color: var(--cpd-color-bg-accent-hovered);
   }
 }
 
 :checked:active + .ui {
-  background: var(--cpd-color-bg-action-primary-hovered);
-  border-color: var(--cpd-color-bg-action-primary-hovered);
+  background: var(--cpd-color-bg-accent-hovered);
+  border-color: var(--cpd-color-bg-accent-hovered);
 }
 
 .input[readonly] {
