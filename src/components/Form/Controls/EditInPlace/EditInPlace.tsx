@@ -88,6 +88,11 @@ type Props = {
    * Label to be displayed under the input as a help text
    */
   helpLabel?: string;
+
+  /**
+   * If true, disabled the entire component to disallow editing.
+   */
+  disabled?: boolean;
 } & React.ComponentProps<typeof TextInput>;
 
 /**
@@ -109,6 +114,7 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
       savedLabel,
       savingLabel,
       helpLabel,
+      disabled,
       ...props
     },
     ref,
@@ -180,7 +186,7 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
             aria-labelledby={labelId}
             aria-invalid={Boolean(error)}
             aria-errormessage={error ? errorTextId : undefined}
-            disabled={saving}
+            disabled={disabled || saving}
           />
           <div className={styles["button-group"]}>
             <button

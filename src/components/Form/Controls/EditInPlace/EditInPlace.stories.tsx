@@ -38,6 +38,7 @@ export default {
         "saveButtonLabel",
         "cancelButtonLabel",
         "disableSaveButton",
+        "disabled",
       ],
     },
     design: {
@@ -78,6 +79,9 @@ export default {
     },
     cancelButtonLabel: {
       type: "string",
+    },
+    disabled: {
+      type: "boolean",
     },
   },
   render: ({ ...restArgs }) => <EditInPlace {...restArgs} />,
