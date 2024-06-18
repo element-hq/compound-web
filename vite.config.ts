@@ -33,9 +33,13 @@ export default defineConfig({
         "react/jsx-dev-runtime",
         "classnames",
         "vaul",
+        "@floating-ui/react",
+        "@floating-ui/react-dom",
         "@radix-ui/react-context-menu",
         "@radix-ui/react-dropdown-menu",
         "@radix-ui/react-form",
+        "@radix-ui/react-separator",
+        "@radix-ui/react-slot",
         "@radix-ui/react-tooltip",
       ],
 
