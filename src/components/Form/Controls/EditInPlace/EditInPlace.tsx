@@ -262,16 +262,15 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
           </div>
         )}
         {displayHelpLabel && (
-          <div className={styles["caption-line"]}>
-            <span
-              className={classnames(
-                styles["caption-text"],
-                styles["caption-text-help"],
-              )}
-            >
-              {helpLabel}
-            </span>
-          </div>
+          <span
+            className={classnames(
+              styles["caption-line"],
+              styles["caption-text"],
+              styles["caption-text-help"],
+            )}
+          >
+            {helpLabel}
+          </span>
         )}
       </form>
     );
