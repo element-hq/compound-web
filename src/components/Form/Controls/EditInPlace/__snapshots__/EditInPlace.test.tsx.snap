@@ -66,6 +66,15 @@ exports[`EditInPlace > renders 1`] = `
           </button>
         </div>
       </div>
+      <div
+        class="_caption-line_980156"
+      >
+        <span
+          class="_caption-text_980156 _caption-text-help_980156"
+        >
+          Help message
+        </span>
+      </div>
     </div>
   </form>
 </DocumentFragment>

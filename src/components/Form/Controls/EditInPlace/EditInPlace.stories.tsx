@@ -112,3 +112,9 @@ export const WithError: Story = {
     error: "I am a teapot",
   },
 };
+
+export const WithHelpText: Story = {
+  args: {
+    helpLabel: "Optional help text.",
+  },
+};

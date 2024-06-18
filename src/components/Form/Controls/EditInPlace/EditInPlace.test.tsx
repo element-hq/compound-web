@@ -49,6 +49,7 @@ describe("EditInPlace", () => {
             savedLabel={"Saved"}
             disableSaveButton={props.disableSaveButton}
             savingLabel="Saving..."
+            helpLabel="Help message"
           />
         </Control>
       </Field>

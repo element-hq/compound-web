@@ -83,6 +83,11 @@ type Props = {
    * The label for the cancel button
    */
   cancelButtonLabel?: string;
+
+  /**
+   * Label to be displayed under the input as a help text
+   */
+  helpLabel?: string;
 } & React.ComponentProps<typeof TextInput>;
 
 /**
@@ -103,6 +108,7 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
       error,
       savedLabel,
       savingLabel,
+      helpLabel,
       ...props
     },
     ref,
@@ -118,6 +124,10 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
       [styles["container-error"]]: Boolean(error),
       [styles["container-show-buttons"]]: saving,
     });
+
+    // Display the help label if there is no other labels
+    const displayHelpLabel =
+      Boolean(helpLabel) && !error && !saving && !(savedLabel && showSaved);
 
     const hideTimer = useRef<NodeJS.Timeout | null>(null);
 
@@ -248,6 +258,18 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
               )}
             >
               {savedLabel}
+            </span>
+          </div>
+        )}
+        {displayHelpLabel && (
+          <div className={styles["caption-line"]}>
+            <span
+              className={classnames(
+                styles["caption-text"],
+                styles["caption-text-help"],
+              )}
+            >
+              {helpLabel}
             </span>
           </div>
         )}
