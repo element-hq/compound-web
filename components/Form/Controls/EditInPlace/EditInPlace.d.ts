@@ -49,6 +49,10 @@ type Props = {
      */
     cancelButtonLabel?: string;
     /**
+     * Label to be displayed under the input as a help text
+     */
+    helpLabel?: string;
+    /**
      * If true, disabled the entire component to disallow editing.
      */
     disabled?: boolean;
