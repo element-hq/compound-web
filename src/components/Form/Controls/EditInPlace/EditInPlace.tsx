@@ -54,12 +54,12 @@ type Props = {
   /**
    * Callback for when the user confirms the change
    */
-  onSave?: (e: React.FormEvent) => Promise<void> | void;
+  onSave?: (e: React.FormEvent<HTMLFormElement>) => Promise<void> | void;
 
   /**
    * Callback for when the user wishes to cancel the change
    */
-  onCancel?: (e: React.FormEvent) => void;
+  onCancel?: (e: React.FormEvent<HTMLFormElement>) => void;
 
   /**
    * onInput event handler on the text control
@@ -171,6 +171,7 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
       label,
       onSave,
       onCancel,
+      onInput,
       saveButtonLabel,
       cancelButtonLabel,
       error,
@@ -234,16 +235,16 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
       [isFocusWithin, setFocusWithin],
     );
 
-    const onInput = useCallback(
+    const onInputHandler = useCallback(
       (e: React.ChangeEvent<HTMLInputElement>) => {
         dispatch(Event.Touch);
-        props.onInput?.(e);
+        onInput?.(e);
       },
-      [dispatch],
+      [dispatch, onInput],
     );
 
     const onFormSubmit = useCallback(
-      async (e: React.FormEvent) => {
+      async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
         // Prevent submitting the form if the user has not yet entered any text
@@ -267,7 +268,7 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
     );
 
     const onFormReset = useCallback(
-      (e: React.FormEvent) => {
+      (e: React.FormEvent<HTMLFormElement>) => {
         cancelButtonRef.current?.blur();
         onCancel?.(e);
         dispatch(Event.Cancel);
@@ -290,7 +291,7 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
             <TextControl
               ref={ref}
               {...props}
-              onInput={onInput}
+              onInput={onInputHandler}
               disabled={disabled || state === State.Saving}
             />
 
