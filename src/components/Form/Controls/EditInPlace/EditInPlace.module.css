@@ -30,6 +30,7 @@ limitations under the License.
   gap: 7px;
 }
 
+.container.is-saving .button-group,
 .container.is-dirty .button-group,
 .container:focus-within .button-group {
   display: inline-flex;

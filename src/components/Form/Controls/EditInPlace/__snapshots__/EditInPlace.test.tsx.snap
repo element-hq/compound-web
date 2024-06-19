@@ -1,5 +1,244 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`EditInPlace > disables control when disabled 1`] = `
+<DocumentFragment>
+  <form
+    class="_root_dc87d2 _container_980156"
+  >
+    <div
+      class="_field_dc87d2"
+    >
+      <label
+        class="_label_dc87d2"
+        for="radix-:r3q:"
+      >
+        Edit Me
+      </label>
+      <div
+        class="_controls_980156"
+      >
+        <input
+          class="_control_a839aa"
+          disabled=""
+          id="radix-:r3q:"
+          name="input"
+          title=""
+          value=""
+        />
+        <div
+          class="_button-group_980156"
+        >
+          <button
+            aria-label="Save"
+            class="_button_980156 _primary-button_980156 _primary-button-disabled_980156"
+            disabled=""
+            type="submit"
+          >
+            <svg
+              class="cpd-icon"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9.55 17.575c-.133 0-.258-.02-.375-.063a.878.878 0 0 1-.325-.212L4.55 13c-.183-.183-.27-.42-.263-.713.009-.291.105-.529.288-.712a.948.948 0 0 1 .7-.275.95.95 0 0 1 .7.275L9.55 15.15l8.475-8.475c.183-.183.42-.275.712-.275s.53.092.713.275c.183.183.275.42.275.712s-.092.53-.275.713l-9.2 9.2c-.1.1-.208.17-.325.212a1.106 1.106 0 0 1-.375.063Z"
+              />
+            </svg>
+          </button>
+          <button
+            aria-label="Cancel"
+            class="_button_980156"
+            role="button"
+            type="reset"
+          >
+            <svg
+              class="cpd-icon"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M6.293 6.293a1 1 0 0 1 1.414 0L12 10.586l4.293-4.293a1 1 0 1 1 1.414 1.414L13.414 12l4.293 4.293a1 1 0 0 1-1.414 1.414L12 13.414l-4.293 4.293a1 1 0 0 1-1.414-1.414L10.586 12 6.293 7.707a1 1 0 0 1 0-1.414Z"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</DocumentFragment>
+`;
+
+exports[`EditInPlace > displays saved label for 2 seconds after save 1`] = `
+<DocumentFragment>
+  <form
+    class="_root_dc87d2 _container_980156"
+  >
+    <div
+      class="_field_dc87d2"
+    >
+      <label
+        class="_label_dc87d2"
+        for="radix-:r37:"
+      >
+        Edit Me
+      </label>
+      <div
+        class="_controls_980156"
+      >
+        <input
+          class="_control_a839aa"
+          id="radix-:r37:"
+          name="input"
+          title=""
+          value=""
+        />
+        <div
+          class="_button-group_980156"
+        >
+          <button
+            aria-label="Save"
+            class="_button_980156 _primary-button_980156 _primary-button-disabled_980156"
+            disabled=""
+            type="submit"
+          >
+            <svg
+              class="cpd-icon"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9.55 17.575c-.133 0-.258-.02-.375-.063a.878.878 0 0 1-.325-.212L4.55 13c-.183-.183-.27-.42-.263-.713.009-.291.105-.529.288-.712a.948.948 0 0 1 .7-.275.95.95 0 0 1 .7.275L9.55 15.15l8.475-8.475c.183-.183.42-.275.712-.275s.53.092.713.275c.183.183.275.42.275.712s-.092.53-.275.713l-9.2 9.2c-.1.1-.208.17-.325.212a1.106 1.106 0 0 1-.375.063Z"
+              />
+            </svg>
+          </button>
+          <button
+            aria-label="Cancel"
+            class="_button_980156"
+            role="button"
+            type="reset"
+          >
+            <svg
+              class="cpd-icon"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M6.293 6.293a1 1 0 0 1 1.414 0L12 10.586l4.293-4.293a1 1 0 1 1 1.414 1.414L13.414 12l4.293 4.293a1 1 0 0 1-1.414 1.414L12 13.414l-4.293 4.293a1 1 0 0 1-1.414-1.414L10.586 12 6.293 7.707a1 1 0 0 1 0-1.414Z"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</DocumentFragment>
+`;
+
+exports[`EditInPlace > displays saved label for 2 seconds after save 2`] = `
+<DocumentFragment>
+  <form
+    class="_root_dc87d2 _container_980156"
+  >
+    <div
+      class="_field_dc87d2"
+      data-valid="true"
+    >
+      <label
+        class="_label_dc87d2"
+        data-valid="true"
+        for="radix-:r37:"
+      >
+        Edit Me
+      </label>
+      <div
+        class="_controls_980156"
+      >
+        <input
+          aria-describedby="radix-:r3g:"
+          class="_control_a839aa"
+          data-valid="true"
+          id="radix-:r37:"
+          name="input"
+          title=""
+          value=""
+        />
+        <div
+          class="_button-group_980156"
+        >
+          <button
+            aria-label="Save"
+            class="_button_980156 _primary-button_980156 _primary-button-disabled_980156"
+            disabled=""
+            type="submit"
+          >
+            <svg
+              class="cpd-icon"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9.55 17.575c-.133 0-.258-.02-.375-.063a.878.878 0 0 1-.325-.212L4.55 13c-.183-.183-.27-.42-.263-.713.009-.291.105-.529.288-.712a.948.948 0 0 1 .7-.275.95.95 0 0 1 .7.275L9.55 15.15l8.475-8.475c.183-.183.42-.275.712-.275s.53.092.713.275c.183.183.275.42.275.712s-.092.53-.275.713l-9.2 9.2c-.1.1-.208.17-.325.212a1.106 1.106 0 0 1-.375.063Z"
+              />
+            </svg>
+          </button>
+          <button
+            aria-label="Cancel"
+            class="_button_980156"
+            role="button"
+            type="reset"
+          >
+            <svg
+              class="cpd-icon"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M6.293 6.293a1 1 0 0 1 1.414 0L12 10.586l4.293-4.293a1 1 0 1 1 1.414 1.414L13.414 12l4.293 4.293a1 1 0 0 1-1.414 1.414L12 13.414l-4.293 4.293a1 1 0 0 1-1.414-1.414L10.586 12 6.293 7.707a1 1 0 0 1 0-1.414Z"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <span
+        class="_message_dc87d2 _success-message_dc87d2"
+        id="radix-:r3g:"
+      >
+        <svg
+          class="cpd-icon"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 24 24"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="m10.6 13.8-2.15-2.15a.948.948 0 0 0-.7-.275.948.948 0 0 0-.7.275.948.948 0 0 0-.275.7.95.95 0 0 0 .275.7L9.9 15.9c.2.2.433.3.7.3.267 0 .5-.1.7-.3l5.65-5.65a.948.948 0 0 0 .275-.7.948.948 0 0 0-.275-.7.948.948 0 0 0-.7-.275.948.948 0 0 0-.7.275L10.6 13.8ZM12 22a9.738 9.738 0 0 1-3.9-.788 10.099 10.099 0 0 1-3.175-2.137c-.9-.9-1.612-1.958-2.137-3.175A9.738 9.738 0 0 1 2 12a9.74 9.74 0 0 1 .788-3.9 10.099 10.099 0 0 1 2.137-3.175c.9-.9 1.958-1.612 3.175-2.137A9.738 9.738 0 0 1 12 2a9.74 9.74 0 0 1 3.9.788 10.098 10.098 0 0 1 3.175 2.137c.9.9 1.613 1.958 2.137 3.175A9.738 9.738 0 0 1 22 12a9.738 9.738 0 0 1-.788 3.9 10.098 10.098 0 0 1-2.137 3.175c-.9.9-1.958 1.613-3.175 2.137A9.738 9.738 0 0 1 12 22Z"
+          />
+        </svg>
+        Saved
+      </span>
+    </div>
+  </form>
+</DocumentFragment>
+`;
+
 exports[`EditInPlace > renders 1`] = `
 <DocumentFragment>
   <form
@@ -29,7 +268,8 @@ exports[`EditInPlace > renders 1`] = `
         >
           <button
             aria-label="Save"
-            class="_button_980156 _primary-button_980156"
+            class="_button_980156 _primary-button_980156 _primary-button-disabled_980156"
+            disabled=""
             type="submit"
           >
             <svg
@@ -105,7 +345,8 @@ exports[`EditInPlace > renders error icon and text if error provided 1`] = `
         >
           <button
             aria-label="Save"
-            class="_button_980156 _primary-button_980156"
+            class="_button_980156 _primary-button_980156 _primary-button-disabled_980156"
+            disabled=""
             type="submit"
           >
             <svg
@@ -159,83 +400,6 @@ exports[`EditInPlace > renders error icon and text if error provided 1`] = `
           />
         </svg>
         Missing Left Falangey
-      </span>
-    </div>
-  </form>
-</DocumentFragment>
-`;
-
-exports[`EditInPlace > should disable save button if told to 1`] = `
-<DocumentFragment>
-  <form
-    class="_root_dc87d2 _container_980156"
-  >
-    <div
-      class="_field_dc87d2"
-    >
-      <label
-        class="_label_dc87d2"
-        for="radix-:r15:"
-      >
-        Edit Me
-      </label>
-      <div
-        class="_controls_980156"
-      >
-        <input
-          class="_control_a839aa"
-          id="radix-:r15:"
-          name="input"
-          title=""
-          value=""
-        />
-        <div
-          class="_button-group_980156"
-        >
-          <button
-            aria-label="Save"
-            class="_button_980156 _primary-button_980156 _primary-button-disabled_980156"
-            disabled=""
-            type="submit"
-          >
-            <svg
-              class="cpd-icon"
-              fill="currentColor"
-              height="1em"
-              viewBox="0 0 24 24"
-              width="1em"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M9.55 17.575c-.133 0-.258-.02-.375-.063a.878.878 0 0 1-.325-.212L4.55 13c-.183-.183-.27-.42-.263-.713.009-.291.105-.529.288-.712a.948.948 0 0 1 .7-.275.95.95 0 0 1 .7.275L9.55 15.15l8.475-8.475c.183-.183.42-.275.712-.275s.53.092.713.275c.183.183.275.42.275.712s-.092.53-.275.713l-9.2 9.2c-.1.1-.208.17-.325.212a1.106 1.106 0 0 1-.375.063Z"
-              />
-            </svg>
-          </button>
-          <button
-            aria-label="Cancel"
-            class="_button_980156"
-            role="button"
-            type="reset"
-          >
-            <svg
-              class="cpd-icon"
-              fill="currentColor"
-              height="1em"
-              viewBox="0 0 24 24"
-              width="1em"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M6.293 6.293a1 1 0 0 1 1.414 0L12 10.586l4.293-4.293a1 1 0 1 1 1.414 1.414L13.414 12l4.293 4.293a1 1 0 0 1-1.414 1.414L12 13.414l-4.293 4.293a1 1 0 0 1-1.414-1.414L10.586 12 6.293 7.707a1 1 0 0 1 0-1.414Z"
-              />
-            </svg>
-          </button>
-        </div>
-      </div>
-      <span
-        class="_caption-line_980156 _caption-text_980156 _caption-text-help_980156"
-      >
-        Help message
       </span>
     </div>
   </form>

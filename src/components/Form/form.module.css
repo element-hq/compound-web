@@ -107,7 +107,7 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/:has#browser_compatibility */
   color: var(--cpd-color-text-critical-primary);
 }
 
-.check-message {
+.success-message {
   color: var(--cpd-color-text-success-primary);
 }
 

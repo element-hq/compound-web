@@ -21,6 +21,7 @@ import React, {
   useRef,
   useState,
   useEffect,
+  useReducer,
 } from "react";
 import { Submit } from "@radix-ui/react-form";
 import CheckIcon from "@vector-im/compound-design-tokens/icons/check.svg";
@@ -98,6 +99,61 @@ type Props = {
   disabled?: boolean;
 } & React.ComponentProps<typeof TextControl>;
 
+enum State {
+  /** No changes on the input has been made */
+  Initial,
+
+  /** The input has been changed */
+  Dirty,
+
+  /** The input is being saved */
+  Saving,
+
+  /** The input has been saved */
+  Saved,
+}
+
+enum Event {
+  Touch, // The user 'touched' the control
+  Save, // The user has clicked the save button
+  Saved, // The onSave callback finished successfully
+  SaveError, // The onSave callback finished with an error
+  Cancel, // The user has clicked the cancel button
+  SavedTimeout, // The user has clicked the save button and the saved label has been shown for 2 seconds
+}
+
+function reducer(state: State, action: Event): State {
+  switch (action) {
+    case Event.Touch:
+      if (state === State.Initial || state === State.Saved) return State.Dirty;
+      else return state;
+
+    case Event.Save:
+      return State.Saving;
+
+    case Event.Cancel:
+      return State.Dirty;
+
+    case Event.Saved:
+      if (state === State.Saving) return State.Saved;
+      else return state;
+
+    case Event.SaveError:
+      if (state === State.Saving) return State.Initial;
+      else return state;
+
+    case Event.SavedTimeout:
+      if (state === State.Saved) return State.Initial;
+      else return state;
+  }
+
+  assertNever(action);
+}
+
+function assertNever(value: never): never {
+  throw new Error(`Unreachable value: ${value}`);
+}
+
 /**
  * A text box with save/cancel buttons that appear when the field is active.
  * Since thios control has its own 'save' button, it should *not* appear as part
@@ -120,67 +176,65 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
     },
     ref,
   ) {
-    const [showSaved, setShowSaved] = useState(false);
-    const [saving, setSaving] = useState(false);
-    const [dirty, setDirty] = useState(false);
+    const [state, dispatch] = useReducer(reducer, State.Initial);
 
     const classes = classnames(styles.container, className, {
-      [styles["is-dirty"]]: dirty,
+      [styles["is-dirty"]]: state === State.Dirty,
+      [styles["is-saving"]]: state === State.Saving,
     });
 
     const hideTimer = useRef<ReturnType<typeof setTimeout>>();
 
-    const saveButtonRef = useRef<HTMLButtonElement | null>(null);
-    const cancelButtonRef = useRef<HTMLButtonElement | null>(null);
-
     useEffect(() => {
+      // Start a timer when we switch to the saved state
+      if (state === State.Saved) {
+        hideTimer.current = setTimeout(() => {
+          dispatch(Event.SavedTimeout);
+          hideTimer.current = undefined;
+        }, 2000);
+      }
+
       return () => {
-        // Clear any timers that may have been set when the component gets unmounted
+        // Clear any timers that may have been set
         if (hideTimer.current) clearTimeout(hideTimer.current);
         hideTimer.current = undefined;
       };
-    }, []);
+    }, [state]);
+
+    const saveButtonRef = useRef<HTMLButtonElement | null>(null);
+    const cancelButtonRef = useRef<HTMLButtonElement | null>(null);
 
     const onInput = useCallback(
       (e: React.ChangeEvent<HTMLInputElement>) => {
-        setDirty(true);
+        dispatch(Event.Touch);
         props.onInput?.(e);
       },
-      [setDirty],
+      [dispatch],
     );
 
     const onFormSubmit = useCallback(
       async (e: React.FormEvent) => {
         e.preventDefault();
         try {
-          setShowSaved(false);
-          setSaving(true);
+          dispatch(Event.Save);
           saveButtonRef.current?.blur();
           await onSave?.(e);
-          setDirty(false);
-          setShowSaved(true);
-
-          if (hideTimer.current) clearTimeout(hideTimer.current);
-          hideTimer.current = setTimeout(() => {
-            setShowSaved(false);
-            hideTimer.current = undefined;
-          }, 2000);
+          dispatch(Event.Saved);
         } catch (e) {
           // We don't really need to do anything here, we just don't want to display the
           // 'saved' label, obviously. The user of the component can update the error to
           // show what failed.
-        } finally {
-          setSaving(false);
+          dispatch(Event.SaveError);
         }
       },
-      [setShowSaved, onSave, hideTimer],
+      [onSave, hideTimer],
     );
 
     const onFormReset = useCallback(
       (e: React.FormEvent) => {
         cancelButtonRef.current?.blur();
         onCancel?.(e);
-        setDirty(false);
+        dispatch(Event.Cancel);
       },
       [cancelButtonRef, onCancel],
     );
@@ -194,7 +248,7 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
               ref={ref}
               {...props}
               onInput={onInput}
-              disabled={disabled || saving}
+              disabled={disabled || state === State.Saving}
             />
             <div className={styles["button-group"]}>
               <Tooltip label={saveButtonLabel}>
@@ -205,12 +259,13 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
                       styles.button,
                       styles["primary-button"],
                       {
-                        [styles["primary-button-disabled"]]: !dirty,
+                        [styles["primary-button-disabled"]]:
+                          state !== State.Dirty,
                       },
                     )}
                     ref={saveButtonRef}
                     aria-label={saveButtonLabel}
-                    disabled={!dirty || saving}
+                    disabled={state !== State.Dirty}
                   >
                     <CheckIcon />
                   </button>
@@ -224,7 +279,7 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
                   ref={cancelButtonRef}
                   className={styles.button}
                   aria-label={cancelButtonLabel}
-                  disabled={saving}
+                  disabled={state === State.Saving}
                 >
                   <CancelIcon />
                 </button>
@@ -232,8 +287,10 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
             </div>
           </div>
           {error && <ErrorMessage>{error}</ErrorMessage>}
-          {saving && <LoadingMessage>{savingLabel}</LoadingMessage>}
-          {savedLabel && showSaved && (
+          {state === State.Saving && (
+            <LoadingMessage>{savingLabel}</LoadingMessage>
+          )}
+          {savedLabel && state === State.Saved && (
             <SuccessMessage>{savedLabel}</SuccessMessage>
           )}
         </Field>
