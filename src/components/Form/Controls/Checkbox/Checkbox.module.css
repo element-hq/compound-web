@@ -57,8 +57,8 @@ limitations under the License.
 
 .input:checked + .ui {
   color: var(--cpd-color-icon-on-solid-primary);
-  background-color: var(--cpd-color-bg-action-primary-rest);
-  border-color: var(--cpd-color-bg-action-primary-rest);
+  background-color: var(--cpd-color-bg-accent-rest);
+  border-color: var(--cpd-color-bg-accent-rest);
 }
 
 .input:focus-visible + .ui {
@@ -92,15 +92,15 @@ limitations under the License.
 @media (hover) {
   .input:not([disabled], [readonly], :checked):hover + .ui {
     color: var(--cpd-color-icon-quaternary);
-    border-color: var(--cpd-color-border-interactive-hovered);
+    border-color: var(--cpd-color-bg-accent-hovered);
 
     /** TODO: have the shadow in the design tokens */
     box-shadow: 0 1.2px 2.4px 0 rgb(0 0 0 / 15%);
   }
 
   .input:not([disabled], [readonly]):checked:hover + .ui {
-    border-color: var(--cpd-color-bg-action-primary-hovered);
-    background: var(--cpd-color-bg-action-primary-hovered);
+    border-color: var(--cpd-color-bg-accent-hovered);
+    background: var(--cpd-color-bg-accent-hovered);
   }
 
   .input[data-invalid]:not([disabled], [readonly]):checked:hover + .ui {
