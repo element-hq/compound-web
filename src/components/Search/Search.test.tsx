@@ -14,14 +14,25 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import { describe, it, expect } from "vitest";
-import { render } from "@testing-library/react";
-import React from "react";
+import { describe, it, expect, vi } from "vitest";
+import { act, render, screen } from "@testing-library/react";
+import React, { ChangeEvent } from "react";
+import { userEvent } from "@storybook/test";
 
 import { Search } from "./Search";
 import { Form } from "@radix-ui/react-form";
 
+type SearchTestProps = {
+  onChange?: (e: ChangeEvent) => void;
+};
+
 describe("Search", () => {
+  const SearchTest = (props: SearchTestProps) => (
+    <Form>
+      <Search name="search" onChange={props.onChange ?? (() => {})} />
+    </Form>
+  );
+
   it("renders", () => {
     const { asFragment } = render(
       <Form>
@@ -29,5 +40,23 @@ describe("Search", () => {
       </Form>,
     );
     expect(asFragment()).toMatchSnapshot();
+  });
+
+  it("calls onChange when text edited", async () => {
+    let value;
+    const onChange = vi
+      .fn()
+      .mockImplementation((e: ChangeEvent<HTMLInputElement>) => {
+        value = e.target.value;
+      });
+    render(<SearchTest onChange={onChange} />);
+    const query = "my query";
+    await act(async () => {
+      const input = screen.getByRole("searchbox");
+      await userEvent.type(input, query);
+    });
+
+    expect(onChange).toHaveBeenCalled();
+    expect(value).toEqual(query);
   });
 });
