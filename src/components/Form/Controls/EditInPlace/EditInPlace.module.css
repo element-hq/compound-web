@@ -18,12 +18,6 @@ limitations under the License.
   min-block-size: 124px;
 }
 
-.label {
-  font-size: 15px;
-  font-weight: 500;
-  margin-block-end: 4px;
-}
-
 .controls {
   display: flex;
   gap: 15px;
@@ -31,10 +25,14 @@ limitations under the License.
 
 .button-group {
   display: none;
-  position: relative;
   inset-block-start: 5px;
-  grid-template-columns: 1fr 1fr;
+  align-items: center;
   gap: 7px;
+}
+
+.container.is-dirty .button-group,
+.container:focus-within .button-group {
+  display: inline-flex;
 }
 
 .button {
@@ -74,77 +72,4 @@ limitations under the License.
 
 .control {
   inline-size: 100%;
-}
-
-.container-show-buttons .button-group,
-.container:focus-within .button-group {
-  display: inline-grid;
-}
-
-.container-error .control {
-  border-color: var(--cpd-color-border-critical-primary);
-}
-
-.container-error .label {
-  color: var(--cpd-color-text-critical-primary);
-}
-
-.caption-line {
-  margin-block-start: var(--cpd-space-2x);
-  display: flex;
-  align-items: center;
-  gap: var(--cpd-space-2x);
-}
-
-.caption-icon {
-  display: inline-block;
-  inline-size: 20px;
-  block-size: 20px;
-}
-
-.caption-icon-error {
-  color: var(--cpd-color-icon-critical-primary);
-}
-
-.caption-icon-saved {
-  background-color: var(--cpd-color-icon-success-primary);
-
-  /*
-   * We are trying to match the size of the error icon which
-   * is displayed 20px big but has 2px of border in an SVG
-   * with a viewBox of 24x24...
-   */
-  inline-size: calc(20px * (20 / 24));
-  block-size: calc(20px * (20 / 24));
-  margin: calc(2px * (20 / 24));
-  border-radius: 20px;
-  text-align: center;
-
-  svg {
-    color: var(--cpd-color-icon-on-solid-primary);
-    position: relative;
-    inset-block-start: -1px;
-  }
-}
-
-.caption-text {
-  font-size: var(--cpd-font-body-sm-medium);
-  font-weight: var(--cpd-font-weight-medium);
-}
-
-.caption-text-error {
-  color: var(--cpd-color-text-critical-primary);
-}
-
-.caption-text-saved {
-  color: var(--cpd-color-text-success-primary);
-}
-
-.caption-text-saving {
-  color: var(--cpd-color-text-secondary);
-}
-
-.caption-text-help {
-  font: var(--cpd-font-body-sm-regular);
-  color: var(--cpd-color-text-secondary);
 }

@@ -15,15 +15,29 @@ limitations under the License.
 */
 
 import classnames from "classnames";
-import React, { FormEvent, forwardRef, useCallback, useRef, JSX } from "react";
-import styles from "./EditInPlace.module.css";
-import { TextInput } from "../Text";
-import useId from "../../../../utils/useId";
-
+import React, {
+  forwardRef,
+  useCallback,
+  useRef,
+  useState,
+  useEffect,
+} from "react";
+import { Submit } from "@radix-ui/react-form";
 import CheckIcon from "@vector-im/compound-design-tokens/icons/check.svg";
 import CancelIcon from "@vector-im/compound-design-tokens/icons/close.svg";
-import ErrorIcon from "@vector-im/compound-design-tokens/icons/error.svg";
-import { InlineSpinner } from "../../../InlineSpinner/InlineSpinner";
+
+import styles from "./EditInPlace.module.css";
+import { TextControl } from "../Text";
+
+import {
+  ErrorMessage,
+  Field,
+  Label,
+  LoadingMessage,
+  Root,
+  SuccessMessage,
+} from "../..";
+import { Tooltip } from "../../../..";
 
 type Props = {
   /**
@@ -37,19 +51,19 @@ type Props = {
   className?: string;
 
   /**
-   * The content of the text box
-   */
-  value: string;
-
-  /**
    * Callback for when the user confirms the change
    */
-  onSave: () => Promise<void>;
+  onSave?: (e: React.FormEvent) => Promise<void> | void;
 
   /**
-   * Calback for when the user wishes to cancel the change
+   * Callback for when the user wishes to cancel the change
    */
-  onCancel: () => void;
+  onCancel?: (e: React.FormEvent) => void;
+
+  /**
+   * onInput event handler on the text control
+   */
+  onInput?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 
   /**
    * Error message to be displayed below the box. If supplied, will disable the
@@ -74,26 +88,15 @@ type Props = {
   savingLabel: string;
 
   /**
-   * True to disable the save button, false to enable.
-   * Default: false (enabled)
-   */
-  disableSaveButton?: boolean;
-
-  /**
    * The label for the cancel button
    */
-  cancelButtonLabel?: string;
-
-  /**
-   * Label to be displayed under the input as a help text
-   */
-  helpLabel?: string;
+  cancelButtonLabel: string;
 
   /**
    * If true, disabled the entire component to disallow editing.
    */
   disabled?: boolean;
-} & React.ComponentProps<typeof TextInput>;
+} & React.ComponentProps<typeof TextControl>;
 
 /**
  * A text box with save/cancel buttons that appear when the field is active.
@@ -109,49 +112,58 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
       onCancel,
       saveButtonLabel,
       cancelButtonLabel,
-      disableSaveButton,
       error,
       savedLabel,
       savingLabel,
-      helpLabel,
       disabled,
       ...props
     },
     ref,
   ) {
-    const id = useId();
-    const labelId = useId();
-    const errorTextId = useId();
-
-    const [showSaved, setShowSaved] = React.useState(false);
-    const [saving, setSaving] = React.useState(false);
+    const [showSaved, setShowSaved] = useState(false);
+    const [saving, setSaving] = useState(false);
+    const [dirty, setDirty] = useState(false);
 
     const classes = classnames(styles.container, className, {
-      [styles["container-error"]]: Boolean(error),
-      [styles["container-show-buttons"]]: saving,
+      [styles["is-dirty"]]: dirty,
     });
 
-    const hideTimer = useRef<NodeJS.Timeout | null>(null);
+    const hideTimer = useRef<ReturnType<typeof setTimeout>>();
 
     const saveButtonRef = useRef<HTMLButtonElement | null>(null);
     const cancelButtonRef = useRef<HTMLButtonElement | null>(null);
 
-    React.useEffect(() => {
+    useEffect(() => {
       return () => {
+        // Clear any timers that may have been set when the component gets unmounted
         if (hideTimer.current) clearTimeout(hideTimer.current);
+        hideTimer.current = undefined;
       };
     }, []);
 
+    const onInput = useCallback(
+      (e: React.ChangeEvent<HTMLInputElement>) => {
+        setDirty(true);
+        props.onInput?.(e);
+      },
+      [setDirty],
+    );
+
     const onFormSubmit = useCallback(
-      async (e: FormEvent) => {
+      async (e: React.FormEvent) => {
         e.preventDefault();
         try {
+          setShowSaved(false);
           setSaving(true);
-          await onSave();
           saveButtonRef.current?.blur();
+          await onSave?.(e);
+          setDirty(false);
           setShowSaved(true);
+
+          if (hideTimer.current) clearTimeout(hideTimer.current);
           hideTimer.current = setTimeout(() => {
             setShowSaved(false);
+            hideTimer.current = undefined;
           }, 2000);
         } catch (e) {
           // We don't really need to do anything here, we just don't want to display the
@@ -164,186 +176,68 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
       [setShowSaved, onSave, hideTimer],
     );
 
-    const onCancelButtonClicked = useCallback(() => {
-      cancelButtonRef.current?.blur();
-      onCancel();
-    }, [cancelButtonRef, onCancel]);
+    const onFormReset = useCallback(
+      (e: React.FormEvent) => {
+        cancelButtonRef.current?.blur();
+        onCancel?.(e);
+        setDirty(false);
+      },
+      [cancelButtonRef, onCancel],
+    );
 
     return (
-      <form className={classes} id={id} onSubmit={onFormSubmit}>
-        <div className={styles.label} id={labelId}>
-          {label}
-        </div>
-        <div className={styles.controls}>
-          <TextInput
-            ref={ref}
-            {...props}
-            className={styles.control}
-            aria-labelledby={labelId}
-            aria-invalid={Boolean(error)}
-            aria-errormessage={error ? errorTextId : undefined}
-            disabled={disabled || saving}
-          />
-          <div className={styles["button-group"]}>
-            <button
-              type="submit"
-              className={classnames(styles.button, styles["primary-button"], {
-                [styles["primary-button-disabled"]]: disableSaveButton,
-              })}
-              ref={saveButtonRef}
-              aria-controls={id}
-              aria-label={saveButtonLabel}
-              disabled={disableSaveButton || saving}
-            >
-              <CheckIcon />
-            </button>
-            <button
-              type="button"
-              role="button"
-              ref={cancelButtonRef}
-              className={styles.button}
-              onClick={onCancelButtonClicked}
-              aria-controls={id}
-              aria-label={cancelButtonLabel}
-              disabled={saving}
-            >
-              <CancelIcon />
-            </button>
+      <Root className={classes} onSubmit={onFormSubmit} onReset={onFormReset}>
+        <Field name="input" serverInvalid={Boolean(error)}>
+          <Label>{label}</Label>
+          <div className={styles.controls}>
+            <TextControl
+              ref={ref}
+              {...props}
+              onInput={onInput}
+              disabled={disabled || saving}
+            />
+            <div className={styles["button-group"]}>
+              <Tooltip label={saveButtonLabel}>
+                <Submit asChild>
+                  <button
+                    type="submit"
+                    className={classnames(
+                      styles.button,
+                      styles["primary-button"],
+                      {
+                        [styles["primary-button-disabled"]]: !dirty,
+                      },
+                    )}
+                    ref={saveButtonRef}
+                    aria-label={saveButtonLabel}
+                    disabled={!dirty || saving}
+                  >
+                    <CheckIcon />
+                  </button>
+                </Submit>
+              </Tooltip>
+
+              <Tooltip label={cancelButtonLabel}>
+                <button
+                  type="reset"
+                  role="button"
+                  ref={cancelButtonRef}
+                  className={styles.button}
+                  aria-label={cancelButtonLabel}
+                  disabled={saving}
+                >
+                  <CancelIcon />
+                </button>
+              </Tooltip>
+            </div>
           </div>
-        </div>
-        <Labels
-          error={error}
-          errorTextId={errorTextId}
-          saving={saving}
-          savingLabel={savingLabel}
-          showSaved={showSaved}
-          savedLabel={savedLabel}
-          helpLabel={helpLabel}
-        />
-      </form>
+          {error && <ErrorMessage>{error}</ErrorMessage>}
+          {saving && <LoadingMessage>{savingLabel}</LoadingMessage>}
+          {savedLabel && showSaved && (
+            <SuccessMessage>{savedLabel}</SuccessMessage>
+          )}
+        </Field>
+      </Root>
     );
   },
 );
-
-/**
- * The labels that appear below the input box.
- */
-interface LabelsProps {
-  /**
-   * The error message to display
-   */
-  error?: string;
-  /**
-   * The ID of the error text element
-   */
-  errorTextId: string;
-  /**
-   * True if the form is saving
-   */
-  saving: boolean;
-  /**
-   * The label to display while saving
-   */
-  savingLabel?: string;
-  /**
-   * The label to display when the form has been saved
-   */
-  savedLabel?: string;
-  /**
-   * True to show the saved label
-   */
-  showSaved?: boolean;
-  /**
-   * The label to display as a help message
-   */
-  helpLabel?: string;
-}
-
-function Labels({
-  error,
-  errorTextId,
-  saving,
-  savingLabel,
-  savedLabel,
-  showSaved,
-  helpLabel,
-}: LabelsProps): JSX.Element {
-  const labels: JSX.Element[] = [];
-  if (error) {
-    labels.push(
-      <div className={styles["caption-line"]} key="error">
-        <ErrorIcon
-          className={classnames(
-            styles["caption-icon"],
-            styles["caption-icon-error"],
-          )}
-        />
-        <span
-          id={errorTextId}
-          className={classnames(
-            styles["caption-text"],
-            styles["caption-text-error"],
-          )}
-        >
-          {error}
-        </span>
-      </div>,
-    );
-  }
-
-  if (saving) {
-    labels.push(
-      <div className={styles["caption-line"]} key="saving">
-        <InlineSpinner />
-        <span
-          className={classnames(
-            styles["caption-text"],
-            styles["caption-text-saving"],
-          )}
-        >
-          {savingLabel}
-        </span>
-      </div>,
-    );
-  }
-
-  if (savedLabel && showSaved) {
-    labels.push(
-      <div className={styles["caption-line"]} key="saved">
-        <div
-          className={classnames(
-            styles["caption-icon"],
-            styles["caption-icon-saved"],
-          )}
-        >
-          <CheckIcon />
-        </div>
-        <span
-          className={classnames(
-            styles["caption-text"],
-            styles["caption-text-saved"],
-          )}
-        >
-          {savedLabel}
-        </span>
-      </div>,
-    );
-  }
-
-  if (labels.length === 0 && helpLabel) {
-    labels.push(
-      <span
-        className={classnames(
-          styles["caption-line"],
-          styles["caption-text"],
-          styles["caption-text-help"],
-        )}
-        key="help"
-      >
-        {helpLabel}
-      </span>,
-    );
-  }
-
-  return <>{labels}</>;
-}

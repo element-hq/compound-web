@@ -59,9 +59,6 @@ export default {
     onChange: {
       action: "changed",
     },
-    onSave: {
-      action: "saved",
-    },
     onCancel: {
       action: "cancelled",
     },
@@ -87,7 +84,7 @@ export default {
   render: ({ ...restArgs }) => <EditInPlace {...restArgs} />,
   args: {
     label: "Label",
-    value: "",
+    onSave: () => new Promise((resolve) => setTimeout(resolve, 1000)),
     saveButtonLabel: "Save",
     cancelButtonLabel: "Cancel",
     savingLabel: "Saving...",

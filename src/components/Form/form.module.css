@@ -51,9 +51,7 @@ limitations under the License.
 
 .inline-field-control {
   /* The control should have the same height as the label */
-  block-size: calc(
-    var(--cpd-font-size-body-md) * var(--cpd-font-line-height-regular)
-  );
+  block-size: calc(var(--cpd-font-size-body-md) * var(--cpd-font-line-height-regular));
 
   /* Align the control in the middle of the label */
   display: flex;
@@ -86,7 +84,7 @@ limitations under the License.
 https://developer.mozilla.org/en-US/docs/Web/CSS/:has#browser_compatibility */
 .label:has(~ * input[disabled]),
 .label:has(~ input[disabled]),
-.inline-field-control:has(input[disabled]) ~ .inline-field-body .label {
+.inline-field-control:has(input[disabled])~.inline-field-body .label {
   color: var(--cpd-color-text-disabled);
   cursor: not-allowed;
 }
@@ -109,15 +107,19 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/:has#browser_compatibility */
   color: var(--cpd-color-text-critical-primary);
 }
 
+.check-message {
+  color: var(--cpd-color-text-success-primary);
+}
+
 /* Currently working everywhere but on Firefox (only behind a labs flag)
 https://developer.mozilla.org/en-US/docs/Web/CSS/:has#browser_compatibility */
-input[disabled] ~ .message,
-*:has(input[disabled]) ~ .message,
-.inline-field-control:has(input[disabled]) ~ .inline-field-body .message {
+input[disabled]~.message,
+*:has(input[disabled])~.message,
+.inline-field-control:has(input[disabled])~.inline-field-body .message {
   color: var(--cpd-color-text-disabled);
 }
 
-.message > svg {
+.message>svg {
   display: inline-block;
   vertical-align: bottom;
   margin-inline-end: var(--cpd-space-2x);

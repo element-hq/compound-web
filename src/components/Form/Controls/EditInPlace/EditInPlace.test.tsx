@@ -15,19 +15,20 @@ limitations under the License.
 */
 
 import { describe, it, expect, vi, afterEach } from "vitest";
-import React, { ChangeEvent } from "react";
+import React from "react";
 import { render, screen } from "@testing-library/react";
 
 import { EditInPlace } from "./EditInPlace";
-import { Root, Field, Control } from "@radix-ui/react-form";
 import { userEvent } from "@storybook/test";
 import { act } from "react-dom/test-utils";
+import { TooltipProvider } from "@radix-ui/react-tooltip";
 
 type EditInPlaceTestProps = {
   error?: string;
   value?: string;
+  defaultValue?: string;
   disableSaveButton?: boolean;
-  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onSave?: () => Promise<void>;
   onCancel?: () => void;
   disabled?: boolean;
@@ -35,27 +36,23 @@ type EditInPlaceTestProps = {
 
 describe("EditInPlace", () => {
   const EditInPlaceTest = (props: EditInPlaceTestProps) => (
-    <Root>
-      <Field name="editInPlace">
-        <Control asChild>
-          <EditInPlace
-            label="Edit Me"
-            value={props.value ?? "Edit this text"}
-            error={props.error}
-            onChange={props.onChange ?? (() => {})}
-            onSave={props.onSave ?? (() => Promise.resolve())}
-            onCancel={props.onCancel ?? (() => {})}
-            saveButtonLabel="Save"
-            cancelButtonLabel="Cancel"
-            savedLabel={"Saved"}
-            disableSaveButton={props.disableSaveButton}
-            savingLabel="Saving..."
-            helpLabel="Help message"
-            disabled={props.disabled}
-          />
-        </Control>
-      </Field>
-    </Root>
+    <TooltipProvider>
+      <EditInPlace
+        label="Edit Me"
+        value={props.value}
+        defaultValue={props.defaultValue}
+        error={props.error}
+        onChange={props.onChange ?? (() => {})}
+        onSave={props.onSave ?? (() => Promise.resolve())}
+        onCancel={props.onCancel ?? (() => {})}
+        saveButtonLabel="Save"
+        cancelButtonLabel="Cancel"
+        savedLabel="Saved"
+        disableSaveButton={props.disableSaveButton}
+        savingLabel="Saving..."
+        disabled={props.disabled}
+      />
+    </TooltipProvider>
   );
 
   afterEach(() => {
@@ -71,10 +68,10 @@ describe("EditInPlace", () => {
     let value;
     const onChange = vi
       .fn()
-      .mockImplementation((e: ChangeEvent<HTMLInputElement>) => {
+      .mockImplementation((e: React.ChangeEvent<HTMLInputElement>) => {
         value = e.target.value;
       });
-    render(<EditInPlaceTest onChange={onChange} />);
+    render(<EditInPlaceTest onChange={onChange} value="Edit this text" />);
 
     await act(async () => {
       const input = screen.getByRole("textbox");
@@ -94,20 +91,24 @@ describe("EditInPlace", () => {
   });
 
   it("renders error icon and text if error provided", () => {
-    render(<EditInPlaceTest error="Missing Left Falangey" />);
+    const { asFragment } = render(
+      <EditInPlaceTest error="Missing Left Falangey" />,
+    );
+    expect(asFragment()).toMatchSnapshot();
 
     const input = screen.getByRole("textbox");
     expect(input).toBeInvalid();
-    expect(input).toHaveAttribute("aria-errormessage");
+    expect(input).toHaveAttribute("aria-describedby");
 
     const errorText = screen.getByText("Missing Left Falangey");
     expect(errorText).toBeInTheDocument();
 
-    expect(errorText.id).toEqual(input.getAttribute("aria-errormessage"));
+    expect(errorText.id).toEqual(input.getAttribute("aria-describedby"));
   });
 
   it("should disable save button if told to", () => {
-    render(<EditInPlaceTest disableSaveButton={true} />);
+    const { asFragment } = render(<EditInPlaceTest disableSaveButton={true} />);
+    expect(asFragment()).toMatchSnapshot();
 
     const saveButton = screen.getByRole("button", { name: "Save" });
     expect(saveButton).toBeDisabled();
@@ -132,9 +133,10 @@ describe("EditInPlace", () => {
 
   it("calls save callback if enter pressed in the text box", async () => {
     const onSave = vi.fn();
-    render(<EditInPlaceTest onSave={onSave} value="Changed" />);
+    render(<EditInPlaceTest onSave={onSave} />);
 
     await act(async () => {
+      await userEvent.type(screen.getByRole("textbox"), "Changed");
       await userEvent.type(screen.getByRole("textbox"), "{enter}");
     });
 
@@ -145,7 +147,31 @@ describe("EditInPlace", () => {
     const onCancel = vi.fn();
     render(<EditInPlaceTest onCancel={onCancel} value="Changed" />);
 
-    await userEvent.click(screen.getByRole("button", { name: "Cancel" }));
+    await act(async () => {
+      await userEvent.click(screen.getByRole("button", { name: "Cancel" }));
+    });
+
+    expect(onCancel).toHaveBeenCalled();
+  });
+
+  it("resets the form when cancel button pressed", async () => {
+    const onCancel = vi.fn();
+    render(<EditInPlaceTest onCancel={onCancel} defaultValue="Initial" />);
+
+    const input = screen.getByRole("textbox") as HTMLInputElement;
+
+    await act(async () => {
+      await userEvent.clear(input);
+      await userEvent.type(input, "Changed");
+    });
+
+    expect(input.value).toBe("Changed");
+
+    await act(async () => {
+      await userEvent.click(screen.getByRole("button", { name: "Cancel" }));
+    });
+
+    expect(input.value).toBe("Initial");
 
     expect(onCancel).toHaveBeenCalled();
   });
@@ -154,7 +180,9 @@ describe("EditInPlace", () => {
     render(<EditInPlaceTest value="Changed" />);
 
     const input = screen.getByRole("textbox");
-    await userEvent.click(screen.getByRole("button", { name: "Cancel" }));
+    await act(async () => {
+      await userEvent.click(screen.getByRole("button", { name: "Cancel" }));
+    });
 
     expect(document.activeElement).not.toEqual(input);
   });
@@ -201,7 +229,9 @@ describe("EditInPlace", () => {
     const onSave = vi.fn();
     render(<EditInPlaceTest onSave={onSave} value="Changed" />);
 
-    await userEvent.click(screen.getByRole("button", { name: "Cancel" }));
+    await act(async () => {
+      await userEvent.click(screen.getByRole("button", { name: "Cancel" }));
+    });
 
     expect(onSave).not.toHaveBeenCalled();
   });
