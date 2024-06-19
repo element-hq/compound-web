@@ -45,6 +45,12 @@ type ButtonOwnProps = PropsWithChildren<{
    * The t-shirt size of the button.
    */
   size?: "sm" | "lg";
+
+  /**
+   * Whether the button is an icon only button.
+   */
+  iconOnly?: boolean;
+
   /**
    * An icon to display within the button.
    */
@@ -72,6 +78,7 @@ export const Button = forwardRef(function Button<
     size = "lg",
     children,
     className,
+    iconOnly,
     Icon,
     destructive: destructiveProp,
     disabled,
@@ -87,6 +94,7 @@ export const Button = forwardRef(function Button<
 
   const classes = classNames(styles.button, className, {
     [styles["has-icon"]]: Icon,
+    [styles["icon-only"]]: iconOnly,
     [styles.destructive]: destructive,
   });
 
