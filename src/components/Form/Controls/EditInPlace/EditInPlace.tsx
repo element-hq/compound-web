@@ -14,7 +14,6 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import classnames from "classnames";
 import React, {
   forwardRef,
   useCallback,
@@ -28,17 +27,18 @@ import CheckIcon from "@vector-im/compound-design-tokens/icons/check.svg";
 import CancelIcon from "@vector-im/compound-design-tokens/icons/close.svg";
 
 import styles from "./EditInPlace.module.css";
-import { TextControl } from "../Text";
 
 import {
   ErrorMessage,
   Field,
+  HelpMessage,
   Label,
   LoadingMessage,
   Root,
   SuccessMessage,
+  TextControl,
 } from "../..";
-import { Tooltip } from "../../../..";
+import { Button, Tooltip } from "../../../..";
 
 type Props = {
   /**
@@ -92,6 +92,11 @@ type Props = {
    * The label for the cancel button
    */
   cancelButtonLabel: string;
+
+  /**
+   * Label to be displayed under the input as a help text
+   */
+  helpLabel?: string;
 
   /**
    * If true, disabled the entire component to disallow editing.
@@ -171,6 +176,7 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
       error,
       savedLabel,
       savingLabel,
+      helpLabel,
       disabled,
       ...props
     },
@@ -183,8 +189,6 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
     // and a state to track the focus state and hide the buttons when the form is not focused
     const isFocusWithinRef = useRef(false);
     const [isFocusWithin, setFocusWithin] = useState(false);
-
-    const classes = classnames(styles.container, className);
 
     const shouldShowSaveButton =
       state === State.Dirty || state === State.Saving || isFocusWithin;
@@ -267,7 +271,7 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
 
     return (
       <Root
-        className={classes}
+        className={className}
         onSubmit={onFormSubmit}
         onReset={onFormReset}
         onFocus={onFocus}
@@ -288,36 +292,31 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
               <div className={styles["button-group"]}>
                 <Tooltip label={saveButtonLabel}>
                   <Submit asChild>
-                    <button
+                    <Button
                       type="submit"
-                      className={classnames(
-                        styles.button,
-                        styles["primary-button"],
-                        {
-                          [styles["primary-button-disabled"]]:
-                            state !== State.Dirty,
-                        },
-                      )}
+                      kind="primary"
+                      size="sm"
                       ref={saveButtonRef}
                       aria-label={saveButtonLabel}
                       disabled={state !== State.Dirty}
-                    >
-                      <CheckIcon />
-                    </button>
+                      iconOnly
+                      Icon={CheckIcon}
+                    />
                   </Submit>
                 </Tooltip>
 
                 <Tooltip label={cancelButtonLabel}>
-                  <button
+                  <Button
                     type="reset"
-                    role="button"
+                    kind="secondary"
+                    size="sm"
                     ref={cancelButtonRef}
                     className={styles.button}
                     aria-label={cancelButtonLabel}
                     disabled={state === State.Saving}
-                  >
-                    <CancelIcon />
-                  </button>
+                    iconOnly
+                    Icon={CancelIcon}
+                  />
                 </Tooltip>
               </div>
             )}
@@ -329,6 +328,9 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
           {savedLabel && state === State.Saved && (
             <SuccessMessage>{savedLabel}</SuccessMessage>
           )}
+          {!error &&
+            (state === State.Initial || state === State.Dirty) &&
+            helpLabel && <HelpMessage>{helpLabel}</HelpMessage>}
         </Field>
       </Root>
     );

@@ -3,14 +3,14 @@
 exports[`EditInPlace > disables control when disabled 1`] = `
 <DocumentFragment>
   <form
-    class="_root_dc87d2 _container_980156"
+    class="_root_dc87d2"
   >
     <div
       class="_field_dc87d2"
     >
       <label
         class="_label_dc87d2"
-        for="radix-:r3l:"
+        for="radix-:r3n:"
       >
         Edit Me
       </label>
@@ -20,7 +20,7 @@ exports[`EditInPlace > disables control when disabled 1`] = `
         <input
           class="_control_a839aa"
           disabled=""
-          id="radix-:r3l:"
+          id="radix-:r3n:"
           name="input"
           title=""
           value=""
@@ -34,14 +34,14 @@ exports[`EditInPlace > disables control when disabled 1`] = `
 exports[`EditInPlace > displays saved label for 2 seconds after save 1`] = `
 <DocumentFragment>
   <form
-    class="_root_dc87d2 _container_980156"
+    class="_root_dc87d2"
   >
     <div
       class="_field_dc87d2"
     >
       <label
         class="_label_dc87d2"
-        for="radix-:r32:"
+        for="radix-:r34:"
       >
         Edit Me
       </label>
@@ -50,7 +50,7 @@ exports[`EditInPlace > displays saved label for 2 seconds after save 1`] = `
       >
         <input
           class="_control_a839aa"
-          id="radix-:r32:"
+          id="radix-:r34:"
           name="input"
           title=""
           value=""
@@ -64,7 +64,7 @@ exports[`EditInPlace > displays saved label for 2 seconds after save 1`] = `
 exports[`EditInPlace > displays saved label for 2 seconds after save 2`] = `
 <DocumentFragment>
   <form
-    class="_root_dc87d2 _container_980156"
+    class="_root_dc87d2"
   >
     <div
       class="_field_dc87d2"
@@ -73,7 +73,7 @@ exports[`EditInPlace > displays saved label for 2 seconds after save 2`] = `
       <label
         class="_label_dc87d2"
         data-valid="true"
-        for="radix-:r32:"
+        for="radix-:r34:"
       >
         Edit Me
       </label>
@@ -81,10 +81,10 @@ exports[`EditInPlace > displays saved label for 2 seconds after save 2`] = `
         class="_controls_980156"
       >
         <input
-          aria-describedby="radix-:r3b:"
+          aria-describedby="radix-:r3d:"
           class="_control_a839aa"
           data-valid="true"
-          id="radix-:r32:"
+          id="radix-:r34:"
           name="input"
           title=""
           value=""
@@ -92,7 +92,7 @@ exports[`EditInPlace > displays saved label for 2 seconds after save 2`] = `
       </div>
       <span
         class="_message_dc87d2 _success-message_dc87d2"
-        id="radix-:r3b:"
+        id="radix-:r3d:"
       >
         <svg
           class="cpd-icon"
@@ -116,7 +116,7 @@ exports[`EditInPlace > displays saved label for 2 seconds after save 2`] = `
 exports[`EditInPlace > renders 1`] = `
 <DocumentFragment>
   <form
-    class="_root_dc87d2 _container_980156"
+    class="_root_dc87d2"
   >
     <div
       class="_field_dc87d2"
@@ -146,7 +146,7 @@ exports[`EditInPlace > renders 1`] = `
 exports[`EditInPlace > renders error icon and text if error provided 1`] = `
 <DocumentFragment>
   <form
-    class="_root_dc87d2 _container_980156"
+    class="_root_dc87d2"
   >
     <div
       class="_field_dc87d2"
@@ -176,17 +176,22 @@ exports[`EditInPlace > renders error icon and text if error provided 1`] = `
           class="_button-group_980156"
         >
           <button
+            aria-disabled="true"
             aria-label="Save"
-            class="_button_980156 _primary-button_980156 _primary-button-disabled_980156"
-            disabled=""
+            class="_button_2a1efe _has-icon_2a1efe _icon-only_2a1efe"
+            data-kind="primary"
+            data-size="sm"
+            role="button"
+            tabindex="0"
             type="submit"
           >
             <svg
-              class="cpd-icon"
+              aria-hidden="true"
+              class="_icon_2a1efe"
               fill="currentColor"
-              height="1em"
+              height="20"
               viewBox="0 0 24 24"
-              width="1em"
+              width="20"
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
@@ -195,17 +200,22 @@ exports[`EditInPlace > renders error icon and text if error provided 1`] = `
             </svg>
           </button>
           <button
+            aria-disabled="false"
             aria-label="Cancel"
-            class="_button_980156"
+            class="_button_2a1efe _button_980156 _has-icon_2a1efe _icon-only_2a1efe"
+            data-kind="secondary"
+            data-size="sm"
             role="button"
+            tabindex="0"
             type="reset"
           >
             <svg
-              class="cpd-icon"
+              aria-hidden="true"
+              class="_icon_2a1efe"
               fill="currentColor"
-              height="1em"
+              height="20"
               viewBox="0 0 24 24"
-              width="1em"
+              width="20"
               xmlns="http://www.w3.org/2000/svg"
             >
               <path

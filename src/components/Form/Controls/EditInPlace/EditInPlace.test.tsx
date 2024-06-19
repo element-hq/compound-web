@@ -116,7 +116,15 @@ describe("EditInPlace", () => {
     expect(queryByRole("button", { name: "Save" })).toBeInTheDocument();
 
     await act(async () => {
-      // Focus the cancel button (the save button is disabled so not focusable)
+      // Focus the save button
+      await userEvent.keyboard("{tab}");
+    });
+
+    // It should still be visible
+    expect(queryByRole("button", { name: "Save" })).toBeInTheDocument();
+
+    await act(async () => {
+      // Focus the cancel button
       await userEvent.keyboard("{tab}");
     });
 
@@ -144,14 +152,20 @@ describe("EditInPlace", () => {
     });
 
     // The button should be visible but disabled
-    expect(getByRole("button", { name: "Save" })).toBeDisabled();
+    expect(getByRole("button", { name: "Save" })).toHaveAttribute(
+      "aria-disabled",
+      "true",
+    );
 
     await act(async () => {
       await userEvent.type(input, "Changed");
     });
 
     // The button should be enabled
-    expect(getByRole("button", { name: "Save" })).toBeEnabled();
+    expect(getByRole("button", { name: "Save" })).toHaveAttribute(
+      "aria-disabled",
+      "false",
+    );
   });
 
   it("calls save callback on save button click", async () => {
