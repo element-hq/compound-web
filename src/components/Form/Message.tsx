@@ -76,7 +76,7 @@ export const SuccessMessage = forwardRef<
 export const LoadingMessage = forwardRef<
   HTMLSpanElement,
   PropsWithChildren<MessageProps>
->(function ErrorMessage({ children, className, ...props }, ref) {
+>(function LoadingMessage({ children, className, ...props }, ref) {
   const classes = classNames(styles.message, className);
   return (
     <Message ref={ref} {...props} className={classes}>
