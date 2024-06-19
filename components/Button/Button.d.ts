@@ -18,6 +18,10 @@ type ButtonOwnProps = PropsWithChildren<{
      */
     size?: "sm" | "lg";
     /**
+     * Whether the button is an icon only button.
+     */
+    iconOnly?: boolean;
+    /**
      * An icon to display within the button.
      */
     Icon?: ComponentType<React.SVGAttributes<SVGElement>>;
