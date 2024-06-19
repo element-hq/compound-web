@@ -18,7 +18,7 @@ limitations under the License.
   display: flex;
   gap: 15px;
 
-  &>input {
+  & > input {
     min-inline-size: 0;
   }
 }
