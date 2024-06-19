@@ -178,10 +178,16 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
   ) {
     const [state, dispatch] = useReducer(reducer, State.Initial);
 
-    const classes = classnames(styles.container, className, {
-      [styles["is-dirty"]]: state === State.Dirty,
-      [styles["is-saving"]]: state === State.Saving,
-    });
+    // Tracks the focus state of the form
+    // This uses a `ref` to make sure the onFocus/onBlur callback don't trigger unnecessary re-renders
+    // and a state to track the focus state and hide the buttons when the form is not focused
+    const isFocusWithinRef = useRef(false);
+    const [isFocusWithin, setFocusWithin] = useState(false);
+
+    const classes = classnames(styles.container, className);
+
+    const shouldShowSaveButton =
+      state === State.Dirty || state === State.Saving || isFocusWithin;
 
     const hideTimer = useRef<ReturnType<typeof setTimeout>>();
 
@@ -201,8 +207,28 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
       };
     }, [state]);
 
-    const saveButtonRef = useRef<HTMLButtonElement | null>(null);
-    const cancelButtonRef = useRef<HTMLButtonElement | null>(null);
+    const formRef = useRef<HTMLFormElement>(null);
+    const saveButtonRef = useRef<HTMLButtonElement>(null);
+    const cancelButtonRef = useRef<HTMLButtonElement>(null);
+
+    const onFocus = useCallback(() => {
+      if (isFocusWithinRef.current) return;
+      isFocusWithinRef.current = true;
+      setFocusWithin(true);
+    }, [isFocusWithin, setFocusWithin]);
+
+    const onBlur = useCallback(
+      (e: React.FocusEvent) => {
+        if (!isFocusWithinRef.current) return;
+        // If the user switched to another element within the form
+        // consider that we're still focused within the form
+        if (e.currentTarget.contains(e.relatedTarget)) return;
+
+        isFocusWithinRef.current = false;
+        setFocusWithin(false);
+      },
+      [isFocusWithin, setFocusWithin],
+    );
 
     const onInput = useCallback(
       (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -240,7 +266,14 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
     );
 
     return (
-      <Root className={classes} onSubmit={onFormSubmit} onReset={onFormReset}>
+      <Root
+        className={classes}
+        onSubmit={onFormSubmit}
+        onReset={onFormReset}
+        onFocus={onFocus}
+        onBlur={onBlur}
+        ref={formRef}
+      >
         <Field name="input" serverInvalid={Boolean(error)}>
           <Label>{label}</Label>
           <div className={styles.controls}>
@@ -250,41 +283,44 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
               onInput={onInput}
               disabled={disabled || state === State.Saving}
             />
-            <div className={styles["button-group"]}>
-              <Tooltip label={saveButtonLabel}>
-                <Submit asChild>
-                  <button
-                    type="submit"
-                    className={classnames(
-                      styles.button,
-                      styles["primary-button"],
-                      {
-                        [styles["primary-button-disabled"]]:
-                          state !== State.Dirty,
-                      },
-                    )}
-                    ref={saveButtonRef}
-                    aria-label={saveButtonLabel}
-                    disabled={state !== State.Dirty}
-                  >
-                    <CheckIcon />
-                  </button>
-                </Submit>
-              </Tooltip>
 
-              <Tooltip label={cancelButtonLabel}>
-                <button
-                  type="reset"
-                  role="button"
-                  ref={cancelButtonRef}
-                  className={styles.button}
-                  aria-label={cancelButtonLabel}
-                  disabled={state === State.Saving}
-                >
-                  <CancelIcon />
-                </button>
-              </Tooltip>
-            </div>
+            {shouldShowSaveButton && (
+              <div className={styles["button-group"]}>
+                <Tooltip label={saveButtonLabel}>
+                  <Submit asChild>
+                    <button
+                      type="submit"
+                      className={classnames(
+                        styles.button,
+                        styles["primary-button"],
+                        {
+                          [styles["primary-button-disabled"]]:
+                            state !== State.Dirty,
+                        },
+                      )}
+                      ref={saveButtonRef}
+                      aria-label={saveButtonLabel}
+                      disabled={state !== State.Dirty}
+                    >
+                      <CheckIcon />
+                    </button>
+                  </Submit>
+                </Tooltip>
+
+                <Tooltip label={cancelButtonLabel}>
+                  <button
+                    type="reset"
+                    role="button"
+                    ref={cancelButtonRef}
+                    className={styles.button}
+                    aria-label={cancelButtonLabel}
+                    disabled={state === State.Saving}
+                  >
+                    <CancelIcon />
+                  </button>
+                </Tooltip>
+              </div>
+            )}
           </div>
           {error && <ErrorMessage>{error}</ErrorMessage>}
           {state === State.Saving && (

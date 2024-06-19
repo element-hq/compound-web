@@ -104,15 +104,53 @@ describe("EditInPlace", () => {
     expect(errorText.id).toEqual(input.getAttribute("aria-describedby"));
   });
 
-  it("enables save button once we entered something", async () => {
-    const { getByRole } = render(<EditInPlaceTest />);
+  it("should show the buttons when the input or buttons are focused", async () => {
+    const { queryByRole } = render(<EditInPlaceTest />);
 
+    expect(queryByRole("button", { name: "Save" })).not.toBeInTheDocument();
+
+    await act(async () => {
+      // Focus the input
+      await userEvent.keyboard("{tab}");
+    });
+    expect(queryByRole("button", { name: "Save" })).toBeInTheDocument();
+
+    await act(async () => {
+      // Focus the cancel button (the save button is disabled so not focusable)
+      await userEvent.keyboard("{tab}");
+    });
+
+    // It should still be visible
+    expect(queryByRole("button", { name: "Save" })).toBeInTheDocument();
+
+    await act(async () => {
+      // Focus away
+      await userEvent.keyboard("{tab}");
+    });
+
+    // The button should be hidden
+    expect(queryByRole("button", { name: "Save" })).not.toBeInTheDocument();
+  });
+
+  it("enables save button once we entered something", async () => {
+    const { getByRole, queryByRole } = render(<EditInPlaceTest />);
+
+    const input = getByRole("textbox");
+    expect(queryByRole("button", { name: "Save" })).not.toBeInTheDocument();
+
+    await act(async () => {
+      // Focus the input
+      await userEvent.click(input);
+    });
+
+    // The button should be visible but disabled
     expect(getByRole("button", { name: "Save" })).toBeDisabled();
 
     await act(async () => {
-      await userEvent.type(getByRole("textbox"), "Changed");
+      await userEvent.type(input, "Changed");
     });
 
+    // The button should be enabled
     expect(getByRole("button", { name: "Save" })).toBeEnabled();
   });
 

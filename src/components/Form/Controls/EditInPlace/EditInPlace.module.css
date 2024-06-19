@@ -14,42 +14,44 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-.container {
-  min-block-size: 124px;
-}
-
 .controls {
   display: flex;
   gap: 15px;
+
+  &>input {
+    min-inline-size: 0;
+  }
 }
 
 .button-group {
-  display: none;
-  inset-block-start: 5px;
+  display: flex;
+  inset-block-start: var(--cpd-space-1x);
   align-items: center;
-  gap: 7px;
-}
-
-.container.is-saving .button-group,
-.container.is-dirty .button-group,
-.container:focus-within .button-group {
-  display: inline-flex;
+  gap: var(--cpd-space-2x);
 }
 
 .button {
   display: flex;
   inline-size: 36px;
   block-size: 36px;
-  border: 1px solid var(--cpd-color-border-interactive-secondary);
-  border-radius: 20px;
+  border: none;
+  outline: 1px solid var(--cpd-color-border-interactive-secondary);
+  outline-offset: -1px;
+  border-radius: 100%;
   background-color: transparent;
   text-align: center;
   cursor: pointer;
+
+  svg {
+    inline-size: 24px;
+    block-size: 24px;
+    margin: auto;
+  }
 }
 
 .primary-button {
   background-color: var(--cpd-color-bg-action-primary-rest);
-  border-color: var(--cpd-color-bg-action-primary-rest);
+  outline-color: var(--cpd-color-bg-action-primary-rest);
 
   svg {
     color: var(--cpd-color-icon-on-solid-primary);
@@ -58,19 +60,9 @@ limitations under the License.
 
 .primary-button-disabled {
   background-color: var(--cpd-color-bg-subtle-primary);
-  border-color: var(--cpd-color-bg-subtle-primary);
+  outline-color: var(--cpd-color-bg-subtle-primary);
 
   svg {
     color: var(--cpd-color-icon-disabled);
   }
-}
-
-.button svg {
-  inline-size: 24px;
-  block-size: 24px;
-  margin: auto;
-}
-
-.control {
-  inline-size: 100%;
 }
