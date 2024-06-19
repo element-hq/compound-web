@@ -14,21 +14,20 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import React, { forwardRef } from "react";
+import React, { SVGAttributes } from "react";
 import styles from "./InlineSpinner.module.css";
 import SpinnerIcon from "@vector-im/compound-design-tokens/icons/spinner.svg";
 
 type InlineSpinnerProps = {
   size?: number;
-} & React.HTMLAttributes<HTMLDivElement>;
+} & SVGAttributes<SVGElement>;
 
-export const InlineSpinner = forwardRef<HTMLDivElement, InlineSpinnerProps>(
-  function InlineSpinner({ size = 20 }: InlineSpinnerProps) {
-    return (
-      <SpinnerIcon
-        className={styles.icon}
-        style={{ width: size, height: size }}
-      />
-    );
-  },
-);
+export function InlineSpinner({ size = 20, ...props }: InlineSpinnerProps) {
+  return (
+    <SpinnerIcon
+      className={styles.icon}
+      style={{ width: size, height: size }}
+      {...props}
+    />
+  );
+}
