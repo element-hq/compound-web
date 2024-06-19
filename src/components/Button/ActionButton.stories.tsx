@@ -14,10 +14,9 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
+import React from "react";
 import { Meta } from "@storybook/react";
 import { fn } from "@storybook/test";
-
-import { Button as ButtonComponent } from "./Button";
 
 import CheckIcon from "@vector-im/compound-design-tokens/icons/check.svg";
 import CloseIcon from "@vector-im/compound-design-tokens/icons/close.svg";
@@ -35,11 +34,25 @@ import VideoCallOffSolidIcon from "@vector-im/compound-design-tokens/icons/video
 import VideoCallSolidIcon from "@vector-im/compound-design-tokens/icons/video-call-solid.svg";
 import VisibilityOnIcon from "@vector-im/compound-design-tokens/icons/visibility-on.svg";
 
+import { Button as ButtonComponent } from "./Button";
+import { Tooltip } from "../..";
+
+const Template: React.FC<
+  { label: string } & React.ComponentProps<typeof ButtonComponent>
+> = ({ label, ...args }) => (
+  <Tooltip label={label}>
+    <ButtonComponent iconOnly {...args} />
+  </Tooltip>
+);
+
 export default {
-  title: "Button",
-  component: ButtonComponent,
+  title: "Button/Actions",
+  component: Template,
   tags: ["autodocs"],
   argTypes: {
+    label: {
+      type: "string",
+    },
     size: {
       options: ["sm", "lg"],
       control: { type: "inline-radio" },
@@ -56,7 +69,6 @@ export default {
       options: ["a", "button"],
       control: { type: "inline-radio" },
     },
-    iconOnly: { type: "boolean" },
     Icon: {
       options: [
         "CheckIcon",
@@ -97,103 +109,159 @@ export default {
     onClick: { action: "onClick" },
   },
   args: {
+    label: "Action",
     size: "lg",
-    as: undefined,
+    as: "button",
     destructive: false,
     disabled: false,
-    children: "Click me!",
     onClick: fn(),
   },
-} as Meta<typeof ButtonComponent>;
-
-export const Default = {
-  args: {
-    // test component defaults
-    kind: undefined,
-    size: undefined,
+  controls: {
+    exclude: ["children"],
   },
-};
+} as Meta<typeof Template>;
 
-export const Small = {
+export const Settings = {
   args: {
-    // test component defaults
-    kind: undefined,
-    size: "sm",
-  },
-};
-
-export const Primary = {
-  args: {
-    kind: "primary",
-  },
-};
-
-export const PrimaryDestructive = {
-  args: {
-    kind: "primary",
-    destructive: true,
-  },
-};
-
-export const Secondary = {
-  args: {
+    label: "Settings",
     kind: "secondary",
+    Icon: SettingsSolidIcon,
   },
 };
 
-export const SecondaryDestructive = {
+export const ShareLink = {
   args: {
+    label: "Copy link",
     kind: "secondary",
+    Icon: LinkIcon,
+  },
+};
+
+export const VideoOn = {
+  args: {
+    label: "Turn video off",
+    kind: "secondary",
+    Icon: VideoCallSolidIcon,
+  },
+};
+
+export const VideoOff = {
+  args: {
+    label: "Turn video on",
+    kind: "primary",
+    Icon: VideoCallOffSolidIcon,
+  },
+};
+
+export const MicOn = {
+  args: {
+    label: "Turn mic off",
+    kind: "secondary",
+    Icon: MicOnSolidIcon,
+  },
+};
+
+export const MicOff = {
+  args: {
+    label: "Turn mic on",
+    kind: "primary",
+    Icon: MicOffSolidIcon,
+  },
+};
+
+export const ShareScreen = {
+  args: {
+    label: "Share screen",
+    kind: "secondary",
+    Icon: ShareScreenSolidIcon,
+  },
+};
+
+export const SharingScreen = {
+  args: {
+    label: "Stop sharing screen",
+    kind: "primary",
+    Icon: ShareScreenSolidIcon,
+  },
+};
+
+export const Fullscreen = {
+  args: {
+    label: "Full screen",
+    kind: "secondary",
+    Icon: ExpandIcon,
+  },
+};
+
+export const EndCall = {
+  args: {
+    label: "End call",
+    kind: "primary",
     destructive: true,
+    Icon: EndCallIcon,
   },
 };
 
-export const Tertiary = {
+export const Invite = {
   args: {
-    kind: "tertiary",
-  },
-};
-
-export const TertiaryDestructive = {
-  args: {
-    kind: "tertiary",
-    destructive: true,
-  },
-};
-
-export const WithIcon = {
-  args: {
-    ...Primary.args,
-    Icon: VisibilityOnIcon,
-  },
-};
-
-export const SmallWithIcon = {
-  args: {
-    ...Primary.args,
+    label: "Invite",
+    kind: "primary",
     size: "sm",
-    Icon: VisibilityOnIcon,
+    Icon: UserAddIcon,
   },
 };
 
-export const Disabled = {
+export const Edit = {
   args: {
-    ...Primary.args,
+    label: "Edit",
+    kind: "primary",
+    size: "sm",
+    Icon: EditIcon,
+  },
+};
+
+export const Search = {
+  args: {
+    label: "Search",
+    kind: "secondary",
+    size: "sm",
+    Icon: SearchIcon,
+  },
+};
+
+export const Save = {
+  args: {
+    label: "Save",
+    kind: "primary",
+    size: "sm",
+    Icon: CheckIcon,
+  },
+};
+
+export const SaveDisabled = {
+  args: {
+    label: "Save",
+    kind: "primary",
+    size: "sm",
+    Icon: CheckIcon,
     disabled: true,
   },
 };
 
-export const Link = {
+export const Cancel = {
   args: {
-    ...Primary.args,
-    as: "a",
-    href: "https://example.org",
+    label: "Cancel",
+    kind: "secondary",
+    size: "sm",
+    Icon: CloseIcon,
   },
 };
 
-export const LinkDisabled = {
+export const Close = {
   args: {
-    ...Link.args,
-    disabled: true,
+    label: "Close",
+    kind: "secondary",
+    size: "sm",
+    Icon: CloseIcon,
   },
 };
