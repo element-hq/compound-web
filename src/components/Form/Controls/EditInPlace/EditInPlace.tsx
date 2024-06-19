@@ -245,6 +245,12 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
     const onFormSubmit = useCallback(
       async (e: React.FormEvent) => {
         e.preventDefault();
+
+        // Prevent submitting the form if the user has not yet entered any text
+        if (state === State.Initial) {
+          return;
+        }
+
         try {
           dispatch(Event.Save);
           saveButtonRef.current?.blur();
@@ -257,7 +263,7 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
           dispatch(Event.SaveError);
         }
       },
-      [onSave, hideTimer],
+      [onSave, state, hideTimer],
     );
 
     const onFormReset = useCallback(
