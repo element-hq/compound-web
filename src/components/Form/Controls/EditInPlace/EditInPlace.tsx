@@ -137,7 +137,7 @@ function reducer(state: State, action: Event): State {
       return State.Saving;
 
     case Event.Cancel:
-      return State.Dirty;
+      return State.Initial;
 
     case Event.Saved:
       if (state === State.Saving) return State.Saved;
