@@ -1,6 +1,0 @@
-import{j as o}from"./jsx-runtime-DoxjgJx5.js";import{S as s}from"./extensions-Crvwpr_j.js";import{S as m}from"./chat-Ce9sY079.js";import{T as e}from"./ToggleMenuItem-u-Zl27lI.js";import"./index-Cu9bd8lq.js";import"./MenuItem-BNN94JoD.js";import"./index-C2KoGaFq.js";import"./Text-BrcN_buA.js";import"./Typography-BcgMUEGb.js";import"./index-Cmw95SmN.js";import"./Toggle-DNbDHmq4.js";import"./index-COQO8x8p.js";import"./index-tFWdirwu.js";import"./index-BetXjMvb.js";import"./index-MTP5U5xA.js";import"./useId-D5m2XpUu.js";const j={title:"Menu/ToggleMenuItem",component:e,tags:["autodocs"],argTypes:{},args:{}},i=r=>o.jsxs("div",{style:{width:300},children:[o.jsx(e,{...r,Icon:m,label:"First item"}),o.jsx(e,{...r,Icon:s,label:"Second item with a name that's quite long"})]}),t=i.bind({});t.args={};t.parameters={...t.parameters,docs:{...t.parameters?.docs,source:{originalSource:`args => <div style={{
-  width: 300
-}}>
-    <ToggleMenuItemComponent {...args} Icon={ChatIcon} label="First item" />
-    <ToggleMenuItemComponent {...args} Icon={ExtensionsIcon} label="Second item with a name that's quite long" />
-  </div>`,...t.parameters?.docs?.source}}};const v=["Primary"];export{t as Primary,v as __namedExportsOrder,j as default};

@@ -1,5 +1,7 @@
-import React from '../../../node_modules/react';
-export declare const InlineSpinner: React.ForwardRefExoticComponent<{
-    size?: number | undefined;
-} & React.HTMLAttributes<HTMLDivElement> & React.RefAttributes<HTMLDivElement>>;
+import { SVGAttributes } from '../../../node_modules/react';
+type InlineSpinnerProps = {
+    size?: number;
+} & SVGAttributes<SVGElement>;
+export declare function InlineSpinner({ size, ...props }: InlineSpinnerProps): import('../../../node_modules/react/jsx-runtime').JSX.Element;
+export {};
 //# sourceMappingURL=InlineSpinner.d.ts.map
