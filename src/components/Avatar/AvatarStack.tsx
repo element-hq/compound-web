@@ -17,6 +17,7 @@ limitations under the License.
 import classnames from "classnames";
 import React, { useEffect } from "react";
 import styles from "./Avatar.module.css";
+import clipMask from "./avatar-clip.mask.svg?raw";
 
 type AvatarStackProps = {
   className?: string;
@@ -49,18 +50,9 @@ export const AvatarStack: React.FC<
   useEffect(() => {
     if (AvatarStackUsageCount === 0) {
       const svgMask = `
-        <svg id="${AVATAR_MASK_ID}" class="${styles["clip-path"]}">
-          <clipPath id="cpdAvatarClip" clipPathUnits="objectBoundingBox">
-            <path
-              d="
-                M 0.875 0.16666
-                A 0.5 0.5 0 1 0 0.875 0.83333
-                Q 0.65 0.5 0.875 0.16666
-                Z
-             "
-            />
-          </clipPath>
-        </svg>
+        <div aria-hidden="true" id="${AVATAR_MASK_ID}" class="${styles["clip-path"]}">
+          ${clipMask}
+        </div>
       `;
       document.body.insertAdjacentHTML("beforeend", svgMask);
     }
