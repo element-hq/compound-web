@@ -27,8 +27,6 @@ export default defineConfig({
       // It includes all dependencies except @vector-im/compound-design-tokens
       external: [
         "react",
-        "react-dom",
-        "react-dom/server",
         "react/jsx-runtime",
         "react/jsx-dev-runtime",
         "classnames",
