@@ -28,6 +28,7 @@ type Props = Pick<
 /**
  * A menu item with a toggle control. Clicking anywhere on the surface will
  * activate the toggle.
+ * Must be used within a compound Menu or other `menu` or `menubar` aria role subtree.
  */
 export const ToggleMenuItem = forwardRef<HTMLInputElement, Props>(
   function ToggleMenuItem(
@@ -35,15 +36,20 @@ export const ToggleMenuItem = forwardRef<HTMLInputElement, Props>(
     ref,
   ) {
     const toggleId = useId();
+    // We render the label ourselves as a `label` element cannot have role `menuitemcheckbox`
     return (
       <MenuItem
-        as="label"
-        htmlFor={toggleId}
+        as="div"
         role="menuitemcheckbox"
         className={className}
         Icon={Icon}
         label={label}
+        labelProps={{
+          as: "label",
+          htmlFor: toggleId,
+        }}
         onSelect={onSelect}
+        aria-checked={toggleProps.checked}
       >
         <ToggleInput id={toggleId} ref={ref} {...toggleProps} />
       </MenuItem>

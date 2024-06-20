@@ -50,9 +50,15 @@ limitations under the License.
   padding-block: var(--cpd-space-2x);
   padding-inline: var(--cpd-space-8x);
   min-block-size: var(--cpd-space-12x);
+
+  &.icon-only {
+    padding-inline: var(--cpd-space-2x);
+    block-size: var(--cpd-space-12x);
+    inline-size: var(--cpd-space-12x);
+  }
 }
 
-.button[data-size="lg"].has-icon {
+.button[data-size="lg"].has-icon:not(.icon-only) {
   padding-inline-start: var(--cpd-space-7x);
 }
 
@@ -60,9 +66,15 @@ limitations under the License.
   padding-block: var(--cpd-space-1x);
   padding-inline: var(--cpd-space-5x);
   min-block-size: var(--cpd-space-9x);
+
+  &.icon-only {
+    padding-inline: var(--cpd-space-1x);
+    block-size: var(--cpd-space-9x);
+    inline-size: var(--cpd-space-9x);
+  }
 }
 
-.button[data-size="sm"].has-icon {
+.button[data-size="sm"].has-icon:not(.icon-only) {
   padding-inline-start: var(--cpd-space-4x);
 }
 

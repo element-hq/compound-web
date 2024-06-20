@@ -29,6 +29,7 @@ export {
   RadioInput,
   ToggleControl,
   ToggleInput,
+  EditInPlace,
 } from "./Controls";
 
 export { Root } from "./Root";

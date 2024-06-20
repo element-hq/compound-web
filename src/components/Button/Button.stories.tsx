@@ -18,6 +18,21 @@ import { Meta } from "@storybook/react";
 import { fn } from "@storybook/test";
 
 import { Button as ButtonComponent } from "./Button";
+
+import CheckIcon from "@vector-im/compound-design-tokens/icons/check.svg";
+import CloseIcon from "@vector-im/compound-design-tokens/icons/close.svg";
+import EditIcon from "@vector-im/compound-design-tokens/icons/edit.svg";
+import EndCallIcon from "@vector-im/compound-design-tokens/icons/end-call.svg";
+import ExpandIcon from "@vector-im/compound-design-tokens/icons/expand.svg";
+import LinkIcon from "@vector-im/compound-design-tokens/icons/link.svg";
+import MicOnSolidIcon from "@vector-im/compound-design-tokens/icons/mic-on-solid.svg";
+import MicOffSolidIcon from "@vector-im/compound-design-tokens/icons/mic-off-solid.svg";
+import SearchIcon from "@vector-im/compound-design-tokens/icons/search.svg";
+import SettingsSolidIcon from "@vector-im/compound-design-tokens/icons/settings-solid.svg";
+import ShareScreenSolidIcon from "@vector-im/compound-design-tokens/icons/share-screen-solid.svg";
+import UserAddIcon from "@vector-im/compound-design-tokens/icons/user-add.svg";
+import VideoCallOffSolidIcon from "@vector-im/compound-design-tokens/icons/video-call-off-solid.svg";
+import VideoCallSolidIcon from "@vector-im/compound-design-tokens/icons/video-call-solid.svg";
 import VisibilityOnIcon from "@vector-im/compound-design-tokens/icons/visibility-on.svg";
 
 export default {
@@ -41,11 +56,41 @@ export default {
       options: ["a", "button"],
       control: { type: "inline-radio" },
     },
+    iconOnly: { type: "boolean" },
     Icon: {
-      options: [undefined, "VisibilityOnIcon"],
+      options: [
+        "CheckIcon",
+        "CloseIcon",
+        "EditIcon",
+        "EndCallIcon",
+        "ExpandIcon",
+        "LinkIcon",
+        "MicOnSolidIcon",
+        "MicOffSolidIcon",
+        "SearchIcon",
+        "SettingsSolidIcon",
+        "ShareScreenSolidIcon",
+        "UserAddIcon",
+        "VideoCallOffSolidIcon",
+        "VideoCallSolidIcon",
+        "VisibilityOnIcon",
+      ],
       mapping: {
-        VisibilityOnIcon: VisibilityOnIcon,
-        undefined: undefined,
+        CheckIcon,
+        CloseIcon,
+        EditIcon,
+        EndCallIcon,
+        ExpandIcon,
+        LinkIcon,
+        MicOnSolidIcon,
+        MicOffSolidIcon,
+        SearchIcon,
+        SettingsSolidIcon,
+        ShareScreenSolidIcon,
+        UserAddIcon,
+        VideoCallOffSolidIcon,
+        VideoCallSolidIcon,
+        VisibilityOnIcon,
       },
       control: { type: "inline-radio" },
     },
