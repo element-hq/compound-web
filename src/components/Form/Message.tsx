@@ -16,7 +16,7 @@ limitations under the License.
 
 import React, { forwardRef, PropsWithChildren } from "react";
 import { Message } from "@radix-ui/react-form";
-import ErrorIcon from "@vector-im/compound-design-tokens/icons/error.svg";
+import ErrorIcon from "@vector-im/compound-design-tokens/assets/web/icons/error";
 
 import styles from "./form.module.css";
 import classNames from "classnames";

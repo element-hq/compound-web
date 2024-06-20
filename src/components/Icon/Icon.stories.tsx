@@ -17,7 +17,7 @@ limitations under the License.
 import React from "react";
 import { Meta, StoryFn } from "@storybook/react";
 
-import ThreadIcon from "./icons/thread.svg";
+import ThreadIcon from "@vector-im/compound-design-tokens/assets/web/icons/threads";
 
 export default {
   title: "Icon",

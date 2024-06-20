@@ -18,21 +18,7 @@ import React from "react";
 import { Meta } from "@storybook/react";
 import { fn } from "@storybook/test";
 
-import CheckIcon from "@vector-im/compound-design-tokens/icons/check.svg";
-import CloseIcon from "@vector-im/compound-design-tokens/icons/close.svg";
-import EditIcon from "@vector-im/compound-design-tokens/icons/edit.svg";
-import EndCallIcon from "@vector-im/compound-design-tokens/icons/end-call.svg";
-import ExpandIcon from "@vector-im/compound-design-tokens/icons/expand.svg";
-import LinkIcon from "@vector-im/compound-design-tokens/icons/link.svg";
-import MicOnSolidIcon from "@vector-im/compound-design-tokens/icons/mic-on-solid.svg";
-import MicOffSolidIcon from "@vector-im/compound-design-tokens/icons/mic-off-solid.svg";
-import SearchIcon from "@vector-im/compound-design-tokens/icons/search.svg";
-import SettingsSolidIcon from "@vector-im/compound-design-tokens/icons/settings-solid.svg";
-import ShareScreenSolidIcon from "@vector-im/compound-design-tokens/icons/share-screen-solid.svg";
-import UserAddIcon from "@vector-im/compound-design-tokens/icons/user-add.svg";
-import VideoCallOffSolidIcon from "@vector-im/compound-design-tokens/icons/video-call-off-solid.svg";
-import VideoCallSolidIcon from "@vector-im/compound-design-tokens/icons/video-call-solid.svg";
-import VisibilityOnIcon from "@vector-im/compound-design-tokens/icons/visibility-on.svg";
+import * as icons from "@vector-im/compound-design-tokens/assets/web/icons";
 
 import { Button as ButtonComponent } from "./Button";
 import { Tooltip } from "../..";
@@ -70,41 +56,9 @@ export default {
       control: { type: "inline-radio" },
     },
     Icon: {
-      options: [
-        "CheckIcon",
-        "CloseIcon",
-        "EditIcon",
-        "EndCallIcon",
-        "ExpandIcon",
-        "LinkIcon",
-        "MicOnSolidIcon",
-        "MicOffSolidIcon",
-        "SearchIcon",
-        "SettingsSolidIcon",
-        "ShareScreenSolidIcon",
-        "UserAddIcon",
-        "VideoCallOffSolidIcon",
-        "VideoCallSolidIcon",
-        "VisibilityOnIcon",
-      ],
-      mapping: {
-        CheckIcon,
-        CloseIcon,
-        EditIcon,
-        EndCallIcon,
-        ExpandIcon,
-        LinkIcon,
-        MicOnSolidIcon,
-        MicOffSolidIcon,
-        SearchIcon,
-        SettingsSolidIcon,
-        ShareScreenSolidIcon,
-        UserAddIcon,
-        VideoCallOffSolidIcon,
-        VideoCallSolidIcon,
-        VisibilityOnIcon,
-      },
-      control: { type: "inline-radio" },
+      options: Object.keys(icons),
+      mapping: icons,
+      control: { type: "select" },
     },
     onClick: { action: "onClick" },
   },
@@ -125,7 +79,7 @@ export const Settings = {
   args: {
     label: "Settings",
     kind: "secondary",
-    Icon: SettingsSolidIcon,
+    Icon: icons.SettingsSolidIcon,
   },
 };
 
@@ -133,7 +87,7 @@ export const ShareLink = {
   args: {
     label: "Copy link",
     kind: "secondary",
-    Icon: LinkIcon,
+    Icon: icons.LinkIcon,
   },
 };
 
@@ -141,7 +95,7 @@ export const VideoOn = {
   args: {
     label: "Turn video off",
     kind: "secondary",
-    Icon: VideoCallSolidIcon,
+    Icon: icons.VideoCallSolidIcon,
   },
 };
 
@@ -149,7 +103,7 @@ export const VideoOff = {
   args: {
     label: "Turn video on",
     kind: "primary",
-    Icon: VideoCallOffSolidIcon,
+    Icon: icons.VideoCallOffSolidIcon,
   },
 };
 
@@ -157,7 +111,7 @@ export const MicOn = {
   args: {
     label: "Turn mic off",
     kind: "secondary",
-    Icon: MicOnSolidIcon,
+    Icon: icons.MicOnSolidIcon,
   },
 };
 
@@ -165,7 +119,7 @@ export const MicOff = {
   args: {
     label: "Turn mic on",
     kind: "primary",
-    Icon: MicOffSolidIcon,
+    Icon: icons.MicOffSolidIcon,
   },
 };
 
@@ -173,7 +127,7 @@ export const ShareScreen = {
   args: {
     label: "Share screen",
     kind: "secondary",
-    Icon: ShareScreenSolidIcon,
+    Icon: icons.ShareScreenSolidIcon,
   },
 };
 
@@ -181,7 +135,7 @@ export const SharingScreen = {
   args: {
     label: "Stop sharing screen",
     kind: "primary",
-    Icon: ShareScreenSolidIcon,
+    Icon: icons.ShareScreenSolidIcon,
   },
 };
 
@@ -189,7 +143,7 @@ export const Fullscreen = {
   args: {
     label: "Full screen",
     kind: "secondary",
-    Icon: ExpandIcon,
+    Icon: icons.ExpandIcon,
   },
 };
 
@@ -198,7 +152,7 @@ export const EndCall = {
     label: "End call",
     kind: "primary",
     destructive: true,
-    Icon: EndCallIcon,
+    Icon: icons.EndCallIcon,
   },
 };
 
@@ -207,7 +161,7 @@ export const Invite = {
     label: "Invite",
     kind: "primary",
     size: "sm",
-    Icon: UserAddIcon,
+    Icon: icons.UserAddIcon,
   },
 };
 
@@ -216,7 +170,7 @@ export const Edit = {
     label: "Edit",
     kind: "primary",
     size: "sm",
-    Icon: EditIcon,
+    Icon: icons.EditIcon,
   },
 };
 
@@ -225,7 +179,7 @@ export const Search = {
     label: "Search",
     kind: "secondary",
     size: "sm",
-    Icon: SearchIcon,
+    Icon: icons.SearchIcon,
   },
 };
 
@@ -234,7 +188,7 @@ export const Save = {
     label: "Save",
     kind: "primary",
     size: "sm",
-    Icon: CheckIcon,
+    Icon: icons.CheckIcon,
   },
 };
 
@@ -243,7 +197,7 @@ export const SaveDisabled = {
     label: "Save",
     kind: "primary",
     size: "sm",
-    Icon: CheckIcon,
+    Icon: icons.CheckIcon,
     disabled: true,
   },
 };
@@ -253,7 +207,7 @@ export const Cancel = {
     label: "Cancel",
     kind: "secondary",
     size: "sm",
-    Icon: CloseIcon,
+    Icon: icons.CloseIcon,
   },
 };
 
@@ -262,6 +216,6 @@ export const Close = {
     label: "Close",
     kind: "secondary",
     size: "sm",
-    Icon: CloseIcon,
+    Icon: icons.CloseIcon,
   },
 };

@@ -17,7 +17,7 @@ limitations under the License.
 import { describe, it, expect } from "vitest";
 import { render } from "@testing-library/react";
 import React from "react";
-import VisibilityOnIcon from "@vector-im/compound-design-tokens/icons/visibility-on.svg";
+import VisibilityOnIcon from "@vector-im/compound-design-tokens/assets/web/icons/visibility-on";
 
 import { ToggleMenuItem } from "./ToggleMenuItem";
 

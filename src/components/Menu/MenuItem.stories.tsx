@@ -16,9 +16,9 @@ limitations under the License.
 
 import React from "react";
 import { Meta, StoryFn } from "@storybook/react";
-import ExtensionsIcon from "@vector-im/compound-design-tokens/icons/extensions.svg";
-import ChatIcon from "@vector-im/compound-design-tokens/icons/chat.svg";
-import SettingsLabel from "@vector-im/compound-design-tokens/icons/settings.svg";
+import ExtensionsIcon from "@vector-im/compound-design-tokens/assets/web/icons/extensions";
+import ChatIcon from "@vector-im/compound-design-tokens/assets/web/icons/chat";
+import SettingsLabel from "@vector-im/compound-design-tokens/assets/web/icons/settings";
 
 import { MenuItem as MenuItemComponent } from "./MenuItem";
 import { Text } from "../Typography/Text";

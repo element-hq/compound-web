@@ -14,7 +14,6 @@ exports[`Checkbox > renders 1`] = `
     >
       <svg
         aria-hidden="true"
-        class="cpd-icon"
         fill="currentColor"
         height="1em"
         viewBox="0 0 24 24"

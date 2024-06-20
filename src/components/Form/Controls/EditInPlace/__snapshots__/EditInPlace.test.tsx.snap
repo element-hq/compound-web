@@ -32,7 +32,6 @@ exports[`EditInPlace > renders 1`] = `
             type="submit"
           >
             <svg
-              class="cpd-icon"
               fill="currentColor"
               height="1em"
               viewBox="0 0 24 24"
@@ -52,7 +51,6 @@ exports[`EditInPlace > renders 1`] = `
             type="button"
           >
             <svg
-              class="cpd-icon"
               fill="currentColor"
               height="1em"
               viewBox="0 0 24 24"

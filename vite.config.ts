@@ -3,7 +3,6 @@ import { resolve } from "path";
 import browserslistToEsbuild from "browserslist-to-esbuild";
 import react from "@vitejs/plugin-react";
 import dts from "vite-plugin-dts";
-import svgr from "vite-plugin-svgr";
 
 export default defineConfig({
   build: {
@@ -24,7 +23,6 @@ export default defineConfig({
 
     rollupOptions: {
       // Must be in sync with the list of dependencies in the package.json
-      // It includes all dependencies except @vector-im/compound-design-tokens
       external: [
         "react",
         "react/jsx-runtime",
@@ -32,13 +30,13 @@ export default defineConfig({
         "classnames",
         "vaul",
         "@floating-ui/react",
-        "@floating-ui/react-dom",
         "@radix-ui/react-context-menu",
         "@radix-ui/react-dropdown-menu",
         "@radix-ui/react-form",
         "@radix-ui/react-separator",
         "@radix-ui/react-slot",
         "@radix-ui/react-tooltip",
+        /^@vector-im\/compound-design-tokens\/.*/,
       ],
 
       // Without this, none of the exports are preserved in the bundle
@@ -49,26 +47,6 @@ export default defineConfig({
   plugins: [
     react({
       jsxRuntime: "automatic",
-    }),
-
-    svgr({
-      exportAsDefault: true,
-
-      esbuildOptions: {
-        // This makes sure we're using the same JSX runtime as React itself
-        jsx: "automatic",
-      },
-
-      svgrOptions: {
-        // Using 1em in order to make SVG size inherits from text size.
-        icon: "1em",
-
-        svgProps: {
-          // Adding a class in case we want to add global overrides, but one
-          // should probably stick to using CSS modules most of the time
-          className: "cpd-icon",
-        },
-      },
     }),
 
     // Extract the types from the source files
