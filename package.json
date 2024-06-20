@@ -85,7 +85,7 @@
     "jsdom": "^22.1.0",
     "prettier": "3.0.3",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react-dom": "^18.3.1",
     "resize-observer-polyfill": "^1.5.1",
     "rimraf": "^5.0.1",
     "serve": "^14.2.1",
@@ -117,16 +117,11 @@
     "@fontsource/inconsolata": "^5",
     "@fontsource/inter": "^5",
     "@types/react": "*",
-    "@types/react-dom": "*",
     "@vector-im/compound-design-tokens": ">=1.0.0 <2.0.0",
-    "react": "^17 || ^18",
-    "react-dom": "^17 || ^18"
+    "react": "^17 || ^18"
   },
   "peerDependenciesMeta": {
     "@types/react": {
-      "optional": true
-    },
-    "@types/react-dom": {
       "optional": true
     }
   },

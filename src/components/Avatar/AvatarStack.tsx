@@ -16,10 +16,8 @@ limitations under the License.
 
 import classnames from "classnames";
 import React, { useEffect } from "react";
-import { renderToStaticMarkup } from "react-dom/server";
 import styles from "./Avatar.module.css";
-
-import AvatarClipPath from "./avatar-clip.mask.svg";
+import clipMask from "./avatar-clip.mask.svg?raw";
 
 type AvatarStackProps = {
   className?: string;
@@ -51,9 +49,11 @@ export const AvatarStack: React.FC<
    */
   useEffect(() => {
     if (AvatarStackUsageCount === 0) {
-      const svgMask = renderToStaticMarkup(
-        <AvatarClipPath id={AVATAR_MASK_ID} className={styles["clip-path"]} />,
-      );
+      const svgMask = `
+        <div aria-hidden="true" id="${AVATAR_MASK_ID}" class="${styles["clip-path"]}">
+          ${clipMask}
+        </div>
+      `;
       document.body.insertAdjacentHTML("beforeend", svgMask);
     }
     AvatarStackUsageCount++;
