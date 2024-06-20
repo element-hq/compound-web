@@ -23,8 +23,8 @@ import React, {
   useReducer,
 } from "react";
 import { Submit, ValidityState } from "@radix-ui/react-form";
-import CheckIcon from "@vector-im/compound-design-tokens/icons/check.svg";
-import CancelIcon from "@vector-im/compound-design-tokens/icons/close.svg";
+import CheckIcon from "@vector-im/compound-design-tokens/assets/web/icons/check";
+import CancelIcon from "@vector-im/compound-design-tokens/assets/web/icons/close";
 
 import styles from "./EditInPlace.module.css";
 

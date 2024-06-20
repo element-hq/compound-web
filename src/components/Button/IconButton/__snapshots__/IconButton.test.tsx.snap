@@ -14,7 +14,6 @@ exports[`IconButton > renders a Default IconButton 1`] = `
       style="--cpd-icon-button-size: 100%;"
     >
       <svg
-        class="cpd-icon"
         fill="currentColor"
         height="1em"
         viewBox="0 0 24 24"
@@ -50,7 +49,6 @@ exports[`IconButton > renders a DefaultDisabled IconButton 1`] = `
       style="--cpd-icon-button-size: 100%; --cpd-color-icon-tertiary: var(--cpd-color-icon-disabled);"
     >
       <svg
-        class="cpd-icon"
         fill="currentColor"
         height="1em"
         viewBox="0 0 24 24"
@@ -88,7 +86,6 @@ exports[`IconButton > renders a WithCriticalIndicator IconButton 1`] = `
       style="--cpd-icon-button-size: 100%;"
     >
       <svg
-        class="cpd-icon"
         fill="currentColor"
         height="1em"
         viewBox="0 0 24 24"
@@ -126,7 +123,6 @@ exports[`IconButton > renders a WithIndicator IconButton 1`] = `
       style="--cpd-icon-button-size: 100%;"
     >
       <svg
-        class="cpd-icon"
         fill="currentColor"
         height="1em"
         viewBox="0 0 24 24"
@@ -164,7 +160,6 @@ exports[`IconButton > renders a WithIndicatorDisabled IconButton 1`] = `
       style="--cpd-icon-button-size: 100%; --cpd-color-icon-tertiary: var(--cpd-color-icon-disabled);"
     >
       <svg
-        class="cpd-icon"
         fill="currentColor"
         height="1em"
         viewBox="0 0 24 24"
@@ -200,7 +195,6 @@ exports[`IconButton > renders a WithSubtleBackground IconButton 1`] = `
       style="--cpd-icon-button-size: 100%;"
     >
       <svg
-        class="cpd-icon"
         fill="currentColor"
         height="1em"
         viewBox="0 0 24 24"
@@ -238,7 +232,6 @@ exports[`IconButton > renders a WithSuccessIndicator IconButton 1`] = `
       style="--cpd-icon-button-size: 100%;"
     >
       <svg
-        class="cpd-icon"
         fill="currentColor"
         height="1em"
         viewBox="0 0 24 24"

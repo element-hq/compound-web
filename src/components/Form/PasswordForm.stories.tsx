@@ -16,7 +16,7 @@ limitations under the License.
 
 import React from "react";
 import { Meta, StoryFn } from "@storybook/react";
-import WarningIcon from "@vector-im/compound-design-tokens/icons/warning.svg";
+import WarningIcon from "@vector-im/compound-design-tokens/assets/web/icons/warning";
 
 import {
   Root,

@@ -20,7 +20,7 @@ import { fn } from "@storybook/test";
 
 import { IndicatorIcon as IndicatorIconComponent } from "./IndicatorIcon";
 
-import ThreadIcon from "@vector-im/compound-design-tokens/icons/threads-solid.svg";
+import ThreadIcon from "@vector-im/compound-design-tokens/assets/web/icons/threads";
 
 export default {
   title: "Icon/IndicatorIcon",

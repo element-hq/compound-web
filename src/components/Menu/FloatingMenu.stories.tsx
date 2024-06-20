@@ -16,10 +16,10 @@ limitations under the License.
 
 import React from "react";
 import { Meta, StoryFn } from "@storybook/react";
-import UserProfileIcon from "@vector-im/compound-design-tokens/icons/user-profile.svg";
-import NotificationsIcon from "@vector-im/compound-design-tokens/icons/notifications.svg";
-import ChatProblemIcon from "@vector-im/compound-design-tokens/icons/chat-problem.svg";
-import LeaveIcon from "@vector-im/compound-design-tokens/icons/leave.svg";
+import UserProfileIcon from "@vector-im/compound-design-tokens/assets/web/icons/user-profile";
+import NotificationsIcon from "@vector-im/compound-design-tokens/assets/web/icons/notifications";
+import ChatProblemIcon from "@vector-im/compound-design-tokens/assets/web/icons/chat-problem";
+import LeaveIcon from "@vector-im/compound-design-tokens/assets/web/icons/leave";
 
 import { FloatingMenu as FloatingMenuComponent } from "./FloatingMenu";
 import { MenuItem } from "./MenuItem";

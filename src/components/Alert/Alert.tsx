@@ -17,10 +17,10 @@ limitations under the License.
 import classNames from "classnames";
 import React, { PropsWithChildren, useCallback } from "react";
 
-import CheckCircleIcon from "@vector-im/compound-design-tokens/icons/check-circle.svg";
-import ErrorIcon from "@vector-im/compound-design-tokens/icons/error.svg";
-import InfoIcon from "@vector-im/compound-design-tokens/icons/info.svg";
-import CloseIcon from "@vector-im/compound-design-tokens/icons/close.svg";
+import CheckCircleIcon from "@vector-im/compound-design-tokens/assets/web/icons/check-circle";
+import ErrorIcon from "@vector-im/compound-design-tokens/assets/web/icons/error";
+import InfoIcon from "@vector-im/compound-design-tokens/assets/web/icons/info";
+import CloseIcon from "@vector-im/compound-design-tokens/assets/web/icons/close";
 
 import styles from "./Alert.module.css";
 import { Text } from "../Typography/Text";
