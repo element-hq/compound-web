@@ -8,6 +8,7 @@ import "@fontsource/inter/600.css";
 import "@fontsource/inter/700.css";
 import "@vector-im/compound-design-tokens/assets/web/css/compound-design-tokens.css";
 import "../src/styles/global.css";
+import "./preview.css";
 
 export const parameters: Parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
