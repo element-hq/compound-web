@@ -83,3 +83,15 @@ export const WithCriticalIndicator = {
     indicator: "critical",
   },
 };
+
+export const WithLabel = {
+  args: {
+    label: "label",
+  },
+};
+
+export const Destructive = {
+  args: {
+    destructive: "true",
+  },
+};
