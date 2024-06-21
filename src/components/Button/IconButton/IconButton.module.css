@@ -75,12 +75,12 @@ limitations under the License.
 }
 
 @media (hover) {
-  .icon-button.destructive:hover {
+  .icon-button:not([aria-disabled="true"]).destructive:hover {
     background: var(--cpd-color-bg-critical-subtle);
     outline: 1px solid var(--cpd-color-border-critical-subtle);
   }
 }
 
-.icon-button.destructive > * {
+.icon-button:not([aria-disabled="true"]).destructive > * {
   color: var(--cpd-color-icon-critical-primary);
 }
