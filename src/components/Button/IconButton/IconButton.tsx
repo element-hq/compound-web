@@ -50,7 +50,7 @@ type IconButtonProps = UnstyledButtonPropsFor<"button"> &
      */
     destructive?: boolean;
     /**
-     * Display a tooltip when the button is hovered
+     * Optional tooltip for the button
      */
     tooltip?: string;
   };
