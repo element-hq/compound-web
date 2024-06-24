@@ -15,7 +15,7 @@ limitations under the License.
 */
 
 import classnames from "classnames";
-import React from "react";
+import React, { ComponentProps, forwardRef } from "react";
 import styles from "./Search.module.css";
 import { Field, Label } from "../Form";
 
@@ -36,22 +36,22 @@ type SearchProps = {
    * The field name.
    */
   name: React.ComponentProps<typeof Field>["name"];
-  /**
-   * Event handler called when the search changes.
-   */
-  onChange?: (e: React.ChangeEvent) => void;
-};
+} & Omit<ComponentProps<"input">, "id" | "type">;
 
 /**
  * A standalone search component
  */
-export const Search = ({
-  className,
-  onChange,
-  // TODO: i18n needs to be setup
-  placeholder = "Search…",
-  name,
-}: SearchProps): JSX.Element => {
+export const Search = forwardRef<HTMLInputElement, SearchProps>(function Search(
+  {
+    className,
+    onChange,
+    // TODO: i18n needs to be setup
+    placeholder = "Search…",
+    name,
+    ...props
+  }: SearchProps,
+  ref,
+) {
   const classes = classnames(styles.search, className);
   const id = useId();
   return (
@@ -59,6 +59,8 @@ export const Search = ({
       <Label className={classes} htmlFor={id}>
         <SearchIcon className={styles.icon} width={20} height={20} />
         <input
+          ref={ref}
+          {...props}
           id={id}
           name={name}
           type="search"
@@ -69,4 +71,4 @@ export const Search = ({
       </Label>
     </Field>
   );
-};
+});
