@@ -26,6 +26,7 @@ import styles from "./Nav.module.css";
 
 type NavItemProps = {
   active?: boolean;
+  "aria-controls"?: string;
 };
 
 type NavItemLinkProps = Omit<
@@ -90,11 +91,17 @@ export const NavItem = (
   props: React.PropsWithChildren<XOR<NavItemLinkProps, NavItemButtonProps>>,
 ) => {
   // https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-current
+  const a11yAttributes = props["aria-controls"]
+    ? {
+        "aria-controls": props["aria-controls"],
+        role: "tab",
+        "aria-selected": props.active,
+      }
+    : {
+        "data-current": props.active ? true : undefined,
+      };
   return (
-    <li
-      className={styles["nav-tab"]}
-      data-current={props.active ? true : undefined}
-    >
+    <li className={styles["nav-tab"]} {...a11yAttributes}>
       {renderAsLink(props) ? (
         <NavItemLink {...props} />
       ) : (

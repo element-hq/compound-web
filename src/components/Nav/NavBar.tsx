@@ -27,6 +27,15 @@ type NavBarProps = {
    * Require a label for navigation landmarks
    */
   "aria-label": string;
+
+  /**
+   * Accessibility role that defaults to navigation.
+   *
+   * If you pass tablist you must also pass `aria-controls` as prop to your NavItem and must
+   * ensure that the conditions stated in https://www.w3.org/WAI/ARIA/apg/patterns/tabs/#wai-ariaroles,states,andproperties
+   * are met.
+   */
+  role?: "navigation" | "tablist";
 };
 
 /**
@@ -35,11 +44,12 @@ type NavBarProps = {
 export const NavBar = ({
   children,
   className,
+  role,
   ...rest
 }: React.PropsWithChildren<NavBarProps>) => {
   const classes = classNames(className, styles["nav-bar"]);
   return (
-    <nav role="navigation" {...rest} className={classes}>
+    <nav role={role ?? "navigation"} {...rest} className={classes}>
       <ul className={styles["nav-bar-items"]}>{children}</ul>
     </nav>
   );

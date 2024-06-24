@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { NavBar, NavItem } from ".";
 
 export default {
@@ -47,5 +47,58 @@ export const Default = {
         <NavItem href="https://example.com">External</NavItem>
       </>
     ),
+  },
+};
+
+export const TabRole = {
+  render: () => {
+    const [activePanelId, setActivePanelId] = useState("panel-2");
+    const changeDisplay = (id: string, display: string) => {
+      const e = document.querySelector(`#${id}`) as HTMLDivElement;
+      console.log("e", e);
+      if (e) e.style.display = display;
+    };
+    useEffect(() => {
+      ["panel-1", "panel-2"].forEach((id) => {
+        changeDisplay(id, "none");
+      });
+      changeDisplay(activePanelId, "block");
+    }, [activePanelId]);
+
+    return (
+      <div>
+        <NavBar role="tablist" aria-label="main">
+          <NavItem
+            aria-controls="panel-1"
+            onClick={() => {
+              setActivePanelId("panel-1");
+            }}
+          >
+            Tab 1
+          </NavItem>
+          <NavItem
+            aria-controls="panel-2"
+            onClick={() => {
+              setActivePanelId("panel-2");
+            }}
+            active
+          >
+            Tab 2
+          </NavItem>
+          <NavItem aria-controls="panel-3" onClick={() => {}} disabled>
+            Disabled Tab
+          </NavItem>
+        </NavBar>
+        <div id="panel-1" style={{ display: "none" }}>
+          This is a panel 1
+        </div>
+        <div id="panel-2" style={{ display: "none" }}>
+          This is a panel 2
+        </div>
+        <div id="panel-3" style={{ display: "none" }}>
+          This is a panel 3
+        </div>
+      </div>
+    );
   },
 };
