@@ -50,9 +50,9 @@ type IconButtonProps = UnstyledButtonPropsFor<"button"> &
      */
     destructive?: boolean;
     /**
-     * The label for the button
+     * Display a tooltip when the button is hovered
      */
-    label?: string;
+    tooltip?: string;
   };
 
 /**
@@ -70,7 +70,7 @@ export const IconButton = forwardRef<
     style,
     disabled,
     destructive,
-    label,
+    tooltip,
     ...props
   },
   ref,
@@ -103,5 +103,5 @@ export const IconButton = forwardRef<
     </UnstyledButton>
   );
 
-  return label ? <Tooltip label={label}>{button}</Tooltip> : button;
+  return tooltip ? <Tooltip label={tooltip}>{button}</Tooltip> : button;
 });
