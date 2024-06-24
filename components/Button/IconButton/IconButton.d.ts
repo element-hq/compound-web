@@ -20,6 +20,15 @@ type IconButtonProps = UnstyledButtonPropsFor<"button"> & JSX.IntrinsicElements[
      * Whether the button is interactable
      */
     disabled?: boolean;
+    /**
+     * Whether this button triggers a destructive action.
+     * @default false
+     */
+    destructive?: boolean;
+    /**
+     * Optional tooltip for the button
+     */
+    tooltip?: string;
 };
 /**
  * Display an icon as a button. Can render an indicator
