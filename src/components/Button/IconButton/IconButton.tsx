@@ -21,6 +21,7 @@ import styles from "./IconButton.module.css";
 import { UnstyledButton } from "../UnstyledButton";
 import { UnstyledButtonPropsFor } from "../UnstyledButton";
 import { IndicatorIcon } from "../../Icon/IndicatorIcon/IndicatorIcon";
+import { Tooltip } from "../../Tooltip/Tooltip";
 
 type IconButtonProps = UnstyledButtonPropsFor<"button"> &
   JSX.IntrinsicElements["button"] & {
@@ -39,11 +40,19 @@ type IconButtonProps = UnstyledButtonPropsFor<"button"> &
      * As in IndicatorIcon
      */
     indicator?: "default" | "success" | "critical";
-
     /**
      * Whether the button is interactable
      */
     disabled?: boolean;
+    /**
+     * Whether this button triggers a destructive action.
+     * @default false
+     */
+    destructive?: boolean;
+    /**
+     * Optional tooltip for the button
+     */
+    tooltip?: string;
   };
 
 /**
@@ -53,11 +62,24 @@ export const IconButton = forwardRef<
   HTMLButtonElement,
   PropsWithChildren<IconButtonProps>
 >(function IconButton(
-  { children, className, indicator, size = "32px", style, disabled, ...props },
+  {
+    children,
+    className,
+    indicator,
+    size = "32px",
+    style,
+    disabled,
+    destructive,
+    tooltip,
+    ...props
+  },
   ref,
 ) {
-  const classes = classnames(styles["icon-button"], className);
-  return (
+  const classes = classnames(styles["icon-button"], className, {
+    [styles.destructive]: destructive,
+  });
+
+  const button = (
     <UnstyledButton
       as="button"
       ref={ref}
@@ -80,4 +102,6 @@ export const IconButton = forwardRef<
       </IndicatorIcon>
     </UnstyledButton>
   );
+
+  return tooltip ? <Tooltip label={tooltip}>{button}</Tooltip> : button;
 });

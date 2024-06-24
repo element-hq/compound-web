@@ -73,3 +73,14 @@ limitations under the License.
   inset-block-start: 0;
   inset-inline-end: 0;
 }
+
+@media (hover) {
+  .icon-button:not([aria-disabled="true"]).destructive:hover {
+    background: var(--cpd-color-bg-critical-subtle);
+    outline: 1px solid var(--cpd-color-border-critical-subtle);
+  }
+}
+
+.icon-button:not([aria-disabled="true"]).destructive > * {
+  color: var(--cpd-color-icon-critical-primary);
+}
