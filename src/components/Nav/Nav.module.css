@@ -77,7 +77,7 @@
   }
 }
 
-.nav-item:active {
+.nav-item:not([disabled]):active {
   color: var(--cpd-color-text-primary);
   background-color: var(--cpd-color-bg-subtle-primary);
 }
