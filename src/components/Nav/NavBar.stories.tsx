@@ -51,7 +51,7 @@ export const Default = {
 };
 
 export const TabRole = {
-  render: () => {
+  render: function Component() {
     // An example tab implementation
     const [activePanelId, setActivePanelId] = useState("panel-2");
     const changeDisplay = (id: string, display: string) => {
