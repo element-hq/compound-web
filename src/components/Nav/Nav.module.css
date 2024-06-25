@@ -77,14 +77,14 @@
   }
 }
 
-.nav-item:not([disabled]):active {
-  color: var(--cpd-color-text-primary);
-  background-color: var(--cpd-color-bg-subtle-primary);
-}
-
 .nav-item:focus {
   outline: none;
   outline: var(--cpd-color-border-focused) var(--cpd-border-width-2) solid;
+}
+
+.nav-item:not([disabled]):active {
+  color: var(--cpd-color-text-primary);
+  background-color: var(--cpd-color-bg-subtle-primary);
 }
 
 .nav-item[aria-current] {
