@@ -45,25 +45,17 @@ type NavItemButtonProps = Omit<
 
 const NavItemLink = ({
   children,
-  active = false,
   href,
   onClick,
   ...rest
 }: React.PropsWithChildren<NavItemLinkProps>) => (
-  <a
-    href={href}
-    onClick={onClick}
-    className={styles["nav-item"]}
-    aria-current={active ? "page" : undefined}
-    {...rest}
-  >
+  <a href={href} onClick={onClick} className={styles["nav-item"]} {...rest}>
     {children}
   </a>
 );
 
 const NavItemButton = ({
   children,
-  active = false,
   disabled,
   onClick,
   ...rest
@@ -71,7 +63,6 @@ const NavItemButton = ({
   <button
     onClick={onClick}
     className={styles["nav-item"]}
-    aria-current={active ? true : undefined}
     disabled={disabled}
     {...rest}
   >
@@ -90,23 +81,46 @@ const renderAsLink = (
 export const NavItem = (
   props: React.PropsWithChildren<XOR<NavItemLinkProps, NavItemButtonProps>>,
 ) => {
-  // https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-current
-  const a11yAttributes = props["aria-controls"]
+  /**
+   * For accessibility rules related to tabs,
+   * see https://www.w3.org/WAI/ARIA/apg/patterns/tabs/#wai-ariaroles,states,andproperties
+   *
+   * For accessibility rules related to navigation,
+   * see https://www.digitala11y.com/navigation-role/
+   */
+  const ariaControls = props["aria-controls"];
+  const isUsedAsTabs = !!ariaControls;
+  const a11yAttributes = isUsedAsTabs
     ? {
-        "aria-controls": props["aria-controls"],
+        // when used as tabs
+        "aria-controls": ariaControls,
         role: "tab",
         "aria-selected": props.active,
       }
     : {
-        "data-current": props.active ? true : undefined,
+        // when used as navigation elements
+        "aria-current": props.active ? true : undefined,
       };
+
+  // All the attributes except `active` can be passed to the button/a element.
+  const propsForChild = { ...props };
+  delete propsForChild["active"];
+
+  // Depending on whether `href` is in props, we render link/button
+  let navItem: React.ReactNode;
+  if (renderAsLink(propsForChild)) {
+    navItem = <NavItemLink {...propsForChild} />;
+  } else {
+    navItem = <NavItemButton {...propsForChild} {...a11yAttributes} />;
+  }
+
   return (
-    <li className={styles["nav-tab"]} {...a11yAttributes}>
-      {renderAsLink(props) ? (
-        <NavItemLink {...props} />
-      ) : (
-        <NavItemButton {...props} />
-      )}
+    <li
+      className={styles["nav-tab"]}
+      data-current={props.active ? true : undefined}
+      role="presentation"
+    >
+      {navItem}
     </li>
   );
 };

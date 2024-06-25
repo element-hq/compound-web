@@ -45,12 +45,43 @@ export const NavBar = ({
   children,
   className,
   role,
+  "aria-label": ariaLabel,
   ...rest
 }: React.PropsWithChildren<NavBarProps>) => {
   const classes = classNames(className, styles["nav-bar"]);
+  /**
+   * We sometimes want to use this NavBar for tabs.
+   * This is done by passing `role=tablist` to this component.
+   * By default, this component is used as a navigation bar.
+   *
+   * Depending on this role, a different set of accessibility
+   * attributes need to be applied to the nav/ul element.
+   */
+  const a11yAttributesForNav =
+    role !== "tablist"
+      ? /**
+         * If role isn't tablist, default to navigation.
+         */
+        { role: "navigation", "aria-label": ariaLabel }
+      : /**
+         * If role is tablist, give nav presentation role to remove
+         * any semantic meaning.
+         */
+        { role: "presentation" };
+
+  /**
+   * When used as tabs, the tablist role must be applied to ul.
+   * When used as navigation, no special accessibility attribute
+   * is needed for the ul element.
+   */
+  const a11yAttributesForUl =
+    role === "tablist" ? { role: "tablist", "aria-label": ariaLabel } : {};
+
   return (
-    <nav role={role ?? "navigation"} {...rest} className={classes}>
-      <ul className={styles["nav-bar-items"]}>{children}</ul>
+    <nav {...a11yAttributesForNav} {...rest} className={classes}>
+      <ul {...a11yAttributesForUl} className={styles["nav-bar-items"]}>
+        {children}
+      </ul>
     </nav>
   );
 };

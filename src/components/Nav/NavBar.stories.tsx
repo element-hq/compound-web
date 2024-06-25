@@ -52,10 +52,10 @@ export const Default = {
 
 export const TabRole = {
   render: () => {
+    // An example tab implementation
     const [activePanelId, setActivePanelId] = useState("panel-2");
     const changeDisplay = (id: string, display: string) => {
       const e = document.querySelector(`#${id}`) as HTMLDivElement;
-      console.log("e", e);
       if (e) e.style.display = display;
     };
     useEffect(() => {
@@ -73,6 +73,7 @@ export const TabRole = {
             onClick={() => {
               setActivePanelId("panel-1");
             }}
+            active={activePanelId === "panel-1"}
           >
             Tab 1
           </NavItem>
@@ -81,7 +82,7 @@ export const TabRole = {
             onClick={() => {
               setActivePanelId("panel-2");
             }}
-            active
+            active={activePanelId === "panel-2"}
           >
             Tab 2
           </NavItem>
@@ -90,13 +91,13 @@ export const TabRole = {
           </NavItem>
         </NavBar>
         <div id="panel-1" style={{ display: "none" }}>
-          This is a panel 1
+          This is panel 1
         </div>
         <div id="panel-2" style={{ display: "none" }}>
-          This is a panel 2
+          This is panel 2
         </div>
         <div id="panel-3" style={{ display: "none" }}>
-          This is a panel 3
+          This is panel 3
         </div>
       </div>
     );
