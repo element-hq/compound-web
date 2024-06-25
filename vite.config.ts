@@ -55,7 +55,12 @@ export default defineConfig({
         declaration: true,
         declarationMap: true,
       },
-      exclude: ["**/*.stories.tsx", "**/*.test.tsx", "**/*.test.ts"],
+      exclude: [
+        "**/*.mdx",
+        "**/*.stories.tsx",
+        "**/*.test.tsx",
+        "**/*.test.ts",
+      ],
     }),
   ],
 
