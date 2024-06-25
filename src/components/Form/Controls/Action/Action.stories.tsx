@@ -19,16 +19,7 @@ import React from "react";
 
 import { Meta, StoryObj } from "@storybook/react";
 
-// TODO: make all the icons available & refactor this somewhere else
-import ChatIcon from "@vector-im/compound-design-tokens/icons/chat.svg";
-import CheckIcon from "@vector-im/compound-design-tokens/icons/check.svg";
-import CloseIcon from "@vector-im/compound-design-tokens/icons/close.svg";
-
-const icons = {
-  chat: ChatIcon,
-  check: CheckIcon,
-  close: CloseIcon,
-};
+import * as icons from "@vector-im/compound-design-tokens/assets/web/icons";
 
 import { ActionInput } from "./";
 
@@ -97,7 +88,7 @@ export default {
     readOnly: false,
     invalid: false,
     actionLabel: "Action",
-    Icon: CheckIcon,
+    Icon: icons.CheckIcon,
   },
 } satisfies Meta<Props>;
 

@@ -13,7 +13,10 @@ if (process.env.NODE_ENV === "development") {
 }
 
 const config: StorybookConfig = {
-  stories: ["../src/**/!(__ComponentTemplate__)*.stories.@(js|jsx|ts|tsx)"],
+  stories: [
+    "../src/**/*.mdx",
+    "../src/**/!(__ComponentTemplate__)*.stories.@(js|jsx|ts|tsx)",
+  ],
 
   addons,
 

@@ -17,7 +17,7 @@ limitations under the License.
 import { vi, describe, it, expect } from "vitest";
 import { fireEvent, getByLabelText, render } from "@testing-library/react";
 import React from "react";
-import ChatIcon from "@vector-im/compound-design-tokens/icons/chat.svg";
+import ChatIcon from "@vector-im/compound-design-tokens/assets/web/icons/chat";
 
 import { ActionInput } from "./Action";
 

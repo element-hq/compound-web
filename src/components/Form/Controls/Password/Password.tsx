@@ -23,8 +23,8 @@ import { Control } from "@radix-ui/react-form";
 
 import { ActionInput } from "../Action";
 
-import VisibilityOn from "@vector-im/compound-design-tokens/icons/visibility-on.svg";
-import VisibilityOff from "@vector-im/compound-design-tokens/icons/visibility-off.svg";
+import VisibilityOn from "@vector-im/compound-design-tokens/assets/web/icons/visibility-on";
+import VisibilityOff from "@vector-im/compound-design-tokens/assets/web/icons/visibility-off";
 
 const showState = {
   isHidden: true,

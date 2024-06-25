@@ -16,7 +16,7 @@ limitations under the License.
 
 import React, { SVGAttributes } from "react";
 import styles from "./InlineSpinner.module.css";
-import SpinnerIcon from "@vector-im/compound-design-tokens/icons/spinner.svg";
+import SpinnerIcon from "@vector-im/compound-design-tokens/assets/web/icons/spinner";
 
 type InlineSpinnerProps = {
   size?: number;

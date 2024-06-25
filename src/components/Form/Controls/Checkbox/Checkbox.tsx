@@ -17,7 +17,7 @@ limitations under the License.
 
 import classnames from "classnames";
 import React, { ComponentProps, ComponentRef, forwardRef } from "react";
-import CheckIcon from "@vector-im/compound-design-tokens/icons/check.svg";
+import CheckIcon from "@vector-im/compound-design-tokens/assets/web/icons/check";
 import { Control } from "@radix-ui/react-form";
 
 import styles from "./Checkbox.module.css";

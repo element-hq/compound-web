@@ -20,9 +20,9 @@ import styles from "./EditInPlace.module.css";
 import { TextInput } from "../Text";
 import useId from "../../../../utils/useId";
 
-import CheckIcon from "@vector-im/compound-design-tokens/icons/check.svg";
-import CancelIcon from "@vector-im/compound-design-tokens/icons/close.svg";
-import ErrorIcon from "@vector-im/compound-design-tokens/icons/error.svg";
+import CheckIcon from "@vector-im/compound-design-tokens/assets/web/icons/check";
+import CancelIcon from "@vector-im/compound-design-tokens/assets/web/icons/close";
+import ErrorIcon from "@vector-im/compound-design-tokens/assets/web/icons/error";
 import { InlineSpinner } from "../../../InlineSpinner/InlineSpinner";
 
 type Props = {
