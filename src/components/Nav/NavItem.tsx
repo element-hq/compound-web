@@ -109,7 +109,7 @@ export const NavItem = (
   // Depending on whether `href` is in props, we render link/button
   let navItem: React.ReactNode;
   if (renderAsLink(propsForChild)) {
-    navItem = <NavItemLink {...propsForChild} />;
+    navItem = <NavItemLink {...propsForChild} {...a11yAttributes} />;
   } else {
     navItem = <NavItemButton {...propsForChild} {...a11yAttributes} />;
   }
