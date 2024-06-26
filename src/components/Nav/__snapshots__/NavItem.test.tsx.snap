@@ -71,6 +71,7 @@ exports[`<NavItem /> > render a ActiveLink item 1`] = `
         role="presentation"
       >
         <a
+          aria-current="true"
           class="_nav-item_eb2dec"
           href="https://example.org"
         >
