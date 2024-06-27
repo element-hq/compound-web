@@ -10,7 +10,7 @@ exports[`EditInPlace > disables control when disabled 1`] = `
     >
       <label
         class="_label_dc87d2"
-        for="radix-:r4h:"
+        for="radix-:r55:"
       >
         Edit Me
       </label>
@@ -20,7 +20,7 @@ exports[`EditInPlace > disables control when disabled 1`] = `
         <input
           class="_control_a839aa"
           disabled=""
-          id="radix-:r4h:"
+          id="radix-:r55:"
           name="input"
           title=""
         />
@@ -82,6 +82,113 @@ exports[`EditInPlace > displays saved label for 2 seconds after save 2`] = `
           aria-describedby="radix-:r47:"
           class="_control_a839aa"
           data-valid="true"
+          disabled=""
+          id="radix-:r3u:"
+          name="input"
+          title=""
+        />
+        <div
+          class="_button-group_980156"
+        >
+          <button
+            aria-disabled="true"
+            aria-label="Save"
+            class="_button_2a1efe _has-icon_2a1efe _icon-only_2a1efe"
+            data-kind="primary"
+            data-size="sm"
+            role="button"
+            tabindex="0"
+            type="submit"
+          >
+            <svg
+              aria-hidden="true"
+              class="_icon_2a1efe"
+              fill="currentColor"
+              height="20"
+              viewBox="0 0 24 24"
+              width="20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9.55 17.575c-.133 0-.258-.02-.375-.063a.878.878 0 0 1-.325-.212L4.55 13c-.183-.183-.27-.42-.263-.713.009-.291.105-.529.288-.712a.948.948 0 0 1 .7-.275.95.95 0 0 1 .7.275L9.55 15.15l8.475-8.475c.183-.183.42-.275.712-.275s.53.092.713.275c.183.183.275.42.275.712s-.092.53-.275.713l-9.2 9.2c-.1.1-.208.17-.325.212a1.106 1.106 0 0 1-.375.063Z"
+              />
+            </svg>
+          </button>
+          <button
+            aria-disabled="true"
+            aria-label="Cancel"
+            class="_button_2a1efe _button_980156 _has-icon_2a1efe _icon-only_2a1efe"
+            data-kind="secondary"
+            data-size="sm"
+            role="button"
+            tabindex="0"
+            type="reset"
+          >
+            <svg
+              aria-hidden="true"
+              class="_icon_2a1efe"
+              fill="currentColor"
+              height="20"
+              viewBox="0 0 24 24"
+              width="20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M6.293 6.293a1 1 0 0 1 1.414 0L12 10.586l4.293-4.293a1 1 0 1 1 1.414 1.414L13.414 12l4.293 4.293a1 1 0 0 1-1.414 1.414L12 13.414l-4.293 4.293a1 1 0 0 1-1.414-1.414L10.586 12 6.293 7.707a1 1 0 0 1 0-1.414Z"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <span
+        class="_message_dc87d2"
+        id="radix-:r47:"
+      >
+        <svg
+          class="_icon_01cd2d"
+          fill="currentColor"
+          height="1em"
+          style="width: 20px; height: 20px;"
+          viewBox="0 0 24 24"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M12 4.031a8 8 0 1 0 8 8 1 1 0 0 1 2 0c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10a1 1 0 1 1 0 2Z"
+            fill-rule="evenodd"
+          />
+        </svg>
+        Saving...
+      </span>
+    </div>
+  </form>
+</DocumentFragment>
+`;
+
+exports[`EditInPlace > displays saved label for 2 seconds after save 3`] = `
+<DocumentFragment>
+  <form
+    class="_root_dc87d2"
+  >
+    <div
+      class="_field_dc87d2"
+      data-valid="true"
+    >
+      <label
+        class="_label_dc87d2"
+        data-valid="true"
+        for="radix-:r3u:"
+      >
+        Edit Me
+      </label>
+      <div
+        class="_controls_980156"
+      >
+        <input
+          aria-describedby="radix-:r48:"
+          class="_control_a839aa"
+          data-valid="true"
           id="radix-:r3u:"
           name="input"
           title=""
@@ -89,7 +196,7 @@ exports[`EditInPlace > displays saved label for 2 seconds after save 2`] = `
       </div>
       <span
         class="_message_dc87d2 _success-message_dc87d2"
-        id="radix-:r47:"
+        id="radix-:r48:"
       >
         <svg
           class="cpd-icon"

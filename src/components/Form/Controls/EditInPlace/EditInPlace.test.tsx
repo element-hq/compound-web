@@ -337,7 +337,7 @@ describe("EditInPlace", () => {
     const user = userEvent.setup({ advanceTimers: vi.advanceTimersByTime });
 
     const { getByRole, getByText, queryByText, asFragment } = render(
-      <EditInPlaceTest />,
+      <EditInPlaceTest onSave={() => new Promise((r) => setTimeout(r, 500))} />,
     );
 
     expect(asFragment()).toMatchSnapshot();
@@ -349,16 +349,17 @@ describe("EditInPlace", () => {
     });
 
     expect(asFragment()).toMatchSnapshot();
-    expect(getByText("Saved")).toBeInTheDocument();
+    expect(getByText("Saving...")).toBeInTheDocument();
 
-    act(() => {
-      vi.advanceTimersByTime(1900);
+    await act(async () => {
+      await vi.advanceTimersByTimeAsync(600);
     });
 
+    expect(asFragment()).toMatchSnapshot();
     expect(queryByText("Saved")).toBeInTheDocument();
 
-    act(() => {
-      vi.advanceTimersByTime(200);
+    await act(async () => {
+      await vi.advanceTimersByTimeAsync(2000);
     });
 
     expect(queryByText("Saved")).not.toBeInTheDocument();
@@ -374,6 +375,71 @@ describe("EditInPlace", () => {
     });
 
     expect(onSave).not.toHaveBeenCalled();
+  });
+
+  it("shows the help label in the right conditions", async () => {
+    vi.useFakeTimers();
+    const user = userEvent.setup({ advanceTimers: vi.advanceTimersByTime });
+    const { getByRole, getByText, queryByText } = render(
+      <EditInPlaceTest
+        helpLabel="Help"
+        required
+        onSave={() => new Promise((r) => setTimeout(r, 500))}
+      >
+        <ErrorMessage match="valueMissing">Required</ErrorMessage>
+      </EditInPlaceTest>,
+    );
+
+    const input = getByRole("textbox");
+    expect(getByText("Help")).toBeInTheDocument();
+
+    // When we start typing, it's still there
+    await act(async () => {
+      await user.type(input, "Changed");
+      await user.keyboard("{tab}");
+    });
+
+    expect(getByText("Help")).toBeInTheDocument();
+
+    // When the form becomes valid, it's gone
+    await act(async () => {
+      await user.clear(input);
+      await user.keyboard("{tab}");
+    });
+
+    expect(queryByText("Help")).not.toBeInTheDocument();
+
+    // When it becomes valid again, it's back
+    await act(async () => {
+      await user.type(input, "Changed");
+      await user.keyboard("{tab}");
+    });
+
+    expect(getByText("Help")).toBeInTheDocument();
+
+    // When we're submitting, it's gone
+    await act(async () => {
+      await user.click(getByRole("button", { name: "Save" }));
+    });
+
+    expect(queryByText("Help")).not.toBeInTheDocument();
+    expect(getByText("Saving...")).toBeInTheDocument();
+
+    // When we're showing 'Saved', it's still gone
+    await act(async () => {
+      await vi.advanceTimersByTimeAsync(600);
+    });
+
+    expect(queryByText("Help")).not.toBeInTheDocument();
+    expect(getByText("Saved")).toBeInTheDocument();
+
+    // When we're done showing 'Saved', it's back
+    await act(async () => {
+      await vi.advanceTimersByTimeAsync(2000);
+    });
+
+    expect(getByText("Help")).toBeInTheDocument();
+    expect(queryByText("Saved")).not.toBeInTheDocument();
   });
 
   it("disables control when disabled", () => {
