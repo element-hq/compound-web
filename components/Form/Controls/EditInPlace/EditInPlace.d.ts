@@ -22,10 +22,15 @@ type Props = {
      */
     onInput?: (e: React.ChangeEvent<HTMLInputElement>) => void;
     /**
-     * Error message to be displayed below the box. If supplied, will disable the
-     * save button.
+     * Callback for when the server validation errors should be cleared.
      */
-    error?: string;
+    onClearServerErrors?: () => void;
+    /**
+     * Whether the field is in an error state according to the server validation.
+     *
+     * For validation messages, use native validations properties directly, or add custom error messages as children.
+     */
+    serverInvalid?: boolean;
     /**
      * Label to be displayed by the green check at the bottom. Will only be displayed
      * for 2 seconds after the onSave callback promise resolves successfully.
