@@ -22,14 +22,13 @@ import React, {
   useEffect,
   useReducer,
 } from "react";
-import { Submit } from "@radix-ui/react-form";
+import { Submit, ValidityState } from "@radix-ui/react-form";
 import CheckIcon from "@vector-im/compound-design-tokens/icons/check.svg";
 import CancelIcon from "@vector-im/compound-design-tokens/icons/close.svg";
 
 import styles from "./EditInPlace.module.css";
 
 import {
-  ErrorMessage,
   Field,
   HelpMessage,
   Label,
@@ -67,10 +66,16 @@ type Props = {
   onInput?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 
   /**
-   * Error message to be displayed below the box. If supplied, will disable the
-   * save button.
+   * Callback for when the server validation errors should be cleared.
    */
-  error?: string;
+  onClearServerErrors?: () => void;
+
+  /**
+   * Whether the field is in an error state according to the server validation.
+   *
+   * For validation messages, use native validations properties directly, or add custom error messages as children.
+   */
+  serverInvalid?: boolean;
 
   /**
    * Label to be displayed by the green check at the bottom. Will only be displayed
@@ -172,13 +177,15 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
       onSave,
       onCancel,
       onInput,
+      onClearServerErrors,
+      serverInvalid,
       saveButtonLabel,
       cancelButtonLabel,
-      error,
       savedLabel,
       savingLabel,
       helpLabel,
       disabled,
+      children,
       ...props
     },
     ref,
@@ -283,9 +290,10 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
         onReset={onFormReset}
         onFocus={onFocus}
         onBlur={onBlur}
+        onClearServerErrors={onClearServerErrors}
         ref={formRef}
       >
-        <Field name="input" serverInvalid={Boolean(error)}>
+        <Field name="input" serverInvalid={serverInvalid}>
           <Label>{label}</Label>
           <div className={styles.controls}>
             <TextControl
@@ -328,16 +336,36 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
               </div>
             )}
           </div>
-          {error && <ErrorMessage>{error}</ErrorMessage>}
-          {state === State.Saving && (
+
+          {/*
+            During the loading saving state, we only show the saving message.
+            Else, we show whatever children were passed on, as they will have other validation messages
+          */}
+          {state === State.Saving ? (
             <LoadingMessage>{savingLabel}</LoadingMessage>
+          ) : (
+            children
           )}
+
           {savedLabel && state === State.Saved && (
             <SuccessMessage>{savedLabel}</SuccessMessage>
           )}
-          {!error &&
-            (state === State.Initial || state === State.Dirty) &&
-            helpLabel && <HelpMessage>{helpLabel}</HelpMessage>}
+
+          {/*
+            We show the help message only if:
+              - the helpLabel is set
+              - the form hasn't been validated yet
+              - the 'serverInvalid' prop is not set
+              - we're in the initial or dirty state
+            */}
+          {helpLabel && (state === State.Initial || state === State.Dirty) && (
+            <ValidityState>
+              {(validity) =>
+                (validity === undefined || validity.valid) &&
+                !serverInvalid && <HelpMessage>{helpLabel}</HelpMessage>
+              }
+            </ValidityState>
+          )}
         </Field>
       </Root>
     );

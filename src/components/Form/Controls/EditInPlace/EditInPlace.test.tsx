@@ -22,31 +22,27 @@ import { userEvent } from "@storybook/test";
 import { act } from "react-dom/test-utils";
 import { TooltipProvider } from "@radix-ui/react-tooltip";
 import { EditInPlace } from "./EditInPlace";
+import { ErrorMessage } from "../../Message";
 
-type EditInPlaceTestProps = {
-  error?: string;
-  defaultValue?: string;
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  onSave?: () => Promise<void>;
-  onCancel?: () => void;
-  disabled?: boolean;
-};
+type EditInPlaceTestProps = Omit<
+  React.ComponentProps<typeof EditInPlace>,
+  | "saveButtonLabel"
+  | "cancelButtonLabel"
+  | "savedLabel"
+  | "savingLabel"
+  | "label"
+>;
 
 describe("EditInPlace", () => {
   const EditInPlaceTest = (props: EditInPlaceTestProps) => (
     <TooltipProvider>
       <EditInPlace
         label="Edit Me"
-        defaultValue={props.defaultValue}
-        error={props.error}
-        onChange={props.onChange ?? (() => {})}
-        onSave={props.onSave ?? (() => Promise.resolve())}
-        onCancel={props.onCancel ?? (() => {})}
         saveButtonLabel="Save"
         cancelButtonLabel="Cancel"
         savedLabel="Saved"
         savingLabel="Saving..."
-        disabled={props.disabled}
+        {...props}
       />
     </TooltipProvider>
   );
@@ -88,9 +84,11 @@ describe("EditInPlace", () => {
     expect(input).toBeValid();
   });
 
-  it("renders error icon and text if error provided", () => {
+  it("renders error icon and text if passed as children", () => {
     const { asFragment, getByRole, getByText } = render(
-      <EditInPlaceTest error="Missing Left Falangey" />,
+      <EditInPlaceTest serverInvalid>
+        <ErrorMessage>Missing Left Falangey</ErrorMessage>
+      </EditInPlaceTest>,
     );
     expect(asFragment()).toMatchSnapshot();
 
@@ -102,6 +100,88 @@ describe("EditInPlace", () => {
     expect(errorText).toBeInTheDocument();
 
     expect(errorText.id).toEqual(input.getAttribute("aria-describedby"));
+  });
+
+  it("uses native form validation logic", async () => {
+    const { asFragment, getByRole, queryByText } = render(
+      <EditInPlaceTest type="email" required>
+        <ErrorMessage match="valueMissing">you did not fill this</ErrorMessage>
+        <ErrorMessage match="typeMismatch">this is not an email</ErrorMessage>
+      </EditInPlaceTest>,
+    );
+    expect(asFragment()).toMatchSnapshot();
+
+    const input = getByRole("textbox");
+    expect(input).toBeInvalid();
+
+    // The message hasn't showed up yet
+    expect(queryByText("you did not fill this")).not.toBeInTheDocument();
+
+    await act(async () => {
+      // Focus and submit the form
+      await userEvent.keyboard("{tab}{enter}");
+    });
+
+    // The message should be there
+    expect(queryByText("you did not fill this")).toBeInTheDocument();
+
+    await act(async () => {
+      // Type an invalid email
+      await userEvent.type(input, "notanemail");
+      await userEvent.keyboard("{enter}");
+    });
+
+    // Another message should be there
+    expect(queryByText("you did not fill this")).not.toBeInTheDocument();
+    expect(queryByText("this is not an email")).toBeInTheDocument();
+
+    await act(async () => {
+      // Type something else to clear out the errors
+      await userEvent.clear(input);
+      await userEvent.type(input, "something else");
+    });
+
+    // The message should be gone
+    expect(queryByText("you did not fill this")).not.toBeInTheDocument();
+    expect(queryByText("this is not an email")).not.toBeInTheDocument();
+  });
+
+  it("uses the custom error messages passed as children", async () => {
+    const { getByRole, queryByText, asFragment } = render(
+      <EditInPlaceTest>
+        <ErrorMessage match={(value) => value !== "hunter2"}>
+          password should be hunter2
+        </ErrorMessage>
+      </EditInPlaceTest>,
+    );
+    expect(asFragment()).toMatchSnapshot();
+
+    const input = getByRole("textbox");
+
+    // The message hasn't showed up yet
+    expect(queryByText("password should be hunter2")).not.toBeInTheDocument();
+    expect(input).toBeValid();
+
+    await act(async () => {
+      // Focus, type and submit the form
+      await userEvent.type(input, "something");
+      await userEvent.keyboard("{tab}");
+    });
+
+    // The message should be there
+    expect(queryByText("password should be hunter2")).toBeInTheDocument();
+    expect(input).toBeInvalid();
+
+    await act(async () => {
+      // Type the correct password
+      await userEvent.clear(input);
+      await userEvent.type(input, "hunter2");
+      await userEvent.keyboard("{tab}");
+    });
+
+    // The message should be gone and the input valid
+    expect(queryByText("password should be hunter2")).not.toBeInTheDocument();
+    expect(input).toBeValid();
   });
 
   it("should show the buttons when the input or buttons are focused", async () => {
