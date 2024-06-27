@@ -1,5 +1,5 @@
 import React from '../../../../../node_modules/react';
-import { TextInput } from "../Text";
+import { TextControl } from "../..";
 type Props = {
     /**
      * The label for the control
@@ -10,17 +10,17 @@ type Props = {
      */
     className?: string;
     /**
-     * The content of the text box
-     */
-    value: string;
-    /**
      * Callback for when the user confirms the change
      */
-    onSave: () => Promise<void>;
+    onSave?: (e: React.FormEvent<HTMLFormElement>) => Promise<void> | void;
     /**
-     * Calback for when the user wishes to cancel the change
+     * Callback for when the user wishes to cancel the change
      */
-    onCancel: () => void;
+    onCancel?: (e: React.FormEvent<HTMLFormElement>) => void;
+    /**
+     * onInput event handler on the text control
+     */
+    onInput?: (e: React.ChangeEvent<HTMLInputElement>) => void;
     /**
      * Error message to be displayed below the box. If supplied, will disable the
      * save button.
@@ -40,14 +40,9 @@ type Props = {
      */
     savingLabel: string;
     /**
-     * True to disable the save button, false to enable.
-     * Default: false (enabled)
-     */
-    disableSaveButton?: boolean;
-    /**
      * The label for the cancel button
      */
-    cancelButtonLabel?: string;
+    cancelButtonLabel: string;
     /**
      * Label to be displayed under the input as a help text
      */
@@ -56,7 +51,7 @@ type Props = {
      * If true, disabled the entire component to disallow editing.
      */
     disabled?: boolean;
-} & React.ComponentProps<typeof TextInput>;
+} & React.ComponentProps<typeof TextControl>;
 /**
  * A text box with save/cancel buttons that appear when the field is active.
  * Since thios control has its own 'save' button, it should *not* appear as part

@@ -11,6 +11,14 @@ type MessageProps = {
  */
 export declare const ErrorMessage: React.ForwardRefExoticComponent<Omit<React.PropsWithChildren<MessageProps>, "ref"> & React.RefAttributes<HTMLSpanElement>>;
 /**
+ * A success message to display below a form control.
+ */
+export declare const SuccessMessage: React.ForwardRefExoticComponent<Omit<React.PropsWithChildren<MessageProps>, "ref"> & React.RefAttributes<HTMLSpanElement>>;
+/**
+ * A message showing a loading state
+ */
+export declare const LoadingMessage: React.ForwardRefExoticComponent<Omit<React.PropsWithChildren<MessageProps>, "ref"> & React.RefAttributes<HTMLSpanElement>>;
+/**
  * A help message to display below a form control.
  */
 export declare const HelpMessage: React.ForwardRefExoticComponent<Omit<React.PropsWithChildren<MessageProps>, "ref"> & React.RefAttributes<HTMLSpanElement>>;
