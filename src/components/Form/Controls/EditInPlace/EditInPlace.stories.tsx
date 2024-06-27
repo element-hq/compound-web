@@ -19,6 +19,7 @@ import React from "react";
 import { EditInPlace } from "./";
 import { Meta, StoryObj } from "@storybook/react";
 import { expect, userEvent, within } from "@storybook/test";
+import { ErrorMessage } from "../../Message";
 
 type Props = { invalid?: boolean } & React.ComponentProps<typeof EditInPlace>;
 
@@ -32,11 +33,14 @@ export default {
         "onChange",
         "onSave",
         "onCancel",
+        "onClearServerErrors",
         "defaultValue",
         "error",
+        "serverInvalid",
         "savedLabel",
         "saveButtonLabel",
         "cancelButtonLabel",
+        "helpLabel",
         "disabled",
       ],
     },
@@ -58,7 +62,13 @@ export default {
     onCancel: {
       action: "cancelled",
     },
-    error: {
+    onClearServerErrors: {
+      action: "cleared server errors",
+    },
+    serverInvalid: {
+      type: "boolean",
+    },
+    helpLabel: {
       type: "string",
     },
     savedLabel: {
@@ -122,7 +132,8 @@ export const Saving: Story = {
 
 export const WithError: Story = {
   args: {
-    error: "I am a teapot",
+    serverInvalid: true,
+    children: <ErrorMessage>I am a teapot</ErrorMessage>,
   },
 };
 
