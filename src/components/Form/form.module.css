@@ -109,6 +109,10 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/:has#browser_compatibility */
   color: var(--cpd-color-text-critical-primary);
 }
 
+.success-message {
+  color: var(--cpd-color-text-success-primary);
+}
+
 /* Currently working everywhere but on Firefox (only behind a labs flag)
 https://developer.mozilla.org/en-US/docs/Web/CSS/:has#browser_compatibility */
 input[disabled] ~ .message,

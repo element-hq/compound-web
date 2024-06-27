@@ -15,19 +15,18 @@ limitations under the License.
 */
 
 import { describe, it, expect, vi, afterEach } from "vitest";
-import React, { ChangeEvent } from "react";
-import { render, screen } from "@testing-library/react";
+import React from "react";
+import { render } from "@testing-library/react";
 
-import { EditInPlace } from "./EditInPlace";
-import { Root, Field, Control } from "@radix-ui/react-form";
 import { userEvent } from "@storybook/test";
 import { act } from "react-dom/test-utils";
+import { TooltipProvider } from "@radix-ui/react-tooltip";
+import { EditInPlace } from "./EditInPlace";
 
 type EditInPlaceTestProps = {
   error?: string;
-  value?: string;
-  disableSaveButton?: boolean;
-  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
+  defaultValue?: string;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onSave?: () => Promise<void>;
   onCancel?: () => void;
   disabled?: boolean;
@@ -35,27 +34,21 @@ type EditInPlaceTestProps = {
 
 describe("EditInPlace", () => {
   const EditInPlaceTest = (props: EditInPlaceTestProps) => (
-    <Root>
-      <Field name="editInPlace">
-        <Control asChild>
-          <EditInPlace
-            label="Edit Me"
-            value={props.value ?? "Edit this text"}
-            error={props.error}
-            onChange={props.onChange ?? (() => {})}
-            onSave={props.onSave ?? (() => Promise.resolve())}
-            onCancel={props.onCancel ?? (() => {})}
-            saveButtonLabel="Save"
-            cancelButtonLabel="Cancel"
-            savedLabel={"Saved"}
-            disableSaveButton={props.disableSaveButton}
-            savingLabel="Saving..."
-            helpLabel="Help message"
-            disabled={props.disabled}
-          />
-        </Control>
-      </Field>
-    </Root>
+    <TooltipProvider>
+      <EditInPlace
+        label="Edit Me"
+        defaultValue={props.defaultValue}
+        error={props.error}
+        onChange={props.onChange ?? (() => {})}
+        onSave={props.onSave ?? (() => Promise.resolve())}
+        onCancel={props.onCancel ?? (() => {})}
+        saveButtonLabel="Save"
+        cancelButtonLabel="Cancel"
+        savedLabel="Saved"
+        savingLabel="Saving..."
+        disabled={props.disabled}
+      />
+    </TooltipProvider>
   );
 
   afterEach(() => {
@@ -71,14 +64,16 @@ describe("EditInPlace", () => {
     let value;
     const onChange = vi
       .fn()
-      .mockImplementation((e: ChangeEvent<HTMLInputElement>) => {
+      .mockImplementation((e: React.ChangeEvent<HTMLInputElement>) => {
         value = e.target.value;
       });
-    render(<EditInPlaceTest onChange={onChange} />);
+
+    const { getByRole } = render(
+      <EditInPlaceTest onChange={onChange} defaultValue="Edit this text" />,
+    );
 
     await act(async () => {
-      const input = screen.getByRole("textbox");
-      // nb. we don't test updating the value here so we only type one character
+      const input = getByRole("textbox");
       await userEvent.type(input, "!");
     });
 
@@ -87,44 +82,99 @@ describe("EditInPlace", () => {
   });
 
   it("field is valid if no error specified", () => {
-    render(<EditInPlaceTest />);
+    const { getByRole } = render(<EditInPlaceTest />);
 
-    const input = screen.getByRole("textbox");
+    const input = getByRole("textbox");
     expect(input).toBeValid();
   });
 
   it("renders error icon and text if error provided", () => {
-    render(<EditInPlaceTest error="Missing Left Falangey" />);
+    const { asFragment, getByRole, getByText } = render(
+      <EditInPlaceTest error="Missing Left Falangey" />,
+    );
+    expect(asFragment()).toMatchSnapshot();
 
-    const input = screen.getByRole("textbox");
+    const input = getByRole("textbox");
     expect(input).toBeInvalid();
-    expect(input).toHaveAttribute("aria-errormessage");
+    expect(input).toHaveAttribute("aria-describedby");
 
-    const errorText = screen.getByText("Missing Left Falangey");
+    const errorText = getByText("Missing Left Falangey");
     expect(errorText).toBeInTheDocument();
 
-    expect(errorText.id).toEqual(input.getAttribute("aria-errormessage"));
+    expect(errorText.id).toEqual(input.getAttribute("aria-describedby"));
   });
 
-  it("should disable save button if told to", () => {
-    render(<EditInPlaceTest disableSaveButton={true} />);
+  it("should show the buttons when the input or buttons are focused", async () => {
+    const { queryByRole } = render(<EditInPlaceTest />);
 
-    const saveButton = screen.getByRole("button", { name: "Save" });
-    expect(saveButton).toBeDisabled();
+    expect(queryByRole("button", { name: "Save" })).not.toBeInTheDocument();
+
+    await act(async () => {
+      // Focus the input
+      await userEvent.keyboard("{tab}");
+    });
+    expect(queryByRole("button", { name: "Save" })).toBeInTheDocument();
+
+    await act(async () => {
+      // Focus the save button
+      await userEvent.keyboard("{tab}");
+    });
+
+    // It should still be visible
+    expect(queryByRole("button", { name: "Save" })).toBeInTheDocument();
+
+    await act(async () => {
+      // Focus the cancel button
+      await userEvent.keyboard("{tab}");
+    });
+
+    // It should still be visible
+    expect(queryByRole("button", { name: "Save" })).toBeInTheDocument();
+
+    await act(async () => {
+      // Focus away
+      await userEvent.keyboard("{tab}");
+    });
+
+    // The button should be hidden
+    expect(queryByRole("button", { name: "Save" })).not.toBeInTheDocument();
   });
 
-  it("enables save button by default", () => {
-    render(<EditInPlaceTest value="Something else" />);
+  it("enables save button once we entered something", async () => {
+    const { getByRole, queryByRole } = render(<EditInPlaceTest />);
 
-    expect(screen.getByRole("button", { name: "Save" })).toBeEnabled();
+    const input = getByRole("textbox");
+    expect(queryByRole("button", { name: "Save" })).not.toBeInTheDocument();
+
+    await act(async () => {
+      // Focus the input
+      await userEvent.click(input);
+    });
+
+    // The button should be visible but disabled
+    expect(getByRole("button", { name: "Save" })).toHaveAttribute(
+      "aria-disabled",
+      "true",
+    );
+
+    await act(async () => {
+      await userEvent.type(input, "Changed");
+    });
+
+    // The button should be enabled
+    expect(getByRole("button", { name: "Save" })).toHaveAttribute(
+      "aria-disabled",
+      "false",
+    );
   });
 
   it("calls save callback on save button click", async () => {
     const onSave = vi.fn();
-    render(<EditInPlaceTest onSave={onSave} value="Changed" />);
+    const { getByRole } = render(<EditInPlaceTest onSave={onSave} />);
 
     await act(async () => {
-      await userEvent.click(screen.getByRole("button", { name: "Save" }));
+      await userEvent.type(getByRole("textbox"), "Changed");
+      await userEvent.click(getByRole("button", { name: "Save" }));
     });
 
     expect(onSave).toHaveBeenCalled();
@@ -132,10 +182,11 @@ describe("EditInPlace", () => {
 
   it("calls save callback if enter pressed in the text box", async () => {
     const onSave = vi.fn();
-    render(<EditInPlaceTest onSave={onSave} value="Changed" />);
+    const { getByRole } = render(<EditInPlaceTest onSave={onSave} />);
 
     await act(async () => {
-      await userEvent.type(screen.getByRole("textbox"), "{enter}");
+      await userEvent.type(getByRole("textbox"), "Changed");
+      await userEvent.type(getByRole("textbox"), "{enter}");
     });
 
     expect(onSave).toHaveBeenCalled();
@@ -143,30 +194,61 @@ describe("EditInPlace", () => {
 
   it("calls onCancel when cancel button pressed", async () => {
     const onCancel = vi.fn();
-    render(<EditInPlaceTest onCancel={onCancel} value="Changed" />);
+    const { getByRole } = render(<EditInPlaceTest onCancel={onCancel} />);
 
-    await userEvent.click(screen.getByRole("button", { name: "Cancel" }));
+    await act(async () => {
+      await userEvent.type(getByRole("textbox"), "Changed");
+      await userEvent.click(getByRole("button", { name: "Cancel" }));
+    });
+
+    expect(onCancel).toHaveBeenCalled();
+  });
+
+  it("resets the form when cancel button pressed", async () => {
+    const onCancel = vi.fn();
+    const { getByRole } = render(
+      <EditInPlaceTest onCancel={onCancel} defaultValue="Initial" />,
+    );
+
+    const input = getByRole("textbox") as HTMLInputElement;
+
+    await act(async () => {
+      await userEvent.clear(input);
+      await userEvent.type(input, "Changed");
+    });
+
+    expect(input.value).toBe("Changed");
+
+    await act(async () => {
+      await userEvent.click(getByRole("button", { name: "Cancel" }));
+    });
+
+    expect(input.value).toBe("Initial");
 
     expect(onCancel).toHaveBeenCalled();
   });
 
   it("unfocuses the input when cancel button pressed", async () => {
-    render(<EditInPlaceTest value="Changed" />);
+    const { getByRole } = render(<EditInPlaceTest />);
 
-    const input = screen.getByRole("textbox");
-    await userEvent.click(screen.getByRole("button", { name: "Cancel" }));
+    const input = getByRole("textbox");
+    await act(async () => {
+      await userEvent.type(input, "Changed");
+      await userEvent.click(getByRole("button", { name: "Cancel" }));
+    });
 
     expect(document.activeElement).not.toEqual(input);
   });
 
-  it("unfocuses the input when the save calllback promise resolves", async () => {
-    render(<EditInPlaceTest value="Changed" />);
+  it("unfocuses the input when the save callback promise resolves", async () => {
+    const { getByRole } = render(<EditInPlaceTest />);
 
+    const input = getByRole("textbox");
     await act(async () => {
-      await userEvent.click(screen.getByRole("button", { name: "Save" }));
+      await userEvent.type(input, "Changed");
+      await userEvent.click(getByRole("button", { name: "Save" }));
     });
 
-    const input = screen.getByRole("textbox");
     expect(document.activeElement).not.toEqual(input);
   });
 
@@ -174,42 +256,51 @@ describe("EditInPlace", () => {
     vi.useFakeTimers();
     const user = userEvent.setup({ advanceTimers: vi.advanceTimersByTime });
 
-    render(<EditInPlaceTest value="Changed" />);
+    const { getByRole, getByText, queryByText, asFragment } = render(
+      <EditInPlaceTest />,
+    );
 
-    expect(screen.queryByText("Saved")).not.toBeInTheDocument();
+    expect(asFragment()).toMatchSnapshot();
+    expect(queryByText("Saved")).not.toBeInTheDocument();
 
     await act(async () => {
-      await user.click(screen.getByRole("button", { name: "Save" }));
+      await user.type(getByRole("textbox"), "Changed");
+      await user.click(getByRole("button", { name: "Save" }));
     });
 
-    expect(screen.getByText("Saved")).toBeInTheDocument();
+    expect(asFragment()).toMatchSnapshot();
+    expect(getByText("Saved")).toBeInTheDocument();
 
     act(() => {
       vi.advanceTimersByTime(1900);
     });
 
-    expect(screen.queryByText("Saved")).toBeInTheDocument();
+    expect(queryByText("Saved")).toBeInTheDocument();
 
     act(() => {
       vi.advanceTimersByTime(200);
     });
 
-    expect(screen.queryByText("Saved")).not.toBeInTheDocument();
+    expect(queryByText("Saved")).not.toBeInTheDocument();
   });
 
   it("does not call onSave if cancel pressed", async () => {
     const onSave = vi.fn();
-    render(<EditInPlaceTest onSave={onSave} value="Changed" />);
+    const { getByRole } = render(<EditInPlaceTest onSave={onSave} />);
 
-    await userEvent.click(screen.getByRole("button", { name: "Cancel" }));
+    await act(async () => {
+      await userEvent.type(getByRole("textbox"), "Changed");
+      await userEvent.click(getByRole("button", { name: "Cancel" }));
+    });
 
     expect(onSave).not.toHaveBeenCalled();
   });
 
   it("disables control when disabled", () => {
-    render(<EditInPlaceTest value="Changed" disabled={true} />);
+    const { getByRole, asFragment } = render(<EditInPlaceTest disabled />);
+    expect(asFragment()).toMatchSnapshot();
 
-    const input = screen.getByRole("textbox");
+    const input = getByRole("textbox");
     expect(input).toBeDisabled();
   });
 });

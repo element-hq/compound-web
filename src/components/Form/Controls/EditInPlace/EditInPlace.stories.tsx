@@ -18,6 +18,7 @@ import React from "react";
 
 import { EditInPlace } from "./";
 import { Meta, StoryObj } from "@storybook/react";
+import { expect, userEvent, within } from "@storybook/test";
 
 type Props = { invalid?: boolean } & React.ComponentProps<typeof EditInPlace>;
 
@@ -31,13 +32,11 @@ export default {
         "onChange",
         "onSave",
         "onCancel",
-        "value",
-        "initialValue",
+        "defaultValue",
         "error",
         "savedLabel",
         "saveButtonLabel",
         "cancelButtonLabel",
-        "disableSaveButton",
         "disabled",
       ],
     },
@@ -50,17 +49,11 @@ export default {
     label: {
       type: "string",
     },
-    value: {
+    defaultValue: {
       type: "string",
-    },
-    disableSaveButton: {
-      type: "boolean",
     },
     onChange: {
       action: "changed",
-    },
-    onSave: {
-      action: "saved",
     },
     onCancel: {
       action: "cancelled",
@@ -87,10 +80,11 @@ export default {
   render: ({ ...restArgs }) => <EditInPlace {...restArgs} />,
   args: {
     label: "Label",
-    value: "",
+    onSave: () => new Promise((resolve) => setTimeout(resolve, 1000)),
+    savedLabel: "Saved",
     saveButtonLabel: "Save",
     cancelButtonLabel: "Cancel",
-    savingLabel: "Saving...",
+    savingLabel: "Saving…",
   },
 } satisfies Meta<Props>;
 
@@ -100,14 +94,29 @@ export const Empty: Story = {};
 
 export const WithText: Story = {
   args: {
-    value: "Hello, Computer",
+    defaultValue: "Hello, Computer",
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const input = canvas.getByRole("textbox");
+    await userEvent.clear(input);
+    await userEvent.type(input, "Hello, Computer");
   },
 };
 
-export const SaveDisabled: Story = {
+export const Saving: Story = {
   args: {
-    value: "Hello, World",
-    disableSaveButton: true,
+    defaultValue: "Hello",
+    onSave: () => new Promise(() => {}),
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const input = canvas.getByRole("textbox");
+    await userEvent.clear(input);
+    await userEvent.type(input, "Hello");
+    const save = canvas.getByRole("button", { name: "Save" });
+    await userEvent.click(save);
+    await expect(canvas.getByText("Saving…")).toBeInTheDocument();
   },
 };
 

@@ -16,10 +16,12 @@ limitations under the License.
 
 import React, { forwardRef, PropsWithChildren } from "react";
 import { Message } from "@radix-ui/react-form";
+import CheckCircleSolidIcon from "@vector-im/compound-design-tokens/icons/check-circle-solid.svg";
 import ErrorIcon from "@vector-im/compound-design-tokens/icons/error.svg";
 
 import styles from "./form.module.css";
 import classNames from "classnames";
+import { InlineSpinner } from "../InlineSpinner/InlineSpinner";
 
 type MessageProps = {
   /**
@@ -43,6 +45,42 @@ export const ErrorMessage = forwardRef<
   return (
     <Message ref={ref} {...props} className={classes}>
       <ErrorIcon />
+      {children}
+    </Message>
+  );
+});
+
+/**
+ * A success message to display below a form control.
+ */
+export const SuccessMessage = forwardRef<
+  HTMLSpanElement,
+  PropsWithChildren<MessageProps>
+>(function SuccessMessage({ children, className, ...props }, ref) {
+  const classes = classNames(
+    styles.message,
+    styles["success-message"],
+    className,
+  );
+  return (
+    <Message ref={ref} {...props} className={classes}>
+      <CheckCircleSolidIcon />
+      {children}
+    </Message>
+  );
+});
+
+/**
+ * A message showing a loading state
+ */
+export const LoadingMessage = forwardRef<
+  HTMLSpanElement,
+  PropsWithChildren<MessageProps>
+>(function LoadingMessage({ children, className, ...props }, ref) {
+  const classes = classNames(styles.message, className);
+  return (
+    <Message ref={ref} {...props} className={classes}>
+      <InlineSpinner />
       {children}
     </Message>
   );
