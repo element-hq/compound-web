@@ -77,7 +77,7 @@
   }
 }
 
-.nav-item:focus {
+.nav-item:focus-visible {
   outline: none;
   outline: var(--cpd-color-border-focused) var(--cpd-border-width-2) solid;
 }
