@@ -38,6 +38,7 @@ export {
 } from "./components/Typography/Heading";
 export { IndicatorIcon } from "./components/Icon/IndicatorIcon/IndicatorIcon";
 export { Link } from "./components/Link/Link";
+export { NavBar, NavItem } from "./components/Nav";
 export { Menu } from "./components/Menu/Menu";
 export { MenuItem } from "./components/Menu/MenuItem";
 export { Search } from "./components/Search/Search";

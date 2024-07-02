@@ -95,6 +95,7 @@
     "stylelint-plugin-defensive-css": "^0.9.1",
     "stylelint-use-logical": "^2.1.0",
     "stylelint-value-no-unknown-custom-properties": "^4.0.0",
+    "ts-xor": "^1.3.0",
     "typescript": "^5.2.2",
     "vite": "^5.2.11",
     "vite-plugin-dts": "^3.5.3",
