@@ -92,6 +92,7 @@
 
 .nav-item[disabled] {
   cursor: not-allowed;
+  /* Enable pointer events for svgs even with fill=none */
   pointer-events: all !important;
   color: var(--cpd-color-text-disabled);
 }
