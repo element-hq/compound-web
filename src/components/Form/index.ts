@@ -30,6 +30,7 @@ export {
   ToggleControl,
   ToggleInput,
   EditInPlace,
+  Dropdown,
 } from "./Controls";
 
 export { Root } from "./Root";
