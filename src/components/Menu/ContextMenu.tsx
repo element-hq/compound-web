@@ -88,7 +88,7 @@ export const ContextMenu: FC<Props> = ({
 
   // Normally, the menu takes the form of a floating box. But on Android and
   // iOS, the menu should morph into a drawer
-  const platform = getPlatform();
+  const platform = useMemo(() => getPlatform(), []);
   const drawer = platform === "android" || platform === "ios";
   const context: MenuData = useMemo(
     () => ({
@@ -110,6 +110,11 @@ export const ContextMenu: FC<Props> = ({
       {triggerProp}
     </Trigger>
   );
+
+  // Platform hasn't loaded yet.
+  if (!platform) {
+    return null;
+  }
 
   // This is a small hack: Vaul drawers only support buttons as triggers, so
   // we end up mounting an empty Radix context menu tree alongside the
