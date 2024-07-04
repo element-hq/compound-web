@@ -14,6 +14,6 @@ type NavItemButtonProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, "style" 
  * A navigation item component to be used with a navigation bar.
  * Will render an anchor when href is provided, otherwise a button element.
  */
-export declare const NavItem: (props: React.PropsWithChildren<XOR<NavItemLinkProps, NavItemButtonProps>>) => import('../../../node_modules/react/jsx-runtime').JSX.Element;
+export declare const NavItem: React.ForwardRefExoticComponent<React.PropsWithChildren<XOR<NavItemLinkProps, NavItemButtonProps>> & React.RefAttributes<HTMLButtonElement>>;
 export {};
 //# sourceMappingURL=NavItem.d.ts.map
