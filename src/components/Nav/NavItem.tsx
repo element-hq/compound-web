@@ -18,7 +18,9 @@ limitations under the License.
 import React, {
   AnchorHTMLAttributes,
   ButtonHTMLAttributes,
+  ForwardedRef,
   MouseEventHandler,
+  forwardRef,
 } from "react";
 import type { XOR } from "ts-xor";
 
@@ -43,32 +45,49 @@ type NavItemButtonProps = Omit<
   onClick: MouseEventHandler<HTMLButtonElement>;
 } & NavItemProps;
 
-const NavItemLink = ({
-  children,
-  href,
-  onClick,
-  ...rest
-}: React.PropsWithChildren<NavItemLinkProps>) => (
-  <a href={href} onClick={onClick} className={styles["nav-item"]} {...rest}>
-    {children}
-  </a>
-);
+const NavItemLink = forwardRef(function NavItemLink(
+  {
+    children,
+    href,
+    onClick,
+    ...rest
+  }: React.PropsWithChildren<NavItemLinkProps>,
+  ref: ForwardedRef<HTMLAnchorElement>,
+) {
+  return (
+    <a
+      href={href}
+      onClick={onClick}
+      className={styles["nav-item"]}
+      {...rest}
+      ref={ref}
+    >
+      {children}
+    </a>
+  );
+});
 
-const NavItemButton = ({
-  children,
-  disabled,
-  onClick,
-  ...rest
-}: React.PropsWithChildren<NavItemButtonProps>) => (
-  <button
-    onClick={onClick}
-    className={styles["nav-item"]}
-    disabled={disabled}
-    {...rest}
-  >
-    {children}
-  </button>
-);
+const NavItemButton = forwardRef(function NavItemButton(
+  {
+    children,
+    disabled,
+    onClick,
+    ...rest
+  }: React.PropsWithChildren<NavItemButtonProps>,
+  ref: ForwardedRef<HTMLButtonElement>,
+) {
+  return (
+    <button
+      onClick={onClick}
+      className={styles["nav-item"]}
+      disabled={disabled}
+      ref={ref}
+      {...rest}
+    >
+      {children}
+    </button>
+  );
+});
 
 const renderAsLink = (
   props: React.PropsWithChildren<XOR<NavItemLinkProps, NavItemButtonProps>>,
@@ -78,9 +97,12 @@ const renderAsLink = (
  * A navigation item component to be used with a navigation bar.
  * Will render an anchor when href is provided, otherwise a button element.
  */
-export const NavItem = (
+export const NavItem = forwardRef(function NavItem(
   props: React.PropsWithChildren<XOR<NavItemLinkProps, NavItemButtonProps>>,
-) => {
+  ref:
+    | ForwardedRef<HTMLButtonElement | null>
+    | ForwardedRef<HTMLAnchorElement | null>,
+) {
   /**
    * For accessibility rules related to tabs,
    * see https://www.w3.org/WAI/ARIA/apg/patterns/tabs/#wai-ariaroles,states,andproperties
@@ -109,9 +131,15 @@ export const NavItem = (
   // Depending on whether `href` is in props, we render link/button
   let navItem: React.ReactNode;
   if (renderAsLink(propsForChild)) {
-    navItem = <NavItemLink {...propsForChild} {...a11yAttributes} />;
+    const buttonRef = ref as ForwardedRef<HTMLAnchorElement | null>;
+    navItem = (
+      <NavItemLink {...propsForChild} {...a11yAttributes} ref={buttonRef} />
+    );
   } else {
-    navItem = <NavItemButton {...propsForChild} {...a11yAttributes} />;
+    const buttonRef = ref as ForwardedRef<HTMLButtonElement | null>;
+    navItem = (
+      <NavItemButton {...propsForChild} {...a11yAttributes} ref={buttonRef} />
+    );
   }
 
   return (
@@ -123,4 +151,4 @@ export const NavItem = (
       {navItem}
     </li>
   );
-};
+});
