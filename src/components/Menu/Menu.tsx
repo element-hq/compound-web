@@ -112,11 +112,6 @@ export const Menu: FC<Props> = ({
     <MenuContext.Provider value={context}>{childrenProp}</MenuContext.Provider>
   );
 
-  // Platform hasn't loaded yet.
-  if (!platform) {
-    return null;
-  }
-
   return drawer ? (
     <Drawer.Root open={open} onOpenChange={onOpenChange}>
       <Drawer.Trigger asChild>{trigger}</Drawer.Trigger>

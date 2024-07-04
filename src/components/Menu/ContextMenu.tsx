@@ -111,11 +111,6 @@ export const ContextMenu: FC<Props> = ({
     </Trigger>
   );
 
-  // Platform hasn't loaded yet.
-  if (!platform) {
-    return null;
-  }
-
   // This is a small hack: Vaul drawers only support buttons as triggers, so
   // we end up mounting an empty Radix context menu tree alongside the
   // drawer tree, purely so we can use its Trigger component (which supports
