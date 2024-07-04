@@ -19,12 +19,15 @@ limitations under the License.
 // implement the designs.
 let platform: "android" | "ios" | "other";
 
-if (/android/i.test(navigator.userAgent)) {
+// Some SSR environments don't provide access to this.
+const userAgent = navigator?.userAgent;
+
+if (/android/i.test(userAgent)) {
   platform = "android";
   // We include 'Mac' here and double-check for touch support because iPads on
   // iOS 13 pretend to be a MacOS desktop
 } else if (
-  /iPad|iPhone|iPod|Mac/.test(navigator.userAgent) &&
+  /iPad|iPhone|iPod|Mac/.test(userAgent) &&
   "ontouchend" in document
 ) {
   platform = "ios";
