@@ -26,10 +26,7 @@ if (/android/i.test(userAgent)) {
   platform = "android";
   // We include 'Mac' here and double-check for touch support because iPads on
   // iOS 13 pretend to be a MacOS desktop
-} else if (
-  /iPad|iPhone|iPod|Mac/.test(userAgent) &&
-  "ontouchend" in document
-) {
+} else if (/iPad|iPhone|iPod|Mac/.test(userAgent) && "ontouchend" in document) {
   platform = "ios";
 } else {
   platform = "other";
