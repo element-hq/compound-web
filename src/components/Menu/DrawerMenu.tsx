@@ -18,7 +18,6 @@ import React, {
   ComponentPropsWithoutRef,
   ReactNode,
   forwardRef,
-  useMemo,
 } from "react";
 import styles from "./DrawerMenu.module.css";
 import { getPlatform } from "../../utils/platform";
@@ -42,7 +41,7 @@ interface Props extends ComponentPropsWithoutRef<"div"> {
 // via the Menu or ContextMenu components.
 export const DrawerMenu = forwardRef<HTMLDivElement, Props>(
   ({ title, children, className, ...props }, ref) => {
-    const platform = useMemo(() => getPlatform(), []);
+    const platform = getPlatform();
     return (
       <div
         ref={ref}

@@ -99,7 +99,7 @@ export const Menu: FC<Props> = ({
 }) => {
   // Normally, the menu takes the form of a floating box. But on Android and
   // iOS, the menu should morph into a drawer
-  const platform = useMemo(() => getPlatform(), []);
+  const platform = getPlatform();
   const drawer = platform === "android" || platform === "ios";
   const context: MenuData = useMemo(
     () => ({
