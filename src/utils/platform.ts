@@ -14,7 +14,6 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-
 /**
  * Gets the platform on which the application is running.
  * If the userAgent could not be determined, this will default to "other"
@@ -31,7 +30,10 @@ export function getPlatform(): "android" | "ios" | "other" {
     return "android";
     // We include 'Mac' here and double-check for touch support because iPads on
     // iOS 13 pretend to be a MacOS desktop
-  } else if (/iPad|iPhone|iPod|Mac/.test(userAgent) && "ontouchend" in document) {
+  } else if (
+    /iPad|iPhone|iPod|Mac/.test(userAgent) &&
+    "ontouchend" in document
+  ) {
     return "ios";
   } else {
     return "other";
