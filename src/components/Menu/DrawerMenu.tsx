@@ -14,11 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import React, {
-  ComponentPropsWithoutRef,
-  ReactNode,
-  forwardRef,
-} from "react";
+import React, { ComponentPropsWithoutRef, ReactNode, forwardRef } from "react";
 import styles from "./DrawerMenu.module.css";
 import { getPlatform } from "../../utils/platform";
 import classNames from "classnames";
@@ -40,21 +36,18 @@ interface Props extends ComponentPropsWithoutRef<"div"> {
 // This an internal component not intended for export! Consumers should use it
 // via the Menu or ContextMenu components.
 export const DrawerMenu = forwardRef<HTMLDivElement, Props>(
-  ({ title, children, className, ...props }, ref) => {
-    const platform = getPlatform();
-    return (
-      <div
-        ref={ref}
-        className={classNames(className, styles.drawer)}
-        aria-label={title}
-        data-platform={platform}
-        {...props}
-        role="menu"
-      >
-        <div className={styles.body}>{children}</div>
-      </div>
-    );
-  },
+  ({ title, children, className, ...props }, ref) => (
+    <div
+      ref={ref}
+      className={classNames(className, styles.drawer)}
+      aria-label={title}
+      data-platform={getPlatform()}
+      {...props}
+      role="menu"
+    >
+      <div className={styles.body}>{children}</div>
+    </div>
+  ),
 );
 
 DrawerMenu.displayName = "DrawerMenu";
