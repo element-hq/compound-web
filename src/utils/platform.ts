@@ -14,26 +14,26 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-// The granularity of this value is kind of arbitrary: it distinguishes exactly
-// the platforms that this library needs to know about in order to correctly
-// implement the designs.
-let platform: "android" | "ios" | "other";
-
-// Some SSR environments don't provide access to this.
-const userAgent = navigator?.userAgent;
-
-if (/android/i.test(userAgent)) {
-  platform = "android";
-  // We include 'Mac' here and double-check for touch support because iPads on
-  // iOS 13 pretend to be a MacOS desktop
-} else if (/iPad|iPhone|iPod|Mac/.test(userAgent) && "ontouchend" in document) {
-  platform = "ios";
-} else {
-  platform = "other";
-}
 
 /**
  * Gets the platform on which the application is running.
+ * If the userAgent could not be determined, this will default to "other"
  */
-// This is a function rather than a constant value so that it can be mocked
-export const getPlatform = () => platform;
+export function getPlatform(): "android" | "ios" | "other" {
+  // The granularity of this value is kind of arbitrary: it distinguishes exactly
+  // the platforms that this library needs to know about in order to correctly
+  // implement the designs.
+
+  // Some SSR environments don't provide access to this.
+  const userAgent = globalThis.navigator?.userAgent;
+
+  if (/android/i.test(userAgent)) {
+    return "android";
+    // We include 'Mac' here and double-check for touch support because iPads on
+    // iOS 13 pretend to be a MacOS desktop
+  } else if (/iPad|iPhone|iPod|Mac/.test(userAgent) && "ontouchend" in document) {
+    return "ios";
+  } else {
+    return "other";
+  }
+}
