@@ -61,6 +61,9 @@ type DropdownProps = {
    * @param value
    */
   onValueChange?: (value: string) => void;
+  /**
+   * The error message to display.
+   */
   error?: string;
 };
 
