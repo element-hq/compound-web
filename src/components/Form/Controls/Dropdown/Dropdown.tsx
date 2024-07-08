@@ -19,17 +19,14 @@ import ChevronDown from "@vector-im/compound-design-tokens/icons/chevron-down.sv
 import Check from "@vector-im/compound-design-tokens/icons/check.svg";
 import Error from "@vector-im/compound-design-tokens/icons/error.svg";
 
-import { DropdownContext, useDropdownContext } from "./DropdownContext";
-
 import React, {
   Dispatch,
   forwardRef,
+  HTMLProps,
   memo,
-  PropsWithChildren,
   RefObject,
   SetStateAction,
   useEffect,
-  useMemo,
   useRef,
   useState,
 } from "react";
@@ -44,6 +41,15 @@ type DropdownProps = {
    * The CSS class name.
    */
   className?: string;
+  /**
+   * The default value of the dropdown.
+   */
+  defaultValue?: string;
+  /**
+   * The values of the dropdown.
+   * [value, text]
+   */
+  values: [string, string][];
   /**
    * The placeholder text.
    */
@@ -68,122 +74,123 @@ type DropdownProps = {
 };
 
 /**
- * A dropdown component.
- * Should be used with {@link DropdownItem} components.
- */
-export const Dropdown = forwardRef<
-  HTMLButtonElement,
-  PropsWithChildren<DropdownProps>
->(function Dropdown(props, ref) {
-  const [state, setState] = useState({
-    text: props.placeholder,
-  });
-  const newState = useMemo(() => ({ state, setState }), [state, setState]);
-
-  return (
-    <DropdownContext.Provider value={newState}>
-      <DropdownContent {...props} ref={ref} />
-    </DropdownContext.Provider>
-  );
-});
-
-/**
  * The dropdown content.
  */
-const DropdownContent = forwardRef<
-  HTMLButtonElement,
-  PropsWithChildren<DropdownProps>
->(function Dropdown(
-  {
-    className,
-    label,
-    placeholder,
-    helpLabel,
-    onValueChange,
-    error,
-    children,
-    ...props
-  },
-  ref,
-) {
-  const {
-    state: { text, value },
-  } = useDropdownContext();
+export const Dropdown = forwardRef<HTMLButtonElement, DropdownProps>(
+  function Dropdown(
+    {
+      className,
+      label,
+      placeholder,
+      helpLabel,
+      onValueChange,
+      error,
+      defaultValue,
+      values,
+      ...props
+    },
+    ref,
+  ) {
+    const [state, setState] = useInitialState(
+      values,
+      placeholder,
+      defaultValue,
+    );
+    const [open, setOpen, listRef] = useOpen();
 
-  useEffect(() => {
-    if (value) onValueChange?.(value);
-  }, [value]);
+    const hasPlaceholder = state.text === placeholder;
+    const buttonClasses = classNames({
+      [styles.placeholder]: hasPlaceholder,
+    });
 
-  const [open, setOpen, listRef] = useOpen();
+    /**
+     * Ids for accessibility.
+     */
+    const labelId = useId();
+    const contentId = useId();
 
-  const hasPlaceholder = text === placeholder;
-  const buttonClasses = classNames({
-    [styles.placeholder]: hasPlaceholder,
-  });
-
-  /**
-   * Ids for accessibility.
-   */
-  const labelId = useId();
-  const contentId = useId();
-
-  return (
-    <div
-      ref={listRef}
-      className={classNames(className, styles.container)}
-      aria-invalid={Boolean(error)}
-    >
-      <label id={labelId}>{label}</label>
-      <button
-        className={buttonClasses}
-        role="combobox"
-        aria-haspopup="listbox"
-        aria-labelledby={labelId}
-        aria-controls={contentId}
-        aria-expanded={open}
-        ref={ref}
-        onClick={() => setOpen((_open) => !_open)}
-        {...props}
+    return (
+      <div
+        ref={listRef}
+        className={classNames(className, styles.container)}
+        aria-invalid={Boolean(error)}
       >
-        {text}
-        <ChevronDown width="24" height="24" />
-      </button>
-      {open && (
-        <>
-          <div className={styles.border} />
-          <div className={styles.content}>
-            <ul
-              id={contentId}
-              role="listbox"
-              className={styles.content}
-              onClick={() => setOpen(false)}
-              onKeyDown={(e) => {
-                if (e.key === "Enter" || e.key === " " || e.key === "Escape") {
-                  setOpen(false);
-                }
-              }}
-            >
-              {children}
-            </ul>
-          </div>
-        </>
-      )}
-      {!error && helpLabel && <span className={styles.help}>{helpLabel}</span>}
-      {error && (
-        <span className={styles.error}>
-          <Error width="20" height="20" />
-          {error}
-        </span>
-      )}
-    </div>
-  );
-});
+        <label id={labelId}>{label}</label>
+        <button
+          className={buttonClasses}
+          role="combobox"
+          aria-haspopup="listbox"
+          aria-labelledby={labelId}
+          aria-controls={contentId}
+          aria-expanded={open}
+          ref={ref}
+          onClick={() => setOpen((_open) => !_open)}
+          {...props}
+        >
+          {state.text}
+          <ChevronDown width="24" height="24" />
+        </button>
+        {open && (
+          <>
+            <div className={styles.border} />
+            <div className={styles.content}>
+              <ul
+                id={contentId}
+                role="listbox"
+                className={styles.content}
+                onClick={() => setOpen(false)}
+                onKeyDown={(e) => {
+                  if (
+                    e.key === "Enter" ||
+                    e.key === " " ||
+                    e.key === "Escape"
+                  ) {
+                    setOpen(false);
+                  }
+                }}
+              >
+                {values.map(([value, text]) => (
+                  <DropdownItem
+                    key={value}
+                    isSelected={state.value === value}
+                    onClick={() => {
+                      setState({ value, text });
+                      onValueChange?.(value);
+                    }}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" || e.key === " ") {
+                        setState({ value, text });
+                        onValueChange?.(value);
+                      }
+                    }}
+                    {...props}
+                  >
+                    {text}
+                  </DropdownItem>
+                ))}
+              </ul>
+            </div>
+          </>
+        )}
+        {!error && helpLabel && (
+          <span className={styles.help}>{helpLabel}</span>
+        )}
+        {error && (
+          <span className={styles.error}>
+            <Error width="20" height="20" />
+            {error}
+          </span>
+        )}
+      </div>
+    );
+  },
+);
 
-type DropdownItemProps = {
+type DropdownItemProps = HTMLProps<HTMLLIElement> & {
   /**
-   * The value of the dropdown item.
+   * Whether the dropdown item is selected.
    */
-  value: string;
+  isSelected: boolean;
   /**
    * The text to display in the dropdown item.
    */
@@ -192,34 +199,20 @@ type DropdownItemProps = {
 
 /**
  * A dropdown item component.
- * Should use under a {@link Dropdown} component.
  */
-export const DropdownItem = memo(
+const DropdownItem = memo(
   forwardRef<HTMLLIElement, DropdownItemProps>(function MemoDropdownItem(
     // TODO
     // eslint-disable-next-line react/prop-types
-    { value, children, ...props }: DropdownItemProps,
+    { children, isSelected, ...props }: DropdownItemProps,
     ref,
   ) {
-    const {
-      state: { value: currentValue },
-      setState,
-    } = useDropdownContext();
-
-    const isSelected = currentValue === value;
-
     return (
       <li
         tabIndex={0}
         role="option"
         ref={ref}
         aria-selected={isSelected}
-        onClick={() => setState({ value, text: children })}
-        onKeyDown={(e) => {
-          if (e.key === "Enter" || e.key === " ") {
-            setState({ value, text: children });
-          }
-        }}
         {...props}
       >
         {children} {isSelected && <Check width="20" height="20" />}
@@ -252,4 +245,29 @@ function useOpen(): [
   }, [setOpen]);
 
   return [open, setOpen, ref];
+}
+
+/**
+ * A hook to manage the initial state of the dropdown.
+ * @param values - The values of the dropdown.
+ * @param placeholder - The placeholder text.
+ * @param defaultValue - The default value of the dropdown.
+ */
+function useInitialState(
+  values: [string, string][],
+  placeholder: string,
+  defaultValue?: string,
+) {
+  return useState(() => {
+    const defaultTuple = {
+      value: undefined,
+      text: placeholder,
+    };
+    if (!defaultValue) return defaultTuple;
+
+    const foundTuple = values.find(([value]) => value === defaultValue);
+    return foundTuple
+      ? { value: foundTuple[0], text: foundTuple[1] }
+      : defaultTuple;
+  });
 }

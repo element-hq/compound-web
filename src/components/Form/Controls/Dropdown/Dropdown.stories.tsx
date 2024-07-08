@@ -15,43 +15,81 @@
  * limitations under the License.
  * /
  */
-import { Dropdown, DropdownItem } from "./Dropdown";
-import React from "react";
+import { Dropdown } from "./Dropdown";
+import { fn } from "@storybook/test";
 
 export default {
   title: "Form/Controls/Dropdown",
   component: Dropdown,
   tags: ["autodocs"],
+  parameters: {
+    controls: {
+      include: ["defaultValue", "placeholder", "error", "values"],
+    },
+  },
   argTypes: {
-    invalid: {
-      type: "boolean",
+    label: {
+      type: "string",
+    },
+    error: {
+      type: "string",
     },
     placeholder: {
       type: "string",
     },
+    values: {
+      type: "array",
+    },
   },
-  render: ({ ...restArgs }) => (
-    <Dropdown label="Label" placeholder="Select an option" {...restArgs} />
-  ),
   args: {
+    label: "Label",
     placeholder: "Select an option",
-    children: (
-      <>
-        <DropdownItem value="Option1">Option 1</DropdownItem>
-        <DropdownItem value="Option2">Option 2</DropdownItem>
-      </>
-    ),
+    onValueChange: fn(),
+    values: [
+      ["Option1", "Option 1"],
+      ["Option2", "Option 2"],
+    ],
   },
 };
 
-export const Default = {};
+export const Default = {
+  parameters: {
+    design: {
+      type: "figma",
+      url: "https://www.figma.com/design/rTaQE2nIUSLav4Tg3nozq7/Compound-Web-Components?node-id=799-5732&t=g2Ex9sbzgku1nTIN-4",
+    },
+  },
+};
 export const WithHelpLabel = {
   args: {
     helpLabel: "Optional help text.",
+  },
+  parameters: {
+    design: {
+      type: "figma",
+      url: "https://www.figma.com/design/rTaQE2nIUSLav4Tg3nozq7/Compound-Web-Components?node-id=799-345&t=g2Ex9sbzgku1nTIN-4",
+    },
   },
 };
 export const WithError = {
   args: {
     error: "Select an option",
+  },
+  parameters: {
+    design: {
+      type: "figma",
+      url: "https://www.figma.com/design/rTaQE2nIUSLav4Tg3nozq7/Compound-Web-Components?node-id=799-370&t=g2Ex9sbzgku1nTIN-4",
+    },
+  },
+};
+export const WithDefaultValue = {
+  args: {
+    defaultValue: "Option2",
+  },
+  parameters: {
+    design: {
+      type: "figma",
+      url: "https://www.figma.com/design/rTaQE2nIUSLav4Tg3nozq7/Compound-Web-Components?node-id=799-381&t=g2Ex9sbzgku1nTIN-4",
+    },
   },
 };
