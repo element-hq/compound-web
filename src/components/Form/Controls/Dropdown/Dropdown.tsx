@@ -22,11 +22,15 @@ import Error from "@vector-im/compound-design-tokens/icons/error.svg";
 import { DropdownContext, useDropdownContext } from "./DropdownContext";
 
 import React, {
+  Dispatch,
   forwardRef,
   memo,
   PropsWithChildren,
+  RefObject,
+  SetStateAction,
   useEffect,
   useMemo,
+  useRef,
   useState,
 } from "react";
 
@@ -107,7 +111,7 @@ const DropdownContent = forwardRef<
     if (value) onValueChange?.(value);
   }, [value]);
 
-  const [open, setOpen] = useState(false);
+  const [open, setOpen, listRef] = useOpen();
 
   const hasPlaceholder = text === placeholder;
   const buttonClasses = classNames({
@@ -122,6 +126,7 @@ const DropdownContent = forwardRef<
 
   return (
     <div
+      ref={listRef}
       className={classNames(className, styles.container)}
       aria-invalid={Boolean(error)}
     >
@@ -219,3 +224,29 @@ export const DropdownItem = memo(
     );
   }),
 );
+
+/**
+ * A hook to manage the open state of the dropdown.
+ */
+function useOpen(): [
+  boolean,
+  Dispatch<SetStateAction<boolean>>,
+  RefObject<HTMLDivElement>,
+] {
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  // If the user clicks outside the dropdown, close it
+  useEffect(() => {
+    const closeIfOutside = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) {
+        setOpen(false);
+      }
+    };
+
+    document.addEventListener("click", closeIfOutside);
+    return () => document.removeEventListener("click", closeIfOutside);
+  }, [setOpen]);
+
+  return [open, setOpen, ref];
+}
