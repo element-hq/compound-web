@@ -65,7 +65,7 @@
   box-sizing: border-box;
   background: transparent;
   border: 0;
-  font: var(--cpd-font-body-md-regular);
+  font: var(--cpd-font-body-md-medium);
   color: var(--cpd-color-text-secondary);
   text-decoration: none;
 }
@@ -86,7 +86,8 @@
   background-color: var(--cpd-color-bg-subtle-primary);
 }
 
-.nav-item[aria-current] {
+.nav-item[aria-current],
+.nav-item[aria-selected="true"] {
   color: var(--cpd-color-text-primary);
 }
 
