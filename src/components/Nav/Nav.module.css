@@ -65,8 +65,7 @@
   box-sizing: border-box;
   background: transparent;
   border: 0;
-  font: var(--cpd-font-body-md-regular);
-  font-weight: 500;
+  font: var(--cpd-font-body-md-medium);
   color: var(--cpd-color-text-secondary);
   text-decoration: none;
 }
