@@ -96,7 +96,7 @@ export const Dropdown = forwardRef<HTMLButtonElement, DropdownProps>(
       placeholder,
       defaultValue,
     );
-    const [open, setOpen, listRef] = useOpen();
+    const [open, setOpen, dropdownRef] = useOpen();
 
     const hasPlaceholder = state.text === placeholder;
     const buttonClasses = classNames({
@@ -111,7 +111,7 @@ export const Dropdown = forwardRef<HTMLButtonElement, DropdownProps>(
 
     return (
       <div
-        ref={listRef}
+        ref={dropdownRef}
         className={classNames(className, styles.container)}
         aria-invalid={Boolean(error)}
       >
