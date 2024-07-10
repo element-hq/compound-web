@@ -85,9 +85,7 @@ export const Progress = forwardRef<HTMLDivElement, ProgressProps>(
           <Indicator
             className={styles["progress-bar-indicator"]}
             style={{
-              transform: `translateX(-${
-                100 - ((value ?? max ?? 1) / (max ?? 1)) * 100
-              }%)`,
+              transform: `translateX(-${100 - (value / max) * 100}%)`,
             }}
           />
         </Root>
