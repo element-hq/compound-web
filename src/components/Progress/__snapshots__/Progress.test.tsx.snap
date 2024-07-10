@@ -1,0 +1,296 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Progress > renders a green progress bar 1`] = `
+<div>
+  <div
+    class="_progress-bar-container_e5fb97"
+    data-color="green"
+  >
+    <div
+      class="_progress-bar-label_e5fb97"
+      id=":r5:"
+    >
+      Full progress bar
+    </div>
+    <div
+      aria-labelledby=":r5:"
+      aria-valuemax="100"
+      aria-valuemin="0"
+      aria-valuenow="100"
+      aria-valuetext="Full progress bar"
+      class="_progress-bar_e5fb97"
+      data-max="100"
+      data-size="sm"
+      data-state="complete"
+      data-value="100"
+      role="progressbar"
+    >
+      <div
+        class="_progress-bar-indicator_e5fb97"
+        data-max="100"
+        data-state="complete"
+        data-value="100"
+        style="transform: translateX(-0%);"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Progress > renders a large full progress bar 1`] = `
+<div>
+  <div
+    class="_progress-bar-container_e5fb97"
+    data-color="green"
+  >
+    <div
+      class="_progress-bar-label_e5fb97"
+      id=":r2:"
+    >
+      Full progress bar
+    </div>
+    <div
+      aria-labelledby=":r2:"
+      aria-valuemax="100"
+      aria-valuemin="0"
+      aria-valuenow="100"
+      aria-valuetext="Full progress bar"
+      class="_progress-bar_e5fb97"
+      data-max="100"
+      data-size="lg"
+      data-state="complete"
+      data-value="100"
+      role="progressbar"
+    >
+      <div
+        class="_progress-bar-indicator_e5fb97"
+        data-max="100"
+        data-state="complete"
+        data-value="100"
+        style="transform: translateX(-0%);"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Progress > renders a large half progress bar 1`] = `
+<div>
+  <div
+    class="_progress-bar-container_e5fb97"
+    data-color="green"
+  >
+    <div
+      class="_progress-bar-label_e5fb97"
+      id=":r3:"
+    >
+      Half-full progress bar
+    </div>
+    <div
+      aria-labelledby=":r3:"
+      aria-valuemax="100"
+      aria-valuemin="0"
+      aria-valuenow="50"
+      aria-valuetext="Half-full progress bar"
+      class="_progress-bar_e5fb97"
+      data-max="100"
+      data-size="lg"
+      data-state="loading"
+      data-value="50"
+      role="progressbar"
+    >
+      <div
+        class="_progress-bar-indicator_e5fb97"
+        data-max="100"
+        data-state="loading"
+        data-value="50"
+        style="transform: translateX(-50%);"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Progress > renders a lime progress bar 1`] = `
+<div>
+  <div
+    class="_progress-bar-container_e5fb97"
+    data-color="lime"
+  >
+    <div
+      class="_progress-bar-label_e5fb97"
+      id=":r7:"
+    >
+      Three-quarters full progress bar
+    </div>
+    <div
+      aria-labelledby=":r7:"
+      aria-valuemax="100"
+      aria-valuemin="0"
+      aria-valuenow="75"
+      aria-valuetext="Three-quarters full progress bar"
+      class="_progress-bar_e5fb97"
+      data-max="100"
+      data-size="sm"
+      data-state="loading"
+      data-value="75"
+      role="progressbar"
+    >
+      <div
+        class="_progress-bar-indicator_e5fb97"
+        data-max="100"
+        data-state="loading"
+        data-value="75"
+        style="transform: translateX(-25%);"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Progress > renders a red progress bar 1`] = `
+<div>
+  <div
+    class="_progress-bar-container_e5fb97"
+    data-color="red"
+  >
+    <div
+      class="_progress-bar-label_e5fb97"
+      id=":r6:"
+    >
+      Quarter-full progress bar
+    </div>
+    <div
+      aria-labelledby=":r6:"
+      aria-valuemax="100"
+      aria-valuemin="0"
+      aria-valuenow="25"
+      aria-valuetext="Quarter-full progress bar"
+      class="_progress-bar_e5fb97"
+      data-max="100"
+      data-size="sm"
+      data-state="loading"
+      data-value="25"
+      role="progressbar"
+    >
+      <div
+        class="_progress-bar-indicator_e5fb97"
+        data-max="100"
+        data-state="loading"
+        data-value="25"
+        style="transform: translateX(-75%);"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Progress > renders a small full progress bar 1`] = `
+<div>
+  <div
+    class="_progress-bar-container_e5fb97"
+    data-color="green"
+  >
+    <div
+      class="_progress-bar-label_e5fb97"
+      id=":r0:"
+    >
+      Full progress bar
+    </div>
+    <div
+      aria-labelledby=":r0:"
+      aria-valuemax="100"
+      aria-valuemin="0"
+      aria-valuenow="100"
+      aria-valuetext="Full progress bar"
+      class="_progress-bar_e5fb97"
+      data-max="100"
+      data-size="sm"
+      data-state="complete"
+      data-value="100"
+      role="progressbar"
+    >
+      <div
+        class="_progress-bar-indicator_e5fb97"
+        data-max="100"
+        data-state="complete"
+        data-value="100"
+        style="transform: translateX(-0%);"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Progress > renders a small half progress bar 1`] = `
+<div>
+  <div
+    class="_progress-bar-container_e5fb97"
+    data-color="green"
+  >
+    <div
+      class="_progress-bar-label_e5fb97"
+      id=":r1:"
+    >
+      Half-full progress bar
+    </div>
+    <div
+      aria-labelledby=":r1:"
+      aria-valuemax="100"
+      aria-valuemin="0"
+      aria-valuenow="50"
+      aria-valuetext="Half-full progress bar"
+      class="_progress-bar_e5fb97"
+      data-max="100"
+      data-size="sm"
+      data-state="loading"
+      data-value="50"
+      role="progressbar"
+    >
+      <div
+        class="_progress-bar-indicator_e5fb97"
+        data-max="100"
+        data-state="loading"
+        data-value="50"
+        style="transform: translateX(-50%);"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Progress > renders an empty progress bar 1`] = `
+<div>
+  <div
+    class="_progress-bar-container_e5fb97"
+  >
+    <div
+      class="_progress-bar-label_e5fb97"
+      id=":r4:"
+    >
+      Empty progress bar
+    </div>
+    <div
+      aria-labelledby=":r4:"
+      aria-valuemax="100"
+      aria-valuemin="0"
+      aria-valuenow="0"
+      aria-valuetext="Empty progress bar"
+      class="_progress-bar_e5fb97"
+      data-max="100"
+      data-size="sm"
+      data-state="loading"
+      data-value="0"
+      role="progressbar"
+    >
+      <div
+        class="_progress-bar-indicator_e5fb97"
+        data-max="100"
+        data-state="loading"
+        data-value="0"
+        style="transform: translateX(-100%);"
+      />
+    </div>
+  </div>
+</div>
+`;
