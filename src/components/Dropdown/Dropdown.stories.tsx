@@ -17,14 +17,16 @@
  */
 import { Dropdown } from "./Dropdown";
 import { fn } from "@storybook/test";
+import { Meta } from "@storybook/react";
+import { ComponentProps } from "react";
 
 export default {
-  title: "Controls/Dropdown",
+  title: "Dropdown",
   component: Dropdown,
   tags: ["autodocs"],
   parameters: {
     controls: {
-      include: ["defaultValue", "placeholder", "error", "values"],
+      include: ["defaultValue", "placeholder", "error"],
     },
   },
   argTypes: {
@@ -38,7 +40,7 @@ export default {
       type: "string",
     },
     values: {
-      type: "array",
+      type: "string",
     },
   },
   args: {
@@ -50,7 +52,7 @@ export default {
       ["Option2", "Option 2"],
     ],
   },
-};
+} satisfies Meta<ComponentProps<typeof Dropdown>>;
 
 export const Default = {
   parameters: {

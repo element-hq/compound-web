@@ -1,0 +1,315 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Dropdown > can be opened 1`] = `
+<div>
+  <div
+    aria-invalid="false"
+    class="_container_87c1d6"
+  >
+    <label
+      id=":r8:"
+    >
+      Label
+    </label>
+    <button
+      aria-controls=":r9:"
+      aria-expanded="true"
+      aria-haspopup="listbox"
+      aria-labelledby=":r8:"
+      class="_placeholder_87c1d6"
+      role="combobox"
+    >
+      Select an option
+      <svg
+        class="cpd-icon"
+        fill="currentColor"
+        height="24"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12 14.95c-.133 0-.258-.02-.375-.063a.878.878 0 0 1-.325-.212l-4.6-4.6a.948.948 0 0 1-.275-.7.95.95 0 0 1 .275-.7.948.948 0 0 1 .7-.275.95.95 0 0 1 .7.275l3.9 3.9 3.9-3.9a.948.948 0 0 1 .7-.275.95.95 0 0 1 .7.275.948.948 0 0 1 .275.7.948.948 0 0 1-.275.7l-4.6 4.6c-.1.1-.208.17-.325.212a1.105 1.105 0 0 1-.375.063Z"
+        />
+      </svg>
+    </button>
+    <div
+      class="_border_87c1d6"
+    />
+    <div
+      class="_content_87c1d6"
+    >
+      <ul
+        class="_content_87c1d6"
+        id=":r9:"
+        role="listbox"
+      >
+        <li
+          aria-selected="false"
+          role="option"
+          tabindex="0"
+        >
+          Option 1
+           
+        </li>
+        <li
+          aria-selected="false"
+          role="option"
+          tabindex="0"
+        >
+          Option 2
+           
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Dropdown > can select a value 1`] = `
+<div>
+  <div
+    aria-invalid="false"
+    class="_container_87c1d6"
+  >
+    <label
+      id=":ra:"
+    >
+      Label
+    </label>
+    <button
+      aria-controls=":rb:"
+      aria-expanded="true"
+      aria-haspopup="listbox"
+      aria-labelledby=":ra:"
+      class=""
+      role="combobox"
+    >
+      Option 2
+      <svg
+        class="cpd-icon"
+        fill="currentColor"
+        height="24"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12 14.95c-.133 0-.258-.02-.375-.063a.878.878 0 0 1-.325-.212l-4.6-4.6a.948.948 0 0 1-.275-.7.95.95 0 0 1 .275-.7.948.948 0 0 1 .7-.275.95.95 0 0 1 .7.275l3.9 3.9 3.9-3.9a.948.948 0 0 1 .7-.275.95.95 0 0 1 .7.275.948.948 0 0 1 .275.7.948.948 0 0 1-.275.7l-4.6 4.6c-.1.1-.208.17-.325.212a1.105 1.105 0 0 1-.375.063Z"
+        />
+      </svg>
+    </button>
+    <div
+      class="_border_87c1d6"
+    />
+    <div
+      class="_content_87c1d6"
+    >
+      <ul
+        class="_content_87c1d6"
+        id=":rb:"
+        role="listbox"
+      >
+        <li
+          aria-selected="false"
+          role="option"
+          tabindex="0"
+        >
+          Option 1
+           
+        </li>
+        <li
+          aria-selected="true"
+          role="option"
+          tabindex="0"
+        >
+          Option 2
+           
+          <svg
+            class="cpd-icon"
+            fill="currentColor"
+            height="20"
+            viewBox="0 0 24 24"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M9.55 17.575c-.133 0-.258-.02-.375-.063a.878.878 0 0 1-.325-.212L4.55 13c-.183-.183-.27-.42-.263-.713.009-.291.105-.529.288-.712a.948.948 0 0 1 .7-.275.95.95 0 0 1 .7.275L9.55 15.15l8.475-8.475c.183-.183.42-.275.712-.275s.53.092.713.275c.183.183.275.42.275.712s-.092.53-.275.713l-9.2 9.2c-.1.1-.208.17-.325.212a1.106 1.106 0 0 1-.375.063Z"
+            />
+          </svg>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Dropdown > renders a Default dropdown 1`] = `
+<div>
+  <div
+    aria-invalid="false"
+    class="_container_87c1d6"
+  >
+    <label
+      id=":r0:"
+    >
+      Label
+    </label>
+    <button
+      aria-controls=":r1:"
+      aria-expanded="false"
+      aria-haspopup="listbox"
+      aria-labelledby=":r0:"
+      class="_placeholder_87c1d6"
+      role="combobox"
+    >
+      Select an option
+      <svg
+        class="cpd-icon"
+        fill="currentColor"
+        height="24"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12 14.95c-.133 0-.258-.02-.375-.063a.878.878 0 0 1-.325-.212l-4.6-4.6a.948.948 0 0 1-.275-.7.95.95 0 0 1 .275-.7.948.948 0 0 1 .7-.275.95.95 0 0 1 .7.275l3.9 3.9 3.9-3.9a.948.948 0 0 1 .7-.275.95.95 0 0 1 .7.275.948.948 0 0 1 .275.7.948.948 0 0 1-.275.7l-4.6 4.6c-.1.1-.208.17-.325.212a1.105 1.105 0 0 1-.375.063Z"
+        />
+      </svg>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Dropdown > renders a dropdown with a default value  1`] = `
+<div>
+  <div
+    aria-invalid="false"
+    class="_container_87c1d6"
+  >
+    <label
+      id=":r6:"
+    >
+      Label
+    </label>
+    <button
+      aria-controls=":r7:"
+      aria-expanded="false"
+      aria-haspopup="listbox"
+      aria-labelledby=":r6:"
+      class=""
+      role="combobox"
+    >
+      Option 2
+      <svg
+        class="cpd-icon"
+        fill="currentColor"
+        height="24"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12 14.95c-.133 0-.258-.02-.375-.063a.878.878 0 0 1-.325-.212l-4.6-4.6a.948.948 0 0 1-.275-.7.95.95 0 0 1 .275-.7.948.948 0 0 1 .7-.275.95.95 0 0 1 .7.275l3.9 3.9 3.9-3.9a.948.948 0 0 1 .7-.275.95.95 0 0 1 .7.275.948.948 0 0 1 .275.7.948.948 0 0 1-.275.7l-4.6 4.6c-.1.1-.208.17-.325.212a1.105 1.105 0 0 1-.375.063Z"
+        />
+      </svg>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Dropdown > renders a dropdown with a help label 1`] = `
+<div>
+  <div
+    aria-invalid="false"
+    class="_container_87c1d6"
+  >
+    <label
+      id=":r2:"
+    >
+      Label
+    </label>
+    <button
+      aria-controls=":r3:"
+      aria-expanded="false"
+      aria-haspopup="listbox"
+      aria-labelledby=":r2:"
+      class="_placeholder_87c1d6"
+      role="combobox"
+    >
+      Select an option
+      <svg
+        class="cpd-icon"
+        fill="currentColor"
+        height="24"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12 14.95c-.133 0-.258-.02-.375-.063a.878.878 0 0 1-.325-.212l-4.6-4.6a.948.948 0 0 1-.275-.7.95.95 0 0 1 .275-.7.948.948 0 0 1 .7-.275.95.95 0 0 1 .7.275l3.9 3.9 3.9-3.9a.948.948 0 0 1 .7-.275.95.95 0 0 1 .7.275.948.948 0 0 1 .275.7.948.948 0 0 1-.275.7l-4.6 4.6c-.1.1-.208.17-.325.212a1.105 1.105 0 0 1-.375.063Z"
+        />
+      </svg>
+    </button>
+    <span
+      class="_help_87c1d6"
+    >
+      Optional help text.
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Dropdown > renders a dropdown with an error  1`] = `
+<div>
+  <div
+    aria-invalid="true"
+    class="_container_87c1d6"
+  >
+    <label
+      id=":r4:"
+    >
+      Label
+    </label>
+    <button
+      aria-controls=":r5:"
+      aria-expanded="false"
+      aria-haspopup="listbox"
+      aria-labelledby=":r4:"
+      class="_placeholder_87c1d6"
+      role="combobox"
+    >
+      Select an option
+      <svg
+        class="cpd-icon"
+        fill="currentColor"
+        height="24"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12 14.95c-.133 0-.258-.02-.375-.063a.878.878 0 0 1-.325-.212l-4.6-4.6a.948.948 0 0 1-.275-.7.95.95 0 0 1 .275-.7.948.948 0 0 1 .7-.275.95.95 0 0 1 .7.275l3.9 3.9 3.9-3.9a.948.948 0 0 1 .7-.275.95.95 0 0 1 .7.275.948.948 0 0 1 .275.7.948.948 0 0 1-.275.7l-4.6 4.6c-.1.1-.208.17-.325.212a1.105 1.105 0 0 1-.375.063Z"
+        />
+      </svg>
+    </button>
+    <span
+      class="_error_87c1d6"
+    >
+      <svg
+        class="cpd-icon"
+        fill="currentColor"
+        height="20"
+        viewBox="0 0 24 24"
+        width="20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12 17a.97.97 0 0 0 .713-.288A.968.968 0 0 0 13 16a.968.968 0 0 0-.287-.713A.968.968 0 0 0 12 15a.968.968 0 0 0-.713.287A.968.968 0 0 0 11 16c0 .283.096.52.287.712.192.192.43.288.713.288Zm0-4c.283 0 .52-.096.713-.287A.968.968 0 0 0 13 12V8a.967.967 0 0 0-.287-.713A.968.968 0 0 0 12 7a.968.968 0 0 0-.713.287A.967.967 0 0 0 11 8v4c0 .283.096.52.287.713.192.191.43.287.713.287Zm0 9a9.738 9.738 0 0 1-3.9-.788 10.099 10.099 0 0 1-3.175-2.137c-.9-.9-1.612-1.958-2.137-3.175A9.738 9.738 0 0 1 2 12a9.74 9.74 0 0 1 .788-3.9 10.099 10.099 0 0 1 2.137-3.175c.9-.9 1.958-1.612 3.175-2.137A9.738 9.738 0 0 1 12 2a9.74 9.74 0 0 1 3.9.788 10.098 10.098 0 0 1 3.175 2.137c.9.9 1.613 1.958 2.137 3.175A9.738 9.738 0 0 1 22 12a9.738 9.738 0 0 1-.788 3.9 10.098 10.098 0 0 1-2.137 3.175c-.9.9-1.958 1.613-3.175 2.137A9.738 9.738 0 0 1 12 22Z"
+        />
+      </svg>
+      Select an option
+    </span>
+  </div>
+</div>
+`;
