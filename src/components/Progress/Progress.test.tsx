@@ -14,9 +14,9 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import { vi, describe, it, expect } from "vitest";
+import { describe, it, expect } from "vitest";
 import React from "react";
-import { fireEvent, screen, render } from "@testing-library/react";
+import { render } from "@testing-library/react";
 
 import * as stories from "./Progress.stories";
 import { composeStories } from "@storybook/react";

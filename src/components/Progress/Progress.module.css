@@ -22,11 +22,11 @@ limitations under the License.
   overflow: hidden;
 
   &[data-size="sm"] {
-    height: var(--cpd-space-2x);
+    block-size: var(--cpd-space-2x);
   }
 
   &[data-size="lg"] {
-    height: var(--cpd-space-4x);
+    block-size: var(--cpd-space-4x);
   }
 }
 
@@ -83,5 +83,5 @@ limitations under the License.
   );
 
   /* sqrt(number of stripes * 2 * (stripe width)^2) = sqrt(4 * 2 * 2^2) = sqrt(32) */
-  background-size: 5.6568542495px 5.6568542495px;
+  background-size: 5.6569px 5.6569px;
 }
