@@ -19,7 +19,7 @@ import { Dropdown } from "./Dropdown";
 import { fn } from "@storybook/test";
 
 export default {
-  title: "Form/Controls/Dropdown",
+  title: "Controls/Dropdown",
   component: Dropdown,
   tags: ["autodocs"],
   parameters: {
