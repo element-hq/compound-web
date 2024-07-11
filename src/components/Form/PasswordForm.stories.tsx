@@ -78,7 +78,7 @@ export const VeryWeak: React.FC = () => {
         <Progress
           getValueLabel={getValueLabel}
           size="sm"
-          color="red"
+          tint="red"
           value={1}
           max={4}
         />
@@ -100,7 +100,7 @@ export const Weak: React.FC = () => {
         <Progress
           getValueLabel={getValueLabel}
           size="sm"
-          color="orange"
+          tint="orange"
           value={2}
           max={4}
         />
@@ -122,7 +122,7 @@ export const Strong: React.FC = () => {
         <Progress
           getValueLabel={getValueLabel}
           size="sm"
-          color="lime"
+          tint="lime"
           value={3}
           max={4}
         />
@@ -141,7 +141,7 @@ export const VeryStrong: React.FC = () => {
         <Progress
           getValueLabel={getValueLabel}
           size="sm"
-          color="green"
+          tint="green"
           value={4}
           max={4}
         />

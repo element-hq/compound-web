@@ -38,22 +38,22 @@ limitations under the License.
   --cpd-progress-bar-main: var(--cpd-color-text-placeholder);
   --cpd-progress-bar-muted: var(--cpd-color-gray-800);
 
-  &[data-color="green"] {
+  &[data-tint="green"] {
     --cpd-progress-bar-main: var(--cpd-color-text-success-primary);
     --cpd-progress-bar-muted: var(--cpd-color-green-800);
   }
 
-  &[data-color="lime"] {
+  &[data-tint="lime"] {
     --cpd-progress-bar-main: var(--cpd-color-lime-900);
     --cpd-progress-bar-muted: var(--cpd-color-lime-800);
   }
 
-  &[data-color="orange"] {
+  &[data-tint="orange"] {
     --cpd-progress-bar-main: var(--cpd-color-orange-900);
     --cpd-progress-bar-muted: var(--cpd-color-orange-800);
   }
 
-  &[data-color="red"] {
+  &[data-tint="red"] {
     --cpd-progress-bar-main: var(--cpd-color-text-critical-primary);
     --cpd-progress-bar-muted: var(--cpd-color-red-800);
   }

@@ -4,7 +4,7 @@ exports[`Progress > renders a green progress bar 1`] = `
 <div>
   <div
     class="_progress-bar-container_e5fb97"
-    data-color="green"
+    data-tint="green"
   >
     <div
       class="_progress-bar-label_e5fb97"
@@ -41,7 +41,7 @@ exports[`Progress > renders a large full progress bar 1`] = `
 <div>
   <div
     class="_progress-bar-container_e5fb97"
-    data-color="green"
+    data-tint="green"
   >
     <div
       class="_progress-bar-label_e5fb97"
@@ -78,7 +78,7 @@ exports[`Progress > renders a large half progress bar 1`] = `
 <div>
   <div
     class="_progress-bar-container_e5fb97"
-    data-color="green"
+    data-tint="green"
   >
     <div
       class="_progress-bar-label_e5fb97"
@@ -115,7 +115,7 @@ exports[`Progress > renders a lime progress bar 1`] = `
 <div>
   <div
     class="_progress-bar-container_e5fb97"
-    data-color="lime"
+    data-tint="lime"
   >
     <div
       class="_progress-bar-label_e5fb97"
@@ -152,7 +152,7 @@ exports[`Progress > renders a red progress bar 1`] = `
 <div>
   <div
     class="_progress-bar-container_e5fb97"
-    data-color="red"
+    data-tint="red"
   >
     <div
       class="_progress-bar-label_e5fb97"
@@ -189,7 +189,7 @@ exports[`Progress > renders a small full progress bar 1`] = `
 <div>
   <div
     class="_progress-bar-container_e5fb97"
-    data-color="green"
+    data-tint="green"
   >
     <div
       class="_progress-bar-label_e5fb97"
@@ -226,7 +226,7 @@ exports[`Progress > renders a small half progress bar 1`] = `
 <div>
   <div
     class="_progress-bar-container_e5fb97"
-    data-color="green"
+    data-tint="green"
   >
     <div
       class="_progress-bar-label_e5fb97"

@@ -54,7 +54,7 @@ export default {
 
 export const LargeHalf = {
   args: {
-    color: "green",
+    tint: "green",
     size: "lg",
     value: 50,
   },
@@ -62,7 +62,7 @@ export const LargeHalf = {
 
 export const SmallHalf = {
   args: {
-    color: "green",
+    tint: "green",
     size: "sm",
     value: 50,
   },
@@ -70,7 +70,7 @@ export const SmallHalf = {
 
 export const LargeFull = {
   args: {
-    color: "green",
+    tint: "green",
     size: "lg",
     value: 100,
   },
@@ -78,7 +78,7 @@ export const LargeFull = {
 
 export const SmallFull = {
   args: {
-    color: "green",
+    tint: "green",
     size: "sm",
     value: 100,
   },
@@ -93,27 +93,27 @@ export const Empty = {
 export const Red = {
   args: {
     value: 25,
-    color: "red",
+    tint: "red",
   },
 };
 
 export const Orange = {
   args: {
     value: 50,
-    color: "orange",
+    tint: "orange",
   },
 };
 
 export const Lime = {
   args: {
     value: 75,
-    color: "lime",
+    tint: "lime",
   },
 };
 
 export const Green = {
   args: {
     value: 100,
-    color: "green",
+    tint: "green",
   },
 };

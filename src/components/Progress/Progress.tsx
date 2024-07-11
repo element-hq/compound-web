@@ -23,31 +23,39 @@ import { Root, Indicator } from "@radix-ui/react-progress";
 import useId from "../../utils/useId";
 
 type ProgressProps = {
-  /* The size variant of the progress bar */
+  /** The size variant of the progress bar */
   size: "sm" | "lg";
 
-  /* The color variant to use for the progres bar indicator */
-  color?: "red" | "orange" | "lime" | "green";
+  /**
+   * The colour variant to use for the progress bar indicator
+   * If not set, the progress bar will be rendered with a gray tone, which should only be used when the progress bar is empty
+   */
+  tint?: "red" | "orange" | "lime" | "green";
 
-  /* The CSS class name forwarded to the root element */
+  /** The CSS class name forwarded to the root element */
   className?: string;
 
-  /* The value of the progress bar. Defaults to max if not provided */
+  /** The value of the progress bar. Defaults to max if not provided */
   value?: number | null;
 
-  /* The maximum value of the progress bar. Defaults to 1 if not provided */
+  /** The maximum value of the progress bar. Defaults to 1 if not provided */
   max?: number;
 
-  /* A function to get the text label to display in the progress bar.
-     If set, it will display a label on top of the progress bar */
+  /**
+   * A function to get the text label to display in the progress bar.
+   * If set, it will display a label on top of the progress bar
+   */
   getValueLabel?: (value: number, max: number) => string;
 } & Omit<React.ComponentProps<"div">, "children">;
 
+/**
+ * Displays an indicator showing the completion progress of a task, optionally with a label
+ */
 export const Progress = forwardRef<HTMLDivElement, ProgressProps>(
   function Progress(
     {
       size,
-      color,
+      tint,
       className,
       value: valueProp,
       max: maxProp,
@@ -64,7 +72,7 @@ export const Progress = forwardRef<HTMLDivElement, ProgressProps>(
     return (
       <div
         className={classNames(styles["progress-bar-container"], className)}
-        data-color={color}
+        data-tint={tint}
         {...props}
       >
         {label && (
