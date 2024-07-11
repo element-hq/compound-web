@@ -35,7 +35,7 @@ export default {
   subcomponents: { Progress, PasswordControl, Label, Field },
   decorators: [
     (Story: StoryFn) => (
-      <div style={{ width: "378px" }}>
+      <div style={{ maxWidth: "378px" }}>
         <Story />
       </div>
     ),
