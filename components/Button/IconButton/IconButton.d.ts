@@ -29,6 +29,7 @@ type IconButtonProps = UnstyledButtonPropsFor<"button"> & JSX.IntrinsicElements[
      * Optional tooltip for the button
      */
     tooltip?: string;
+    subtleBackground?: boolean;
 };
 /**
  * Display an icon as a button. Can render an indicator
