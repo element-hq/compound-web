@@ -28,6 +28,7 @@ const {
   WithSuccessIndicator,
   WithCriticalIndicator,
   WithIndicatorDisabled,
+  WithSubtleBackground,
 } = composeStories(stories);
 
 describe("IconButton", () => {
@@ -53,6 +54,10 @@ describe("IconButton", () => {
   });
   it("renders a WithIndicatorDisabled IconButton", () => {
     const { container } = render(<WithIndicatorDisabled />);
+    expect(container).toMatchSnapshot();
+  });
+  it("renders a WithSubtleBackground IconButton", () => {
+    const { container } = render(<WithSubtleBackground />);
     expect(container).toMatchSnapshot();
   });
 });

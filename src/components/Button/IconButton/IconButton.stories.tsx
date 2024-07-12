@@ -83,6 +83,11 @@ export const WithCriticalIndicator = {
     indicator: "critical",
   },
 };
+export const WithSubtleBackground = {
+  args: {
+    subtleBackground: true,
+  },
+};
 
 export const WithLabel = {
   args: {
