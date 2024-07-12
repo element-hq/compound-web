@@ -53,6 +53,7 @@ type IconButtonProps = UnstyledButtonPropsFor<"button"> &
      * Optional tooltip for the button
      */
     tooltip?: string;
+    subtleBackground?: boolean;
   };
 
 /**
@@ -71,12 +72,14 @@ export const IconButton = forwardRef<
     disabled,
     destructive,
     tooltip,
+    subtleBackground,
     ...props
   },
   ref,
 ) {
   const classes = classnames(styles["icon-button"], className, {
     [styles.destructive]: destructive,
+    [styles["subtle-bg"]]: subtleBackground,
   });
 
   const button = (
