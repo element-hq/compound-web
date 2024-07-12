@@ -16,6 +16,7 @@ export { Link } from "./components/Link/Link";
 export { NavBar, NavItem } from "./components/Nav";
 export { Menu } from "./components/Menu/Menu";
 export { MenuItem } from "./components/Menu/MenuItem";
+export { Progress } from "./components/Progress/Progress";
 export { Search } from "./components/Search/Search";
 export { Separator } from "./components/Separator/Separator";
 export { ToggleMenuItem } from "./components/Menu/ToggleMenuItem";
