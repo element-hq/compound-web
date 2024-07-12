@@ -1,0 +1,87 @@
+/*
+Copyright 2024 New Vector Ltd
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+
+.progress-bar {
+  position: relative;
+  background-color: var(--cpd-color-gray-200);
+  border: 1px solid var(--cpd-color-gray-400);
+  border-radius: var(--cpd-radius-pill-effect);
+  overflow: hidden;
+
+  &[data-size="sm"] {
+    block-size: var(--cpd-space-2x);
+  }
+
+  &[data-size="lg"] {
+    block-size: var(--cpd-space-4x);
+  }
+}
+
+.progress-bar-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--cpd-space-1x);
+
+  --cpd-progress-bar-main: var(--cpd-color-text-placeholder);
+  --cpd-progress-bar-muted: var(--cpd-color-gray-800);
+
+  &[data-tint="green"] {
+    --cpd-progress-bar-main: var(--cpd-color-text-success-primary);
+    --cpd-progress-bar-muted: var(--cpd-color-green-800);
+  }
+
+  &[data-tint="lime"] {
+    --cpd-progress-bar-main: var(--cpd-color-lime-900);
+    --cpd-progress-bar-muted: var(--cpd-color-lime-800);
+  }
+
+  &[data-tint="orange"] {
+    --cpd-progress-bar-main: var(--cpd-color-orange-900);
+    --cpd-progress-bar-muted: var(--cpd-color-orange-800);
+  }
+
+  &[data-tint="red"] {
+    --cpd-progress-bar-main: var(--cpd-color-text-critical-primary);
+    --cpd-progress-bar-muted: var(--cpd-color-red-800);
+  }
+}
+
+.progress-bar-label {
+  font: var(--cpd-font-body-sm-medium);
+  letter-spacing: var(--cpd-font-letter-spacing-body-sm);
+  color: var(--cpd-progress-bar-main);
+}
+
+.progress-bar-indicator {
+  position: absolute;
+  inset: 0;
+  transition: transform 0.2s ease-in-out;
+  background-image: linear-gradient(
+    135deg,
+    var(--cpd-progress-bar-muted) 0%,
+    var(--cpd-progress-bar-muted) 25%,
+    var(--cpd-progress-bar-main) 25%,
+    var(--cpd-progress-bar-main) 50%,
+    var(--cpd-progress-bar-muted) 50%,
+    var(--cpd-progress-bar-muted) 75%,
+    var(--cpd-progress-bar-main) 75%,
+    var(--cpd-progress-bar-main) 100%,
+    var(--cpd-progress-bar-muted) 100%
+  );
+
+  /* sqrt(number of stripes * 2 * (stripe width)^2) = sqrt(4 * 2 * 2^2) = sqrt(32) */
+  background-size: 5.6569px 5.6569px;
+}
