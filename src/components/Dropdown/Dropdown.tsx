@@ -15,9 +15,9 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import ChevronDown from "@vector-im/compound-design-tokens/icons/chevron-down.svg";
-import Check from "@vector-im/compound-design-tokens/icons/check.svg";
-import Error from "@vector-im/compound-design-tokens/icons/error.svg";
+import ChevronDown from "@vector-im/compound-design-tokens/assets/web/icons/chevron-down";
+import Check from "@vector-im/compound-design-tokens/assets/web/icons/check";
+import Error from "@vector-im/compound-design-tokens/assets/web/icons/error";
 
 import React, {
   Dispatch,
