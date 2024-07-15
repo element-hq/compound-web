@@ -21,7 +21,6 @@ exports[`Dropdown > can be opened 1`] = `
     >
       Select an option
       <svg
-        class="cpd-icon"
         fill="currentColor"
         height="24"
         viewBox="0 0 24 24"
@@ -34,10 +33,10 @@ exports[`Dropdown > can be opened 1`] = `
       </svg>
     </button>
     <div
-      class="_border_87c1d6"
+      class="_border_87c1d6 _open_87c1d6"
     />
     <div
-      class="_content_87c1d6"
+      class="_content_87c1d6 _open_87c1d6"
     >
       <ul
         class="_content_87c1d6"
@@ -87,7 +86,6 @@ exports[`Dropdown > can select a value 1`] = `
     >
       Option 2
       <svg
-        class="cpd-icon"
         fill="currentColor"
         height="24"
         viewBox="0 0 24 24"
@@ -100,10 +98,10 @@ exports[`Dropdown > can select a value 1`] = `
       </svg>
     </button>
     <div
-      class="_border_87c1d6"
+      class="_border_87c1d6 _open_87c1d6"
     />
     <div
-      class="_content_87c1d6"
+      class="_content_87c1d6 _open_87c1d6"
     >
       <ul
         class="_content_87c1d6"
@@ -126,7 +124,6 @@ exports[`Dropdown > can select a value 1`] = `
           Option 2
            
           <svg
-            class="cpd-icon"
             fill="currentColor"
             height="20"
             viewBox="0 0 24 24"
@@ -165,7 +162,6 @@ exports[`Dropdown > renders a Default dropdown 1`] = `
     >
       Select an option
       <svg
-        class="cpd-icon"
         fill="currentColor"
         height="24"
         viewBox="0 0 24 24"
@@ -177,6 +173,35 @@ exports[`Dropdown > renders a Default dropdown 1`] = `
         />
       </svg>
     </button>
+    <div
+      class="_border_87c1d6"
+    />
+    <div
+      class="_content_87c1d6"
+    >
+      <ul
+        class="_content_87c1d6"
+        id=":r1:"
+        role="listbox"
+      >
+        <li
+          aria-selected="false"
+          role="option"
+          tabindex="0"
+        >
+          Option 1
+           
+        </li>
+        <li
+          aria-selected="false"
+          role="option"
+          tabindex="0"
+        >
+          Option 2
+           
+        </li>
+      </ul>
+    </div>
   </div>
 </div>
 `;
@@ -202,7 +227,6 @@ exports[`Dropdown > renders a dropdown with a default value  1`] = `
     >
       Option 2
       <svg
-        class="cpd-icon"
         fill="currentColor"
         height="24"
         viewBox="0 0 24 24"
@@ -214,6 +238,46 @@ exports[`Dropdown > renders a dropdown with a default value  1`] = `
         />
       </svg>
     </button>
+    <div
+      class="_border_87c1d6"
+    />
+    <div
+      class="_content_87c1d6"
+    >
+      <ul
+        class="_content_87c1d6"
+        id=":r7:"
+        role="listbox"
+      >
+        <li
+          aria-selected="false"
+          role="option"
+          tabindex="0"
+        >
+          Option 1
+           
+        </li>
+        <li
+          aria-selected="true"
+          role="option"
+          tabindex="0"
+        >
+          Option 2
+           
+          <svg
+            fill="currentColor"
+            height="20"
+            viewBox="0 0 24 24"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M9.55 17.575c-.133 0-.258-.02-.375-.063a.878.878 0 0 1-.325-.212L4.55 13c-.183-.183-.27-.42-.263-.713.009-.291.105-.529.288-.712a.948.948 0 0 1 .7-.275.95.95 0 0 1 .7.275L9.55 15.15l8.475-8.475c.183-.183.42-.275.712-.275s.53.092.713.275c.183.183.275.42.275.712s-.092.53-.275.713l-9.2 9.2c-.1.1-.208.17-.325.212a1.106 1.106 0 0 1-.375.063Z"
+            />
+          </svg>
+        </li>
+      </ul>
+    </div>
   </div>
 </div>
 `;
@@ -239,7 +303,6 @@ exports[`Dropdown > renders a dropdown with a help label 1`] = `
     >
       Select an option
       <svg
-        class="cpd-icon"
         fill="currentColor"
         height="24"
         viewBox="0 0 24 24"
@@ -251,6 +314,35 @@ exports[`Dropdown > renders a dropdown with a help label 1`] = `
         />
       </svg>
     </button>
+    <div
+      class="_border_87c1d6"
+    />
+    <div
+      class="_content_87c1d6"
+    >
+      <ul
+        class="_content_87c1d6"
+        id=":r3:"
+        role="listbox"
+      >
+        <li
+          aria-selected="false"
+          role="option"
+          tabindex="0"
+        >
+          Option 1
+           
+        </li>
+        <li
+          aria-selected="false"
+          role="option"
+          tabindex="0"
+        >
+          Option 2
+           
+        </li>
+      </ul>
+    </div>
     <span
       class="_help_87c1d6"
     >
@@ -281,7 +373,6 @@ exports[`Dropdown > renders a dropdown with an error  1`] = `
     >
       Select an option
       <svg
-        class="cpd-icon"
         fill="currentColor"
         height="24"
         viewBox="0 0 24 24"
@@ -293,11 +384,39 @@ exports[`Dropdown > renders a dropdown with an error  1`] = `
         />
       </svg>
     </button>
+    <div
+      class="_border_87c1d6"
+    />
+    <div
+      class="_content_87c1d6"
+    >
+      <ul
+        class="_content_87c1d6"
+        id=":r5:"
+        role="listbox"
+      >
+        <li
+          aria-selected="false"
+          role="option"
+          tabindex="0"
+        >
+          Option 1
+           
+        </li>
+        <li
+          aria-selected="false"
+          role="option"
+          tabindex="0"
+        >
+          Option 2
+           
+        </li>
+      </ul>
+    </div>
     <span
       class="_error_87c1d6"
     >
       <svg
-        class="cpd-icon"
         fill="currentColor"
         height="20"
         viewBox="0 0 24 24"
