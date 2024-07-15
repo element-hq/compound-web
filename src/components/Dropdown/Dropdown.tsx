@@ -26,9 +26,11 @@ import React, {
   memo,
   RefObject,
   SetStateAction,
+  useCallback,
   useEffect,
   useRef,
   useState,
+  KeyboardEvent,
 } from "react";
 
 import classNames from "classnames";
@@ -97,10 +99,21 @@ export const Dropdown = forwardRef<HTMLButtonElement, DropdownProps>(
       defaultValue,
     );
     const [open, setOpen, dropdownRef] = useOpen();
+    const { listRef, onComboboxKeyDown, onOptionKeyDown } = useKeyboardShortcut(
+      open,
+      setOpen,
+      setState,
+    );
 
     const hasPlaceholder = state.text === placeholder;
     const buttonClasses = classNames({
       [styles.placeholder]: hasPlaceholder,
+    });
+    const borderClasses = classNames(styles.border, {
+      [styles.open]: open,
+    });
+    const contentClasses = classNames(styles.content, {
+      [styles.open]: open,
     });
 
     /**
@@ -125,53 +138,37 @@ export const Dropdown = forwardRef<HTMLButtonElement, DropdownProps>(
           aria-expanded={open}
           ref={ref}
           onClick={() => setOpen((_open) => !_open)}
+          onKeyDown={onComboboxKeyDown}
           {...props}
         >
           {state.text}
           <ChevronDown width="24" height="24" />
         </button>
-        {open && (
-          <>
-            <div className={styles.border} />
-            <div className={styles.content}>
-              <ul
-                id={contentId}
-                role="listbox"
-                className={styles.content}
-                onClick={() => setOpen(false)}
-                onKeyDown={(e) => {
-                  if (
-                    e.key === "Enter" ||
-                    e.key === " " ||
-                    e.key === "Escape"
-                  ) {
-                    setOpen(false);
-                  }
+        <div className={borderClasses} />
+        <div className={contentClasses}>
+          <ul
+            ref={listRef}
+            id={contentId}
+            role="listbox"
+            className={styles.content}
+            onClick={() => setOpen(false)}
+          >
+            {values.map(([value, text]) => (
+              <DropdownItem
+                key={value}
+                isSelected={state.value === value}
+                onClick={() => {
+                  setState({ value, text });
+                  onValueChange?.(value);
                 }}
+                onKeyDown={(e) => onOptionKeyDown(e, value, text)}
+                {...props}
               >
-                {values.map(([value, text]) => (
-                  <DropdownItem
-                    key={value}
-                    isSelected={state.value === value}
-                    onClick={() => {
-                      setState({ value, text });
-                      onValueChange?.(value);
-                    }}
-                    onKeyDown={(e) => {
-                      if (e.key === "Enter" || e.key === " ") {
-                        setState({ value, text });
-                        onValueChange?.(value);
-                      }
-                    }}
-                    {...props}
-                  >
-                    {text}
-                  </DropdownItem>
-                ))}
-              </ul>
-            </div>
-          </>
-        )}
+                {text}
+              </DropdownItem>
+            ))}
+          </ul>
+        </div>
         {!error && helpLabel && (
           <span className={styles.help}>{helpLabel}</span>
         )}
@@ -270,4 +267,100 @@ function useInitialState(
       ? { value: foundTuple[0], text: foundTuple[1] }
       : defaultTuple;
   });
+}
+
+/**
+ * A hook to manage the keyboard shortcuts of the dropdown.
+ * @param open - the dropdown open state.
+ * @param setOpen - the dropdown open state setter.
+ * @param setValue - set the selected value and text
+ */
+function useKeyboardShortcut(
+  open: boolean,
+  setOpen: Dispatch<SetStateAction<boolean>>,
+  setValue: ({ text, value }: { text: string; value: string }) => void,
+) {
+  const listRef = useRef<HTMLUListElement>(null);
+  const onComboboxKeyDown = useCallback(
+    ({ key }: KeyboardEvent) => {
+      switch (key) {
+        // Enter and Space already managed because it's a button
+        case "Escape":
+          setOpen(false);
+          break;
+        case "ArrowDown":
+          setOpen(true);
+          // If open, focus the first element
+          if (open) {
+            (listRef.current?.firstElementChild as HTMLElement)?.focus();
+          }
+          break;
+        case "ArrowUp":
+          setOpen(true);
+          break;
+        case "Home": {
+          setOpen(true);
+          // Wait for the dropdown to be opened
+          Promise.resolve().then(() => {
+            (listRef.current?.firstElementChild as HTMLElement)?.focus();
+          });
+          break;
+        }
+        case "End": {
+          setOpen(true);
+          // Wait for the dropdown to be opened
+          Promise.resolve().then(() => {
+            (listRef.current?.lastElementChild as HTMLElement)?.focus();
+          });
+          break;
+        }
+      }
+    },
+    [listRef, open, setOpen],
+  );
+
+  const onOptionKeyDown = useCallback(
+    ({ key, altKey }: KeyboardEvent, value: string, text: string) => {
+      switch (key) {
+        case "Enter":
+        case " ":
+          setValue({ text, value });
+        // Intentional fallthrough
+        case "Tab":
+        case "Escape":
+          setOpen(false);
+          break;
+        case "ArrowDown": {
+          const currentFocus = document.activeElement;
+          if (listRef.current?.contains(currentFocus) && currentFocus) {
+            (currentFocus.nextElementSibling as HTMLElement)?.focus();
+          }
+          break;
+        }
+        case "ArrowUp": {
+          if (altKey) {
+            setValue({ text, value });
+            setOpen(false);
+          } else {
+            const currentFocus = document.activeElement;
+            if (listRef.current?.contains(currentFocus) && currentFocus) {
+              (currentFocus.previousElementSibling as HTMLElement)?.focus();
+            }
+          }
+          break;
+        }
+        case "Home": {
+          (listRef.current?.firstElementChild as HTMLElement)?.focus();
+          break;
+        }
+        case "End": {
+          (listRef.current?.lastElementChild as HTMLElement)?.focus();
+          break;
+        }
+      }
+    },
+    [listRef, setValue, setOpen],
+  );
+
+  return { listRef, onComboboxKeyDown, onOptionKeyDown };
 }

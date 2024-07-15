@@ -60,6 +60,7 @@
   }
 
   .border {
+    display: none;
     border-inline-start: 1px solid var(--cpd-color-border-interactive-secondary);
     border-inline-end: 1px solid var(--cpd-color-border-interactive-secondary);
     block-size: var(--cpd-space-1x);
@@ -68,6 +69,7 @@
   }
 
   .content {
+    display: none;
     position: relative;
 
     ul {
@@ -75,6 +77,7 @@
        * To make the component going over the other elements
        */
       position: absolute;
+      display: block;
       inline-size: 100%;
       background: var(--cpd-color-bg-canvas-default);
       border: 1px solid var(--cpd-color-border-interactive-secondary);
@@ -111,6 +114,10 @@
         }
       }
     }
+  }
+
+  .open {
+    display: block;
   }
 
   .help {
