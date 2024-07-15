@@ -1,0 +1,161 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`<NavItem /> > render a Active item 1`] = `
+<div>
+  <nav
+    aria-label="Testing"
+    class="_nav-bar_eb2dec"
+    role="navigation"
+  >
+    <ul
+      class="_nav-bar-items_eb2dec"
+    >
+      <li
+        class="_nav-tab_eb2dec"
+        data-current="true"
+        role="presentation"
+      >
+        <button
+          aria-current="true"
+          class="_nav-item_eb2dec"
+        >
+          Sessions
+        </button>
+      </li>
+    </ul>
+  </nav>
+</div>
+`;
+
+exports[`<NavItem /> > render a ActiveDisabled item 1`] = `
+<div>
+  <nav
+    aria-label="Testing"
+    class="_nav-bar_eb2dec"
+    role="navigation"
+  >
+    <ul
+      class="_nav-bar-items_eb2dec"
+    >
+      <li
+        class="_nav-tab_eb2dec"
+        data-current="true"
+        role="presentation"
+      >
+        <button
+          aria-current="true"
+          class="_nav-item_eb2dec"
+          disabled=""
+        >
+          Sessions
+        </button>
+      </li>
+    </ul>
+  </nav>
+</div>
+`;
+
+exports[`<NavItem /> > render a ActiveLink item 1`] = `
+<div>
+  <nav
+    aria-label="Testing"
+    class="_nav-bar_eb2dec"
+    role="navigation"
+  >
+    <ul
+      class="_nav-bar-items_eb2dec"
+    >
+      <li
+        class="_nav-tab_eb2dec"
+        data-current="true"
+        role="presentation"
+      >
+        <a
+          aria-current="true"
+          class="_nav-item_eb2dec"
+          href="https://example.org"
+        >
+          Sessions
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>
+`;
+
+exports[`<NavItem /> > render a Disabled item 1`] = `
+<div>
+  <nav
+    aria-label="Testing"
+    class="_nav-bar_eb2dec"
+    role="navigation"
+  >
+    <ul
+      class="_nav-bar-items_eb2dec"
+    >
+      <li
+        class="_nav-tab_eb2dec"
+        role="presentation"
+      >
+        <button
+          class="_nav-item_eb2dec"
+          disabled=""
+        >
+          Sessions
+        </button>
+      </li>
+    </ul>
+  </nav>
+</div>
+`;
+
+exports[`<NavItem /> > render a Link item 1`] = `
+<div>
+  <nav
+    aria-label="Testing"
+    class="_nav-bar_eb2dec"
+    role="navigation"
+  >
+    <ul
+      class="_nav-bar-items_eb2dec"
+    >
+      <li
+        class="_nav-tab_eb2dec"
+        role="presentation"
+      >
+        <a
+          class="_nav-item_eb2dec"
+          href="https://example.org"
+        >
+          Sessions
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>
+`;
+
+exports[`<NavItem /> > render a default item 1`] = `
+<div>
+  <nav
+    aria-label="Testing"
+    class="_nav-bar_eb2dec"
+    role="navigation"
+  >
+    <ul
+      class="_nav-bar-items_eb2dec"
+    >
+      <li
+        class="_nav-tab_eb2dec"
+        role="presentation"
+      >
+        <button
+          class="_nav-item_eb2dec"
+        >
+          Sessions
+        </button>
+      </li>
+    </ul>
+  </nav>
+</div>
+`;

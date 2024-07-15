@@ -76,7 +76,6 @@ exports[`Alert > renders actions 1`] = `
         style="--cpd-icon-button-size: 100%;"
       >
         <svg
-          class="cpd-icon"
           fill="currentColor"
           height="1em"
           viewBox="0 0 24 24"
@@ -142,7 +141,6 @@ exports[`Alert > renders critical 1`] = `
         style="--cpd-icon-button-size: 100%;"
       >
         <svg
-          class="cpd-icon"
           fill="currentColor"
           height="1em"
           viewBox="0 0 24 24"
@@ -213,7 +211,6 @@ exports[`Alert > renders info 1`] = `
         style="--cpd-icon-button-size: 100%;"
       >
         <svg
-          class="cpd-icon"
           fill="currentColor"
           height="1em"
           viewBox="0 0 24 24"
@@ -279,7 +276,6 @@ exports[`Alert > renders success 1`] = `
         style="--cpd-icon-button-size: 100%;"
       >
         <svg
-          class="cpd-icon"
           fill="currentColor"
           height="1em"
           viewBox="0 0 24 24"

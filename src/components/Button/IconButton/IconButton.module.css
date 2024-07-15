@@ -35,6 +35,11 @@ limitations under the License.
   line-height: 0px;
 }
 
+.subtle-bg {
+  color: var(--cpd-color-icon-secondary);
+  background: var(--cpd-color-bg-subtle-secondary);
+}
+
 .icon-button[aria-disabled="true"] {
   color: var(--cpd-color-icon-disabled);
   cursor: not-allowed;
