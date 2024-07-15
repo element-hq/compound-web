@@ -27,7 +27,7 @@ import React, {
 } from "react";
 import styles from "./MenuItem.module.css";
 import { Text } from "../Typography/Text";
-import ChevronRightIcon from "@vector-im/compound-design-tokens/icons/chevron-right.svg";
+import ChevronRightIcon from "@vector-im/compound-design-tokens/assets/web/icons/chevron-right";
 import { MenuContext } from "./MenuContext";
 import { Slot } from "@radix-ui/react-slot";
 

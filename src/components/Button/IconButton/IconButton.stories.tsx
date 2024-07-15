@@ -20,7 +20,7 @@ import { fn } from "@storybook/test";
 
 import { IconButton as IconButtonComponent } from "./IconButton";
 
-import UserIcon from "@vector-im/compound-design-tokens/icons/user-profile.svg";
+import UserIcon from "@vector-im/compound-design-tokens/assets/web/icons/user-profile";
 
 export default {
   title: "Button/IconButton",

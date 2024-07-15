@@ -17,7 +17,7 @@ limitations under the License.
 import { Placement as PlacementType } from "@floating-ui/react";
 import { Tooltip as TooltipComponent } from "./Tooltip";
 import { IconButton } from "../Button";
-import UserIcon from "@vector-im/compound-design-tokens/icons/user-profile.svg";
+import UserIcon from "@vector-im/compound-design-tokens/assets/web/icons/user-profile";
 import { Meta, StoryFn } from "@storybook/react";
 import React, { FC, ReactNode } from "react";
 

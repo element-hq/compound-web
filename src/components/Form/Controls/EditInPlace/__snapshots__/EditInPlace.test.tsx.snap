@@ -199,7 +199,6 @@ exports[`EditInPlace > displays saved label for 2 seconds after save 3`] = `
         id="radix-:r48:"
       >
         <svg
-          class="cpd-icon"
           fill="currentColor"
           height="1em"
           viewBox="0 0 24 24"
@@ -332,7 +331,6 @@ exports[`EditInPlace > renders error icon and text if passed as children 1`] = `
         id="radix-:rc:"
       >
         <svg
-          class="cpd-icon"
           fill="currentColor"
           height="1em"
           viewBox="0 0 24 24"

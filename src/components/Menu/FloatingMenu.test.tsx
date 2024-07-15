@@ -17,8 +17,8 @@ limitations under the License.
 import { describe, it, expect } from "vitest";
 import { render } from "@testing-library/react";
 import React from "react";
-import UserProfileIcon from "@vector-im/compound-design-tokens/icons/user-profile.svg";
-import LeaveIcon from "@vector-im/compound-design-tokens/icons/leave.svg";
+import UserProfileIcon from "@vector-im/compound-design-tokens/assets/web/icons/user-profile";
+import LeaveIcon from "@vector-im/compound-design-tokens/assets/web/icons/leave";
 
 import { FloatingMenu } from "./FloatingMenu";
 import { MenuItem } from "./MenuItem";
