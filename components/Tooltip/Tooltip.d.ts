@@ -1,13 +1,6 @@
-import { Placement } from "@floating-ui/react";
 import { PropsWithChildren, JSX } from '../../../node_modules/react';
-import { useTooltip } from "./useTooltip";
-type UseTooltipParam = Parameters<typeof useTooltip>[0];
-interface TooltipProps extends Omit<UseTooltipParam, "placement" | "isTriggerInteractive"> {
-    /**
-     * The placement of the component
-     * @default "bottom"
-     */
-    placement?: Placement;
+import { CommonUseTooltipProps, TooltipDescription, TooltipLabel } from "./useTooltip";
+type TooltipProps = Omit<CommonUseTooltipProps, "isTriggerInteractive"> & (TooltipLabel | TooltipDescription) & {
     /**
      * Whether the trigger element is interactive.
      * When trigger is interactive:
@@ -23,14 +16,10 @@ interface TooltipProps extends Omit<UseTooltipParam, "placement" | "isTriggerInt
      * @default 0
      */
     nonInteractiveTriggerTabIndex?: number;
-    /**
-     * The tooltip label
-     */
-    label: string;
-}
+};
 /**
  * A tooltip component
  */
-export declare function Tooltip({ children, placement, isTriggerInteractive, nonInteractiveTriggerTabIndex, label, ...props }: PropsWithChildren<TooltipProps>): JSX.Element;
+export declare function Tooltip({ children, isTriggerInteractive, nonInteractiveTriggerTabIndex, ...props }: PropsWithChildren<TooltipProps>): JSX.Element;
 export {};
 //# sourceMappingURL=Tooltip.d.ts.map

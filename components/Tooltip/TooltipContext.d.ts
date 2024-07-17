@@ -51,9 +51,11 @@ export declare function useTooltipContext(): {
         active?: boolean | undefined;
         selected?: boolean | undefined;
     }) | undefined) => Record<string, unknown>;
+    contentId: string;
     labelId: string;
     captionId: string | undefined;
     caption: string | import('../../../node_modules/react').JSX.Element | undefined;
+    purpose: "label" | "description";
     open: boolean;
     setOpen: (open: boolean, event?: Event | undefined, reason?: import("@floating-ui/react").OpenChangeReason | undefined) => void;
 };

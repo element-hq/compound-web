@@ -1,6 +1,6 @@
 import { OpenChangeReason, Placement } from "@floating-ui/react";
 import { JSX } from '../../../node_modules/react';
-interface UseTooltipProps {
+export interface CommonUseTooltipProps {
     /**
      * The controlled open state of the tooltip.
      * If provided, the tooltip will be in controlled mode.
@@ -16,10 +16,6 @@ interface UseTooltipProps {
      */
     disabled?: boolean;
     /**
-     * The placement of the release announcement.
-     */
-    placement: Placement;
-    /**
      * The caption of the tooltip.
      * JSX.Element can be used to provide accessibility content like kbd element.
      * Keep in mind, the caption should not be used for interactive content.
@@ -30,17 +26,34 @@ interface UseTooltipProps {
      */
     onOpenChange?: (open: boolean, event?: Event | undefined, reason?: OpenChangeReason | undefined) => void;
     /**
+     * The placement of the tooltip.
+     * @default "bottom"
+     */
+    placement?: Placement;
+    /**
      * Whether the trigger element is interactive.
      * When trigger is interactive:
      *      - tooltip will be shown after a 300ms delay.
      * When trigger is not interactive:
      *      - tooltip will be shown instantly when pointer enters trigger.
      *      - trigger will be wrapped in a span with a tab index from prop nonInteractiveTriggerTabIndex
-     * @default true
      */
     isTriggerInteractive: boolean;
 }
-export declare function useTooltip({ open: controlledOpen, disabled, placement, onOpenChange, isTriggerInteractive, caption, }: UseTooltipProps): {
+export interface TooltipLabel {
+    /**
+     * A label for the target element.
+     */
+    label: string;
+}
+export interface TooltipDescription {
+    /**
+     * A description for the target element.
+     */
+    description: string;
+}
+type UseTooltipProps = CommonUseTooltipProps & (TooltipLabel | TooltipDescription);
+export declare function useTooltip({ open: controlledOpen, disabled, onOpenChange, placement, isTriggerInteractive, caption, ...props }: UseTooltipProps): {
     arrowRef: import('../../../node_modules/react').MutableRefObject<null>;
     placement: Placement;
     strategy: import("@floating-ui/utils").Strategy;
@@ -84,9 +97,11 @@ export declare function useTooltip({ open: controlledOpen, disabled, placement, 
         active?: boolean | undefined;
         selected?: boolean | undefined;
     }) | undefined) => Record<string, unknown>;
+    contentId: string;
     labelId: string;
     captionId: string | undefined;
     caption: string | JSX.Element | undefined;
+    purpose: "label" | "description";
     open: boolean;
     setOpen: (open: boolean, event?: Event | undefined, reason?: OpenChangeReason | undefined) => void;
 };
