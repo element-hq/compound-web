@@ -15,11 +15,12 @@ limitations under the License.
 */
 
 import { describe, it, expect } from "vitest";
-import { fireEvent, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import React from "react";
 
 import * as stories from "./Tooltip.stories";
 import { composeStories, composeStory } from "@storybook/react";
+import userEvent from "@testing-library/user-event";
 
 const {
   Default,
@@ -30,62 +31,60 @@ const {
   ForcedDisabled,
   InteractiveTrigger,
   NonInteractiveTrigger,
+  Descriptive,
 } = composeStories(stories);
 
 describe("Tooltip", () => {
   it("renders open by default", () => {
-    const { asFragment } = render(<ForcedOpen />);
-    // trigger rendered
-    expect(asFragment()).toMatchSnapshot();
-    // tooltip shown
-    expect(screen.getByRole("tooltip")).toMatchSnapshot();
+    render(<ForcedOpen />);
+    // tooltip labels button and does not use role="tooltip"
+    screen.getByRole("button", { name: "I'm always open" });
+    expect(screen.queryByRole("tooltip")).toBe(null);
   });
 
   it("renders closed by default", () => {
-    const { asFragment } = render(<ForcedClose />);
-    expect(asFragment()).toMatchSnapshot();
-    // no tooltip
-    expect(screen.queryByRole("tooltip")).not.toBeInTheDocument();
+    render(<ForcedClose />);
+    // no tooltip, and no label either
+    expect(screen.queryByRole("tooltip")).toBe(null);
+    expect(screen.queryByRole("button", { name: /.*/ })).toBe(null);
   });
 
   it("renders disabled", () => {
-    const { asFragment } = render(<ForcedDisabled />);
-    expect(asFragment()).toMatchSnapshot();
-    // no tooltip
-    expect(screen.queryByRole("tooltip")).not.toBeInTheDocument();
+    render(<ForcedDisabled />);
+    // no tooltip, and no label either
+    expect(screen.queryByRole("tooltip")).toBe(null);
+    expect(screen.queryByRole("button", { name: /.*/ })).toBe(null);
   });
 
   it("renders default tooltip", async () => {
     render(<Default />);
-    const trigger = screen.getByTestId("testbutton");
-
-    fireEvent.focus(trigger);
-    // tooltip shown
-    expect(await screen.findByRole("tooltip")).toMatchSnapshot();
+    // tooltip labels button and does not use role="tooltip"
+    screen.getByRole("button", { name: "@bob:example.org" });
+    expect(screen.queryByRole("tooltip")).toBe(null);
   });
 
   it("opens tooltip on focus", async () => {
+    const user = userEvent.setup();
     render(<InteractiveTrigger />);
-    const trigger = screen.getByTestId("testbutton");
-
-    expect(screen.queryByRole("tooltip")).not.toBeInTheDocument();
-    fireEvent.focus(trigger);
-    // tooltip shown
-    expect(await screen.findByRole("tooltip")).toMatchSnapshot();
+    expect(screen.queryByRole("tooltip")).toBe(null);
+    await user.tab();
+    // trigger focused, tooltip shown
+    expect(screen.getByRole("link")).toHaveFocus();
+    screen.getByRole("tooltip");
   });
 
   it("opens tooltip on focus where trigger is non interactive", async () => {
-    const { container } = render(<NonInteractiveTrigger />);
-
-    expect(container).toMatchSnapshot();
-    expect(screen.queryByRole("tooltip")).not.toBeInTheDocument();
-    const trigger = screen.getByTestId("testbutton");
-    fireEvent.focus(trigger);
-    // tooltip shown
-    expect(await screen.findByRole("tooltip")).toMatchSnapshot();
+    const user = userEvent.setup();
+    render(<NonInteractiveTrigger />);
+    expect(screen.queryByRole("tooltip")).toBe(null);
+    await user.tab();
+    // trigger focused, tooltip shown
+    expect(screen.getByText("Just some text")).toHaveFocus();
+    screen.getByRole("tooltip");
   });
 
   it("overrides default tab index for non interactive triggers", async () => {
+    const user = userEvent.setup();
     const Component = composeStory(
       {
         ...stories.NonInteractiveTrigger,
@@ -96,28 +95,34 @@ describe("Tooltip", () => {
       },
       stories.default,
     );
-    const { container } = render(<Component />);
-
-    expect(container).toMatchSnapshot();
+    render(<Component />);
+    await user.tab();
+    // trigger cannot be focused
+    expect(screen.queryByRole("tooltip")).toBe(null);
   });
 
   it("renders with string caption", async () => {
-    const { asFragment } = render(<WithStringCaption />);
-    expect(asFragment()).toMatchSnapshot();
-    const trigger = screen.getByTestId("testbutton");
-
-    fireEvent.focus(trigger);
-    // tooltip shown
-    expect(await screen.findByRole("tooltip")).toMatchSnapshot();
+    const user = userEvent.setup();
+    render(<WithStringCaption />);
+    await user.tab();
+    // tooltip labels button, opens, and displays caption
+    screen.getByRole("button", { name: /I can have a caption/ });
+    screen.getByText("My beautiful caption");
   });
 
   it("renders with component caption", async () => {
-    const { asFragment } = render(<WithComponentCaption />);
-    expect(asFragment()).toMatchSnapshot();
-    const trigger = screen.getByTestId("testbutton");
+    const user = userEvent.setup();
+    render(<WithComponentCaption />);
+    await user.tab();
+    // tooltip labels button, opens, and displays caption
+    screen.getByRole("button", { name: /Copy/ });
+    screen.getByText("Ctrl");
+  });
 
-    fireEvent.focus(trigger);
-    // tooltip shown
-    expect(await screen.findByRole("tooltip")).toMatchSnapshot();
+  it("renders a descriptive tooltip", async () => {
+    render(<Descriptive />);
+    // tooltip shown, but does not change the button's accessible name
+    screen.getByRole("tooltip", { name: "Employer Identification Number" });
+    expect(screen.queryByRole("button", { name: "EIN" })).toBe(null);
   });
 });

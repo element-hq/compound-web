@@ -11,7 +11,7 @@ exports[`ActionInput > renders 1`] = `
     />
     <button
       aria-controls=":r0:"
-      aria-label="Click me!"
+      aria-labelledby=":r1:"
       class="_action_1689d3"
       type="button"
     >

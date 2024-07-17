@@ -64,7 +64,6 @@ export const ActionInput = forwardRef<HTMLInputElement, Props>(
             className={styles.action}
             onClick={onActionClick}
             aria-controls={id}
-            aria-label={actionLabel}
           >
             <Icon aria-hidden />
           </button>
