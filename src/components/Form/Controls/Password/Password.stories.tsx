@@ -20,7 +20,7 @@ import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
 
 import { PasswordInput } from "./";
-import { within } from "@storybook/test";
+import { screen } from "@storybook/test";
 import { userEvent } from "@storybook/test";
 
 type Props = { invalid?: boolean } & React.ComponentProps<typeof PasswordInput>;
@@ -151,9 +151,9 @@ export const Visible: Story = {
       url: "https://www.figma.com/file/rTaQE2nIUSLav4Tg3nozq7/Compound-Web-Components?type=design&node-id=793-4536",
     },
   },
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-    const toggle = canvas.getByLabelText("Show");
-    await userEvent.click(toggle);
+  play: async () => {
+    const user = userEvent.setup();
+    const toggle = screen.getByRole("button", { name: "Show" });
+    await user.click(toggle);
   },
 };

@@ -34,7 +34,7 @@ import {
 } from "@floating-ui/react";
 import { useMemo, useRef, useState, JSX } from "react";
 
-interface UseTooltipProps {
+export interface CommonUseTooltipProps {
   /**
    * The controlled open state of the tooltip.
    * If provided, the tooltip will be in controlled mode.
@@ -45,16 +45,11 @@ interface UseTooltipProps {
    * @default undefined
    */
   open?: boolean;
-
   /**
    * Whether the tooltip should be forced to be in a closed state.
    */
+  // TODO: Deprecate this? It seems redundant to open: false.
   disabled?: boolean;
-
-  /**
-   * The placement of the release announcement.
-   */
-  placement: Placement;
   /**
    * The caption of the tooltip.
    * JSX.Element can be used to provide accessibility content like kbd element.
@@ -70,28 +65,51 @@ interface UseTooltipProps {
     reason?: OpenChangeReason | undefined,
   ) => void;
   /**
+   * The placement of the tooltip.
+   * @default "bottom"
+   */
+  placement?: Placement;
+  /**
    * Whether the trigger element is interactive.
    * When trigger is interactive:
    *      - tooltip will be shown after a 300ms delay.
    * When trigger is not interactive:
    *      - tooltip will be shown instantly when pointer enters trigger.
    *      - trigger will be wrapped in a span with a tab index from prop nonInteractiveTriggerTabIndex
-   * @default true
    */
   isTriggerInteractive: boolean;
 }
 
+export interface TooltipLabel {
+  /**
+   * A label for the target element.
+   */
+  label: string;
+}
+
+export interface TooltipDescription {
+  /**
+   * A description for the target element.
+   */
+  description: string;
+}
+
+type UseTooltipProps = CommonUseTooltipProps &
+  (TooltipLabel | TooltipDescription);
+
 export function useTooltip({
   open: controlledOpen,
   disabled = false,
-  placement,
   onOpenChange,
+  placement = "bottom",
   isTriggerInteractive,
   caption,
+  ...props
 }: UseTooltipProps) {
-  // Set on `aria-labelledby` attribute
+  const contentId = useId();
+  // Set on `aria-labelledby` attribute of the tooltip content
   const labelId = useId();
-  // Set on `aria-describedby` attribute
+  // Set on `aria-describedby` attribute of the tooltip content
   const captionId = useId();
   const arrowRef = useRef(null);
 
@@ -142,21 +160,55 @@ export function useTooltip({
     visibleOnly: false,
   });
   const dismiss = useDismiss(context);
-  const role = useRole(context, { role: "tooltip" });
 
-  const interactions = useInteractions([hover, focus, dismiss, role]);
+  const purpose = "label" in props ? "label" : "description";
+  // A descriptive tooltip should set role="tooltip" and aria-describedby
+  const role = useRole(context, {
+    enabled: purpose === "description",
+    role: "tooltip",
+  });
+  // A label tooltip should set aria-labelledby with no role regardless of
+  // whether the tooltip is visible.
+  // (Source: https://zoebijl.github.io/apg-tooltip/#tooltip-main-label)
+  // useRole doesn't support this use case correctly, so we do it manually.
+  const label = useMemo(
+    () =>
+      purpose === "label"
+        ? {
+            // The props we want to set on the anchor element
+            reference: { "aria-labelledby": contentId },
+            // The props we want to set on the content element
+            floating: { id: contentId },
+          }
+        : {},
+    [purpose, contentId],
+  );
+
+  const interactions = useInteractions([hover, focus, dismiss, role, label]);
 
   return useMemo(
     () => ({
+      contentId,
       labelId,
       captionId: caption ? captionId : undefined,
       caption,
+      purpose: purpose as "label" | "description",
       open,
       setOpen,
       ...interactions,
       ...data,
       arrowRef,
     }),
-    [labelId, captionId, caption, open, setOpen, interactions, data, arrowRef],
+    [
+      labelId,
+      captionId,
+      caption,
+      role,
+      open,
+      setOpen,
+      interactions,
+      data,
+      arrowRef,
+    ],
   );
 }

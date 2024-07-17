@@ -16,31 +16,26 @@ limitations under the License.
 
 import { describe, it, expect } from "vitest";
 import React from "react";
-import { act, getByLabelText, render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 import { PasswordInput } from "./Password";
 
 describe("PasswordControl", () => {
   it("switches the input type", async () => {
+    const user = userEvent.setup();
     const { container } = render(<PasswordInput defaultValue="p4ssw0rd!" />);
 
     expect(container.querySelector("[type=password]")).toBeInTheDocument();
     expect(container).toMatchSnapshot("invisible");
 
-    const user = userEvent.setup();
-
-    await act(async () => {
-      await user.click(getByLabelText(container, "Show"));
-    });
+    await user.click(screen.getByRole("button", { name: "Show" }));
 
     expect(container.querySelector("[type=password]")).not.toBeInTheDocument();
     expect(container.querySelector("[type=text]")).toBeInTheDocument();
     expect(container).toMatchSnapshot("visible");
 
-    await act(async () => {
-      await user.click(getByLabelText(container, "Hide"));
-    });
+    await user.click(screen.getByRole("button", { name: "Hide" }));
 
     expect(container.querySelector("[type=password]")).toBeInTheDocument();
     expect(container).toMatchSnapshot("invisible");

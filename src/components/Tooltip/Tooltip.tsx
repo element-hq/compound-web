@@ -18,7 +18,6 @@ import { TooltipContext, useTooltipContext } from "./TooltipContext";
 import {
   FloatingArrow,
   FloatingPortal,
-  Placement,
   useMergeRefs,
 } from "@floating-ui/react";
 import React, {
@@ -32,50 +31,44 @@ import React, {
 
 import classNames from "classnames";
 import styles from "./Tooltip.module.css";
-import { useTooltip } from "./useTooltip";
+import {
+  CommonUseTooltipProps,
+  TooltipDescription,
+  TooltipLabel,
+  useTooltip,
+} from "./useTooltip";
 
-type UseTooltipParam = Parameters<typeof useTooltip>[0];
-
-interface TooltipProps
-  extends Omit<UseTooltipParam, "placement" | "isTriggerInteractive"> {
-  /**
-   * The placement of the component
-   * @default "bottom"
-   */
-  placement?: Placement;
-  /**
-   * Whether the trigger element is interactive.
-   * When trigger is interactive:
-   *      - tooltip will be shown after a 300ms delay.
-   * When trigger is not interactive:
-   *      - tooltip will be shown instantly when pointer enters trigger.
-   *      - trigger will be wrapped in a span with a tab index from prop nonInteractiveTriggerTabIndex
-   * @default true
-   */
-  isTriggerInteractive?: boolean;
-  /**
-   * The tab index for the non interactive trigger.
-   * @default 0
-   */
-  nonInteractiveTriggerTabIndex?: number;
-  /**
-   * The tooltip label
-   */
-  label: string;
-}
+// Unfortunately Omit doesn't distribute nicely over sum types, so we have to
+// piece together the useTooltip options type by hand
+type TooltipProps = Omit<CommonUseTooltipProps, "isTriggerInteractive"> &
+  (TooltipLabel | TooltipDescription) & {
+    /**
+     * Whether the trigger element is interactive.
+     * When trigger is interactive:
+     *      - tooltip will be shown after a 300ms delay.
+     * When trigger is not interactive:
+     *      - tooltip will be shown instantly when pointer enters trigger.
+     *      - trigger will be wrapped in a span with a tab index from prop nonInteractiveTriggerTabIndex
+     * @default true
+     */
+    isTriggerInteractive?: boolean;
+    /**
+     * The tab index for the non interactive trigger.
+     * @default 0
+     */
+    nonInteractiveTriggerTabIndex?: number;
+  };
 
 /**
  * A tooltip component
  */
 export function Tooltip({
   children,
-  placement = "bottom",
   isTriggerInteractive = true,
   nonInteractiveTriggerTabIndex = 0,
-  label,
   ...props
 }: PropsWithChildren<TooltipProps>): JSX.Element {
-  const context = useTooltip({ placement, isTriggerInteractive, ...props });
+  const context = useTooltip({ isTriggerInteractive, ...props });
 
   return (
     <TooltipContext.Provider value={context}>
@@ -87,7 +80,9 @@ export function Tooltip({
         )}
       </TooltipAnchor>
       <TooltipContent>
-        <span id={context.labelId}>{label}</span>
+        <span id={context.labelId}>
+          {"label" in props ? props.label : props.description}
+        </span>
         <Caption />
       </TooltipContent>
     </TooltipContext.Provider>
@@ -124,9 +119,16 @@ function Caption() {
 function TooltipContent({
   children,
 }: Readonly<PropsWithChildren>): JSX.Element | null {
-  const { context: floatingContext, arrowRef, ...rest } = useTooltipContext();
+  const {
+    context: floatingContext,
+    open,
+    arrowRef,
+    purpose,
+    ...rest
+  } = useTooltipContext();
 
-  if (!floatingContext.open) return null;
+  // Label tooltips are kept in the DOM even when not visually open
+  if (!open && purpose !== "label") return null;
 
   return (
     <FloatingPortal>
@@ -136,7 +138,9 @@ function TooltipContent({
         aria-describedby={rest.captionId || rest.labelId}
         style={rest.floatingStyles}
         {...rest.getFloatingProps()}
-        className={styles.tooltip}
+        className={classNames(styles.tooltip, {
+          [styles.invisible]: purpose === "label" && !open,
+        })}
       >
         <FloatingArrow
           ref={arrowRef}
@@ -170,10 +174,7 @@ function TooltipAnchor({ children }: Readonly<PropsWithChildren>): JSX.Element {
   const element = useMemo(() => {
     if (!isValidElement(children)) return;
 
-    const props = context.getReferenceProps({
-      ref,
-      ...childrenProps,
-    });
+    const props = context.getReferenceProps({ ref, ...childrenProps });
     return cloneElement(children, props);
   }, [context, ref, children, childrenProps]);
 
