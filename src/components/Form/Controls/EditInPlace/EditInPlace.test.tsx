@@ -121,6 +121,8 @@ describe("EditInPlace", () => {
     expect(asFragment()).toMatchSnapshot();
 
     const input = getByRole("textbox");
+    // We wrap this in act because the expectation fires an 'invalid' event
+    // internally, causing the component to update. (Is this a bug in RTL?)
     act(() => expect(input).toBeInvalid());
 
     // The message should be there
@@ -166,6 +168,8 @@ describe("EditInPlace", () => {
 
     // The message should be there
     expect(queryByText("password should be hunter2")).toBeInTheDocument();
+    // We wrap this in act because the expectation fires an 'invalid' event
+    // internally, causing the component to update. (Is this a bug in RTL?)
     act(() => expect(input).toBeInvalid());
 
     // Type the correct password
@@ -175,6 +179,8 @@ describe("EditInPlace", () => {
 
     // The message should be gone and the input valid
     expect(queryByText("password should be hunter2")).not.toBeInTheDocument();
+    // We wrap this in act because the expectation fires a 'valid' event
+    // internally, causing the component to update. (Is this a bug in RTL?)
     act(() => expect(input).toBeValid());
   });
 
