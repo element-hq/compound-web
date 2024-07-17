@@ -10,7 +10,7 @@ exports[`EditInPlace > disables control when disabled 1`] = `
     >
       <label
         class="_label_dc87d2"
-        for="radix-:r7j:"
+        for="radix-:r7m:"
       >
         Edit Me
       </label>
@@ -20,7 +20,7 @@ exports[`EditInPlace > disables control when disabled 1`] = `
         <input
           class="_control_a839aa"
           disabled=""
-          id="radix-:r7j:"
+          id="radix-:r7m:"
           name="input"
           title=""
         />
@@ -40,7 +40,7 @@ exports[`EditInPlace > displays saved label for 2 seconds after save 1`] = `
     >
       <label
         class="_label_dc87d2"
-        for="radix-:r5u:"
+        for="radix-:r61:"
       >
         Edit Me
       </label>
@@ -49,7 +49,7 @@ exports[`EditInPlace > displays saved label for 2 seconds after save 1`] = `
       >
         <input
           class="_control_a839aa"
-          id="radix-:r5u:"
+          id="radix-:r61:"
           name="input"
           title=""
         />
@@ -71,7 +71,7 @@ exports[`EditInPlace > displays saved label for 2 seconds after save 2`] = `
       <label
         class="_label_dc87d2"
         data-valid="true"
-        for="radix-:r5u:"
+        for="radix-:r61:"
       >
         Edit Me
       </label>
@@ -79,11 +79,11 @@ exports[`EditInPlace > displays saved label for 2 seconds after save 2`] = `
         class="_controls_980156"
       >
         <input
-          aria-describedby="radix-:r6d:"
+          aria-describedby="radix-:r6g:"
           class="_control_a839aa"
           data-valid="true"
           disabled=""
-          id="radix-:r5u:"
+          id="radix-:r61:"
           name="input"
           title=""
         />
@@ -92,7 +92,7 @@ exports[`EditInPlace > displays saved label for 2 seconds after save 2`] = `
         >
           <button
             aria-disabled="true"
-            aria-labelledby=":r5v:"
+            aria-labelledby=":r62:"
             class="_button_2a1efe _has-icon_2a1efe _icon-only_2a1efe"
             data-kind="primary"
             data-size="sm"
@@ -116,7 +116,7 @@ exports[`EditInPlace > displays saved label for 2 seconds after save 2`] = `
           </button>
           <button
             aria-disabled="true"
-            aria-labelledby=":r65:"
+            aria-labelledby=":r68:"
             class="_button_2a1efe _button_980156 _has-icon_2a1efe _icon-only_2a1efe"
             data-kind="secondary"
             data-size="sm"
@@ -142,7 +142,7 @@ exports[`EditInPlace > displays saved label for 2 seconds after save 2`] = `
       </div>
       <span
         class="_message_dc87d2"
-        id="radix-:r6d:"
+        id="radix-:r6g:"
       >
         <svg
           class="_icon_01cd2d"
@@ -178,7 +178,7 @@ exports[`EditInPlace > displays saved label for 2 seconds after save 3`] = `
       <label
         class="_label_dc87d2"
         data-valid="true"
-        for="radix-:r5u:"
+        for="radix-:r61:"
       >
         Edit Me
       </label>
@@ -186,17 +186,17 @@ exports[`EditInPlace > displays saved label for 2 seconds after save 3`] = `
         class="_controls_980156"
       >
         <input
-          aria-describedby="radix-:r6e:"
+          aria-describedby="radix-:r6h:"
           class="_control_a839aa"
           data-valid="true"
-          id="radix-:r5u:"
+          id="radix-:r61:"
           name="input"
           title=""
         />
       </div>
       <span
         class="_message_dc87d2 _success-message_dc87d2"
-        id="radix-:r6e:"
+        id="radix-:r6h:"
       >
         <svg
           fill="currentColor"

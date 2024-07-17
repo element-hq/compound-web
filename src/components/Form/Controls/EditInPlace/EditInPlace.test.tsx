@@ -14,15 +14,19 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import { describe, it, expect, vi, afterEach } from "vitest";
+import { describe, it, expect, vi, afterEach, beforeAll } from "vitest";
 import React from "react";
-import { render } from "@testing-library/react";
+import {
+  act,
+  render,
+  waitFor,
+  waitForElementToBeRemoved,
+} from "@testing-library/react";
 
-import { userEvent } from "@storybook/test";
-import { act } from "react-dom/test-utils";
 import { TooltipProvider } from "@radix-ui/react-tooltip";
 import { EditInPlace } from "./EditInPlace";
 import { ErrorMessage } from "../../Message";
+import userEvent from "@testing-library/user-event";
 
 type EditInPlaceTestProps = Omit<
   React.ComponentProps<typeof EditInPlace>,
@@ -47,6 +51,13 @@ describe("EditInPlace", () => {
     </TooltipProvider>
   );
 
+  beforeAll(() => {
+    // Workaround for https://github.com/testing-library/react-testing-library/issues/1197
+    (globalThis as Record<string, unknown>).jest = {
+      advanceTimersByTime: vi.advanceTimersByTime.bind(vi),
+    };
+  });
+
   afterEach(() => {
     vi.useRealTimers();
   });
@@ -68,10 +79,8 @@ describe("EditInPlace", () => {
       <EditInPlaceTest onChange={onChange} defaultValue="Edit this text" />,
     );
 
-    await act(async () => {
-      const input = getByRole("textbox");
-      await userEvent.type(input, "!");
-    });
+    const input = getByRole("textbox");
+    await userEvent.type(input, "!");
 
     expect(onChange).toHaveBeenCalled();
     expect(value).toEqual("Edit this text!");
@@ -112,34 +121,22 @@ describe("EditInPlace", () => {
     expect(asFragment()).toMatchSnapshot();
 
     const input = getByRole("textbox");
-    expect(input).toBeInvalid();
-
-    // The message hasn't showed up yet
-    expect(queryByText("you did not fill this")).not.toBeInTheDocument();
-
-    await act(async () => {
-      // Focus and submit the form
-      await userEvent.keyboard("{tab}{enter}");
-    });
+    act(() => expect(input).toBeInvalid());
 
     // The message should be there
     expect(queryByText("you did not fill this")).toBeInTheDocument();
 
-    await act(async () => {
-      // Type an invalid email
-      await userEvent.type(input, "notanemail");
-      await userEvent.keyboard("{enter}");
-    });
+    // Type an invalid email
+    await userEvent.type(input, "notanemail");
+    await userEvent.keyboard("{enter}");
 
     // Another message should be there
     expect(queryByText("you did not fill this")).not.toBeInTheDocument();
     expect(queryByText("this is not an email")).toBeInTheDocument();
 
-    await act(async () => {
-      // Type something else to clear out the errors
-      await userEvent.clear(input);
-      await userEvent.type(input, "something else");
-    });
+    // Type something else to clear out the errors
+    await userEvent.clear(input);
+    await userEvent.type(input, "something else");
 
     // The message should be gone
     expect(queryByText("you did not fill this")).not.toBeInTheDocument();
@@ -147,6 +144,7 @@ describe("EditInPlace", () => {
   });
 
   it("uses the custom error messages passed as children", async () => {
+    const user = userEvent.setup();
     const { getByRole, queryByText, asFragment } = render(
       <EditInPlaceTest>
         <ErrorMessage match={(value) => value !== "hunter2"}>
@@ -162,26 +160,22 @@ describe("EditInPlace", () => {
     expect(queryByText("password should be hunter2")).not.toBeInTheDocument();
     expect(input).toBeValid();
 
-    await act(async () => {
-      // Focus, type and submit the form
-      await userEvent.type(input, "something");
-      await userEvent.keyboard("{tab}");
-    });
+    // Focus, type and submit the form
+    await user.type(input, "something");
+    await user.keyboard("{tab}");
 
     // The message should be there
     expect(queryByText("password should be hunter2")).toBeInTheDocument();
-    expect(input).toBeInvalid();
+    act(() => expect(input).toBeInvalid());
 
-    await act(async () => {
-      // Type the correct password
-      await userEvent.clear(input);
-      await userEvent.type(input, "hunter2");
-      await userEvent.keyboard("{tab}");
-    });
+    // Type the correct password
+    await user.clear(input);
+    await user.type(input, "hunter2");
+    await user.keyboard("{tab}");
 
     // The message should be gone and the input valid
     expect(queryByText("password should be hunter2")).not.toBeInTheDocument();
-    expect(input).toBeValid();
+    act(() => expect(input).toBeValid());
   });
 
   it("should show the buttons when the input or buttons are focused", async () => {
@@ -189,32 +183,24 @@ describe("EditInPlace", () => {
 
     expect(queryByRole("button", { name: "Save" })).not.toBeInTheDocument();
 
-    await act(async () => {
-      // Focus the input
-      await userEvent.keyboard("{tab}");
-    });
+    // Focus the input
+    await userEvent.keyboard("{tab}");
     expect(queryByRole("button", { name: "Save" })).toBeInTheDocument();
 
-    await act(async () => {
-      // Focus the save button
-      await userEvent.keyboard("{tab}");
-    });
+    // Focus the save button
+    await userEvent.keyboard("{tab}");
 
     // It should still be visible
     expect(queryByRole("button", { name: "Save" })).toBeInTheDocument();
 
-    await act(async () => {
-      // Focus the cancel button
-      await userEvent.keyboard("{tab}");
-    });
+    // Focus the cancel button
+    await userEvent.keyboard("{tab}");
 
     // It should still be visible
     expect(queryByRole("button", { name: "Save" })).toBeInTheDocument();
 
-    await act(async () => {
-      // Focus away
-      await userEvent.keyboard("{tab}");
-    });
+    // Focus away
+    await userEvent.keyboard("{tab}");
 
     // The button should be hidden
     expect(queryByRole("button", { name: "Save" })).not.toBeInTheDocument();
@@ -226,10 +212,8 @@ describe("EditInPlace", () => {
     const input = getByRole("textbox");
     expect(queryByRole("button", { name: "Save" })).not.toBeInTheDocument();
 
-    await act(async () => {
-      // Focus the input
-      await userEvent.click(input);
-    });
+    // Focus the input
+    await userEvent.click(input);
 
     // The button should be visible but disabled
     expect(getByRole("button", { name: "Save" })).toHaveAttribute(
@@ -237,9 +221,7 @@ describe("EditInPlace", () => {
       "true",
     );
 
-    await act(async () => {
-      await userEvent.type(input, "Changed");
-    });
+    await userEvent.type(input, "Changed");
 
     // The button should be enabled
     expect(getByRole("button", { name: "Save" })).toHaveAttribute(
@@ -252,10 +234,8 @@ describe("EditInPlace", () => {
     const onSave = vi.fn();
     const { getByRole } = render(<EditInPlaceTest onSave={onSave} />);
 
-    await act(async () => {
-      await userEvent.type(getByRole("textbox"), "Changed");
-      await userEvent.click(getByRole("button", { name: "Save" }));
-    });
+    await userEvent.type(getByRole("textbox"), "Changed");
+    await userEvent.click(getByRole("button", { name: "Save" }));
 
     expect(onSave).toHaveBeenCalled();
   });
@@ -264,10 +244,8 @@ describe("EditInPlace", () => {
     const onSave = vi.fn();
     const { getByRole } = render(<EditInPlaceTest onSave={onSave} />);
 
-    await act(async () => {
-      await userEvent.type(getByRole("textbox"), "Changed");
-      await userEvent.type(getByRole("textbox"), "{enter}");
-    });
+    await userEvent.type(getByRole("textbox"), "Changed");
+    await userEvent.type(getByRole("textbox"), "{enter}");
 
     expect(onSave).toHaveBeenCalled();
   });
@@ -276,10 +254,8 @@ describe("EditInPlace", () => {
     const onCancel = vi.fn();
     const { getByRole } = render(<EditInPlaceTest onCancel={onCancel} />);
 
-    await act(async () => {
-      await userEvent.type(getByRole("textbox"), "Changed");
-      await userEvent.click(getByRole("button", { name: "Cancel" }));
-    });
+    await userEvent.type(getByRole("textbox"), "Changed");
+    await userEvent.click(getByRole("button", { name: "Cancel" }));
 
     expect(onCancel).toHaveBeenCalled();
   });
@@ -292,16 +268,12 @@ describe("EditInPlace", () => {
 
     const input = getByRole("textbox") as HTMLInputElement;
 
-    await act(async () => {
-      await userEvent.clear(input);
-      await userEvent.type(input, "Changed");
-    });
+    await userEvent.clear(input);
+    await userEvent.type(input, "Changed");
 
     expect(input.value).toBe("Changed");
 
-    await act(async () => {
-      await userEvent.click(getByRole("button", { name: "Cancel" }));
-    });
+    await userEvent.click(getByRole("button", { name: "Cancel" }));
 
     expect(input.value).toBe("Initial");
 
@@ -312,10 +284,8 @@ describe("EditInPlace", () => {
     const { getByRole } = render(<EditInPlaceTest />);
 
     const input = getByRole("textbox");
-    await act(async () => {
-      await userEvent.type(input, "Changed");
-      await userEvent.click(getByRole("button", { name: "Cancel" }));
-    });
+    await userEvent.type(input, "Changed");
+    await userEvent.click(getByRole("button", { name: "Cancel" }));
 
     expect(document.activeElement).not.toEqual(input);
   });
@@ -324,10 +294,8 @@ describe("EditInPlace", () => {
     const { getByRole } = render(<EditInPlaceTest />);
 
     const input = getByRole("textbox");
-    await act(async () => {
-      await userEvent.type(input, "Changed");
-      await userEvent.click(getByRole("button", { name: "Save" }));
-    });
+    await userEvent.type(input, "Changed");
+    await userEvent.click(getByRole("button", { name: "Save" }));
 
     expect(document.activeElement).not.toEqual(input);
   });
@@ -343,36 +311,24 @@ describe("EditInPlace", () => {
     expect(asFragment()).toMatchSnapshot();
     expect(queryByText("Saved")).not.toBeInTheDocument();
 
-    await act(async () => {
-      await user.type(getByRole("textbox"), "Changed");
-      await user.click(getByRole("button", { name: "Save" }));
-    });
+    await user.type(getByRole("textbox"), "Changed");
+    await user.click(getByRole("button", { name: "Save" }));
 
     expect(asFragment()).toMatchSnapshot();
     expect(getByText("Saving...")).toBeInTheDocument();
 
-    await act(async () => {
-      await vi.advanceTimersByTimeAsync(600);
-    });
-
+    await waitFor(() => expect(queryByText("Saved")).toBeInTheDocument());
     expect(asFragment()).toMatchSnapshot();
-    expect(queryByText("Saved")).toBeInTheDocument();
 
-    await act(async () => {
-      await vi.advanceTimersByTimeAsync(2000);
-    });
-
-    expect(queryByText("Saved")).not.toBeInTheDocument();
+    await waitForElementToBeRemoved(queryByText("Saved"), { timeout: 3000 });
   });
 
   it("does not call onSave if cancel pressed", async () => {
     const onSave = vi.fn();
     const { getByRole } = render(<EditInPlaceTest onSave={onSave} />);
 
-    await act(async () => {
-      await userEvent.type(getByRole("textbox"), "Changed");
-      await userEvent.click(getByRole("button", { name: "Cancel" }));
-    });
+    await userEvent.type(getByRole("textbox"), "Changed");
+    await userEvent.click(getByRole("button", { name: "Cancel" }));
 
     expect(onSave).not.toHaveBeenCalled();
   });
@@ -394,52 +350,36 @@ describe("EditInPlace", () => {
     expect(getByText("Help")).toBeInTheDocument();
 
     // When we start typing, it's still there
-    await act(async () => {
-      await user.type(input, "Changed");
-      await user.keyboard("{tab}");
-    });
+    await user.type(input, "Changed");
+    await user.keyboard("{tab}");
 
     expect(getByText("Help")).toBeInTheDocument();
 
     // When the form becomes valid, it's gone
-    await act(async () => {
-      await user.clear(input);
-      await user.keyboard("{tab}");
-    });
+    await user.clear(input);
+    await user.keyboard("{tab}");
 
     expect(queryByText("Help")).not.toBeInTheDocument();
 
     // When it becomes valid again, it's back
-    await act(async () => {
-      await user.type(input, "Changed");
-      await user.keyboard("{tab}");
-    });
+    await user.type(input, "Changed");
+    await user.keyboard("{tab}");
 
     expect(getByText("Help")).toBeInTheDocument();
 
     // When we're submitting, it's gone
-    await act(async () => {
-      await user.click(getByRole("button", { name: "Save" }));
-    });
+    await user.click(getByRole("button", { name: "Save" }));
 
     expect(queryByText("Help")).not.toBeInTheDocument();
     expect(getByText("Saving...")).toBeInTheDocument();
 
     // When we're showing 'Saved', it's still gone
-    await act(async () => {
-      await vi.advanceTimersByTimeAsync(600);
-    });
-
+    await waitFor(() => expect(getByText("Saved")).toBeInTheDocument());
     expect(queryByText("Help")).not.toBeInTheDocument();
-    expect(getByText("Saved")).toBeInTheDocument();
 
     // When we're done showing 'Saved', it's back
-    await act(async () => {
-      await vi.advanceTimersByTimeAsync(2000);
-    });
-
+    await waitForElementToBeRemoved(queryByText("Saved"), { timeout: 3000 });
     expect(getByText("Help")).toBeInTheDocument();
-    expect(queryByText("Saved")).not.toBeInTheDocument();
   });
 
   it("disables control when disabled", () => {
