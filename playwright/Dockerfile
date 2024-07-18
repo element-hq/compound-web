@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/playwright:v1.41.1-jammy
+FROM mcr.microsoft.com/playwright:v1.45.2-jammy
 
 # Switch to a non-root user with the same IDs as those of the user on the host
 # system, to avoid needlessly giving the tests root access
