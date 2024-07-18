@@ -22,8 +22,7 @@ limitations under the License.
         var(--cpd-space-2x),
       1fr
     );
-  align-items: center;
-  justify-items: end;
+  place-items: center end;
   padding-block: var(--cpd-space-2x);
   padding-inline: var(--cpd-space-4x);
   box-sizing: border-box;
