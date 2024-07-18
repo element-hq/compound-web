@@ -1,0 +1,24 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:base", "group:allNonMajor", "schedule:weekly"],
+  "packageRules": [
+    {
+      "groupName": "GitHub Actions",
+      "matchDepTypes": ["action"],
+      "pinDigests": true,
+      "extends": ["schedule:monthly"]
+    },
+    {
+      "groupName": "Compound design tokens",
+      "matchDepNames": ["@vector-im/compound-design-tokens"],
+      "schedule": "before 5am on Tuesday and Friday"
+    },
+    {
+      "groupName": "Vaul",
+      "matchDepNames": ["vaul"],
+      "extends": ["schedule:monthly"],
+      "prHeader": "Please review menus on mobile for regressions."
+    }
+  ],
+  "semanticCommits": "disabled"
+}
