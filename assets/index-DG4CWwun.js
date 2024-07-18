@@ -1,1 +1,0 @@
-import{r as o,R as r}from"./index-BP8_t0zE.js";var s=globalThis?.document?o.useLayoutEffect:()=>{},c=r.useId||(()=>{}),f=0;function d(a){const[t,e]=o.useState(c());return s(()=>{a||e(u=>u??String(f++))},[a]),a||(t?`radix-${t}`:"")}export{s as a,d as u};

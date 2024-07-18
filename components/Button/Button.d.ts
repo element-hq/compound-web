@@ -1,5 +1,6 @@
-import React, { ComponentType, PropsWithChildren } from '../../../node_modules/react';
-import { UnstyledButtonPropsFor } from "./UnstyledButton";
+import { default as React, ComponentType, PropsWithChildren } from '../../../node_modules/react';
+import { UnstyledButtonPropsFor } from './UnstyledButton';
+
 interface ButtonComponent {
     <C extends React.ElementType>(props: {
         as: C;

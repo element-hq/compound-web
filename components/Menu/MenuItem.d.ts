@@ -1,5 +1,6 @@
 import { ComponentPropsWithoutRef, ComponentType, ReactNode, SVGAttributes } from '../../../node_modules/react';
-import { Text } from "../Typography/Text";
+import { Text } from '../Typography/Text';
+
 type MenuItemElement = "button" | "label" | "a" | "div";
 type Props<C extends MenuItemElement> = {
     /**

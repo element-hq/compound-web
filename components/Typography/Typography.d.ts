@@ -1,4 +1,5 @@
-import React, { PropsWithChildren } from '../../../node_modules/react';
+import { default as React, PropsWithChildren } from '../../../node_modules/react';
+
 type TypographyProps<C extends React.ElementType> = {
     /**
      * The HTML tag.
@@ -22,6 +23,6 @@ type TypographyProps<C extends React.ElementType> = {
      */
     className?: string;
 } & React.ComponentPropsWithoutRef<C>;
-export declare const Typography: <C extends React.ElementType<any, keyof React.JSX.IntrinsicElements> = "p">({ as, children, type, weight, size, className, ...restProps }: React.PropsWithChildren<TypographyProps<C>>) => React.ReactElement;
+export declare const Typography: <C extends React.ElementType = "p">({ as, children, type, weight, size, className, ...restProps }: PropsWithChildren<TypographyProps<C>>) => React.ReactElement;
 export {};
 //# sourceMappingURL=Typography.d.ts.map

@@ -1,6 +1,7 @@
-import React, { ComponentProps } from '../../../node_modules/react';
-import { MenuItem } from "./MenuItem";
-import { ToggleInput } from "../Form/Controls/Toggle";
+import { default as React, ComponentProps } from '../../../node_modules/react';
+import { MenuItem } from './MenuItem';
+import { ToggleInput } from '../Form/Controls/Toggle';
+
 type Props = Pick<ComponentProps<typeof MenuItem>, "className" | "Icon" | "label" | "onSelect"> & Omit<ComponentProps<typeof ToggleInput>, "id" | "children" | "onSelect">;
 /**
  * A menu item with a toggle control. Clicking anywhere on the surface will

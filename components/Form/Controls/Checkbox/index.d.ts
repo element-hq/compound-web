@@ -1,2 +1,2 @@
-export { CheckboxControl, CheckboxInput } from "./Checkbox";
+export { CheckboxControl, CheckboxInput } from './Checkbox';
 //# sourceMappingURL=index.d.ts.map

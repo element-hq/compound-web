@@ -1,5 +1,6 @@
-import React, { ComponentProps } from '../../../../../node_modules/react';
-import { ActionInput } from "../Action";
+import { default as React, ComponentProps } from '../../../../../node_modules/react';
+import { ActionInput } from '../Action';
+
 type Props = Omit<ComponentProps<typeof ActionInput>, "type" | "actionLabel" | "onActionClick" | "Icon">;
 /**
  * A password input with a toggle to show/hide the password.

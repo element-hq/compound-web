@@ -1,4 +1,5 @@
-import React from '../../../node_modules/react';
+import { default as React } from '../../../node_modules/react';
+
 type NavBarProps = {
     /**
      * The CSS class name
@@ -20,6 +21,6 @@ type NavBarProps = {
 /**
  * A navigation bar component
  */
-export declare const NavBar: ({ children, className, role, "aria-label": ariaLabel, ...rest }: React.PropsWithChildren<NavBarProps>) => import('../../../node_modules/react/jsx-runtime').JSX.Element;
+export declare const NavBar: ({ children, className, role, "aria-label": ariaLabel, ...rest }: React.PropsWithChildren<NavBarProps>) => import("react/jsx-runtime").JSX.Element;
 export {};
 //# sourceMappingURL=NavBar.d.ts.map

@@ -1,5 +1,6 @@
-import React from '../../../node_modules/react';
-import { Typography } from "./Typography";
+import { default as React } from '../../../node_modules/react';
+import { Typography } from './Typography';
+
 type TypographyProps = React.ComponentProps<typeof Typography>;
 /**
  * A heading component.

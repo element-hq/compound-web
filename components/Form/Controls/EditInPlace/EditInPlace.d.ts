@@ -1,5 +1,6 @@
-import React from '../../../../../node_modules/react';
-import { TextControl } from "../..";
+import { default as React } from '../../../../../node_modules/react';
+import { TextControl } from '../..';
+
 type Props = {
     /**
      * The label for the control

@@ -1,5 +1,6 @@
-import React from '../../../node_modules/react';
-import { SuspenseImg } from "../../utils/SuspenseImg";
+import { default as React } from '../../../node_modules/react';
+import { SuspenseImg } from '../../utils/SuspenseImg';
+
 /**
  * Avatar component that will fallback to an initial letter over a coloured
  * background if no source is provided or if the source has failed to load.
@@ -8,7 +9,7 @@ export declare const Avatar: React.ForwardRefExoticComponent<(Omit<React.ClassAt
     /**
      * The avatar image URL, if any.
      */
-    src?: string | undefined;
+    src?: React.ComponentProps<typeof SuspenseImg>["src"];
     /**
      * The Matrix ID, Room ID, or Alias to generate the color when no image source
      * is provided. Also used as a fallback when name is empty.
@@ -22,23 +23,23 @@ export declare const Avatar: React.ForwardRefExoticComponent<(Omit<React.ClassAt
      * Defines the avatar type, typically round, square is usually for spaces.
      * @default "round"
      */
-    type?: "round" | "square" | undefined;
+    type?: "square" | "round";
     /**
      * The avatar size in CSS units, e.g. `"24px"`.
      */
-    size?: string | undefined;
+    size?: CSSStyleDeclaration["height"];
     /**
      * On click handler, will turn the avatar into a button element.
      */
-    onClick?: ((e: React.MouseEvent) => void) | undefined;
+    onClick?: (e: React.MouseEvent) => void;
     /**
      * Key down handler, will turn the avatar into a button element.
      */
-    onKeyDown?: ((e: React.KeyboardEvent) => void) | undefined;
+    onKeyDown?: (e: React.KeyboardEvent) => void;
     /**
      * Key up handler, will turn the avatar into a button element.
      */
-    onKeyUp?: ((e: React.KeyboardEvent) => void) | undefined;
+    onKeyUp?: (e: React.KeyboardEvent) => void;
     /**
      * Callback when the image has failed to load.
      */
@@ -47,7 +48,7 @@ export declare const Avatar: React.ForwardRefExoticComponent<(Omit<React.ClassAt
     /**
      * The avatar image URL, if any.
      */
-    src?: string | undefined;
+    src?: React.ComponentProps<typeof SuspenseImg>["src"];
     /**
      * The Matrix ID, Room ID, or Alias to generate the color when no image source
      * is provided. Also used as a fallback when name is empty.
@@ -61,23 +62,23 @@ export declare const Avatar: React.ForwardRefExoticComponent<(Omit<React.ClassAt
      * Defines the avatar type, typically round, square is usually for spaces.
      * @default "round"
      */
-    type?: "round" | "square" | undefined;
+    type?: "square" | "round";
     /**
      * The avatar size in CSS units, e.g. `"24px"`.
      */
-    size?: string | undefined;
+    size?: CSSStyleDeclaration["height"];
     /**
      * On click handler, will turn the avatar into a button element.
      */
-    onClick?: ((e: React.MouseEvent) => void) | undefined;
+    onClick?: (e: React.MouseEvent) => void;
     /**
      * Key down handler, will turn the avatar into a button element.
      */
-    onKeyDown?: ((e: React.KeyboardEvent) => void) | undefined;
+    onKeyDown?: (e: React.KeyboardEvent) => void;
     /**
      * Key up handler, will turn the avatar into a button element.
      */
-    onKeyUp?: ((e: React.KeyboardEvent) => void) | undefined;
+    onKeyUp?: (e: React.KeyboardEvent) => void;
     /**
      * Callback when the image has failed to load.
      */

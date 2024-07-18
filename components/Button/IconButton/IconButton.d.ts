@@ -1,5 +1,6 @@
-import React from '../../../../node_modules/react';
-import { UnstyledButtonPropsFor } from "../UnstyledButton";
+import { default as React } from '../../../../node_modules/react';
+import { UnstyledButtonPropsFor } from '../UnstyledButton';
+
 type IconButtonProps = UnstyledButtonPropsFor<"button"> & JSX.IntrinsicElements["button"] & {
     /**
      * The CSS class name.

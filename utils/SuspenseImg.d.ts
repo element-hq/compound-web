@@ -1,4 +1,5 @@
-import React from '../../node_modules/react';
+import { default as React } from '../../node_modules/react';
+
 interface ImageLoadingCache {
     /**
      * A map of all sources loaded with this cache instance

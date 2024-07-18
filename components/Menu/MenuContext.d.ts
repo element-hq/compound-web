@@ -1,4 +1,5 @@
 import { ComponentType, ReactNode } from '../../../node_modules/react';
+
 export interface MenuItemWrapperProps {
     /**
      * Event callback for when the item is selected via mouse, touch, or keyboard.

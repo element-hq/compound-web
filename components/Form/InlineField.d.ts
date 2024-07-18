@@ -1,5 +1,6 @@
-import React, { ReactElement } from '../../../node_modules/react';
-import { Field } from "@radix-ui/react-form";
+import { default as React, ReactElement } from '../../../node_modules/react';
+import { Field } from '@radix-ui/react-form';
+
 type Props = {
     /**
      * The CSS class name.

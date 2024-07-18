@@ -1,2 +1,2 @@
-export { ReleaseAnnouncement } from "./ReleaseAnnouncement";
+export { ReleaseAnnouncement } from './ReleaseAnnouncement';
 //# sourceMappingURL=index.d.ts.map

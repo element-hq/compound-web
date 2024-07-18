@@ -1,1 +1,1 @@
-{"version":3,"file":"InlineSpinner.d.ts","sourceRoot":"","sources":["../../../src/components/InlineSpinner/InlineSpinner.tsx"],"names":[],"mappings":"AAgBA,OAAO,KAAoC,MAAM,OAAO,CAAC;AAQzD,eAAO,MAAM,aAAa;;yEAWzB,CAAC"}
+{"version":3,"file":"InlineSpinner.d.ts","sourceRoot":"","sources":["../../../src/components/InlineSpinner/InlineSpinner.tsx"],"names":[],"mappings":"AAgBA,OAAO,KAAoC,MAAM,OAAO,CAAC;AAQzD,eAAO,MAAM,aAAa;WAHjB,MAAM;yEAcd,CAAC"}

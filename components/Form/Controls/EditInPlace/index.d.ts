@@ -1,2 +1,2 @@
-export { EditInPlace } from "./EditInPlace";
+export { EditInPlace } from './EditInPlace';
 //# sourceMappingURL=index.d.ts.map

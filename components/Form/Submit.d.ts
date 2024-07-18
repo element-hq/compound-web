@@ -1,5 +1,6 @@
-import React, { ComponentPropsWithoutRef } from '../../../node_modules/react';
-import { Button } from "../Button/Button";
+import { default as React, ComponentPropsWithoutRef } from '../../../node_modules/react';
+import { Button } from '../Button/Button';
+
 type SubmitProps = Omit<ComponentPropsWithoutRef<typeof Button>, "submit" | "as">;
 /**
  * A stylised submit button for forms.

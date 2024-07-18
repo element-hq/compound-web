@@ -1,5 +1,6 @@
-import React from '../../../node_modules/react';
-import { Field as RadixField } from "@radix-ui/react-form";
+import { default as React } from '../../../node_modules/react';
+import { Field as RadixField } from '@radix-ui/react-form';
+
 type FieldProps = {
     /**
      * The CSS class name.

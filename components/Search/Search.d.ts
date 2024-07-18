@@ -1,5 +1,6 @@
-import React, { ComponentProps } from '../../../node_modules/react';
-import { Field } from "../Form";
+import { default as React, ComponentProps } from '../../../node_modules/react';
+import { Field } from '../Form';
+
 type SearchProps = {
     /**
      * The CSS class name

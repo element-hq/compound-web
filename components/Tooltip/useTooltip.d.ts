@@ -1,5 +1,6 @@
-import { OpenChangeReason, Placement } from "@floating-ui/react";
+import { OpenChangeReason, Placement } from '@floating-ui/react';
 import { JSX } from '../../../node_modules/react';
+
 export interface CommonUseTooltipProps {
     /**
      * The controlled open state of the tooltip.
@@ -56,47 +57,47 @@ type UseTooltipProps = CommonUseTooltipProps & (TooltipLabel | TooltipDescriptio
 export declare function useTooltip({ open: controlledOpen, disabled, onOpenChange, placement, isTriggerInteractive, caption, ...props }: UseTooltipProps): {
     arrowRef: import('../../../node_modules/react').MutableRefObject<null>;
     placement: Placement;
-    strategy: import("@floating-ui/utils").Strategy;
-    middlewareData: import("@floating-ui/core").MiddlewareData;
+    strategy: import('@floating-ui/utils').Strategy;
+    middlewareData: import('@floating-ui/core').MiddlewareData;
     x: number;
     y: number;
     isPositioned: boolean;
     update: () => void;
     floatingStyles: import('../../../node_modules/react').CSSProperties;
     refs: {
-        reference: import('../../../node_modules/react').MutableRefObject<import("@floating-ui/react-dom").ReferenceType | null>;
+        reference: import('../../../node_modules/react').MutableRefObject<import('@floating-ui/react-dom').ReferenceType | null>;
         floating: import('../../../node_modules/react').MutableRefObject<HTMLElement | null>;
-        setReference: (node: import("@floating-ui/react-dom").ReferenceType | null) => void;
+        setReference: (node: import('@floating-ui/react-dom').ReferenceType | null) => void;
         setFloating: (node: HTMLElement | null) => void;
-    } & import("@floating-ui/react").ExtendedRefs<import("@floating-ui/react").ReferenceType>;
+    } & import('@floating-ui/react').ExtendedRefs<import('@floating-ui/react').ReferenceType>;
     elements: {
-        reference: import("@floating-ui/react-dom").ReferenceType | null;
+        reference: import('@floating-ui/react-dom').ReferenceType | null;
         floating: HTMLElement | null;
-    } & import("@floating-ui/react").ExtendedElements<import("@floating-ui/react").ReferenceType>;
+    } & import('@floating-ui/react').ExtendedElements<import('@floating-ui/react').ReferenceType>;
     context: {
         x: number;
         y: number;
         placement: Placement;
-        strategy: import("@floating-ui/utils").Strategy;
-        middlewareData: import("@floating-ui/core").MiddlewareData;
+        strategy: import('@floating-ui/utils').Strategy;
+        middlewareData: import('@floating-ui/core').MiddlewareData;
         isPositioned: boolean;
         update: () => void;
         floatingStyles: import('../../../node_modules/react').CSSProperties;
         open: boolean;
-        onOpenChange: (open: boolean, event?: Event | undefined, reason?: OpenChangeReason | undefined) => void;
-        events: import("@floating-ui/react").FloatingEvents;
-        dataRef: import('../../../node_modules/react').MutableRefObject<import("@floating-ui/react").ContextData>;
+        onOpenChange: (open: boolean, event?: Event, reason?: OpenChangeReason) => void;
+        events: import('@floating-ui/react').FloatingEvents;
+        dataRef: import('../../../node_modules/react').MutableRefObject<import('@floating-ui/react').ContextData>;
         nodeId: string | undefined;
         floatingId: string;
-        refs: import("@floating-ui/react").ExtendedRefs<import("@floating-ui/react").ReferenceType>;
-        elements: import("@floating-ui/react").ExtendedElements<import("@floating-ui/react").ReferenceType>;
+        refs: import('@floating-ui/react').ExtendedRefs<import('@floating-ui/react').ReferenceType>;
+        elements: import('@floating-ui/react').ExtendedElements<import('@floating-ui/react').ReferenceType>;
     };
-    getReferenceProps: (userProps?: import('../../../node_modules/react').HTMLProps<Element> | undefined) => Record<string, unknown>;
-    getFloatingProps: (userProps?: import('../../../node_modules/react').HTMLProps<HTMLElement> | undefined) => Record<string, unknown>;
-    getItemProps: (userProps?: (Omit<import('../../../node_modules/react').HTMLProps<HTMLElement>, "selected" | "active"> & {
-        active?: boolean | undefined;
-        selected?: boolean | undefined;
-    }) | undefined) => Record<string, unknown>;
+    getReferenceProps: (userProps?: import('../../../node_modules/react').HTMLProps<Element>) => Record<string, unknown>;
+    getFloatingProps: (userProps?: import('../../../node_modules/react').HTMLProps<HTMLElement>) => Record<string, unknown>;
+    getItemProps: (userProps?: Omit<import('../../../node_modules/react').HTMLProps<HTMLElement>, "selected" | "active"> & {
+        active?: boolean;
+        selected?: boolean;
+    }) => Record<string, unknown>;
     contentId: string;
     labelId: string;
     captionId: string | undefined;

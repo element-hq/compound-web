@@ -1,4 +1,5 @@
-import React, { ComponentPropsWithoutRef, ReactNode } from '../../../node_modules/react';
+import { default as React, ComponentPropsWithoutRef, ReactNode } from '../../../node_modules/react';
+
 interface Props extends ComponentPropsWithoutRef<"div"> {
     /**
      * The child component.

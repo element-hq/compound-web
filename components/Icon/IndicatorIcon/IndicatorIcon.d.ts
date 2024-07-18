@@ -1,4 +1,5 @@
-import React from '../../../../node_modules/react';
+import { default as React } from '../../../../node_modules/react';
+
 type IconButtonProps = {
     /**
      * The CSS class name.
@@ -20,7 +21,7 @@ type IconButtonProps = {
     indicator?: "default" | "success" | "critical";
 };
 export declare const IndicatorIcon: React.ForwardRefExoticComponent<IconButtonProps & {
-    children?: React.ReactNode;
+    children?: React.ReactNode | undefined;
 } & React.RefAttributes<HTMLDivElement>>;
 export {};
 //# sourceMappingURL=IndicatorIcon.d.ts.map
