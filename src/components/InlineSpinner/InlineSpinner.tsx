@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import React, { SVGAttributes } from "react";
+import React, { SVGAttributes, forwardRef } from "react";
 import styles from "./InlineSpinner.module.css";
 import SpinnerIcon from "@vector-im/compound-design-tokens/assets/web/icons/spinner";
 
@@ -22,12 +22,15 @@ type InlineSpinnerProps = {
   size?: number;
 } & SVGAttributes<SVGElement>;
 
-export function InlineSpinner({ size = 20, ...props }: InlineSpinnerProps) {
-  return (
-    <SpinnerIcon
-      className={styles.icon}
-      style={{ width: size, height: size }}
-      {...props}
-    />
-  );
-}
+export const InlineSpinner = forwardRef<SVGSVGElement, InlineSpinnerProps>(
+  function InlineSpinner({ size = 20, ...props }, ref) {
+    return (
+      <SpinnerIcon
+        ref={ref}
+        className={styles.icon}
+        style={{ width: size, height: size }}
+        {...props}
+      />
+    );
+  },
+);

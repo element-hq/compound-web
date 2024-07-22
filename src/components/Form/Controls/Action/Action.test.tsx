@@ -15,11 +15,12 @@ limitations under the License.
 */
 
 import { vi, describe, it, expect } from "vitest";
-import { fireEvent, getByLabelText, render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import React from "react";
 import ChatIcon from "@vector-im/compound-design-tokens/assets/web/icons/chat";
 
 import { ActionInput } from "./Action";
+import userEvent from "@testing-library/user-event";
 
 describe("ActionInput", () => {
   it("renders", () => {
@@ -35,10 +36,11 @@ describe("ActionInput", () => {
     expect(asFragment()).toMatchSnapshot();
   });
 
-  it("trigger the action", () => {
+  it("trigger the action", async () => {
+    const user = userEvent.setup();
     const spy = vi.fn();
 
-    const { container } = render(
+    render(
       <ActionInput
         Icon={ChatIcon}
         actionLabel="Click me!"
@@ -46,9 +48,7 @@ describe("ActionInput", () => {
       />,
     );
 
-    const actionBtn = getByLabelText(container, "Click me!");
-
-    fireEvent.click(actionBtn);
+    await user.click(screen.getByRole("button", { name: "Click me!" }));
 
     expect(spy).toHaveBeenCalledTimes(1);
   });

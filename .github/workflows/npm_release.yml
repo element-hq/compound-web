@@ -18,12 +18,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 🧮 Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
         with:
           token: ${{ secrets.ELEMENT_BOT_TOKEN }}
 
       - name: 🔧 Set up node environment
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@1e60f620b9541d16bece96c5465dc8ee9832be0b # v4
         with:
           cache: "yarn"
 
@@ -41,13 +41,13 @@ jobs:
           git push
       - name: 🚀 Publish to npm
         id: npm-publish
-        uses: JS-DevTools/npm-publish@v1
+        uses: JS-DevTools/npm-publish@19c28f1ef146469e409470805ea4279d47c3d35c # v3
         with:
           token: ${{ secrets.ELEMENT_NPM_TOKEN }}
           access: public
 
       - name: 🧬 Create release
-        uses: actions/create-release@v1
+        uses: actions/create-release@0cb9c9b65d5d1901c1f53e5e66eaf4afd303e70e # v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:

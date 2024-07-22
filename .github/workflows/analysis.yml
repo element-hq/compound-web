@@ -8,8 +8,8 @@ jobs:
     name: "Lint"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
+      - uses: actions/setup-node@1e60f620b9541d16bece96c5465dc8ee9832be0b # v4
         with:
           cache: "yarn"
       - name: Install deps
@@ -22,8 +22,8 @@ jobs:
     name: "Unit test"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
+      - uses: actions/setup-node@1e60f620b9541d16bece96c5465dc8ee9832be0b # v4
         with:
           cache: "yarn"
       - name: Install deps
@@ -31,7 +31,7 @@ jobs:
       - name: Test
         run: "yarn run test --coverage"
       - name: Upload Artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@0b2256b8c012f0828dc542b3febcab082c67f72b # v4
         with:
           name: coverage
           path: |
@@ -46,8 +46,8 @@ jobs:
     name: "Test end-to-end"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
+      - uses: actions/setup-node@1e60f620b9541d16bece96c5465dc8ee9832be0b # v4
         with:
           cache: "yarn"
       - name: Install deps
@@ -55,9 +55,9 @@ jobs:
       - name: Build Storybook
         run: yarn build-storybook
       - name: Get Playwright version
-        run: echo "PLAYWRIGHT_VERSION=$(yarn info @playwright/test -A --json | jq -r .data.version)" >> $GITHUB_ENV
+        run: echo "PLAYWRIGHT_VERSION=$(yarn list --pattern @playwright/test --depth=0 --json --non-interactive --no-progress | jq -r '.data.trees[].name')" >> $GITHUB_ENV
       - name: Cache Playwright binaries
-        uses: actions/cache@v3
+        uses: actions/cache@0c45773b623bea8c8e75f6c82b208c3cf94ea4f9 # v4
         id: playwright-cache
         with:
           path: |
@@ -73,7 +73,7 @@ jobs:
           run: yarn playwright test -j 100%
       - name: Upload Playwright report
         if: always()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@0b2256b8c012f0828dc542b3febcab082c67f72b # v4
         with:
           name: html-report--attempt-${{ github.run_attempt }}
           path: playwright-report

@@ -42,17 +42,18 @@ export default {
     label: {
       control: "text",
     },
+    description: {
+      control: "text",
+    },
     caption: {
       control: "text",
     },
   },
   args: {
-    placement: "left",
-    label: "@bob:example.org",
     // needed, to prevent the tooltip to be in controlled mode
     onOpenChange: undefined,
     children: (
-      <IconButton data-testid="testbutton">
+      <IconButton>
         <UserIcon />
       </IconButton>
     ),
@@ -116,14 +117,12 @@ Placement.args = {};
 
 export const Default = {
   args: {
-    // unset to test defaults
-    placement: undefined,
+    label: "@bob:example.org",
   },
 };
 
 export const WithStringCaption = {
   args: {
-    ...Default.args,
     label: "I can have a caption",
     caption: "My beautiful caption",
   },
@@ -131,7 +130,6 @@ export const WithStringCaption = {
 
 export const WithComponentCaption = {
   args: {
-    ...Default.args,
     label: "Copy",
     caption: (
       <>
@@ -143,7 +141,6 @@ export const WithComponentCaption = {
 
 export const ForcedOpen = {
   args: {
-    ...Default.args,
     open: true,
     label: "I'm always open",
   },
@@ -151,39 +148,40 @@ export const ForcedOpen = {
 
 export const ForcedClose = {
   args: {
-    ...Default.args,
     open: false,
-    label: "You can't see me",
+    description: "You can't see me",
     children: <span>No tooltip to see here</span>,
   },
 };
 
 export const ForcedDisabled = {
   args: {
-    ...Default.args,
     disabled: true,
-    label: "You can't see me",
+    description: "You can't see me",
     children: <span>No tooltip to see here</span>,
   },
 };
 
 export const InteractiveTrigger = {
   args: {
-    ...Default.args,
     isTriggerInteractive: true,
-    label: "Shown with delay",
+    description: "Shown with delay",
+    children: <a href="https://example.org">Link</a>,
   },
 };
 
 export const NonInteractiveTrigger = {
   args: {
-    ...Default.args,
     isTriggerInteractive: false,
-    label: "Shown without delay",
-    children: (
-      <IconButton data-testid="testbutton" disabled>
-        <UserIcon />
-      </IconButton>
-    ),
+    description: "Shown without delay",
+    children: "Just some text",
+  },
+};
+
+export const Descriptive = {
+  args: {
+    open: true,
+    description: "Employer Identification Number",
+    children: <span>EIN</span>,
   },
 };

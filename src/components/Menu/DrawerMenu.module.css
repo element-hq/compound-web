@@ -61,10 +61,8 @@ limitations under the License.
   display: flex;
   flex-direction: column;
   gap: var(--cpd-space-2x);
-  padding-block-start: calc(
-    var(--content-inset-block-start) + var(--cpd-space-6x)
-  );
-  padding-block-end: var(--cpd-space-12x);
+  padding-block: calc(var(--content-inset-block-start) + var(--cpd-space-6x))
+    var(--cpd-space-12x);
   border-start-start-radius: var(--border-radius);
   border-start-end-radius: var(--border-radius);
 

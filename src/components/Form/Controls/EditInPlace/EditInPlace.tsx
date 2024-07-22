@@ -312,7 +312,6 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
                       kind="primary"
                       size="sm"
                       ref={saveButtonRef}
-                      aria-label={saveButtonLabel}
                       disabled={state !== State.Dirty}
                       iconOnly
                       Icon={CheckIcon}
@@ -327,7 +326,6 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
                     size="sm"
                     ref={cancelButtonRef}
                     className={styles.button}
-                    aria-label={cancelButtonLabel}
                     disabled={state === State.Saving}
                     iconOnly
                     Icon={CancelIcon}
