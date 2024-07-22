@@ -32,4 +32,25 @@ test.describe("Dropdown", () => {
     await page.getByRole("combobox").click();
     await expect(page).toHaveScreenshot({ fullPage: true });
   });
+
+  test("should to use keyboard shortcut", async ({ page }) => {
+    await page.goto(`iframe.html?viewMode=story&id=dropdown--default`, {
+      waitUntil: "networkidle",
+    });
+
+    await page.getByRole("combobox").focus();
+    await page.keyboard.press("ArrowDown");
+
+    await expect(page).toHaveScreenshot({ fullPage: true });
+
+    await page.keyboard.press("End");
+    await expect(page.getByRole("option", { name: "Option 2" })).toBeFocused();
+
+    await page.keyboard.press("Home");
+    await expect(page.getByRole("option", { name: "Option 1" })).toBeFocused();
+
+    await page.keyboard.press("Enter");
+    await expect(page.getByRole("combobox")).toHaveText("Option 1");
+    await expect(page).toHaveScreenshot({ fullPage: true });
+  });
 });

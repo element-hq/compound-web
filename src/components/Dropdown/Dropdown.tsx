@@ -199,7 +199,7 @@ type DropdownItemProps = HTMLProps<HTMLLIElement> & {
  */
 const DropdownItem = memo(
   forwardRef<HTMLLIElement, DropdownItemProps>(function MemoDropdownItem(
-    // TODO
+    // The props typing has some difficulties with memo and forwardRef hoc
     // eslint-disable-next-line react/prop-types
     { children, isSelected, ...props }: DropdownItemProps,
     ref,
@@ -338,6 +338,7 @@ function useKeyboardShortcut(
           break;
         }
         case "ArrowUp": {
+          console.log("altkey", altKey);
           if (altKey) {
             setValue({ text, value });
             setOpen(false);
