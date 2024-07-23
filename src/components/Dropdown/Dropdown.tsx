@@ -338,7 +338,6 @@ function useKeyboardShortcut(
           break;
         }
         case "ArrowUp": {
-          console.log("altkey", altKey);
           if (altKey) {
             setValue({ text, value });
             setOpen(false);
