@@ -151,13 +151,13 @@ export const Dropdown = forwardRef<HTMLButtonElement, DropdownProps>(
             id={contentId}
             role="listbox"
             className={styles.content}
-            onClick={() => setOpen(false)}
           >
             {values.map(([value, text]) => (
               <DropdownItem
                 key={value}
                 isSelected={state.value === value}
                 onClick={() => {
+                  setOpen(false);
                   setState({ value, text });
                   onValueChange?.(value);
                 }}
