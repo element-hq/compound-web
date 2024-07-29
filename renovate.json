@@ -1,6 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:base", "group:allNonMajor", "schedule:weekly"],
+  "extends": ["config:base", "group:allNonMajor", "schedule:weekly", "monorepo:eslint"],
   "packageRules": [
     {
       "groupName": "GitHub Actions",
