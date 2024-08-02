@@ -1,4 +1,4 @@
-import{S as e}from"./Separator-CTk03Ec7.js";import"./jsx-runtime-CexXSJP5.js";import"./index-BP8_t0zE.js";import"./index-CSpfAsmC.js";import"./index-CkD-EKAR.js";import"./index-Cw6ikIwd.js";import"./index-Dp4tTk3o.js";import"./floating-ui.react-4qK1KPOR.js";const g={title:"Separator",component:e,tags:["autodocs"],argTypes:{},args:{}},r={args:{kind:"primary"}},a={args:{kind:"secondary"}},o={args:{kind:"section"}};r.parameters={...r.parameters,docs:{...r.parameters?.docs,source:{originalSource:`{
+import{S as e}from"./Separator-DGmfQX2-.js";import"./jsx-runtime-CexXSJP5.js";import"./index-BP8_t0zE.js";import"./index-CSpfAsmC.js";import"./index-CkD-EKAR.js";import"./index-Cw6ikIwd.js";import"./index-Dp4tTk3o.js";import"./floating-ui.react-4qK1KPOR.js";const g={title:"Separator",component:e,tags:["autodocs"],argTypes:{},args:{}},r={args:{kind:"primary"}},a={args:{kind:"secondary"}},o={args:{kind:"section"}};r.parameters={...r.parameters,docs:{...r.parameters?.docs,source:{originalSource:`{
   args: {
     kind: "primary"
   }
