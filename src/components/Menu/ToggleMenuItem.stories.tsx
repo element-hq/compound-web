@@ -1,5 +1,5 @@
 /*
-Copyright 2023 New Vector Ltd
+Copyright 2023-2024 New Vector Ltd
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import React from "react";
+import React, { useState } from "react";
 import { Meta, StoryFn } from "@storybook/react";
 import ExtensionsIcon from "@vector-im/compound-design-tokens/assets/web/icons/extensions";
 import ChatIcon from "@vector-im/compound-design-tokens/assets/web/icons/chat";
@@ -29,16 +29,31 @@ export default {
   args: {},
 } as Meta<typeof ToggleMenuItemComponent>;
 
-const Template: StoryFn<typeof ToggleMenuItemComponent> = (args) => (
-  <div style={{ width: 300 }}>
-    <ToggleMenuItemComponent {...args} Icon={ChatIcon} label="First item" />
-    <ToggleMenuItemComponent
-      {...args}
-      Icon={ExtensionsIcon}
-      label="Second item with a name that's quite long"
-    />
-  </div>
-);
+const Template: StoryFn<typeof ToggleMenuItemComponent> = (args) => {
+  const [firstChecked, setFirstChecked] = useState(false);
+
+  return (
+    <div style={{ width: 300 }}>
+      <ToggleMenuItemComponent
+        {...args}
+        Icon={ChatIcon}
+        label="First item"
+        checked={firstChecked}
+        onSelect={(e) => {
+          e.preventDefault();
+          setFirstChecked((c) => !c);
+        }}
+      />
+      <ToggleMenuItemComponent
+        {...args}
+        Icon={ExtensionsIcon}
+        label="Second item with a name that's quite long"
+        checked
+        disabled
+      />
+    </div>
+  );
+};
 
 export const Primary = Template.bind({});
 Primary.args = {};

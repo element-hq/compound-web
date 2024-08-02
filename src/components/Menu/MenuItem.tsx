@@ -31,7 +31,7 @@ import ChevronRightIcon from "@vector-im/compound-design-tokens/assets/web/icons
 import { MenuContext } from "./MenuContext";
 import { Slot } from "@radix-ui/react-slot";
 
-type MenuItemElement = "button" | "label" | "a" | "div";
+type MenuItemElement = "button" | "a" | "div";
 
 type Props<C extends MenuItemElement> = {
   /**
@@ -125,7 +125,8 @@ export const MenuItem = <C extends MenuItemElement = "button">({
       })}
       data-kind={kind}
       onClick={onClick}
-      disabled={disabled}
+      disabled={Component === "button" ? disabled : undefined}
+      aria-disabled={Component === "button" ? undefined : disabled}
     >
       {iconIsReactElement ? (
         <Slot className={styles.icon}>{componentIcon}</Slot>
