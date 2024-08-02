@@ -21,14 +21,17 @@ import { fn } from "@storybook/test";
 import * as icons from "@vector-im/compound-design-tokens/assets/web/icons";
 
 import { Button as ButtonComponent } from "./Button";
-import { Tooltip } from "../..";
+import { Tooltip } from "../Tooltip/Tooltip";
+import { TooltipProvider } from "../Tooltip/TooltipProvider";
 
 const Template: React.FC<
   { label: string } & React.ComponentProps<typeof ButtonComponent>
 > = ({ label, ...args }) => (
-  <Tooltip label={label}>
-    <ButtonComponent iconOnly {...args} />
-  </Tooltip>
+  <TooltipProvider>
+    <Tooltip label={label}>
+      <ButtonComponent iconOnly {...args} />
+    </Tooltip>
+  </TooltipProvider>
 );
 
 export default {

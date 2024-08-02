@@ -20,6 +20,7 @@ import { IconButton } from "../Button";
 import UserIcon from "@vector-im/compound-design-tokens/assets/web/icons/user-profile";
 import { Meta, StoryFn } from "@storybook/react";
 import React, { FC, ReactNode } from "react";
+import { TooltipProvider } from "./TooltipProvider";
 
 export default {
   title: "Tooltip",
@@ -61,7 +62,9 @@ export default {
   decorators: [
     (Story: StoryFn) => (
       <div style={{ padding: 100 }}>
-        <Story />
+        <TooltipProvider>
+          <Story />
+        </TooltipProvider>
       </div>
     ),
   ],

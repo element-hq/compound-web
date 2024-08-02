@@ -20,6 +20,7 @@ import { EditInPlace } from "./";
 import { Meta, StoryObj } from "@storybook/react";
 import { expect, userEvent, within } from "@storybook/test";
 import { ErrorMessage } from "../../Message";
+import { TooltipProvider } from "../../../Tooltip/TooltipProvider";
 
 type Props = { invalid?: boolean } & React.ComponentProps<typeof EditInPlace>;
 
@@ -87,7 +88,11 @@ export default {
       type: "boolean",
     },
   },
-  render: ({ ...restArgs }) => <EditInPlace {...restArgs} />,
+  render: ({ ...restArgs }) => (
+    <TooltipProvider>
+      <EditInPlace {...restArgs} />
+    </TooltipProvider>
+  ),
   args: {
     label: "Label",
     onSave: () => new Promise((resolve) => setTimeout(resolve, 1000)),

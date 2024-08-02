@@ -19,6 +19,7 @@ import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
 
 import * as Form from "./index";
+import { TooltipProvider } from "../Tooltip/TooltipProvider";
 
 type Props = {
   disabled: boolean;
@@ -27,127 +28,129 @@ type Props = {
 };
 
 const KitchenSink = ({ disabled, invalid, readOnly }: Props) => (
-  <Form.Root>
-    <Form.Field serverInvalid={invalid} name="mxid">
-      <Form.Label>Username</Form.Label>
-      <Form.TextControl
-        disabled={disabled}
-        readOnly={readOnly}
-        defaultValue="Hello world!"
-      />
-      {invalid ? (
-        <Form.ErrorMessage>Error message.</Form.ErrorMessage>
-      ) : (
-        <Form.HelpMessage>Help message.</Form.HelpMessage>
-      )}
-    </Form.Field>
-
-    <Form.Field serverInvalid={invalid} name="password">
-      <Form.Label>Password</Form.Label>
-      <Form.PasswordControl
-        disabled={disabled}
-        readOnly={readOnly}
-        defaultValue="sup3rS3cur3p4ssw0rd!"
-      />
-      {invalid ? (
-        <Form.ErrorMessage>Error message.</Form.ErrorMessage>
-      ) : (
-        <Form.HelpMessage>Help message.</Form.HelpMessage>
-      )}
-    </Form.Field>
-
-    <Form.Field serverInvalid={invalid} name="mfa">
-      <Form.Label>MFA</Form.Label>
-      <Form.MFAControl
-        disabled={disabled}
-        readOnly={readOnly}
-        defaultValue="123"
-      />
-      {invalid ? (
-        <Form.ErrorMessage>Error message.</Form.ErrorMessage>
-      ) : (
-        <Form.HelpMessage>Help message.</Form.HelpMessage>
-      )}
-    </Form.Field>
-
-    <Form.InlineField
-      serverInvalid={invalid}
-      name="remember"
-      control={
-        <Form.CheckboxControl
+  <TooltipProvider>
+    <Form.Root>
+      <Form.Field serverInvalid={invalid} name="mxid">
+        <Form.Label>Username</Form.Label>
+        <Form.TextControl
           disabled={disabled}
           readOnly={readOnly}
-          defaultChecked={true}
+          defaultValue="Hello world!"
         />
-      }
-    >
-      <Form.Label>Remember me</Form.Label>
-      {invalid ? (
-        <Form.ErrorMessage>Error message.</Form.ErrorMessage>
-      ) : (
-        <Form.HelpMessage>Help message.</Form.HelpMessage>
-      )}
-    </Form.InlineField>
+        {invalid ? (
+          <Form.ErrorMessage>Error message.</Form.ErrorMessage>
+        ) : (
+          <Form.HelpMessage>Help message.</Form.HelpMessage>
+        )}
+      </Form.Field>
 
-    <Form.InlineField
-      serverInvalid={invalid}
-      name="radio"
-      control={
-        <Form.RadioControl
+      <Form.Field serverInvalid={invalid} name="password">
+        <Form.Label>Password</Form.Label>
+        <Form.PasswordControl
           disabled={disabled}
           readOnly={readOnly}
-          defaultChecked={true}
+          defaultValue="sup3rS3cur3p4ssw0rd!"
         />
-      }
-    >
-      <Form.Label>Option 1</Form.Label>
-      {invalid ? (
-        <Form.ErrorMessage>Error message.</Form.ErrorMessage>
-      ) : (
-        <Form.HelpMessage>Help message.</Form.HelpMessage>
-      )}
-    </Form.InlineField>
+        {invalid ? (
+          <Form.ErrorMessage>Error message.</Form.ErrorMessage>
+        ) : (
+          <Form.HelpMessage>Help message.</Form.HelpMessage>
+        )}
+      </Form.Field>
 
-    <Form.InlineField
-      serverInvalid={invalid}
-      name="radio"
-      control={
-        <Form.RadioControl
+      <Form.Field serverInvalid={invalid} name="mfa">
+        <Form.Label>MFA</Form.Label>
+        <Form.MFAControl
           disabled={disabled}
           readOnly={readOnly}
-          defaultChecked={true}
+          defaultValue="123"
         />
-      }
-    >
-      <Form.Label>Option 2</Form.Label>
-      {invalid ? (
-        <Form.ErrorMessage>Error message.</Form.ErrorMessage>
-      ) : (
-        <Form.HelpMessage>Help message.</Form.HelpMessage>
-      )}
-    </Form.InlineField>
+        {invalid ? (
+          <Form.ErrorMessage>Error message.</Form.ErrorMessage>
+        ) : (
+          <Form.HelpMessage>Help message.</Form.HelpMessage>
+        )}
+      </Form.Field>
 
-    <Form.InlineField
-      serverInvalid={invalid}
-      name="toggle"
-      control={
-        <Form.ToggleControl
-          disabled={disabled}
-          readOnly={readOnly}
-          defaultChecked={true}
-        />
-      }
-    >
-      <Form.Label>Toggle</Form.Label>
-      {invalid ? (
-        <Form.ErrorMessage>Error message.</Form.ErrorMessage>
-      ) : (
-        <Form.HelpMessage>Help message.</Form.HelpMessage>
-      )}
-    </Form.InlineField>
+      <Form.InlineField
+        serverInvalid={invalid}
+        name="remember"
+        control={
+          <Form.CheckboxControl
+            disabled={disabled}
+            readOnly={readOnly}
+            defaultChecked={true}
+          />
+        }
+      >
+        <Form.Label>Remember me</Form.Label>
+        {invalid ? (
+          <Form.ErrorMessage>Error message.</Form.ErrorMessage>
+        ) : (
+          <Form.HelpMessage>Help message.</Form.HelpMessage>
+        )}
+      </Form.InlineField>
 
-    <Form.Submit disabled={disabled}>Submit</Form.Submit>
-  </Form.Root>
+      <Form.InlineField
+        serverInvalid={invalid}
+        name="radio"
+        control={
+          <Form.RadioControl
+            disabled={disabled}
+            readOnly={readOnly}
+            defaultChecked={true}
+          />
+        }
+      >
+        <Form.Label>Option 1</Form.Label>
+        {invalid ? (
+          <Form.ErrorMessage>Error message.</Form.ErrorMessage>
+        ) : (
+          <Form.HelpMessage>Help message.</Form.HelpMessage>
+        )}
+      </Form.InlineField>
+
+      <Form.InlineField
+        serverInvalid={invalid}
+        name="radio"
+        control={
+          <Form.RadioControl
+            disabled={disabled}
+            readOnly={readOnly}
+            defaultChecked={true}
+          />
+        }
+      >
+        <Form.Label>Option 2</Form.Label>
+        {invalid ? (
+          <Form.ErrorMessage>Error message.</Form.ErrorMessage>
+        ) : (
+          <Form.HelpMessage>Help message.</Form.HelpMessage>
+        )}
+      </Form.InlineField>
+
+      <Form.InlineField
+        serverInvalid={invalid}
+        name="toggle"
+        control={
+          <Form.ToggleControl
+            disabled={disabled}
+            readOnly={readOnly}
+            defaultChecked={true}
+          />
+        }
+      >
+        <Form.Label>Toggle</Form.Label>
+        {invalid ? (
+          <Form.ErrorMessage>Error message.</Form.ErrorMessage>
+        ) : (
+          <Form.HelpMessage>Help message.</Form.HelpMessage>
+        )}
+      </Form.InlineField>
+
+      <Form.Submit disabled={disabled}>Submit</Form.Submit>
+    </Form.Root>
+  </TooltipProvider>
 );
 
 export default {

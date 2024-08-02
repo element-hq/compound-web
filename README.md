@@ -3,8 +3,8 @@
 # Compound Web
 
 [![](https://img.shields.io/badge/-Storybook-ff4785?logo=Storybook&logoColor=white&style=flat-square)](https://compound.element.io/) [![](https://img.shields.io/github/license/vector-im/compound)](https://github.com/vector-im/compound/blob/main/LICENSE)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=vector-im_compound-web&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=vector-im_compound-web)
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=vector-im_compound-web&metric=coverage)](https://sonarcloud.io/summary/new_code?id=vector-im_compound-web)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=compound-web&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=compound-web)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=compound-web&metric=coverage)](https://sonarcloud.io/summary/new_code?id=compound-web)
 
 React implementation of Compound – Element's design system – See full documentation on https://compound.element.io and the [Figma component library](https://www.figma.com/file/rTaQE2nIUSLav4Tg3nozq7/Compound-Web-Components?type=design&node-id=129%3A4461&t=0cvCO0bpqRPGgkwa-1)
 
