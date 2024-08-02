@@ -24,6 +24,7 @@ import {
   OpenChangeReason,
   Placement,
   shift,
+  useDelayGroup,
   useDismiss,
   useFloating,
   useFocus,
@@ -33,6 +34,7 @@ import {
   useRole,
 } from "@floating-ui/react";
 import { useMemo, useRef, useState, JSX } from "react";
+import { hoverDelay } from "./TooltipProvider";
 
 export interface CommonUseTooltipProps {
   /**
@@ -149,11 +151,17 @@ export function useTooltip({
   });
 
   const context = data.context;
+  const { delay, initialDelay } = useDelayGroup(context);
+  // We can tell if no delay group has been provided, because the delay will
+  // default to zero
+  if (initialDelay !== hoverDelay)
+    throw new Error("Tooltips must be wrapped in a global <TooltipProvider>");
+
   const hover = useHover(context, {
     move: false,
     enabled: controlledOpen === undefined,
     // Show tooltip after a delay when trigger is interactive
-    delay: { open: isTriggerInteractive ? 300 : 0 },
+    delay: isTriggerInteractive ? delay : {},
   });
   const focus = useFocus(context, {
     enabled: controlledOpen === undefined,
