@@ -1,13 +1,22 @@
-import { default as React, ComponentProps } from '../../../node_modules/react';
-import { MenuItem } from './MenuItem';
-import { ToggleInput } from '../Form/Controls/Toggle';
+import { default as React } from '../../../node_modules/react';
 
-type Props = Pick<ComponentProps<typeof MenuItem>, "className" | "Icon" | "label" | "onSelect"> & Omit<ComponentProps<typeof ToggleInput>, "id" | "children" | "onSelect">;
 /**
- * A menu item with a toggle control. Clicking anywhere on the surface will
- * activate the toggle.
+ * A menu item with a toggle control.
  * Must be used within a compound Menu or other `menu` or `menubar` aria role subtree.
  */
-export declare const ToggleMenuItem: React.ForwardRefExoticComponent<Omit<Props, "ref"> & React.RefAttributes<HTMLInputElement>>;
-export {};
+export declare const ToggleMenuItem: React.ForwardRefExoticComponent<Pick<{
+    as?: ("a" | "button" | "div") | undefined;
+    className?: string;
+    Icon: React.ComponentType<React.SVGAttributes<SVGElement>> | React.ReactNode;
+    label: string | null;
+    labelProps?: React.ComponentPropsWithoutRef<typeof import('../..').Text>;
+    onSelect: ((e: Event) => void) | null;
+    kind?: "primary" | "critical";
+    disabled?: boolean;
+} & Omit<Omit<React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>, "ref"> | Omit<React.DetailedHTMLProps<React.AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement>, "ref"> | Omit<React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>, "ref">, "onSelect">, "label" | "className" | "disabled" | "onSelect" | "Icon"> & {
+    /**
+     * Whether the toggle is checked.
+     */
+    checked: boolean;
+} & React.RefAttributes<HTMLInputElement>>;
 //# sourceMappingURL=ToggleMenuItem.d.ts.map
