@@ -26,6 +26,9 @@ import userEvent from "@testing-library/user-event";
 import { getPlatform } from "../../utils/platform";
 
 vi.mock("../../utils/platform", () => ({ getPlatform: vi.fn(() => "other") }));
+vi.spyOn(window, "matchMedia").mockReturnValue({
+  matches: false,
+} as unknown as MediaQueryList);
 
 async function withPlatform(
   platform: ReturnType<typeof getPlatform>,
