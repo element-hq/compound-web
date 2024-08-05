@@ -27,6 +27,7 @@ import {
   SuccessMessage,
 } from "./";
 import { Progress } from "../Progress/Progress";
+import { TooltipProvider } from "../Tooltip/TooltipProvider";
 
 export default {
   title: "Form/Password form",
@@ -35,9 +36,11 @@ export default {
   subcomponents: { Progress, PasswordControl, Label, Field },
   decorators: [
     (Story: StoryFn) => (
-      <div style={{ maxWidth: "378px" }}>
-        <Story />
-      </div>
+      <TooltipProvider>
+        <div style={{ maxWidth: "378px" }}>
+          <Story />
+        </div>
+      </TooltipProvider>
     ),
   ],
 } as Meta<typeof Root>;

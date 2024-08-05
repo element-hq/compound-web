@@ -20,18 +20,21 @@ import React from "react";
 import ChatIcon from "@vector-im/compound-design-tokens/assets/web/icons/chat";
 
 import { ActionInput } from "./Action";
+import { TooltipProvider } from "../../../Tooltip/TooltipProvider";
 import userEvent from "@testing-library/user-event";
 
 describe("ActionInput", () => {
   it("renders", () => {
     const { asFragment } = render(
-      <ActionInput
-        Icon={ChatIcon}
-        actionLabel="Click me!"
-        onActionClick={() => {
-          console.log("clicked!");
-        }}
-      />,
+      <TooltipProvider>
+        <ActionInput
+          Icon={ChatIcon}
+          actionLabel="Click me!"
+          onActionClick={() => {
+            console.log("clicked!");
+          }}
+        />
+      </TooltipProvider>,
     );
     expect(asFragment()).toMatchSnapshot();
   });
@@ -41,11 +44,13 @@ describe("ActionInput", () => {
     const spy = vi.fn();
 
     render(
-      <ActionInput
-        Icon={ChatIcon}
-        actionLabel="Click me!"
-        onActionClick={spy}
-      />,
+      <TooltipProvider>
+        <ActionInput
+          Icon={ChatIcon}
+          actionLabel="Click me!"
+          onActionClick={spy}
+        />
+      </TooltipProvider>,
     );
 
     await user.click(screen.getByRole("button", { name: "Click me!" }));

@@ -1,5 +1,10 @@
 {
   "extends": ["@tsconfig/vite-react/tsconfig.json"],
   "include": ["src"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "references": [{ "path": "./tsconfig.node.json" }],
+  "compilerOptions": {
+    "lib": ["es2022", "dom", "dom.iterable"],
+    // We import React as an unused local in order to support React 17
+    "noUnusedLocals": false
+  }
 }

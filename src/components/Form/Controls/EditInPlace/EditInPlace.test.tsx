@@ -23,9 +23,9 @@ import {
   waitForElementToBeRemoved,
 } from "@testing-library/react";
 
-import { TooltipProvider } from "@radix-ui/react-tooltip";
 import { EditInPlace } from "./EditInPlace";
 import { ErrorMessage } from "../../Message";
+import { TooltipProvider } from "../../../Tooltip/TooltipProvider";
 import userEvent from "@testing-library/user-event";
 
 type EditInPlaceTestProps = Omit<

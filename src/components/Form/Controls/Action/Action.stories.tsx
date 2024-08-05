@@ -22,6 +22,7 @@ import { Meta, StoryObj } from "@storybook/react";
 import * as icons from "@vector-im/compound-design-tokens/assets/web/icons";
 
 import { ActionInput } from "./";
+import { TooltipProvider } from "../../../Tooltip/TooltipProvider";
 
 type Props = { invalid?: boolean } & React.ComponentProps<typeof ActionInput>;
 
@@ -79,7 +80,9 @@ export default {
     },
   },
   render: ({ invalid, ...restArgs }) => (
-    <ActionInput data-invalid={invalid || undefined} {...restArgs} />
+    <TooltipProvider>
+      <ActionInput data-invalid={invalid || undefined} {...restArgs} />
+    </TooltipProvider>
   ),
   args: {
     placeholder: "",

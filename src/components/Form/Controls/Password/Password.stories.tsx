@@ -20,6 +20,7 @@ import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
 
 import { PasswordInput } from "./";
+import { TooltipProvider } from "../../../Tooltip/TooltipProvider";
 import { screen } from "@storybook/test";
 import { userEvent } from "@storybook/test";
 
@@ -62,7 +63,9 @@ export default {
     },
   },
   render: ({ invalid, ...restArgs }) => (
-    <PasswordInput data-invalid={invalid || undefined} {...restArgs} />
+    <TooltipProvider>
+      <PasswordInput data-invalid={invalid || undefined} {...restArgs} />
+    </TooltipProvider>
   ),
   args: {
     placeholder: "",
