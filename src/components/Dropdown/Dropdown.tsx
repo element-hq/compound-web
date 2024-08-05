@@ -323,9 +323,11 @@ function useKeyboardShortcut(
     ({ key, altKey }: KeyboardEvent, value: string, text: string) => {
       switch (key) {
         case "Enter":
-        case " ":
+        case " ": {
           setValue({ text, value });
-        // Intentional fallthrough
+          setOpen(false);
+          break;
+        }
         case "Tab":
         case "Escape":
           setOpen(false);
