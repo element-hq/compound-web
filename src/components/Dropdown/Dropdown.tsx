@@ -104,6 +104,15 @@ export const Dropdown = forwardRef<HTMLButtonElement, DropdownProps>(
       setState,
     );
 
+    const buttonRef = useRef<HTMLButtonElement | null>(null);
+    useEffect(() => {
+      // Focus the button when the value is set
+      // Test if the value is undefined to avoid focusing on the first render
+      if (state.value !== undefined) {
+        buttonRef.current?.focus();
+      }
+    }, [state]);
+
     const hasPlaceholder = state.text === placeholder;
     const buttonClasses = classNames({
       [styles.placeholder]: hasPlaceholder,
@@ -135,7 +144,16 @@ export const Dropdown = forwardRef<HTMLButtonElement, DropdownProps>(
           aria-labelledby={labelId}
           aria-controls={contentId}
           aria-expanded={open}
-          ref={ref}
+          ref={(element) => {
+            // Private ref to focus the button
+            buttonRef.current = element;
+            // Handle forwarded ref
+            if (typeof ref === "function") {
+              ref(element);
+            } else if (ref) {
+              ref.current = element;
+            }
+          }}
           onClick={() => setOpen((_open) => !_open)}
           onKeyDown={onComboboxKeyDown}
           {...props}
@@ -319,7 +337,11 @@ function useKeyboardShortcut(
   );
 
   const onOptionKeyDown = useCallback(
-    ({ key, altKey }: KeyboardEvent, value: string, text: string) => {
+    (evt: KeyboardEvent, value: string, text: string) => {
+      const { key, altKey } = evt;
+      evt.stopPropagation();
+      evt.preventDefault();
+
       switch (key) {
         case "Enter":
         case " ": {
