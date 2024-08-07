@@ -44,7 +44,7 @@ test.describe("Dropdown", () => {
     await expect(page).toHaveScreenshot({ fullPage: true });
 
     await page.keyboard.press("End");
-    await expect(page.getByRole("option", { name: "Option 2" })).toBeFocused();
+    await expect(page.getByRole("option", { name: "Option 3" })).toBeFocused();
 
     await page.keyboard.press("Home");
     await expect(page.getByRole("option", { name: "Option 1" })).toBeFocused();
