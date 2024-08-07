@@ -172,6 +172,7 @@ export const Dropdown = forwardRef<HTMLButtonElement, DropdownProps>(
             {values.map(([value, text]) => (
               <DropdownItem
                 key={value}
+                isDisplayed={open}
                 isSelected={state.value === value}
                 onClick={() => {
                   setOpen(false);
@@ -179,7 +180,6 @@ export const Dropdown = forwardRef<HTMLButtonElement, DropdownProps>(
                   onValueChange?.(value);
                 }}
                 onKeyDown={(e) => onOptionKeyDown(e, value, text)}
-                {...props}
               >
                 {text}
               </DropdownItem>
@@ -206,6 +206,10 @@ type DropdownItemProps = HTMLProps<HTMLLIElement> & {
    */
   isSelected: boolean;
   /**
+   * Whether the dropdown item is displayed.
+   */
+  isDisplayed: boolean;
+  /**
    * The text to display in the dropdown item.
    */
   children: string;
@@ -214,26 +218,33 @@ type DropdownItemProps = HTMLProps<HTMLLIElement> & {
 /**
  * A dropdown item component.
  */
-const DropdownItem = memo(
-  forwardRef<HTMLLIElement, DropdownItemProps>(function MemoDropdownItem(
-    // The props typing has some difficulties with memo and forwardRef hoc
-    // eslint-disable-next-line react/prop-types
-    { children, isSelected, ...props }: DropdownItemProps,
-    ref,
-  ) {
-    return (
-      <li
-        tabIndex={0}
-        role="option"
-        ref={ref}
-        aria-selected={isSelected}
-        {...props}
-      >
-        {children} {isSelected && <Check width="20" height="20" />}
-      </li>
-    );
-  }),
-);
+const DropdownItem = memo(function DropdownItem({
+  children,
+  isSelected,
+  isDisplayed,
+  ...props
+}: DropdownItemProps) {
+  const ref = useRef<HTMLLIElement>(null);
+
+  // Focus the item if the dropdown is open and the item is already selected
+  useEffect(() => {
+    if (isSelected && isDisplayed) {
+      ref?.current?.focus();
+    }
+  }, [isSelected, isDisplayed]);
+
+  return (
+    <li
+      tabIndex={0}
+      role="option"
+      ref={ref}
+      aria-selected={isSelected}
+      {...props}
+    >
+      {children} {isSelected && <Check width="20" height="20" />}
+    </li>
+  );
+});
 
 /**
  * A hook to manage the open state of the dropdown.
