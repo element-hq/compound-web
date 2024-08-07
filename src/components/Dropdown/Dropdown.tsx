@@ -229,7 +229,7 @@ const DropdownItem = memo(function DropdownItem({
   // Focus the item if the dropdown is open and the item is already selected
   useEffect(() => {
     if (isSelected && isDisplayed) {
-      ref?.current?.focus();
+      ref.current?.focus();
     }
   }, [isSelected, isDisplayed]);
 
