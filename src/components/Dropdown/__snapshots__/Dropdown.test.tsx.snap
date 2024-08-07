@@ -59,6 +59,14 @@ exports[`Dropdown > can be opened 1`] = `
           Option 2
            
         </li>
+        <li
+          aria-selected="false"
+          role="option"
+          tabindex="0"
+        >
+          Option 3
+           
+        </li>
       </ul>
     </div>
   </div>
@@ -135,6 +143,14 @@ exports[`Dropdown > can select a value 1`] = `
             />
           </svg>
         </li>
+        <li
+          aria-selected="false"
+          role="option"
+          tabindex="0"
+        >
+          Option 3
+           
+        </li>
       </ul>
     </div>
   </div>
@@ -198,6 +214,14 @@ exports[`Dropdown > renders a Default dropdown 1`] = `
           tabindex="0"
         >
           Option 2
+           
+        </li>
+        <li
+          aria-selected="false"
+          role="option"
+          tabindex="0"
+        >
+          Option 3
            
         </li>
       </ul>
@@ -276,6 +300,14 @@ exports[`Dropdown > renders a dropdown with a default value  1`] = `
             />
           </svg>
         </li>
+        <li
+          aria-selected="false"
+          role="option"
+          tabindex="0"
+        >
+          Option 3
+           
+        </li>
       </ul>
     </div>
   </div>
@@ -339,6 +371,14 @@ exports[`Dropdown > renders a dropdown with a help label 1`] = `
           tabindex="0"
         >
           Option 2
+           
+        </li>
+        <li
+          aria-selected="false"
+          role="option"
+          tabindex="0"
+        >
+          Option 3
            
         </li>
       </ul>
@@ -409,6 +449,14 @@ exports[`Dropdown > renders a dropdown with an error  1`] = `
           tabindex="0"
         >
           Option 2
+           
+        </li>
+        <li
+          aria-selected="false"
+          role="option"
+          tabindex="0"
+        >
+          Option 3
            
         </li>
       </ul>

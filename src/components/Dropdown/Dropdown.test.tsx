@@ -90,12 +90,12 @@ describe("Dropdown", () => {
     expect(getByRole("option", { name: "Option 1" })).toHaveFocus();
 
     await act(async () => userEvent.keyboard("{End}"));
-    expect(getByRole("option", { name: "Option 2" })).toHaveFocus();
+    expect(getByRole("option", { name: "Option 3" })).toHaveFocus();
 
     await act(async () => userEvent.keyboard("{Enter}"));
 
     await waitFor(() => {
-      expect(getByRole("combobox")).toHaveTextContent("Option 2");
+      expect(getByRole("combobox")).toHaveTextContent("Option 3");
       expect(getByRole("combobox")).toHaveAttribute("aria-expanded", "false");
     });
   });

@@ -48,6 +48,7 @@ export default {
     values: [
       ["Option1", "Option 1"],
       ["Option2", "Option 2"],
+      ["Option3", "Option 3"],
     ],
   },
 } satisfies Meta<ComponentProps<typeof Dropdown>>;
