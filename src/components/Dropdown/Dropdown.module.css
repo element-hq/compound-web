@@ -1,0 +1,147 @@
+/*
+Copyright 2024 New Vector Ltd
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+
+.container {
+  display: flex;
+  flex-direction: column;
+
+  label {
+    font: var(--cpd-font-body-md-medium);
+    margin-block-end: var(--cpd-space-1x);
+  }
+
+  button {
+    inline-size: 100%;
+    border: 1px solid var(--cpd-color-border-interactive-primary);
+    background: var(--cpd-color-bg-canvas-default);
+    border-radius: 0.5rem;
+    padding: var(--cpd-space-3x) var(--cpd-space-3x) var(--cpd-space-3x)
+      var(--cpd-space-4x);
+    box-sizing: border-box;
+    color: var(--cpd-color-text-primary);
+    font: var(--cpd-font-body-md-regular);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--cpd-space-4x);
+
+    svg {
+      transition: transform 0.1s linear;
+    }
+  }
+
+  /**
+   * When the dropdown is open, rotate the arrow icon
+   */
+  button[aria-expanded="true"] {
+    svg {
+      transform: rotate(180deg);
+    }
+  }
+
+  button.placeholder {
+    color: var(--cpd-color-text-placeholder);
+  }
+
+  .border {
+    display: none;
+    border-inline-start: 1px solid var(--cpd-color-border-interactive-secondary);
+    border-inline-end: 1px solid var(--cpd-color-border-interactive-secondary);
+    block-size: var(--cpd-space-1x);
+    margin-block-start: calc(var(--cpd-space-1x) * -1);
+    box-sizing: border-box;
+  }
+
+  .content {
+    display: none;
+    position: relative;
+
+    ul {
+      /**
+       * To make the component going over the other elements
+       */
+      position: absolute;
+      display: block;
+      inline-size: 100%;
+      background: var(--cpd-color-bg-canvas-default);
+      border: 1px solid var(--cpd-color-border-interactive-secondary);
+      border-block-start: 0;
+      border-end-start-radius: var(--cpd-space-4x);
+      border-end-end-radius: var(--cpd-space-4x);
+      box-sizing: border-box;
+      box-shadow: 0 4px 24px 0 rgb(27 29 34 / 10%);
+      margin: 0;
+      padding: 0;
+      padding-block-end: var(--cpd-space-4x);
+      cursor: pointer;
+
+      li {
+        list-style: none;
+        font: var(--cpd-font-body-md-medium);
+        padding: var(--cpd-space-3x) var(--cpd-space-4x);
+        border-block-end: 1px solid var(--cpd-color-gray-300);
+        color: var(--cpd-color-text-secondary);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: var(--cpd-space-4x);
+
+        @media (hover) {
+          &:hover {
+            background: var(--cpd-color-gray-200);
+          }
+        }
+
+        &[aria-selected="true"] {
+          color: var(--cpd-color-text-primary);
+          background: var(--cpd-color-gray-300);
+        }
+      }
+    }
+  }
+
+  .open {
+    display: block;
+  }
+
+  .help {
+    font: var(--cpd-font-body-sm-regular);
+    color: var(--cpd-color-text-secondary);
+  }
+
+  .error {
+    font: var(--cpd-font-body-sm-medium);
+    color: var(--cpd-color-text-critical-primary);
+    display: flex;
+    gap: var(--cpd-space-2x);
+  }
+
+  .error,
+  .help {
+    margin-block-start: var(--cpd-space-2x);
+  }
+
+  &[aria-invalid="true"] {
+    label {
+      color: var(--cpd-color-text-critical-primary);
+    }
+
+    button {
+      border-color: var(--cpd-color-text-critical-primary);
+    }
+  }
+}
