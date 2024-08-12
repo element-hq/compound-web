@@ -16,7 +16,8 @@
 .nav-bar {
   border-block-end: var(--cpd-border-width-1) solid var(--cpd-color-gray-400);
   margin: var(--cpd-space-6x) 0;
-  padding: 0;
+  padding: 0 var(--cpd-space-4x);
+  overflow-x: hidden;
 }
 
 .nav-bar-items {
@@ -28,6 +29,23 @@
   list-style: none;
   padding: 0;
   margin: 0;
+}
+
+/* This specificity is important to avoid needing !important */
+button.nav-bar-scroll-left,
+button.nav-bar-scroll-right {
+  position: absolute;
+  z-index: 1;
+  background: var(--cpd-color-theme-bg);
+
+  box-shadow: 0 1.2px 2.4px 0 #00000026;
+}
+
+.nav-bar-scroll-left {
+  left: 0;
+}
+.nav-bar-scroll-right {
+  right: 0;
 }
 
 .nav-tab {
