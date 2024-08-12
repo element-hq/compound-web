@@ -21,6 +21,12 @@ limitations under the License.
 import "@testing-library/jest-dom";
 
 import { TextEncoder, TextDecoder } from "util";
+import ResizeObserverPolyfill from "resize-observer-polyfill";
+
+/**
+ * Polyfilling for `ResizeObserver` as this isn't provided by jsdom
+ */
+global.ResizeObserver = ResizeObserverPolyfill;
 
 /**
  * Polyfilling for `react-dom/server` as those aren't shipped with jsdom16 and above
