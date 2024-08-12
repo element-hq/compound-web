@@ -37,15 +37,15 @@ button.nav-bar-scroll-right {
   position: absolute;
   z-index: 1;
   background: var(--cpd-color-theme-bg);
-
   box-shadow: 0 1.2px 2.4px 0 #00000026;
 }
 
 .nav-bar-scroll-left {
-  left: 0;
+  inset-inline-start: 0;
 }
+
 .nav-bar-scroll-right {
-  right: 0;
+  inset-inline-end: 0;
 }
 
 .nav-tab {
