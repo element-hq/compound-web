@@ -87,12 +87,12 @@ export const UnstyledButton = forwardRef(function UnstyledButton<
 
   return (
     <Component
+      // All elements roles should default to role=button except links, where we use role=link
+      // We want them to behave like links but look like buttons
+      role={as === "a" ? "link" : "button"}
       {...restProps}
       ref={ref as Ref<C>}
       className={className}
-      // All elements roles should be overriden at the exceptions of anchors
-      // We want them to behave like links but look like buttons
-      role={as === "a" ? "link" : "button"}
       tabIndex={0}
       {...eventHandlers}
       aria-disabled={disabled}
