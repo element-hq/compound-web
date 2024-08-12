@@ -67,7 +67,12 @@ export const TabRole = {
 
     return (
       <div>
-        <NavBar role="tablist" aria-label="main">
+        <NavBar
+          role="tablist"
+          aria-label="main"
+          scrollLeftLabel="Scroll left"
+          scrollRightLabel="Scroll right"
+        >
           <NavItem
             aria-controls="panel-1"
             onClick={() => {
@@ -121,7 +126,12 @@ export const ScrollableTabs = {
 
     return (
       <div style={{ width: "240px" }}>
-        <NavBar role="tablist" aria-label="main">
+        <NavBar
+          role="tablist"
+          aria-label="main"
+          scrollLeftLabel="Scroll left"
+          scrollRightLabel="Scroll right"
+        >
           <NavItem
             aria-controls="panel-1"
             onClick={() => {

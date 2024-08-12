@@ -32,7 +32,11 @@ export default {
   },
   decorators: [
     (Story: StoryFn) => (
-      <NavBar aria-label="Testing">
+      <NavBar
+        aria-label="Testing"
+        scrollLeftLabel="Scroll left"
+        scrollRightLabel="Scroll right"
+      >
         <Story />
       </NavBar>
     ),
