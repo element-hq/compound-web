@@ -45,6 +45,14 @@ type NavItemButtonProps = Omit<
   onClick: MouseEventHandler<HTMLButtonElement>;
 } & NavItemProps;
 
+const onClickWithScrollIntoViewFactory =
+  (onClick: MouseEventHandler<HTMLElement>) =>
+  (ev: React.MouseEvent<HTMLElement>) => {
+    const target = ev.currentTarget;
+    target.scrollIntoView({ block: "nearest", inline: "nearest" });
+    onClick(ev);
+  };
+
 const NavItemLink = forwardRef(function NavItemLink(
   {
     children,
@@ -57,7 +65,7 @@ const NavItemLink = forwardRef(function NavItemLink(
   return (
     <a
       href={href}
-      onClick={onClick}
+      onClick={onClick ? onClickWithScrollIntoViewFactory(onClick) : undefined}
       className={styles["nav-item"]}
       {...rest}
       ref={ref}
@@ -78,7 +86,7 @@ const NavItemButton = forwardRef(function NavItemButton(
 ) {
   return (
     <button
-      onClick={onClick}
+      onClick={onClickWithScrollIntoViewFactory(onClick)}
       className={styles["nav-item"]}
       disabled={disabled}
       ref={ref}
