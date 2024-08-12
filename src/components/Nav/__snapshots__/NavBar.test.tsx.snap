@@ -59,6 +59,83 @@ exports[`<NavBar /> > render a default nav bar 1`] = `
 </div>
 `;
 
+exports[`<NavBar /> > render a scrollable tabbed nav bar 1`] = `
+<div>
+  <div
+    style="width: 240px;"
+  >
+    <nav
+      class="_nav-bar_eb2dec"
+      role="presentation"
+    >
+      <ul
+        aria-label="main"
+        class="_nav-bar-items_eb2dec"
+        role="tablist"
+      >
+        <li
+          class="_nav-tab_eb2dec"
+          role="presentation"
+        >
+          <button
+            aria-controls="panel-1"
+            aria-selected="false"
+            class="_nav-item_eb2dec"
+            role="tab"
+          >
+            Extensions
+          </button>
+        </li>
+        <li
+          class="_nav-tab_eb2dec"
+          data-current="true"
+          role="presentation"
+        >
+          <button
+            aria-controls="panel-2"
+            aria-selected="true"
+            class="_nav-item_eb2dec"
+            role="tab"
+          >
+            Integrations
+          </button>
+        </li>
+        <li
+          class="_nav-tab_eb2dec"
+          role="presentation"
+        >
+          <button
+            aria-controls="panel-3"
+            class="_nav-item_eb2dec"
+            role="tab"
+          >
+            Conferencing
+          </button>
+        </li>
+      </ul>
+    </nav>
+    <div
+      id="panel-1"
+      style="display: none;"
+    >
+      This is panel 1
+    </div>
+    <div
+      id="panel-2"
+      style="display: block;"
+    >
+      This is panel 2
+    </div>
+    <div
+      id="panel-3"
+      style="display: none;"
+    >
+      This is panel 3
+    </div>
+  </div>
+</div>
+`;
+
 exports[`<NavBar /> > render a tabbed nav bar 1`] = `
 <div>
   <div>

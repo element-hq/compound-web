@@ -39,6 +39,12 @@ type NavBarProps = {
    * are met.
    */
   role?: "navigation" | "tablist";
+
+  /**
+   * Accessible labels for scroll interaction buttons
+   */
+  scrollLeftLabel: string;
+  scrollRightLabel: string;
 };
 
 const useElementDimensions = (
@@ -124,6 +130,8 @@ export const NavBar = ({
   className,
   role,
   "aria-label": ariaLabel,
+  scrollLeftLabel,
+  scrollRightLabel,
   ...rest
 }: React.PropsWithChildren<NavBarProps>) => {
   const ref = useRef<HTMLElement>(null);
@@ -168,6 +176,8 @@ export const NavBar = ({
             className={styles["nav-bar-scroll-left"]}
             onClick={() => scrollFn(-1)}
             role="listitem"
+            style={{ insetInlineStart: scrollPosition.left }}
+            aria-label={scrollLeftLabel}
           >
             <ChevronLeftIcon />
           </IconButton>
@@ -179,6 +189,7 @@ export const NavBar = ({
             className={styles["nav-bar-scroll-right"]}
             onClick={() => scrollFn(1)}
             role="listitem"
+            aria-label={scrollRightLabel}
           >
             <ChevronRightIcon />
           </IconButton>

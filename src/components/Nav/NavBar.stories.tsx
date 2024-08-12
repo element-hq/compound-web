@@ -103,3 +103,62 @@ export const TabRole = {
     );
   },
 };
+
+export const ScrollableTabs = {
+  render: function Component() {
+    // An example tab implementation
+    const [activePanelId, setActivePanelId] = useState("panel-2");
+    const changeDisplay = (id: string, display: string) => {
+      const e = document.querySelector(`#${id}`) as HTMLDivElement;
+      if (e) e.style.display = display;
+    };
+    useEffect(() => {
+      ["panel-1", "panel-2"].forEach((id) => {
+        changeDisplay(id, "none");
+      });
+      changeDisplay(activePanelId, "block");
+    }, [activePanelId]);
+
+    return (
+      <div style={{ width: "240px" }}>
+        <NavBar role="tablist" aria-label="main">
+          <NavItem
+            aria-controls="panel-1"
+            onClick={() => {
+              setActivePanelId("panel-1");
+            }}
+            active={activePanelId === "panel-1"}
+          >
+            Extensions
+          </NavItem>
+          <NavItem
+            aria-controls="panel-2"
+            onClick={() => {
+              setActivePanelId("panel-2");
+            }}
+            active={activePanelId === "panel-2"}
+          >
+            Integrations
+          </NavItem>
+          <NavItem
+            aria-controls="panel-3"
+            onClick={() => {
+              setActivePanelId("panel-3");
+            }}
+          >
+            Conferencing
+          </NavItem>
+        </NavBar>
+        <div id="panel-1" style={{ display: "none" }}>
+          This is panel 1
+        </div>
+        <div id="panel-2" style={{ display: "none" }}>
+          This is panel 2
+        </div>
+        <div id="panel-3" style={{ display: "none" }}>
+          This is panel 3
+        </div>
+      </div>
+    );
+  },
+};

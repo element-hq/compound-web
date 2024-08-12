@@ -21,7 +21,7 @@ import { composeStories } from "@storybook/react";
 
 import * as stories from "./NavBar.stories";
 
-const { Default, TabRole } = composeStories(stories);
+const { Default, TabRole, ScrollableTabs } = composeStories(stories);
 
 describe("<NavBar />", () => {
   it("render a default nav bar", () => {
@@ -31,6 +31,11 @@ describe("<NavBar />", () => {
 
   it("render a tabbed nav bar", () => {
     const { container } = render(<TabRole />);
+    expect(container).toMatchSnapshot();
+  });
+
+  it("render a scrollable tabbed nav bar", () => {
+    const { container } = render(<ScrollableTabs />);
     expect(container).toMatchSnapshot();
   });
 });
