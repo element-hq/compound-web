@@ -28,6 +28,11 @@ limitations under the License.
   transition-property: color, background-color, border-color;
 }
 
+a.button {
+  /* Make the width match that of a real button */
+  width: max-content;
+}
+
 .button > svg {
   transition: color 0.1s;
 }
