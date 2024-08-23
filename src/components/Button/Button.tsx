@@ -98,6 +98,8 @@ export const Button = forwardRef(function Button<
     [styles.destructive]: destructive,
   });
 
+  const iconSize = iconOnly && size === "lg" ? 24 : 20;
+
   return (
     <UnstyledButton
       {...props}
@@ -111,8 +113,8 @@ export const Button = forwardRef(function Button<
     >
       {Icon && (
         <Icon
-          width={20}
-          height={20}
+          width={iconSize}
+          height={iconSize}
           className={styles.icon}
           aria-hidden={true}
         />
