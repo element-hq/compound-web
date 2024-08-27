@@ -1,5 +1,4 @@
 import { default as React, PropsWithChildren } from '../../../node_modules/react';
-
 type BadgeProps = {
     /**
      * The CSS class name.

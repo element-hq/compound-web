@@ -1,5 +1,4 @@
 import { useTooltip } from './useTooltip';
-
 type ContextType = ReturnType<typeof useTooltip> | null;
 /**
  * The context for the Tooltip components.

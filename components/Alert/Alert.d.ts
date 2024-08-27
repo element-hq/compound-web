@@ -1,5 +1,4 @@
 import { default as React, PropsWithChildren } from '../../../node_modules/react';
-
 type AlertProps = {
     /**
      * The type of alert

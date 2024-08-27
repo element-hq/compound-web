@@ -1,5 +1,4 @@
 import { default as React } from '../../../node_modules/react';
-
 type ProgressProps = {
     /** The size variant of the progress bar */
     size: "sm" | "lg";

@@ -1,6 +1,5 @@
 import { default as React } from '../../../node_modules/react';
 import { Label as RadixLabel } from '@radix-ui/react-form';
-
 type LabelProps = {
     /**
      * The CSS class name.

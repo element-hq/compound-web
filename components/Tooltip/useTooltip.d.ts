@@ -1,6 +1,5 @@
 import { OpenChangeReason, Placement } from '@floating-ui/react';
 import { JSX } from '../../../node_modules/react';
-
 export interface CommonUseTooltipProps {
     /**
      * The controlled open state of the tooltip.

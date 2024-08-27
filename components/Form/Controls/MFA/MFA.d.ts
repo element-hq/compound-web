@@ -1,5 +1,4 @@
 import { default as React } from '../../../../../node_modules/react';
-
 type MFAProps = {
     className?: string;
     length?: number;

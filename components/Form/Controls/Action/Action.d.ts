@@ -1,6 +1,5 @@
 import { default as React } from '../../../../../node_modules/react';
 import { TextInput } from '../Text';
-
 type Props = {
     /**
      * The CSS class name.

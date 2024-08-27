@@ -1,5 +1,4 @@
 import { default as React, ComponentPropsWithoutRef, ReactNode } from '../../../node_modules/react';
-
 interface Props extends ComponentPropsWithoutRef<"div"> {
     /**
      * The menu title.

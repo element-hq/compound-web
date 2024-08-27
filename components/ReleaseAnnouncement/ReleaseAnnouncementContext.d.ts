@@ -1,5 +1,4 @@
 import { useReleaseAnnouncement } from './useReleaseAnnouncement';
-
 type ContextType = ReturnType<typeof useReleaseAnnouncement> | null;
 /**
  * The context for the ReleaseAnnouncement components.

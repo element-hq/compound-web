@@ -1,6 +1,5 @@
 import { Placement } from '@floating-ui/react';
 import { MouseEventHandler } from '../../../node_modules/react';
-
 interface UseReleaseAnnouncementProps {
     /**
      * Whether the release announcement is open.

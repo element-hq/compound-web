@@ -1,5 +1,4 @@
 import { default as React, PropsWithChildren } from '../../../node_modules/react';
-
 type TypographyProps<C extends React.ElementType> = {
     /**
      * The HTML tag.

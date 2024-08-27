@@ -1,5 +1,4 @@
 import { FC } from '../../../node_modules/react';
-
 export declare const hoverDelay: {
     open: number;
     close: number;

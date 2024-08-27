@@ -1,6 +1,5 @@
 import { default as React } from '../../../node_modules/react';
 import { SuspenseImg } from '../../utils/SuspenseImg';
-
 /**
  * Avatar component that will fallback to an initial letter over a coloured
  * background if no source is provided or if the source has failed to load.

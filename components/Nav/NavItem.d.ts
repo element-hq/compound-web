@@ -1,6 +1,5 @@
 import { default as React, AnchorHTMLAttributes, ButtonHTMLAttributes, MouseEventHandler } from '../../../node_modules/react';
 import { XOR } from 'ts-xor';
-
 type NavItemProps = {
     active?: boolean;
     "aria-controls"?: string;

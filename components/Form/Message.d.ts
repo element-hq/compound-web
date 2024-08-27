@@ -1,6 +1,5 @@
 import { default as React } from '../../../node_modules/react';
 import { Message } from '@radix-ui/react-form';
-
 type MessageProps = {
     /**
      * The CSS class name.

@@ -1,6 +1,5 @@
 import { default as React } from '../../../node_modules/react';
 import { Typography } from './Typography';
-
 type TypographyProps = React.ComponentProps<typeof Typography>;
 /**
  * A text component. Underlying HTML element can be changed using the `as`

@@ -1,5 +1,4 @@
 import { default as React } from '../../../node_modules/react';
-
 /**
  * A menu item with a toggle control.
  * Must be used within a compound Menu or other `menu` or `menubar` aria role subtree.

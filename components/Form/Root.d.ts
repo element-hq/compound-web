@@ -1,6 +1,5 @@
 import { default as React } from '../../../node_modules/react';
 import { Root as RadixRoot } from '@radix-ui/react-form';
-
 type RootProps = {
     /**
      * The CSS class name.

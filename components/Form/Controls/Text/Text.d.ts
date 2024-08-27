@@ -1,5 +1,4 @@
 import { default as React, ComponentProps } from '../../../../../node_modules/react';
-
 type TextProps = {
     /**
      * The CSS class name.
