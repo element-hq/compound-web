@@ -27,6 +27,9 @@ import React, {
   isValidElement,
   cloneElement,
   useMemo,
+  ReactNode,
+  FC,
+  ReactElement,
 } from "react";
 
 import classNames from "classnames";
@@ -72,12 +75,11 @@ export function Tooltip({
 
   return (
     <TooltipContext.Provider value={context}>
-      <TooltipAnchor>
-        {isTriggerInteractive ? (
-          children
-        ) : (
-          <span tabIndex={nonInteractiveTriggerTabIndex}>{children}</span>
-        )}
+      <TooltipAnchor
+        isTriggerInteractive={isTriggerInteractive}
+        nonInteractiveTriggerTabIndex={nonInteractiveTriggerTabIndex}
+      >
+        {children}
       </TooltipAnchor>
       <TooltipContent>
         <span id={context.labelId}>
@@ -156,11 +158,21 @@ function TooltipContent({
   );
 }
 
+interface TooltipAnchorProps {
+  children: ReactNode;
+  isTriggerInteractive: boolean;
+  nonInteractiveTriggerTabIndex?: number;
+}
+
 /**
  * The anchor of the tooltip
  * @param children
  */
-function TooltipAnchor({ children }: Readonly<PropsWithChildren>): JSX.Element {
+const TooltipAnchor: FC<TooltipAnchorProps> = ({
+  children,
+  isTriggerInteractive,
+  nonInteractiveTriggerTabIndex,
+}) => {
   const context = useTooltipContext();
 
   // The children can have a ref and we don't want to discard it
@@ -168,19 +180,40 @@ function TooltipAnchor({ children }: Readonly<PropsWithChildren>): JSX.Element {
   const childrenRef = (children as unknown as { ref?: Ref<HTMLElement> })?.ref;
   const ref = useMergeRefs([context.refs.setReference, childrenRef]);
 
-  // We need to check `isValidElement` to infer the type of `children`
-  const childrenProps = isValidElement(children) && children.props;
-
   const element = useMemo(() => {
     if (!isValidElement(children)) return;
 
-    const props = context.getReferenceProps({ ref, ...childrenProps });
-    return cloneElement(children, props);
-  }, [context, ref, children, childrenProps]);
+    if (isTriggerInteractive) {
+      const props = context.getReferenceProps({ ref, ...children.props });
+      return cloneElement(children, props);
+    } else {
+      // For a non-interactive trigger, we want most of the props to go on the
+      // span element that we provide, since that's what receives focus, but it
+      // should still be the trigger that receives the label/description. It
+      // would be wrong to label the span element, as it lacks a role.
+      const props = context.getReferenceProps({
+        ref,
+        tabIndex: nonInteractiveTriggerTabIndex,
+      });
+      const {
+        "aria-labelledby": labelId,
+        "aria-describedby": descriptionId,
+        ...spanProps
+      } = props;
+      return (
+        <span tabIndex={nonInteractiveTriggerTabIndex} {...spanProps}>
+          {cloneElement(children as ReactElement, {
+            "aria-labelledby": labelId,
+            "aria-describedby": descriptionId,
+          })}
+        </span>
+      );
+    }
+  }, [context, ref, children]);
 
   if (!element) {
     throw new Error("Tooltip anchor must be a single valid React element");
   }
 
   return element;
-}
+};

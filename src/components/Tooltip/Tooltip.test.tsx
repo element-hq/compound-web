@@ -21,6 +21,9 @@ import React from "react";
 import * as stories from "./Tooltip.stories";
 import { composeStories, composeStory } from "@storybook/react";
 import userEvent from "@testing-library/user-event";
+import { TooltipProvider } from "./TooltipProvider";
+import { Tooltip } from "./Tooltip";
+import { UserIcon } from "@vector-im/compound-design-tokens/assets/web/icons";
 
 const {
   Default,
@@ -79,7 +82,7 @@ describe("Tooltip", () => {
     expect(screen.queryByRole("tooltip")).toBe(null);
     await user.tab();
     // trigger focused, tooltip shown
-    expect(screen.getByText("Just some text")).toHaveFocus();
+    expect(screen.getByText("Just some text").parentElement).toHaveFocus();
     screen.getByRole("tooltip");
   });
 
@@ -124,5 +127,16 @@ describe("Tooltip", () => {
     // tooltip shown, but does not change the button's accessible name
     screen.getByRole("tooltip", { name: "Employer Identification Number" });
     expect(screen.queryByRole("button", { name: "EIN" })).toBe(null);
+  });
+
+  it("labels an image", async () => {
+    render(
+      <TooltipProvider>
+        <Tooltip isTriggerInteractive={false} label="User profile">
+          <UserIcon role="image" width={24} height={24} />
+        </Tooltip>
+      </TooltipProvider>,
+    );
+    screen.getByRole("image", { name: "User profile" });
   });
 });

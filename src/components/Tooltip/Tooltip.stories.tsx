@@ -177,7 +177,7 @@ export const NonInteractiveTrigger = {
   args: {
     isTriggerInteractive: false,
     description: "Shown without delay",
-    children: "Just some text",
+    children: <span>Just some text</span>,
   },
 };
 
