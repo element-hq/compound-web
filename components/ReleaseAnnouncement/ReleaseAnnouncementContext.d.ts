@@ -14,6 +14,7 @@ export declare function useReleaseAnnouncementContext(): {
     description: string;
     closeLabel: string;
     onClick: import('../../../node_modules/react').MouseEventHandler<HTMLButtonElement>;
+    displayArrow: boolean | undefined;
     arrowRef: import('../../../node_modules/react').MutableRefObject<null>;
     getReferenceProps: (userProps?: import('../../../node_modules/react').HTMLProps<Element>) => Record<string, unknown>;
     getFloatingProps: (userProps?: import('../../../node_modules/react').HTMLProps<HTMLElement>) => Record<string, unknown>;

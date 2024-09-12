@@ -25,17 +25,22 @@ interface UseReleaseAnnouncementProps {
      * The event handler for the close button.
      */
     onClick: MouseEventHandler<HTMLButtonElement>;
+    /**
+     * Whether to display an arrow.
+     */
+    displayArrow?: boolean;
 }
 /**
  * This hook provides the necessary props to create a release announcement.
  */
-export declare function useReleaseAnnouncement({ open, header, description, closeLabel, placement, onClick, }: UseReleaseAnnouncementProps): {
+export declare function useReleaseAnnouncement({ open, header, description, closeLabel, placement, onClick, displayArrow, }: UseReleaseAnnouncementProps): {
     labelId: string;
     descriptionId: string;
     header: string;
     description: string;
     closeLabel: string;
     onClick: MouseEventHandler<HTMLButtonElement>;
+    displayArrow: boolean | undefined;
     arrowRef: import('../../../node_modules/react').MutableRefObject<null>;
     getReferenceProps: (userProps?: import('../../../node_modules/react').HTMLProps<Element>) => Record<string, unknown>;
     getFloatingProps: (userProps?: import('../../../node_modules/react').HTMLProps<HTMLElement>) => Record<string, unknown>;
