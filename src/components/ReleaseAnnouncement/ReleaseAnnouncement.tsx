@@ -40,12 +40,17 @@ import { useReleaseAnnouncement } from "./useReleaseAnnouncement";
 type UseReleaseAnnouncementParam = Parameters<typeof useReleaseAnnouncement>[0];
 
 interface ReleaseAnnouncementProps
-  extends Omit<UseReleaseAnnouncementParam, "placement"> {
+  extends Omit<UseReleaseAnnouncementParam, "placement" | "displayArrow"> {
   /**
    * The placement of the component
    * @default "right"
    */
   placement?: Placement;
+  /**
+   * Whether to display an arrow.
+   * @default true
+   */
+  displayArrow?: boolean;
 }
 
 /**
@@ -60,9 +65,10 @@ export function ReleaseAnnouncement({
    */
   children,
   placement = "right",
+  displayArrow = true,
   ...props
 }: PropsWithChildren<ReleaseAnnouncementProps>): JSX.Element {
-  const context = useReleaseAnnouncement({ placement, ...props });
+  const context = useReleaseAnnouncement({ placement, displayArrow, ...props });
 
   return (
     <ReleaseAnnouncementContext.Provider value={context}>
@@ -121,6 +127,7 @@ function ReleaseAnnouncementContainer({
   const {
     context: floatingContext,
     arrowRef,
+    displayArrow,
     ...rest
   } = useReleaseAnnouncementContext();
 
@@ -137,14 +144,16 @@ function ReleaseAnnouncementContainer({
           {...rest.getFloatingProps()}
           className={styles.content}
         >
-          <FloatingArrow
-            ref={arrowRef}
-            context={floatingContext}
-            // design absolute value
-            width={20}
-            height={12}
-            className={styles.arrow}
-          />
+          {displayArrow && (
+            <FloatingArrow
+              ref={arrowRef}
+              context={floatingContext}
+              // design absolute value
+              width={20}
+              height={12}
+              className={styles.arrow}
+            />
+          )}
           {children}
         </div>
       </FloatingFocusManager>

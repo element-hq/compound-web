@@ -24,7 +24,8 @@ import React from "react";
 import { ReleaseAnnouncement } from "./ReleaseAnnouncement";
 import { Button } from "../Button";
 
-const { Default, MultiLinesContent, BottomPlacement } = composeStories(stories);
+const { Default, MultiLinesContent, BottomPlacement, NoArrow } =
+  composeStories(stories);
 
 describe("ReleaseAnnouncement", () => {
   it("renders", async () => {
@@ -55,5 +56,10 @@ describe("ReleaseAnnouncement", () => {
       </ReleaseAnnouncement>,
     );
     expect(screen.queryByRole("dialog")).toBeNull();
+  });
+
+  it("renders without an arrow", async () => {
+    render(<NoArrow />);
+    expect(await screen.findByRole("dialog")).toMatchSnapshot();
   });
 });

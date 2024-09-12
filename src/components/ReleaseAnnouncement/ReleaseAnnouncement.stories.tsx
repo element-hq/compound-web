@@ -60,3 +60,8 @@ export const BottomPlacement = Template.bind({});
 BottomPlacement.args = {
   placement: "bottom",
 };
+
+export const NoArrow = Template.bind({});
+NoArrow.args = {
+  displayArrow: false,
+};
