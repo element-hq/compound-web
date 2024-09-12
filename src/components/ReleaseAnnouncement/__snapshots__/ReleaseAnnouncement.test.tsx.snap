@@ -170,3 +170,37 @@ exports[`ReleaseAnnouncement > renders with a long label header and description 
   </button>
 </div>
 `;
+
+exports[`ReleaseAnnouncement > renders without an arrow 1`] = `
+<div
+  aria-describedby=":rn:"
+  aria-labelledby=":rm:"
+  class="_content_219739"
+  id=":ro:"
+  role="dialog"
+  style="position: absolute; left: 0px; top: 0px; transform: translate(16px, 50px);"
+  tabindex="-1"
+>
+  <h3
+    class="_typography_489030 _font-body-lg-semibold_489030 _header_219739"
+    id=":rm:"
+  >
+    Notifications have moved
+  </h3>
+  <span
+    class="_typography_489030 _font-body-sm-regular_489030 _description_219739"
+    id=":rn:"
+  >
+    From now on, click the icon here to view your notifications.
+  </span>
+  <button
+    class="_button_2a1efe _button_219739"
+    data-kind="secondary"
+    data-size="sm"
+    role="button"
+    tabindex="0"
+  >
+    Ok
+  </button>
+</div>
+`;

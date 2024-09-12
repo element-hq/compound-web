@@ -53,6 +53,10 @@ interface UseReleaseAnnouncementProps {
    * The event handler for the close button.
    */
   onClick: MouseEventHandler<HTMLButtonElement>;
+  /**
+   * Whether to display an arrow.
+   */
+  displayArrow?: boolean;
 }
 
 /**
@@ -65,6 +69,7 @@ export function useReleaseAnnouncement({
   closeLabel,
   placement,
   onClick,
+  displayArrow,
 }: UseReleaseAnnouncementProps) {
   // Set on `aria-labelledby` attribute
   const labelId = useId();
@@ -81,9 +86,10 @@ export function useReleaseAnnouncement({
       offset(16),
       shift({ limiter: limitShift({ offset: 50 }) }),
       // add the little arrow along with the floating content
-      arrow({
-        element: arrowRef,
-      }),
+      displayArrow &&
+        arrow({
+          element: arrowRef,
+        }),
     ],
   });
 
@@ -103,6 +109,7 @@ export function useReleaseAnnouncement({
       description,
       closeLabel,
       onClick,
+      displayArrow,
       arrowRef,
     }),
     [
@@ -116,6 +123,7 @@ export function useReleaseAnnouncement({
       description,
       closeLabel,
       onClick,
+      displayArrow,
       arrowRef,
     ],
   );
