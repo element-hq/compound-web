@@ -40,11 +40,12 @@ import {
   TooltipLabel,
   useTooltip,
 } from "./useTooltip";
+import { XOR } from "ts-xor";
 
 // Unfortunately Omit doesn't distribute nicely over sum types, so we have to
 // piece together the useTooltip options type by hand
 type TooltipProps = Omit<CommonUseTooltipProps, "isTriggerInteractive"> &
-  (TooltipLabel | TooltipDescription) & {
+  XOR<TooltipLabel, TooltipDescription> & {
     /**
      * Whether the trigger element is interactive.
      * When trigger is interactive:
