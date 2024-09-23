@@ -1,6 +1,7 @@
 import { PropsWithChildren, JSX } from '../../../node_modules/react';
 import { CommonUseTooltipProps, TooltipDescription, TooltipLabel } from './useTooltip';
-type TooltipProps = Omit<CommonUseTooltipProps, "isTriggerInteractive"> & (TooltipLabel | TooltipDescription) & {
+import { XOR } from 'ts-xor';
+type TooltipProps = Omit<CommonUseTooltipProps, "isTriggerInteractive"> & XOR<TooltipLabel, TooltipDescription> & {
     /**
      * Whether the trigger element is interactive.
      * When trigger is interactive:
