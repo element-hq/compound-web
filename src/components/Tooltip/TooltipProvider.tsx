@@ -4,7 +4,7 @@ import React, { FC } from "react";
 export const hoverDelay = { open: 300, close: 0 };
 
 interface Props {
-  children: JSX.Element;
+  children: React.ReactNode;
 }
 
 /**
