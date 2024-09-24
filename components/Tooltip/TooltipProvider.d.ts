@@ -1,10 +1,10 @@
-import { FC } from '../../../node_modules/react';
+import { default as React, FC } from '../../../node_modules/react';
 export declare const hoverDelay: {
     open: number;
     close: number;
 };
 interface Props {
-    children: JSX.Element;
+    children: React.ReactNode;
 }
 /**
  * Enables tooltips to share a global "warm-up" period for their hover delay.
