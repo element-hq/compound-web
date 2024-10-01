@@ -51,7 +51,6 @@ export declare function useTooltipContext(): {
         active?: boolean;
         selected?: boolean;
     }) => Record<string, unknown>;
-    contentId: string;
     labelId: string;
     captionId: string | undefined;
     caption: string | import("react").JSX.Element | undefined;
