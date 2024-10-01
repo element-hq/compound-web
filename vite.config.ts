@@ -33,9 +33,9 @@ export default defineConfig({
         "@radix-ui/react-context-menu",
         "@radix-ui/react-dropdown-menu",
         "@radix-ui/react-form",
+        "@radix-ui/react-progress",
         "@radix-ui/react-separator",
         "@radix-ui/react-slot",
-        "@radix-ui/react-tooltip",
         // This is a regex as we import sub-paths from the design tokens package and never the root one
         /^@vector-im\/compound-design-tokens\/.*/,
       ],
