@@ -137,8 +137,6 @@ function TooltipContent({
     <FloatingPortal>
       <div
         ref={rest.refs.setFloating}
-        aria-labelledby={rest.labelId}
-        aria-describedby={rest.captionId || rest.labelId}
         style={rest.floatingStyles}
         {...rest.getFloatingProps()}
         className={classNames(styles.tooltip, {

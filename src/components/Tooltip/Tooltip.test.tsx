@@ -108,18 +108,20 @@ describe("Tooltip", () => {
     const user = userEvent.setup();
     render(<WithStringCaption />);
     await user.tab();
-    // tooltip labels button, opens, and displays caption
-    screen.getByRole("button", { name: /I can have a caption/ });
-    screen.getByText("My beautiful caption");
+    // tooltip labels button and describes button with caption
+    expect(
+      screen.getByRole("button", { name: "I can have a caption" }),
+    ).toHaveAccessibleDescription("My beautiful caption");
   });
 
   it("renders with component caption", async () => {
     const user = userEvent.setup();
     render(<WithComponentCaption />);
     await user.tab();
-    // tooltip labels button, opens, and displays caption
-    screen.getByRole("button", { name: /Copy/ });
-    screen.getByText("Ctrl");
+    // tooltip labels button and describes button with caption
+    expect(
+      screen.getByRole("button", { name: "Copy" }),
+    ).toHaveAccessibleDescription("Ctrl + C");
   });
 
   it("renders a descriptive tooltip", async () => {
