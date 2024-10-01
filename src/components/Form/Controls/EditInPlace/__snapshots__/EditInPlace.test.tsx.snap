@@ -10,7 +10,7 @@ exports[`EditInPlace > disables control when disabled 1`] = `
     >
       <label
         class="_label_dc87d2"
-        for="radix-:r7m:"
+        for="radix-:r6o:"
       >
         Edit Me
       </label>
@@ -20,7 +20,7 @@ exports[`EditInPlace > disables control when disabled 1`] = `
         <input
           class="_control_a839aa"
           disabled=""
-          id="radix-:r7m:"
+          id="radix-:r6o:"
           name="input"
           title=""
         />
@@ -40,7 +40,7 @@ exports[`EditInPlace > displays saved label for 2 seconds after save 1`] = `
     >
       <label
         class="_label_dc87d2"
-        for="radix-:r61:"
+        for="radix-:r59:"
       >
         Edit Me
       </label>
@@ -49,7 +49,7 @@ exports[`EditInPlace > displays saved label for 2 seconds after save 1`] = `
       >
         <input
           class="_control_a839aa"
-          id="radix-:r61:"
+          id="radix-:r59:"
           name="input"
           title=""
         />
@@ -71,7 +71,7 @@ exports[`EditInPlace > displays saved label for 2 seconds after save 2`] = `
       <label
         class="_label_dc87d2"
         data-valid="true"
-        for="radix-:r61:"
+        for="radix-:r59:"
       >
         Edit Me
       </label>
@@ -79,11 +79,11 @@ exports[`EditInPlace > displays saved label for 2 seconds after save 2`] = `
         class="_controls_980156"
       >
         <input
-          aria-describedby="radix-:r6g:"
+          aria-describedby="radix-:r5m:"
           class="_control_a839aa"
           data-valid="true"
           disabled=""
-          id="radix-:r61:"
+          id="radix-:r59:"
           name="input"
           title=""
         />
@@ -92,7 +92,7 @@ exports[`EditInPlace > displays saved label for 2 seconds after save 2`] = `
         >
           <button
             aria-disabled="true"
-            aria-labelledby=":r62:"
+            aria-labelledby=":r5a:"
             class="_button_2a1efe _has-icon_2a1efe _icon-only_2a1efe"
             data-kind="primary"
             data-size="sm"
@@ -116,7 +116,7 @@ exports[`EditInPlace > displays saved label for 2 seconds after save 2`] = `
           </button>
           <button
             aria-disabled="true"
-            aria-labelledby=":r68:"
+            aria-labelledby=":r5f:"
             class="_button_2a1efe _button_980156 _has-icon_2a1efe _icon-only_2a1efe"
             data-kind="secondary"
             data-size="sm"
@@ -142,7 +142,7 @@ exports[`EditInPlace > displays saved label for 2 seconds after save 2`] = `
       </div>
       <span
         class="_message_dc87d2"
-        id="radix-:r6g:"
+        id="radix-:r5m:"
       >
         <svg
           class="_icon_01cd2d"
@@ -178,7 +178,7 @@ exports[`EditInPlace > displays saved label for 2 seconds after save 3`] = `
       <label
         class="_label_dc87d2"
         data-valid="true"
-        for="radix-:r61:"
+        for="radix-:r59:"
       >
         Edit Me
       </label>
@@ -186,17 +186,17 @@ exports[`EditInPlace > displays saved label for 2 seconds after save 3`] = `
         class="_controls_980156"
       >
         <input
-          aria-describedby="radix-:r6h:"
+          aria-describedby="radix-:r5n:"
           class="_control_a839aa"
           data-valid="true"
-          id="radix-:r61:"
+          id="radix-:r59:"
           name="input"
           title=""
         />
       </div>
       <span
         class="_message_dc87d2 _success-message_dc87d2"
-        id="radix-:r6h:"
+        id="radix-:r5n:"
       >
         <svg
           fill="currentColor"
@@ -257,7 +257,7 @@ exports[`EditInPlace > renders error icon and text if passed as children 1`] = `
       <label
         class="_label_dc87d2"
         data-invalid="true"
-        for="radix-:rh:"
+        for="radix-:rf:"
       >
         Edit Me
       </label>
@@ -265,11 +265,11 @@ exports[`EditInPlace > renders error icon and text if passed as children 1`] = `
         class="_controls_980156"
       >
         <input
-          aria-describedby="radix-:ri:"
+          aria-describedby="radix-:rg:"
           aria-invalid="true"
           class="_control_a839aa"
           data-invalid="true"
-          id="radix-:rh:"
+          id="radix-:rf:"
           name="input"
           title=""
         />
@@ -278,7 +278,7 @@ exports[`EditInPlace > renders error icon and text if passed as children 1`] = `
         >
           <button
             aria-disabled="true"
-            aria-labelledby=":rj:"
+            aria-labelledby=":rh:"
             class="_button_2a1efe _has-icon_2a1efe _icon-only_2a1efe"
             data-kind="primary"
             data-size="sm"
@@ -302,7 +302,7 @@ exports[`EditInPlace > renders error icon and text if passed as children 1`] = `
           </button>
           <button
             aria-disabled="false"
-            aria-labelledby=":rp:"
+            aria-labelledby=":rm:"
             class="_button_2a1efe _button_980156 _has-icon_2a1efe _icon-only_2a1efe"
             data-kind="secondary"
             data-size="sm"
@@ -328,7 +328,7 @@ exports[`EditInPlace > renders error icon and text if passed as children 1`] = `
       </div>
       <span
         class="_message_dc87d2 _error-message_dc87d2"
-        id="radix-:ri:"
+        id="radix-:rg:"
       >
         <svg
           fill="currentColor"
@@ -358,7 +358,7 @@ exports[`EditInPlace > uses native form validation logic 1`] = `
     >
       <label
         class="_label_dc87d2"
-        for="radix-:r11:"
+        for="radix-:rt:"
       >
         Edit Me
       </label>
@@ -367,7 +367,7 @@ exports[`EditInPlace > uses native form validation logic 1`] = `
       >
         <input
           class="_control_a839aa"
-          id="radix-:r11:"
+          id="radix-:rt:"
           name="input"
           required=""
           title=""
@@ -389,7 +389,7 @@ exports[`EditInPlace > uses the custom error messages passed as children 1`] = `
     >
       <label
         class="_label_dc87d2"
-        for="radix-:r1i:"
+        for="radix-:r1c:"
       >
         Edit Me
       </label>
@@ -398,7 +398,7 @@ exports[`EditInPlace > uses the custom error messages passed as children 1`] = `
       >
         <input
           class="_control_a839aa"
-          id="radix-:r1i:"
+          id="radix-:r1c:"
           name="input"
           title=""
         />

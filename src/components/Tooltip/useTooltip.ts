@@ -108,10 +108,7 @@ export function useTooltip({
   caption,
   ...props
 }: UseTooltipProps) {
-  const contentId = useId();
-  // Set on `aria-labelledby` attribute of the tooltip content
   const labelId = useId();
-  // Set on `aria-describedby` attribute of the tooltip content
   const captionId = useId();
   const arrowRef = useRef(null);
 
@@ -184,19 +181,19 @@ export function useTooltip({
       purpose === "label"
         ? {
             // The props we want to set on the anchor element
-            reference: { "aria-labelledby": contentId },
-            // The props we want to set on the content element
-            floating: { id: contentId },
+            reference: {
+              "aria-labelledby": labelId,
+              "aria-describedby": caption ? captionId : undefined,
+            },
           }
         : {},
-    [purpose, contentId],
+    [purpose],
   );
 
   const interactions = useInteractions([hover, focus, dismiss, role, label]);
 
   return useMemo(
     () => ({
-      contentId,
       labelId,
       captionId: caption ? captionId : undefined,
       caption,
