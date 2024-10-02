@@ -42,9 +42,9 @@ export declare function useReleaseAnnouncement({ open, header, description, clos
     onClick: MouseEventHandler<HTMLButtonElement>;
     displayArrow: boolean | undefined;
     arrowRef: import('../../../node_modules/react').MutableRefObject<null>;
-    getReferenceProps: (userProps?: import('../../../node_modules/react').HTMLProps<Element>) => Record<string, unknown>;
-    getFloatingProps: (userProps?: import('../../../node_modules/react').HTMLProps<HTMLElement>) => Record<string, unknown>;
-    getItemProps: (userProps?: Omit<import('../../../node_modules/react').HTMLProps<HTMLElement>, "selected" | "active"> & {
+    getReferenceProps: (userProps?: React.HTMLProps<Element>) => Record<string, unknown>;
+    getFloatingProps: (userProps?: React.HTMLProps<HTMLElement>) => Record<string, unknown>;
+    getItemProps: (userProps?: Omit<React.HTMLProps<HTMLElement>, "selected" | "active"> & {
         active?: boolean;
         selected?: boolean;
     }) => Record<string, unknown>;
@@ -55,10 +55,10 @@ export declare function useReleaseAnnouncement({ open, header, description, clos
     y: number;
     isPositioned: boolean;
     update: () => void;
-    floatingStyles: import('../../../node_modules/react').CSSProperties;
+    floatingStyles: React.CSSProperties;
     refs: {
         reference: import('../../../node_modules/react').MutableRefObject<import('@floating-ui/react-dom').ReferenceType | null>;
-        floating: import('../../../node_modules/react').MutableRefObject<HTMLElement | null>;
+        floating: React.MutableRefObject<HTMLElement | null>;
         setReference: (node: import('@floating-ui/react-dom').ReferenceType | null) => void;
         setFloating: (node: HTMLElement | null) => void;
     } & import('@floating-ui/react').ExtendedRefs<import('@floating-ui/react').ReferenceType>;
@@ -67,18 +67,18 @@ export declare function useReleaseAnnouncement({ open, header, description, clos
         floating: HTMLElement | null;
     } & import('@floating-ui/react').ExtendedElements<import('@floating-ui/react').ReferenceType>;
     context: {
-        x: number;
-        y: number;
         placement: Placement;
         strategy: import('@floating-ui/utils').Strategy;
+        x: number;
+        y: number;
         middlewareData: import('@floating-ui/core').MiddlewareData;
         isPositioned: boolean;
         update: () => void;
-        floatingStyles: import('../../../node_modules/react').CSSProperties;
+        floatingStyles: React.CSSProperties;
         open: boolean;
         onOpenChange: (open: boolean, event?: Event, reason?: import('@floating-ui/react').OpenChangeReason) => void;
         events: import('@floating-ui/react').FloatingEvents;
-        dataRef: import('../../../node_modules/react').MutableRefObject<import('@floating-ui/react').ContextData>;
+        dataRef: React.MutableRefObject<import('@floating-ui/react').ContextData>;
         nodeId: string | undefined;
         floatingId: string;
         refs: import('@floating-ui/react').ExtendedRefs<import('@floating-ui/react').ReferenceType>;
