@@ -65,9 +65,11 @@ export const Separator = forwardRef(
 
     useEffect(() => {
       const style = ourRef.current?.style;
-      spacing
-        ? style?.setProperty(SPACING_CUSTOM_PROP, spacing)
-        : style?.removeProperty(SPACING_CUSTOM_PROP);
+      if (spacing) {
+        style?.setProperty(SPACING_CUSTOM_PROP, spacing);
+      } else {
+        style?.removeProperty(SPACING_CUSTOM_PROP);
+      }
     }, [spacing]);
 
     return (

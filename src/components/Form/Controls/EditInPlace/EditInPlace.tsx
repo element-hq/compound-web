@@ -264,7 +264,7 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
           saveButtonRef.current?.blur();
           await onSave?.(e);
           dispatch(Event.Saved);
-        } catch (e) {
+        } catch {
           // We don't really need to do anything here, we just don't want to display the
           // 'saved' label, obviously. The user of the component can update the error to
           // show what failed.
