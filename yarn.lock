@@ -7530,10 +7530,10 @@ stylelint-config-standard@^36.0.0:
   dependencies:
     stylelint-config-recommended "^14.0.1"
 
-stylelint-plugin-defensive-css@^0.10.0:
-  version "0.10.4"
-  resolved "https://registry.yarnpkg.com/stylelint-plugin-defensive-css/-/stylelint-plugin-defensive-css-0.10.4.tgz#7c9566d8cd0893c4af3226f18428d328b0adbdda"
-  integrity sha512-Y2uzOhyLDckiAy2c8uJbDNENYXICW0JPgcnIjj+gK+jYm5SCVlvPwGSdwbn+zWDLR96NoAGRwhajMstv9nE5Vw==
+stylelint-plugin-defensive-css@^1.0.0:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/stylelint-plugin-defensive-css/-/stylelint-plugin-defensive-css-1.0.4.tgz#7ddb88969933a3a93be5930c02f54a8ef8f7fb1a"
+  integrity sha512-8H5z8u+k/C88s1guEGwpcdZlbPhUdu0qHkQphqidCCchryx3/c95IFKiwg3aEhiXjADqdsOvMtckbqNDpjuU9g==
 
 stylelint-use-logical@^2.1.0:
   version "2.1.2"
