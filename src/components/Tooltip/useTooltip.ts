@@ -187,7 +187,7 @@ export function useTooltip({
             },
           }
         : {},
-    [purpose],
+    [purpose, labelId, captionId],
   );
 
   const interactions = useInteractions([hover, focus, dismiss, role, label]);
