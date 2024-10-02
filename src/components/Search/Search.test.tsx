@@ -51,10 +51,8 @@ describe("Search", () => {
       });
     render(<SearchTest onChange={onChange} />);
     const query = "my query";
-    await act(async () => {
-      const input = screen.getByRole("searchbox");
-      await userEvent.type(input, query);
-    });
+    const input = screen.getByRole("searchbox");
+    await userEvent.type(input, query);
 
     expect(onChange).toHaveBeenCalled();
     expect(value).toEqual(query);
