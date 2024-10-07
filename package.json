@@ -3,12 +3,13 @@
   "version": "6.3.1",
   "description": "Compound components for the Web",
   "type": "module",
-  "main": "./dist/compound-web.js",
-  "module": "./dist/compound-web.js",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "sideEffects": false,
   "exports": {
     ".": {
-      "require": "./dist/compound-web.cjs",
-      "import": "./dist/compound-web.js",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.js",
       "types": "./dist/index.d.ts",
       "style": "./dist/style.css"
     },
