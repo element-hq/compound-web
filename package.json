@@ -5,10 +5,11 @@
   "type": "module",
   "main": "./dist/compound-web.js",
   "module": "./dist/compound-web.js",
+  "sideEffects": false,
   "exports": {
     ".": {
-      "require": "./dist/compound-web.cjs",
-      "import": "./dist/compound-web.js",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.js",
       "types": "./dist/index.d.ts",
       "style": "./dist/style.css"
     },

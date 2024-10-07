@@ -8,9 +8,11 @@ export default defineConfig({
   build: {
     lib: {
       entry: resolve(__dirname, "./src/index.ts"),
-      name: "CompoundWeb",
-      fileName: "compound-web",
       formats: ["es", "cjs"],
+
+      // This makes sure to keep the file structure in the output `dist` folder
+      // the same as the input `src` folder
+      fileName: "[name]",
     },
 
     target: browserslistToEsbuild(),
@@ -39,6 +41,21 @@ export default defineConfig({
         // This is a regex as we import sub-paths from the design tokens package and never the root one
         /^@vector-im\/compound-design-tokens\/.*/,
       ],
+
+      output: {
+        // This makes it so that we *don't* bundle, and instead emit individual files
+        // This is helpful for bundlers of downstream packages, as they can tree-shake properly
+        preserveModules: true,
+        preserveModulesRoot: "src",
+        // We're exporting named exports
+        exports: "named",
+      },
+
+      treeshake: {
+        // This assumes that all the modules we're importing have no side effects
+        // This is useful to make rollup import specific files when importing from barrel files
+        moduleSideEffects: false,
+      },
 
       // Without this, none of the exports are preserved in the bundle
       preserveEntrySignatures: "strict",
