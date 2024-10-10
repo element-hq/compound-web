@@ -7,7 +7,7 @@ type BadgeProps = {
     /**
      * The type of badge.
      */
-    kind?: "default" | "success" | "critical";
+    kind?: "default" | "grey" | "on-solid" | "blue" | "green" | "red";
 };
 /**
  * A Badge component.
