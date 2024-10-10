@@ -27,13 +27,29 @@ export default {
 } as Meta<typeof BadgeComponent>;
 
 const Template: StoryFn<typeof BadgeComponent> = () => (
-  <>
-    <BadgeComponent kind="success">Trusted</BadgeComponent>
-    &nbsp;
-    <BadgeComponent kind="critical">Not trusted</BadgeComponent>
-    &nbsp;
-    <BadgeComponent kind="default">Public room</BadgeComponent>
-  </>
+  <div>
+    <div>
+      <BadgeComponent kind="green">Trusted</BadgeComponent>
+      &nbsp;
+      <BadgeComponent kind="red">Not trusted</BadgeComponent>
+      &nbsp;
+      <BadgeComponent kind="grey">Public room</BadgeComponent>
+    </div>
+    <br />
+    <div>
+      <BadgeComponent kind="default">Default</BadgeComponent>
+      &nbsp;
+      <BadgeComponent kind="grey">Grey</BadgeComponent>
+      &nbsp;
+      <BadgeComponent kind="on-solid">On Solid</BadgeComponent>
+      &nbsp;
+      <BadgeComponent kind="blue">Blue</BadgeComponent>
+      &nbsp;
+      <BadgeComponent kind="green">Green</BadgeComponent>
+      &nbsp;
+      <BadgeComponent kind="red">Red</BadgeComponent>
+    </div>
+  </div>
 );
 
 export const Badge = Template.bind({});
