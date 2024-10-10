@@ -20,16 +20,34 @@ limitations under the License.
   align-items: center;
   border-radius: 9999px; /* pill effect */
   padding: var(--cpd-space-1x) var(--cpd-space-3x);
-  background: var(--cpd-color-gray-400);
-  color: var(--cpd-color-text-secondary);
 }
 
-.badge[data-kind="success"] {
-  background: var(--cpd-color-green-400);
-  color: var(--cpd-color-green-900);
+.badge[data-kind="default"] {
+  border: 1px solid var(--cpd-color-alpha-gray-400);
+  color: var(--cpd-color-gray-1100);
 }
 
-.badge[data-kind="critical"] {
-  background: var(--cpd-color-red-400);
-  color: var(--cpd-color-red-900);
+.badge[data-kind="grey"] {
+  background: var(--cpd-color-alpha-gray-300);
+  color: var(--cpd-color-gray-1100);
+}
+
+.badge[data-kind="on-solid"] {
+  background: var(--cpd-color-alpha-gray-1200);
+  color: var(--cpd-color-text-on-solid-primary);
+}
+
+.badge[data-kind="blue"] {
+  background: var(--cpd-color-alpha-blue-300);
+  color: var(--cpd-color-blue-1100);
+}
+
+.badge[data-kind="green"] {
+  background: var(--cpd-color-alpha-green-300);
+  color: var(--cpd-color-green-1100);
+}
+
+.badge[data-kind="red"] {
+  background: var(--cpd-color-alpha-red-300);
+  color: var(--cpd-color-red-1100);
 }
