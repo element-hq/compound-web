@@ -138,6 +138,7 @@ function TooltipContent({
       <div
         ref={rest.refs.setFloating}
         style={rest.floatingStyles}
+        {...rest.tooltipProps}
         {...rest.getFloatingProps()}
         className={classNames(styles.tooltip, {
           [styles.invisible]: purpose === "label" && !open,

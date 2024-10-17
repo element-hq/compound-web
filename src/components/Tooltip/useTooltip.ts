@@ -33,7 +33,7 @@ import {
   useInteractions,
   useRole,
 } from "@floating-ui/react";
-import { useMemo, useRef, useState, JSX } from "react";
+import { useMemo, useRef, useState, JSX, AriaAttributes } from "react";
 import { hoverDelay } from "./TooltipProvider";
 
 export interface CommonUseTooltipProps {
@@ -80,6 +80,13 @@ export interface CommonUseTooltipProps {
    *      - trigger will be wrapped in a span with a tab index from prop nonInteractiveTriggerTabIndex
    */
   isTriggerInteractive: boolean;
+
+  /**
+   * Additional aria-* attributes to pass through to the floating tooltip for
+   * edge cases which require more user awareness like errors & alerts.
+   */
+  "aria-atomic"?: AriaAttributes["aria-atomic"];
+  "aria-live"?: AriaAttributes["aria-live"];
 }
 
 export interface TooltipLabel {
@@ -106,6 +113,8 @@ export function useTooltip({
   placement = "bottom",
   isTriggerInteractive,
   caption,
+  "aria-atomic": ariaAtomic,
+  "aria-live": ariaLive,
   ...props
 }: UseTooltipProps) {
   const labelId = useId();
@@ -200,6 +209,10 @@ export function useTooltip({
       purpose: purpose as "label" | "description",
       open,
       setOpen,
+      tooltipProps: {
+        "aria-atomic": ariaAtomic,
+        "aria-live": ariaLive,
+      },
       ...interactions,
       ...data,
       arrowRef,
