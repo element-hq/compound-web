@@ -1,5 +1,5 @@
 import { OpenChangeReason, Placement } from '@floating-ui/react';
-import { JSX } from '../../../node_modules/react';
+import { JSX, AriaAttributes } from '../../../node_modules/react';
 export interface CommonUseTooltipProps {
     /**
      * The controlled open state of the tooltip.
@@ -39,6 +39,12 @@ export interface CommonUseTooltipProps {
      *      - trigger will be wrapped in a span with a tab index from prop nonInteractiveTriggerTabIndex
      */
     isTriggerInteractive: boolean;
+    /**
+     * Additional aria-* attributes to pass through to the floating tooltip for
+     * edge cases which require more user awareness like errors & alerts.
+     */
+    "aria-atomic"?: AriaAttributes["aria-atomic"];
+    "aria-live"?: AriaAttributes["aria-live"];
 }
 export interface TooltipLabel {
     /**
@@ -53,7 +59,7 @@ export interface TooltipDescription {
     description: string;
 }
 type UseTooltipProps = CommonUseTooltipProps & (TooltipLabel | TooltipDescription);
-export declare function useTooltip({ open: controlledOpen, disabled, onOpenChange, placement, isTriggerInteractive, caption, ...props }: UseTooltipProps): {
+export declare function useTooltip({ open: controlledOpen, disabled, onOpenChange, placement, isTriggerInteractive, caption, "aria-atomic": ariaAtomic, "aria-live": ariaLive, ...props }: UseTooltipProps): {
     arrowRef: import('../../../node_modules/react').MutableRefObject<null>;
     placement: Placement;
     strategy: import('@floating-ui/utils').Strategy;
@@ -103,6 +109,10 @@ export declare function useTooltip({ open: controlledOpen, disabled, onOpenChang
     purpose: "label" | "description";
     open: boolean;
     setOpen: (open: boolean, event?: Event | undefined, reason?: OpenChangeReason | undefined) => void;
+    tooltipProps: {
+        "aria-atomic": (boolean | "true" | "false") | undefined;
+        "aria-live": "off" | "assertive" | "polite" | undefined;
+    };
 };
 export {};
 //# sourceMappingURL=useTooltip.d.ts.map

@@ -57,6 +57,10 @@ export declare function useTooltipContext(): {
     purpose: "label" | "description";
     open: boolean;
     setOpen: (open: boolean, event?: Event | undefined, reason?: import('@floating-ui/react').OpenChangeReason | undefined) => void;
+    tooltipProps: {
+        "aria-atomic": (boolean | "true" | "false") | undefined;
+        "aria-live": "off" | "assertive" | "polite" | undefined;
+    };
 };
 export {};
 //# sourceMappingURL=TooltipContext.d.ts.map
