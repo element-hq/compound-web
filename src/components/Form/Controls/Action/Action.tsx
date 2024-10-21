@@ -15,11 +15,10 @@ limitations under the License.
 */
 
 import classnames from "classnames";
-import React, { forwardRef, ComponentRef, ComponentProps } from "react";
+import React, { forwardRef, ComponentRef, ComponentProps, useId } from "react";
 import styles from "./Action.module.css";
 import { TextInput } from "../Text";
 
-import useId from "../../../../utils/useId";
 import { Control } from "@radix-ui/react-form";
 import { Tooltip } from "../../../Tooltip/Tooltip";
 

@@ -14,13 +14,12 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import React, { forwardRef } from "react";
+import React, { forwardRef, useId } from "react";
 import classNames from "classnames";
 
 import styles from "./Progress.module.css";
 
 import { Root, Indicator } from "@radix-ui/react-progress";
-import useId from "../../utils/useId";
 
 type ProgressProps = {
   /** The size variant of the progress bar */

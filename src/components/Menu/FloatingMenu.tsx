@@ -15,9 +15,13 @@ limitations under the License.
 */
 
 import classnames from "classnames";
-import React, { ComponentPropsWithoutRef, ReactNode, forwardRef } from "react";
+import React, {
+  ComponentPropsWithoutRef,
+  ReactNode,
+  forwardRef,
+  useId,
+} from "react";
 import styles from "./FloatingMenu.module.css";
-import useId from "../../utils/useId";
 import { Text } from "../Typography/Text";
 
 interface TitleProps {
