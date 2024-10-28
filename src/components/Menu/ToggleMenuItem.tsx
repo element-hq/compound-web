@@ -14,10 +14,9 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import React, { ComponentProps, forwardRef, useCallback } from "react";
+import React, { ComponentProps, forwardRef, useCallback, useId } from "react";
 import { MenuItem } from "./MenuItem";
 import { ToggleInput } from "../Form/Controls/Toggle";
-import useId from "../../utils/useId";
 
 type Props = Pick<
   ComponentProps<typeof MenuItem>,

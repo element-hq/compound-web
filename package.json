@@ -119,7 +119,7 @@
     "@fontsource/inter": "^5",
     "@types/react": "*",
     "@vector-im/compound-design-tokens": ">=1.6.1 <2.0.0",
-    "react": "^17 || ^18"
+    "react": "^18"
   },
   "peerDependenciesMeta": {
     "@types/react": {

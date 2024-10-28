@@ -15,12 +15,11 @@ limitations under the License.
 */
 
 import classnames from "classnames";
-import React, { ComponentProps, forwardRef } from "react";
+import React, { ComponentProps, forwardRef, useId } from "react";
 import styles from "./Search.module.css";
 import { Field, Label } from "../Form";
 
 import SearchIcon from "@vector-im/compound-design-tokens/assets/web/icons/search";
-import useId from "../../utils/useId";
 
 type SearchProps = {
   /**
