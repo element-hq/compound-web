@@ -155,6 +155,7 @@ export const Visible: Story = {
     },
   },
   play: async () => {
+    // eslint-disable-next-line storybook/await-interactions
     const user = userEvent.setup();
     const toggle = screen.getByRole("button", { name: "Show" });
     await user.click(toggle);
