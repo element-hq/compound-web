@@ -33,7 +33,14 @@ import {
   useInteractions,
   useRole,
 } from "@floating-ui/react";
-import { useMemo, useRef, useState, JSX, AriaAttributes } from "react";
+import {
+  useMemo,
+  useRef,
+  useState,
+  JSX,
+  AriaAttributes,
+  useEffect,
+} from "react";
 import { hoverDelay } from "./TooltipProvider";
 
 export interface CommonUseTooltipProps {
@@ -168,11 +175,42 @@ export function useTooltip({
     enabled: controlledOpen === undefined,
     // Show tooltip after a delay when trigger is interactive
     delay: isTriggerInteractive ? delay : {},
+    mouseOnly: true,
   });
+
   const focus = useFocus(context, {
     enabled: controlledOpen === undefined,
-    visibleOnly: false,
   });
+
+  // On touch screens, show the tooltip on a long press
+  const pressTimer = useRef<number>();
+  useEffect(() => () => window.clearTimeout(pressTimer.current), []);
+  const press = useMemo(() => {
+    const onTouchEnd = () => {
+      if (pressTimer.current === undefined)
+        pressTimer.current = window.setTimeout(() => {
+          setOpen(false);
+          pressTimer.current = undefined;
+        }, 1500);
+      else window.clearTimeout(pressTimer.current);
+    };
+    return {
+      // Set these props on the anchor element
+      reference: {
+        onTouchStart: () => {
+          if (pressTimer.current !== undefined)
+            window.clearTimeout(pressTimer.current);
+          pressTimer.current = window.setTimeout(() => {
+            setOpen(true);
+            pressTimer.current = undefined;
+          }, 500);
+        },
+        onTouchEnd,
+        onTouchCancel: onTouchEnd,
+      },
+    };
+  }, []);
+
   const dismiss = useDismiss(context);
 
   const purpose = "label" in props ? "label" : "description";
@@ -181,6 +219,7 @@ export function useTooltip({
     enabled: purpose === "description",
     role: "tooltip",
   });
+
   // A label tooltip should set aria-labelledby with no role regardless of
   // whether the tooltip is visible.
   // (Source: https://zoebijl.github.io/apg-tooltip/#tooltip-main-label)
@@ -189,7 +228,7 @@ export function useTooltip({
     () =>
       purpose === "label"
         ? {
-            // The props we want to set on the anchor element
+            // Set these props on the anchor element
             reference: {
               "aria-labelledby": labelId,
               "aria-describedby": caption ? captionId : undefined,
@@ -199,7 +238,14 @@ export function useTooltip({
     [purpose, labelId, captionId],
   );
 
-  const interactions = useInteractions([hover, focus, dismiss, role, label]);
+  const interactions = useInteractions([
+    hover,
+    focus,
+    press,
+    dismiss,
+    role,
+    label,
+  ]);
 
   return useMemo(
     () => ({
