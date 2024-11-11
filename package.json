@@ -83,7 +83,7 @@
     "eslint-plugin-matrix-org": "^1.2.1",
     "eslint-plugin-prettier": "^5.0.0",
     "eslint-plugin-react": "^7.33.2",
-    "eslint-plugin-storybook": "^0.10.0",
+    "eslint-plugin-storybook": "^0.11.0",
     "jsdom": "^25.0.0",
     "prettier": "3.3.3",
     "react": "^18.2.0",
