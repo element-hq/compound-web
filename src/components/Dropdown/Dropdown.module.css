@@ -88,6 +88,7 @@ limitations under the License.
       padding: 0;
       padding-block-end: var(--cpd-space-4x);
       cursor: pointer;
+      z-index: var(--cpd-dropdown-z-index);
 
       li {
         list-style: none;
