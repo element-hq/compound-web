@@ -67,7 +67,7 @@ limitations under the License.
 }
 
 .input::placeholder {
-  color: var(--cpd-color-text-placeholder);
+  color: var(--cpd-color-text-secondary);
 }
 
 .input:focus::placeholder {
