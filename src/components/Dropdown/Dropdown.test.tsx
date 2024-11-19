@@ -17,12 +17,33 @@ limitations under the License.
 import { describe, expect, it } from "vitest";
 import { composeStories } from "@storybook/react";
 import * as stories from "./Dropdown.stories";
-import { act, render, waitFor } from "@testing-library/react";
-import React from "react";
+import { act, render, screen, waitFor } from "@testing-library/react";
+import React, { FC, useMemo, useState } from "react";
 import { userEvent } from "@storybook/test";
+import { Dropdown } from "./Dropdown";
 
 const { Default, WithHelpLabel, WithError, WithDefaultValue } =
   composeStories(stories);
+
+const ControlledDropdown: FC = () => {
+  const [value, setValue] = useState("1");
+  const values = useMemo<[string, string][]>(
+    () => [
+      ["1", "Option 1"],
+      ["2", "Option 2"],
+    ],
+    [],
+  );
+  return (
+    <Dropdown
+      value={value}
+      onValueChange={setValue}
+      values={values}
+      placeholder=""
+      label="Label"
+    />
+  );
+};
 
 describe("Dropdown", () => {
   it("renders a Default dropdown", () => {
@@ -98,5 +119,21 @@ describe("Dropdown", () => {
       expect(getByRole("combobox")).toHaveTextContent("Option 3");
       expect(getByRole("combobox")).toHaveAttribute("aria-expanded", "false");
     });
+  });
+  it("supports controlled operation", async () => {
+    const user = userEvent.setup();
+    render(<ControlledDropdown />);
+
+    expect(screen.getByRole("option", { name: "Option 1" })).toHaveAttribute(
+      "aria-selected",
+      "true",
+    );
+    await act(() =>
+      user.click(screen.getByRole("option", { name: "Option 2" })),
+    );
+    expect(screen.getByRole("option", { name: "Option 2" })).toHaveAttribute(
+      "aria-selected",
+      "true",
+    );
   });
 });
