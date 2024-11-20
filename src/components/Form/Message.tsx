@@ -21,7 +21,7 @@ import ErrorIcon from "@vector-im/compound-design-tokens/assets/web/icons/error"
 
 import styles from "./form.module.css";
 import classNames from "classnames";
-import { InlineSpinner } from "../InlineSpinner/InlineSpinner";
+import { InlineSpinner } from "../InlineSpinner";
 
 type MessageProps = {
   /**
