@@ -30,6 +30,7 @@ import React, {
   useRef,
   useState,
   KeyboardEvent,
+  useMemo,
 } from "react";
 
 import classNames from "classnames";
@@ -43,7 +44,11 @@ type DropdownProps = {
    */
   className?: string;
   /**
-   * The default value of the dropdown.
+   * The controlled value of the dropdown.
+   */
+  value?: string;
+  /**
+   * The default value of the dropdown, used when uncontrolled.
    */
   defaultValue?: string;
   /**
@@ -86,34 +91,46 @@ export const Dropdown = forwardRef<HTMLButtonElement, DropdownProps>(
       helpLabel,
       onValueChange,
       error,
+      value: controlledValue,
       defaultValue,
       values,
       ...props
     },
     ref,
   ) {
-    const [state, setState] = useInitialState(
-      values,
-      placeholder,
-      defaultValue,
+    const [uncontrolledValue, setUncontrolledValue] = useState(defaultValue);
+    const value = controlledValue ?? uncontrolledValue;
+    const text = useMemo(
+      () =>
+        value === undefined
+          ? placeholder
+          : (values.find(([v]) => v === value)?.[1] ?? placeholder),
+      [value, values, placeholder],
     );
+
+    const setValue = useCallback(
+      (value: string) => {
+        setUncontrolledValue(value);
+        onValueChange?.(value);
+      },
+      [setUncontrolledValue, onValueChange],
+    );
+
     const [open, setOpen, dropdownRef] = useOpen();
     const { listRef, onComboboxKeyDown, onOptionKeyDown } = useKeyboardShortcut(
       open,
       setOpen,
-      setState,
+      setValue,
     );
 
     const buttonRef = useRef<HTMLButtonElement | null>(null);
     useEffect(() => {
       // Focus the button when the value is set
       // Test if the value is undefined to avoid focusing on the first render
-      if (state.value !== undefined) {
-        buttonRef.current?.focus();
-      }
-    }, [state]);
+      if (value !== undefined) buttonRef.current?.focus();
+    }, [value]);
 
-    const hasPlaceholder = state.text === placeholder;
+    const hasPlaceholder = text === placeholder;
     const buttonClasses = classNames({
       [styles.placeholder]: hasPlaceholder,
     });
@@ -158,7 +175,7 @@ export const Dropdown = forwardRef<HTMLButtonElement, DropdownProps>(
           onKeyDown={onComboboxKeyDown}
           {...props}
         >
-          {state.text}
+          {text}
           <ChevronDown width="24" height="24" />
         </button>
         <div className={borderClasses} />
@@ -169,17 +186,16 @@ export const Dropdown = forwardRef<HTMLButtonElement, DropdownProps>(
             role="listbox"
             className={styles.content}
           >
-            {values.map(([value, text]) => (
+            {values.map(([v, text]) => (
               <DropdownItem
-                key={value}
+                key={v}
                 isDisplayed={open}
-                isSelected={state.value === value}
+                isSelected={value === v}
                 onClick={() => {
                   setOpen(false);
-                  setState({ value, text });
-                  onValueChange?.(value);
+                  setValue(v);
                 }}
-                onKeyDown={(e) => onOptionKeyDown(e, value, text)}
+                onKeyDown={(e) => onOptionKeyDown(e, v)}
               >
                 {text}
               </DropdownItem>
@@ -273,31 +289,6 @@ function useOpen(): [
 }
 
 /**
- * A hook to manage the initial state of the dropdown.
- * @param values - The values of the dropdown.
- * @param placeholder - The placeholder text.
- * @param defaultValue - The default value of the dropdown.
- */
-function useInitialState(
-  values: [string, string][],
-  placeholder: string,
-  defaultValue?: string,
-) {
-  return useState(() => {
-    const defaultTuple = {
-      value: undefined,
-      text: placeholder,
-    };
-    if (!defaultValue) return defaultTuple;
-
-    const foundTuple = values.find(([value]) => value === defaultValue);
-    return foundTuple
-      ? { value: foundTuple[0], text: foundTuple[1] }
-      : defaultTuple;
-  });
-}
-
-/**
  * A hook to manage the keyboard shortcuts of the dropdown.
  * @param open - the dropdown open state.
  * @param setOpen - the dropdown open state setter.
@@ -306,7 +297,7 @@ function useInitialState(
 function useKeyboardShortcut(
   open: boolean,
   setOpen: Dispatch<SetStateAction<boolean>>,
-  setValue: ({ text, value }: { text: string; value: string }) => void,
+  setValue: (value: string) => void,
 ) {
   const listRef = useRef<HTMLUListElement>(null);
   const onComboboxKeyDown = useCallback(
@@ -348,7 +339,7 @@ function useKeyboardShortcut(
   );
 
   const onOptionKeyDown = useCallback(
-    (evt: KeyboardEvent, value: string, text: string) => {
+    (evt: KeyboardEvent, value: string) => {
       const { key, altKey } = evt;
       evt.stopPropagation();
       evt.preventDefault();
@@ -356,7 +347,7 @@ function useKeyboardShortcut(
       switch (key) {
         case "Enter":
         case " ": {
-          setValue({ text, value });
+          setValue(value);
           setOpen(false);
           break;
         }
@@ -373,7 +364,7 @@ function useKeyboardShortcut(
         }
         case "ArrowUp": {
           if (altKey) {
-            setValue({ text, value });
+            setValue(value);
             setOpen(false);
           } else {
             const currentFocus = document.activeElement;

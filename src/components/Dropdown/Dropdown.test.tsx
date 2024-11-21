@@ -17,12 +17,33 @@ limitations under the License.
 import { describe, expect, it } from "vitest";
 import { composeStories } from "@storybook/react";
 import * as stories from "./Dropdown.stories";
-import { act, render, waitFor } from "@testing-library/react";
-import React from "react";
-import { userEvent } from "@storybook/test";
+import { render, screen } from "@testing-library/react";
+import React, { FC, useMemo, useState } from "react";
+import { Dropdown } from "./Dropdown";
+import userEvent from "@testing-library/user-event";
 
 const { Default, WithHelpLabel, WithError, WithDefaultValue } =
   composeStories(stories);
+
+const ControlledDropdown: FC = () => {
+  const [value, setValue] = useState("1");
+  const values = useMemo<[string, string][]>(
+    () => [
+      ["1", "Option 1"],
+      ["2", "Option 2"],
+    ],
+    [],
+  );
+  return (
+    <Dropdown
+      value={value}
+      onValueChange={setValue}
+      values={values}
+      placeholder=""
+      label="Label"
+    />
+  );
+};
 
 describe("Dropdown", () => {
   it("renders a Default dropdown", () => {
@@ -42,61 +63,65 @@ describe("Dropdown", () => {
     expect(container).toMatchSnapshot();
   });
   it("can be opened", async () => {
+    const user = userEvent.setup();
     const { getByRole, container } = render(<Default />);
-    await act(async () => {
-      await userEvent.click(getByRole("combobox"));
-    });
+    await user.click(getByRole("combobox"));
     expect(container).toMatchSnapshot();
   });
   it("can select a value", async () => {
+    const user = userEvent.setup();
     const { getByRole, container } = render(<Default />);
-    await act(async () => {
-      await userEvent.click(getByRole("combobox"));
-    });
+    await user.click(getByRole("combobox"));
 
-    await waitFor(() =>
-      expect(getByRole("option", { name: "Option 2" })).toBeVisible(),
-    );
+    expect(getByRole("option", { name: "Option 2" })).toBeVisible();
 
-    await act(async () => {
-      await userEvent.click(getByRole("option", { name: "Option 2" }));
-    });
+    await user.click(getByRole("option", { name: "Option 2" }));
 
     expect(getByRole("combobox")).toHaveTextContent("Option 2");
 
-    await act(async () => {
-      await userEvent.click(getByRole("combobox"));
-    });
+    await user.click(getByRole("combobox"));
 
-    await waitFor(() =>
-      expect(getByRole("option", { name: "Option 2" })).toHaveAttribute(
-        "aria-selected",
-        "true",
-      ),
+    expect(getByRole("option", { name: "Option 2" })).toHaveAttribute(
+      "aria-selected",
+      "true",
     );
 
     // Option 2 should be selected
     expect(container).toMatchSnapshot();
   });
   it("can use keyboard shortcuts", async () => {
+    const user = userEvent.setup();
     const { getByRole } = render(<Default />);
 
-    await act(async () => userEvent.type(getByRole("combobox"), "{arrowdown}"));
-    await waitFor(() =>
-      expect(getByRole("combobox")).toHaveAttribute("aria-expanded", "true"),
-    );
+    // arrowdown seems to already select Option 1... in real browsers this
+    // doesn't happen. Maybe it's a user-event thing? arrowup just opens the
+    // dropdown as we would expect.
+    await user.type(getByRole("combobox"), "{arrowup}");
+    expect(getByRole("combobox")).toHaveAttribute("aria-expanded", "true");
 
-    await act(async () => userEvent.keyboard("{arrowdown}"));
+    await user.keyboard("{arrowdown}");
     expect(getByRole("option", { name: "Option 1" })).toHaveFocus();
 
-    await act(async () => userEvent.keyboard("{End}"));
+    await user.keyboard("{End}");
     expect(getByRole("option", { name: "Option 3" })).toHaveFocus();
 
-    await act(async () => userEvent.keyboard("{Enter}"));
+    await user.keyboard("{Enter}");
 
-    await waitFor(() => {
-      expect(getByRole("combobox")).toHaveTextContent("Option 3");
-      expect(getByRole("combobox")).toHaveAttribute("aria-expanded", "false");
-    });
+    expect(getByRole("combobox")).toHaveTextContent("Option 3");
+    expect(getByRole("combobox")).toHaveAttribute("aria-expanded", "false");
+  });
+  it("supports controlled operation", async () => {
+    const user = userEvent.setup();
+    render(<ControlledDropdown />);
+
+    expect(screen.getByRole("option", { name: "Option 1" })).toHaveAttribute(
+      "aria-selected",
+      "true",
+    );
+    await user.click(screen.getByRole("option", { name: "Option 2" }));
+    expect(screen.getByRole("option", { name: "Option 2" })).toHaveAttribute(
+      "aria-selected",
+      "true",
+    );
   });
 });
