@@ -5,7 +5,11 @@ type DropdownProps = {
      */
     className?: string;
     /**
-     * The default value of the dropdown.
+     * The controlled value of the dropdown.
+     */
+    value?: string;
+    /**
+     * The default value of the dropdown, used when uncontrolled.
      */
     defaultValue?: string;
     /**
