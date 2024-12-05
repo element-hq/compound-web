@@ -77,11 +77,6 @@ limitations under the License.
   color: var(--cpd-color-text-critical-primary);
 }
 
-.inline-field-body .label {
-  /* When the label is inline, it should be using regular font weight, not medium */
-  font: var(--cpd-font-body-md-regular);
-}
-
 /* Currently working everywhere but on Firefox (only behind a labs flag)
 https://developer.mozilla.org/en-US/docs/Web/CSS/:has#browser_compatibility */
 .label:has(~ * input[disabled]),
