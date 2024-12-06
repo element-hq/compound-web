@@ -24,7 +24,9 @@ export default {
   component: LinkComponent,
   tags: ["autodocs"],
   argTypes: {},
-  args: {},
+  args: {
+    size: "medium",
+  },
 } as Meta<typeof LinkComponent>;
 
 const Template: StoryFn<typeof LinkComponent> = (args) => (
@@ -33,3 +35,8 @@ const Template: StoryFn<typeof LinkComponent> = (args) => (
 
 export const Round = Template.bind({});
 Round.args = {};
+
+export const Small = Template.bind({});
+Small.args = {
+  size: "small",
+};
