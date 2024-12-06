@@ -25,15 +25,24 @@ type LinkProps = {
   className?: string;
   /**
    * The type of link.
+   * @default "primary"
    */
   kind?: "primary" | "critical";
-} & Omit<React.HTMLProps<HTMLAnchorElement>, "rel">;
+  /**
+   * The size of link.
+   * @default "medium"
+   */
+  size?: "small" | "medium";
+} & Omit<React.HTMLProps<HTMLAnchorElement>, "rel" | "size">;
 
 /**
  * A link component.
  */
 export const Link = forwardRef<HTMLAnchorElement, PropsWithChildren<LinkProps>>(
-  function Link({ children, className, kind = "primary", ...props }, ref) {
+  function Link(
+    { children, className, kind = "primary", size = "medium", ...props },
+    ref,
+  ) {
     return (
       <a
         ref={ref}
@@ -41,6 +50,7 @@ export const Link = forwardRef<HTMLAnchorElement, PropsWithChildren<LinkProps>>(
         rel="noreferrer noopener"
         className={classNames(styles.link, className)}
         data-kind={kind}
+        data-size={size}
       >
         {children}
       </a>

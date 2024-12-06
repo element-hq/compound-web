@@ -52,3 +52,7 @@ limitations under the License.
 .link[data-kind="critical"]:active {
   background: var(--cpd-color-text-critical-primary);
 }
+
+.link[data-size="small"] {
+  font-size: var(--cpd-font-size-body-sm);
+}
