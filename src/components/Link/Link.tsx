@@ -25,10 +25,12 @@ type LinkProps = {
   className?: string;
   /**
    * The type of link.
+   * @default "primary"
    */
   kind?: "primary" | "critical";
   /**
    * The size of link.
+   * @default "medium"
    */
   size?: "small" | "medium";
 } & Omit<React.HTMLProps<HTMLAnchorElement>, "rel" | "size">;
