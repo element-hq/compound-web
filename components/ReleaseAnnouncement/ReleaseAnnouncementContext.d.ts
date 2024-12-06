@@ -8,8 +8,8 @@ export declare const ReleaseAnnouncementContext: import('../../../node_modules/r
  * Provides the context for the ReleaseAnnouncement components.
  */
 export declare function useReleaseAnnouncementContext(): {
-    labelId: string;
-    descriptionId: string;
+    labelId: string | undefined;
+    descriptionId: string | undefined;
     header: string;
     description: string;
     closeLabel: string;
@@ -54,7 +54,7 @@ export declare function useReleaseAnnouncementContext(): {
         events: import('@floating-ui/react').FloatingEvents;
         dataRef: React.MutableRefObject<import('@floating-ui/react').ContextData>;
         nodeId: string | undefined;
-        floatingId: string;
+        floatingId: string | undefined;
         refs: import('@floating-ui/react').ExtendedRefs<import('@floating-ui/react').ReferenceType>;
         elements: import('@floating-ui/react').ExtendedElements<import('@floating-ui/react').ReferenceType>;
     };

@@ -41,7 +41,7 @@ export declare function useTooltipContext(): {
         events: import('@floating-ui/react').FloatingEvents;
         dataRef: React.MutableRefObject<import('@floating-ui/react').ContextData>;
         nodeId: string | undefined;
-        floatingId: string;
+        floatingId: string | undefined;
         refs: import('@floating-ui/react').ExtendedRefs<import('@floating-ui/react').ReferenceType>;
         elements: import('@floating-ui/react').ExtendedElements<import('@floating-ui/react').ReferenceType>;
     };
@@ -51,7 +51,7 @@ export declare function useTooltipContext(): {
         active?: boolean;
         selected?: boolean;
     }) => Record<string, unknown>;
-    labelId: string;
+    labelId: string | undefined;
     captionId: string | undefined;
     caption: string | import("react").JSX.Element | undefined;
     purpose: "label" | "description";

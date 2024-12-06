@@ -34,8 +34,8 @@ interface UseReleaseAnnouncementProps {
  * This hook provides the necessary props to create a release announcement.
  */
 export declare function useReleaseAnnouncement({ open, header, description, closeLabel, placement, onClick, displayArrow, }: UseReleaseAnnouncementProps): {
-    labelId: string;
-    descriptionId: string;
+    labelId: string | undefined;
+    descriptionId: string | undefined;
     header: string;
     description: string;
     closeLabel: string;
@@ -80,7 +80,7 @@ export declare function useReleaseAnnouncement({ open, header, description, clos
         events: import('@floating-ui/react').FloatingEvents;
         dataRef: React.MutableRefObject<import('@floating-ui/react').ContextData>;
         nodeId: string | undefined;
-        floatingId: string;
+        floatingId: string | undefined;
         refs: import('@floating-ui/react').ExtendedRefs<import('@floating-ui/react').ReferenceType>;
         elements: import('@floating-ui/react').ExtendedElements<import('@floating-ui/react').ReferenceType>;
     };
