@@ -268,10 +268,10 @@ const DropdownItem = memo(function DropdownItem({
 function useOpen(): [
   boolean,
   Dispatch<SetStateAction<boolean>>,
-  RefObject<HTMLDivElement>,
+  RefObject<HTMLDivElement | null>,
 ] {
   const [open, setOpen] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLDivElement | null>(null);
 
   // If the user clicks outside the dropdown, close it
   useEffect(() => {

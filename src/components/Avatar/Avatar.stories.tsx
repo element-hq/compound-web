@@ -15,7 +15,7 @@ limitations under the License.
 */
 
 import React from "react";
-import { Meta, StoryFn } from "@storybook/react";
+import { Meta, StoryFn, StoryObj } from "@storybook/react";
 
 import { Avatar as AvatarComponent } from "./Avatar";
 
@@ -33,35 +33,38 @@ export default {
   },
 } as Meta<typeof AvatarComponent>;
 
-const Template: StoryFn<typeof AvatarComponent> = (args) => (
-  <AvatarComponent {...args} />
-);
+type Story = StoryObj<typeof AvatarComponent>;
 
-export const Round = Template.bind({});
-Round.args = {
-  type: "round",
+export const Round: Story = {
+  args: {
+    type: "round",
+  },
 };
 
-export const Square = Template.bind({});
-Square.args = {
-  type: "square",
+export const Square: Story = {
+  args: {
+    type: "square",
+  },
 };
 
-export const Button = Template.bind({});
-Button.args = {
-  type: "round",
-  onClick: () => console.log("clicked!"),
+export const Button: Story = {
+  args: {
+    type: "round",
+    onClick: () => console.log("clicked!"),
+  },
 };
 
-export const NoImageFallback = Template.bind({});
-NoImageFallback.args = {
-  src: "",
+export const NoImageFallback: Story = {
+  args: {
+    src: "",
+  },
 };
 
-export const LargeNoImageFallback = Template.bind({});
-LargeNoImageFallback.args = {
-  src: "",
-  size: "128px",
+export const LargeNoImageFallback: Story = {
+  args: {
+    src: "",
+    size: "128px",
+  },
 };
 
 const ImageLessCollection: StoryFn<typeof AvatarComponent> = (args) => (
@@ -81,8 +84,10 @@ const ImageLessCollection: StoryFn<typeof AvatarComponent> = (args) => (
   </>
 );
 
-export const AllAvatars = ImageLessCollection.bind({});
-AllAvatars.args = {
-  src: "",
-  size: "36px",
+export const AllAvatars: Story = {
+  render: ImageLessCollection,
+  args: {
+    src: "",
+    size: "36px",
+  },
 };

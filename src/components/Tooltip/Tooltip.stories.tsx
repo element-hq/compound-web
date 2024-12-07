@@ -60,7 +60,7 @@ export default {
     ),
   },
   decorators: [
-    (Story: StoryFn) => (
+    (Story) => (
       <div style={{ padding: 100 }}>
         <TooltipProvider>
           <Story />
