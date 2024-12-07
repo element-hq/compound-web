@@ -15,20 +15,16 @@ limitations under the License.
 */
 
 import classnames from "classnames";
-import React, { forwardRef } from "react";
+import React, { ComponentProps, forwardRef } from "react";
 import { getInitialLetter } from "../../utils/string";
-import { SuspenseImg } from "../../utils/SuspenseImg";
 import styles from "./Avatar.module.css";
 import { useIdColorHash } from "./useIdColorHash";
 
-type AvatarProps = (
-  | JSX.IntrinsicElements["button"]
-  | JSX.IntrinsicElements["span"]
-) & {
+type AvatarProps = (ComponentProps<"button"> | ComponentProps<"span">) & {
   /**
    * The avatar image URL, if any.
    */
-  src?: React.ComponentProps<typeof SuspenseImg>["src"];
+  src?: React.ComponentProps<"img">["src"];
   /**
    * The Matrix ID, Room ID, or Alias to generate the color when no image source
    * is provided. Also used as a fallback when name is empty.
@@ -62,7 +58,7 @@ type AvatarProps = (
   /**
    * Callback when the image has failed to load.
    */
-  onError?: React.ComponentProps<typeof SuspenseImg>["onError"];
+  onError?: React.ComponentProps<"img">["onError"];
 };
 
 /**
