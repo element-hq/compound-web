@@ -15,7 +15,7 @@ limitations under the License.
 */
 
 import React from "react";
-import { Meta, StoryFn } from "@storybook/react";
+import { Meta } from "@storybook/react";
 import ExtensionsIcon from "@vector-im/compound-design-tokens/assets/web/icons/extensions";
 import ChatIcon from "@vector-im/compound-design-tokens/assets/web/icons/chat";
 import SettingsLabel from "@vector-im/compound-design-tokens/assets/web/icons/settings";
@@ -40,7 +40,7 @@ export default {
     Icon: ChatIcon,
   },
   decorators: [
-    (Story: StoryFn) => (
+    (Story) => (
       <div style={{ width: 300 }}>
         <Story />
       </div>

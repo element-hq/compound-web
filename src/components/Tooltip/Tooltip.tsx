@@ -184,7 +184,7 @@ const TooltipAnchor: FC<TooltipAnchorProps> = ({
     if (!isValidElement(children)) return;
 
     if (isTriggerInteractive) {
-      const props = context.getReferenceProps({ ref, ...children.props });
+      const props = context.getReferenceProps({ ref });
       return cloneElement(children, props);
     } else {
       // For a non-interactive trigger, we want most of the props to go on the
@@ -202,7 +202,7 @@ const TooltipAnchor: FC<TooltipAnchorProps> = ({
       } = props;
       return (
         <span tabIndex={nonInteractiveTriggerTabIndex} {...spanProps}>
-          {cloneElement(children as ReactElement, {
+          {cloneElement(children as ReactElement<Record<string, unknown>>, {
             "aria-labelledby": labelId,
             "aria-describedby": descriptionId,
           })}
