@@ -1,0 +1,65 @@
+/*
+Copyright 2024 New Vector Ltd
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  block-size: 40px;
+  gap: var(--cpd-space-3x);
+  padding-block-end: var(--cpd-space-3x);
+  border-block-end: 1px solid var(--cpd-color-alpha-gray-400);
+  box-sizing: border-box;
+
+  .pages {
+    display: flex;
+    gap: var(--cpd-space-1x);
+
+    /* override list styles */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    a {
+      cursor: pointer;
+    }
+
+    .last-page {
+      font: var(--cpd-font-body-sm-regular);
+      color: var(--cpd-color-text-secondary);
+    }
+
+    /*
+     * Breadcrumb separator
+     * We want this separator to be only visual and to not be in the accessibility tree.
+     * The nav html element already provides an accessible way to separate the links.
+     */
+    li + li::before {
+      display: inline-block;
+      margin: 0 0.3em 0 0.25em;
+      transform: rotate(15deg);
+      border-inline-end: 1px solid var(--cpd-color-text-secondary);
+      block-size: var(--cpd-space-3x);
+      content: "";
+    }
+
+    /* Last page */
+    :last-child {
+      span {
+        padding-inline-start: var(--cpd-space-1x);
+      }
+    }
+  }
+}
