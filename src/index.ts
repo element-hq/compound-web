@@ -51,6 +51,7 @@ export { ReleaseAnnouncement } from "./components/ReleaseAnnouncement";
 export { Toast } from "./components/Toast/Toast";
 export { Dropdown } from "./components/Dropdown";
 export { InlineSpinner } from "./components/InlineSpinner";
+export { Breadcrumb } from "./components/Breadcrumb";
 
 export {
   TextControl,

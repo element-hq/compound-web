@@ -1,0 +1,68 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Breadcrumb > should render 1`] = `
+<nav
+  class="_breadcrumb_c693d3"
+>
+  <button
+    aria-label="Back"
+    class="_icon-button_e3253e _subtle-bg_e3253e"
+    role="button"
+    style="--cpd-icon-button-size: 28px;"
+    tabindex="0"
+  >
+    <div
+      class="_indicator-icon_ab1fc6"
+      style="--cpd-icon-button-size: 100%;"
+    >
+      <svg
+        fill="currentColor"
+        height="1em"
+        viewBox="0 0 24 24"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="m13.3 17.3-4.6-4.6a.877.877 0 0 1-.213-.325A1.106 1.106 0 0 1 8.425 12c0-.133.02-.258.062-.375A.878.878 0 0 1 8.7 11.3l4.6-4.6a.948.948 0 0 1 .7-.275.95.95 0 0 1 .7.275.948.948 0 0 1 .275.7.948.948 0 0 1-.275.7L10.8 12l3.9 3.9a.949.949 0 0 1 .275.7.948.948 0 0 1-.275.7.948.948 0 0 1-.7.275.948.948 0 0 1-.7-.275Z"
+        />
+      </svg>
+    </div>
+  </button>
+  <ol
+    class="_pages_c693d3"
+  >
+    <li>
+      <a
+        class="_link_379d57"
+        data-kind="primary"
+        data-size="small"
+        rel="noreferrer noopener"
+        role="button"
+        tabindex="0"
+      >
+        1st level page
+      </a>
+    </li>
+    <li>
+      <a
+        class="_link_379d57"
+        data-kind="primary"
+        data-size="small"
+        rel="noreferrer noopener"
+        role="button"
+        tabindex="0"
+      >
+        2nd level page
+      </a>
+    </li>
+    <li>
+      <span
+        aria-current="page"
+        class="_last-page_c693d3"
+      >
+        Current page
+      </span>
+    </li>
+  </ol>
+</nav>
+`;
