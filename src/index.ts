@@ -37,6 +37,7 @@ export {
   H6,
 } from "./components/Typography/Heading";
 export { IndicatorIcon } from "./components/Icon/IndicatorIcon/IndicatorIcon";
+export { BigIcon } from "./components/Icon/BigIcon";
 export { Link } from "./components/Link/Link";
 export { NavBar, NavItem } from "./components/Nav";
 export { Menu } from "./components/Menu/Menu";
