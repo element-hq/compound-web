@@ -106,11 +106,10 @@ function ReleaseAnnouncementAnchor({
     children,
     context.getReferenceProps({
       ref,
-      ...children.props,
       // If the ReleaseAnnouncement is open, we need manually aria-describedby.
       // The RA has the dialog role and it's not adding automatically the aria-describedby.
       ...(context.open && {
-        "aria-describedby": context.getFloatingProps().id,
+        "aria-describedby": context.getFloatingProps().id as string,
       }),
     }),
   );

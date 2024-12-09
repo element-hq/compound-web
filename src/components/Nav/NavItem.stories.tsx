@@ -16,10 +16,10 @@ limitations under the License.
 */
 
 import React from "react";
+import { Meta } from "@storybook/react";
 
 import { NavItem } from "./NavItem";
 import { NavBar } from ".";
-import { StoryFn } from "@storybook/react";
 
 export default {
   title: "Nav/Nav Item",
@@ -31,7 +31,7 @@ export default {
     },
   },
   decorators: [
-    (Story: StoryFn) => (
+    (Story) => (
       <NavBar aria-label="Testing">
         <Story />
       </NavBar>
@@ -43,7 +43,7 @@ export default {
       url: "https://www.figma.com/file/rTaQE2nIUSLav4Tg3nozq7/Compound-Web-Components?type=design&node-id=669-2723&mode=design&t=9Hy0h7BBDH0kJ2Ow-0",
     },
   },
-};
+} satisfies Meta<typeof NavItem>;
 
 export const Default = {
   args: {
