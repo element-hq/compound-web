@@ -15,37 +15,37 @@ limitations under the License.
 */
 
 import React from "react";
-import { Meta, StoryFn } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 
 import { AvatarStack as AvatarStackComponent } from "./AvatarStack";
 import { Avatar } from "./Avatar";
 
-export default {
+const meta = {
   title: "Avatar/StackedAvatar",
   component: AvatarStackComponent,
   tags: ["autodocs"],
   argTypes: {},
   args: {
-    size: "64px",
+    children: (
+      <>
+        <Avatar
+          name="Alice"
+          id="@alice:example.org"
+          size="200px"
+          src="/images/__test__/kitten.jpg"
+        />
+        <Avatar
+          name="Bob"
+          id="@bob:example.org"
+          size="200px"
+          src="/images/__test__/kitten2.jpg"
+        />
+      </>
+    ),
   },
-} as Meta<typeof AvatarStackComponent>;
+} satisfies Meta<typeof AvatarStackComponent>;
+export default meta;
 
-const Template: StoryFn<typeof AvatarStackComponent> = (args) => (
-  <AvatarStackComponent {...args}>
-    <Avatar
-      name="Alice"
-      id="@alice:example.org"
-      size="200px"
-      src="/images/__test__/kitten.jpg"
-    />
-    <Avatar
-      name="Bob"
-      id="@bob:example.org"
-      size="200px"
-      src="/images/__test__/kitten2.jpg"
-    />
-  </AvatarStackComponent>
-);
+type Story = StoryObj<typeof meta>;
 
-export const AvatarStack = Template.bind({});
-AvatarStack.args = {};
+export const AvatarStack: Story = { args: {} };

@@ -14,11 +14,11 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import { Meta } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 
 import { InlineSpinner as InlineSpinnerComponent } from "./InlineSpinner";
 
-export default {
+const meta = {
   title: "InlineSpinner",
   component: InlineSpinnerComponent,
   tags: ["autodocs"],
@@ -28,9 +28,12 @@ export default {
     },
   },
   args: {},
-} as Meta<typeof InlineSpinnerComponent>;
+} satisfies Meta<typeof InlineSpinnerComponent>;
+export default meta;
 
-export const Default = {
+type Story = StoryObj<typeof meta>;
+
+export const Default: Story = {
   args: {},
   parameters: {},
 };

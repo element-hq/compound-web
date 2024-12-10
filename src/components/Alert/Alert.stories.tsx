@@ -15,12 +15,12 @@ limitations under the License.
 */
 
 import React from "react";
-import { Meta } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 import { Button } from "../Button/Button";
 
 import { Alert as AlertComponent } from "./Alert";
 
-export default {
+const meta = {
   title: "Alert",
   component: AlertComponent,
   tags: ["autodocs"],
@@ -43,27 +43,30 @@ export default {
       url: "https://www.figma.com/file/rTaQE2nIUSLav4Tg3nozq7/Compound-Web-Components?type=design&node-id=795-7802&mode=design&t=g71gv6nZdJA7QSGB-0",
     },
   },
-} as Meta<typeof AlertComponent>;
+} satisfies Meta<typeof AlertComponent>;
+export default meta;
 
-export const Success = {
+type Story = StoryObj<typeof meta>;
+
+export const Success: Story = {
   args: {
     type: "success",
   },
 };
 
-export const Critical = {
+export const Critical: Story = {
   args: {
     type: "critical",
   },
 };
 
-export const Info = {
+export const Info: Story = {
   args: {
     type: "info",
   },
 };
 
-export const WithActions = {
+export const WithActions: Story = {
   args: {
     type: "info",
     title:
@@ -79,7 +82,7 @@ export const WithActions = {
   },
 };
 
-export const WithoutClose = {
+export const WithoutClose: Story = {
   ...Success,
   args: {
     ...Success.args,

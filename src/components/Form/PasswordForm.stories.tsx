@@ -15,7 +15,7 @@ limitations under the License.
 */
 
 import React from "react";
-import { Meta, StoryFn } from "@storybook/react";
+import { Meta } from "@storybook/react";
 import WarningIcon from "@vector-im/compound-design-tokens/assets/web/icons/warning";
 
 import {
@@ -29,13 +29,12 @@ import {
 import { Progress } from "../Progress/Progress";
 import { TooltipProvider } from "../Tooltip/TooltipProvider";
 
-export default {
+const meta = {
   title: "Form/Password form",
   component: Root,
   tags: ["autodocs"],
-  subcomponents: { Progress, PasswordControl, Label, Field },
   decorators: [
-    (Story: StoryFn) => (
+    (Story) => (
       <TooltipProvider>
         <div style={{ maxWidth: "378px" }}>
           <Story />
@@ -43,7 +42,8 @@ export default {
       </TooltipProvider>
     ),
   ],
-} as Meta<typeof Root>;
+} satisfies Meta<typeof Root>;
+export default meta;
 
 const getValueLabel = (value: number) => {
   switch (value) {
@@ -60,7 +60,7 @@ const getValueLabel = (value: number) => {
   }
 };
 
-export const Empty: React.FC = () => {
+export const Empty = () => {
   return (
     <Root>
       <Field name="password">

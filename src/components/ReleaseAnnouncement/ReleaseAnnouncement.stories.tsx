@@ -14,25 +14,17 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import { Meta, StoryFn } from "@storybook/react";
 import React, { useState } from "react";
+import { Meta, StoryObj } from "@storybook/react";
 import { Button } from "../Button";
 import { ReleaseAnnouncement as ReleaseAnnouncementComponent } from "./ReleaseAnnouncement";
 
-export default {
-  title: "Release Announcement",
-  component: ReleaseAnnouncementComponent,
-  tags: ["autodocs"],
-  argTypes: {},
-  args: {
-    header: "Notifications have moved",
-    description: "From now on, click the icon here to view your notifications.",
-    placement: "right",
-    closeLabel: "Ok",
-  },
-} as Meta<typeof ReleaseAnnouncementComponent>;
+type Props = Omit<
+  React.ComponentProps<typeof ReleaseAnnouncementComponent>,
+  "open" | "children" | "onClick"
+>;
 
-const Template: StoryFn<typeof ReleaseAnnouncementComponent> = (args) => {
+const Template: React.FC<Props> = (args) => {
   const [open, setOpen] = useState(true);
 
   return (
@@ -41,27 +33,45 @@ const Template: StoryFn<typeof ReleaseAnnouncementComponent> = (args) => {
       open={open}
       onClick={() => setOpen(false)}
     >
-      <Button onClick={() => setOpen((_open) => !_open)}>Open menu</Button>
+      <Button onClick={() => setOpen((open) => !open)}>Open menu</Button>
     </ReleaseAnnouncementComponent>
   );
 };
 
-export const Default = Template.bind({});
-Default.args = {};
+const meta = {
+  title: "Release Announcement",
+  component: Template,
+  tags: ["autodocs"],
+  argTypes: {},
+  args: {
+    header: "Notifications have moved",
+    description: "From now on, click the icon here to view your notifications.",
+    placement: "right",
+    closeLabel: "Ok",
+  },
+} satisfies Meta<typeof Template>;
+export default meta;
 
-export const MultiLinesContent = Template.bind({});
-MultiLinesContent.args = {
-  header: "A multi line header which is taking multiple lines",
-  description:
-    "A multi line description which is taking multiple lines. The OK button should be vertically centred.",
+type Story = StoryObj<typeof meta>;
+
+export const Default: Story = { args: {} };
+
+export const MultiLinesContent: Story = {
+  args: {
+    header: "A multi line header which is taking multiple lines",
+    description:
+      "A multi line description which is taking multiple lines. The OK button should be vertically centred.",
+  },
 };
 
-export const BottomPlacement = Template.bind({});
-BottomPlacement.args = {
-  placement: "bottom",
+export const BottomPlacement: Story = {
+  args: {
+    placement: "bottom",
+  },
 };
 
-export const NoArrow = Template.bind({});
-NoArrow.args = {
-  displayArrow: false,
+export const NoArrow: Story = {
+  args: {
+    displayArrow: false,
+  },
 };

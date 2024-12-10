@@ -14,20 +14,23 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import { Meta } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 
 import { Separator as SeparatorComponent } from "./Separator";
 
-export default {
+const meta = {
   title: "Separator",
   component: SeparatorComponent,
   tags: ["autodocs"],
   argTypes: {},
   args: {},
-} as Meta<typeof SeparatorComponent>;
+} satisfies Meta<typeof SeparatorComponent>;
+export default meta;
 
-export const Primary = { args: { kind: "primary" } };
+type Story = StoryObj<typeof meta>;
 
-export const Secondary = { args: { kind: "secondary" } };
+export const Primary: Story = { args: { kind: "primary" } };
 
-export const Section = { args: { kind: "section" } };
+export const Secondary: Story = { args: { kind: "secondary" } };
+
+export const Section: Story = { args: { kind: "section" } };

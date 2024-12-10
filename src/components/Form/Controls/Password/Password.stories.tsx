@@ -26,7 +26,7 @@ import { userEvent } from "@storybook/test";
 
 type Props = { invalid?: boolean } & React.ComponentProps<typeof PasswordInput>;
 
-export default {
+const meta = {
   title: "Form/Controls/Password",
   component: PasswordInput,
   tags: ["autodocs"],
@@ -75,8 +75,9 @@ export default {
     invalid: false,
   },
 } satisfies Meta<Props>;
+export default meta;
 
-type Story = StoryObj<Props>;
+type Story = StoryObj<typeof meta>;
 
 export const Empty: Story = {
   parameters: {

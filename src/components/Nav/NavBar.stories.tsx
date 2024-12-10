@@ -13,9 +13,10 @@
 // limitations under the License.
 
 import React, { useEffect, useState } from "react";
+import { Meta, StoryObj } from "@storybook/react";
 import { NavBar, NavItem } from ".";
 
-export default {
+const meta = {
   title: "Nav",
   component: NavBar,
   tags: ["autodocs"],
@@ -31,9 +32,12 @@ export default {
   args: {
     "aria-label": "Main",
   },
-};
+} satisfies Meta<typeof NavBar>;
+export default meta;
 
-export const Default = {
+type Story = StoryObj<typeof meta>;
+
+export const Default: Story = {
   args: {
     children: (
       <>
@@ -50,7 +54,7 @@ export const Default = {
   },
 };
 
-export const TabRole = {
+export const TabRole: Story = {
   render: function Component() {
     // An example tab implementation
     const [activePanelId, setActivePanelId] = useState("panel-2");

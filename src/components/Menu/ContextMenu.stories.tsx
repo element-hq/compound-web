@@ -15,7 +15,7 @@ limitations under the License.
 */
 
 import React from "react";
-import { Meta, StoryFn } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 import UserProfileIcon from "@vector-im/compound-design-tokens/assets/web/icons/user-profile";
 import NotificationsIcon from "@vector-im/compound-design-tokens/assets/web/icons/notifications";
 import ChatProblemIcon from "@vector-im/compound-design-tokens/assets/web/icons/chat-problem";
@@ -25,15 +25,12 @@ import { ContextMenu as ContextMenuComponent } from "./ContextMenu";
 import { MenuItem } from "./MenuItem";
 import { Separator } from "../Separator/Separator";
 
-export default {
-  title: "Menu/ContextMenu",
-  component: ContextMenuComponent,
-  tags: ["autodocs"],
-  argTypes: {},
-  args: {},
-} as Meta<typeof ContextMenuComponent>;
+type Props = Omit<
+  React.ComponentProps<typeof ContextMenuComponent>,
+  "trigger" | "title" | "hasAccessibleAlternative" | "children"
+>;
 
-const Template: StoryFn<typeof ContextMenuComponent> = (args) => {
+const Template: React.FC<Props> = (args) => {
   return (
     <ContextMenuComponent
       {...args}
@@ -76,5 +73,15 @@ const Template: StoryFn<typeof ContextMenuComponent> = (args) => {
   );
 };
 
-export const ContextMenu = Template.bind({});
-ContextMenu.args = {};
+const meta = {
+  title: "Menu/ContextMenu",
+  component: Template,
+  tags: ["autodocs"],
+  argTypes: {},
+  args: {},
+} satisfies Meta<typeof Template>;
+export default meta;
+
+type Story = StoryObj<typeof meta>;
+
+export const ContextMenu: Story = { args: {} };

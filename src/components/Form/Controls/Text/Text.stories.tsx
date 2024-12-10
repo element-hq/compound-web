@@ -23,7 +23,7 @@ import { TextInput } from "./";
 
 type Props = { invalid?: boolean } & React.ComponentProps<typeof TextInput>;
 
-export default {
+const meta = {
   title: "Form/Controls/Text",
   component: TextInput,
   tags: ["autodocs"],
@@ -75,8 +75,9 @@ export default {
     enableLigatures: undefined,
   },
 } satisfies Meta<Props>;
+export default meta;
 
-type Story = StoryObj<Props>;
+type Story = StoryObj<typeof meta>;
 
 export const Empty: Story = {
   parameters: {

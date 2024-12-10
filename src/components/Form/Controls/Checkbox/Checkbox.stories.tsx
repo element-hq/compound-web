@@ -24,7 +24,7 @@ type Props = React.ComponentProps<typeof CheckboxInput> & {
   invalid?: boolean;
 };
 
-export default {
+const meta = {
   title: "Form/Controls/Checkbox",
   component: CheckboxInput,
   render: ({ invalid, ...props }) => (
@@ -53,8 +53,9 @@ export default {
     invalid: false,
   },
 } satisfies Meta<Props>;
+export default meta;
 
-type Story = StoryObj<Props>;
+type Story = StoryObj<typeof meta>;
 
 export const Unchecked: Story = {
   parameters: {

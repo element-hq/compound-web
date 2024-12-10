@@ -14,18 +14,17 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import React from "react";
-import { Meta, StoryFn } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 
 import ThreadIcon from "@vector-im/compound-design-tokens/assets/web/icons/threads";
 
-export default {
+const meta = {
   title: "Icon",
   component: ThreadIcon,
   argTypes: {},
-} as Meta<typeof ThreadIcon>;
+} satisfies Meta<typeof ThreadIcon>;
+export default meta;
 
-const Template: StoryFn<typeof ThreadIcon> = () => <ThreadIcon />;
+type Story = StoryObj<typeof meta>;
 
-export const Icon = Template.bind({});
-Icon.args = {};
+export const Icon: Story = { args: {} };

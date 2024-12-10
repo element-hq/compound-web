@@ -14,11 +14,11 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import { Meta } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 
 import { Text as TextComponent } from "./Text";
 
-export default {
+const meta = {
   title: "Typography",
   component: TextComponent,
   argTypes: {
@@ -39,10 +39,13 @@ export default {
     size: "md",
     weight: "regular",
   },
-} as Meta<typeof TextComponent>;
+} satisfies Meta<typeof TextComponent>;
+export default meta;
 
-export const Text = {};
-export const Ligatures = {
+type Story = StoryObj<typeof meta>;
+
+export const Text: Story = {};
+export const Ligatures: Story = {
   args: {
     children: "-> 1x2x3",
   },

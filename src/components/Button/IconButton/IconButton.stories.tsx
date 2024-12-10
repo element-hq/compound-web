@@ -15,19 +15,19 @@ limitations under the License.
 */
 
 import React from "react";
-import { Meta, StoryFn } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 import { fn } from "@storybook/test";
 
 import { IconButton as IconButtonComponent } from "./IconButton";
 
 import UserIcon from "@vector-im/compound-design-tokens/assets/web/icons/user-profile";
 
-export default {
+const meta = {
   title: "Button/IconButton",
   component: IconButtonComponent,
   tags: ["autodocs"],
   argTypes: {
-    control: { type: "boolean" },
+    disabled: { type: "boolean" },
     onClick: { action: "onClick" },
   },
   args: {
@@ -36,67 +36,76 @@ export default {
     children: <UserIcon />,
     onClick: fn(),
   },
-} as Meta<typeof IconButtonComponent>;
+} satisfies Meta<typeof IconButtonComponent>;
+export default meta;
 
-const Template: StoryFn<typeof IconButtonComponent> = (args) => (
-  <>
-    <IconButtonComponent {...args} size="32px">
-      <UserIcon />
-    </IconButtonComponent>
+type Story = StoryObj<typeof meta>;
 
-    <IconButtonComponent {...args} size="48px">
-      <UserIcon />
-    </IconButtonComponent>
+export const Demo: Story = {
+  render: (args: React.ComponentProps<typeof IconButtonComponent>) => (
+    <>
+      <IconButtonComponent {...args} size="32px">
+        <UserIcon />
+      </IconButtonComponent>
 
-    <IconButtonComponent {...args} size="64px">
-      <UserIcon />
-    </IconButtonComponent>
-  </>
-);
+      <IconButtonComponent {...args} size="48px">
+        <UserIcon />
+      </IconButtonComponent>
 
-export const Demo = Template.bind({});
+      <IconButtonComponent {...args} size="64px">
+        <UserIcon />
+      </IconButtonComponent>
+    </>
+  ),
+};
 
-export const Default = { args: {} };
-export const DefaultDisabled = {
+export const Default: Story = { args: {} };
+
+export const DefaultDisabled: Story = {
   args: {
     disabled: true,
   },
 };
-export const WithIndicator = {
+
+export const WithIndicator: Story = {
   args: {
     indicator: "default",
   },
 };
-export const WithIndicatorDisabled = {
+
+export const WithIndicatorDisabled: Story = {
   args: {
     indicator: "default",
     disabled: true,
   },
 };
-export const WithSuccessIndicator = {
+
+export const WithSuccessIndicator: Story = {
   args: {
     indicator: "success",
   },
 };
-export const WithCriticalIndicator = {
+
+export const WithCriticalIndicator: Story = {
   args: {
     indicator: "critical",
   },
 };
-export const WithSubtleBackground = {
+
+export const WithSubtleBackground: Story = {
   args: {
     subtleBackground: true,
   },
 };
 
-export const WithLabel = {
+export const WithLabel: Story = {
   args: {
     label: "label",
   },
 };
 
-export const Destructive = {
+export const Destructive: Story = {
   args: {
-    destructive: "true",
+    destructive: true,
   },
 };

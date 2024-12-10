@@ -19,15 +19,16 @@ import { Meta, StoryObj } from "@storybook/react";
 
 import { ToggleInput } from "./Toggle";
 
-export default {
+const meta = {
   title: "Form/Controls/Toggle",
   component: ToggleInput,
   tags: ["autodocs"],
   argTypes: {},
   args: {},
 } satisfies Meta<typeof ToggleInput>;
+export default meta;
 
-type Story = StoryObj<typeof ToggleInput>;
+type Story = StoryObj<typeof meta>;
 
 export const Unchecked: Story = {
   args: {

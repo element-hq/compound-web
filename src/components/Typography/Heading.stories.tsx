@@ -15,12 +15,11 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import React from "react";
-import { Meta, StoryFn } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 
 import { Heading as HeadingComponent } from "./Heading";
 
-export default {
+const meta = {
   title: "Typography",
   component: HeadingComponent,
   argTypes: {
@@ -33,16 +32,15 @@ export default {
       control: { type: "inline-radio" },
     },
   },
-} as Meta<typeof HeadingComponent>;
+} satisfies Meta<typeof HeadingComponent>;
+export default meta;
 
-const Template: StoryFn<typeof HeadingComponent> = (args) => (
-  <HeadingComponent size={args.size} weight={args.weight}>
-    The quick brown fox jumps over the lazy dog
-  </HeadingComponent>
-);
+type Story = StoryObj<typeof meta>;
 
-export const Heading = Template.bind({});
-Heading.args = {
-  size: "md",
-  weight: "regular",
+export const Heading: Story = {
+  args: {
+    children: "The quick brown fox jumps over the lazy dog",
+    size: "md",
+    weight: "regular",
+  },
 };

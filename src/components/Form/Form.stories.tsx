@@ -153,7 +153,7 @@ const KitchenSink = ({ disabled, invalid, readOnly }: Props) => (
   </TooltipProvider>
 );
 
-export default {
+const meta = {
   title: "Form/Kitchen Sink",
   component: KitchenSink,
   argTypes: {
@@ -172,9 +172,10 @@ export default {
     readOnly: false,
     invalid: false,
   },
-} as Meta<typeof KitchenSink>;
+} satisfies Meta<typeof KitchenSink>;
+export default meta;
 
-type Story = StoryObj<typeof KitchenSink>;
+type Story = StoryObj<typeof meta>;
 
 export const Normal: Story = {};
 export const Disabled: Story = { args: { disabled: true } };
