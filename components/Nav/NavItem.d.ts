@@ -1,5 +1,4 @@
 import { default as React, AnchorHTMLAttributes, ButtonHTMLAttributes, MouseEventHandler } from '../../../node_modules/react';
-import { XOR } from 'ts-xor';
 type NavItemProps = {
     active?: boolean;
     "aria-controls"?: string;
@@ -14,6 +13,6 @@ type NavItemButtonProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, "style" 
  * A navigation item component to be used with a navigation bar.
  * Will render an anchor when href is provided, otherwise a button element.
  */
-export declare const NavItem: React.ForwardRefExoticComponent<React.PropsWithChildren<XOR<NavItemLinkProps, NavItemButtonProps>> & React.RefAttributes<HTMLButtonElement>>;
+export declare const NavItem: React.ForwardRefExoticComponent<React.PropsWithChildren<NavItemLinkProps | NavItemButtonProps> & React.RefAttributes<HTMLButtonElement>>;
 export {};
 //# sourceMappingURL=NavItem.d.ts.map

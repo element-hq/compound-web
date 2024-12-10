@@ -1,6 +1,6 @@
 import { default as React } from '../../../../node_modules/react';
 import { UnstyledButtonPropsFor } from '../UnstyledButton';
-type IconButtonProps = UnstyledButtonPropsFor<"button"> & JSX.IntrinsicElements["button"] & {
+type IconButtonProps = UnstyledButtonPropsFor<"button"> & {
     /**
      * The CSS class name.
      */
@@ -30,6 +30,7 @@ type IconButtonProps = UnstyledButtonPropsFor<"button"> & JSX.IntrinsicElements[
      */
     tooltip?: string;
     subtleBackground?: boolean;
+    label?: string;
 };
 /**
  * Display an icon as a button. Can render an indicator
