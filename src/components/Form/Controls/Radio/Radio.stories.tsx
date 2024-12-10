@@ -24,7 +24,7 @@ type Props = React.ComponentProps<typeof RadioInput> & {
   invalid?: boolean;
 };
 
-export default {
+const meta = {
   title: "Form/Controls/Radio",
   component: RadioInput,
   render: ({ invalid, ...props }) => (
@@ -53,8 +53,9 @@ export default {
     invalid: false,
   },
 } satisfies Meta<Props>;
+export default meta;
 
-type Story = StoryObj<Props>;
+type Story = StoryObj<typeof meta>;
 
 export const Unchecked: Story = {
   parameters: {

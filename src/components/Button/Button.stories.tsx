@@ -14,16 +14,22 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import { Meta } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 import { fn } from "@storybook/test";
 
 import { Button as ButtonComponent } from "./Button";
 
 import * as icons from "@vector-im/compound-design-tokens/assets/web/icons";
 
-export default {
+// The type of ButtonComponent is a little hard to work with, so we'll just redefined the props we need
+type Props = React.ComponentProps<typeof ButtonComponent> & {
+  as: "a" | "button";
+  href?: string;
+};
+
+const meta = {
   title: "Button",
-  component: ButtonComponent,
+  component: ButtonComponent as React.FC<Props>,
   tags: ["autodocs"],
   argTypes: {
     size: {
@@ -52,15 +58,18 @@ export default {
   },
   args: {
     size: "lg",
-    as: undefined,
+    as: "button",
     destructive: false,
     disabled: false,
     children: "Click me!",
     onClick: fn(),
   },
-} as Meta<typeof ButtonComponent>;
+} satisfies Meta<Props>;
+export default meta;
 
-export const Default = {
+type Story = StoryObj<typeof meta>;
+
+export const Default: Story = {
   args: {
     // test component defaults
     kind: undefined,
@@ -68,7 +77,7 @@ export const Default = {
   },
 };
 
-export const Small = {
+export const Small: Story = {
   args: {
     // test component defaults
     kind: undefined,
@@ -76,53 +85,53 @@ export const Small = {
   },
 };
 
-export const Primary = {
+export const Primary: Story = {
   args: {
     kind: "primary",
   },
 };
 
-export const PrimaryDestructive = {
+export const PrimaryDestructive: Story = {
   args: {
     kind: "primary",
     destructive: true,
   },
 };
 
-export const Secondary = {
+export const Secondary: Story = {
   args: {
     kind: "secondary",
   },
 };
 
-export const SecondaryDestructive = {
+export const SecondaryDestructive: Story = {
   args: {
     kind: "secondary",
     destructive: true,
   },
 };
 
-export const Tertiary = {
+export const Tertiary: Story = {
   args: {
     kind: "tertiary",
   },
 };
 
-export const TertiaryDestructive = {
+export const TertiaryDestructive: Story = {
   args: {
     kind: "tertiary",
     destructive: true,
   },
 };
 
-export const WithIcon = {
+export const WithIcon: Story = {
   args: {
     ...Primary.args,
     Icon: icons.VisibilityOnIcon,
   },
 };
 
-export const SmallWithIcon = {
+export const SmallWithIcon: Story = {
   args: {
     ...Primary.args,
     size: "sm",
@@ -130,14 +139,14 @@ export const SmallWithIcon = {
   },
 };
 
-export const Disabled = {
+export const Disabled: Story = {
   args: {
     ...Primary.args,
     disabled: true,
   },
 };
 
-export const Link = {
+export const Link: Story = {
   args: {
     ...Primary.args,
     as: "a",
@@ -145,7 +154,7 @@ export const Link = {
   },
 };
 
-export const LinkDisabled = {
+export const LinkDisabled: Story = {
   args: {
     ...Link.args,
     disabled: true,

@@ -15,10 +15,10 @@ limitations under the License.
 */
 import { Dropdown } from "./Dropdown";
 import { fn } from "@storybook/test";
-import { Meta } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 import { ComponentProps } from "react";
 
-export default {
+const meta = {
   title: "Dropdown",
   component: Dropdown,
   tags: ["autodocs"],
@@ -52,8 +52,11 @@ export default {
     ],
   },
 } satisfies Meta<ComponentProps<typeof Dropdown>>;
+export default meta;
 
-export const Default = {
+type Story = StoryObj<typeof meta>;
+
+export const Default: Story = {
   parameters: {
     design: {
       type: "figma",
@@ -61,7 +64,8 @@ export const Default = {
     },
   },
 };
-export const WithHelpLabel = {
+
+export const WithHelpLabel: Story = {
   args: {
     helpLabel: "Optional help text.",
   },
@@ -72,7 +76,8 @@ export const WithHelpLabel = {
     },
   },
 };
-export const WithError = {
+
+export const WithError: Story = {
   args: {
     error: "Select an option",
   },
@@ -83,7 +88,8 @@ export const WithError = {
     },
   },
 };
-export const WithDefaultValue = {
+
+export const WithDefaultValue: Story = {
   args: {
     defaultValue: "Option2",
   },

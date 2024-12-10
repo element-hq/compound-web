@@ -18,6 +18,7 @@ limitations under the License.
 import React from "react";
 
 import { Meta, StoryObj } from "@storybook/react";
+import { fn } from "@storybook/test";
 
 import * as icons from "@vector-im/compound-design-tokens/assets/web/icons";
 
@@ -26,7 +27,7 @@ import { TooltipProvider } from "../../../Tooltip/TooltipProvider";
 
 type Props = { invalid?: boolean } & React.ComponentProps<typeof ActionInput>;
 
-export default {
+const meta = {
   title: "Form/Controls/Action",
   component: ActionInput,
   tags: ["autodocs"],
@@ -91,11 +92,13 @@ export default {
     readOnly: false,
     invalid: false,
     actionLabel: "Action",
+    onActionClick: fn(),
     Icon: icons.CheckIcon,
   },
 } satisfies Meta<Props>;
+export default meta;
 
-type Story = StoryObj<Props>;
+type Story = StoryObj<typeof meta>;
 
 export const Empty: Story = {
   parameters: {

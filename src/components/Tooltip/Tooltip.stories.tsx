@@ -18,16 +18,24 @@ import { Placement as PlacementType } from "@floating-ui/react";
 import { Tooltip as TooltipComponent } from "./Tooltip";
 import { IconButton } from "../Button";
 import UserIcon from "@vector-im/compound-design-tokens/assets/web/icons/user-profile";
-import { Meta, StoryFn } from "@storybook/react";
+import { Meta, StoryFn, StoryObj } from "@storybook/react";
 import React, { FC, ReactNode } from "react";
 import { TooltipProvider } from "./TooltipProvider";
 
-export default {
+const meta = {
   title: "Tooltip",
   component: TooltipComponent,
   tags: ["autodocs"],
-  controls: {
-    include: ["placement", "open", "label", "caption", "isTriggerInteractive"],
+  parameters: {
+    controls: {
+      include: [
+        "placement",
+        "open",
+        "label",
+        "caption",
+        "isTriggerInteractive",
+      ],
+    },
   },
   argTypes: {
     placement: {
@@ -68,7 +76,10 @@ export default {
       </div>
     ),
   ],
-} as Meta<typeof TooltipComponent>;
+} satisfies Meta<typeof TooltipComponent>;
+export default meta;
+
+type Story = StoryObj<typeof meta>;
 
 interface LayoutProps {
   children: ReactNode;
@@ -87,7 +98,7 @@ const Layout: FC<LayoutProps> = ({ children }) => (
   </div>
 );
 
-const TemplatePlacement: StoryFn<typeof TooltipComponent> = () => (
+const TemplatePlacement: StoryFn<typeof meta> = () => (
   <Layout>
     {(
       [
@@ -118,20 +129,20 @@ const TemplatePlacement: StoryFn<typeof TooltipComponent> = () => (
 export const Placement = TemplatePlacement.bind({});
 Placement.args = {};
 
-export const Default = {
+export const Default: Story = {
   args: {
     label: "@bob:example.org",
   },
 };
 
-export const WithStringCaption = {
+export const WithStringCaption: Story = {
   args: {
     label: "I can have a caption",
     caption: "My beautiful caption",
   },
 };
 
-export const WithComponentCaption = {
+export const WithComponentCaption: Story = {
   args: {
     label: "Copy",
     caption: (
@@ -142,14 +153,14 @@ export const WithComponentCaption = {
   },
 };
 
-export const ForcedOpen = {
+export const ForcedOpen: Story = {
   args: {
     open: true,
     label: "I'm always open",
   },
 };
 
-export const ForcedClose = {
+export const ForcedClose: Story = {
   args: {
     open: false,
     description: "You can't see me",
@@ -157,7 +168,7 @@ export const ForcedClose = {
   },
 };
 
-export const ForcedDisabled = {
+export const ForcedDisabled: Story = {
   args: {
     disabled: true,
     description: "You can't see me",
@@ -165,7 +176,7 @@ export const ForcedDisabled = {
   },
 };
 
-export const InteractiveTrigger = {
+export const InteractiveTrigger: Story = {
   args: {
     isTriggerInteractive: true,
     description: "Shown with delay",
@@ -173,7 +184,7 @@ export const InteractiveTrigger = {
   },
 };
 
-export const NonInteractiveTrigger = {
+export const NonInteractiveTrigger: Story = {
   args: {
     isTriggerInteractive: false,
     description: "Shown without delay",
@@ -181,7 +192,7 @@ export const NonInteractiveTrigger = {
   },
 };
 
-export const Descriptive = {
+export const Descriptive: Story = {
   args: {
     open: true,
     description: "Employer Identification Number",

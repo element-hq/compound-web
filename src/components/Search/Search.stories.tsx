@@ -15,24 +15,29 @@ limitations under the License.
 */
 
 import React from "react";
-import { Meta, StoryFn } from "@storybook/react";
-
-import { Search as SearchComponent } from "./Search";
+import { Meta, StoryObj } from "@storybook/react";
 import { Form } from "@radix-ui/react-form";
 
-export default {
+import { Search as SearchComponent } from "./Search";
+
+const meta = {
   title: "Search",
   component: SearchComponent,
   tags: ["autodocs"],
   argTypes: {},
-  args: {},
-} as Meta<typeof SearchComponent>;
+  args: {
+    name: "search",
+  },
+  decorators: [
+    (Story) => (
+      <Form>
+        <Story />
+      </Form>
+    ),
+  ],
+} satisfies Meta<typeof SearchComponent>;
+export default meta;
 
-const Template: StoryFn<typeof SearchComponent> = (args) => (
-  <Form>
-    <SearchComponent {...args} />
-  </Form>
-);
+type Story = StoryObj<typeof meta>;
 
-export const Search = Template.bind({});
-Search.args = {};
+export const Search: Story = { args: {} };

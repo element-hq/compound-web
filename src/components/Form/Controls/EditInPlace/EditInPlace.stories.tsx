@@ -24,7 +24,7 @@ import { TooltipProvider } from "../../../Tooltip/TooltipProvider";
 
 type Props = { invalid?: boolean } & React.ComponentProps<typeof EditInPlace>;
 
-export default {
+const meta = {
   title: "Form/Controls/EditInPlace",
   component: EditInPlace,
   tags: ["autodocs"],
@@ -102,8 +102,9 @@ export default {
     savingLabel: "Saving…",
   },
 } satisfies Meta<Props>;
+export default meta;
 
-type Story = StoryObj<Props>;
+type Story = StoryObj<typeof meta>;
 
 export const Empty: Story = {};
 

@@ -15,7 +15,7 @@ limitations under the License.
 */
 
 import React, { useState } from "react";
-import { Meta, StoryFn } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 import UserProfileIcon from "@vector-im/compound-design-tokens/assets/web/icons/user-profile";
 import NotificationsIcon from "@vector-im/compound-design-tokens/assets/web/icons/notifications";
 import ChatProblemIcon from "@vector-im/compound-design-tokens/assets/web/icons/chat-problem";
@@ -26,15 +26,12 @@ import { MenuItem } from "./MenuItem";
 import { Separator } from "../Separator/Separator";
 import { Button } from "../Button/Button";
 
-export default {
-  title: "Menu",
-  component: MenuComponent,
-  tags: ["autodocs"],
-  argTypes: {},
-  args: {},
-} as Meta<typeof MenuComponent>;
+type Props = Omit<
+  React.ComponentProps<typeof MenuComponent>,
+  "open" | "onOpenChange" | "trigger" | "align" | "children"
+>;
 
-const Template: StoryFn<typeof MenuComponent> = (args) => {
+const Template: React.FC<Props> = (args) => {
   const [open, setOpen] = useState(true);
 
   return (
@@ -63,13 +60,19 @@ const Template: StoryFn<typeof MenuComponent> = (args) => {
   );
 };
 
-export const Menu = Template.bind({});
-Menu.args = {
-  title: "Today's Menu",
-};
+const meta = {
+  title: "Menu",
+  component: Template,
+  tags: ["autodocs"],
+  argTypes: {},
+  args: {},
+} satisfies Meta<typeof Template>;
+export default meta;
 
-export const WithoutTitle = Template.bind({});
-WithoutTitle.args = {
-  title: "Untitled Menu",
-  showTitle: false,
+type Story = StoryObj<typeof meta>;
+
+export const Menu: Story = { args: { title: "Today's Menu" } };
+
+export const WithoutTitle = {
+  args: { title: "Untitled Menu", showTitle: false },
 };

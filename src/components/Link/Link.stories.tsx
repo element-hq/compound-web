@@ -14,29 +14,24 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import React from "react";
-import { Meta, StoryFn } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 
 import { Link as LinkComponent } from "./Link";
 
-export default {
+const meta = {
   title: "Link",
   component: LinkComponent,
   tags: ["autodocs"],
   argTypes: {},
   args: {
     size: "medium",
+    children: "Text link",
   },
-} as Meta<typeof LinkComponent>;
+} satisfies Meta<typeof LinkComponent>;
+export default meta;
 
-const Template: StoryFn<typeof LinkComponent> = (args) => (
-  <LinkComponent {...args}>Text link</LinkComponent>
-);
+type Story = StoryObj<typeof meta>;
 
-export const Round = Template.bind({});
-Round.args = {};
+export const Round: Story = { args: {} };
 
-export const Small = Template.bind({});
-Small.args = {
-  size: "small",
-};
+export const Small: Story = { args: { size: "small" } };

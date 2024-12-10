@@ -15,7 +15,7 @@ limitations under the License.
 */
 
 import React from "react";
-import { Meta, StoryFn } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 import UserProfileIcon from "@vector-im/compound-design-tokens/assets/web/icons/user-profile";
 import NotificationsIcon from "@vector-im/compound-design-tokens/assets/web/icons/notifications";
 import ChatProblemIcon from "@vector-im/compound-design-tokens/assets/web/icons/chat-problem";
@@ -26,14 +26,12 @@ import drawerStyles from "./DrawerMenu.module.css";
 import { MenuItem } from "./MenuItem";
 import { Separator } from "../Separator/Separator";
 
-export default {
-  title: "Menu/DrawerMenu",
-  component: DrawerMenuComponent,
-  argTypes: {},
-  args: {},
-} as Meta<typeof DrawerMenuComponent>;
+type Props = Omit<
+  React.ComponentProps<typeof DrawerMenuComponent>,
+  "title" | "children"
+>;
 
-const Template: StoryFn<typeof DrawerMenuComponent> = (args) => (
+const Template: React.FC<Props> = (args) => (
   <>
     <div className={drawerStyles.bg} />
     <DrawerMenuComponent {...args} title="Settings">
@@ -55,5 +53,14 @@ const Template: StoryFn<typeof DrawerMenuComponent> = (args) => (
   </>
 );
 
-export const DrawerMenu = Template.bind({});
-DrawerMenu.args = {};
+const meta = {
+  title: "Menu/DrawerMenu",
+  component: Template,
+  argTypes: {},
+  args: {},
+} satisfies Meta<typeof Template>;
+export default meta;
+
+type Story = StoryObj<typeof meta>;
+
+export const DrawerMenu: Story = { args: {} };

@@ -15,27 +15,23 @@ limitations under the License.
 */
 
 import React, { useState } from "react";
-import { Meta, StoryFn } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 import ExtensionsIcon from "@vector-im/compound-design-tokens/assets/web/icons/extensions";
 import ChatIcon from "@vector-im/compound-design-tokens/assets/web/icons/chat";
 
 import { ToggleMenuItem as ToggleMenuItemComponent } from "./ToggleMenuItem";
 
-export default {
-  title: "Menu/ToggleMenuItem",
-  component: ToggleMenuItemComponent,
-  tags: ["autodocs"],
-  argTypes: {},
-  args: {},
-} as Meta<typeof ToggleMenuItemComponent>;
+type Props = Omit<
+  React.ComponentProps<typeof ToggleMenuItemComponent>,
+  "Icon" | "label" | "checked" | "onSelect"
+>;
 
-const Template: StoryFn<typeof ToggleMenuItemComponent> = (args) => {
+const Template: React.FC<Props> = (props: Props) => {
   const [firstChecked, setFirstChecked] = useState(false);
-
   return (
     <div style={{ width: 300 }}>
       <ToggleMenuItemComponent
-        {...args}
+        {...props}
         Icon={ChatIcon}
         label="First item"
         checked={firstChecked}
@@ -45,15 +41,26 @@ const Template: StoryFn<typeof ToggleMenuItemComponent> = (args) => {
         }}
       />
       <ToggleMenuItemComponent
-        {...args}
+        {...props}
         Icon={ExtensionsIcon}
         label="Second item with a name that's quite long"
         checked
         disabled
+        onSelect={() => {}}
       />
     </div>
   );
 };
 
-export const Primary = Template.bind({});
-Primary.args = {};
+const meta = {
+  title: "Menu/ToggleMenuItem",
+  component: Template,
+  tags: ["autodocs"],
+  argTypes: {},
+  args: {},
+} satisfies Meta<typeof Template>;
+export default meta;
+
+type Story = StoryObj<typeof meta>;
+
+export const Primary: Story = { args: {} };

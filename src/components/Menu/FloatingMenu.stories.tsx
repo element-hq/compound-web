@@ -15,7 +15,7 @@ limitations under the License.
 */
 
 import React from "react";
-import { Meta, StoryFn } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 import UserProfileIcon from "@vector-im/compound-design-tokens/assets/web/icons/user-profile";
 import NotificationsIcon from "@vector-im/compound-design-tokens/assets/web/icons/notifications";
 import ChatProblemIcon from "@vector-im/compound-design-tokens/assets/web/icons/chat-problem";
@@ -25,14 +25,12 @@ import { FloatingMenu as FloatingMenuComponent } from "./FloatingMenu";
 import { MenuItem } from "./MenuItem";
 import { Separator } from "../Separator/Separator";
 
-export default {
-  title: "Menu/FloatingMenu",
-  component: FloatingMenuComponent,
-  argTypes: {},
-  args: {},
-} as Meta<typeof FloatingMenuComponent>;
+type Props = Omit<
+  React.ComponentProps<typeof FloatingMenuComponent>,
+  "title" | "children"
+>;
 
-const Template: StoryFn<typeof FloatingMenuComponent> = (args) => (
+const Template: React.FC<Props> = (args) => (
   <FloatingMenuComponent {...args} title="Settings">
     <MenuItem Icon={UserProfileIcon} label="Profile" onSelect={() => {}} />
     {/* Extra long label to demonstrate word breaking */}
@@ -52,5 +50,14 @@ const Template: StoryFn<typeof FloatingMenuComponent> = (args) => (
   </FloatingMenuComponent>
 );
 
-export const FloatingMenu = Template.bind({});
-FloatingMenu.args = {};
+const meta = {
+  title: "Menu/FloatingMenu",
+  component: Template,
+  argTypes: {},
+  args: {},
+} satisfies Meta<typeof Template>;
+export default meta;
+
+type Story = StoryObj<typeof meta>;
+
+export const FloatingMenu: Story = { args: {} };

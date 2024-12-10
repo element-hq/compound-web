@@ -15,7 +15,7 @@ limitations under the License.
 */
 
 import React from "react";
-import { Meta } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 import { fn } from "@storybook/test";
 
 import * as icons from "@vector-im/compound-design-tokens/assets/web/icons";
@@ -25,7 +25,9 @@ import { Tooltip } from "../Tooltip/Tooltip";
 import { TooltipProvider } from "../Tooltip/TooltipProvider";
 
 const Template: React.FC<
-  { label: string } & React.ComponentProps<typeof ButtonComponent>
+  { label: string; as: "button" | "a" } & React.ComponentProps<
+    typeof ButtonComponent
+  >
 > = ({ label, ...args }) => (
   <TooltipProvider>
     <Tooltip label={label}>
@@ -34,7 +36,7 @@ const Template: React.FC<
   </TooltipProvider>
 );
 
-export default {
+const meta = {
   title: "Button/Actions",
   component: Template,
   tags: ["autodocs"],
@@ -73,12 +75,17 @@ export default {
     disabled: false,
     onClick: fn(),
   },
-  controls: {
-    exclude: ["children"],
+  parameters: {
+    controls: {
+      exclude: ["children"],
+    },
   },
-} as Meta<typeof Template>;
+} satisfies Meta<typeof Template>;
+export default meta;
 
-export const Settings = {
+type Story = StoryObj<typeof meta>;
+
+export const Settings: Story = {
   args: {
     label: "Settings",
     kind: "secondary",
@@ -86,7 +93,7 @@ export const Settings = {
   },
 };
 
-export const ShareLink = {
+export const ShareLink: Story = {
   args: {
     label: "Copy link",
     kind: "secondary",
@@ -94,7 +101,7 @@ export const ShareLink = {
   },
 };
 
-export const VideoOn = {
+export const VideoOn: Story = {
   args: {
     label: "Turn video off",
     kind: "secondary",
@@ -102,7 +109,7 @@ export const VideoOn = {
   },
 };
 
-export const VideoOff = {
+export const VideoOff: Story = {
   args: {
     label: "Turn video on",
     kind: "primary",
@@ -110,7 +117,7 @@ export const VideoOff = {
   },
 };
 
-export const MicOn = {
+export const MicOn: Story = {
   args: {
     label: "Turn mic off",
     kind: "secondary",
@@ -118,7 +125,7 @@ export const MicOn = {
   },
 };
 
-export const MicOff = {
+export const MicOff: Story = {
   args: {
     label: "Turn mic on",
     kind: "primary",
@@ -126,7 +133,7 @@ export const MicOff = {
   },
 };
 
-export const ShareScreen = {
+export const ShareScreen: Story = {
   args: {
     label: "Share screen",
     kind: "secondary",
@@ -134,7 +141,7 @@ export const ShareScreen = {
   },
 };
 
-export const SharingScreen = {
+export const SharingScreen: Story = {
   args: {
     label: "Stop sharing screen",
     kind: "primary",
@@ -142,7 +149,7 @@ export const SharingScreen = {
   },
 };
 
-export const Fullscreen = {
+export const Fullscreen: Story = {
   args: {
     label: "Full screen",
     kind: "secondary",
@@ -150,7 +157,7 @@ export const Fullscreen = {
   },
 };
 
-export const EndCall = {
+export const EndCall: Story = {
   args: {
     label: "End call",
     kind: "primary",
@@ -159,7 +166,7 @@ export const EndCall = {
   },
 };
 
-export const Invite = {
+export const Invite: Story = {
   args: {
     label: "Invite",
     kind: "primary",
@@ -168,7 +175,7 @@ export const Invite = {
   },
 };
 
-export const Edit = {
+export const Edit: Story = {
   args: {
     label: "Edit",
     kind: "primary",
@@ -177,7 +184,7 @@ export const Edit = {
   },
 };
 
-export const Search = {
+export const Search: Story = {
   args: {
     label: "Search",
     kind: "secondary",
@@ -186,7 +193,7 @@ export const Search = {
   },
 };
 
-export const Save = {
+export const Save: Story = {
   args: {
     label: "Save",
     kind: "primary",
@@ -195,7 +202,7 @@ export const Save = {
   },
 };
 
-export const SaveDisabled = {
+export const SaveDisabled: Story = {
   args: {
     label: "Save",
     kind: "primary",
@@ -205,7 +212,7 @@ export const SaveDisabled = {
   },
 };
 
-export const Cancel = {
+export const Cancel: Story = {
   args: {
     label: "Cancel",
     kind: "secondary",
@@ -214,7 +221,7 @@ export const Cancel = {
   },
 };
 
-export const Close = {
+export const Close: Story = {
   args: {
     label: "Close",
     kind: "secondary",

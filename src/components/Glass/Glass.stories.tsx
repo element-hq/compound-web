@@ -15,37 +15,23 @@ limitations under the License.
 */
 
 import React from "react";
-import { Meta, StoryFn } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 
 import { Glass as GlassComponent } from "./Glass";
 import { Text } from "../Typography/Text";
 
-export default {
+const meta = {
   title: "Glass",
   component: GlassComponent,
   tags: ["autodocs"],
   argTypes: {},
-  args: {},
-} as Meta<typeof GlassComponent>;
+  args: {
+    style: {
+      inlineSize: 250,
+      blockSize: 150,
+    },
 
-const Template: StoryFn<typeof GlassComponent> = (args) => (
-  // Use an image as the background to really show off the glass effect
-  <div
-    style={{
-      background: "url('/images/__test__/kitten2.jpg')",
-      backgroundSize: "cover",
-      inlineSize: "fit-content",
-      blockSize: "fit-content",
-      padding: 16,
-    }}
-  >
-    <GlassComponent
-      style={{
-        inlineSize: 250,
-        blockSize: 150,
-      }}
-      {...args}
-    >
+    children: (
       <div
         style={{
           background: "var(--cpd-color-bg-canvas-default)",
@@ -56,9 +42,27 @@ const Template: StoryFn<typeof GlassComponent> = (args) => (
       >
         <Text style={{ textAlign: "center" }}>Your content here</Text>
       </div>
-    </GlassComponent>
-  </div>
-);
+    ),
+  },
 
-export const Glass = Template.bind({});
-Glass.args = {};
+  decorators: [
+    (Story) => (
+      <div
+        style={{
+          background: "url('/images/__test__/kitten2.jpg')",
+          backgroundSize: "cover",
+          inlineSize: "fit-content",
+          blockSize: "fit-content",
+          padding: 16,
+        }}
+      >
+        <Story />
+      </div>
+    ),
+  ],
+} satisfies Meta<typeof GlassComponent>;
+export default meta;
+
+type Story = StoryObj<typeof meta>;
+
+export const Glass: Story = { args: {} };

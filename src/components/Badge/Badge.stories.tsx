@@ -15,42 +15,43 @@ limitations under the License.
 */
 
 import React from "react";
-import { Meta, StoryFn } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 
 import { Badge as BadgeComponent } from "./Badge";
 
-export default {
+const meta = {
   title: "Badge",
   component: BadgeComponent,
   argTypes: {},
   args: {},
-} as Meta<typeof BadgeComponent>;
-
-const Template: StoryFn<typeof BadgeComponent> = () => (
-  <div>
+  render: () => (
     <div>
-      <BadgeComponent kind="green">Trusted</BadgeComponent>
-      &nbsp;
-      <BadgeComponent kind="red">Not trusted</BadgeComponent>
-      &nbsp;
-      <BadgeComponent kind="grey">Public room</BadgeComponent>
+      <div>
+        <BadgeComponent kind="green">Trusted</BadgeComponent>
+        &nbsp;
+        <BadgeComponent kind="red">Not trusted</BadgeComponent>
+        &nbsp;
+        <BadgeComponent kind="grey">Public room</BadgeComponent>
+      </div>
+      <br />
+      <div>
+        <BadgeComponent kind="default">Default</BadgeComponent>
+        &nbsp;
+        <BadgeComponent kind="grey">Grey</BadgeComponent>
+        &nbsp;
+        <BadgeComponent kind="on-solid">On Solid</BadgeComponent>
+        &nbsp;
+        <BadgeComponent kind="blue">Blue</BadgeComponent>
+        &nbsp;
+        <BadgeComponent kind="green">Green</BadgeComponent>
+        &nbsp;
+        <BadgeComponent kind="red">Red</BadgeComponent>
+      </div>
     </div>
-    <br />
-    <div>
-      <BadgeComponent kind="default">Default</BadgeComponent>
-      &nbsp;
-      <BadgeComponent kind="grey">Grey</BadgeComponent>
-      &nbsp;
-      <BadgeComponent kind="on-solid">On Solid</BadgeComponent>
-      &nbsp;
-      <BadgeComponent kind="blue">Blue</BadgeComponent>
-      &nbsp;
-      <BadgeComponent kind="green">Green</BadgeComponent>
-      &nbsp;
-      <BadgeComponent kind="red">Red</BadgeComponent>
-    </div>
-  </div>
-);
+  ),
+} satisfies Meta<typeof BadgeComponent>;
+export default meta;
 
-export const Badge = Template.bind({});
-Badge.args = {};
+type Story = StoryObj<typeof meta>;
+
+export const Badge: Story = { args: {} };

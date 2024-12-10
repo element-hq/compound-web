@@ -22,7 +22,6 @@ import React, {
   MouseEventHandler,
   forwardRef,
 } from "react";
-import type { XOR } from "ts-xor";
 
 import styles from "./Nav.module.css";
 
@@ -90,15 +89,16 @@ const NavItemButton = forwardRef(function NavItemButton(
 });
 
 const renderAsLink = (
-  props: React.PropsWithChildren<XOR<NavItemLinkProps, NavItemButtonProps>>,
-): props is React.PropsWithChildren<NavItemLinkProps> => !!props.href;
+  props: React.PropsWithChildren<NavItemLinkProps | NavItemButtonProps>,
+): props is React.PropsWithChildren<NavItemLinkProps> =>
+  "href" in props && !!props.href;
 
 /**
  * A navigation item component to be used with a navigation bar.
  * Will render an anchor when href is provided, otherwise a button element.
  */
 export const NavItem = forwardRef(function NavItem(
-  props: React.PropsWithChildren<XOR<NavItemLinkProps, NavItemButtonProps>>,
+  props: React.PropsWithChildren<NavItemLinkProps | NavItemButtonProps>,
   ref:
     | ForwardedRef<HTMLButtonElement | null>
     | ForwardedRef<HTMLAnchorElement | null>,

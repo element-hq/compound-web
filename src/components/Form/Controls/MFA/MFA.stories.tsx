@@ -25,7 +25,7 @@ type Props = React.ComponentProps<typeof MFAInput> & {
   invalid?: boolean;
 };
 
-export default {
+const meta = {
   title: "Form/Controls/MFA",
   component: MFAInput,
   render: ({ invalid, ...props }) => (
@@ -59,8 +59,9 @@ export default {
     invalid: false,
   },
 } satisfies Meta<Props>;
+export default meta;
 
-type Story = StoryObj<Props>;
+type Story = StoryObj<typeof meta>;
 
 export const Empty: Story = {
   parameters: {
