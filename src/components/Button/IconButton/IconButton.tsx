@@ -18,8 +18,7 @@ import React, { PropsWithChildren, forwardRef } from "react";
 import classnames from "classnames";
 
 import styles from "./IconButton.module.css";
-import { UnstyledButton } from "../UnstyledButton";
-import { UnstyledButtonPropsFor } from "../UnstyledButton";
+import { UnstyledButton, UnstyledButtonPropsFor } from "../UnstyledButton";
 import { IndicatorIcon } from "../../Icon/IndicatorIcon/IndicatorIcon";
 import { Tooltip } from "../../Tooltip/Tooltip";
 
@@ -53,7 +52,6 @@ type IconButtonProps = UnstyledButtonPropsFor<"button"> & {
    */
   tooltip?: string;
   subtleBackground?: boolean;
-  label?: string;
 };
 
 /**

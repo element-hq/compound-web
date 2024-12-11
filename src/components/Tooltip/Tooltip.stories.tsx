@@ -61,6 +61,9 @@ const meta = {
   args: {
     // needed, to prevent the tooltip to be in controlled mode
     onOpenChange: undefined,
+    open: undefined,
+    description: "",
+    label: "",
     children: (
       <IconButton>
         <UserIcon />
@@ -68,7 +71,7 @@ const meta = {
     ),
   },
   decorators: [
-    (Story: StoryFn) => (
+    (Story) => (
       <div style={{ padding: 100 }}>
         <TooltipProvider>
           <Story />

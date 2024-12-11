@@ -100,7 +100,7 @@ export const WithSubtleBackground: Story = {
 
 export const WithLabel: Story = {
   args: {
-    label: "label",
+    tooltip: "label",
   },
 };
 

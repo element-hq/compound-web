@@ -89,7 +89,7 @@ export const MenuItem = <C extends MenuItemElement = "button">({
   onClick: onClickProp,
   disabled,
   ...props
-}: Props<C>): JSX.Element => {
+}: Props<C>): React.ReactElement => {
   const Component = as ?? ("button" as ElementType);
   const context = useContext(MenuContext);
 
