@@ -62,6 +62,10 @@ type TooltipProps = Omit<CommonUseTooltipProps, "isTriggerInteractive"> &
     nonInteractiveTriggerTabIndex?: number;
   };
 
+const hasLabel = (
+  props: TooltipLabel | TooltipDescription,
+): props is TooltipLabel => "label" in props && !!props.label;
+
 /**
  * A tooltip component
  */
@@ -83,7 +87,7 @@ export function Tooltip({
       </TooltipAnchor>
       <TooltipContent>
         <span id={context.labelId}>
-          {"label" in props ? props.label : props.description}
+          {hasLabel(props) ? props.label : props.description}
         </span>
         <Caption />
       </TooltipContent>

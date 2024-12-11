@@ -61,8 +61,9 @@ const meta = {
   args: {
     // needed, to prevent the tooltip to be in controlled mode
     onOpenChange: undefined,
-    description: undefined,
-    label: undefined,
+    open: undefined,
+    description: "",
+    label: "",
     children: (
       <IconButton>
         <UserIcon />
