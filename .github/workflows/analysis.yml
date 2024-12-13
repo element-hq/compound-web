@@ -46,7 +46,9 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONARCLOUD_TOKEN }}
   e2e:
     name: "Test end-to-end"
-    runs-on: ubuntu-latest
+    # This must be kept in sync with the version of ubuntu used in the Docker
+    # image, in playwright/Dockerfile
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
       - uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af # v4
