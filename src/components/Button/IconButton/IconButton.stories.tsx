@@ -21,6 +21,7 @@ import { fn } from "@storybook/test";
 import { IconButton as IconButtonComponent } from "./IconButton";
 
 import UserIcon from "@vector-im/compound-design-tokens/assets/web/icons/user-profile";
+import { TooltipProvider } from "../../Tooltip/TooltipProvider";
 
 const meta = {
   title: "Button/IconButton",
@@ -99,6 +100,14 @@ export const WithSubtleBackground: Story = {
 };
 
 export const WithLabel: Story = {
+  decorators: [
+    (Story) => (
+      <TooltipProvider>
+        <Story />
+      </TooltipProvider>
+    ),
+  ],
+
   args: {
     tooltip: "label",
   },
