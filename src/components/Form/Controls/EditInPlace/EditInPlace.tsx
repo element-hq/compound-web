@@ -201,7 +201,9 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
     const shouldShowSaveButton =
       state === State.Dirty || state === State.Saving || isFocusWithin;
 
-    const hideTimer = useRef<ReturnType<typeof setTimeout>>();
+    const hideTimer = useRef<ReturnType<typeof setTimeout> | undefined>(
+      undefined,
+    );
 
     useEffect(() => {
       // Start a timer when we switch to the saved state
