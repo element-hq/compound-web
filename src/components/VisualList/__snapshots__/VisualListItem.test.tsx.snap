@@ -1,0 +1,113 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`VisualListItem > renders a Default VisualListItem 1`] = `
+<div>
+  <li
+    class="_visual-list-item_1553df"
+  >
+    <svg
+      aria-hidden="true"
+      class="_visual-list-item-icon_1553df"
+      fill="currentColor"
+      height="24px"
+      viewBox="0 0 24 24"
+      width="24px"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M11.287 7.287A.968.968 0 0 1 12 7c.283 0 .52.096.713.287.191.192.287.43.287.713s-.096.52-.287.713A.968.968 0 0 1 12 9a.968.968 0 0 1-.713-.287A.967.967 0 0 1 11 8c0-.283.096-.52.287-.713Zm0 4A.968.968 0 0 1 12 11c.283 0 .52.096.713.287.191.192.287.43.287.713v4a.97.97 0 0 1-.287.712A.968.968 0 0 1 12 17a.968.968 0 0 1-.713-.288A.968.968 0 0 1 11 16v-4c0-.283.096-.52.287-.713Z"
+      />
+      <path
+        clip-rule="evenodd"
+        d="M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10Zm-2 0a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z"
+        fill-rule="evenodd"
+      />
+    </svg>
+    List item description
+  </li>
+</div>
+`;
+
+exports[`VisualListItem > renders a Destructive VisualListItem 1`] = `
+<div>
+  <li
+    class="_visual-list-item_1553df"
+  >
+    <svg
+      aria-hidden="true"
+      class="_visual-list-item-icon_1553df _visual-list-item-icon-destructive_1553df"
+      fill="currentColor"
+      height="24px"
+      viewBox="0 0 24 24"
+      width="24px"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M11.287 7.287A.968.968 0 0 1 12 7c.283 0 .52.096.713.287.191.192.287.43.287.713s-.096.52-.287.713A.968.968 0 0 1 12 9a.968.968 0 0 1-.713-.287A.967.967 0 0 1 11 8c0-.283.096-.52.287-.713Zm0 4A.968.968 0 0 1 12 11c.283 0 .52.096.713.287.191.192.287.43.287.713v4a.97.97 0 0 1-.287.712A.968.968 0 0 1 12 17a.968.968 0 0 1-.713-.288A.968.968 0 0 1 11 16v-4c0-.283.096-.52.287-.713Z"
+      />
+      <path
+        clip-rule="evenodd"
+        d="M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10Zm-2 0a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z"
+        fill-rule="evenodd"
+      />
+    </svg>
+    List item description
+  </li>
+</div>
+`;
+
+exports[`VisualListItem > renders a Multiline VisualListItem 1`] = `
+<div>
+  <li
+    class="_visual-list-item_1553df"
+  >
+    <svg
+      aria-hidden="true"
+      class="_visual-list-item-icon_1553df"
+      fill="currentColor"
+      height="24px"
+      viewBox="0 0 24 24"
+      width="24px"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M11.287 7.287A.968.968 0 0 1 12 7c.283 0 .52.096.713.287.191.192.287.43.287.713s-.096.52-.287.713A.968.968 0 0 1 12 9a.968.968 0 0 1-.713-.287A.967.967 0 0 1 11 8c0-.283.096-.52.287-.713Zm0 4A.968.968 0 0 1 12 11c.283 0 .52.096.713.287.191.192.287.43.287.713v4a.97.97 0 0 1-.287.712A.968.968 0 0 1 12 17a.968.968 0 0 1-.713-.288A.968.968 0 0 1 11 16v-4c0-.283.096-.52.287-.713Z"
+      />
+      <path
+        clip-rule="evenodd"
+        d="M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10Zm-2 0a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z"
+        fill-rule="evenodd"
+      />
+    </svg>
+    List item with a looooooooooong very looooooooooong loooooooooooooong description
+  </li>
+</div>
+`;
+
+exports[`VisualListItem > renders a Success VisualListItem 1`] = `
+<div>
+  <li
+    class="_visual-list-item_1553df"
+  >
+    <svg
+      aria-hidden="true"
+      class="_visual-list-item-icon_1553df _visual-list-item-icon-success_1553df"
+      fill="currentColor"
+      height="24px"
+      viewBox="0 0 24 24"
+      width="24px"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M11.287 7.287A.968.968 0 0 1 12 7c.283 0 .52.096.713.287.191.192.287.43.287.713s-.096.52-.287.713A.968.968 0 0 1 12 9a.968.968 0 0 1-.713-.287A.967.967 0 0 1 11 8c0-.283.096-.52.287-.713Zm0 4A.968.968 0 0 1 12 11c.283 0 .52.096.713.287.191.192.287.43.287.713v4a.97.97 0 0 1-.287.712A.968.968 0 0 1 12 17a.968.968 0 0 1-.713-.288A.968.968 0 0 1 11 16v-4c0-.283.096-.52.287-.713Z"
+      />
+      <path
+        clip-rule="evenodd"
+        d="M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10Zm-2 0a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z"
+        fill-rule="evenodd"
+      />
+    </svg>
+    List item description
+  </li>
+</div>
+`;
