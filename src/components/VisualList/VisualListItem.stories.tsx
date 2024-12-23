@@ -53,4 +53,5 @@ export const Multiline = Template.bind({});
 Multiline.args = {
   children:
     "List item with a looooooooooong very looooooooooong loooooooooooooong description",
+  style: { alignItems: "start" },
 };
