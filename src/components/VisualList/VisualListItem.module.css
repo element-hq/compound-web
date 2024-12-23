@@ -20,6 +20,7 @@
   padding: var(--cpd-space-3x) var(--cpd-space-4x);
   background-color: var(--cpd-color-bg-subtle-secondary);
   font: var(--cpd-font-body-md-medium);
+  align-items: center;
 }
 
 .visual-list-item-icon {

@@ -60,6 +60,7 @@ exports[`VisualListItem > renders a Multiline VisualListItem 1`] = `
 <div>
   <li
     class="_visual-list-item_1553df"
+    style="align-items: start;"
   >
     <svg
       aria-hidden="true"
