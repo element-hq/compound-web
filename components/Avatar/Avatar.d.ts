@@ -1,5 +1,4 @@
 import { default as React } from '../../../node_modules/react';
-import { SuspenseImg } from '../../utils/SuspenseImg';
 /**
  * Avatar component that will fallback to an initial letter over a coloured
  * background if no source is provided or if the source has failed to load.
@@ -8,7 +7,7 @@ export declare const Avatar: React.ForwardRefExoticComponent<(Omit<React.ClassAt
     /**
      * The avatar image URL, if any.
      */
-    src?: React.ComponentProps<typeof SuspenseImg>["src"];
+    src?: React.ComponentProps<"img">["src"];
     /**
      * The Matrix ID, Room ID, or Alias to generate the color when no image source
      * is provided. Also used as a fallback when name is empty.
@@ -42,12 +41,12 @@ export declare const Avatar: React.ForwardRefExoticComponent<(Omit<React.ClassAt
     /**
      * Callback when the image has failed to load.
      */
-    onError?: React.ComponentProps<typeof SuspenseImg>["onError"];
+    onError?: React.ComponentProps<"img">["onError"];
 }, "ref"> | Omit<React.ClassAttributes<HTMLSpanElement> & React.HTMLAttributes<HTMLSpanElement> & {
     /**
      * The avatar image URL, if any.
      */
-    src?: React.ComponentProps<typeof SuspenseImg>["src"];
+    src?: React.ComponentProps<"img">["src"];
     /**
      * The Matrix ID, Room ID, or Alias to generate the color when no image source
      * is provided. Also used as a fallback when name is empty.
@@ -81,6 +80,6 @@ export declare const Avatar: React.ForwardRefExoticComponent<(Omit<React.ClassAt
     /**
      * Callback when the image has failed to load.
      */
-    onError?: React.ComponentProps<typeof SuspenseImg>["onError"];
+    onError?: React.ComponentProps<"img">["onError"];
 }, "ref">) & React.RefAttributes<HTMLButtonElement | HTMLSpanElement>>;
 //# sourceMappingURL=Avatar.d.ts.map

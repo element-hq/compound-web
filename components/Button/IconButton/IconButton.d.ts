@@ -30,7 +30,6 @@ type IconButtonProps = UnstyledButtonPropsFor<"button"> & {
      */
     tooltip?: string;
     subtleBackground?: boolean;
-    label?: string;
 };
 /**
  * Display an icon as a button. Can render an indicator

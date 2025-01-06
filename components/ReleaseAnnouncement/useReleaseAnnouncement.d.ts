@@ -41,7 +41,7 @@ export declare function useReleaseAnnouncement({ open, header, description, clos
     closeLabel: string;
     onClick: MouseEventHandler<HTMLButtonElement>;
     displayArrow: boolean | undefined;
-    arrowRef: import('../../../node_modules/react').MutableRefObject<null>;
+    arrowRef: import('../../../node_modules/react').RefObject<null>;
     getReferenceProps: (userProps?: React.HTMLProps<Element>) => Record<string, unknown>;
     getFloatingProps: (userProps?: React.HTMLProps<HTMLElement>) => Record<string, unknown>;
     getItemProps: (userProps?: Omit<React.HTMLProps<HTMLElement>, "selected" | "active"> & {

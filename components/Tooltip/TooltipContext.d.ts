@@ -8,7 +8,7 @@ export declare const TooltipContext: import('../../../node_modules/react').Conte
  * Provides the context for the Tooltip components.
  */
 export declare function useTooltipContext(): {
-    arrowRef: import('../../../node_modules/react').MutableRefObject<null>;
+    arrowRef: import('../../../node_modules/react').RefObject<null>;
     placement: import('@floating-ui/utils').Placement;
     strategy: import('@floating-ui/utils').Strategy;
     middlewareData: import('@floating-ui/core').MiddlewareData;

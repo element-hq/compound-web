@@ -60,7 +60,7 @@ export interface TooltipDescription {
 }
 type UseTooltipProps = CommonUseTooltipProps & (TooltipLabel | TooltipDescription);
 export declare function useTooltip({ open: controlledOpen, disabled, onOpenChange, placement, isTriggerInteractive, caption, "aria-atomic": ariaAtomic, "aria-live": ariaLive, ...props }: UseTooltipProps): {
-    arrowRef: import('../../../node_modules/react').MutableRefObject<null>;
+    arrowRef: import('../../../node_modules/react').RefObject<null>;
     placement: Placement;
     strategy: import('@floating-ui/utils').Strategy;
     middlewareData: import('@floating-ui/core').MiddlewareData;

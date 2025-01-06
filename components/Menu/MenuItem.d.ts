@@ -1,4 +1,4 @@
-import { ComponentPropsWithoutRef, ComponentType, ReactElement, SVGAttributes } from '../../../node_modules/react';
+import { default as React, ComponentPropsWithoutRef, ComponentType, ReactElement, SVGAttributes } from '../../../node_modules/react';
 import { Text } from '../Typography/Text';
 type MenuItemElement = "button" | "a" | "div";
 type Props<C extends MenuItemElement> = {
@@ -42,6 +42,6 @@ type Props<C extends MenuItemElement> = {
  * container for other interactive elements.
  * Must be used within a compound Menu or other `menu` or `menubar` aria role subtree.
  */
-export declare const MenuItem: <C extends MenuItemElement = "button">({ as, className, Icon, label, labelProps, onSelect, kind, children, onClick: onClickProp, disabled, ...props }: Props<C>) => JSX.Element;
+export declare const MenuItem: <C extends MenuItemElement = "button">({ as, className, Icon, label, labelProps, onSelect, kind, children, onClick: onClickProp, disabled, ...props }: Props<C>) => React.ReactElement;
 export {};
 //# sourceMappingURL=MenuItem.d.ts.map
