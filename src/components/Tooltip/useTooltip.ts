@@ -183,7 +183,7 @@ export function useTooltip({
   });
 
   // On touch screens, show the tooltip on a long press
-  const pressTimer = useRef<number>();
+  const pressTimer = useRef<number | undefined>(undefined);
   useEffect(() => () => window.clearTimeout(pressTimer.current), []);
   const press = useMemo(() => {
     const onTouchEnd = () => {
