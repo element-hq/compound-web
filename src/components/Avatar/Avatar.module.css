@@ -12,7 +12,7 @@ Please see LICENSE files in the repository root for full details.
   text-align: center;
   font-size: min(calc(var(--cpd-avatar-size) * 0.5625), 60px);
   text-transform: uppercase;
-  speak: none;
+  speak: none; /* stylelint-disable-line declaration-property-value-no-unknown */
   font-family: var(--cpd-font-family-sans);
   font-weight: bold;
   overflow: hidden;
