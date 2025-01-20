@@ -1,4 +1,4 @@
-import{j as e}from"./jsx-runtime-BjG_zV1W.js";import{c as l}from"./index-DUolvyrz.js";import{r as p}from"./index-7h80QhK_.js";import{s as n,A as o}from"./Avatar-DfoyeCCS.js";import"./_commonjsHelpers-Cpj98o6Y.js";const m=`<!--
+import{j as e}from"./jsx-runtime-BjG_zV1W.js";import{c as l}from"./index-DUolvyrz.js";import{r as p}from"./index-7h80QhK_.js";import{s as n,A as o}from"./Avatar-DNZ3yvas.js";import"./_commonjsHelpers-Cpj98o6Y.js";const m=`<!--
 Copyright 2023 New Vector Ltd.
 
 SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-Element-Commercial
