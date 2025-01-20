@@ -92,7 +92,7 @@
     "rimraf": "^6.0.0",
     "serve": "^14.2.1",
     "storybook": "^8.1.1",
-    "stylelint": "^16.0.0",
+    "stylelint": "^16.13.2",
     "stylelint-config-standard": "^37.0.0",
     "stylelint-plugin-defensive-css": "^1.0.0",
     "stylelint-use-logical": "^2.1.0",
