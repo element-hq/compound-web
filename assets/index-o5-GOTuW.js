@@ -1,0 +1,1 @@
+import{r as u,a as o}from"./index-aRQRyZp7.js";function i(t,e,{checkForDefaultPrevented:a=!0}={}){return function(r){if(t?.(r),a===!1||!r.defaultPrevented)return e?.(r)}}var s=globalThis?.document?u.useLayoutEffect:()=>{},c=o.useId||(()=>{}),d=0;function l(t){const[e,a]=u.useState(c());return s(()=>{a(n=>n??String(d++))},[t]),e?`radix-${e}`:""}export{s as a,i as c,l as u};
