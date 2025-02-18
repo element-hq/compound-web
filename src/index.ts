@@ -46,6 +46,7 @@ export { Dropdown } from "./components/Dropdown";
 export { InlineSpinner } from "./components/InlineSpinner";
 export { Breadcrumb } from "./components/Breadcrumb";
 export { VisualList, VisualListItem } from "./components/VisualList";
+export { ChatFilter } from "./components/ChatFilter";
 
 export {
   TextControl,
