@@ -7,7 +7,7 @@ Please see LICENSE files in the repository root for full details.
 
 import ChevronDown from "@vector-im/compound-design-tokens/assets/web/icons/chevron-down";
 import Check from "@vector-im/compound-design-tokens/assets/web/icons/check";
-import Error from "@vector-im/compound-design-tokens/assets/web/icons/error";
+import Error from "@vector-im/compound-design-tokens/assets/web/icons/error-solid";
 
 import React, {
   Dispatch,
