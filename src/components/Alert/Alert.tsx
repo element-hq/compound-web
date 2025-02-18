@@ -9,7 +9,7 @@ import classNames from "classnames";
 import React, { PropsWithChildren, useCallback } from "react";
 
 import CheckCircleIcon from "@vector-im/compound-design-tokens/assets/web/icons/check-circle";
-import ErrorIcon from "@vector-im/compound-design-tokens/assets/web/icons/error";
+import ErrorIcon from "@vector-im/compound-design-tokens/assets/web/icons/error-solid";
 import InfoIcon from "@vector-im/compound-design-tokens/assets/web/icons/info";
 import CloseIcon from "@vector-im/compound-design-tokens/assets/web/icons/close";
 
