@@ -178,7 +178,8 @@ const TooltipAnchor: FC<TooltipAnchorProps> = ({
     if (!isValidElement(children)) return;
 
     if (isTriggerInteractive) {
-      const props = context.getReferenceProps({ ref });
+      // @ts-expect-error needed to fix https://github.com/element-hq/compound/issues/333
+      const props = context.getReferenceProps({ ref, ...children.props });
       return cloneElement(children, props);
     } else {
       // For a non-interactive trigger, we want most of the props to go on the
