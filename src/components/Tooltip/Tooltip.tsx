@@ -181,7 +181,7 @@ const TooltipAnchor: FC<TooltipAnchorProps> = ({
       const props = context.getReferenceProps({
         ref,
         // Needed to fix https://github.com/element-hq/compound/issues/333
-        ...(children.props as object),
+        ...(typeof children.props === "object" ? children.props : {}),
       });
       return cloneElement(children, props);
     } else {
