@@ -179,9 +179,9 @@ const TooltipAnchor: FC<TooltipAnchorProps> = ({
 
     if (isTriggerInteractive) {
       const props = context.getReferenceProps({
-        ref,
         // Needed to fix https://github.com/element-hq/compound/issues/333
         ...(typeof children.props === "object" ? children.props : {}),
+        ref,
       });
       return cloneElement(children, props);
     } else {
