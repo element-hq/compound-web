@@ -1,0 +1,22 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ChatFiler > should render 1`] = `
+<button
+  class="_chat-filter_4bd40c"
+  role="button"
+  tabindex="0"
+>
+  Filter
+</button>
+`;
+
+exports[`ChatFiler > should render a selected filter 1`] = `
+<button
+  aria-selected="true"
+  class="_chat-filter_4bd40c"
+  role="button"
+  tabindex="0"
+>
+  Filter
+</button>
+`;
