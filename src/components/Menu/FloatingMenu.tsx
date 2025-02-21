@@ -13,18 +13,7 @@ import React, {
   useId,
 } from "react";
 import styles from "./FloatingMenu.module.css";
-import { Text } from "../Typography/Text";
-
-interface TitleProps {
-  title: string;
-  id: string;
-}
-
-const MenuTitle: React.FC<TitleProps> = ({ title, id }) => (
-  <Text as="h3" id={id} className={styles.title} size="sm" weight="semibold">
-    {title}
-  </Text>
-);
+import { MenuTitle } from "./MenuTitle.tsx";
 
 interface Props extends ComponentPropsWithoutRef<"div"> {
   /**
@@ -62,7 +51,9 @@ export const FloatingMenu = forwardRef<HTMLDivElement, Props>(
         className={classnames(className, styles.menu)}
         {...props}
       >
-        {showTitle && <MenuTitle title={title} id={titleId} />}
+        {showTitle && (
+          <MenuTitle className={styles.title} title={title} id={titleId} />
+        )}
         {children}
       </div>
     );
