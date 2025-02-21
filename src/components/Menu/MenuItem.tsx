@@ -37,8 +37,10 @@ type Props<C extends MenuItemElement> = {
   /**
    * The icon to show on this menu item.
    * When `Icon` is a ReactElement, it should spread the props
+   *
+   * Only `CheckBoxMenuItem` is supported when `Icon` is not provided
    */
-  Icon: ComponentType<SVGAttributes<SVGElement>> | ReactElement;
+  Icon?: ComponentType<SVGAttributes<SVGElement>> | ReactElement;
   /**
    * The label to show on this menu item.
    */
@@ -104,6 +106,7 @@ export const MenuItem = <C extends MenuItemElement = "button">({
   const iconIsReactElement = isValidElement(Icon);
   const componentIcon = Icon as ReactElement;
   const SvgIcon = Icon as ComponentType<SVGAttributes<SVGElement>>;
+  const noIcon = Icon === undefined;
 
   const content = (
     <Component
@@ -112,6 +115,7 @@ export const MenuItem = <C extends MenuItemElement = "button">({
       className={classnames(className, styles.item, {
         [styles.interactive]: onSelect !== null,
         [styles["no-label"]]: label === null,
+        [styles["no-icon"]]: noIcon,
         [styles["disabled"]]: disabled,
       })}
       data-kind={kind}
@@ -119,16 +123,17 @@ export const MenuItem = <C extends MenuItemElement = "button">({
       disabled={Component === "button" ? disabled : undefined}
       aria-disabled={Component === "button" ? undefined : disabled}
     >
-      {iconIsReactElement ? (
-        <Slot className={styles.icon}>{componentIcon}</Slot>
-      ) : (
-        <SvgIcon
-          width={24}
-          height={24}
-          className={styles.icon}
-          aria-hidden={true}
-        />
-      )}
+      {!noIcon &&
+        (iconIsReactElement ? (
+          <Slot className={styles.icon}>{componentIcon}</Slot>
+        ) : (
+          <SvgIcon
+            width={24}
+            height={24}
+            className={styles.icon}
+            aria-hidden={true}
+          />
+        ))}
 
       {label !== null && (
         <Text
