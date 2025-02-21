@@ -16,6 +16,7 @@ import { Menu as MenuComponent } from "./Menu";
 import { MenuItem } from "./MenuItem";
 import { Separator } from "../Separator/Separator";
 import { Button } from "../Button/Button";
+import { MenuTitle } from "./MenuTitle.tsx";
 
 type Props = Omit<
   React.ComponentProps<typeof MenuComponent>,
@@ -37,6 +38,12 @@ const Template: React.FC<Props> = (args) => {
       <MenuItem
         Icon={NotificationsIcon}
         label="Notifications"
+        onSelect={() => {}}
+      />
+      <MenuTitle title="Other section" />
+      <MenuItem
+        Icon={NotificationsIcon}
+        label="Other Notifications"
         onSelect={() => {}}
       />
       <MenuItem Icon={ChatProblemIcon} label="Feedback" onSelect={() => {}} />
