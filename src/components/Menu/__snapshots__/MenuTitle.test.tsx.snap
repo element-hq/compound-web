@@ -1,0 +1,11 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`MenuTitle > renders 1`] = `
+<DocumentFragment>
+  <h3
+    class="_typography_489030 _font-body-sm-semibold_489030 _menu-title_7bbc38"
+  >
+    Title
+  </h3>
+</DocumentFragment>
+`;
