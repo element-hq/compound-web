@@ -31,12 +31,6 @@ Please see LICENSE files in the repository root for full details.
   grid-template: "icon ." auto / auto 1fr;
 }
 
-.item.no-icon {
-  grid-template: ". label" auto "empty label" auto;
-  column-gap: var(--cpd-space-3x);
-  justify-content: flex-start;
-}
-
 .icon {
   grid-area: icon;
   margin-inline-end: var(--cpd-space-3x);
@@ -51,10 +45,6 @@ Please see LICENSE files in the repository root for full details.
   margin-inline-end: var(--cpd-space-4x);
   text-align: start;
   word-break: break-word; /* stylelint-disable-line declaration-property-value-keyword-no-deprecated */
-}
-
-.item.no-icon .label {
-  margin-inline-end: 0;
 }
 
 .nav-hint {

@@ -45,17 +45,18 @@ export const CheckboxMenuItem = forwardRef<HTMLInputElement, Props>(
         label={label}
         onSelect={onSelect}
         disabled={disabled}
-      >
-        <CheckboxInput
-          id={toggleId}
-          ref={ref}
-          // This is purely cosmetic; really the whole MenuItem is the toggle.
-          aria-hidden
-          checked={checked}
-          disabled={disabled}
-          onChange={onChange}
-        />
-      </MenuItem>
+        Icon={
+          <CheckboxInput
+            id={toggleId}
+            ref={ref}
+            // This is purely cosmetic; really the whole MenuItem is the toggle.
+            aria-hidden
+            checked={checked}
+            disabled={disabled}
+            onChange={onChange}
+          />
+        }
+      />
     );
   },
 );

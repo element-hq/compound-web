@@ -4,17 +4,12 @@ exports[`CheckboxMenuItem > renders 1`] = `
 <DocumentFragment>
   <div
     aria-checked="false"
-    class="_item_831119 _interactive_831119 _no-icon_831119"
+    class="_item_831119 _interactive_831119"
     data-kind="primary"
     role="menuitemcheckbox"
   >
-    <span
-      class="_typography_489030 _font-body-md-medium_489030 _label_831119"
-    >
-      Always show
-    </span>
     <div
-      class="_container_786d37"
+      class="_container_786d37 _icon_831119"
     >
       <input
         aria-hidden="true"
@@ -39,6 +34,11 @@ exports[`CheckboxMenuItem > renders 1`] = `
         </svg>
       </div>
     </div>
+    <span
+      class="_typography_489030 _font-body-md-medium_489030 _label_831119"
+    >
+      Always show
+    </span>
   </div>
 </DocumentFragment>
 `;
