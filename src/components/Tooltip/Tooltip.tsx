@@ -178,7 +178,12 @@ const TooltipAnchor: FC<TooltipAnchorProps> = ({
     if (!isValidElement(children)) return;
 
     if (isTriggerInteractive) {
-      const props = context.getReferenceProps({ ref });
+      const props = context.getReferenceProps({
+        // To support React 18, we need to explicitly pass the children's props. See  https://github.com/element-hq/compound/issues/333
+        // In React 19, this is not necessary. `getReferenceProps` is able to get the props directly from the ref.
+        ...(typeof children.props === "object" ? children.props : {}),
+        ref,
+      });
       return cloneElement(children, props);
     } else {
       // For a non-interactive trigger, we want most of the props to go on the
