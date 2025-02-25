@@ -36,12 +36,16 @@ type Props<C extends MenuItemElement> = {
      */
     kind?: "primary" | "critical";
     disabled?: boolean;
+    /**
+     * Whether to hide the chevron navigation hint.
+     */
+    hideChevron?: boolean;
 } & Omit<ComponentPropsWithoutRef<C>, "onSelect">;
 /**
  * An item within a menu, acting either as a navigation button, or simply a
  * container for other interactive elements.
  * Must be used within a compound Menu or other `menu` or `menubar` aria role subtree.
  */
-export declare const MenuItem: <C extends MenuItemElement = "button">({ as, className, Icon, label, labelProps, onSelect, kind, children, onClick: onClickProp, disabled, ...props }: Props<C>) => React.ReactElement;
+export declare const MenuItem: <C extends MenuItemElement = "button">({ as, className, Icon, label, labelProps, onSelect, kind, children, onClick: onClickProp, disabled, hideChevron, ...props }: Props<C>) => React.ReactElement;
 export {};
 //# sourceMappingURL=MenuItem.d.ts.map
