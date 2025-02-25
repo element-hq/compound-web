@@ -26,6 +26,7 @@ const {
   IconIsComponent,
   WithALongLabel,
   WithALongLabelAndChildren,
+  WithoutChevron,
 } = composeStories(stories);
 
 describe("MenuItem", () => {
@@ -88,6 +89,10 @@ describe("MenuItem", () => {
   });
   it("renders a menu item with a long label and children", () => {
     const { container } = render(<WithALongLabelAndChildren />);
+    expect(container).toMatchSnapshot();
+  });
+  it("renders a menu item without a chevron", () => {
+    const { container } = render(<WithoutChevron />);
     expect(container).toMatchSnapshot();
   });
 });

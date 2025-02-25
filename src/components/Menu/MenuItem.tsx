@@ -61,6 +61,10 @@ type Props<C extends MenuItemElement> = {
    */
   kind?: "primary" | "critical";
   disabled?: boolean;
+  /**
+   * Whether to hide the chevron navigation hint.
+   */
+  hideChevron?: boolean;
 } & Omit<ComponentPropsWithoutRef<C>, "onSelect">;
 
 /**
@@ -79,6 +83,7 @@ export const MenuItem = <C extends MenuItemElement = "button">({
   children,
   onClick: onClickProp,
   disabled,
+  hideChevron,
   ...props
 }: Props<C>): React.ReactElement => {
   const Component = as ?? ("button" as ElementType);
@@ -143,7 +148,7 @@ export const MenuItem = <C extends MenuItemElement = "button">({
       )}
       {/* We use CSS to swap between this navigation hint and the provided
       children on hover - see the styles module. */}
-      {(Component === "button" || Component === "a") && (
+      {!hideChevron && (Component === "button" || Component === "a") && (
         <ChevronRightIcon
           width={8}
           height={24}
