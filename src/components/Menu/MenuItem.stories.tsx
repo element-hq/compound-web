@@ -128,3 +128,9 @@ export const WithALongLabelAndChildren: Story = {
     ),
   },
 };
+
+export const WithoutChevron: Story = {
+  args: {
+    hideChevron: true,
+  },
+};
