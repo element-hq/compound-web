@@ -1,0 +1,31 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`RadioMenuItem > renders 1`] = `
+<DocumentFragment>
+  <div
+    aria-checked="false"
+    class="_item_831119 _interactive_831119"
+    data-kind="primary"
+    role="menuitemradio"
+  >
+    <div
+      class="_container_5881bc _icon_831119"
+    >
+      <input
+        aria-hidden="true"
+        class="_input_5881bc"
+        id=":r0:"
+        type="radio"
+      />
+      <div
+        class="_ui_5881bc"
+      />
+    </div>
+    <span
+      class="_typography_489030 _font-body-md-medium_489030 _label_831119"
+    >
+      Always show
+    </span>
+  </div>
+</DocumentFragment>
+`;
