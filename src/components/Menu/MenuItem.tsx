@@ -56,6 +56,11 @@ type Props<C extends MenuItemElement> = {
   // This prop is required because it's rare to not want a selection handler
   onSelect: ((e: Event) => void) | null;
   /**
+   * Event callback for when the item is clicked.
+   * @param e
+   */
+  onClick?: (e: Event) => void;
+  /**
    * The color variant of the menu item.
    * @default primary
    */
@@ -65,7 +70,7 @@ type Props<C extends MenuItemElement> = {
    * Whether to hide the chevron navigation hint.
    */
   hideChevron?: boolean;
-} & Omit<ComponentPropsWithoutRef<C>, "onSelect">;
+} & Omit<ComponentPropsWithoutRef<C>, "onSelect" | "onClick">;
 
 /**
  * An item within a menu, acting either as a navigation button, or simply a
