@@ -10,10 +10,11 @@ export declare const ToggleMenuItem: React.ForwardRefExoticComponent<Pick<{
     label: string | null;
     labelProps?: React.ComponentPropsWithoutRef<typeof import('../..').Text>;
     onSelect: ((e: Event) => void) | null;
+    onClick?: (e: Event) => void;
     kind?: "primary" | "critical";
     disabled?: boolean;
     hideChevron?: boolean;
-} & Omit<Omit<React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>, "ref"> | Omit<React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>, "ref"> | Omit<React.DetailedHTMLProps<React.AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement>, "ref">, "onSelect">, "label" | "className" | "disabled" | "onSelect" | "Icon"> & {
+} & Omit<Omit<React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>, "ref"> | Omit<React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>, "ref"> | Omit<React.DetailedHTMLProps<React.AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement>, "ref">, "onClick" | "onSelect">, "label" | "className" | "disabled" | "onClick" | "onSelect" | "Icon"> & {
     /**
      * Whether the toggle is checked.
      */
