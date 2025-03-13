@@ -15,6 +15,7 @@ import React, {
   SVGAttributes,
   useCallback,
   useContext,
+  MouseEventHandler,
 } from "react";
 import styles from "./MenuItem.module.css";
 import { Text } from "../Typography/Text";
@@ -59,7 +60,7 @@ type Props<C extends MenuItemElement> = {
    * Event callback for when the item is clicked.
    * @param e
    */
-  onClick?: (e: Event) => void;
+  onClick?: MouseEventHandler<C>;
   /**
    * The color variant of the menu item.
    * @default primary
