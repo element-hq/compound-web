@@ -60,7 +60,7 @@ type Props<C extends MenuItemElement> = {
    * Event callback for when the item is clicked.
    * @param e
    */
-  onClick?: MouseEventHandler;
+  onClick?: MouseEventHandler<HTMLElementTagNameMap[C]>;
   /**
    * The color variant of the menu item.
    * @default primary
