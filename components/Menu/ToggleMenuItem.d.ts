@@ -10,7 +10,7 @@ export declare const ToggleMenuItem: React.ForwardRefExoticComponent<Pick<{
     label: string | null;
     labelProps?: React.ComponentPropsWithoutRef<typeof import('../..').Text>;
     onSelect: ((e: Event) => void) | null;
-    onClick?: React.MouseEventHandler<"a" | "button" | "div"> | undefined;
+    onClick?: React.MouseEventHandler<HTMLAnchorElement | HTMLButtonElement | HTMLDivElement> | undefined;
     kind?: "primary" | "critical";
     disabled?: boolean;
     hideChevron?: boolean;
