@@ -1,4 +1,4 @@
-import { default as React, ComponentPropsWithoutRef, ComponentType, ReactElement, SVGAttributes } from '../../../node_modules/react';
+import { default as React, ComponentPropsWithoutRef, ComponentType, ReactElement, SVGAttributes, MouseEventHandler } from '../../../node_modules/react';
 import { Text } from '../Typography/Text';
 type MenuItemElement = "button" | "a" | "div";
 type Props<C extends MenuItemElement> = {
@@ -34,7 +34,7 @@ type Props<C extends MenuItemElement> = {
      * Event callback for when the item is clicked.
      * @param e
      */
-    onClick?: (e: Event) => void;
+    onClick?: MouseEventHandler<C>;
     /**
      * The color variant of the menu item.
      * @default primary
