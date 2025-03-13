@@ -11,7 +11,7 @@ import { ToggleInput } from "../Form/Controls/Toggle";
 
 type Props = Pick<
   ComponentProps<typeof MenuItem>,
-  "className" | "Icon" | "label" | "onSelect" | "disabled"
+  "className" | "Icon" | "label" | "onSelect" | "disabled" | "onClick"
 > & {
   /**
    * Whether the toggle is checked.
@@ -25,7 +25,7 @@ type Props = Pick<
  */
 export const ToggleMenuItem = forwardRef<HTMLInputElement, Props>(
   function ToggleMenuItem(
-    { className, Icon, label, onSelect, checked, disabled },
+    { className, Icon, label, onSelect, checked, disabled, onClick },
     ref,
   ) {
     const toggleId = useId();
@@ -46,6 +46,7 @@ export const ToggleMenuItem = forwardRef<HTMLInputElement, Props>(
         label={label}
         onSelect={onSelect}
         disabled={disabled}
+        onClick={onClick}
       >
         <ToggleInput
           id={toggleId}
