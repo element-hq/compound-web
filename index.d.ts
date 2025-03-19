@@ -30,6 +30,7 @@ export { InlineSpinner } from './components/InlineSpinner';
 export { Breadcrumb } from './components/Breadcrumb';
 export { VisualList, VisualListItem } from './components/VisualList';
 export { ChatFilter } from './components/ChatFilter';
+export { UnreadCounter, Pill, Unread } from './components/ActivityMarker';
 export { TextControl, TextControl as Control, TextInput, ActionControl, ActionInput, PasswordControl, PasswordInput, MFAControl, MFAInput, CheckboxControl, CheckboxInput, CheckboxInput as Checkbox, RadioControl, RadioInput, RadioInput as Radio, ToggleControl, ToggleInput, ToggleInput as Toggle, Root, Submit, Message, ErrorMessage, HelpMessage, ValidityState, Field, InlineField, Label, EditInPlace, } from './components/Form';
 export * as Form from './components/Form';
 /**
