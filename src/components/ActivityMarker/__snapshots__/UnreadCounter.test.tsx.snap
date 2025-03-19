@@ -1,0 +1,11 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`UnreadCounter > should render 1`] = `
+<DocumentFragment>
+  <span
+    class="_unread-counter_3069f5"
+  >
+    4
+  </span>
+</DocumentFragment>
+`;
