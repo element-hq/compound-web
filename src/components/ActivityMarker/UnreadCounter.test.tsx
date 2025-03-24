@@ -11,11 +11,16 @@ import React from "react";
 import { composeStories } from "@storybook/react";
 import * as stories from "./UnreadCounter.stories.tsx";
 
-const { Default } = composeStories(stories);
+const { Default, NoCount } = composeStories(stories);
 
 describe("UnreadCounter", () => {
   it("should render", () => {
     const { asFragment } = render(<Default />);
+    expect(asFragment()).toMatchSnapshot();
+  });
+
+  it("should render no count", () => {
+    const { asFragment } = render(<NoCount />);
     expect(asFragment()).toMatchSnapshot();
   });
 });
