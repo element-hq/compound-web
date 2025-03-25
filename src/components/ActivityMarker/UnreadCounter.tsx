@@ -8,11 +8,18 @@
 import React, { HTMLProps } from "react";
 import styles from "./UnreadCounter.module.css";
 
-interface UnreadCounterProps extends HTMLProps<HTMLSpanElement> {
-  count: string | number;
+interface UnreadCounterProps extends HTMLProps<HTMLDivElement> {
+  /**
+   * The number to display.
+   * If `null`, the counter will be empty.
+   */
+  count: string | number | null;
 }
 
 export function UnreadCounter({ count, ...props }: UnreadCounterProps) {
+  if (count === null)
+    return <div {...props} className={styles["unread-counter"]} />;
+
   return (
     <span {...props} className={styles["unread-counter"]}>
       {count}

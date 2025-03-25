@@ -39,3 +39,8 @@ export const DoubleDigit = Template.bind({});
 DoubleDigit.args = {
   count: 12,
 };
+
+export const NoCount = Template.bind({});
+NoCount.args = {
+  count: null,
+};
