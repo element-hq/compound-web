@@ -6,7 +6,7 @@ import { default as React } from '../../../node_modules/react';
 export declare const ToggleMenuItem: React.ForwardRefExoticComponent<Pick<{
     as?: ("a" | "button" | "div") | undefined;
     className?: string;
-    Icon: React.ComponentType<React.SVGAttributes<SVGElement>> | React.ReactElement;
+    Icon?: React.ComponentType<React.SVGAttributes<SVGElement>> | React.ReactElement;
     label: string | null;
     labelProps?: React.ComponentPropsWithoutRef<typeof import('../..').Text>;
     onSelect: ((e: Event) => void) | null;

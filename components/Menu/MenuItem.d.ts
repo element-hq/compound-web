@@ -15,7 +15,7 @@ type Props<C extends MenuItemElement> = {
      * The icon to show on this menu item.
      * When `Icon` is a ReactElement, it should spread the props
      */
-    Icon: ComponentType<SVGAttributes<SVGElement>> | ReactElement;
+    Icon?: ComponentType<SVGAttributes<SVGElement>> | ReactElement;
     /**
      * The label to show on this menu item.
      */
