@@ -27,6 +27,7 @@ const {
   WithALongLabel,
   WithALongLabelAndChildren,
   WithoutChevron,
+  WithoutIcon,
 } = composeStories(stories);
 
 describe("MenuItem", () => {
@@ -93,6 +94,10 @@ describe("MenuItem", () => {
   });
   it("renders a menu item without a chevron", () => {
     const { container } = render(<WithoutChevron />);
+    expect(container).toMatchSnapshot();
+  });
+  it("renders a menu item without an icon", () => {
+    const { container } = render(<WithoutIcon />);
     expect(container).toMatchSnapshot();
   });
 });
