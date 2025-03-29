@@ -79,6 +79,7 @@ Please see LICENSE files in the repository root for full details.
       padding: 0;
       padding-block-end: var(--cpd-space-4x);
       cursor: pointer;
+      z-index: var(--cpd-dropdown-z-index);
 
       li {
         list-style: none;
