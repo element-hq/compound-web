@@ -6,7 +6,7 @@
  */
 
 .unread-counter {
-  border-radius: 100%;
+  border-radius: 38px;
   font: var(--cpd-font-body-xs-semibold);
   color: var(--cpd-color-text-on-solid-primary);
   background-color: var(--cpd-color-icon-success-primary);
