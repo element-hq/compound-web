@@ -40,6 +40,11 @@ DoubleDigit.args = {
   count: 12,
 };
 
+export const TripleDigit = Template.bind({});
+TripleDigit.args = {
+  count: 123,
+};
+
 export const NoCount = Template.bind({});
 NoCount.args = {
   count: null,
