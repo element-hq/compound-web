@@ -7,6 +7,7 @@ Please see LICENSE files in the repository root for full details.
 
 import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
+import VideoIcon from "@vector-im/compound-design-tokens/assets/web/icons/video-call-solid";
 
 import { Avatar as AvatarComponent } from "./Avatar";
 
@@ -80,4 +81,19 @@ export const AllAvatars: Story = {
       &nbsp;
     </>
   ),
+};
+
+export const WithIcon: Story = {
+  args: {
+    size: "40px",
+    Icon: VideoIcon,
+  },
+};
+
+export const WithBigIcon: Story = {
+  args: {
+    size: "80px",
+    Icon: VideoIcon,
+    iconSize: "40px",
+  },
 };

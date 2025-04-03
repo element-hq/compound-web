@@ -49,6 +49,30 @@ button.avatar:disabled {
   overflow: hidden;
 }
 
+.container {
+  /* Declare variable, the default value is always replaced */
+  --cpd-avatar-icon-size: 16px;
+
+  position: relative;
+
+  /* Keep the container to the same size than the avatar */
+  inline-size: var(--cpd-avatar-size);
+  block-size: var(--cpd-avatar-size);
+}
+
+.icon {
+  position: absolute;
+  background-color: var(--cpd-color-bg-canvas-default);
+  border-radius: 100%;
+
+  /* Place half the icon inside the avatar */
+  inset-inline-end: calc(
+    (var(--cpd-avatar-icon-size) + (2 * var(--cpd-space-0-5x))) / -2
+  );
+  inset-block-end: 0;
+  padding: var(--cpd-space-0-5x);
+}
+
 .avatar-imageless {
   /* In the future we'd prefer to pass the HEX code as the data attr
      and use `attr(data-color)` to avoid the style declaration from below
@@ -96,7 +120,7 @@ button.avatar:disabled {
 }
 
 /**
- * Stacked avatars 
+ * Stacked avatars
  */
 
 .stacked-avatars::after {
