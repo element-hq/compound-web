@@ -6,7 +6,7 @@ Please see LICENSE files in the repository root for full details.
 */
 
 import classnames from "classnames";
-import React, { ComponentProps, forwardRef } from "react";
+import React, { ComponentProps, ComponentType, forwardRef } from "react";
 import { getInitialLetter } from "../../utils/string";
 import styles from "./Avatar.module.css";
 import { useIdColorHash } from "./useIdColorHash";
@@ -50,6 +50,19 @@ type AvatarProps = (ComponentProps<"button"> | ComponentProps<"span">) & {
    * Callback when the image has failed to load.
    */
   onError?: React.ComponentProps<"img">["onError"];
+  /**
+   * Icon at the bottom right of the avatar
+   */
+  Icon?: ComponentType<React.SVGAttributes<SVGElement>>;
+  /**
+   * Icon size in CSS units, e.g. `"16px"`.
+   * @default "16px"
+   */
+  iconSize?: CSSStyleDeclaration["height"];
+  /**
+   * Icon class name
+   */
+  iconClassName?: string;
 };
 
 /**
@@ -78,11 +91,14 @@ export const Avatar = forwardRef<
     size,
     style = {},
     onError,
+    Icon,
+    iconSize = "16px",
+    iconClassName,
     ...props
   },
   ref,
 ) {
-  return React.createElement(
+  const component = React.createElement(
     shouldBeAButton(props) ? "button" : "span",
     {
       ref,
@@ -118,5 +134,27 @@ export const Avatar = forwardRef<
         />
       )}
     </React.Fragment>,
+  );
+
+  if (!Icon) return component;
+
+  return (
+    <div
+      className={styles.container}
+      style={
+        {
+          "--cpd-avatar-size": size,
+          "--cpd-avatar-icon-size": iconSize,
+        } as React.CSSProperties
+      }
+    >
+      {component}
+      <Icon
+        className={classnames(styles.icon, iconClassName)}
+        width={iconSize}
+        height={iconSize}
+        aria-hidden={true}
+      />
+    </div>
   );
 });

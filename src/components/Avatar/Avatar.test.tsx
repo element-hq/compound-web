@@ -9,6 +9,8 @@ import { describe, beforeEach, expect, it, afterEach } from "vitest";
 import { render } from "@testing-library/react";
 import React from "react";
 
+import VideoIcon from "@vector-im/compound-design-tokens/assets/web/icons/video-call-solid";
+
 import { Avatar } from "./Avatar";
 
 const originalImage = global.Image;
@@ -64,4 +66,11 @@ describe("Avatar", () => {
       expect(container.firstChild).toHaveAttribute("data-color", colorNumber);
     },
   );
+
+  it("renders the image avatar with an icon", () => {
+    const { asFragment } = render(
+      <Avatar name="Bob" id="@bob:example.org" Icon={VideoIcon} />,
+    );
+    expect(asFragment()).toMatchSnapshot();
+  });
 });
