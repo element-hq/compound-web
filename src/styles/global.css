@@ -9,6 +9,7 @@ Please see LICENSE files in the repository root for full details.
 
 :root {
   --cpd-radius-pill-effect: 9999px;
+  --cpd-dropdown-z-index: 999;
 
   /* Default icon and avatar size */
   --cpd-icon-button-size: var(--cpd-space-8x);
