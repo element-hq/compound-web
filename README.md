@@ -6,7 +6,7 @@
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=compound-web&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=compound-web)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=compound-web&metric=coverage)](https://sonarcloud.io/summary/new_code?id=compound-web)
 
-React implementation of Compound – Element's design system – See full documentation on https://compound.element.io.
+React implementation of Compound – Element's design system – See full documentation on https://compound.element.io
 
 ## Development
 
