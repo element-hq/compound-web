@@ -7,7 +7,6 @@
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=compound-web&metric=coverage)](https://sonarcloud.io/summary/new_code?id=compound-web)
 
 React implementation of Compound – Element's design system – See full documentation on https://compound.element.io.
-Element internal designs are available in the [Figma component library](https://www.figma.com/file/rTaQE2nIUSLav4Tg3nozq7/Compound-Web-Components?type=design&node-id=129%3A4461&t=0cvCO0bpqRPGgkwa-1).
 
 ## Development
 
