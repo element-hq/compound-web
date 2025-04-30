@@ -5,7 +5,7 @@ exports[`Search > renders 1`] = `
   <form>
     <label
       class="_label_dc87d2 _field_dc87d2 _search_a9d8a5"
-      for=":r0:"
+      for="«r0»"
     >
       <svg
         class="_icon_a9d8a5"
@@ -21,7 +21,7 @@ exports[`Search > renders 1`] = `
       </svg>
       <input
         class="_input_a9d8a5"
-        id=":r0:"
+        id="«r0»"
         name="search"
         placeholder="Search…"
         type="search"
