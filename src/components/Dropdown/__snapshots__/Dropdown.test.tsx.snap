@@ -7,15 +7,15 @@ exports[`Dropdown > can be opened 1`] = `
     class="_container_87c1d6"
   >
     <label
-      id=":r8:"
+      id="«r8»"
     >
       Label
     </label>
     <button
-      aria-controls=":r9:"
+      aria-controls="«r9»"
       aria-expanded="true"
       aria-haspopup="listbox"
-      aria-labelledby=":r8:"
+      aria-labelledby="«r8»"
       class="_placeholder_87c1d6"
       role="combobox"
     >
@@ -40,7 +40,7 @@ exports[`Dropdown > can be opened 1`] = `
     >
       <ul
         class="_content_87c1d6"
-        id=":r9:"
+        id="«r9»"
         role="listbox"
       >
         <li
@@ -80,15 +80,15 @@ exports[`Dropdown > can select a value 1`] = `
     class="_container_87c1d6"
   >
     <label
-      id=":ra:"
+      id="«ra»"
     >
       Label
     </label>
     <button
-      aria-controls=":rb:"
+      aria-controls="«rb»"
       aria-expanded="true"
       aria-haspopup="listbox"
-      aria-labelledby=":ra:"
+      aria-labelledby="«ra»"
       class=""
       role="combobox"
     >
@@ -113,7 +113,7 @@ exports[`Dropdown > can select a value 1`] = `
     >
       <ul
         class="_content_87c1d6"
-        id=":rb:"
+        id="«rb»"
         role="listbox"
       >
         <li
@@ -164,15 +164,15 @@ exports[`Dropdown > renders a Default dropdown 1`] = `
     class="_container_87c1d6"
   >
     <label
-      id=":r0:"
+      id="«r0»"
     >
       Label
     </label>
     <button
-      aria-controls=":r1:"
+      aria-controls="«r1»"
       aria-expanded="false"
       aria-haspopup="listbox"
-      aria-labelledby=":r0:"
+      aria-labelledby="«r0»"
       class="_placeholder_87c1d6"
       role="combobox"
     >
@@ -197,7 +197,7 @@ exports[`Dropdown > renders a Default dropdown 1`] = `
     >
       <ul
         class="_content_87c1d6"
-        id=":r1:"
+        id="«r1»"
         role="listbox"
       >
         <li
@@ -237,15 +237,15 @@ exports[`Dropdown > renders a dropdown with a default value  1`] = `
     class="_container_87c1d6"
   >
     <label
-      id=":r6:"
+      id="«r6»"
     >
       Label
     </label>
     <button
-      aria-controls=":r7:"
+      aria-controls="«r7»"
       aria-expanded="false"
       aria-haspopup="listbox"
-      aria-labelledby=":r6:"
+      aria-labelledby="«r6»"
       class=""
       role="combobox"
     >
@@ -270,7 +270,7 @@ exports[`Dropdown > renders a dropdown with a default value  1`] = `
     >
       <ul
         class="_content_87c1d6"
-        id=":r7:"
+        id="«r7»"
         role="listbox"
       >
         <li
@@ -321,15 +321,15 @@ exports[`Dropdown > renders a dropdown with a help label 1`] = `
     class="_container_87c1d6"
   >
     <label
-      id=":r2:"
+      id="«r2»"
     >
       Label
     </label>
     <button
-      aria-controls=":r3:"
+      aria-controls="«r3»"
       aria-expanded="false"
       aria-haspopup="listbox"
-      aria-labelledby=":r2:"
+      aria-labelledby="«r2»"
       class="_placeholder_87c1d6"
       role="combobox"
     >
@@ -354,7 +354,7 @@ exports[`Dropdown > renders a dropdown with a help label 1`] = `
     >
       <ul
         class="_content_87c1d6"
-        id=":r3:"
+        id="«r3»"
         role="listbox"
       >
         <li
@@ -399,15 +399,15 @@ exports[`Dropdown > renders a dropdown with an error  1`] = `
     class="_container_87c1d6"
   >
     <label
-      id=":r4:"
+      id="«r4»"
     >
       Label
     </label>
     <button
-      aria-controls=":r5:"
+      aria-controls="«r5»"
       aria-expanded="false"
       aria-haspopup="listbox"
-      aria-labelledby=":r4:"
+      aria-labelledby="«r4»"
       class="_placeholder_87c1d6"
       role="combobox"
     >
@@ -432,7 +432,7 @@ exports[`Dropdown > renders a dropdown with an error  1`] = `
     >
       <ul
         class="_content_87c1d6"
-        id=":r5:"
+        id="«r5»"
         role="listbox"
       >
         <li
