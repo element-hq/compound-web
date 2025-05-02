@@ -9,10 +9,10 @@ import React, { ComponentProps, forwardRef, useCallback, useId } from "react";
 import { MenuItem } from "./MenuItem";
 import { RadioInput } from "../Form";
 
-type Props = Pick<
+export type RadioMenuItemProps = Pick<
   ComponentProps<typeof MenuItem>,
   "className" | "label" | "onSelect" | "disabled"
-> & {
+> & Pick<React.HTMLAttributes<HTMLDivElement>, "onFocus" | "onBlur"> & {
   /**
    * Whether the radio is checked.
    */
@@ -21,11 +21,13 @@ type Props = Pick<
 
 /**
  * A menu item with a radio control.
- * Must be used within a compound Menu or other `menu` or `menubar` aria role subtree.
+ * Must be used within a compound Menu or other `menu` or `menubar` aria role subtree
+ * and generally should be used within a RadioMenuGroup which implements the ARIA
+ * behaviours for the 'menuitemradio' role.
  */
-export const RadioMenuItem = forwardRef<HTMLInputElement, Props>(
+export const RadioMenuItem = forwardRef<HTMLInputElement, RadioMenuItemProps>(
   function RadioMenuItem(
-    { className, label, onSelect, checked, disabled },
+    { className, label, onSelect, onFocus, onBlur, checked, disabled },
     ref,
   ) {
     const toggleId = useId();
@@ -44,7 +46,10 @@ export const RadioMenuItem = forwardRef<HTMLInputElement, Props>(
         className={className}
         label={label}
         onSelect={onSelect}
+        onFocus={onFocus}
+        onBlur={onBlur}
         disabled={disabled}
+        tabIndex={0}
         Icon={
           <RadioInput
             id={toggleId}
@@ -54,6 +59,8 @@ export const RadioMenuItem = forwardRef<HTMLInputElement, Props>(
             checked={checked}
             disabled={disabled}
             onChange={onChange}
+            style={{pointerEvents: "none"}}
+            tabIndex={-1}
           />
         }
       ></MenuItem>
