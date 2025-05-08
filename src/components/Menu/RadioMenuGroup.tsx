@@ -5,8 +5,18 @@
  * Please see LICENSE files in the repository root for full details.
  */
 
-import { JSX, KeyboardEvent, useCallback, useRef, useState } from "react";
+import React, {
+  JSX,
+  KeyboardEvent,
+  useCallback,
+  useRef,
+  useState,
+} from "react";
 import { RadioMenuItemProps, RadioMenuItem } from "./RadioMenuItem";
+
+type MenuItem = Omit<RadioMenuItemProps, "onSelect" | "checked"> & {
+  name: string;
+};
 
 interface Props {
   // We don't use children here as we need to do specific things to each child,
@@ -16,9 +26,7 @@ interface Props {
   /**
    * The items to display in the menu.
    */
-  items: (Omit<RadioMenuItemProps, "onSelect" | "checked"> & {
-    name: string;
-  })[];
+  items: MenuItem[];
   /**
    * Which item is currently selected
    */
@@ -58,7 +66,7 @@ export const RadioMenuGroup = ({
 
   const [focusedIndex, setFocusedIndex] = useState<number | null>(null);
 
-  const radioItems = items.map((props, i) => (
+  const radioItems = items.map((props: MenuItem, i) => (
     <RadioMenuItem
       key={props.name}
       onFocus={() => {

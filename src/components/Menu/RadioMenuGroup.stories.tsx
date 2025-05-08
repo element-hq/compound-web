@@ -7,7 +7,7 @@
 
 import { Meta, StoryObj } from "@storybook/react";
 import { RadioMenuGroup } from "./RadioMenuGroup";
-import { useState } from "react";
+import React, { useState } from "react";
 
 const Template: React.FC = () => {
   const [selected, setSelected] = useState<string>("1");
