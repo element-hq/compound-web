@@ -12,6 +12,10 @@ interface Props {
   // We don't use children here as we need to do specific things to each child,
   // for which case react recommends this: https://react.dev/reference/react/Children#accepting-an-array-of-objects-as-a-prop
   // We just take the props and construct the elements ourselves so we can pass callbacks in
+
+  /**
+   * The items to display in the menu.
+   */
   items: (Omit<RadioMenuItemProps, "onSelect" | "checked"> & {
     name: string;
   })[];
@@ -65,6 +69,11 @@ export const RadioMenuGroup = ({
       }}
       onSelect={() => {
         onChange(props.name);
+      }}
+      onClick={() => {
+        // Needed because clicking on an item should cause the mnenu to close
+        // (but it should nnot close if selected by keyboard, depending on which key)
+        onFinished();
       }}
       checked={selected === props.name}
       {...props}

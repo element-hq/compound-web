@@ -12,12 +12,16 @@ import { RadioInput } from "../Form";
 export type RadioMenuItemProps = Pick<
   ComponentProps<typeof MenuItem>,
   "className" | "label" | "onSelect" | "disabled"
-> & Pick<React.HTMLAttributes<HTMLDivElement>, "onFocus" | "onBlur"> & {
-  /**
-   * Whether the radio is checked.
-   */
-  checked: boolean;
-};
+> &
+  Pick<
+    React.HTMLAttributes<HTMLDivElement>,
+    "onFocus" | "onBlur" | "onClick"
+  > & {
+    /**
+     * Whether the radio is checked.
+     */
+    checked: boolean;
+  };
 
 /**
  * A menu item with a radio control.
@@ -27,7 +31,7 @@ export type RadioMenuItemProps = Pick<
  */
 export const RadioMenuItem = forwardRef<HTMLInputElement, RadioMenuItemProps>(
   function RadioMenuItem(
-    { className, label, onSelect, onFocus, onBlur, checked, disabled },
+    { className, label, onSelect, onFocus, onBlur, onClick, checked, disabled },
     ref,
   ) {
     const toggleId = useId();
@@ -48,6 +52,7 @@ export const RadioMenuItem = forwardRef<HTMLInputElement, RadioMenuItemProps>(
         onSelect={onSelect}
         onFocus={onFocus}
         onBlur={onBlur}
+        onClick={onClick}
         disabled={disabled}
         tabIndex={0}
         Icon={
@@ -59,7 +64,7 @@ export const RadioMenuItem = forwardRef<HTMLInputElement, RadioMenuItemProps>(
             checked={checked}
             disabled={disabled}
             onChange={onChange}
-            style={{pointerEvents: "none"}}
+            style={{ pointerEvents: "none" }}
             tabIndex={-1}
           />
         }
