@@ -1,6 +1,6 @@
 {
   "name": "@vector-im/compound-web",
-  "version": "7.6.4",
+  "version": "7.10.2",
   "description": "Compound components for the Web",
   "type": "module",
   "main": "./dist/index.cjs",

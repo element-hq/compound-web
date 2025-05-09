@@ -15,6 +15,7 @@ import React, {
   SVGAttributes,
   useCallback,
   useContext,
+  MouseEventHandler,
 } from "react";
 import styles from "./MenuItem.module.css";
 import { Text } from "../Typography/Text";
@@ -38,7 +39,7 @@ type Props<C extends MenuItemElement> = {
    * The icon to show on this menu item.
    * When `Icon` is a ReactElement, it should spread the props
    */
-  Icon: ComponentType<SVGAttributes<SVGElement>> | ReactElement;
+  Icon?: ComponentType<SVGAttributes<SVGElement>> | ReactElement;
   /**
    * The label to show on this menu item.
    */
@@ -56,6 +57,11 @@ type Props<C extends MenuItemElement> = {
   // This prop is required because it's rare to not want a selection handler
   onSelect: ((e: Event) => void) | null;
   /**
+   * Event callback for when the item is clicked.
+   * @param e
+   */
+  onClick?: MouseEventHandler<HTMLElementTagNameMap[C]>;
+  /**
    * The color variant of the menu item.
    * @default primary
    */
@@ -65,7 +71,7 @@ type Props<C extends MenuItemElement> = {
    * Whether to hide the chevron navigation hint.
    */
   hideChevron?: boolean;
-} & Omit<ComponentPropsWithoutRef<C>, "onSelect">;
+} & Omit<ComponentPropsWithoutRef<C>, "onSelect" | "onClick">;
 
 /**
  * An item within a menu, acting either as a navigation button, or simply a
@@ -117,6 +123,7 @@ export const MenuItem = <C extends MenuItemElement = "button">({
       className={classnames(className, styles.item, {
         [styles.interactive]: onSelect !== null,
         [styles["no-label"]]: label === null,
+        [styles["no-icon"]]: !Icon,
         [styles["disabled"]]: disabled,
       })}
       data-kind={kind}
@@ -124,16 +131,17 @@ export const MenuItem = <C extends MenuItemElement = "button">({
       disabled={Component === "button" ? disabled : undefined}
       aria-disabled={Component === "button" ? undefined : disabled}
     >
-      {iconIsReactElement ? (
-        <Slot className={styles.icon}>{componentIcon}</Slot>
-      ) : (
-        <SvgIcon
-          width={24}
-          height={24}
-          className={styles.icon}
-          aria-hidden={true}
-        />
-      )}
+      {Icon &&
+        (iconIsReactElement ? (
+          <Slot className={styles.icon}>{componentIcon}</Slot>
+        ) : (
+          <SvgIcon
+            width={24}
+            height={24}
+            className={styles.icon}
+            aria-hidden={true}
+          />
+        ))}
 
       {label !== null && (
         <Text

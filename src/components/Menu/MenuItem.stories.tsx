@@ -59,6 +59,15 @@ export const Example: Story = {
           Third item without a label
         </Text>
       </MenuItemComponent>
+      <MenuItemComponent
+        label="Fourth item without an icon"
+        onSelect={() => {}}
+      />
+      <MenuItemComponent label="Fith item" onSelect={() => {}}>
+        <Text as="span" size="sm">
+          99
+        </Text>
+      </MenuItemComponent>
     </div>
   ),
 };
@@ -132,5 +141,11 @@ export const WithALongLabelAndChildren: Story = {
 export const WithoutChevron: Story = {
   args: {
     hideChevron: true,
+  },
+};
+
+export const WithoutIcon: Story = {
+  args: {
+    Icon: undefined,
   },
 };

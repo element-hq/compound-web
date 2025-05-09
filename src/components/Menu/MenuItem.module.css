@@ -31,6 +31,22 @@ Please see LICENSE files in the repository root for full details.
   grid-template: "icon ." auto / auto 1fr;
 }
 
+.label {
+  grid-area: label;
+  margin-inline-end: var(--cpd-space-4x);
+  text-align: start;
+  word-break: break-word; /* stylelint-disable-line declaration-property-value-keyword-no-deprecated */
+}
+
+.item.no-icon {
+  grid-template: "label ." auto / auto 1fr;
+
+  .label {
+    /* Without icon, the height changes when hovered */
+    min-block-size: 24px;
+  }
+}
+
 .icon {
   grid-area: icon;
   margin-inline-end: var(--cpd-space-3x);
@@ -38,13 +54,6 @@ Please see LICENSE files in the repository root for full details.
 
 .item.no-label .icon {
   margin-inline-end: var(--cpd-space-4x);
-}
-
-.label {
-  grid-area: label;
-  margin-inline-end: var(--cpd-space-4x);
-  text-align: start;
-  word-break: break-word; /* stylelint-disable-line declaration-property-value-keyword-no-deprecated */
 }
 
 .nav-hint {
