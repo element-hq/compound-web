@@ -1,0 +1,9 @@
+import{j as u}from"./jsx-runtime-D_zvdyIk.js";const p={"unread-counter":"_unread-counter_9mg0k_8"};function a({count:e,...c}){return e===null?u.jsx("div",{...c,className:p["unread-counter"]}):u.jsx("span",{...c,className:p["unread-counter"],children:e})}try{a.displayName="UnreadCounter",a.__docgenInfo={description:"",displayName:"UnreadCounter",props:{count:{defaultValue:null,description:"The number to display.\nIf `null`, the counter will be empty.",name:"count",required:!0,type:{name:"string | number | null"}}}}}catch{}const i={title:"ActivityMarker/UnreadCounter",component:a,tags:["autodocs"],argTypes:{count:{description:"The number to display",control:{type:"number"}}},args:{count:4}},s=e=>u.jsx(a,{...e}),r=s.bind({});r.args={};const n=s.bind({});n.args={count:12};const o=s.bind({});o.args={count:123};const t=s.bind({});t.args={count:null};r.parameters={...r.parameters,docs:{...r.parameters?.docs,source:{originalSource:`(args: ComponentProps<typeof UnreadCounterComponent>) => {
+  return <UnreadCounterComponent {...args} />;
+}`,...r.parameters?.docs?.source}}};n.parameters={...n.parameters,docs:{...n.parameters?.docs,source:{originalSource:`(args: ComponentProps<typeof UnreadCounterComponent>) => {
+  return <UnreadCounterComponent {...args} />;
+}`,...n.parameters?.docs?.source}}};o.parameters={...o.parameters,docs:{...o.parameters?.docs,source:{originalSource:`(args: ComponentProps<typeof UnreadCounterComponent>) => {
+  return <UnreadCounterComponent {...args} />;
+}`,...o.parameters?.docs?.source}}};t.parameters={...t.parameters,docs:{...t.parameters?.docs,source:{originalSource:`(args: ComponentProps<typeof UnreadCounterComponent>) => {
+  return <UnreadCounterComponent {...args} />;
+}`,...t.parameters?.docs?.source}}};const m=["Default","DoubleDigit","TripleDigit","NoCount"];export{r as Default,n as DoubleDigit,t as NoCount,o as TripleDigit,m as __namedExportsOrder,i as default};

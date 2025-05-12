@@ -1,0 +1,3 @@
+import{j as t}from"./jsx-runtime-D_zvdyIk.js";const a="_pill_1pem8_8",l={pill:a};function s({children:r,...o}){return t.jsx("span",{...o,className:l.pill,children:r})}try{s.displayName="Pill",s.__docgenInfo={description:"",displayName:"Pill",props:{}}}catch{}const i={title:"ActivityMarker/Pill",component:s,tags:["autodocs"],argTypes:{},args:{children:"Live"}},n=r=>t.jsx(s,{...r}),e=n.bind({});e.args={};e.parameters={...e.parameters,docs:{...e.parameters?.docs,source:{originalSource:`(args: ComponentProps<typeof PillComponent>) => {
+  return <PillComponent {...args} />;
+}`,...e.parameters?.docs?.source}}};const c=["Default"];export{e as Default,c as __namedExportsOrder,i as default};

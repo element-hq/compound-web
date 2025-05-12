@@ -1,0 +1,3 @@
+import{j as t}from"./jsx-runtime-D_zvdyIk.js";const n="_unread_1k06b_8",s={unread:n};function a(r){return t.jsx("div",{...r,className:s.unread,children:t.jsx("div",{})})}try{a.displayName="Unread",a.__docgenInfo={description:"",displayName:"Unread",props:{}}}catch{}const c={title:"ActivityMarker/Unread",component:a,tags:["autodocs"]},o=r=>t.jsx(a,{...r}),e=o.bind({});e.args={};e.parameters={...e.parameters,docs:{...e.parameters?.docs,source:{originalSource:`(args: ComponentProps<typeof UnreadComponent>) => {
+  return <UnreadComponent {...args} />;
+}`,...e.parameters?.docs?.source}}};const p=["Default"];export{e as Default,p as __namedExportsOrder,c as default};
