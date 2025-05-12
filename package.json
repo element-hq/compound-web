@@ -98,7 +98,7 @@
     "stylelint-use-logical": "^2.1.0",
     "stylelint-value-no-unknown-custom-properties": "^6.0.0",
     "typescript": "^5.2.2",
-    "vite": "^5.2.11",
+    "vite": "^6.0.0",
     "vite-plugin-dts": "^4.0.0",
     "vitest": "^2.0.0"
   },
