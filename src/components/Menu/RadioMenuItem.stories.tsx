@@ -12,7 +12,7 @@ import { Menu } from "./Menu.tsx";
 
 type Props = Omit<
   React.ComponentProps<typeof RadioMenuItemComponent>,
-  "Icon" | "label" | "checked" | "onSelect" | "name"
+  "label" | "checked" | "onSelect" | "name"
 >;
 
 const Template: React.FC<Props> = (props: Props) => {
