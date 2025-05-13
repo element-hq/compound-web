@@ -8,6 +8,7 @@
 import React, { useState } from "react";
 import { RadioMenuItem as RadioMenuItemComponent } from "./RadioMenuItem.tsx";
 import { Meta, StoryObj } from "@storybook/react";
+import { Menu } from "./Menu.tsx";
 
 type Props = Omit<
   React.ComponentProps<typeof RadioMenuItemComponent>,
@@ -17,7 +18,8 @@ type Props = Omit<
 const Template: React.FC<Props> = (props: Props) => {
   const [selected, setSelected] = useState<"first" | "second">("first");
   return (
-    <div style={{ width: 300 }}>
+    // This needs to be wrapped in a proper menu for redix to apply the correct keyboard navigation
+    <Menu title="A menu" open={true} onOpenChange={() => {}} trigger={<span />}>
       <RadioMenuItemComponent
         {...props}
         label="First item"
@@ -43,7 +45,7 @@ const Template: React.FC<Props> = (props: Props) => {
         disabled
         onSelect={() => {}}
       />
-    </div>
+    </Menu>
   );
 };
 
