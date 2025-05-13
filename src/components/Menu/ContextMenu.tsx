@@ -27,6 +27,11 @@ interface Props {
    */
   title: string;
   /**
+   * Wether the title is displayed.
+   * @default true
+   */
+  showTitle?: boolean;
+  /**
    * Event handler called when the open state of the menu changes.
    */
   onOpenChange?: (open: boolean) => void;
@@ -63,6 +68,7 @@ const ContextMenuItemWrapper: FC<MenuItemWrapperProps> = ({
  */
 export const ContextMenu: FC<Props> = ({
   title,
+  showTitle = true,
   onOpenChange: onOpenChangeProp,
   trigger: triggerProp,
   hasAccessibleAlternative,
@@ -125,7 +131,9 @@ export const ContextMenu: FC<Props> = ({
       {trigger}
       <Portal>
         <Content asChild>
-          <FloatingMenu title={title}>{children}</FloatingMenu>
+          <FloatingMenu showTitle={showTitle} title={title}>
+            {children}
+          </FloatingMenu>
         </Content>
       </Portal>
     </Root>

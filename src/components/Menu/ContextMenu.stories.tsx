@@ -76,3 +76,8 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const ContextMenu: Story = { args: {} };
+export const ContextMenuWithoutTitle: Story = {
+  args: {
+    showTitle: false,
+  },
+};
