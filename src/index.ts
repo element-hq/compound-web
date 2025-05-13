@@ -34,10 +34,12 @@ export { Link } from "./components/Link/Link";
 export { NavBar, NavItem } from "./components/Nav";
 export { Menu } from "./components/Menu/Menu";
 export { MenuItem } from "./components/Menu/MenuItem";
+export { MenuTitle } from "./components/Menu/MenuTitle";
 export { Progress } from "./components/Progress/Progress";
 export { Search } from "./components/Search/Search";
 export { Separator } from "./components/Separator/Separator";
 export { ToggleMenuItem } from "./components/Menu/ToggleMenuItem";
+export { CheckboxMenuItem } from "./components/Menu/CheckboxMenuItem";
 export { Tooltip } from "./components/Tooltip/Tooltip";
 export { TooltipProvider } from "./components/Tooltip/TooltipProvider";
 export { ReleaseAnnouncement } from "./components/ReleaseAnnouncement";
@@ -47,6 +49,7 @@ export { InlineSpinner } from "./components/InlineSpinner";
 export { Breadcrumb } from "./components/Breadcrumb";
 export { VisualList, VisualListItem } from "./components/VisualList";
 export { ChatFilter } from "./components/ChatFilter";
+export { UnreadCounter, Pill, Unread } from "./components/ActivityMarker";
 
 export {
   TextControl,

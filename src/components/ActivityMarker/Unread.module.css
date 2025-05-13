@@ -1,0 +1,19 @@
+/*
+ * Copyright 2025 New Vector Ltd
+ *
+ * SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-Element-Commercial
+ * Please see LICENSE files in the repository root for full details.
+ */
+
+.unread {
+  inline-size: 20px;
+  display: flex;
+  justify-content: center;
+
+  div {
+    block-size: 8px;
+    inline-size: 8px;
+    background-color: var(--cpd-color-icon-secondary);
+    border-radius: 100%;
+  }
+}
