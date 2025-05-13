@@ -13,6 +13,7 @@ export default defineConfig({
       // This makes sure to keep the file structure in the output `dist` folder
       // the same as the input `src` folder
       fileName: "[name]",
+      cssFileName: "style.css",
     },
 
     target: browserslistToEsbuild(),
