@@ -5,6 +5,11 @@ interface Props {
      */
     title: string;
     /**
+     * Wether the title is displayed.
+     * @default true
+     */
+    showTitle?: boolean;
+    /**
      * Event handler called when the open state of the menu changes.
      */
     onOpenChange?: (open: boolean) => void;
