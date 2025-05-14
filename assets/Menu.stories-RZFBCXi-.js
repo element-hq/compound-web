@@ -1,0 +1,10 @@
+import{j as t}from"./jsx-runtime-D_zvdyIk.js";import{r as m}from"./index-BKyFwriW.js";import{U as p}from"./user-profile-Cv-igaOS.js";import{N as s,C as c,L as l}from"./notifications-CK_M8Igr.js";import{M as u}from"./Menu-Bjs1lUxp.js";import{M as e}from"./MenuItem-BZD_SHT7.js";import{S as d}from"./Separator-h67haxAA.js";import{B as f}from"./Button-F_dPoep3.js";import{M as g}from"./MenuTitle-BE4xF70f.js";import"./_commonjsHelpers-CqkleIqs.js";import"./index-BRw1A0gZ.js";import"./index-C66SyY0f.js";import"./index-CKTwuSvb.js";import"./index-aRh3YD1W.js";import"./floating-ui.react-dom-6ZVBEX4r.js";import"./index-D77-yIvl.js";import"./index-DQw2Bw4b.js";import"./index-BwBOz17u.js";import"./FloatingMenu-B3fbnaHb.js";import"./index-FGJkmGnF.js";import"./DrawerMenu-BQL79dXw.js";import"./Text-CBxtQn4u.js";import"./Typography-B085WH0_.js";import"./chevron-right-CV8n5cvu.js";import"./floating-ui.react-CUHBVVHR.js";import"./UnstyledButton-CpKE2ZH4.js";const x=a=>{const[i,n]=m.useState(!0);return t.jsxs(u,{...a,open:i,onOpenChange:n,trigger:t.jsx(f,{children:"Open menu"}),align:"start",children:[t.jsx(e,{Icon:p,label:"Profile",onSelect:()=>{}}),t.jsx(e,{Icon:s,label:"Notifications",onSelect:()=>{}}),t.jsx(g,{title:"Other section"}),t.jsx(e,{Icon:s,label:"Other Notifications",onSelect:()=>{}}),t.jsx(e,{Icon:c,label:"Feedback",onSelect:()=>{}}),t.jsx(d,{}),t.jsx(e,{kind:"critical",Icon:l,label:"Sign out",onSelect:()=>{}})]})},A={title:"Menu",component:x,tags:["autodocs"],argTypes:{},args:{}},o={args:{title:"Today's Menu"}},r={args:{title:"Untitled Menu",showTitle:!1}};o.parameters={...o.parameters,docs:{...o.parameters?.docs,source:{originalSource:`{
+  args: {
+    title: "Today's Menu"
+  }
+}`,...o.parameters?.docs?.source}}};r.parameters={...r.parameters,docs:{...r.parameters?.docs,source:{originalSource:`{
+  args: {
+    title: "Untitled Menu",
+    showTitle: false
+  }
+}`,...r.parameters?.docs?.source}}};const D=["Menu","WithoutTitle"];export{o as Menu,r as WithoutTitle,D as __namedExportsOrder,A as default};
