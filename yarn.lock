@@ -1392,10 +1392,10 @@
     dequal "^2.0.2"
     ts-dedent "^2.0.0"
 
-"@storybook/addon-designs@8.0.4":
-  version "8.0.4"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-designs/-/addon-designs-8.0.4.tgz#354de98ea99e5feed5f77cfca52766dd246243af"
-  integrity sha512-BrEWks1BRnZis2e8OoE1LhFS+x2d094Tzpbb3jQBve2IfDv/X006RSuy1WyplNxskdYdBESCH45MlRn4lhP5ew==
+"@storybook/addon-designs@10.0.1":
+  version "10.0.1"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-designs/-/addon-designs-10.0.1.tgz#20c12e848fe05181784a1b12d4f7e8b03ef12e35"
+  integrity sha512-R+C9DRN7nYmPpPSMXzDNmdDY9XEclH90CYvSbCntNvizazlAUnZnkOaO0Bko/UK7guC+eEQ0bFYaxxndYu+dsA==
   dependencies:
     "@figspec/react" "^1.0.0"
 
