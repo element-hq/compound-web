@@ -1680,10 +1680,10 @@
   resolved "https://registry.yarnpkg.com/@tsconfig/node20/-/node20-20.1.4.tgz#3457d42eddf12d3bde3976186ab0cd22b85df928"
   integrity sha512-sqgsT69YFeLWf5NtJ4Xq/xAF8p4ZQHlmGW74Nu2tD4+g5fAsposc4ZfaaPixVu4y01BEiDCWLRDCvDM5JOsRxg==
 
-"@tsconfig/vite-react@^3.0.0":
-  version "3.4.0"
-  resolved "https://registry.yarnpkg.com/@tsconfig/vite-react/-/vite-react-3.4.0.tgz#f2ba30fb44372f267da1724036fd5e8945c5858c"
-  integrity sha512-NxS7WJayciLI+UnCgEqdBfQrZebvVNTSEj5EnaitwThL7iAso5G8wx18B/6yypCFGnyu8p6IMpKWu6JklOX3KA==
+"@tsconfig/vite-react@^6.0.0":
+  version "6.3.5"
+  resolved "https://registry.yarnpkg.com/@tsconfig/vite-react/-/vite-react-6.3.5.tgz#dd2fc0052264c19cfc35f74b9552810ba9f026c2"
+  integrity sha512-1JDbtNCgexy5HuQdBkFHv38u5j79XWI1KWs6Jxwnm9i2rD1IPWyzlPqh4vgsAiRu1Zy1d26wxxSJYVqGaDJ+PQ==
 
 "@types/argparse@1.0.38":
   version "1.0.38"
