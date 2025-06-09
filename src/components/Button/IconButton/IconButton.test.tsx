@@ -19,7 +19,8 @@ const {
   WithSuccessIndicator,
   WithCriticalIndicator,
   WithIndicatorDisabled,
-  WithSubtleBackground,
+  WithSecondaryKind,
+  WithSecondaryKindAndNoBackground,
 } = composeStories(stories);
 
 describe("IconButton", () => {
@@ -47,8 +48,12 @@ describe("IconButton", () => {
     const { container } = render(<WithIndicatorDisabled />);
     expect(container).toMatchSnapshot();
   });
-  it("renders a WithSubtleBackground IconButton", () => {
-    const { container } = render(<WithSubtleBackground />);
+  it("renders a WithSecondaryKind IconButton", () => {
+    const { container } = render(<WithSecondaryKind />);
+    expect(container).toMatchSnapshot();
+  });
+  it("renders a WithSecondaryKindAndNoBackground IconButton", () => {
+    const { container } = render(<WithSecondaryKindAndNoBackground />);
     expect(container).toMatchSnapshot();
   });
 });
