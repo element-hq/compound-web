@@ -23,13 +23,15 @@ Please see LICENSE files in the repository root for full details.
   position: relative;
   background: transparent;
   line-height: 0px;
+}
 
+.icon-button[data-kind="primary"] {
   * {
     color: var(--cpd-color-icon-tertiary);
   }
 }
 
-.subtle-bg {
+.icon-button[data-kind="secondary"] {
   background: var(--cpd-color-bg-subtle-secondary);
 
   * {

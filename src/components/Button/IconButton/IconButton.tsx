@@ -15,6 +15,10 @@ import { Tooltip } from "../../Tooltip/Tooltip";
 
 type IconButtonProps = UnstyledButtonPropsFor<"button"> & {
   /**
+   * The type of button.
+   */
+  kind?: "primary" | "secondary";
+  /**
    * The CSS class name.
    */
   className?: string;
@@ -42,7 +46,6 @@ type IconButtonProps = UnstyledButtonPropsFor<"button"> & {
    * Optional tooltip for the button
    */
   tooltip?: string;
-  subtleBackground?: boolean;
 };
 
 /**
@@ -53,6 +56,7 @@ export const IconButton = forwardRef<
   PropsWithChildren<IconButtonProps>
 >(function IconButton(
   {
+    kind = "primary",
     children,
     className,
     indicator,
@@ -61,14 +65,12 @@ export const IconButton = forwardRef<
     disabled,
     destructive,
     tooltip,
-    subtleBackground,
     ...props
   },
   ref,
 ) {
   const classes = classnames(styles["icon-button"], className, {
     [styles.destructive]: destructive,
-    [styles["subtle-bg"]]: subtleBackground,
   });
 
   const button = (
@@ -85,6 +87,7 @@ export const IconButton = forwardRef<
       disabled={disabled}
       {...props}
       data-indicator={indicator}
+      data-kind={kind}
     >
       <IndicatorIcon
         indicator={indicator}
