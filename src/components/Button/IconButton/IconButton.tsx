@@ -46,6 +46,10 @@ type IconButtonProps = UnstyledButtonPropsFor<"button"> & {
    * Optional tooltip for the button
    */
   tooltip?: string;
+  /**
+   * Hide the background when the button is not active or hovered.
+   */
+  noBackground?: boolean;
 };
 
 /**
@@ -65,12 +69,14 @@ export const IconButton = forwardRef<
     disabled,
     destructive,
     tooltip,
+    noBackground = false,
     ...props
   },
   ref,
 ) {
   const classes = classnames(styles["icon-button"], className, {
     [styles.destructive]: destructive,
+    [styles["no-background"]]: noBackground,
   });
 
   const button = (

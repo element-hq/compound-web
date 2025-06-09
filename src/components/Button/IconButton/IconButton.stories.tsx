@@ -96,6 +96,13 @@ export const WithSecondaryKind: Story = {
   },
 };
 
+export const WithSecondaryKindAndNoBackground: Story = {
+  args: {
+    kind: "secondary",
+    noBackground: true,
+  },
+};
+
 export const WithLabel: Story = {
   decorators: [
     (Story) => (

@@ -39,6 +39,10 @@ Please see LICENSE files in the repository root for full details.
   }
 }
 
+.no-background[data-kind="secondary"] {
+  background: transparent;
+}
+
 .icon-button[aria-disabled="true"] {
   cursor: not-allowed;
 
