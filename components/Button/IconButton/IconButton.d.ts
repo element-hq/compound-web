@@ -2,6 +2,11 @@ import { default as React } from '../../../../node_modules/react';
 import { UnstyledButtonPropsFor } from '../UnstyledButton';
 type IconButtonProps = UnstyledButtonPropsFor<"button"> & {
     /**
+     * The type of button.
+     * @default "primary"
+     */
+    kind?: "primary" | "secondary";
+    /**
      * The CSS class name.
      */
     className?: string;
@@ -29,7 +34,11 @@ type IconButtonProps = UnstyledButtonPropsFor<"button"> & {
      * Optional tooltip for the button
      */
     tooltip?: string;
-    subtleBackground?: boolean;
+    /**
+     * Hide the background when the button is not active or hovered.
+     * @default false
+     */
+    noBackground?: boolean;
 };
 /**
  * Display an icon as a button. Can render an indicator
