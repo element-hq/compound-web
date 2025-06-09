@@ -16,6 +16,7 @@ import { Tooltip } from "../../Tooltip/Tooltip";
 type IconButtonProps = UnstyledButtonPropsFor<"button"> & {
   /**
    * The type of button.
+   * @default "primary"
    */
   kind?: "primary" | "secondary";
   /**
@@ -48,6 +49,7 @@ type IconButtonProps = UnstyledButtonPropsFor<"button"> & {
   tooltip?: string;
   /**
    * Hide the background when the button is not active or hovered.
+   * @default false
    */
   noBackground?: boolean;
 };
