@@ -16,7 +16,6 @@ Please see LICENSE files in the repository root for full details.
   /* the icon is 0.75 the size of the button, so add padding to put it in the middle */
   padding: calc(var(--cpd-icon-button-size) * 0.125);
   aspect-ratio: 1 / 1;
-  color: var(--cpd-color-icon-tertiary);
   border: 0;
   appearance: none;
   cursor: pointer;
@@ -26,14 +25,30 @@ Please see LICENSE files in the repository root for full details.
   line-height: 0px;
 }
 
-.subtle-bg {
-  color: var(--cpd-color-icon-secondary);
+.icon-button[data-kind="primary"] {
+  * {
+    color: var(--cpd-color-icon-tertiary);
+  }
+}
+
+.icon-button[data-kind="secondary"] {
   background: var(--cpd-color-bg-subtle-secondary);
+
+  * {
+    color: var(--cpd-color-icon-secondary);
+  }
+}
+
+.no-background[data-kind="secondary"] {
+  background: transparent;
 }
 
 .icon-button[aria-disabled="true"] {
-  color: var(--cpd-color-icon-disabled);
   cursor: not-allowed;
+
+  * {
+    color: var(--cpd-color-icon-disabled);
+  }
 }
 
 /**
@@ -42,14 +57,20 @@ Please see LICENSE files in the repository root for full details.
 
 @media (hover) {
   .icon-button:not([aria-disabled="true"]):hover {
-    color: var(--cpd-color-icon-primary);
     background: var(--cpd-color-bg-subtle-primary);
+
+    * {
+      color: var(--cpd-color-icon-primary);
+    }
   }
 }
 
 .icon-button:not([aria-disabled="true"]):active {
-  color: var(--cpd-color-icon-primary);
   background: var(--cpd-color-bg-subtle-primary);
+
+  * {
+    color: var(--cpd-color-icon-primary);
+  }
 }
 
 @media (hover) {
@@ -72,11 +93,13 @@ Please see LICENSE files in the repository root for full details.
 
 @media (hover) {
   .icon-button:not([aria-disabled="true"]).destructive:hover {
-    background: var(--cpd-color-bg-critical-subtle);
+    background: var(--cpd-color-bg-critical-subtle-hovered);
     outline: 1px solid var(--cpd-color-border-critical-subtle);
   }
 }
 
-.icon-button:not([aria-disabled="true"]).destructive > * {
-  color: var(--cpd-color-icon-critical-primary);
+.icon-button:not([aria-disabled="true"]).destructive {
+  * {
+    color: var(--cpd-color-icon-critical-primary);
+  }
 }

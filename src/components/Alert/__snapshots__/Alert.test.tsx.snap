@@ -67,6 +67,7 @@ exports[`Alert > renders actions 1`] = `
     <button
       aria-label="Close"
       class="_icon-button_e3253e _close_6cfd7b"
+      data-kind="primary"
       role="button"
       style="--cpd-icon-button-size: 32px;"
       tabindex="0"
@@ -132,6 +133,7 @@ exports[`Alert > renders critical 1`] = `
     <button
       aria-label="Close"
       class="_icon-button_e3253e _close_6cfd7b"
+      data-kind="primary"
       role="button"
       style="--cpd-icon-button-size: 32px;"
       tabindex="0"
@@ -202,6 +204,7 @@ exports[`Alert > renders info 1`] = `
     <button
       aria-label="Close"
       class="_icon-button_e3253e _close_6cfd7b"
+      data-kind="primary"
       role="button"
       style="--cpd-icon-button-size: 32px;"
       tabindex="0"
@@ -267,6 +270,7 @@ exports[`Alert > renders success 1`] = `
     <button
       aria-label="Close"
       class="_icon-button_e3253e _close_6cfd7b"
+      data-kind="primary"
       role="button"
       style="--cpd-icon-button-size: 32px;"
       tabindex="0"

@@ -21,12 +21,18 @@ const meta = {
   argTypes: {
     disabled: { type: "boolean" },
     onClick: { action: "onClick" },
+    kind: {
+      type: "string",
+      control: { type: "select" },
+      options: ["primary", "secondary"],
+    },
   },
   args: {
     size: "32px",
     disabled: false,
     children: <UserIcon />,
     onClick: fn(),
+    kind: "primary",
   },
 } satisfies Meta<typeof IconButtonComponent>;
 export default meta;
@@ -84,9 +90,16 @@ export const WithCriticalIndicator: Story = {
   },
 };
 
-export const WithSubtleBackground: Story = {
+export const WithSecondaryKind: Story = {
   args: {
-    subtleBackground: true,
+    kind: "secondary",
+  },
+};
+
+export const WithSecondaryKindAndNoBackground: Story = {
+  args: {
+    kind: "secondary",
+    noBackground: true,
   },
 };
 

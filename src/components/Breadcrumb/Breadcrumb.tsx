@@ -48,7 +48,7 @@ export function Breadcrumb({
   return (
     <nav className={classNames(styles.breadcrumb, className)} {...props}>
       <IconButton
-        subtleBackground={true}
+        kind="secondary"
         size="28px"
         aria-label={backLabel}
         onClick={onBackClick}

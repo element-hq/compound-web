@@ -6,7 +6,8 @@ exports[`Breadcrumb > should render 1`] = `
 >
   <button
     aria-label="Back"
-    class="_icon-button_e3253e _subtle-bg_e3253e"
+    class="_icon-button_e3253e"
+    data-kind="secondary"
     role="button"
     style="--cpd-icon-button-size: 28px;"
     tabindex="0"
