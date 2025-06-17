@@ -56,7 +56,9 @@ export const SettingsToggleInput = forwardRef<
     >
       <Label>{label}</Label>
       {helpMessage && <HelpMessage>{helpMessage}</HelpMessage>}
-      {(disabledMessage && props.disabled) && <HelpMessage>{disabledMessage}</HelpMessage>}
+      {disabledMessage && props.disabled && (
+        <HelpMessage>{disabledMessage}</HelpMessage>
+      )}
     </InlineField>
   );
   return content;

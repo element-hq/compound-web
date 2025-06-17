@@ -16,14 +16,15 @@ const meta = {
   component: SettingsToggleInput,
   decorators: [
     (Story) => (
-        <Form>
-          <Story />
-        </Form>
+      <Form>
+        <Story />
+      </Form>
     ),
   ],
   tags: ["autodocs"],
   argTypes: {},
   args: {
+    name: '"any-name"',
     label: "Setting name",
     helpMessage: "This is some help text to explain what this setting does.",
   },
