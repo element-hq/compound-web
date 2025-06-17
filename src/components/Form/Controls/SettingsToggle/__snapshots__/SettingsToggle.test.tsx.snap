@@ -1,0 +1,35 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Toggle > renders 1`] = `
+<DocumentFragment>
+  <form>
+    <div
+      class="_inline-field_dc87d2"
+    >
+      <div
+        class="_inline-field-control_dc87d2"
+      >
+        <div
+          class="_container_adcb29"
+        >
+          <input
+            class="_input_adcb29"
+            type="checkbox"
+          />
+          <div
+            class="_ui_adcb29"
+          />
+        </div>
+      </div>
+      <div
+        class="_inline-field-body_dc87d2"
+      >
+        <label
+          class="_label_dc87d2"
+          for="radix-:r0:"
+        />
+      </div>
+    </div>
+  </form>
+</DocumentFragment>
+`;

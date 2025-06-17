@@ -9,7 +9,6 @@ import { Meta, StoryObj } from "@storybook/react";
 
 import { SettingsToggleInput } from "./SettingsToggle";
 import { Form } from "@radix-ui/react-form";
-import { TooltipProvider } from "../../../Tooltip/TooltipProvider";
 import React from "react";
 
 const meta = {
@@ -17,11 +16,9 @@ const meta = {
   component: SettingsToggleInput,
   decorators: [
     (Story) => (
-      <TooltipProvider>
         <Form>
           <Story />
         </Form>
-      </TooltipProvider>
     ),
   ],
   tags: ["autodocs"],
