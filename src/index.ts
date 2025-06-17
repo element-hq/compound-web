@@ -85,6 +85,8 @@ export {
   InlineField,
   Label,
   EditInPlace,
+  SettingsToggleInput,
+  SettingsToggleControl,
 } from "./components/Form";
 export * as Form from "./components/Form";
 

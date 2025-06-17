@@ -1,18 +1,22 @@
 /*
 Copyright 2025 New Vector Ltd.
-Copyright 2023 The Matrix.org Foundation C.I.C.
-Copyright 2023 New Vector Ltd
 
 SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-Element-Commercial
 Please see LICENSE files in the repository root for full details.
 */
 
-import { ComponentProps, forwardRef, PropsWithChildren } from "react";
+import {
+  ComponentProps,
+  ComponentRef,
+  forwardRef,
+  PropsWithChildren,
+} from "react";
 import { ToggleInput } from "../Toggle";
 import { Label } from "../../Label";
 import { HelpMessage } from "../../Message";
 import { InlineField } from "../../InlineField";
 import React from "react";
+import { Control } from "@radix-ui/react-form";
 
 type SettingsToggleProps = {
   /**
@@ -46,4 +50,18 @@ export const SettingsToggleInput = forwardRef<
     </InlineField>
   );
   return content;
+});
+
+/**
+ * A styled checkbox input wrapped in a `Control` component, for use in Radix forms.
+ */
+export const SettingsToggleControl = forwardRef<
+  ComponentRef<typeof SettingsToggleInput>,
+  ComponentProps<typeof SettingsToggleInput>
+>(function ToggleControl(props, ref) {
+  return (
+    <Control asChild>
+      <SettingsToggleInput ref={ref} {...props} />
+    </Control>
+  );
 });
