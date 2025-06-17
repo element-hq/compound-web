@@ -1,4 +1,4 @@
-export { ActionControl, ActionInput, PasswordControl, PasswordInput, TextControl, TextInput, MFAControl, MFAInput, CheckboxControl, CheckboxInput, RadioControl, RadioInput, ToggleControl, ToggleInput, EditInPlace, } from './Controls';
+export { ActionControl, ActionInput, PasswordControl, PasswordInput, TextControl, TextInput, MFAControl, MFAInput, CheckboxControl, CheckboxInput, RadioControl, RadioInput, ToggleControl, ToggleInput, EditInPlace, SettingsToggleInput, SettingsToggleControl, } from './Controls';
 export { Root } from './Root';
 export { Field } from './Field';
 export { InlineField } from './InlineField';
