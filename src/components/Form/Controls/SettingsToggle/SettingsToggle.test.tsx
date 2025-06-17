@@ -13,7 +13,15 @@ import { Form } from "@radix-ui/react-form";
 
 describe("Toggle", () => {
   it("renders", () => {
-    const { asFragment } = render(<Form><SettingsToggleInput /></Form>);
+    const { asFragment } = render(<Form><SettingsToggleInput name="simple_setting" label="Simple setting" /></Form>);
+    expect(asFragment()).toMatchSnapshot();
+  });
+  it("renders with a help message", () => {
+    const { asFragment } = render(<Form><SettingsToggleInput name="simple_setting" label="Simple setting" helpMessage="A simple setting to control things"/></Form>);
     expect(asFragment()).toMatchSnapshot();
   });
 });
+  it.each([true, false])("renders with a disabled message (disabled=%s)", (disabled) => {
+    const { asFragment } = render(<Form><SettingsToggleInput name="simple_setting" label="Simple setting" disabled={disabled} helpMessage="A simple setting to control things" disabledMessage="This is disabled."/></Form>);
+    expect(asFragment()).toMatchSnapshot();
+  });

@@ -20,11 +20,21 @@ import { Control } from "@radix-ui/react-form";
 
 type SettingsToggleProps = {
   /**
-   * The CSS class name.
+   * The CSS class name for the containing field.
    */
   className?: string;
-  label?: string;
+  /**
+   * The field name.
+   */
+  name: string;
+  label: string;
+  /**
+   * Optional help text to display below the setting.
+   */
   helpMessage?: string;
+  /**
+   * Optional help text to display below the setting.
+   */
   disabledMessage?: string;
 } & Omit<ComponentProps<typeof ToggleInput>, "type">;
 
@@ -35,18 +45,18 @@ export const SettingsToggleInput = forwardRef<
   HTMLInputElement,
   PropsWithChildren<SettingsToggleProps>
 >(function Toggle(
-  { className, label, helpMessage, disabledMessage, ...props },
+  { className, label, helpMessage, disabledMessage, name, ...props },
   ref,
 ) {
   const content = (
     <InlineField
       className={className}
-      name="foo"
+      name={name}
       control={<ToggleInput ref={ref} {...props} />}
     >
       <Label>{label}</Label>
       {helpMessage && <HelpMessage>{helpMessage}</HelpMessage>}
-      {disabledMessage && <HelpMessage>{disabledMessage}</HelpMessage>}
+      {(disabledMessage && props.disabled) && <HelpMessage>{disabledMessage}</HelpMessage>}
     </InlineField>
   );
   return content;
