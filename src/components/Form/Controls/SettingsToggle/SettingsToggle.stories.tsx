@@ -27,8 +27,8 @@ const meta = {
   tags: ["autodocs"],
   argTypes: {},
   args: {
-    label: "Example setting",
-    helpMessage: "Optional help message",
+    label: "Setting name",
+    helpMessage: "This is some help text to explain what this setting does.",
   },
 } satisfies Meta<typeof SettingsToggleInput>;
 export default meta;
@@ -42,7 +42,7 @@ export const Unchecked: Story = {
   parameters: {
     design: {
       type: "figma",
-      url: "https://www.figma.com/file/rTaQE2nIUSLav4Tg3nozq7/Compound-Web-Components?type=design&node-id=119-249",
+      url: "https://www.figma.com/design/qTWRfItpO3RdCjnTKPu4mL/Settings?node-id=97-15874",
     },
   },
 };
@@ -54,7 +54,7 @@ export const Checked: Story = {
   parameters: {
     design: {
       type: "figma",
-      url: "https://www.figma.com/file/rTaQE2nIUSLav4Tg3nozq7/Compound-Web-Components?type=design&node-id=119-252",
+      url: "https://www.figma.com/design/qTWRfItpO3RdCjnTKPu4mL/Settings?node-id=97-15874",
     },
   },
 };
@@ -62,14 +62,12 @@ export const Checked: Story = {
 export const DisabledUnchecked: Story = {
   args: {
     disabled: true,
-    label: "Enable Threads 2.0",
-    helpMessage: "This changes the way threads work in your client.",
-    disabledMessage: "Sorry, your homeserver does not support this feature.",
+    disabledMessage: "This feature isn't available to you right now.",
   },
   parameters: {
     design: {
       type: "figma",
-      url: "https://www.figma.com/file/rTaQE2nIUSLav4Tg3nozq7/Compound-Web-Components?type=design&node-id=119-261",
+      url: "https://www.figma.com/design/qTWRfItpO3RdCjnTKPu4mL/Settings?node-id=149-38574",
     },
   },
 };
@@ -78,48 +76,12 @@ export const DisabledChecked: Story = {
   args: {
     disabled: true,
     defaultChecked: true,
+    disabledMessage: "This feature cannot be disabled.",
   },
   parameters: {
     design: {
       type: "figma",
-      url: "https://www.figma.com/file/rTaQE2nIUSLav4Tg3nozq7/Compound-Web-Components?type=design&node-id=119-264",
-    },
-  },
-};
-
-export const ReadonlyUnchecked: Story = {
-  args: {
-    readOnly: true,
-  },
-  parameters: {
-    design: {
-      type: "figma",
-      url: "https://www.figma.com/file/rTaQE2nIUSLav4Tg3nozq7/Compound-Web-Components?type=design&node-id=2457-26212",
-    },
-  },
-};
-
-export const ReadonlyChecked: Story = {
-  args: {
-    readOnly: true,
-    defaultChecked: true,
-  },
-  parameters: {
-    design: {
-      type: "figma",
-      url: "https://www.figma.com/file/rTaQE2nIUSLav4Tg3nozq7/Compound-Web-Components?type=design&node-id=2457-26215",
-    },
-  },
-};
-
-export const Focused: Story = {
-  args: {
-    autoFocus: true,
-  },
-  parameters: {
-    design: {
-      type: "figma",
-      url: "https://www.figma.com/file/rTaQE2nIUSLav4Tg3nozq7/Compound-Web-Components?type=design&node-id=119-267",
+      url: "https://www.figma.com/design/qTWRfItpO3RdCjnTKPu4mL/Settings?node-id=149-38574",
     },
   },
 };
