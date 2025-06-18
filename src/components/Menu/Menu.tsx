@@ -64,6 +64,11 @@ interface Props {
    * @default center
    */
   align?: "start" | "center" | "end";
+  /**
+   * Focus the trigger when the menu closes.
+   * @default false
+   */
+  focusTriggerOnClose?: boolean;
 }
 
 const DropdownMenuItemWrapper: FC<MenuItemWrapperProps> = ({
@@ -87,6 +92,7 @@ export const Menu: FC<Props> = ({
   children: childrenProp,
   side = "bottom",
   align = "center",
+  focusTriggerOnClose = false,
 }) => {
   // Normally, the menu takes the form of a floating box. But on Android and
   // iOS, the menu should morph into a drawer
@@ -123,9 +129,11 @@ export const Menu: FC<Props> = ({
           align={align}
           sideOffset={8}
           onCloseAutoFocus={(event) => {
-            // https://www.radix-ui.com/primitives/docs/components/dropdown-menu#content => onCloseAutoFocus
-            // Prevent the default behavior of focusing the trigger when the menu closes
-            event.preventDefault();
+            if (!focusTriggerOnClose) {
+              // https://www.radix-ui.com/primitives/docs/components/dropdown-menu#content => onCloseAutoFocus
+              // Prevent the default behavior of focusing the trigger when the menu closes
+              event.preventDefault();
+            }
           }}
         >
           <FloatingMenu title={title} showTitle={showTitle}>
