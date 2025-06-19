@@ -74,7 +74,3 @@ export const Menu: Story = { args: { title: "Today's Menu" } };
 export const WithoutTitle = {
   args: { title: "Untitled Menu", showTitle: false },
 };
-
-export const FocusTriggerOnClose = {
-  args: { focusTriggerOnClose: true },
-};
