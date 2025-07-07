@@ -49,7 +49,8 @@ export const SettingsToggleInput = forwardRef<
   { className, label, helpMessage, disabledMessage, name, ...props },
   ref,
 ) {
-  const id = props.id ?? useId();
+  const generatedId = useId();
+  const id = props.id ?? generatedId;
   const content = (
     <InlineField
       className={className}
