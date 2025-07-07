@@ -29,5 +29,13 @@ export default defineConfig({
     url: baseUrl,
     reuseExistingServer: !process.env.CI,
   },
-  reporter: "html",
+  reporter: process.env.CI
+    ? [
+        ["html"],
+        ["github"],
+        [
+          "@element-hq/element-web-playwright-common/lib/stale-screenshot-reporter.js",
+        ],
+      ]
+    : [["html"]],
 });

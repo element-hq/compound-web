@@ -5,7 +5,8 @@ SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-Element-Commercial
 Please see LICENSE files in the repository root for full details.
 */
 
-import { expect, test } from "@playwright/test";
+import { test } from "@playwright/test";
+import { expect } from "@element-hq/element-web-playwright-common";
 import fs from "fs";
 
 interface StoryEntry {
@@ -38,12 +39,19 @@ const stories = JSON.parse(fs.readFileSync(storiesPath, "utf8"))
 for (const story of Object.values(stories)) {
   // Ignore things that are not stories (e.g. doc pages)
   if (story.type === "story") {
-    test(`${story.title} ${story.name}`, async ({ page }) => {
-      const search = new URLSearchParams({ viewMode: "story", id: story.id });
-      await page.goto(`iframe.html?${search.toString()}`, {
-        waitUntil: "networkidle",
-      });
-      await expect(page).toHaveScreenshot({ fullPage: true });
-    });
+    test(
+      `${story.title} ${story.name}`,
+      { tag: "@screenshot" },
+      async ({ page }) => {
+        const search = new URLSearchParams({ viewMode: "story", id: story.id });
+        await page.goto(`iframe.html?${search.toString()}`, {
+          waitUntil: "networkidle",
+        });
+        await expect(page).toMatchScreenshot(
+          `${story.title}-${story.name}-1.png`,
+          { fullPage: true },
+        );
+      },
+    );
   }
 }

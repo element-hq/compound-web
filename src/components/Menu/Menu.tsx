@@ -117,17 +117,7 @@ export const Menu: FC<Props> = ({
     <Root open={open} onOpenChange={onOpenChange}>
       <Trigger asChild>{trigger}</Trigger>
       <Portal>
-        <Content
-          asChild
-          side={side}
-          align={align}
-          sideOffset={8}
-          onCloseAutoFocus={(event) => {
-            // https://www.radix-ui.com/primitives/docs/components/dropdown-menu#content => onCloseAutoFocus
-            // Prevent the default behavior of focusing the trigger when the menu closes
-            event.preventDefault();
-          }}
-        >
+        <Content asChild side={side} align={align} sideOffset={8}>
           <FloatingMenu title={title} showTitle={showTitle}>
             {children}
           </FloatingMenu>
