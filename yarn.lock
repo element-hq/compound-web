@@ -2055,10 +2055,10 @@
   resolved "https://registry.yarnpkg.com/@ungap/structured-clone/-/structured-clone-1.2.0.tgz#756641adb587851b5ccb3e095daf27ae581c8406"
   integrity sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==
 
-"@vector-im/compound-design-tokens@^4.0.0":
-  version "4.0.4"
-  resolved "https://registry.yarnpkg.com/@vector-im/compound-design-tokens/-/compound-design-tokens-4.0.4.tgz#0bd9aa33cfe7fe29e3a6431b9f5874ccb694f6be"
-  integrity sha512-nn62mF6Js/h75zpHcmDccrT3qtCwxcDm6gWqBZpOoSD0lBcMCinBnpAZnFVpDw2geBBpQ4xtBvnQCJ7KQE7UtQ==
+"@vector-im/compound-design-tokens@^5.0.0":
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/@vector-im/compound-design-tokens/-/compound-design-tokens-5.0.0.tgz#edacfa343fb58087cdfb18290e69d65ea631bf5d"
+  integrity sha512-es63doHxQDOC8Mcf3pkbQA3wSJ9Gj1uPofcHCeU0EmbdLkb9cBRk5JJf5ZKmIj1+CAFoc81FF+COkYIcoGBuwA==
 
 "@vitejs/plugin-react@^4.0.4":
   version "4.5.1"
