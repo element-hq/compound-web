@@ -15,6 +15,7 @@ exports[`Toggle > renders 1`] = `
           <input
             class="_input_adcb29"
             id=":r0:"
+            role="switch"
             type="checkbox"
           />
           <div
@@ -52,6 +53,7 @@ exports[`Toggle > renders with a help message 1`] = `
           <input
             class="_input_adcb29"
             id=":r2:"
+            role="switch"
             type="checkbox"
           />
           <div
@@ -95,6 +97,7 @@ exports[`renders with a disabled message (disabled=false) 1`] = `
           <input
             class="_input_adcb29"
             id=":r9:"
+            role="switch"
             type="checkbox"
           />
           <div
@@ -139,6 +142,7 @@ exports[`renders with a disabled message (disabled=true) 1`] = `
             class="_input_adcb29"
             disabled=""
             id=":r5:"
+            role="switch"
             type="checkbox"
           />
           <div

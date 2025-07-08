@@ -33,6 +33,7 @@ exports[`ToggleMenuItem > renders 1`] = `
         aria-hidden="true"
         class="_input_adcb29"
         id=":r0:"
+        role="switch"
         type="checkbox"
       />
       <div
