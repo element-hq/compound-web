@@ -7,6 +7,7 @@ exports[`Toggle > renders 1`] = `
   >
     <input
       class="_input_adcb29"
+      role="switch"
       type="checkbox"
     />
     <div
