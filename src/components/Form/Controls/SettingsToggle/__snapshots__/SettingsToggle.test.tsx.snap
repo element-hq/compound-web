@@ -14,6 +14,7 @@ exports[`Toggle > renders 1`] = `
         >
           <input
             class="_input_adcb29"
+            id=":r0:"
             type="checkbox"
           />
           <div
@@ -26,7 +27,7 @@ exports[`Toggle > renders 1`] = `
       >
         <label
           class="_label_dc87d2"
-          for="radix-:r0:"
+          for=":r0:"
         >
           Simple setting
         </label>
@@ -50,6 +51,7 @@ exports[`Toggle > renders with a help message 1`] = `
         >
           <input
             class="_input_adcb29"
+            id=":r2:"
             type="checkbox"
           />
           <div
@@ -62,13 +64,13 @@ exports[`Toggle > renders with a help message 1`] = `
       >
         <label
           class="_label_dc87d2"
-          for="radix-:r1:"
+          for=":r2:"
         >
           Simple setting
         </label>
         <span
           class="_message_dc87d2 _help-message_dc87d2"
-          id="radix-:r2:"
+          id="radix-:r4:"
         >
           A simple setting to control things
         </span>
@@ -92,6 +94,7 @@ exports[`renders with a disabled message (disabled=false) 1`] = `
         >
           <input
             class="_input_adcb29"
+            id=":r9:"
             type="checkbox"
           />
           <div
@@ -104,13 +107,13 @@ exports[`renders with a disabled message (disabled=false) 1`] = `
       >
         <label
           class="_label_dc87d2"
-          for="radix-:r6:"
+          for=":r9:"
         >
           Simple setting
         </label>
         <span
           class="_message_dc87d2 _help-message_dc87d2"
-          id="radix-:r7:"
+          id="radix-:rb:"
         >
           A simple setting to control things
         </span>
@@ -135,6 +138,7 @@ exports[`renders with a disabled message (disabled=true) 1`] = `
           <input
             class="_input_adcb29"
             disabled=""
+            id=":r5:"
             type="checkbox"
           />
           <div
@@ -147,19 +151,19 @@ exports[`renders with a disabled message (disabled=true) 1`] = `
       >
         <label
           class="_label_dc87d2"
-          for="radix-:r3:"
+          for=":r5:"
         >
           Simple setting
         </label>
         <span
           class="_message_dc87d2 _help-message_dc87d2"
-          id="radix-:r4:"
+          id="radix-:r7:"
         >
           A simple setting to control things
         </span>
         <span
           class="_message_dc87d2 _help-message_dc87d2"
-          id="radix-:r5:"
+          id="radix-:r8:"
         >
           This is disabled.
         </span>
