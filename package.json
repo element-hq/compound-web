@@ -8,10 +8,10 @@
   "sideEffects": false,
   "exports": {
     ".": {
-      "require": "./dist/index.cjs",
-      "import": "./dist/index.js",
+      "style": "./dist/style.css",
       "types": "./dist/index.d.ts",
-      "style": "./dist/style.css"
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.js"
     },
     "./dist/style.css": "./dist/style.css"
   },
