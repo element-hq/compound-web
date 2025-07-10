@@ -4,13 +4,13 @@ exports[`ToggleMenuItem > renders 1`] = `
 <DocumentFragment>
   <div
     aria-checked="false"
-    class="_item_831119 _interactive_831119"
+    class="_item_9618f6 _interactive_9618f6"
     data-kind="primary"
     role="menuitemcheckbox"
   >
     <svg
       aria-hidden="true"
-      class="_icon_831119"
+      class="_icon_9618f6"
       fill="currentColor"
       height="24"
       viewBox="0 0 24 24"
@@ -22,22 +22,22 @@ exports[`ToggleMenuItem > renders 1`] = `
       />
     </svg>
     <span
-      class="_typography_489030 _font-body-md-medium_489030 _label_831119"
+      class="_typography_61e060 _font-body-md-medium_61e060 _label_9618f6"
     >
       Always show
     </span>
     <div
-      class="_container_adcb29"
+      class="_container_d9763f"
     >
       <input
         aria-hidden="true"
-        class="_input_adcb29"
+        class="_input_d9763f"
         id="«r0»"
         role="switch"
         type="checkbox"
       />
       <div
-        class="_ui_adcb29"
+        class="_ui_d9763f"
       />
     </div>
   </div>

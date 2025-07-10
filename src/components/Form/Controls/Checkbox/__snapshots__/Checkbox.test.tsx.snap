@@ -3,14 +3,14 @@
 exports[`Checkbox > renders 1`] = `
 <DocumentFragment>
   <div
-    class="_container_786d37"
+    class="_container_937330"
   >
     <input
-      class="_input_786d37"
+      class="_input_937330"
       type="checkbox"
     />
     <div
-      class="_ui_786d37"
+      class="_ui_937330"
     >
       <svg
         aria-hidden="true"

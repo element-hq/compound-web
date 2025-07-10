@@ -3,7 +3,7 @@
 exports[`IconButton > renders a Default IconButton 1`] = `
 <div>
   <div
-    class="_indicator-icon_ab1fc6"
+    class="_indicator-icon_849abf"
     style="--cpd-icon-button-size: 32px;"
   >
     <svg
@@ -27,7 +27,7 @@ exports[`IconButton > renders a Default IconButton 1`] = `
 exports[`IconButton > renders a WithCriticalIndicator IconButton 1`] = `
 <div>
   <div
-    class="_indicator-icon_ab1fc6"
+    class="_indicator-icon_849abf"
     data-indicator="critical"
     style="--cpd-icon-button-size: 32px;"
   >
@@ -52,7 +52,7 @@ exports[`IconButton > renders a WithCriticalIndicator IconButton 1`] = `
 exports[`IconButton > renders a WithIndicator IconButton 1`] = `
 <div>
   <div
-    class="_indicator-icon_ab1fc6"
+    class="_indicator-icon_849abf"
     data-indicator="default"
     style="--cpd-icon-button-size: 32px;"
   >
@@ -77,7 +77,7 @@ exports[`IconButton > renders a WithIndicator IconButton 1`] = `
 exports[`IconButton > renders a WithSuccessIndicator IconButton 1`] = `
 <div>
   <div
-    class="_indicator-icon_ab1fc6"
+    class="_indicator-icon_849abf"
     data-indicator="success"
     style="--cpd-icon-button-size: 32px;"
   >

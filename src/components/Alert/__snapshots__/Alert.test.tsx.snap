@@ -3,12 +3,12 @@
 exports[`Alert > renders actions 1`] = `
 <DocumentFragment>
   <div
-    class="_alert_6cfd7b"
+    class="_alert_be9a30"
     data-type="info"
   >
     <svg
       aria-hidden="true"
-      class="_icon_6cfd7b"
+      class="_icon_be9a30"
       fill="currentColor"
       height="24"
       viewBox="0 0 24 24"
@@ -25,27 +25,27 @@ exports[`Alert > renders actions 1`] = `
       />
     </svg>
     <div
-      class="_content_6cfd7b"
+      class="_content_be9a30"
     >
       <div
-        class="_text-content_6cfd7b"
+        class="_text-content_be9a30"
       >
         <p
-          class="_typography_489030 _font-body-md-semibold_489030"
+          class="_typography_61e060 _font-body-md-semibold_61e060"
         >
           Long title. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
         </p>
         <p
-          class="_typography_489030 _font-body-sm-regular_489030"
+          class="_typography_61e060 _font-body-sm-regular_61e060"
         >
           Actions are vertically centered against alert content. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
         </p>
       </div>
       <div
-        class="_actions_6cfd7b"
+        class="_actions_be9a30"
       >
         <button
-          class="_button_2a1efe"
+          class="_button_0829c1"
           data-kind="primary"
           data-size="lg"
           role="button"
@@ -54,7 +54,7 @@ exports[`Alert > renders actions 1`] = `
           Yes
         </button>
         <button
-          class="_button_2a1efe"
+          class="_button_0829c1"
           data-kind="primary"
           data-size="lg"
           role="button"
@@ -66,14 +66,14 @@ exports[`Alert > renders actions 1`] = `
     </div>
     <button
       aria-label="Close"
-      class="_icon-button_e3253e _close_6cfd7b"
+      class="_icon-button_339b22 _close_be9a30"
       data-kind="primary"
       role="button"
       style="--cpd-icon-button-size: 32px;"
       tabindex="0"
     >
       <div
-        class="_indicator-icon_ab1fc6"
+        class="_indicator-icon_849abf"
         style="--cpd-icon-button-size: 100%;"
       >
         <svg
@@ -96,12 +96,12 @@ exports[`Alert > renders actions 1`] = `
 exports[`Alert > renders critical 1`] = `
 <DocumentFragment>
   <div
-    class="_alert_6cfd7b"
+    class="_alert_be9a30"
     data-type="critical"
   >
     <svg
       aria-hidden="true"
-      class="_icon_6cfd7b"
+      class="_icon_be9a30"
       fill="currentColor"
       height="24"
       viewBox="0 0 24 24"
@@ -113,18 +113,18 @@ exports[`Alert > renders critical 1`] = `
       />
     </svg>
     <div
-      class="_content_6cfd7b"
+      class="_content_be9a30"
     >
       <div
-        class="_text-content_6cfd7b"
+        class="_text-content_be9a30"
       >
         <p
-          class="_typography_489030 _font-body-md-semibold_489030"
+          class="_typography_61e060 _font-body-md-semibold_61e060"
         >
           Title
         </p>
         <p
-          class="_typography_489030 _font-body-sm-regular_489030"
+          class="_typography_61e060 _font-body-sm-regular_61e060"
         >
           Description
         </p>
@@ -132,14 +132,14 @@ exports[`Alert > renders critical 1`] = `
     </div>
     <button
       aria-label="Close"
-      class="_icon-button_e3253e _close_6cfd7b"
+      class="_icon-button_339b22 _close_be9a30"
       data-kind="primary"
       role="button"
       style="--cpd-icon-button-size: 32px;"
       tabindex="0"
     >
       <div
-        class="_indicator-icon_ab1fc6"
+        class="_indicator-icon_849abf"
         style="--cpd-icon-button-size: 100%;"
       >
         <svg
@@ -162,12 +162,12 @@ exports[`Alert > renders critical 1`] = `
 exports[`Alert > renders info 1`] = `
 <DocumentFragment>
   <div
-    class="_alert_6cfd7b"
+    class="_alert_be9a30"
     data-type="info"
   >
     <svg
       aria-hidden="true"
-      class="_icon_6cfd7b"
+      class="_icon_be9a30"
       fill="currentColor"
       height="24"
       viewBox="0 0 24 24"
@@ -184,18 +184,18 @@ exports[`Alert > renders info 1`] = `
       />
     </svg>
     <div
-      class="_content_6cfd7b"
+      class="_content_be9a30"
     >
       <div
-        class="_text-content_6cfd7b"
+        class="_text-content_be9a30"
       >
         <p
-          class="_typography_489030 _font-body-md-semibold_489030"
+          class="_typography_61e060 _font-body-md-semibold_61e060"
         >
           Title
         </p>
         <p
-          class="_typography_489030 _font-body-sm-regular_489030"
+          class="_typography_61e060 _font-body-sm-regular_61e060"
         >
           Description
         </p>
@@ -203,14 +203,14 @@ exports[`Alert > renders info 1`] = `
     </div>
     <button
       aria-label="Close"
-      class="_icon-button_e3253e _close_6cfd7b"
+      class="_icon-button_339b22 _close_be9a30"
       data-kind="primary"
       role="button"
       style="--cpd-icon-button-size: 32px;"
       tabindex="0"
     >
       <div
-        class="_indicator-icon_ab1fc6"
+        class="_indicator-icon_849abf"
         style="--cpd-icon-button-size: 100%;"
       >
         <svg
@@ -233,12 +233,12 @@ exports[`Alert > renders info 1`] = `
 exports[`Alert > renders success 1`] = `
 <DocumentFragment>
   <div
-    class="_alert_6cfd7b"
+    class="_alert_be9a30"
     data-type="success"
   >
     <svg
       aria-hidden="true"
-      class="_icon_6cfd7b"
+      class="_icon_be9a30"
       fill="currentColor"
       height="24"
       viewBox="0 0 24 24"
@@ -250,18 +250,18 @@ exports[`Alert > renders success 1`] = `
       />
     </svg>
     <div
-      class="_content_6cfd7b"
+      class="_content_be9a30"
     >
       <div
-        class="_text-content_6cfd7b"
+        class="_text-content_be9a30"
       >
         <p
-          class="_typography_489030 _font-body-md-semibold_489030"
+          class="_typography_61e060 _font-body-md-semibold_61e060"
         >
           Title
         </p>
         <p
-          class="_typography_489030 _font-body-sm-regular_489030"
+          class="_typography_61e060 _font-body-sm-regular_61e060"
         >
           Description
         </p>
@@ -269,14 +269,14 @@ exports[`Alert > renders success 1`] = `
     </div>
     <button
       aria-label="Close"
-      class="_icon-button_e3253e _close_6cfd7b"
+      class="_icon-button_339b22 _close_be9a30"
       data-kind="primary"
       role="button"
       style="--cpd-icon-button-size: 32px;"
       tabindex="0"
     >
       <div
-        class="_indicator-icon_ab1fc6"
+        class="_indicator-icon_849abf"
         style="--cpd-icon-button-size: 100%;"
       >
         <svg

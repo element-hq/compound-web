@@ -4,11 +4,11 @@ exports[`Search > renders 1`] = `
 <DocumentFragment>
   <form>
     <label
-      class="_label_dc87d2 _field_dc87d2 _search_a9d8a5"
+      class="_label_af3470 _field_af3470 _search_7f1f6b"
       for="«r0»"
     >
       <svg
-        class="_icon_a9d8a5"
+        class="_icon_7f1f6b"
         fill="currentColor"
         height="20"
         viewBox="0 0 24 24"
@@ -20,7 +20,7 @@ exports[`Search > renders 1`] = `
         />
       </svg>
       <input
-        class="_input_a9d8a5"
+        class="_input_7f1f6b"
         id="«r0»"
         name="search"
         placeholder="Search…"

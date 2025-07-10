@@ -3,15 +3,15 @@
 exports[`Toggle > renders 1`] = `
 <DocumentFragment>
   <div
-    class="_container_adcb29"
+    class="_container_d9763f"
   >
     <input
-      class="_input_adcb29"
+      class="_input_d9763f"
       role="switch"
       type="checkbox"
     />
     <div
-      class="_ui_adcb29"
+      class="_ui_d9763f"
     />
   </div>
 </DocumentFragment>

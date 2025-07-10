@@ -3,7 +3,7 @@
 exports[`BigIcon > renders a destructive big icon 1`] = `
 <div>
   <div
-    class="_content_ce8c5a _destructive_ce8c5a"
+    class="_content_6ba1e4 _destructive_6ba1e4"
     data-size="large"
   >
     <svg
@@ -24,7 +24,7 @@ exports[`BigIcon > renders a destructive big icon 1`] = `
 exports[`BigIcon > renders a large big icon 1`] = `
 <div>
   <div
-    class="_content_ce8c5a"
+    class="_content_6ba1e4"
     data-size="large"
   >
     <svg
@@ -45,7 +45,7 @@ exports[`BigIcon > renders a large big icon 1`] = `
 exports[`BigIcon > renders a medium big icon 1`] = `
 <div>
   <div
-    class="_content_ce8c5a"
+    class="_content_6ba1e4"
     data-size="medium"
   >
     <svg
@@ -66,7 +66,7 @@ exports[`BigIcon > renders a medium big icon 1`] = `
 exports[`BigIcon > renders a small big icon 1`] = `
 <div>
   <div
-    class="_content_ce8c5a"
+    class="_content_6ba1e4"
     data-size="small"
   >
     <svg
@@ -87,7 +87,7 @@ exports[`BigIcon > renders a small big icon 1`] = `
 exports[`BigIcon > renders a success big icon 1`] = `
 <div>
   <div
-    class="_content_ce8c5a _success_ce8c5a"
+    class="_content_6ba1e4 _success_6ba1e4"
     data-size="large"
   >
     <svg

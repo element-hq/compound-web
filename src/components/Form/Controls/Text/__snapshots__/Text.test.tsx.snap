@@ -3,7 +3,7 @@
 exports[`<Text /> > renders a disabled input 1`] = `
 <div>
   <input
-    class="_control_a839aa"
+    class="_control_958ff8"
     disabled=""
     placeholder=""
     value="Disabled"
@@ -14,7 +14,7 @@ exports[`<Text /> > renders a disabled input 1`] = `
 exports[`<Text /> > renders a filled input 1`] = `
 <div>
   <input
-    class="_control_a839aa"
+    class="_control_958ff8"
     placeholder=""
     value="-> 1x2x3"
   />
@@ -24,7 +24,7 @@ exports[`<Text /> > renders a filled input 1`] = `
 exports[`<Text /> > renders a input with ligatures enable 1`] = `
 <div>
   <input
-    class="_control_a839aa _enable-ligatures_a839aa"
+    class="_control_958ff8 _enable-ligatures_958ff8"
     placeholder=""
     value="-> 1x2x3"
   />
@@ -34,7 +34,7 @@ exports[`<Text /> > renders a input with ligatures enable 1`] = `
 exports[`<Text /> > renders a read only input 1`] = `
 <div>
   <input
-    class="_control_a839aa"
+    class="_control_958ff8"
     placeholder=""
     readonly=""
     value="Read only"
@@ -45,7 +45,7 @@ exports[`<Text /> > renders a read only input 1`] = `
 exports[`<Text /> > renders an empty input 1`] = `
 <div>
   <input
-    class="_control_a839aa"
+    class="_control_958ff8"
     placeholder=""
   />
 </div>
@@ -54,7 +54,7 @@ exports[`<Text /> > renders an empty input 1`] = `
 exports[`<Text /> > renders an invalid input 1`] = `
 <div>
   <input
-    class="_control_a839aa"
+    class="_control_958ff8"
     data-invalid="true"
     placeholder=""
     value="Invalid"

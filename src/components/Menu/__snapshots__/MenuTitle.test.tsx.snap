@@ -3,7 +3,7 @@
 exports[`MenuTitle > renders 1`] = `
 <DocumentFragment>
   <h3
-    class="_typography_489030 _font-body-sm-semibold_489030 _menu-title_7bbc38"
+    class="_typography_61e060 _font-body-sm-semibold_61e060 _menu-title_096aee"
   >
     Title
   </h3>
