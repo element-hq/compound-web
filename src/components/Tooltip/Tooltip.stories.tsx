@@ -9,7 +9,7 @@ import { Placement as PlacementType } from "@floating-ui/react";
 import { Tooltip as TooltipComponent } from "./Tooltip";
 import { IconButton } from "../Button";
 import UserIcon from "@vector-im/compound-design-tokens/assets/web/icons/user-profile";
-import { Meta, StoryFn, StoryObj } from "@storybook/react";
+import { Meta, StoryFn, StoryObj } from "@storybook/react-vite";
 import React, { FC, ReactNode } from "react";
 import { TooltipProvider } from "./TooltipProvider";
 

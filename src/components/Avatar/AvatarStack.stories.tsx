@@ -6,7 +6,7 @@ Please see LICENSE files in the repository root for full details.
 */
 
 import React from "react";
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react-vite";
 
 import { AvatarStack as AvatarStackComponent } from "./AvatarStack";
 import { Avatar } from "./Avatar";

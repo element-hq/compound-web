@@ -1,5 +1,5 @@
 import { withThemeByClassName } from "@storybook/addon-themes";
-import { Decorator, Parameters } from "@storybook/react";
+import { Decorator, Parameters } from "@storybook/react-vite";
 
 import "@fontsource/inconsolata/700.css";
 import "@fontsource/inter/400.css";

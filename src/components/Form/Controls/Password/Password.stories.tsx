@@ -9,12 +9,12 @@ Please see LICENSE files in the repository root for full details.
 
 import React from "react";
 
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react-vite";
 
 import { PasswordInput } from "./";
 import { TooltipProvider } from "../../../Tooltip/TooltipProvider";
-import { screen } from "@storybook/test";
-import { userEvent } from "@storybook/test";
+import { screen } from "storybook/test";
+import { userEvent } from "storybook/test";
 
 type Props = { invalid?: boolean } & React.ComponentProps<typeof PasswordInput>;
 

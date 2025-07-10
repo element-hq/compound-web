@@ -7,7 +7,7 @@
 
 import React, { useState } from "react";
 import { CheckboxMenuItem as CheckboxMenuItemComponent } from "./CheckboxMenuItem.tsx";
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react-vite";
 
 type Props = Omit<
   React.ComponentProps<typeof CheckboxMenuItemComponent>,

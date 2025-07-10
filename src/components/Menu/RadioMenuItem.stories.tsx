@@ -7,7 +7,7 @@
 
 import React, { useState } from "react";
 import { RadioMenuItem as RadioMenuItemComponent } from "./RadioMenuItem.tsx";
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react-vite";
 import { Menu } from "./Menu.tsx";
 
 type Props = Omit<

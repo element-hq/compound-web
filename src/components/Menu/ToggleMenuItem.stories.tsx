@@ -6,7 +6,7 @@ Please see LICENSE files in the repository root for full details.
 */
 
 import React, { useState } from "react";
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react-vite";
 import ExtensionsIcon from "@vector-im/compound-design-tokens/assets/web/icons/extensions";
 import ChatIcon from "@vector-im/compound-design-tokens/assets/web/icons/chat";
 

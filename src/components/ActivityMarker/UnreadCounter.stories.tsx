@@ -6,7 +6,7 @@
  */
 
 import { UnreadCounter as UnreadCounterComponent } from "./UnreadCounter.tsx";
-import { Meta, StoryFn } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react-vite";
 import React, { ComponentProps } from "react";
 
 export default {
