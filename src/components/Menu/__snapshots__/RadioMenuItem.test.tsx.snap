@@ -14,7 +14,7 @@ exports[`RadioMenuItem > renders 1`] = `
       <input
         aria-hidden="true"
         class="_input_5881bc"
-        id=":r0:"
+        id="«r0»"
         type="radio"
       />
       <div

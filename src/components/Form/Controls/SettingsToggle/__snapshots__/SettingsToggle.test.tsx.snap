@@ -14,7 +14,7 @@ exports[`Toggle > renders 1`] = `
         >
           <input
             class="_input_adcb29"
-            id=":r0:"
+            id="«r0»"
             role="switch"
             type="checkbox"
           />
@@ -28,7 +28,7 @@ exports[`Toggle > renders 1`] = `
       >
         <label
           class="_label_dc87d2"
-          for=":r0:"
+          for="«r0»"
         >
           Simple setting
         </label>
@@ -52,7 +52,7 @@ exports[`Toggle > renders with a help message 1`] = `
         >
           <input
             class="_input_adcb29"
-            id=":r2:"
+            id="«r2»"
             role="switch"
             type="checkbox"
           />
@@ -66,13 +66,13 @@ exports[`Toggle > renders with a help message 1`] = `
       >
         <label
           class="_label_dc87d2"
-          for=":r2:"
+          for="«r2»"
         >
           Simple setting
         </label>
         <span
           class="_message_dc87d2 _help-message_dc87d2"
-          id="radix-:r4:"
+          id="radix-«r4»"
         >
           A simple setting to control things
         </span>
@@ -96,7 +96,7 @@ exports[`renders with a disabled message (disabled=false) 1`] = `
         >
           <input
             class="_input_adcb29"
-            id=":r9:"
+            id="«r9»"
             role="switch"
             type="checkbox"
           />
@@ -110,13 +110,13 @@ exports[`renders with a disabled message (disabled=false) 1`] = `
       >
         <label
           class="_label_dc87d2"
-          for=":r9:"
+          for="«r9»"
         >
           Simple setting
         </label>
         <span
           class="_message_dc87d2 _help-message_dc87d2"
-          id="radix-:rb:"
+          id="radix-«rb»"
         >
           A simple setting to control things
         </span>
@@ -141,7 +141,7 @@ exports[`renders with a disabled message (disabled=true) 1`] = `
           <input
             class="_input_adcb29"
             disabled=""
-            id=":r5:"
+            id="«r5»"
             role="switch"
             type="checkbox"
           />
@@ -155,19 +155,19 @@ exports[`renders with a disabled message (disabled=true) 1`] = `
       >
         <label
           class="_label_dc87d2"
-          for=":r5:"
+          for="«r5»"
         >
           Simple setting
         </label>
         <span
           class="_message_dc87d2 _help-message_dc87d2"
-          id="radix-:r7:"
+          id="radix-«r7»"
         >
           A simple setting to control things
         </span>
         <span
           class="_message_dc87d2 _help-message_dc87d2"
-          id="radix-:r8:"
+          id="radix-«r8»"
         >
           This is disabled.
         </span>

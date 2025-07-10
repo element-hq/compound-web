@@ -8,12 +8,12 @@ exports[`Progress > renders a green progress bar 1`] = `
   >
     <div
       class="_progress-bar-label_e5fb97"
-      id=":r5:"
+      id="«r5»"
     >
       Full progress bar
     </div>
     <div
-      aria-labelledby=":r5:"
+      aria-labelledby="«r5»"
       aria-valuemax="100"
       aria-valuemin="0"
       aria-valuenow="100"
@@ -45,12 +45,12 @@ exports[`Progress > renders a large full progress bar 1`] = `
   >
     <div
       class="_progress-bar-label_e5fb97"
-      id=":r2:"
+      id="«r2»"
     >
       Full progress bar
     </div>
     <div
-      aria-labelledby=":r2:"
+      aria-labelledby="«r2»"
       aria-valuemax="100"
       aria-valuemin="0"
       aria-valuenow="100"
@@ -82,12 +82,12 @@ exports[`Progress > renders a large half progress bar 1`] = `
   >
     <div
       class="_progress-bar-label_e5fb97"
-      id=":r3:"
+      id="«r3»"
     >
       Half-full progress bar
     </div>
     <div
-      aria-labelledby=":r3:"
+      aria-labelledby="«r3»"
       aria-valuemax="100"
       aria-valuemin="0"
       aria-valuenow="50"
@@ -119,12 +119,12 @@ exports[`Progress > renders a lime progress bar 1`] = `
   >
     <div
       class="_progress-bar-label_e5fb97"
-      id=":r7:"
+      id="«r7»"
     >
       Three-quarters full progress bar
     </div>
     <div
-      aria-labelledby=":r7:"
+      aria-labelledby="«r7»"
       aria-valuemax="100"
       aria-valuemin="0"
       aria-valuenow="75"
@@ -156,12 +156,12 @@ exports[`Progress > renders a red progress bar 1`] = `
   >
     <div
       class="_progress-bar-label_e5fb97"
-      id=":r6:"
+      id="«r6»"
     >
       Quarter-full progress bar
     </div>
     <div
-      aria-labelledby=":r6:"
+      aria-labelledby="«r6»"
       aria-valuemax="100"
       aria-valuemin="0"
       aria-valuenow="25"
@@ -193,12 +193,12 @@ exports[`Progress > renders a small full progress bar 1`] = `
   >
     <div
       class="_progress-bar-label_e5fb97"
-      id=":r0:"
+      id="«r0»"
     >
       Full progress bar
     </div>
     <div
-      aria-labelledby=":r0:"
+      aria-labelledby="«r0»"
       aria-valuemax="100"
       aria-valuemin="0"
       aria-valuenow="100"
@@ -230,12 +230,12 @@ exports[`Progress > renders a small half progress bar 1`] = `
   >
     <div
       class="_progress-bar-label_e5fb97"
-      id=":r1:"
+      id="«r1»"
     >
       Half-full progress bar
     </div>
     <div
-      aria-labelledby=":r1:"
+      aria-labelledby="«r1»"
       aria-valuemax="100"
       aria-valuemin="0"
       aria-valuenow="50"
@@ -266,12 +266,12 @@ exports[`Progress > renders an empty progress bar 1`] = `
   >
     <div
       class="_progress-bar-label_e5fb97"
-      id=":r4:"
+      id="«r4»"
     >
       Empty progress bar
     </div>
     <div
-      aria-labelledby=":r4:"
+      aria-labelledby="«r4»"
       aria-valuemax="100"
       aria-valuemin="0"
       aria-valuenow="0"
