@@ -6,7 +6,7 @@ Please see LICENSE files in the repository root for full details.
 */
 
 import React from "react";
-import { Meta, StoryFn } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react-vite";
 
 import { BigIcon as BigIconComponent } from "./BigIcon";
 import KeyIcon from "@vector-im/compound-design-tokens/assets/web/icons/key";

@@ -6,7 +6,7 @@
  */
 
 import { VisualList as VisualListComponent } from "./VisualList";
-import { Meta, StoryFn } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react-vite";
 import React, { ComponentProps } from "react";
 import InfoIcon from "@vector-im/compound-design-tokens/assets/web/icons/info";
 import { VisualListItem } from "./VisualListItem.tsx";

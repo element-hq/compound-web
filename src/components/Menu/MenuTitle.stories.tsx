@@ -6,7 +6,7 @@
  */
 
 import { MenuTitle as MenuTitleComponent } from "./MenuTitle";
-import { Meta, StoryFn } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react-vite";
 import React, { ComponentProps } from "react";
 
 export default {

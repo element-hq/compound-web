@@ -2,10 +2,9 @@ import type { StorybookConfig } from "@storybook/react-vite";
 
 const addons = [
   "@storybook/addon-links",
-  "@storybook/addon-essentials",
-  "@storybook/addon-interactions",
   "@storybook/addon-designs",
   "@storybook/addon-themes",
+  "@storybook/addon-docs",
 ];
 
 if (process.env.NODE_ENV === "development") {
