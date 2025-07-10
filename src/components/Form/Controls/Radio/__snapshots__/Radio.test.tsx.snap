@@ -3,14 +3,14 @@
 exports[`Radio > renders 1`] = `
 <DocumentFragment>
   <div
-    class="_container_5881bc"
+    class="_container_8b5535"
   >
     <input
-      class="_input_5881bc"
+      class="_input_8b5535"
       type="radio"
     />
     <div
-      class="_ui_5881bc"
+      class="_ui_8b5535"
     />
   </div>
 </DocumentFragment>

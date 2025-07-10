@@ -3,7 +3,7 @@
 exports[`Separator > renders 1`] = `
 <DocumentFragment>
   <div
-    class="_separator_162edc"
+    class="_separator_59a6a1"
     data-kind="primary"
     data-orientation="horizontal"
     role="separator"

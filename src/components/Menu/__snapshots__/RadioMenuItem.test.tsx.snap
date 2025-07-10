@@ -4,25 +4,25 @@ exports[`RadioMenuItem > renders 1`] = `
 <DocumentFragment>
   <div
     aria-checked="false"
-    class="_item_831119 _interactive_831119"
+    class="_item_9618f6 _interactive_9618f6"
     data-kind="primary"
     role="menuitemradio"
   >
     <div
-      class="_container_5881bc _icon_831119"
+      class="_container_8b5535 _icon_9618f6"
     >
       <input
         aria-hidden="true"
-        class="_input_5881bc"
+        class="_input_8b5535"
         id="«r0»"
         type="radio"
       />
       <div
-        class="_ui_5881bc"
+        class="_ui_8b5535"
       />
     </div>
     <span
-      class="_typography_489030 _font-body-md-medium_489030 _label_831119"
+      class="_typography_61e060 _font-body-md-medium_61e060 _label_9618f6"
     >
       Always show
     </span>

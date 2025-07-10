@@ -3,22 +3,22 @@
 exports[`EditInPlace > disables control when disabled 1`] = `
 <DocumentFragment>
   <form
-    class="_root_dc87d2"
+    class="_root_af3470"
   >
     <div
-      class="_field_dc87d2"
+      class="_field_af3470"
     >
       <label
-        class="_label_dc87d2"
+        class="_label_af3470"
         for="radix-«r6o»"
       >
         Edit Me
       </label>
       <div
-        class="_controls_980156"
+        class="_controls_f26f0a"
       >
         <input
-          class="_control_a839aa"
+          class="_control_958ff8"
           disabled=""
           id="radix-«r6o»"
           name="input"
@@ -33,22 +33,22 @@ exports[`EditInPlace > disables control when disabled 1`] = `
 exports[`EditInPlace > displays saved label for 2 seconds after save 1`] = `
 <DocumentFragment>
   <form
-    class="_root_dc87d2"
+    class="_root_af3470"
   >
     <div
-      class="_field_dc87d2"
+      class="_field_af3470"
     >
       <label
-        class="_label_dc87d2"
+        class="_label_af3470"
         for="radix-«r59»"
       >
         Edit Me
       </label>
       <div
-        class="_controls_980156"
+        class="_controls_f26f0a"
       >
         <input
-          class="_control_a839aa"
+          class="_control_958ff8"
           id="radix-«r59»"
           name="input"
           title=""
@@ -62,25 +62,25 @@ exports[`EditInPlace > displays saved label for 2 seconds after save 1`] = `
 exports[`EditInPlace > displays saved label for 2 seconds after save 2`] = `
 <DocumentFragment>
   <form
-    class="_root_dc87d2"
+    class="_root_af3470"
   >
     <div
-      class="_field_dc87d2"
+      class="_field_af3470"
       data-valid="true"
     >
       <label
-        class="_label_dc87d2"
+        class="_label_af3470"
         data-valid="true"
         for="radix-«r59»"
       >
         Edit Me
       </label>
       <div
-        class="_controls_980156"
+        class="_controls_f26f0a"
       >
         <input
           aria-describedby="radix-«r5m»"
-          class="_control_a839aa"
+          class="_control_958ff8"
           data-valid="true"
           disabled=""
           id="radix-«r59»"
@@ -88,12 +88,12 @@ exports[`EditInPlace > displays saved label for 2 seconds after save 2`] = `
           title=""
         />
         <div
-          class="_button-group_980156"
+          class="_button-group_f26f0a"
         >
           <button
             aria-disabled="true"
             aria-labelledby="«r5a»"
-            class="_button_2a1efe _has-icon_2a1efe _icon-only_2a1efe"
+            class="_button_0829c1 _has-icon_0829c1 _icon-only_0829c1"
             data-kind="primary"
             data-size="sm"
             role="button"
@@ -102,7 +102,7 @@ exports[`EditInPlace > displays saved label for 2 seconds after save 2`] = `
           >
             <svg
               aria-hidden="true"
-              class="_icon_2a1efe"
+              class="_icon_0829c1"
               fill="currentColor"
               height="20"
               viewBox="0 0 24 24"
@@ -117,7 +117,7 @@ exports[`EditInPlace > displays saved label for 2 seconds after save 2`] = `
           <button
             aria-disabled="true"
             aria-labelledby="«r5f»"
-            class="_button_2a1efe _button_980156 _has-icon_2a1efe _icon-only_2a1efe"
+            class="_button_0829c1 _button_f26f0a _has-icon_0829c1 _icon-only_0829c1"
             data-kind="secondary"
             data-size="sm"
             role="button"
@@ -126,7 +126,7 @@ exports[`EditInPlace > displays saved label for 2 seconds after save 2`] = `
           >
             <svg
               aria-hidden="true"
-              class="_icon_2a1efe"
+              class="_icon_0829c1"
               fill="currentColor"
               height="20"
               viewBox="0 0 24 24"
@@ -141,11 +141,11 @@ exports[`EditInPlace > displays saved label for 2 seconds after save 2`] = `
         </div>
       </div>
       <span
-        class="_message_dc87d2"
+        class="_message_af3470"
         id="radix-«r5m»"
       >
         <svg
-          class="_icon_01cd2d"
+          class="_icon_8010b4"
           fill="currentColor"
           height="1em"
           style="width: 20px; height: 20px;"
@@ -169,25 +169,25 @@ exports[`EditInPlace > displays saved label for 2 seconds after save 2`] = `
 exports[`EditInPlace > displays saved label for 2 seconds after save 3`] = `
 <DocumentFragment>
   <form
-    class="_root_dc87d2"
+    class="_root_af3470"
   >
     <div
-      class="_field_dc87d2"
+      class="_field_af3470"
       data-valid="true"
     >
       <label
-        class="_label_dc87d2"
+        class="_label_af3470"
         data-valid="true"
         for="radix-«r59»"
       >
         Edit Me
       </label>
       <div
-        class="_controls_980156"
+        class="_controls_f26f0a"
       >
         <input
           aria-describedby="radix-«r5n»"
-          class="_control_a839aa"
+          class="_control_958ff8"
           data-valid="true"
           id="radix-«r59»"
           name="input"
@@ -195,7 +195,7 @@ exports[`EditInPlace > displays saved label for 2 seconds after save 3`] = `
         />
       </div>
       <span
-        class="_message_dc87d2 _success-message_dc87d2"
+        class="_message_af3470 _success-message_af3470"
         id="radix-«r5n»"
       >
         <svg
@@ -219,22 +219,22 @@ exports[`EditInPlace > displays saved label for 2 seconds after save 3`] = `
 exports[`EditInPlace > renders 1`] = `
 <DocumentFragment>
   <form
-    class="_root_dc87d2"
+    class="_root_af3470"
   >
     <div
-      class="_field_dc87d2"
+      class="_field_af3470"
     >
       <label
-        class="_label_dc87d2"
+        class="_label_af3470"
         for="radix-«r0»"
       >
         Edit Me
       </label>
       <div
-        class="_controls_980156"
+        class="_controls_f26f0a"
       >
         <input
-          class="_control_a839aa"
+          class="_control_958ff8"
           id="radix-«r0»"
           name="input"
           title=""
@@ -248,38 +248,38 @@ exports[`EditInPlace > renders 1`] = `
 exports[`EditInPlace > renders error icon and text if passed as children 1`] = `
 <DocumentFragment>
   <form
-    class="_root_dc87d2"
+    class="_root_af3470"
   >
     <div
-      class="_field_dc87d2"
+      class="_field_af3470"
       data-invalid="true"
     >
       <label
-        class="_label_dc87d2"
+        class="_label_af3470"
         data-invalid="true"
         for="radix-«rf»"
       >
         Edit Me
       </label>
       <div
-        class="_controls_980156"
+        class="_controls_f26f0a"
       >
         <input
           aria-describedby="radix-«rg»"
           aria-invalid="true"
-          class="_control_a839aa"
+          class="_control_958ff8"
           data-invalid="true"
           id="radix-«rf»"
           name="input"
           title=""
         />
         <div
-          class="_button-group_980156"
+          class="_button-group_f26f0a"
         >
           <button
             aria-disabled="true"
             aria-labelledby="«rh»"
-            class="_button_2a1efe _has-icon_2a1efe _icon-only_2a1efe"
+            class="_button_0829c1 _has-icon_0829c1 _icon-only_0829c1"
             data-kind="primary"
             data-size="sm"
             role="button"
@@ -288,7 +288,7 @@ exports[`EditInPlace > renders error icon and text if passed as children 1`] = `
           >
             <svg
               aria-hidden="true"
-              class="_icon_2a1efe"
+              class="_icon_0829c1"
               fill="currentColor"
               height="20"
               viewBox="0 0 24 24"
@@ -303,7 +303,7 @@ exports[`EditInPlace > renders error icon and text if passed as children 1`] = `
           <button
             aria-disabled="false"
             aria-labelledby="«rm»"
-            class="_button_2a1efe _button_980156 _has-icon_2a1efe _icon-only_2a1efe"
+            class="_button_0829c1 _button_f26f0a _has-icon_0829c1 _icon-only_0829c1"
             data-kind="secondary"
             data-size="sm"
             role="button"
@@ -312,7 +312,7 @@ exports[`EditInPlace > renders error icon and text if passed as children 1`] = `
           >
             <svg
               aria-hidden="true"
-              class="_icon_2a1efe"
+              class="_icon_0829c1"
               fill="currentColor"
               height="20"
               viewBox="0 0 24 24"
@@ -327,7 +327,7 @@ exports[`EditInPlace > renders error icon and text if passed as children 1`] = `
         </div>
       </div>
       <span
-        class="_message_dc87d2 _error-message_dc87d2"
+        class="_message_af3470 _error-message_af3470"
         id="radix-«rg»"
       >
         <svg
@@ -351,22 +351,22 @@ exports[`EditInPlace > renders error icon and text if passed as children 1`] = `
 exports[`EditInPlace > uses native form validation logic 1`] = `
 <DocumentFragment>
   <form
-    class="_root_dc87d2"
+    class="_root_af3470"
   >
     <div
-      class="_field_dc87d2"
+      class="_field_af3470"
     >
       <label
-        class="_label_dc87d2"
+        class="_label_af3470"
         for="radix-«rt»"
       >
         Edit Me
       </label>
       <div
-        class="_controls_980156"
+        class="_controls_f26f0a"
       >
         <input
-          class="_control_a839aa"
+          class="_control_958ff8"
           id="radix-«rt»"
           name="input"
           required=""
@@ -382,22 +382,22 @@ exports[`EditInPlace > uses native form validation logic 1`] = `
 exports[`EditInPlace > uses the custom error messages passed as children 1`] = `
 <DocumentFragment>
   <form
-    class="_root_dc87d2"
+    class="_root_af3470"
   >
     <div
-      class="_field_dc87d2"
+      class="_field_af3470"
     >
       <label
-        class="_label_dc87d2"
+        class="_label_af3470"
         for="radix-«r1c»"
       >
         Edit Me
       </label>
       <div
-        class="_controls_980156"
+        class="_controls_f26f0a"
       >
         <input
-          class="_control_a839aa"
+          class="_control_958ff8"
           id="radix-«r1c»"
           name="input"
           title=""

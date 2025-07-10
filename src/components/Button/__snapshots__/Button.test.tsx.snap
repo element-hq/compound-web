@@ -4,7 +4,7 @@ exports[`Button > renders a Default button 1`] = `
 <div>
   <button
     aria-disabled="false"
-    class="_button_2a1efe"
+    class="_button_0829c1"
     data-kind="primary"
     data-size="lg"
     role="button"
@@ -19,7 +19,7 @@ exports[`Button > renders a Disabled button 1`] = `
 <div>
   <button
     aria-disabled="true"
-    class="_button_2a1efe"
+    class="_button_0829c1"
     data-kind="primary"
     data-size="lg"
     role="button"
@@ -34,7 +34,7 @@ exports[`Button > renders a Link button 1`] = `
 <div>
   <a
     aria-disabled="false"
-    class="_button_2a1efe"
+    class="_button_0829c1"
     data-kind="primary"
     data-size="lg"
     href="https://example.org"
@@ -50,7 +50,7 @@ exports[`Button > renders a LinkDisabled button 1`] = `
 <div>
   <a
     aria-disabled="true"
-    class="_button_2a1efe"
+    class="_button_0829c1"
     data-kind="primary"
     data-size="lg"
     href="https://example.org"
@@ -66,7 +66,7 @@ exports[`Button > renders a Primary Destructive button 1`] = `
 <div>
   <button
     aria-disabled="false"
-    class="_button_2a1efe _destructive_2a1efe"
+    class="_button_0829c1 _destructive_0829c1"
     data-kind="primary"
     data-size="lg"
     role="button"
@@ -81,7 +81,7 @@ exports[`Button > renders a Primary button 1`] = `
 <div>
   <button
     aria-disabled="false"
-    class="_button_2a1efe"
+    class="_button_0829c1"
     data-kind="primary"
     data-size="lg"
     role="button"
@@ -96,7 +96,7 @@ exports[`Button > renders a Secondary Destructive button 1`] = `
 <div>
   <button
     aria-disabled="false"
-    class="_button_2a1efe _destructive_2a1efe"
+    class="_button_0829c1 _destructive_0829c1"
     data-kind="secondary"
     data-size="lg"
     role="button"
@@ -111,7 +111,7 @@ exports[`Button > renders a Secondary button 1`] = `
 <div>
   <button
     aria-disabled="false"
-    class="_button_2a1efe"
+    class="_button_0829c1"
     data-kind="secondary"
     data-size="lg"
     role="button"
@@ -126,7 +126,7 @@ exports[`Button > renders a Small button 1`] = `
 <div>
   <button
     aria-disabled="false"
-    class="_button_2a1efe"
+    class="_button_0829c1"
     data-kind="primary"
     data-size="sm"
     role="button"
@@ -141,7 +141,7 @@ exports[`Button > renders a SmallWithIcon button 1`] = `
 <div>
   <button
     aria-disabled="false"
-    class="_button_2a1efe _has-icon_2a1efe"
+    class="_button_0829c1 _has-icon_0829c1"
     data-kind="primary"
     data-size="sm"
     role="button"
@@ -149,7 +149,7 @@ exports[`Button > renders a SmallWithIcon button 1`] = `
   >
     <svg
       aria-hidden="true"
-      class="_icon_2a1efe"
+      class="_icon_0829c1"
       fill="currentColor"
       height="20"
       viewBox="0 0 24 24"
@@ -169,7 +169,7 @@ exports[`Button > renders a Tertiary Destructive button 1`] = `
 <div>
   <button
     aria-disabled="false"
-    class="_button_2a1efe _destructive_2a1efe"
+    class="_button_0829c1 _destructive_0829c1"
     data-kind="tertiary"
     data-size="lg"
     role="button"
@@ -184,7 +184,7 @@ exports[`Button > renders a Tertiary button 1`] = `
 <div>
   <button
     aria-disabled="false"
-    class="_button_2a1efe"
+    class="_button_0829c1"
     data-kind="tertiary"
     data-size="lg"
     role="button"
@@ -199,7 +199,7 @@ exports[`Button > renders a WithIcon button 1`] = `
 <div>
   <button
     aria-disabled="false"
-    class="_button_2a1efe _has-icon_2a1efe"
+    class="_button_0829c1 _has-icon_0829c1"
     data-kind="primary"
     data-size="lg"
     role="button"
@@ -207,7 +207,7 @@ exports[`Button > renders a WithIcon button 1`] = `
   >
     <svg
       aria-hidden="true"
-      class="_icon_2a1efe"
+      class="_icon_0829c1"
       fill="currentColor"
       height="20"
       viewBox="0 0 24 24"

@@ -3,11 +3,11 @@
 exports[`VisualListItem > renders a Default VisualListItem 1`] = `
 <div>
   <li
-    class="_visual-list-item_1553df"
+    class="_visual-list-item_f434f3"
   >
     <svg
       aria-hidden="true"
-      class="_visual-list-item-icon_1553df"
+      class="_visual-list-item-icon_f434f3"
       fill="currentColor"
       height="24px"
       viewBox="0 0 24 24"
@@ -31,11 +31,11 @@ exports[`VisualListItem > renders a Default VisualListItem 1`] = `
 exports[`VisualListItem > renders a Destructive VisualListItem 1`] = `
 <div>
   <li
-    class="_visual-list-item_1553df"
+    class="_visual-list-item_f434f3"
   >
     <svg
       aria-hidden="true"
-      class="_visual-list-item-icon_1553df _visual-list-item-icon-destructive_1553df"
+      class="_visual-list-item-icon_f434f3 _visual-list-item-icon-destructive_f434f3"
       fill="currentColor"
       height="24px"
       viewBox="0 0 24 24"
@@ -59,12 +59,12 @@ exports[`VisualListItem > renders a Destructive VisualListItem 1`] = `
 exports[`VisualListItem > renders a Multiline VisualListItem 1`] = `
 <div>
   <li
-    class="_visual-list-item_1553df"
+    class="_visual-list-item_f434f3"
     style="align-items: start;"
   >
     <svg
       aria-hidden="true"
-      class="_visual-list-item-icon_1553df"
+      class="_visual-list-item-icon_f434f3"
       fill="currentColor"
       height="24px"
       viewBox="0 0 24 24"
@@ -88,11 +88,11 @@ exports[`VisualListItem > renders a Multiline VisualListItem 1`] = `
 exports[`VisualListItem > renders a Success VisualListItem 1`] = `
 <div>
   <li
-    class="_visual-list-item_1553df"
+    class="_visual-list-item_f434f3"
   >
     <svg
       aria-hidden="true"
-      class="_visual-list-item-icon_1553df _visual-list-item-icon-success_1553df"
+      class="_visual-list-item-icon_f434f3 _visual-list-item-icon-success_f434f3"
       fill="currentColor"
       height="24px"
       viewBox="0 0 24 24"

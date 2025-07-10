@@ -10,11 +10,11 @@ exports[`PasswordControl > renders 1`] = `
         MFA
       </label>
       <div
-        class="_container_4b8c2b"
+        class="_container_8dfd49"
       >
         <input
           autocomplete="one-time-code"
-          class="_control_4b8c2b"
+          class="_control_8dfd49"
           id="radix-«r0»"
           inputmode="numeric"
           maxlength="6"
@@ -27,27 +27,27 @@ exports[`PasswordControl > renders 1`] = `
         />
         <div
           aria-hidden="true"
-          class="_digit_4b8c2b"
+          class="_digit_8dfd49"
         />
         <div
           aria-hidden="true"
-          class="_digit_4b8c2b"
+          class="_digit_8dfd49"
         />
         <div
           aria-hidden="true"
-          class="_digit_4b8c2b"
+          class="_digit_8dfd49"
         />
         <div
           aria-hidden="true"
-          class="_digit_4b8c2b"
+          class="_digit_8dfd49"
         />
         <div
           aria-hidden="true"
-          class="_digit_4b8c2b"
+          class="_digit_8dfd49"
         />
         <div
           aria-hidden="true"
-          class="_digit_4b8c2b"
+          class="_digit_8dfd49"
         />
       </div>
     </div>

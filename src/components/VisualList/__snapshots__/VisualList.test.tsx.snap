@@ -3,14 +3,14 @@
 exports[`VisualList > renders a Default VisualList 1`] = `
 <div>
   <ul
-    class="_visual-list_7f22f8"
+    class="_visual-list_04acb0"
   >
     <li
-      class="_visual-list-item_1553df"
+      class="_visual-list-item_f434f3"
     >
       <svg
         aria-hidden="true"
-        class="_visual-list-item-icon_1553df"
+        class="_visual-list-item-icon_f434f3"
         fill="currentColor"
         height="24px"
         viewBox="0 0 24 24"
@@ -29,11 +29,11 @@ exports[`VisualList > renders a Default VisualList 1`] = `
       First item
     </li>
     <li
-      class="_visual-list-item_1553df"
+      class="_visual-list-item_f434f3"
     >
       <svg
         aria-hidden="true"
-        class="_visual-list-item-icon_1553df"
+        class="_visual-list-item-icon_f434f3"
         fill="currentColor"
         height="24px"
         viewBox="0 0 24 24"
@@ -52,11 +52,11 @@ exports[`VisualList > renders a Default VisualList 1`] = `
       Second item
     </li>
     <li
-      class="_visual-list-item_1553df"
+      class="_visual-list-item_f434f3"
     >
       <svg
         aria-hidden="true"
-        class="_visual-list-item-icon_1553df"
+        class="_visual-list-item-icon_f434f3"
         fill="currentColor"
         height="24px"
         viewBox="0 0 24 24"

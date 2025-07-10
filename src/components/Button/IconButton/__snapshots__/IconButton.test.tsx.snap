@@ -4,14 +4,14 @@ exports[`IconButton > renders a Default IconButton 1`] = `
 <div>
   <button
     aria-disabled="false"
-    class="_icon-button_e3253e"
+    class="_icon-button_339b22"
     data-kind="primary"
     role="button"
     style="--cpd-icon-button-size: 32px;"
     tabindex="0"
   >
     <div
-      class="_indicator-icon_ab1fc6"
+      class="_indicator-icon_849abf"
       style="--cpd-icon-button-size: 100%;"
     >
       <svg
@@ -40,14 +40,14 @@ exports[`IconButton > renders a DefaultDisabled IconButton 1`] = `
 <div>
   <button
     aria-disabled="true"
-    class="_icon-button_e3253e"
+    class="_icon-button_339b22"
     data-kind="primary"
     role="button"
     style="--cpd-icon-button-size: 32px;"
     tabindex="0"
   >
     <div
-      class="_indicator-icon_ab1fc6"
+      class="_indicator-icon_849abf"
       style="--cpd-icon-button-size: 100%; --cpd-color-icon-tertiary: var(--cpd-color-icon-disabled);"
     >
       <svg
@@ -76,7 +76,7 @@ exports[`IconButton > renders a WithCriticalIndicator IconButton 1`] = `
 <div>
   <button
     aria-disabled="false"
-    class="_icon-button_e3253e"
+    class="_icon-button_339b22"
     data-indicator="critical"
     data-kind="primary"
     role="button"
@@ -84,7 +84,7 @@ exports[`IconButton > renders a WithCriticalIndicator IconButton 1`] = `
     tabindex="0"
   >
     <div
-      class="_indicator-icon_ab1fc6"
+      class="_indicator-icon_849abf"
       data-indicator="critical"
       style="--cpd-icon-button-size: 100%;"
     >
@@ -114,7 +114,7 @@ exports[`IconButton > renders a WithIndicator IconButton 1`] = `
 <div>
   <button
     aria-disabled="false"
-    class="_icon-button_e3253e"
+    class="_icon-button_339b22"
     data-indicator="default"
     data-kind="primary"
     role="button"
@@ -122,7 +122,7 @@ exports[`IconButton > renders a WithIndicator IconButton 1`] = `
     tabindex="0"
   >
     <div
-      class="_indicator-icon_ab1fc6"
+      class="_indicator-icon_849abf"
       data-indicator="default"
       style="--cpd-icon-button-size: 100%;"
     >
@@ -152,7 +152,7 @@ exports[`IconButton > renders a WithIndicatorDisabled IconButton 1`] = `
 <div>
   <button
     aria-disabled="true"
-    class="_icon-button_e3253e"
+    class="_icon-button_339b22"
     data-indicator="default"
     data-kind="primary"
     role="button"
@@ -160,7 +160,7 @@ exports[`IconButton > renders a WithIndicatorDisabled IconButton 1`] = `
     tabindex="0"
   >
     <div
-      class="_indicator-icon_ab1fc6"
+      class="_indicator-icon_849abf"
       data-indicator="default"
       style="--cpd-icon-button-size: 100%; --cpd-color-icon-tertiary: var(--cpd-color-icon-disabled);"
     >
@@ -190,14 +190,14 @@ exports[`IconButton > renders a WithSecondaryKind IconButton 1`] = `
 <div>
   <button
     aria-disabled="false"
-    class="_icon-button_e3253e"
+    class="_icon-button_339b22"
     data-kind="secondary"
     role="button"
     style="--cpd-icon-button-size: 32px;"
     tabindex="0"
   >
     <div
-      class="_indicator-icon_ab1fc6"
+      class="_indicator-icon_849abf"
       style="--cpd-icon-button-size: 100%;"
     >
       <svg
@@ -226,14 +226,14 @@ exports[`IconButton > renders a WithSecondaryKindAndNoBackground IconButton 1`] 
 <div>
   <button
     aria-disabled="false"
-    class="_icon-button_e3253e _no-background_e3253e"
+    class="_icon-button_339b22 _no-background_339b22"
     data-kind="secondary"
     role="button"
     style="--cpd-icon-button-size: 32px;"
     tabindex="0"
   >
     <div
-      class="_indicator-icon_ab1fc6"
+      class="_indicator-icon_849abf"
       style="--cpd-icon-button-size: 100%;"
     >
       <svg
@@ -262,7 +262,7 @@ exports[`IconButton > renders a WithSuccessIndicator IconButton 1`] = `
 <div>
   <button
     aria-disabled="false"
-    class="_icon-button_e3253e"
+    class="_icon-button_339b22"
     data-indicator="success"
     data-kind="primary"
     role="button"
@@ -270,7 +270,7 @@ exports[`IconButton > renders a WithSuccessIndicator IconButton 1`] = `
     tabindex="0"
   >
     <div
-      class="_indicator-icon_ab1fc6"
+      class="_indicator-icon_849abf"
       data-indicator="success"
       style="--cpd-icon-button-size: 100%;"
     >

@@ -3,7 +3,7 @@
 exports[`Toast > renders 1`] = `
 <DocumentFragment>
   <div
-    class="_toast-container_e9cea7"
+    class="_toast-container_78370f"
   />
 </DocumentFragment>
 `;

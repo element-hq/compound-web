@@ -3,7 +3,7 @@
 exports[`UnreadCounter > should render 1`] = `
 <DocumentFragment>
   <span
-    class="_unread-counter_3069f5"
+    class="_unread-counter_338f41"
   >
     4
   </span>
@@ -13,7 +13,7 @@ exports[`UnreadCounter > should render 1`] = `
 exports[`UnreadCounter > should render no count 1`] = `
 <DocumentFragment>
   <div
-    class="_unread-counter_3069f5"
+    class="_unread-counter_338f41"
   />
 </DocumentFragment>
 `;
