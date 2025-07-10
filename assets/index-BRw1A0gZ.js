@@ -1,1 +1,0 @@
-import{r as u,a as n}from"./index-BKyFwriW.js";function i(e,t,{checkForDefaultPrevented:a=!0}={}){return function(r){if(e?.(r),a===!1||!r.defaultPrevented)return t?.(r)}}var s=globalThis?.document?u.useLayoutEffect:()=>{},c=n.useId||(()=>{}),d=0;function l(e){const[t,a]=u.useState(c());return s(()=>{a(o=>o??String(d++))},[e]),t?`radix-${t}`:""}export{s as a,i as c,l as u};
