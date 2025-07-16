@@ -7,6 +7,6 @@
     // We import React as an unused local in order to support React 17
     "noUnusedLocals": false,
     // We don't need to run directly in Node so can rely on generated code
-    "erasableSyntaxOnly": false,
+    "erasableSyntaxOnly": false
   }
 }
