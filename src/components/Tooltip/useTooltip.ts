@@ -10,8 +10,8 @@ import {
   autoUpdate,
   flip,
   offset,
-  OpenChangeReason,
-  Placement,
+  type OpenChangeReason,
+  type Placement,
   shift,
   useDelayGroup,
   useDismiss,
@@ -26,8 +26,8 @@ import {
   useMemo,
   useRef,
   useState,
-  JSX,
-  AriaAttributes,
+  type JSX,
+  type AriaAttributes,
   useEffect,
 } from "react";
 import { hoverDelay } from "./TooltipProvider";

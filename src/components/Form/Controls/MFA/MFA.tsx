@@ -8,10 +8,10 @@ Please see LICENSE files in the repository root for full details.
 */
 
 import React, {
-  ComponentProps,
-  ComponentRef,
+  type ComponentProps,
+  type ComponentRef,
   forwardRef,
-  PropsWithoutRef,
+  type PropsWithoutRef,
 } from "react";
 
 import styles from "./MFA.module.css";

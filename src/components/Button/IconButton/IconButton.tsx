@@ -5,11 +5,11 @@ SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-Element-Commercial
 Please see LICENSE files in the repository root for full details.
 */
 
-import React, { PropsWithChildren, forwardRef } from "react";
+import React, { type PropsWithChildren, forwardRef } from "react";
 import classnames from "classnames";
 
 import styles from "./IconButton.module.css";
-import { UnstyledButton, UnstyledButtonPropsFor } from "../UnstyledButton";
+import { UnstyledButton, type UnstyledButtonPropsFor } from "../UnstyledButton";
 import { IndicatorIcon } from "../../Icon/IndicatorIcon/IndicatorIcon";
 import { Tooltip } from "../../Tooltip/Tooltip";
 

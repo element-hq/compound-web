@@ -6,8 +6,8 @@
  */
 
 import { VisualListItem as VisualListItemComponent } from "./VisualListItem";
-import { Meta, StoryFn } from "@storybook/react-vite";
-import React, { ComponentProps } from "react";
+import { type Meta, type StoryFn } from "@storybook/react-vite";
+import React, { type ComponentProps } from "react";
 import InfoIcon from "@vector-im/compound-design-tokens/assets/web/icons/info";
 
 export default {

@@ -7,7 +7,11 @@ SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-Element-Commercial
 Please see LICENSE files in the repository root for full details.
 */
 
-import React, { forwardRef, ComponentProps, ComponentRef } from "react";
+import React, {
+  forwardRef,
+  type ComponentProps,
+  type ComponentRef,
+} from "react";
 import { Control } from "@radix-ui/react-form";
 
 import styles from "./Text.module.css";

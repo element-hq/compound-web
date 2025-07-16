@@ -7,7 +7,7 @@ Please see LICENSE files in the repository root for full details.
 */
 
 import React from "react";
-import { StoryObj, Meta } from "@storybook/react-vite";
+import { type StoryObj, type Meta } from "@storybook/react-vite";
 import { fn } from "storybook/test";
 
 import { NavItem } from "./NavItem";

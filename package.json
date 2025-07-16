@@ -65,7 +65,7 @@
     "@testing-library/react": "^16.0.0",
     "@testing-library/user-event": "^14.5.1",
     "@tsconfig/node20": "^20.1.4",
-    "@tsconfig/vite-react": "^3.0.0",
+    "@tsconfig/vite-react": "^7.0.0",
     "@types/eslint": "^9.0.0",
     "@types/node": "^22.0.0",
     "@types/react": "^19.0.0",
