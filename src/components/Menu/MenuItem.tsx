@@ -7,15 +7,15 @@ Please see LICENSE files in the repository root for full details.
 
 import classnames from "classnames";
 import React, {
-  ComponentPropsWithoutRef,
-  ComponentType,
-  ElementType,
+  type ComponentPropsWithoutRef,
+  type ComponentType,
+  type ElementType,
   isValidElement,
-  ReactElement,
-  SVGAttributes,
+  type ReactElement,
+  type SVGAttributes,
   useCallback,
   useContext,
-  MouseEventHandler,
+  type MouseEventHandler,
 } from "react";
 import styles from "./MenuItem.module.css";
 import { Text } from "../Typography/Text";

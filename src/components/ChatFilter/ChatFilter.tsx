@@ -5,10 +5,10 @@
  * Please see LICENSE files in the repository root for full details.
  */
 
-import React, { ForwardedRef, forwardRef } from "react";
+import React, { type ForwardedRef, forwardRef } from "react";
 import {
   UnstyledButton,
-  UnstyledButtonPropsFor,
+  type UnstyledButtonPropsFor,
 } from "../Button/UnstyledButton";
 import styles from "./ChatFilter.module.css";
 

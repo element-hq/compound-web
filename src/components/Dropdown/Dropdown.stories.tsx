@@ -6,8 +6,8 @@ Please see LICENSE files in the repository root for full details.
 */
 import { Dropdown } from "./Dropdown";
 import { fn } from "storybook/test";
-import { Meta, StoryObj } from "@storybook/react-vite";
-import { ComponentProps } from "react";
+import { type Meta, type StoryObj } from "@storybook/react-vite";
+import { type ComponentProps } from "react";
 
 const meta = {
   title: "Dropdown",
