@@ -29,6 +29,7 @@
     "test": "vitest",
     "e2e": "yarn build-storybook && playwright test",
     "e2e:docker": "yarn build-storybook && docker run --rm --network host --ipc=host --security-opt seccomp=playwright/seccomp_profile.json -v $(pwd)/../:/work/ -v /var/run/docker.sock:/var/run/docker.sock -v /tmp/:/tmp/ --init -it $(docker build --build-arg UID=$(id -u) --build-arg GID=$(id -g) -q playwright)",
+    "e2e:podman": "yarn build-storybook && podman run --rm --network host --ipc=host --security-opt seccomp=playwright/seccomp_profile.json -v $(pwd)/../:/work/ -v /tmp/:/tmp/ --userns=keep-id --init -it $(podman build --build-arg UID=$(id -u) --build-arg GID=$(id -g) -q playwright)",
     "build-storybook": "storybook build",
     "storybook": "storybook dev -p 6006",
     "gen:component": "node scripts/genComponent.js"
