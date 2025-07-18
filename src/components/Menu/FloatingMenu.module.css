@@ -15,7 +15,7 @@ Please see LICENSE files in the repository root for full details.
   outline: var(--cpd-border-width-1) solid
     var(--cpd-color-border-interactive-secondary) !important;
   outline-offset: calc(-1 * var(--cpd-border-width-1));
-  box-shadow: 0 4px 24px 0 rgba(0 0 0 / 10%);
+  box-shadow: 0 4px 24px 0 rgb(0 0 0 / 10%);
   inline-size: fit-content;
   max-inline-size: 320px;
   display: flex;

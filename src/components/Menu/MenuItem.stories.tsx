@@ -105,7 +105,6 @@ const SimpleComponent: React.FC<React.ComponentProps<"div">> = (props) => (
 export const IconIsComponent: Story = {
   args: {
     ...Primary.args,
-    // @ts-expect-error: For some reason, this isn't liking the type here
     Icon: <SimpleComponent />,
   },
 };
