@@ -6,8 +6,8 @@
  */
 
 import { Pill as PillComponent } from "./Pill.tsx";
-import { Meta, StoryFn } from "@storybook/react";
-import React, { ComponentProps } from "react";
+import { type Meta, type StoryFn } from "@storybook/react-vite";
+import React, { type ComponentProps } from "react";
 
 export default {
   title: "ActivityMarker/Pill",

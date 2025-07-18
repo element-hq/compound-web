@@ -2,17 +2,18 @@
 
 exports[`Breadcrumb > should render 1`] = `
 <nav
-  class="_breadcrumb_c693d3"
+  class="_breadcrumb_a10670"
 >
   <button
     aria-label="Back"
-    class="_icon-button_e3253e _subtle-bg_e3253e"
+    class="_icon-button_339b22"
+    data-kind="secondary"
     role="button"
     style="--cpd-icon-button-size: 28px;"
     tabindex="0"
   >
     <div
-      class="_indicator-icon_ab1fc6"
+      class="_indicator-icon_849abf"
       style="--cpd-icon-button-size: 100%;"
     >
       <svg
@@ -29,11 +30,11 @@ exports[`Breadcrumb > should render 1`] = `
     </div>
   </button>
   <ol
-    class="_pages_c693d3"
+    class="_pages_a10670"
   >
     <li>
       <a
-        class="_link_379d57"
+        class="_link_d78ce8"
         data-kind="primary"
         data-size="small"
         rel="noreferrer noopener"
@@ -45,7 +46,7 @@ exports[`Breadcrumb > should render 1`] = `
     </li>
     <li>
       <a
-        class="_link_379d57"
+        class="_link_d78ce8"
         data-kind="primary"
         data-size="small"
         rel="noreferrer noopener"
@@ -58,7 +59,7 @@ exports[`Breadcrumb > should render 1`] = `
     <li>
       <span
         aria-current="page"
-        class="_last-page_c693d3"
+        class="_last-page_a10670"
       >
         Current page
       </span>

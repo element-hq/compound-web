@@ -5,12 +5,12 @@ SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-Element-Commercial
 Please see LICENSE files in the repository root for full details.
 */
 
-import { Placement as PlacementType } from "@floating-ui/react";
+import { type Placement as PlacementType } from "@floating-ui/react";
 import { Tooltip as TooltipComponent } from "./Tooltip";
 import { IconButton } from "../Button";
 import UserIcon from "@vector-im/compound-design-tokens/assets/web/icons/user-profile";
-import { Meta, StoryFn, StoryObj } from "@storybook/react";
-import React, { FC, ReactNode } from "react";
+import { type Meta, type StoryFn, type StoryObj } from "@storybook/react-vite";
+import React, { type FC, type ReactNode } from "react";
 import { TooltipProvider } from "./TooltipProvider";
 
 const meta = {

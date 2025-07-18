@@ -6,8 +6,8 @@ Please see LICENSE files in the repository root for full details.
 */
 
 import React from "react";
-import { Meta, StoryObj } from "@storybook/react";
-import { fn } from "@storybook/test";
+import { type Meta, type StoryObj } from "@storybook/react-vite";
+import { fn } from "storybook/test";
 import ExtensionsIcon from "@vector-im/compound-design-tokens/assets/web/icons/extensions";
 import ChatIcon from "@vector-im/compound-design-tokens/assets/web/icons/chat";
 import SettingsLabel from "@vector-im/compound-design-tokens/assets/web/icons/settings";

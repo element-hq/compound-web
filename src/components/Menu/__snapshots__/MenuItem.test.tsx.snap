@@ -3,13 +3,13 @@
 exports[`MenuItem > renders 1`] = `
 <DocumentFragment>
   <button
-    class="_item_831119 _interactive_831119"
+    class="_item_9618f6 _interactive_9618f6"
     data-kind="critical"
     role="menuitem"
   >
     <svg
       aria-hidden="true"
-      class="_icon_831119"
+      class="_icon_9618f6"
       fill="currentColor"
       height="24"
       viewBox="0 0 24 24"
@@ -24,13 +24,13 @@ exports[`MenuItem > renders 1`] = `
       />
     </svg>
     <span
-      class="_typography_489030 _font-body-md-medium_489030 _label_831119"
+      class="_typography_61e060 _font-body-md-medium_61e060 _label_9618f6"
     >
       Leave room
     </span>
     <svg
       aria-hidden="true"
-      class="_nav-hint_831119"
+      class="_nav-hint_9618f6"
       fill="currentColor"
       height="24"
       viewBox="8 0 8 24"
@@ -51,14 +51,14 @@ exports[`MenuItem > renders a Critical Disabled menu item 1`] = `
     style="width: 300px;"
   >
     <button
-      class="_item_831119 _interactive_831119 _disabled_831119"
+      class="_item_9618f6 _interactive_9618f6 _disabled_9618f6"
       data-kind="critical"
       disabled=""
       role="menuitem"
     >
       <svg
         aria-hidden="true"
-        class="_icon_831119"
+        class="_icon_9618f6"
         fill="currentColor"
         height="24"
         viewBox="0 0 24 24"
@@ -70,13 +70,13 @@ exports[`MenuItem > renders a Critical Disabled menu item 1`] = `
         />
       </svg>
       <span
-        class="_typography_489030 _font-body-md-medium_489030 _label_831119"
+        class="_typography_61e060 _font-body-md-medium_61e060 _label_9618f6"
       >
         Menu item
       </span>
       <svg
         aria-hidden="true"
-        class="_nav-hint_831119"
+        class="_nav-hint_9618f6"
         fill="currentColor"
         height="24"
         viewBox="8 0 8 24"
@@ -88,7 +88,7 @@ exports[`MenuItem > renders a Critical Disabled menu item 1`] = `
         />
       </svg>
       <span
-        class="_typography_489030 _font-body-sm-regular_489030"
+        class="_typography_61e060 _font-body-sm-regular_61e060"
       >
         99
       </span>
@@ -103,13 +103,13 @@ exports[`MenuItem > renders a Critical menu item 1`] = `
     style="width: 300px;"
   >
     <button
-      class="_item_831119 _interactive_831119"
+      class="_item_9618f6 _interactive_9618f6"
       data-kind="critical"
       role="menuitem"
     >
       <svg
         aria-hidden="true"
-        class="_icon_831119"
+        class="_icon_9618f6"
         fill="currentColor"
         height="24"
         viewBox="0 0 24 24"
@@ -121,13 +121,13 @@ exports[`MenuItem > renders a Critical menu item 1`] = `
         />
       </svg>
       <span
-        class="_typography_489030 _font-body-md-medium_489030 _label_831119"
+        class="_typography_61e060 _font-body-md-medium_61e060 _label_9618f6"
       >
         Menu item
       </span>
       <svg
         aria-hidden="true"
-        class="_nav-hint_831119"
+        class="_nav-hint_9618f6"
         fill="currentColor"
         height="24"
         viewBox="8 0 8 24"
@@ -139,7 +139,7 @@ exports[`MenuItem > renders a Critical menu item 1`] = `
         />
       </svg>
       <span
-        class="_typography_489030 _font-body-sm-regular_489030"
+        class="_typography_61e060 _font-body-sm-regular_61e060"
       >
         99
       </span>
@@ -154,14 +154,14 @@ exports[`MenuItem > renders a Primary Disabled menu item 1`] = `
     style="width: 300px;"
   >
     <button
-      class="_item_831119 _interactive_831119 _disabled_831119"
+      class="_item_9618f6 _interactive_9618f6 _disabled_9618f6"
       data-kind="primary"
       disabled=""
       role="menuitem"
     >
       <svg
         aria-hidden="true"
-        class="_icon_831119"
+        class="_icon_9618f6"
         fill="currentColor"
         height="24"
         viewBox="0 0 24 24"
@@ -173,13 +173,13 @@ exports[`MenuItem > renders a Primary Disabled menu item 1`] = `
         />
       </svg>
       <span
-        class="_typography_489030 _font-body-md-medium_489030 _label_831119"
+        class="_typography_61e060 _font-body-md-medium_61e060 _label_9618f6"
       >
         Menu item
       </span>
       <svg
         aria-hidden="true"
-        class="_nav-hint_831119"
+        class="_nav-hint_9618f6"
         fill="currentColor"
         height="24"
         viewBox="8 0 8 24"
@@ -191,7 +191,7 @@ exports[`MenuItem > renders a Primary Disabled menu item 1`] = `
         />
       </svg>
       <span
-        class="_typography_489030 _font-body-sm-regular_489030"
+        class="_typography_61e060 _font-body-sm-regular_61e060"
       >
         99
       </span>
@@ -206,13 +206,13 @@ exports[`MenuItem > renders a Primary menu item 1`] = `
     style="width: 300px;"
   >
     <button
-      class="_item_831119 _interactive_831119"
+      class="_item_9618f6 _interactive_9618f6"
       data-kind="primary"
       role="menuitem"
     >
       <svg
         aria-hidden="true"
-        class="_icon_831119"
+        class="_icon_9618f6"
         fill="currentColor"
         height="24"
         viewBox="0 0 24 24"
@@ -224,13 +224,13 @@ exports[`MenuItem > renders a Primary menu item 1`] = `
         />
       </svg>
       <span
-        class="_typography_489030 _font-body-md-medium_489030 _label_831119"
+        class="_typography_61e060 _font-body-md-medium_61e060 _label_9618f6"
       >
         Menu item
       </span>
       <svg
         aria-hidden="true"
-        class="_nav-hint_831119"
+        class="_nav-hint_9618f6"
         fill="currentColor"
         height="24"
         viewBox="8 0 8 24"
@@ -242,7 +242,7 @@ exports[`MenuItem > renders a Primary menu item 1`] = `
         />
       </svg>
       <span
-        class="_typography_489030 _font-body-sm-regular_489030"
+        class="_typography_61e060 _font-body-sm-regular_61e060"
       >
         99
       </span>
@@ -257,13 +257,13 @@ exports[`MenuItem > renders a menu item with a long label 1`] = `
     style="width: 300px;"
   >
     <button
-      class="_item_831119 _interactive_831119"
+      class="_item_9618f6 _interactive_9618f6"
       data-kind="primary"
       role="menuitem"
     >
       <svg
         aria-hidden="true"
-        class="_icon_831119"
+        class="_icon_9618f6"
         fill="currentColor"
         height="24"
         viewBox="0 0 24 24"
@@ -275,13 +275,13 @@ exports[`MenuItem > renders a menu item with a long label 1`] = `
         />
       </svg>
       <span
-        class="_typography_489030 _font-body-md-medium_489030 _label_831119"
+        class="_typography_61e060 _font-body-md-medium_61e060 _label_9618f6"
       >
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
       </span>
       <svg
         aria-hidden="true"
-        class="_nav-hint_831119"
+        class="_nav-hint_9618f6"
         fill="currentColor"
         height="24"
         viewBox="8 0 8 24"
@@ -293,7 +293,7 @@ exports[`MenuItem > renders a menu item with a long label 1`] = `
         />
       </svg>
       <span
-        class="_typography_489030 _font-body-sm-regular_489030"
+        class="_typography_61e060 _font-body-sm-regular_61e060"
       >
         99
       </span>
@@ -308,13 +308,13 @@ exports[`MenuItem > renders a menu item with a long label and children 1`] = `
     style="width: 300px;"
   >
     <button
-      class="_item_831119 _interactive_831119"
+      class="_item_9618f6 _interactive_9618f6"
       data-kind="primary"
       role="menuitem"
     >
       <svg
         aria-hidden="true"
-        class="_icon_831119"
+        class="_icon_9618f6"
         fill="currentColor"
         height="24"
         viewBox="0 0 24 24"
@@ -326,13 +326,13 @@ exports[`MenuItem > renders a menu item with a long label and children 1`] = `
         />
       </svg>
       <span
-        class="_typography_489030 _font-body-md-medium_489030 _label_831119"
+        class="_typography_61e060 _font-body-md-medium_61e060 _label_9618f6"
       >
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, empor incididunt ut labore et dolore magna aliqua.
       </span>
       <svg
         aria-hidden="true"
-        class="_nav-hint_831119"
+        class="_nav-hint_9618f6"
         fill="currentColor"
         height="24"
         viewBox="8 0 8 24"
@@ -344,7 +344,7 @@ exports[`MenuItem > renders a menu item with a long label and children 1`] = `
         />
       </svg>
       <span
-        class="_typography_489030 _font-body-sm-regular_489030"
+        class="_typography_61e060 _font-body-sm-regular_61e060"
       >
         Longer children too
       </span>
@@ -359,13 +359,13 @@ exports[`MenuItem > renders a menu item without a chevron 1`] = `
     style="width: 300px;"
   >
     <button
-      class="_item_831119 _interactive_831119"
+      class="_item_9618f6 _interactive_9618f6"
       data-kind="primary"
       role="menuitem"
     >
       <svg
         aria-hidden="true"
-        class="_icon_831119"
+        class="_icon_9618f6"
         fill="currentColor"
         height="24"
         viewBox="0 0 24 24"
@@ -377,12 +377,12 @@ exports[`MenuItem > renders a menu item without a chevron 1`] = `
         />
       </svg>
       <span
-        class="_typography_489030 _font-body-md-medium_489030 _label_831119"
+        class="_typography_61e060 _font-body-md-medium_61e060 _label_9618f6"
       >
         Menu item
       </span>
       <span
-        class="_typography_489030 _font-body-sm-regular_489030"
+        class="_typography_61e060 _font-body-sm-regular_61e060"
       >
         99
       </span>
@@ -397,18 +397,18 @@ exports[`MenuItem > renders a menu item without an icon 1`] = `
     style="width: 300px;"
   >
     <button
-      class="_item_831119 _interactive_831119 _no-icon_831119"
+      class="_item_9618f6 _interactive_9618f6 _no-icon_9618f6"
       data-kind="primary"
       role="menuitem"
     >
       <span
-        class="_typography_489030 _font-body-md-medium_489030 _label_831119"
+        class="_typography_61e060 _font-body-md-medium_61e060 _label_9618f6"
       >
         Menu item
       </span>
       <svg
         aria-hidden="true"
-        class="_nav-hint_831119"
+        class="_nav-hint_9618f6"
         fill="currentColor"
         height="24"
         viewBox="8 0 8 24"
@@ -420,7 +420,7 @@ exports[`MenuItem > renders a menu item without an icon 1`] = `
         />
       </svg>
       <span
-        class="_typography_489030 _font-body-sm-regular_489030"
+        class="_typography_61e060 _font-body-sm-regular_61e060"
       >
         99
       </span>
@@ -432,13 +432,13 @@ exports[`MenuItem > renders a menu item without an icon 1`] = `
 exports[`MenuItem > renders with a child 1`] = `
 <DocumentFragment>
   <button
-    class="_item_831119 _interactive_831119"
+    class="_item_9618f6 _interactive_9618f6"
     data-kind="primary"
     role="menuitem"
   >
     <svg
       aria-hidden="true"
-      class="_icon_831119"
+      class="_icon_9618f6"
       fill="currentColor"
       height="24"
       viewBox="0 0 24 24"
@@ -456,13 +456,13 @@ exports[`MenuItem > renders with a child 1`] = `
       />
     </svg>
     <span
-      class="_typography_489030 _font-body-md-medium_489030 _label_831119"
+      class="_typography_61e060 _font-body-md-medium_61e060 _label_9618f6"
     >
       People
     </span>
     <svg
       aria-hidden="true"
-      class="_nav-hint_831119"
+      class="_nav-hint_9618f6"
       fill="currentColor"
       height="24"
       viewBox="8 0 8 24"
@@ -474,7 +474,7 @@ exports[`MenuItem > renders with a child 1`] = `
       />
     </svg>
     <span
-      class="_typography_489030 _font-body-sm-regular_489030"
+      class="_typography_61e060 _font-body-sm-regular_61e060"
     >
       10
     </span>
@@ -488,22 +488,22 @@ exports[`MenuItem > renders with an component as an Icon 1`] = `
     style="width: 300px;"
   >
     <button
-      class="_item_831119 _interactive_831119"
+      class="_item_9618f6 _interactive_9618f6"
       data-kind="primary"
       role="menuitem"
     >
       <div
-        class="_icon_831119"
+        class="_icon_9618f6"
         style="height: 24px; width: 48px; background-color: teal;"
       />
       <span
-        class="_typography_489030 _font-body-md-medium_489030 _label_831119"
+        class="_typography_61e060 _font-body-md-medium_61e060 _label_9618f6"
       >
         Menu item
       </span>
       <svg
         aria-hidden="true"
-        class="_nav-hint_831119"
+        class="_nav-hint_9618f6"
         fill="currentColor"
         height="24"
         viewBox="8 0 8 24"
@@ -515,7 +515,7 @@ exports[`MenuItem > renders with an component as an Icon 1`] = `
         />
       </svg>
       <span
-        class="_typography_489030 _font-body-sm-regular_489030"
+        class="_typography_61e060 _font-body-sm-regular_61e060"
       >
         99
       </span>
@@ -527,13 +527,13 @@ exports[`MenuItem > renders with an component as an Icon 1`] = `
 exports[`MenuItem > renders without a label 1`] = `
 <DocumentFragment>
   <button
-    class="_item_831119 _interactive_831119 _no-label_831119"
+    class="_item_9618f6 _interactive_9618f6 _no-label_9618f6"
     data-kind="primary"
     role="menuitem"
   >
     <svg
       aria-hidden="true"
-      class="_icon_831119"
+      class="_icon_9618f6"
       fill="currentColor"
       height="24"
       viewBox="0 0 24 24"
@@ -551,7 +551,7 @@ exports[`MenuItem > renders without a label 1`] = `
     </svg>
     <svg
       aria-hidden="true"
-      class="_nav-hint_831119"
+      class="_nav-hint_9618f6"
       fill="currentColor"
       height="24"
       viewBox="8 0 8 24"

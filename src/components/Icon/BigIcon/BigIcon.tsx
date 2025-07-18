@@ -5,7 +5,7 @@ SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-Element-Commercial
 Please see LICENSE files in the repository root for full details.
 */
 
-import React, { JSX, PropsWithChildren } from "react";
+import React, { type JSX, type PropsWithChildren } from "react";
 import styles from "./BigIcon.module.css";
 import classNames from "classnames";
 

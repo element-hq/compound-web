@@ -6,7 +6,7 @@ Please see LICENSE files in the repository root for full details.
 */
 
 import React from "react";
-import { Meta, StoryObj } from "@storybook/react";
+import { type Meta, type StoryObj } from "@storybook/react-vite";
 import UserProfileIcon from "@vector-im/compound-design-tokens/assets/web/icons/user-profile";
 import NotificationsIcon from "@vector-im/compound-design-tokens/assets/web/icons/notifications";
 import ChatProblemIcon from "@vector-im/compound-design-tokens/assets/web/icons/chat-problem";
@@ -76,3 +76,8 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const ContextMenu: Story = { args: {} };
+export const ContextMenuWithoutTitle: Story = {
+  args: {
+    showTitle: false,
+  },
+};

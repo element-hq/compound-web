@@ -5,7 +5,13 @@ SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-Element-Commercial
 Please see LICENSE files in the repository root for full details.
 */
 
-import React, { FC, ReactNode, useCallback, useMemo, useState } from "react";
+import React, {
+  type FC,
+  type ReactNode,
+  useCallback,
+  useMemo,
+  useState,
+} from "react";
 import {
   Root,
   Trigger,
@@ -17,7 +23,12 @@ import { FloatingMenu } from "./FloatingMenu";
 import { Drawer } from "vaul";
 import classnames from "classnames";
 import drawerStyles from "./DrawerMenu.module.css";
-import { MenuContext, MenuData, MenuItemWrapperProps } from "./MenuContext";
+import contextStyles from "./ContextMenu.module.css";
+import {
+  MenuContext,
+  type MenuData,
+  type MenuItemWrapperProps,
+} from "./MenuContext";
 import { DrawerMenu } from "./DrawerMenu";
 import { getPlatform } from "../../utils/platform";
 
@@ -26,6 +37,11 @@ interface Props {
    * The menu title.
    */
   title: string;
+  /**
+   * Wether the title is displayed.
+   * @default true
+   */
+  showTitle?: boolean;
   /**
    * Event handler called when the open state of the menu changes.
    */
@@ -63,6 +79,7 @@ const ContextMenuItemWrapper: FC<MenuItemWrapperProps> = ({
  */
 export const ContextMenu: FC<Props> = ({
   title,
+  showTitle = true,
   onOpenChange: onOpenChangeProp,
   trigger: triggerProp,
   hasAccessibleAlternative,
@@ -124,8 +141,10 @@ export const ContextMenu: FC<Props> = ({
     <Root onOpenChange={onOpenChange}>
       {trigger}
       <Portal>
-        <Content asChild>
-          <FloatingMenu title={title}>{children}</FloatingMenu>
+        <Content asChild className={classnames(contextStyles.content)}>
+          <FloatingMenu showTitle={showTitle} title={title}>
+            {children}
+          </FloatingMenu>
         </Content>
       </Portal>
     </Root>

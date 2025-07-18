@@ -5,7 +5,12 @@ SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-Element-Commercial
 Please see LICENSE files in the repository root for full details.
 */
 
-import React, { HTMLProps, JSX, MouseEventHandler, KeyboardEvent } from "react";
+import React, {
+  type HTMLProps,
+  type JSX,
+  type MouseEventHandler,
+  type KeyboardEvent,
+} from "react";
 import { IconButton } from "../Button";
 import Chevron from "@vector-im/compound-design-tokens/assets/web/icons/chevron-left";
 import styles from "./Breadcrumb.module.css";
@@ -48,7 +53,7 @@ export function Breadcrumb({
   return (
     <nav className={classNames(styles.breadcrumb, className)} {...props}>
       <IconButton
-        subtleBackground={true}
+        kind="secondary"
         size="28px"
         aria-label={backLabel}
         onClick={onBackClick}

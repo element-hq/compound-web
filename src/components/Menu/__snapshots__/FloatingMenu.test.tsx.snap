@@ -3,24 +3,24 @@
 exports[`FloatingMenu > renders 1`] = `
 <DocumentFragment>
   <div
-    aria-labelledby=":r0:"
-    class="_menu_3295a1"
+    aria-labelledby="«r0»"
+    class="_menu_8d7946"
     role="menu"
   >
     <h3
-      class="_typography_489030 _font-body-sm-semibold_489030 _menu-title_7bbc38 _title_3295a1"
-      id=":r0:"
+      class="_typography_61e060 _font-body-sm-semibold_61e060 _menu-title_096aee _title_8d7946"
+      id="«r0»"
     >
       Settings
     </h3>
     <button
-      class="_item_831119 _interactive_831119"
+      class="_item_9618f6 _interactive_9618f6"
       data-kind="primary"
       role="menuitem"
     >
       <svg
         aria-hidden="true"
-        class="_icon_831119"
+        class="_icon_9618f6"
         fill="currentColor"
         height="24"
         viewBox="0 0 24 24"
@@ -38,13 +38,13 @@ exports[`FloatingMenu > renders 1`] = `
         />
       </svg>
       <span
-        class="_typography_489030 _font-body-md-medium_489030 _label_831119"
+        class="_typography_61e060 _font-body-md-medium_61e060 _label_9618f6"
       >
         Profile
       </span>
       <svg
         aria-hidden="true"
-        class="_nav-hint_831119"
+        class="_nav-hint_9618f6"
         fill="currentColor"
         height="24"
         viewBox="8 0 8 24"
@@ -57,19 +57,19 @@ exports[`FloatingMenu > renders 1`] = `
       </svg>
     </button>
     <div
-      class="_separator_162edc"
+      class="_separator_59a6a1"
       data-kind="primary"
       data-orientation="horizontal"
       role="separator"
     />
     <button
-      class="_item_831119 _interactive_831119"
+      class="_item_9618f6 _interactive_9618f6"
       data-kind="critical"
       role="menuitem"
     >
       <svg
         aria-hidden="true"
-        class="_icon_831119"
+        class="_icon_9618f6"
         fill="currentColor"
         height="24"
         viewBox="0 0 24 24"
@@ -84,13 +84,13 @@ exports[`FloatingMenu > renders 1`] = `
         />
       </svg>
       <span
-        class="_typography_489030 _font-body-md-medium_489030 _label_831119"
+        class="_typography_61e060 _font-body-md-medium_61e060 _label_9618f6"
       >
         Sign out
       </span>
       <svg
         aria-hidden="true"
-        class="_nav-hint_831119"
+        class="_nav-hint_9618f6"
         fill="currentColor"
         height="24"
         viewBox="8 0 8 24"

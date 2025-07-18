@@ -12,23 +12,23 @@ import {
   useMergeRefs,
 } from "@floating-ui/react";
 import React, {
-  PropsWithChildren,
-  Ref,
-  JSX,
+  type PropsWithChildren,
+  type Ref,
+  type JSX,
   isValidElement,
   cloneElement,
   useMemo,
-  ReactNode,
-  FC,
-  ReactElement,
+  type ReactNode,
+  type FC,
+  type ReactElement,
 } from "react";
 
 import classNames from "classnames";
 import styles from "./Tooltip.module.css";
 import {
-  CommonUseTooltipProps,
-  TooltipDescription,
-  TooltipLabel,
+  type CommonUseTooltipProps,
+  type TooltipDescription,
+  type TooltipLabel,
   useTooltip,
 } from "./useTooltip";
 

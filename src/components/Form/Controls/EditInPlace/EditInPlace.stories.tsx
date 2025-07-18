@@ -8,8 +8,8 @@ Please see LICENSE files in the repository root for full details.
 import React from "react";
 
 import { EditInPlace } from "./";
-import { Meta, StoryObj } from "@storybook/react";
-import { expect, userEvent, within } from "@storybook/test";
+import { type Meta, type StoryObj } from "@storybook/react-vite";
+import { expect, userEvent, within } from "storybook/test";
 import { ErrorMessage } from "../../Message";
 import { TooltipProvider } from "../../../Tooltip/TooltipProvider";
 

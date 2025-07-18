@@ -9,10 +9,10 @@ Please see LICENSE files in the repository root for full details.
 
 import classnames from "classnames";
 import React, {
-  ComponentProps,
-  ComponentRef,
+  type ComponentProps,
+  type ComponentRef,
   forwardRef,
-  PropsWithChildren,
+  type PropsWithChildren,
 } from "react";
 import styles from "./Toggle.module.css";
 import { Control } from "@radix-ui/react-form";
@@ -34,7 +34,13 @@ export const ToggleInput = forwardRef<
   const classes = classnames(styles.container, className);
   return (
     <div className={classes}>
-      <input ref={ref} className={styles.input} {...props} type="checkbox" />
+      <input
+        role="switch"
+        ref={ref}
+        className={styles.input}
+        {...props}
+        type="checkbox"
+      />
       <div className={styles.ui} />
     </div>
   );

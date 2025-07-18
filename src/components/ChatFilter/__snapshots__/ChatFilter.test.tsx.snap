@@ -2,7 +2,7 @@
 
 exports[`ChatFiler > should render 1`] = `
 <button
-  class="_chat-filter_4bd40c"
+  class="_chat-filter_ad0fec"
   role="button"
   tabindex="0"
 >
@@ -13,7 +13,7 @@ exports[`ChatFiler > should render 1`] = `
 exports[`ChatFiler > should render a selected filter 1`] = `
 <button
   aria-selected="true"
-  class="_chat-filter_4bd40c"
+  class="_chat-filter_ad0fec"
   role="button"
   tabindex="0"
 >

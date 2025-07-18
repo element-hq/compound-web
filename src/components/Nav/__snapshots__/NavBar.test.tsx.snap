@@ -4,51 +4,51 @@ exports[`<NavBar /> > render a default nav bar 1`] = `
 <div>
   <nav
     aria-label="Main"
-    class="_nav-bar_eb2dec"
+    class="_nav-bar_0471db"
     role="navigation"
   >
     <ul
-      class="_nav-bar-items_eb2dec"
+      class="_nav-bar-items_0471db"
     >
       <li
-        class="_nav-tab_eb2dec"
+        class="_nav-tab_0471db"
         role="presentation"
       >
         <button
-          class="_nav-item_eb2dec"
+          class="_nav-item_0471db"
         >
           Info
         </button>
       </li>
       <li
-        class="_nav-tab_eb2dec"
+        class="_nav-tab_0471db"
         data-current="true"
         role="presentation"
       >
         <button
           aria-current="true"
-          class="_nav-item_eb2dec"
+          class="_nav-item_0471db"
         >
           People
         </button>
       </li>
       <li
-        class="_nav-tab_eb2dec"
+        class="_nav-tab_0471db"
         role="presentation"
       >
         <button
-          class="_nav-item_eb2dec"
+          class="_nav-item_0471db"
           disabled=""
         >
           Disabled
         </button>
       </li>
       <li
-        class="_nav-tab_eb2dec"
+        class="_nav-tab_0471db"
         role="presentation"
       >
         <a
-          class="_nav-item_eb2dec"
+          class="_nav-item_0471db"
           href="https://example.com"
         >
           External
@@ -63,48 +63,48 @@ exports[`<NavBar /> > render a tabbed nav bar 1`] = `
 <div>
   <div>
     <nav
-      class="_nav-bar_eb2dec"
+      class="_nav-bar_0471db"
       role="presentation"
     >
       <ul
         aria-label="main"
-        class="_nav-bar-items_eb2dec"
+        class="_nav-bar-items_0471db"
         role="tablist"
       >
         <li
-          class="_nav-tab_eb2dec"
+          class="_nav-tab_0471db"
           role="presentation"
         >
           <button
             aria-controls="panel-1"
             aria-selected="false"
-            class="_nav-item_eb2dec"
+            class="_nav-item_0471db"
             role="tab"
           >
             Tab 1
           </button>
         </li>
         <li
-          class="_nav-tab_eb2dec"
+          class="_nav-tab_0471db"
           data-current="true"
           role="presentation"
         >
           <button
             aria-controls="panel-2"
             aria-selected="true"
-            class="_nav-item_eb2dec"
+            class="_nav-item_0471db"
             role="tab"
           >
             Tab 2
           </button>
         </li>
         <li
-          class="_nav-tab_eb2dec"
+          class="_nav-tab_0471db"
           role="presentation"
         >
           <button
             aria-controls="panel-3"
-            class="_nav-item_eb2dec"
+            class="_nav-item_0471db"
             disabled=""
             role="tab"
           >

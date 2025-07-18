@@ -4,20 +4,20 @@ exports[`<NavItem /> > render a Active item 1`] = `
 <div>
   <nav
     aria-label="Testing"
-    class="_nav-bar_eb2dec"
+    class="_nav-bar_0471db"
     role="navigation"
   >
     <ul
-      class="_nav-bar-items_eb2dec"
+      class="_nav-bar-items_0471db"
     >
       <li
-        class="_nav-tab_eb2dec"
+        class="_nav-tab_0471db"
         data-current="true"
         role="presentation"
       >
         <button
           aria-current="true"
-          class="_nav-item_eb2dec"
+          class="_nav-item_0471db"
         >
           Sessions
         </button>
@@ -31,20 +31,20 @@ exports[`<NavItem /> > render a ActiveDisabled item 1`] = `
 <div>
   <nav
     aria-label="Testing"
-    class="_nav-bar_eb2dec"
+    class="_nav-bar_0471db"
     role="navigation"
   >
     <ul
-      class="_nav-bar-items_eb2dec"
+      class="_nav-bar-items_0471db"
     >
       <li
-        class="_nav-tab_eb2dec"
+        class="_nav-tab_0471db"
         data-current="true"
         role="presentation"
       >
         <button
           aria-current="true"
-          class="_nav-item_eb2dec"
+          class="_nav-item_0471db"
           disabled=""
         >
           Sessions
@@ -59,20 +59,20 @@ exports[`<NavItem /> > render a ActiveLink item 1`] = `
 <div>
   <nav
     aria-label="Testing"
-    class="_nav-bar_eb2dec"
+    class="_nav-bar_0471db"
     role="navigation"
   >
     <ul
-      class="_nav-bar-items_eb2dec"
+      class="_nav-bar-items_0471db"
     >
       <li
-        class="_nav-tab_eb2dec"
+        class="_nav-tab_0471db"
         data-current="true"
         role="presentation"
       >
         <a
           aria-current="true"
-          class="_nav-item_eb2dec"
+          class="_nav-item_0471db"
           href="https://example.org"
         >
           Sessions
@@ -87,18 +87,18 @@ exports[`<NavItem /> > render a Disabled item 1`] = `
 <div>
   <nav
     aria-label="Testing"
-    class="_nav-bar_eb2dec"
+    class="_nav-bar_0471db"
     role="navigation"
   >
     <ul
-      class="_nav-bar-items_eb2dec"
+      class="_nav-bar-items_0471db"
     >
       <li
-        class="_nav-tab_eb2dec"
+        class="_nav-tab_0471db"
         role="presentation"
       >
         <button
-          class="_nav-item_eb2dec"
+          class="_nav-item_0471db"
           disabled=""
         >
           Sessions
@@ -113,18 +113,18 @@ exports[`<NavItem /> > render a Link item 1`] = `
 <div>
   <nav
     aria-label="Testing"
-    class="_nav-bar_eb2dec"
+    class="_nav-bar_0471db"
     role="navigation"
   >
     <ul
-      class="_nav-bar-items_eb2dec"
+      class="_nav-bar-items_0471db"
     >
       <li
-        class="_nav-tab_eb2dec"
+        class="_nav-tab_0471db"
         role="presentation"
       >
         <a
-          class="_nav-item_eb2dec"
+          class="_nav-item_0471db"
           href="https://example.org"
         >
           Sessions
@@ -139,18 +139,18 @@ exports[`<NavItem /> > render a default item 1`] = `
 <div>
   <nav
     aria-label="Testing"
-    class="_nav-bar_eb2dec"
+    class="_nav-bar_0471db"
     role="navigation"
   >
     <ul
-      class="_nav-bar-items_eb2dec"
+      class="_nav-bar-items_0471db"
     >
       <li
-        class="_nav-tab_eb2dec"
+        class="_nav-tab_0471db"
         role="presentation"
       >
         <button
-          class="_nav-item_eb2dec"
+          class="_nav-item_0471db"
         >
           Sessions
         </button>

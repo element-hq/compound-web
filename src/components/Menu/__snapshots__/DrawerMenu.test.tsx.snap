@@ -4,21 +4,21 @@ exports[`DrawerMenu > renders 1`] = `
 <DocumentFragment>
   <div
     aria-label="Settings"
-    class="_drawer_31bf0e"
+    class="_drawer_fead1c"
     data-platform="other"
     role="menu"
   >
     <div
-      class="_body_31bf0e"
+      class="_body_fead1c"
     >
       <button
-        class="_item_831119 _interactive_831119"
+        class="_item_9618f6 _interactive_9618f6"
         data-kind="primary"
         role="menuitem"
       >
         <svg
           aria-hidden="true"
-          class="_icon_831119"
+          class="_icon_9618f6"
           fill="currentColor"
           height="24"
           viewBox="0 0 24 24"
@@ -36,13 +36,13 @@ exports[`DrawerMenu > renders 1`] = `
           />
         </svg>
         <span
-          class="_typography_489030 _font-body-md-medium_489030 _label_831119"
+          class="_typography_61e060 _font-body-md-medium_61e060 _label_9618f6"
         >
           Profile
         </span>
         <svg
           aria-hidden="true"
-          class="_nav-hint_831119"
+          class="_nav-hint_9618f6"
           fill="currentColor"
           height="24"
           viewBox="8 0 8 24"
@@ -55,19 +55,19 @@ exports[`DrawerMenu > renders 1`] = `
         </svg>
       </button>
       <div
-        class="_separator_162edc"
+        class="_separator_59a6a1"
         data-kind="primary"
         data-orientation="horizontal"
         role="separator"
       />
       <button
-        class="_item_831119 _interactive_831119"
+        class="_item_9618f6 _interactive_9618f6"
         data-kind="critical"
         role="menuitem"
       >
         <svg
           aria-hidden="true"
-          class="_icon_831119"
+          class="_icon_9618f6"
           fill="currentColor"
           height="24"
           viewBox="0 0 24 24"
@@ -82,13 +82,13 @@ exports[`DrawerMenu > renders 1`] = `
           />
         </svg>
         <span
-          class="_typography_489030 _font-body-md-medium_489030 _label_831119"
+          class="_typography_61e060 _font-body-md-medium_61e060 _label_9618f6"
         >
           Sign out
         </span>
         <svg
           aria-hidden="true"
-          class="_nav-hint_831119"
+          class="_nav-hint_9618f6"
           fill="currentColor"
           height="24"
           viewBox="8 0 8 24"

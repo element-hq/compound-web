@@ -5,15 +5,20 @@ SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-Element-Commercial
 Please see LICENSE files in the repository root for full details.
 */
 
-import React, { PropsWithChildren, forwardRef } from "react";
+import React, { type PropsWithChildren, forwardRef } from "react";
 import classnames from "classnames";
 
 import styles from "./IconButton.module.css";
-import { UnstyledButton, UnstyledButtonPropsFor } from "../UnstyledButton";
+import { UnstyledButton, type UnstyledButtonPropsFor } from "../UnstyledButton";
 import { IndicatorIcon } from "../../Icon/IndicatorIcon/IndicatorIcon";
 import { Tooltip } from "../../Tooltip/Tooltip";
 
 type IconButtonProps = UnstyledButtonPropsFor<"button"> & {
+  /**
+   * The type of button.
+   * @default "primary"
+   */
+  kind?: "primary" | "secondary";
   /**
    * The CSS class name.
    */
@@ -42,7 +47,11 @@ type IconButtonProps = UnstyledButtonPropsFor<"button"> & {
    * Optional tooltip for the button
    */
   tooltip?: string;
-  subtleBackground?: boolean;
+  /**
+   * Hide the background when the button is not active or hovered.
+   * @default false
+   */
+  noBackground?: boolean;
 };
 
 /**
@@ -53,6 +62,7 @@ export const IconButton = forwardRef<
   PropsWithChildren<IconButtonProps>
 >(function IconButton(
   {
+    kind = "primary",
     children,
     className,
     indicator,
@@ -61,14 +71,14 @@ export const IconButton = forwardRef<
     disabled,
     destructive,
     tooltip,
-    subtleBackground,
+    noBackground = false,
     ...props
   },
   ref,
 ) {
   const classes = classnames(styles["icon-button"], className, {
     [styles.destructive]: destructive,
-    [styles["subtle-bg"]]: subtleBackground,
+    [styles["no-background"]]: noBackground,
   });
 
   const button = (
@@ -85,6 +95,7 @@ export const IconButton = forwardRef<
       disabled={disabled}
       {...props}
       data-indicator={indicator}
+      data-kind={kind}
     >
       <IndicatorIcon
         indicator={indicator}

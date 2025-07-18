@@ -8,9 +8,9 @@ Please see LICENSE files in the repository root for full details.
 import classnames from "classnames";
 import * as RadixSeparator from "@radix-ui/react-separator";
 import React, {
-  ComponentProps,
-  PropsWithoutRef,
-  Ref,
+  type ComponentProps,
+  type PropsWithoutRef,
+  type Ref,
   forwardRef,
   useEffect,
   useRef,

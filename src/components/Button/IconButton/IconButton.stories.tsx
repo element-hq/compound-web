@@ -6,8 +6,8 @@ Please see LICENSE files in the repository root for full details.
 */
 
 import React from "react";
-import { Meta, StoryObj } from "@storybook/react";
-import { fn } from "@storybook/test";
+import { type Meta, type StoryObj } from "@storybook/react-vite";
+import { fn } from "storybook/test";
 
 import { IconButton as IconButtonComponent } from "./IconButton";
 
@@ -21,12 +21,18 @@ const meta = {
   argTypes: {
     disabled: { type: "boolean" },
     onClick: { action: "onClick" },
+    kind: {
+      type: "string",
+      control: { type: "select" },
+      options: ["primary", "secondary"],
+    },
   },
   args: {
     size: "32px",
     disabled: false,
     children: <UserIcon />,
     onClick: fn(),
+    kind: "primary",
   },
 } satisfies Meta<typeof IconButtonComponent>;
 export default meta;
@@ -84,9 +90,16 @@ export const WithCriticalIndicator: Story = {
   },
 };
 
-export const WithSubtleBackground: Story = {
+export const WithSecondaryKind: Story = {
   args: {
-    subtleBackground: true,
+    kind: "secondary",
+  },
+};
+
+export const WithSecondaryKindAndNoBackground: Story = {
+  args: {
+    kind: "secondary",
+    noBackground: true,
   },
 };
 

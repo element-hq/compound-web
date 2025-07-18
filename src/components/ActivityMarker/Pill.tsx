@@ -5,7 +5,7 @@
  * Please see LICENSE files in the repository root for full details.
  */
 
-import React, { HTMLProps, JSX } from "react";
+import React, { type HTMLProps, type JSX } from "react";
 import styles from "./Pill.module.css";
 
 export function Pill({
