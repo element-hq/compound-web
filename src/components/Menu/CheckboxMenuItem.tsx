@@ -5,7 +5,12 @@
  * Please see LICENSE files in the repository root for full details.
  */
 
-import React, { ComponentProps, forwardRef, useCallback, useId } from "react";
+import React, {
+  type ComponentProps,
+  forwardRef,
+  useCallback,
+  useId,
+} from "react";
 import { MenuItem } from "./MenuItem";
 import { CheckboxInput } from "../Form";
 

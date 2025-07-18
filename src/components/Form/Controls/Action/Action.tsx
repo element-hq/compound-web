@@ -6,7 +6,12 @@ Please see LICENSE files in the repository root for full details.
 */
 
 import classnames from "classnames";
-import React, { forwardRef, ComponentRef, ComponentProps, useId } from "react";
+import React, {
+  forwardRef,
+  type ComponentRef,
+  type ComponentProps,
+  useId,
+} from "react";
 import styles from "./Action.module.css";
 import { TextInput } from "../Text";
 

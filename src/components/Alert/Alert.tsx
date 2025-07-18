@@ -6,7 +6,7 @@ Please see LICENSE files in the repository root for full details.
 */
 
 import classNames from "classnames";
-import React, { PropsWithChildren, useCallback } from "react";
+import React, { type PropsWithChildren, useCallback } from "react";
 
 import CheckCircleIcon from "@vector-im/compound-design-tokens/assets/web/icons/check-circle";
 import ErrorIcon from "@vector-im/compound-design-tokens/assets/web/icons/error-solid";

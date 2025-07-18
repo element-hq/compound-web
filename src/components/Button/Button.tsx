@@ -7,14 +7,14 @@ Please see LICENSE files in the repository root for full details.
 
 import classNames from "classnames";
 import React, {
-  ComponentType,
-  PropsWithChildren,
+  type ComponentType,
+  type PropsWithChildren,
   forwardRef,
-  ForwardedRef,
-  Ref,
+  type ForwardedRef,
+  type Ref,
 } from "react";
 import styles from "./Button.module.css";
-import { UnstyledButton, UnstyledButtonPropsFor } from "./UnstyledButton";
+import { UnstyledButton, type UnstyledButtonPropsFor } from "./UnstyledButton";
 
 interface ButtonComponent {
   // With the explicit `as` prop

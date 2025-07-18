@@ -6,7 +6,7 @@ Please see LICENSE files in the repository root for full details.
 */
 
 import classnames from "classnames";
-import React, { ComponentProps, forwardRef } from "react";
+import React, { type ComponentProps, forwardRef } from "react";
 import { getInitialLetter } from "../../utils/string";
 import styles from "./Avatar.module.css";
 import { useIdColorHash } from "./useIdColorHash";

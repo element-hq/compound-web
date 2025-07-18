@@ -6,10 +6,10 @@ Please see LICENSE files in the repository root for full details.
 */
 
 import {
-  ComponentProps,
-  ComponentRef,
+  type ComponentProps,
+  type ComponentRef,
   forwardRef,
-  PropsWithChildren,
+  type PropsWithChildren,
   useId,
 } from "react";
 import { ToggleInput } from "../Toggle";

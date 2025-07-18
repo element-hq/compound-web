@@ -5,7 +5,7 @@ SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-Element-Commercial
 Please see LICENSE files in the repository root for full details.
 */
 
-import React, { SVGAttributes, forwardRef } from "react";
+import React, { type SVGAttributes, forwardRef } from "react";
 import styles from "./InlineSpinner.module.css";
 import SpinnerIcon from "@vector-im/compound-design-tokens/assets/web/icons/spinner";
 

@@ -10,14 +10,14 @@ import {
   autoUpdate,
   limitShift,
   offset,
-  Placement,
+  type Placement,
   shift,
   useFloating,
   useId,
   useInteractions,
   useRole,
 } from "@floating-ui/react";
-import { MouseEventHandler, useMemo, useRef } from "react";
+import { type MouseEventHandler, useMemo, useRef } from "react";
 
 interface UseReleaseAnnouncementProps {
   /**

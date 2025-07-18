@@ -5,7 +5,11 @@ SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-Element-Commercial
 Please see LICENSE files in the repository root for full details.
 */
 
-import React, { ComponentPropsWithoutRef, ReactNode, forwardRef } from "react";
+import React, {
+  type ComponentPropsWithoutRef,
+  type ReactNode,
+  forwardRef,
+} from "react";
 import styles from "./DrawerMenu.module.css";
 import { getPlatform } from "../../utils/platform";
 import classNames from "classnames";

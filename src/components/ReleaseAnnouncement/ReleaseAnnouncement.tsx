@@ -8,14 +8,14 @@ Please see LICENSE files in the repository root for full details.
 import React, {
   cloneElement,
   isValidElement,
-  JSX,
-  PropsWithChildren,
-  Ref,
+  type JSX,
+  type PropsWithChildren,
+  type Ref,
 } from "react";
 import {
   FloatingPortal,
   FloatingFocusManager,
-  Placement,
+  type Placement,
   useMergeRefs,
   FloatingArrow,
 } from "@floating-ui/react";

@@ -5,7 +5,12 @@ SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-Element-Commercial
 Please see LICENSE files in the repository root for full details.
 */
 
-import React, { PropsWithChildren, forwardRef, ForwardedRef, Ref } from "react";
+import React, {
+  type PropsWithChildren,
+  forwardRef,
+  type ForwardedRef,
+  type Ref,
+} from "react";
 
 interface ButtonComponent {
   // With the explicit `as` prop

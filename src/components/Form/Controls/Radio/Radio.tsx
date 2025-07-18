@@ -9,10 +9,10 @@ Please see LICENSE files in the repository root for full details.
 
 import classnames from "classnames";
 import React, {
-  ComponentProps,
-  ComponentRef,
+  type ComponentProps,
+  type ComponentRef,
   forwardRef,
-  PropsWithChildren,
+  type PropsWithChildren,
 } from "react";
 import { Control } from "@radix-ui/react-form";
 

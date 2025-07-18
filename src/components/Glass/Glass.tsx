@@ -6,8 +6,8 @@ Please see LICENSE files in the repository root for full details.
 */
 
 import React, {
-  ComponentPropsWithoutRef,
-  ReactNode,
+  type ComponentPropsWithoutRef,
+  type ReactNode,
   forwardRef,
   Children,
 } from "react";

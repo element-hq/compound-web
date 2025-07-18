@@ -5,7 +5,7 @@ SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-Element-Commercial
 Please see LICENSE files in the repository root for full details.
 */
 
-import React, { forwardRef, ReactElement } from "react";
+import React, { forwardRef, type ReactElement } from "react";
 import { Field } from "@radix-ui/react-form";
 
 import styles from "./form.module.css";

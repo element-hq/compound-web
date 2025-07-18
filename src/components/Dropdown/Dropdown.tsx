@@ -10,17 +10,17 @@ import Check from "@vector-im/compound-design-tokens/assets/web/icons/check";
 import Error from "@vector-im/compound-design-tokens/assets/web/icons/error-solid";
 
 import React, {
-  Dispatch,
+  type Dispatch,
   forwardRef,
-  HTMLProps,
+  type HTMLProps,
   memo,
-  RefObject,
-  SetStateAction,
+  type RefObject,
+  type SetStateAction,
   useCallback,
   useEffect,
   useRef,
   useState,
-  KeyboardEvent,
+  type KeyboardEvent,
   useMemo,
 } from "react";
 

@@ -7,10 +7,10 @@ Please see LICENSE files in the repository root for full details.
 */
 
 import React, {
-  AnchorHTMLAttributes,
-  ButtonHTMLAttributes,
-  ForwardedRef,
-  MouseEventHandler,
+  type AnchorHTMLAttributes,
+  type ButtonHTMLAttributes,
+  type ForwardedRef,
+  type MouseEventHandler,
   forwardRef,
 } from "react";
 

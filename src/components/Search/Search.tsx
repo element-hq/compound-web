@@ -6,7 +6,7 @@ Please see LICENSE files in the repository root for full details.
 */
 
 import classnames from "classnames";
-import React, { ComponentProps, forwardRef, useId } from "react";
+import React, { type ComponentProps, forwardRef, useId } from "react";
 import styles from "./Search.module.css";
 import { Field, Label } from "../Form";
 

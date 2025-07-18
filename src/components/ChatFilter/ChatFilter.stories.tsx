@@ -6,8 +6,8 @@
  */
 
 import { ChatFilter as ChatFilterComponent } from "./ChatFilter";
-import { Meta, StoryFn } from "@storybook/react-vite";
-import React, { ComponentProps } from "react";
+import { type Meta, type StoryFn } from "@storybook/react-vite";
+import React, { type ComponentProps } from "react";
 
 export default {
   title: "ChatFilter",

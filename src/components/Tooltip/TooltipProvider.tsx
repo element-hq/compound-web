@@ -1,5 +1,5 @@
 import { FloatingDelayGroup } from "@floating-ui/react";
-import React, { FC } from "react";
+import React, { type FC } from "react";
 
 export const hoverDelay = { open: 300, close: 0 };
 

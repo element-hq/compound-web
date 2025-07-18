@@ -9,7 +9,7 @@ Please see LICENSE files in the repository root for full details.
 
 import React from "react";
 
-import { Meta, StoryObj } from "@storybook/react-vite";
+import { type Meta, type StoryObj } from "@storybook/react-vite";
 import { fn } from "storybook/test";
 
 import * as icons from "@vector-im/compound-design-tokens/assets/web/icons";
