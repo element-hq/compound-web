@@ -11,7 +11,7 @@ Please see LICENSE files in the repository root for full details.
 
   /* TODO: This value is used across modals and menu drawers, so would be worth
   tokenizing */
-  background: rgba(3 12 27 / 52.8%);
+  background: rgb(3 12 27 / 52.8%);
 }
 
 .drawer {
