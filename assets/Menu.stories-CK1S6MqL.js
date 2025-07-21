@@ -1,0 +1,10 @@
+import{j as t}from"./jsx-runtime-D_zvdyIk.js";import{r as m}from"./iframe-9Cw6JC8m.js";import"./index-lfLk3oyn.js";import{U as p}from"./user-profile-B5GU0Lib.js";import{N as s,C as c,L as l}from"./notifications-1Ulvmlwp.js";import{M as u}from"./Menu-8KUX5qFj.js";import{M as e}from"./MenuItem-CUPTi3CD.js";import{S as d}from"./Separator-BWwaAZWm.js";import{B as f}from"./Button-ghLB3O7l.js";import{M as g}from"./MenuTitle-5hSjynX-.js";import"./index-Dq67cjTc.js";import"./index-B64z8o39.js";import"./index-BJlTTjct.js";import"./index-Cn8zfDIv.js";import"./index-CkH_W8hZ.js";import"./index-BDKv6I5e.js";import"./index-ytknUetq.js";import"./floating-ui.react-dom-BTSMlY52.js";import"./FloatingMenu-BCtv6VNC.js";import"./index-Bio7adSb.js";import"./DrawerMenu-DhcqfTGG.js";import"./Text-WglwxewZ.js";import"./Typography-DnSX16aj.js";import"./chevron-right-CkX-aLlN.js";import"./floating-ui.react-B9opr3Dh.js";import"./UnstyledButton-Bx_DHPYj.js";const x=a=>{const[i,n]=m.useState(!0);return t.jsxs(u,{...a,open:i,onOpenChange:n,trigger:t.jsx(f,{children:"Open menu"}),align:"start",children:[t.jsx(e,{Icon:p,label:"Profile",onSelect:()=>{}}),t.jsx(e,{Icon:s,label:"Notifications",onSelect:()=>{}}),t.jsx(g,{title:"Other section"}),t.jsx(e,{Icon:s,label:"Other Notifications",onSelect:()=>{}}),t.jsx(e,{Icon:c,label:"Feedback",onSelect:()=>{}}),t.jsx(d,{}),t.jsx(e,{kind:"critical",Icon:l,label:"Sign out",onSelect:()=>{}})]})},A={title:"Menu",component:x,tags:["autodocs"],argTypes:{},args:{}},o={args:{title:"Today's Menu"}},r={args:{title:"Untitled Menu",showTitle:!1}};o.parameters={...o.parameters,docs:{...o.parameters?.docs,source:{originalSource:`{
+  args: {
+    title: "Today's Menu"
+  }
+}`,...o.parameters?.docs?.source}}};r.parameters={...r.parameters,docs:{...r.parameters?.docs,source:{originalSource:`{
+  args: {
+    title: "Untitled Menu",
+    showTitle: false
+  }
+}`,...r.parameters?.docs?.source}}};const D=["Menu","WithoutTitle"];export{o as Menu,r as WithoutTitle,D as __namedExportsOrder,A as default};
