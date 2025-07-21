@@ -6,7 +6,7 @@ SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-Element-Commercial
 Please see LICENSE files in the repository root for full details.
 */
 
-import React, { PropsWithChildren } from "react";
+import React, { type PropsWithChildren } from "react";
 import classNames from "classnames";
 
 import styles from "./Typography.module.css";

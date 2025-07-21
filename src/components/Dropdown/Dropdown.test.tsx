@@ -9,7 +9,7 @@ import { describe, expect, it } from "vitest";
 import { composeStories } from "@storybook/react";
 import * as stories from "./Dropdown.stories";
 import { render, screen } from "@testing-library/react";
-import React, { FC, useMemo, useState } from "react";
+import React, { type FC, useMemo, useState } from "react";
 import { Dropdown } from "./Dropdown";
 import userEvent from "@testing-library/user-event";
 

@@ -5,7 +5,13 @@ SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-Element-Commercial
 Please see LICENSE files in the repository root for full details.
 */
 
-import React, { FC, ReactNode, useCallback, useMemo, useState } from "react";
+import React, {
+  type FC,
+  type ReactNode,
+  useCallback,
+  useMemo,
+  useState,
+} from "react";
 import {
   Root,
   Trigger,
@@ -18,7 +24,11 @@ import { Drawer } from "vaul";
 import classnames from "classnames";
 import drawerStyles from "./DrawerMenu.module.css";
 import contextStyles from "./ContextMenu.module.css";
-import { MenuContext, MenuData, MenuItemWrapperProps } from "./MenuContext";
+import {
+  MenuContext,
+  type MenuData,
+  type MenuItemWrapperProps,
+} from "./MenuContext";
 import { DrawerMenu } from "./DrawerMenu";
 import { getPlatform } from "../../utils/platform";
 

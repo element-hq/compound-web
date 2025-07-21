@@ -7,8 +7,8 @@ Please see LICENSE files in the repository root for full details.
 
 import classnames from "classnames";
 import React, {
-  ComponentPropsWithoutRef,
-  ReactNode,
+  type ComponentPropsWithoutRef,
+  type ReactNode,
   forwardRef,
   useId,
 } from "react";

@@ -6,8 +6,8 @@ Please see LICENSE files in the repository root for full details.
 */
 
 import { Breadcrumb as BreadcrumbComponent } from "./Breadcrumb";
-import { Meta, StoryFn } from "@storybook/react-vite";
-import React, { ComponentProps, useState } from "react";
+import { type Meta, type StoryFn } from "@storybook/react-vite";
+import React, { type ComponentProps, useState } from "react";
 import { Button } from "../Button";
 import { fn } from "storybook/test";
 
