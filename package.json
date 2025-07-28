@@ -56,7 +56,7 @@
     "@fontsource/inter": "^5.0.8",
     "@playwright/test": "^1.41.1",
     "@storybook/addon-a11y": "^9.0.16",
-    "@storybook/addon-designs": "10.0.1",
+    "@storybook/addon-designs": "10.0.2",
     "@storybook/addon-docs": "^9.0.16",
     "@storybook/addon-links": "^9.0.16",
     "@storybook/addon-themes": "^9.0.16",
