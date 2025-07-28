@@ -1,3 +1,0 @@
-import{j as s}from"./jsx-runtime-D_zvdyIk.js";import"./iframe-CG-umMSO.js";import"./index-AHqleaTK.js";const a="_pill_1pem8_8",l={pill:a};function t({children:r,...o}){return s.jsx("span",{...o,className:l.pill,children:r})}try{t.displayName="Pill",t.__docgenInfo={description:"",displayName:"Pill",props:{}}}catch{}const m={title:"ActivityMarker/Pill",component:t,tags:["autodocs"],argTypes:{},args:{children:"Live"}},n=r=>s.jsx(t,{...r}),e=n.bind({});e.args={};e.parameters={...e.parameters,docs:{...e.parameters?.docs,source:{originalSource:`(args: ComponentProps<typeof PillComponent>) => {
-  return <PillComponent {...args} />;
-}`,...e.parameters?.docs?.source}}};const d=["Default"];export{e as Default,d as __namedExportsOrder,m as default};
