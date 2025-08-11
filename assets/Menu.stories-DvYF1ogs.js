@@ -1,0 +1,10 @@
+import{j as t}from"./jsx-runtime-D_zvdyIk.js";import{r as m}from"./iframe-HArUwFMX.js";import"./index-BMJxWH1-.js";import{U as p}from"./user-profile-DKi68mk3.js";import{N as s,C as c,L as l}from"./notifications-DIIImv7T.js";import{M as u}from"./Menu-NG8UD1_B.js";import{M as e}from"./MenuItem-BY4ao30d.js";import{S as d}from"./Separator-DWnxtmdI.js";import{B as f}from"./Button-CoE1spxa.js";import{M as g}from"./MenuTitle-CXDVGtAB.js";import"./preload-helper-D9Z9MdNV.js";import"./index-XjUGVD_O.js";import"./index-C83ukGHr.js";import"./index-DNyI4MUc.js";import"./index-JPxmXzYP.js";import"./index-CPA3oZP7.js";import"./index-3dmmd95P.js";import"./index-LL2wdolJ.js";import"./floating-ui.utils-CD7XaRYC.js";import"./FloatingMenu-BP8b7MEh.js";import"./index-Dw9kujRh.js";import"./DrawerMenu-DSIGg-By.js";import"./Text-B4KTkoPX.js";import"./Typography-DwK8E55L.js";import"./chevron-right-BX2RJ7DW.js";import"./floating-ui.react-DAOsBcAs.js";import"./UnstyledButton-DXd_Zgp_.js";const x=i=>{const[a,n]=m.useState(!0);return t.jsxs(u,{...i,open:a,onOpenChange:n,trigger:t.jsx(f,{children:"Open menu"}),align:"start",children:[t.jsx(e,{Icon:p,label:"Profile",onSelect:()=>{}}),t.jsx(e,{Icon:s,label:"Notifications",onSelect:()=>{}}),t.jsx(g,{title:"Other section"}),t.jsx(e,{Icon:s,label:"Other Notifications",onSelect:()=>{}}),t.jsx(e,{Icon:c,label:"Feedback",onSelect:()=>{}}),t.jsx(d,{}),t.jsx(e,{kind:"critical",Icon:l,label:"Sign out",onSelect:()=>{}})]})},D={title:"Menu",component:x,tags:["autodocs"],argTypes:{},args:{}},o={args:{title:"Today's Menu"}},r={args:{title:"Untitled Menu",showTitle:!1}};o.parameters={...o.parameters,docs:{...o.parameters?.docs,source:{originalSource:`{
+  args: {
+    title: "Today's Menu"
+  }
+}`,...o.parameters?.docs?.source}}};r.parameters={...r.parameters,docs:{...r.parameters?.docs,source:{originalSource:`{
+  args: {
+    title: "Untitled Menu",
+    showTitle: false
+  }
+}`,...r.parameters?.docs?.source}}};const G=["Menu","WithoutTitle"];export{o as Menu,r as WithoutTitle,G as __namedExportsOrder,D as default};
