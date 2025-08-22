@@ -1,0 +1,10 @@
+import{j as t}from"./jsx-runtime-D_zvdyIk.js";import{r as m}from"./iframe-CLiVn8QR.js";import"./index-CZ3uDPFb.js";import{U as p}from"./user-profile-CQKMyDfW.js";import{N as s,C as c,L as l}from"./notifications-CFUkxl0D.js";import{M as u}from"./Menu-rNPBE-lj.js";import{M as e}from"./MenuItem-Dbr57Yr9.js";import{S as d}from"./Separator-D2dpI3Hy.js";import{B as f}from"./Button-CcS-bMfu.js";import{M as g}from"./MenuTitle-jwhJ62ll.js";import"./preload-helper-D9Z9MdNV.js";import"./index-CaIKslmR.js";import"./index-DDzpyYhR.js";import"./index-CjApmvno.js";import"./index-pqJgJvU3.js";import"./index-BOUIzn03.js";import"./index-CTbGrcai.js";import"./index-Bo7JEoqk.js";import"./floating-ui.react-dom-DDAORCef.js";import"./FloatingMenu-DNLlFGr5.js";import"./index-BsodZ7D5.js";import"./DrawerMenu-CnKYofJB.js";import"./Text-xdag5VGD.js";import"./Typography-D34WyUQT.js";import"./chevron-right-CxUn3339.js";import"./floating-ui.react-DHwizOQk.js";import"./UnstyledButton-i55YldPr.js";const x=i=>{const[a,n]=m.useState(!0);return t.jsxs(u,{...i,open:a,onOpenChange:n,trigger:t.jsx(f,{children:"Open menu"}),align:"start",children:[t.jsx(e,{Icon:p,label:"Profile",onSelect:()=>{}}),t.jsx(e,{Icon:s,label:"Notifications",onSelect:()=>{}}),t.jsx(g,{title:"Other section"}),t.jsx(e,{Icon:s,label:"Other Notifications",onSelect:()=>{}}),t.jsx(e,{Icon:c,label:"Feedback",onSelect:()=>{}}),t.jsx(d,{}),t.jsx(e,{kind:"critical",Icon:l,label:"Sign out",onSelect:()=>{}})]})},D={title:"Menu",component:x,tags:["autodocs"],argTypes:{},args:{}},o={args:{title:"Today's Menu"}},r={args:{title:"Untitled Menu",showTitle:!1}};o.parameters={...o.parameters,docs:{...o.parameters?.docs,source:{originalSource:`{
+  args: {
+    title: "Today's Menu"
+  }
+}`,...o.parameters?.docs?.source}}};r.parameters={...r.parameters,docs:{...r.parameters?.docs,source:{originalSource:`{
+  args: {
+    title: "Untitled Menu",
+    showTitle: false
+  }
+}`,...r.parameters?.docs?.source}}};const G=["Menu","WithoutTitle"];export{o as Menu,r as WithoutTitle,G as __namedExportsOrder,D as default};
