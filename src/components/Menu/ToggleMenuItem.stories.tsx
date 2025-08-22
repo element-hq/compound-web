@@ -20,7 +20,7 @@ type Props = Omit<
 const Template: React.FC<Props> = (props: Props) => {
   const [firstChecked, setFirstChecked] = useState(false);
   return (
-    <div style={{ width: 300 }}>
+    <div style={{ width: 300 }} role="menu">
       <ToggleMenuItemComponent
         {...props}
         Icon={ChatIcon}

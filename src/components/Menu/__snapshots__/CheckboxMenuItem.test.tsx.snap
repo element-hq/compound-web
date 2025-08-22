@@ -2,7 +2,7 @@
 
 exports[`CheckboxMenuItem > renders 1`] = `
 <DocumentFragment>
-  <div
+  <button
     aria-checked="false"
     class="_item_9618f6 _interactive_9618f6"
     data-kind="primary"
@@ -15,6 +15,7 @@ exports[`CheckboxMenuItem > renders 1`] = `
         aria-hidden="true"
         class="_input_937330"
         id="«r0»"
+        tabindex="-1"
         type="checkbox"
       />
       <div
@@ -39,6 +40,6 @@ exports[`CheckboxMenuItem > renders 1`] = `
     >
       Always show
     </span>
-  </div>
+  </button>
 </DocumentFragment>
 `;
