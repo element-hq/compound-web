@@ -83,16 +83,16 @@ export const UnstyledButton = forwardRef(function UnstyledButton<
 
   return (
     <Component
+      ref={ref as Ref<C>}
+      className={className}
       // The elements roles should be set to button default, or link in the case of anchors.
       // This should be overridable by props, say for example if you want to use a button as an option within a listbox.
       // Hence it taking precedence over restProps.
       role={as === "a" ? "link" : "button"}
-      {...restProps}
-      ref={ref as Ref<C>}
-      className={className}
       tabIndex={0}
-      {...eventHandlers}
       aria-disabled={disabled}
+      {...restProps}
+      {...eventHandlers}
     >
       {children}
     </Component>
