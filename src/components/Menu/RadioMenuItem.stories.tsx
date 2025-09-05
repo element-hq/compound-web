@@ -52,7 +52,7 @@ const Template: React.FC<Props> = (props: Props) => {
 const meta = {
   title: "Menu/RadioMenuItem",
   component: Template,
-  tags: ["autodocs"],
+  tags: ["autodocs", "axe-exclude"],
   argTypes: {},
   args: {},
 } satisfies Meta<typeof Template>;

@@ -18,7 +18,7 @@ import { Text } from "../Typography/Text";
 const meta = {
   title: "Menu/MenuItem",
   component: MenuItemComponent,
-  tags: ["autodocs"],
+  tags: ["autodocs", "axe-exclude"],
   args: {
     label: "Menu item",
     children: (

@@ -22,7 +22,7 @@ const meta = {
   render: ({ invalid, ...props }) => (
     <RadioInput {...props} data-invalid={invalid || undefined} />
   ),
-  tags: ["autodocs"],
+  tags: ["autodocs", "axe-exclude"],
   argTypes: {
     defaultChecked: {
       type: "boolean",

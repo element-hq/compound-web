@@ -16,7 +16,7 @@ import { NavBar } from ".";
 const meta = {
   title: "Nav/Nav Item",
   component: NavItem,
-  tags: ["autodocs"],
+  tags: ["autodocs", "axe-exclude"],
   args: {
     onClick: fn(),
     href: undefined,

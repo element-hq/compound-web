@@ -112,6 +112,7 @@ export const WithText: Story = {
 };
 
 export const Saving: Story = {
+  tags: ["axe-exclude"],
   args: {
     defaultValue: "Hello",
     onSave: () => new Promise(() => {}),

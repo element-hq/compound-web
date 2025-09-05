@@ -5,7 +5,7 @@ SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-Element-Commercial
 Please see LICENSE files in the repository root for full details.
 */
 
-import { test } from "@playwright/test";
+import { test } from "@element-hq/element-web-playwright-common/lib/fixtures/axe.js";
 import { expect } from "@element-hq/element-web-playwright-common";
 import fs from "fs";
 
@@ -42,7 +42,7 @@ for (const story of Object.values(stories)) {
     test(
       `${story.title} ${story.name}`,
       { tag: "@screenshot" },
-      async ({ page }) => {
+      async ({ page, axe }) => {
         const search = new URLSearchParams({ viewMode: "story", id: story.id });
         await page.goto(`iframe.html?${search.toString()}`, {
           waitUntil: "networkidle",
@@ -51,6 +51,17 @@ for (const story of Object.values(stories)) {
           `${story.title}-${story.name}-1.png`,
           { fullPage: true },
         );
+
+        if (!story.tags.includes("axe-exclude")) {
+          axe.disableRules([
+            "landmark-one-main",
+            "meta-viewport",
+            "page-has-heading-one",
+            "region",
+          ]);
+
+          await expect(axe).toHaveNoViolations();
+        }
       },
     );
   }

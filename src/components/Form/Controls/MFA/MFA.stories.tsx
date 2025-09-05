@@ -23,7 +23,7 @@ const meta = {
   render: ({ invalid, ...props }) => (
     <MFAInput {...props} data-invalid={invalid || undefined} />
   ),
-  tags: ["autodocs"],
+  tags: ["autodocs", "axe-exclude"],
   parameters: {
     controls: {
       include: ["defaultValue", "disabled", "readOnly", "invalid"],

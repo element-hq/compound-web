@@ -148,6 +148,7 @@ const KitchenSink = ({ disabled, invalid, readOnly }: Props) => (
 const meta = {
   title: "Form/Kitchen Sink",
   component: KitchenSink,
+  tags: ["axe-exclude"],
   argTypes: {
     disabled: {
       type: "boolean",

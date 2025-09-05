@@ -17,7 +17,7 @@ import { TooltipProvider } from "../../Tooltip/TooltipProvider";
 const meta = {
   title: "Button/IconButton",
   component: IconButtonComponent,
-  tags: ["autodocs"],
+  tags: ["autodocs", "axe-exclude"],
   argTypes: {
     disabled: { type: "boolean" },
     onClick: { action: "onClick" },
