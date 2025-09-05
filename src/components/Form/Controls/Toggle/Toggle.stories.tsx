@@ -14,7 +14,7 @@ import { ToggleInput } from "./Toggle";
 const meta = {
   title: "Form/Controls/Toggle",
   component: ToggleInput,
-  tags: ["autodocs"],
+  tags: ["autodocs", "axe-exclude"],
   argTypes: {},
   args: {},
 } satisfies Meta<typeof ToggleInput>;

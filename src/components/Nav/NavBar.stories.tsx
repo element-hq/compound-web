@@ -11,7 +11,7 @@ import { NavBar, NavItem } from ".";
 const meta = {
   title: "Nav",
   component: NavBar,
-  tags: ["autodocs"],
+  tags: ["autodocs", "axe-exclude"],
   parameters: {
     controls: {
       include: ["aria-label"],

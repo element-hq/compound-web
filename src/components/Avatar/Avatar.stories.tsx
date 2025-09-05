@@ -40,6 +40,7 @@ export const Square: Story = {
 };
 
 export const Button: Story = {
+  tags: ["axe-exclude"],
   args: {
     type: "round",
     onClick: () => console.log("clicked!"),

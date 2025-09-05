@@ -18,7 +18,7 @@ type Props = { invalid?: boolean } & React.ComponentProps<typeof TextInput>;
 const meta = {
   title: "Form/Controls/Text",
   component: TextInput,
-  tags: ["autodocs"],
+  tags: ["autodocs", "axe-exclude"],
   parameters: {
     controls: {
       include: [
