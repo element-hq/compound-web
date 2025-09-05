@@ -52,6 +52,11 @@ for (const story of Object.values(stories)) {
           { fullPage: true },
         );
 
+        // Quite a few of our stories end up with axe violations. A lot of them are
+        // just that components aren't mounted inside the container components they're
+        // supposed to live in. Ideally the stories would probably put them in the right
+        // context. Either way, we use this tag to exclude those components from axe
+        // testing until they can be fixed.
         if (!story.tags.includes("axe-exclude")) {
           axe.disableRules([
             "landmark-one-main",
