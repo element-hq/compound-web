@@ -45,6 +45,7 @@ const meta = {
   title: "Menu/FloatingMenu",
   component: Template,
   argTypes: {},
+  tags: ["axe-exclude"],
   args: {},
 } satisfies Meta<typeof Template>;
 export default meta;

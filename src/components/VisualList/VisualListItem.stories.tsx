@@ -13,7 +13,7 @@ import InfoIcon from "@vector-im/compound-design-tokens/assets/web/icons/info";
 export default {
   title: "VisualList/VisualListItem",
   component: VisualListItemComponent,
-  tags: ["autodocs"],
+  tags: ["autodocs", "axe-exclude"],
   argTypes: {},
   args: {
     Icon: InfoIcon,

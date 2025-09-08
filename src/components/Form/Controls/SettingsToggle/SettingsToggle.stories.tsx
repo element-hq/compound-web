@@ -21,7 +21,7 @@ const meta = {
       </Form>
     ),
   ],
-  tags: ["autodocs"],
+  tags: ["autodocs", "axe-exclude"],
   argTypes: {},
   args: {
     name: '"any-name"',

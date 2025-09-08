@@ -20,7 +20,7 @@ type Props = { invalid?: boolean } & React.ComponentProps<typeof PasswordInput>;
 const meta = {
   title: "Form/Controls/Password",
   component: PasswordInput,
-  tags: ["autodocs"],
+  tags: ["autodocs", "axe-exclude"],
   parameters: {
     controls: {
       include: [

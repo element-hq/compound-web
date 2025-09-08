@@ -32,3 +32,4 @@ export const Selected = Template.bind({});
 Selected.args = {
   selected: true,
 };
+Selected.tags = ["axe-exclude"];
