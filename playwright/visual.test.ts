@@ -49,7 +49,10 @@ for (const story of Object.values(stories)) {
         });
         await expect(page).toMatchScreenshot(
           `${story.title}-${story.name}-1.png`,
-          { fullPage: true },
+          {
+            fullPage: true,
+            css: ".hideInScreenshot { display: none !important; }",
+          },
         );
 
         // Quite a few of our stories end up with axe violations. A lot of them are

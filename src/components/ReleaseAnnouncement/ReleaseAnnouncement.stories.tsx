@@ -22,6 +22,7 @@ const Template: React.FC<Props> = (args) => {
     <>
       <button
         style={{ display: "block" }}
+        className="hideInScreenshot"
         onClick={() => setOpen((open) => !open)}
       >
         {open ? "Close" : "Open"}
