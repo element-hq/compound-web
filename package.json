@@ -51,7 +51,7 @@
   },
   "homepage": "https://github.com/vector-im/compound-web#readme",
   "devDependencies": {
-    "@element-hq/element-web-playwright-common": "^1.4.2",
+    "@element-hq/element-web-playwright-common": "^2.0.0",
     "@fontsource/inconsolata": "^5.0.8",
     "@fontsource/inter": "^5.0.8",
     "@playwright/test": "^1.41.1",
