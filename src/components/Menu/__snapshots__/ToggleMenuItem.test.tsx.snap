@@ -2,7 +2,7 @@
 
 exports[`ToggleMenuItem > renders 1`] = `
 <DocumentFragment>
-  <div
+  <button
     aria-checked="false"
     class="_item_9618f6 _interactive_9618f6"
     data-kind="primary"
@@ -34,12 +34,13 @@ exports[`ToggleMenuItem > renders 1`] = `
         class="_input_d9763f"
         id="«r0»"
         role="switch"
+        tabindex="-1"
         type="checkbox"
       />
       <div
         class="_ui_d9763f"
       />
     </div>
-  </div>
+  </button>
 </DocumentFragment>
 `;
