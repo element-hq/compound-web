@@ -2,11 +2,11 @@
 
 exports[`ReleaseAnnouncement > renders 1`] = `
 <div
-  aria-describedby="«r1»"
-  aria-labelledby="«r0»"
+  aria-describedby="_r_1_"
+  aria-labelledby="_r_0_"
   class="_content_4b2dd5"
   data-floating-ui-focusable=""
-  id="«r2»"
+  id="_r_2_"
   role="dialog"
   style="position: absolute; left: 0px; top: 0px; transform: translate(16px, 50px);"
   tabindex="-1"
@@ -24,7 +24,7 @@ exports[`ReleaseAnnouncement > renders 1`] = `
       stroke="none"
     />
     <clippath
-      id="«r5»"
+      id="_r_5_"
     >
       <rect
         height="20"
@@ -36,13 +36,13 @@ exports[`ReleaseAnnouncement > renders 1`] = `
   </svg>
   <h3
     class="_typography_61e060 _font-body-lg-semibold_61e060 _header_4b2dd5"
-    id="«r0»"
+    id="_r_0_"
   >
     Notifications have moved
   </h3>
   <span
     class="_typography_61e060 _font-body-sm-regular_61e060 _description_4b2dd5"
-    id="«r1»"
+    id="_r_1_"
   >
     From now on, click the icon here to view your notifications.
   </span>
@@ -60,11 +60,11 @@ exports[`ReleaseAnnouncement > renders 1`] = `
 
 exports[`ReleaseAnnouncement > renders the component at the bottom of the trigger button 1`] = `
 <div
-  aria-describedby="«rd»"
-  aria-labelledby="«rc»"
+  aria-describedby="_r_d_"
+  aria-labelledby="_r_c_"
   class="_content_4b2dd5"
   data-floating-ui-focusable=""
-  id="«re»"
+  id="_r_e_"
   role="dialog"
   style="position: absolute; left: 0px; top: 0px; transform: translate(50px, 16px);"
   tabindex="-1"
@@ -82,7 +82,7 @@ exports[`ReleaseAnnouncement > renders the component at the bottom of the trigge
       stroke="none"
     />
     <clippath
-      id="«rh»"
+      id="_r_h_"
     >
       <rect
         height="20"
@@ -94,13 +94,13 @@ exports[`ReleaseAnnouncement > renders the component at the bottom of the trigge
   </svg>
   <h3
     class="_typography_61e060 _font-body-lg-semibold_61e060 _header_4b2dd5"
-    id="«rc»"
+    id="_r_c_"
   >
     Notifications have moved
   </h3>
   <span
     class="_typography_61e060 _font-body-sm-regular_61e060 _description_4b2dd5"
-    id="«rd»"
+    id="_r_d_"
   >
     From now on, click the icon here to view your notifications.
   </span>
@@ -118,11 +118,11 @@ exports[`ReleaseAnnouncement > renders the component at the bottom of the trigge
 
 exports[`ReleaseAnnouncement > renders with a long label header and description 1`] = `
 <div
-  aria-describedby="«r7»"
-  aria-labelledby="«r6»"
+  aria-describedby="_r_7_"
+  aria-labelledby="_r_6_"
   class="_content_4b2dd5"
   data-floating-ui-focusable=""
-  id="«r8»"
+  id="_r_8_"
   role="dialog"
   style="position: absolute; left: 0px; top: 0px; transform: translate(16px, 50px);"
   tabindex="-1"
@@ -140,7 +140,7 @@ exports[`ReleaseAnnouncement > renders with a long label header and description 
       stroke="none"
     />
     <clippath
-      id="«rb»"
+      id="_r_b_"
     >
       <rect
         height="20"
@@ -152,13 +152,13 @@ exports[`ReleaseAnnouncement > renders with a long label header and description 
   </svg>
   <h3
     class="_typography_61e060 _font-body-lg-semibold_61e060 _header_4b2dd5"
-    id="«r6»"
+    id="_r_6_"
   >
     A multi line header which is taking multiple lines
   </h3>
   <span
     class="_typography_61e060 _font-body-sm-regular_61e060 _description_4b2dd5"
-    id="«r7»"
+    id="_r_7_"
   >
     A multi line description which is taking multiple lines. The OK button should be vertically centred.
   </span>
@@ -176,24 +176,24 @@ exports[`ReleaseAnnouncement > renders with a long label header and description 
 
 exports[`ReleaseAnnouncement > renders without an arrow 1`] = `
 <div
-  aria-describedby="«rn»"
-  aria-labelledby="«rm»"
+  aria-describedby="_r_n_"
+  aria-labelledby="_r_m_"
   class="_content_4b2dd5"
   data-floating-ui-focusable=""
-  id="«ro»"
+  id="_r_o_"
   role="dialog"
   style="position: absolute; left: 0px; top: 0px; transform: translate(16px, 50px);"
   tabindex="-1"
 >
   <h3
     class="_typography_61e060 _font-body-lg-semibold_61e060 _header_4b2dd5"
-    id="«rm»"
+    id="_r_m_"
   >
     Notifications have moved
   </h3>
   <span
     class="_typography_61e060 _font-body-sm-regular_61e060 _description_4b2dd5"
-    id="«rn»"
+    id="_r_n_"
   >
     From now on, click the icon here to view your notifications.
   </span>

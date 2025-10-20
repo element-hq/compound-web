@@ -5,7 +5,7 @@ exports[`PasswordControl > renders 1`] = `
   <form>
     <div>
       <label
-        for="radix-«r0»"
+        for="radix-_r_0_"
       >
         MFA
       </label>
@@ -15,7 +15,7 @@ exports[`PasswordControl > renders 1`] = `
         <input
           autocomplete="one-time-code"
           class="_control_8dfd49"
-          id="radix-«r0»"
+          id="radix-_r_0_"
           inputmode="numeric"
           maxlength="6"
           minlength="0"
