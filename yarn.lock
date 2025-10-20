@@ -3302,10 +3302,10 @@ eslint-config-prettier@^10.0.0:
   resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-10.1.8.tgz#15734ce4af8c2778cc32f0b01b37b0b5cd1ecb97"
   integrity sha512-82GZUjRS0p/jganf6q1rEO25VSoHH0hKPCTrgillPjdI/3bgBhAE1QzHrHTizjpRvy6pGAvKjDJtk2pF9NDq8w==
 
-eslint-plugin-matrix-org@^2.0.0:
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-matrix-org/-/eslint-plugin-matrix-org-2.2.1.tgz#97304c0c1f74c200bf461f69bef76ac2c742cf96"
-  integrity sha512-TiNxZ/O/QZCfaeYG5OcL96dPV2A4qvt06+I4z/YjLBCtvb9aRSuUV8Kvrgb7FJha0TyB9V4p3LPDhfMni8N9LQ==
+eslint-plugin-matrix-org@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-matrix-org/-/eslint-plugin-matrix-org-3.0.0.tgz#0e5eaa556b6780dcd616b1381baec252df78b56d"
+  integrity sha512-xOPMeyLxOgoB2SsPhJmIc+drorZmXozSBo3X9whk/62DvbVpJcnththOCGx8ljYScADLb+baNOeN+wKZqwkldw==
 
 eslint-plugin-prettier@^5.0.0:
   version "5.5.4"
