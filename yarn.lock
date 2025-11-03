@@ -1470,10 +1470,10 @@
     "@storybook/global" "^5.0.0"
     axe-core "^4.2.0"
 
-"@storybook/addon-designs@10.0.2":
-  version "10.0.2"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-designs/-/addon-designs-10.0.2.tgz#b889a3b67d88f1cf7a4744865241ea61b88cd760"
-  integrity sha512-MP7av/of6QMPH7bRjwjTC34GySy2bfyh3WwLWeztQOuNWMEFUOWzjh9iIyCiOBl7VADSXeL4SOJGIiGzQznFZw==
+"@storybook/addon-designs@11.0.1":
+  version "11.0.1"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-designs/-/addon-designs-11.0.1.tgz#34ebcc7c4ecd30f5d565e78346f5a765a63a396f"
+  integrity sha512-xmKe2AwyC79+3iaABmOgExDy4bvZSLaCF74cu6bZSXTJNLxi3VIXqG/w0IXmkV5aPrziqF64RF63wAJiodHf7g==
   dependencies:
     "@figspec/react" "^1.0.0"
 
