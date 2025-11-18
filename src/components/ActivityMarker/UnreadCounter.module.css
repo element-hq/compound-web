@@ -18,3 +18,9 @@
   justify-content: center;
   box-sizing: border-box;
 }
+
+@media (forced-colors: active) {
+  .unread-counter {
+    outline: 1px solid transparent;
+  }
+}

@@ -9,6 +9,17 @@ Please see LICENSE files in the repository root for full details.
   display: inline-block;
   box-sizing: border-box;
 
+  /* -2px to account for the border styling below */
+  line-height: calc(var(--cpd-avatar-size) - 2px);
+  text-align: center;
+  font-size: min(calc(var(--cpd-avatar-size) * 0.5625), 60px);
+  text-transform: uppercase;
+  speak: none; /* stylelint-disable-line declaration-property-value-no-unknown */
+  font-family: var(--cpd-font-family-sans);
+  font-weight: bold;
+  overflow: hidden;
+  user-select: none;
+
   /* Set a background color to help with visual consistency when displaying
    * avatars with a translucent background */
   background: var(--cpd-color-bg-canvas-default);
@@ -46,17 +57,6 @@ button.avatar:disabled {
      but this is currently not supported in all browsers */
   background: var(--cpd-avatar-bg);
   color: var(--cpd-avatar-color);
-
-  /* -2px to account for the border styling below */
-  line-height: calc(var(--cpd-avatar-size) - 2px);
-  text-align: center;
-  font-size: min(calc(var(--cpd-avatar-size) * 0.5625), 60px);
-  text-transform: uppercase;
-  speak: none; /* stylelint-disable-line declaration-property-value-no-unknown */
-  font-family: var(--cpd-font-family-sans);
-  font-weight: bold;
-  overflow: hidden;
-  user-select: none;
 
   /* Additional style to ensure visibility in contrast-mode */
   border: 1px solid var(--cpd-avatar-bg);
