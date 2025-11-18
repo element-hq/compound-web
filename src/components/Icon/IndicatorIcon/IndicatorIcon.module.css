@@ -50,6 +50,7 @@ Please see LICENSE files in the repository root for full details.
   box-sizing: border-box;
 
   --background-color: var(--cpd-color-icon-primary);
+
   background-color: var(--background-color);
 }
 
