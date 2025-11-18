@@ -47,13 +47,23 @@ Please see LICENSE files in the repository root for full details.
   inline-size: 33.3333%;
   block-size: 33.333%;
   border-radius: 50%;
-  background: var(--cpd-color-icon-primary);
+  box-sizing: border-box;
+
+  --background-color: var(--cpd-color-icon-primary);
+
+  background-color: var(--background-color);
 }
 
 .indicator-icon[data-indicator="success"]::before {
-  background: var(--cpd-color-icon-success-primary);
+  --background-color: var(--cpd-color-icon-success-primary);
 }
 
 .indicator-icon[data-indicator="critical"]::before {
-  background: var(--cpd-color-icon-critical-primary);
+  --background-color: var(--cpd-color-icon-critical-primary);
+}
+
+@media (forced-colors: active) {
+  .indicator-icon[data-indicator]::before {
+    border: 1px solid var(--background-color);
+  }
 }

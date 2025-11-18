@@ -53,3 +53,9 @@ Please see LICENSE files in the repository root for full details.
 .arrow {
   fill: var(--cpd-color-bg-action-primary-rest);
 }
+
+@media (forced-colors: active) {
+  .content {
+    outline: 1px solid transparent;
+  }
+}

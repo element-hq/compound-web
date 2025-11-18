@@ -90,3 +90,9 @@
   pointer-events: all !important;
   color: var(--cpd-color-text-disabled);
 }
+
+@media (forced-colors: active) {
+  .nav-tab[data-current]::before {
+    outline: 1px solid transparent;
+  }
+}

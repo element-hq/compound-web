@@ -49,12 +49,18 @@ Please see LICENSE files in the repository root for full details.
 }
 
 .ui::after {
+  --dot-color: var(--cpd-color-icon-secondary);
+
   content: "";
   display: block;
   block-size: 100%;
   aspect-ratio: 1 / 1;
   border-radius: 50%;
-  background: var(--cpd-color-icon-secondary);
+  background: var(--dot-color);
+
+  /* Additional style to ensure visibility in contrast-mode */
+  border: 1px solid var(--dot-color);
+  box-sizing: border-box;
   transform: translateX(0);
   transition-duration: 0.2s;
   transition-timing-function: ease-in-out;
@@ -69,8 +75,9 @@ ring after a simple click */
 }
 
 :checked + .ui::after {
+  --dot-color: var(--cpd-color-icon-on-solid-primary);
+
   transform: translateX(100%);
-  background: var(--cpd-color-icon-on-solid-primary);
 }
 
 @media (hover) {
@@ -95,7 +102,7 @@ ring after a simple click */
 }
 
 .input[readonly] + .ui::after {
-  background: var(--cpd-color-icon-secondary);
+  --dot-color: var(--cpd-color-icon-secondary);
 }
 
 .input[disabled] + .ui {
@@ -104,7 +111,7 @@ ring after a simple click */
 }
 
 .input[disabled] + .ui::after {
-  background: var(--cpd-color-bg-action-primary-disabled);
+  --dot-color: var(--cpd-color-bg-action-primary-disabled);
 }
 
 .input[readonly]:checked + .ui {
@@ -113,7 +120,7 @@ ring after a simple click */
 }
 
 .input[readonly]:checked + .ui::after {
-  background: var(--cpd-color-icon-on-solid-primary);
+  --dot-color: var(--cpd-color-icon-on-solid-primary);
 }
 
 .input[disabled]:checked + .ui {
@@ -122,7 +129,7 @@ ring after a simple click */
 }
 
 .input[disabled]:checked + .ui::after {
-  background: var(--cpd-color-icon-on-solid-primary);
+  --dot-color: var(--cpd-color-icon-on-solid-primary);
 }
 
 @media (hover) {

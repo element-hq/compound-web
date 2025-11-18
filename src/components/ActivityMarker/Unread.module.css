@@ -17,3 +17,9 @@
     border-radius: 100%;
   }
 }
+
+@media (forced-colors: active) {
+  .unread div {
+    outline: 1px solid transparent;
+  }
+}

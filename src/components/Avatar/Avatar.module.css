@@ -8,7 +8,9 @@ Please see LICENSE files in the repository root for full details.
 .avatar {
   display: inline-block;
   box-sizing: border-box;
-  line-height: var(--cpd-avatar-size);
+
+  /* -2px to account for the border styling below */
+  line-height: calc(var(--cpd-avatar-size) - 2px);
   text-align: center;
   font-size: min(calc(var(--cpd-avatar-size) * 0.5625), 60px);
   text-transform: uppercase;
@@ -55,6 +57,9 @@ button.avatar:disabled {
      but this is currently not supported in all browsers */
   background: var(--cpd-avatar-bg);
   color: var(--cpd-avatar-color);
+
+  /* Additional style to ensure visibility in contrast-mode */
+  border: 1px solid var(--cpd-avatar-bg);
 }
 
 .avatar[data-color] {

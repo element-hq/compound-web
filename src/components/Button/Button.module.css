@@ -210,3 +210,9 @@ a.button {
 .button[data-kind="tertiary"].destructive[aria-expanded="true"] {
   background: var(--cpd-color-bg-critical-subtle-hovered);
 }
+
+@media (forced-colors: active) {
+  .button[data-kind="primary"] {
+    outline: 1px solid transparent;
+  }
+}
