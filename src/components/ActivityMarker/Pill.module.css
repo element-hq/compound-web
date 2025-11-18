@@ -14,7 +14,10 @@
   block-size: 20px;
   display: inline-flex;
   align-items: center;
+}
 
-  /* Additional style to ensure visibility in contrast-mode */
-  outline: 1px solid transparent;
+@media (forced-colors: active) {
+  .pill {
+    outline: 1px solid transparent;
+  }
 }

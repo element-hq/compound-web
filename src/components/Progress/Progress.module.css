@@ -75,7 +75,10 @@ Please see LICENSE files in the repository root for full details.
 
   /* sqrt(number of stripes * 2 * (stripe width)^2) = sqrt(4 * 2 * 2^2) = sqrt(32) */
   background-size: 5.6569px 5.6569px;
+}
 
-  /* Additional style to ensure visibility in contrast-mode */
-  outline: 1px solid transparent;
+@media (forced-colors: active) {
+  .progress-bar-indicator {
+    outline: 1px solid transparent;
+  }
 }

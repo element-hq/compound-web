@@ -82,9 +82,6 @@ a.button {
   color: var(--cpd-color-text-on-solid-primary);
   background: var(--cpd-color-bg-action-primary-rest);
   border-width: 0;
-
-  /* Additional styles to ensure visibility in contrast-mode */
-  outline: 1px solid transparent;
 }
 
 .button[data-kind="primary"] > svg {
@@ -212,4 +209,10 @@ a.button {
 .button[data-kind="tertiary"].destructive:active,
 .button[data-kind="tertiary"].destructive[aria-expanded="true"] {
   background: var(--cpd-color-bg-critical-subtle-hovered);
+}
+
+@media (forced-colors: active) {
+  .button[data-kind="primary"] {
+    outline: 1px solid transparent;
+  }
 }

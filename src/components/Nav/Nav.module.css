@@ -42,9 +42,6 @@
 .nav-tab[data-current]::before {
   /* This is not exactly right: designs says 3px, but there are no variables for that */
   block-size: var(--cpd-border-width-4);
-
-  /* Additional style to ensure visibility in contrast-mode */
-  outline: 1px solid transparent;
 }
 
 .nav-item {
@@ -92,4 +89,10 @@
   /* Enable pointer events for svgs even with fill=none */
   pointer-events: all !important;
   color: var(--cpd-color-text-disabled);
+}
+
+@media (forced-colors: active) {
+  .nav-tab[data-current]::before {
+    outline: 1px solid transparent;
+  }
 }

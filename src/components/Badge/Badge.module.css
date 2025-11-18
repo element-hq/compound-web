@@ -11,9 +11,6 @@ Please see LICENSE files in the repository root for full details.
   align-items: center;
   border-radius: 9999px; /* pill effect */
   padding: var(--cpd-space-1x) var(--cpd-space-3x);
-
-  /* Additional style to ensure visibility in contrast-mode */
-  outline: 1px solid transparent;
 }
 
 .badge[data-kind="default"] {
@@ -45,4 +42,10 @@ Please see LICENSE files in the repository root for full details.
 .badge[data-kind="red"] {
   background: var(--cpd-color-alpha-red-300);
   color: var(--cpd-color-red-1100);
+}
+
+@media (forced-colors: active) {
+  .badge {
+    outline: 1px solid transparent;
+  }
 }

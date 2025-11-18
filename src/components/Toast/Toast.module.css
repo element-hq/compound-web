@@ -12,7 +12,10 @@ Please see LICENSE files in the repository root for full details.
   border-radius: 99px;
   font-size: var(--cpd-font-body-sm-medium);
   padding: var(--cpd-space-2x) var(--cpd-space-4x);
+}
 
-  /* Additional style to ensure visibility in contrast-mode */
-  outline: 1px solid transparent;
+@media (forced-colors: active) {
+  .toast-container {
+    outline: 1px solid transparent;
+  }
 }

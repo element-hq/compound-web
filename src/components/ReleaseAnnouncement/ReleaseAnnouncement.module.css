@@ -32,9 +32,6 @@ Please see LICENSE files in the repository root for full details.
     "description button" auto;
   align-items: center;
   column-gap: var(--cpd-space-6x);
-
-  /* Additional style to ensure visibility in contrast-mode */
-  outline: 1px solid transparent;
 }
 
 .header {
@@ -55,4 +52,10 @@ Please see LICENSE files in the repository root for full details.
 
 .arrow {
   fill: var(--cpd-color-bg-action-primary-rest);
+}
+
+@media (forced-colors: active) {
+  .content {
+    outline: 1px solid transparent;
+  }
 }
