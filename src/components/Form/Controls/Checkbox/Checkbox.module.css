@@ -34,9 +34,6 @@ Please see LICENSE files in the repository root for full details.
   border-radius: 4px; /* TODO: Ought to be a token */
   border: 1px solid;
   border-color: var(--cpd-color-border-interactive-primary);
-
-  /** Default, rest state */
-  color: transparent;
 }
 
 .ui svg {
@@ -45,12 +42,18 @@ Please see LICENSE files in the repository root for full details.
 
   /* compensate for the parent border */
   margin: -1px;
+
+  /** Default, rest state */
+  color: transparent;
 }
 
 .input:checked + .ui {
-  color: var(--cpd-color-icon-on-solid-primary);
   background-color: var(--cpd-color-bg-accent-rest);
   border-color: var(--cpd-color-bg-accent-rest);
+}
+
+.input:checked + .ui svg {
+  color: var(--cpd-color-icon-on-solid-primary);
 }
 
 .input:focus-visible + .ui {
@@ -77,17 +80,19 @@ Please see LICENSE files in the repository root for full details.
   background: var(--cpd-color-bg-action-primary-disabled);
 }
 
-.input[readonly]:checked + .ui {
+.input[readonly]:checked + .ui svg {
   color: var(--cpd-color-icon-secondary);
 }
 
 @media (hover) {
   .input:not([disabled], [readonly], :checked):hover + .ui {
-    color: var(--cpd-color-icon-quaternary);
     border-color: var(--cpd-color-bg-accent-hovered);
 
     /** TODO: have the shadow in the design tokens */
     box-shadow: 0 1.2px 2.4px 0 rgb(0 0 0 / 15%);
+  }
+  .input:not([disabled], [readonly], :checked):hover + .ui svg {
+    color: var(--cpd-color-icon-quaternary);
   }
 
   .input:not([disabled], [readonly]):checked:hover + .ui {

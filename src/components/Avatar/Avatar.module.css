@@ -55,6 +55,9 @@ button.avatar:disabled {
      but this is currently not supported in all browsers */
   background: var(--cpd-avatar-bg);
   color: var(--cpd-avatar-color);
+  box-sizing: border-box;
+  /* Additional style to ensure visibility in contrast-mode */
+  border: 1px solid var(--cpd-avatar-bg);
 }
 
 .avatar[data-color] {

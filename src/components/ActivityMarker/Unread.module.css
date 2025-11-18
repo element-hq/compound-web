@@ -15,5 +15,7 @@
     inline-size: 8px;
     background-color: var(--cpd-color-icon-secondary);
     border-radius: 100%;
+    /* Additional style to ensure visibility in contrast-mode */
+    outline: 1px solid transparent;
   }
 }

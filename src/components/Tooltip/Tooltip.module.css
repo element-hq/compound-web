@@ -16,6 +16,8 @@ Please see LICENSE files in the repository root for full details.
   align-items: center;
   text-align: center;
   cursor: pointer;
+  /* Additional style to ensure visibility in contrast-mode */
+  outline: 1px solid transparent;
 }
 
 .tooltip.invisible {
@@ -23,6 +25,7 @@ Please see LICENSE files in the repository root for full details.
   even when invisible */
   clip-path: inset(50%);
   pointer-events: none;
+  outline: none;
 }
 
 .caption {

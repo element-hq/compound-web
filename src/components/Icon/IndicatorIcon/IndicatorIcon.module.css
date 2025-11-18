@@ -48,6 +48,8 @@ Please see LICENSE files in the repository root for full details.
   block-size: 33.333%;
   border-radius: 50%;
   background: var(--cpd-color-icon-primary);
+  /* Additional style to ensure visibility in contrast-mode */
+  outline: 1px solid transparent;
 }
 
 .indicator-icon[data-indicator="success"]::before {

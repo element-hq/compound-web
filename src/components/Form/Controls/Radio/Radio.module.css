@@ -47,15 +47,22 @@ Please see LICENSE files in the repository root for full details.
   block-size: 6px;
   border-radius: 50%;
   background: transparent;
+  box-sizing: border-box;
+  /* Additional style to ensure visibility in contrast-mode */
+  border: 1px solid transparent;
+  color: transparent;
 }
 
 .input:checked + .ui {
   background-color: var(--cpd-color-bg-accent-rest);
   border-color: var(--cpd-color-bg-accent-rest);
+  color: unset;
 }
 
 .input:checked + .ui::after {
   background: var(--cpd-color-icon-on-solid-primary);
+  border-color: var(--cpd-color-icon-on-solid-primary);
+  color: unset;
 }
 
 .input:focus-visible + .ui {
@@ -84,6 +91,8 @@ Please see LICENSE files in the repository root for full details.
 
 .input[readonly]:checked + .ui::after {
   background-color: var(--cpd-color-icon-secondary);
+  border-color: var(--cpd-color-icon-secondary);
+  color: unset;
 }
 
 @media (hover) {
@@ -96,6 +105,8 @@ Please see LICENSE files in the repository root for full details.
 
   .input:not([disabled], [readonly], :checked):hover + .ui::after {
     background: var(--cpd-color-icon-quaternary);
+    border-color: var(--cpd-color-icon-quaternary);
+    color: unset;
   }
 
   .input:not([disabled], [readonly]):checked:hover + .ui {

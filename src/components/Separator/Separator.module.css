@@ -10,6 +10,8 @@ Please see LICENSE files in the repository root for full details.
   --cpd-separator-size: 1px;
 
   background-color: var(--cpd-separator-color);
+  /* Additional style to ensure visibility in contrast-mode */
+  outline: 1px solid transparent;
 }
 
 .separator[data-kind="secondary"] {

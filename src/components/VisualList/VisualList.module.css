@@ -14,4 +14,6 @@ Please see LICENSE files in the repository root for full details.
   list-style-type: none;
   border-radius: var(--cpd-space-3x);
   overflow: hidden;
+  /* Additional style to ensure visibility in contrast-mode */
+  outline: 1px solid transparent;
 }
