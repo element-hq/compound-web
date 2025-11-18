@@ -81,9 +81,10 @@ a.button {
 .button[data-kind="primary"] {
   color: var(--cpd-color-text-on-solid-primary);
   background: var(--cpd-color-bg-action-primary-rest);
+  border-width: 0;
 
   /* Additional styles to ensure visibility in contrast-mode */
-  border: 2px solid var(--cpd-color-bg-action-primary-rest);
+  outline: 1px solid transparent;
 }
 
 .button[data-kind="primary"] > svg {
@@ -99,24 +100,20 @@ a.button {
 .button[data-kind="primary"]:active,
 .button[data-kind="primary"][aria-expanded="true"] {
   background: var(--cpd-color-bg-action-primary-pressed);
-  border-color: var(--cpd-color-bg-action-primary-pressed);
 }
 
 .button[data-kind="primary"][aria-disabled="true"] {
   /* !important to override destructive background */
   background: var(--cpd-color-bg-subtle-primary) !important;
-  border-color: var(--cpd-color-bg-subtle-primary);
 }
 
 .button[data-kind="primary"].destructive {
   background: var(--cpd-color-bg-critical-primary);
-  border-color: var(--cpd-color-bg-critical-primary);
 }
 
 @media (hover) {
   .button[data-kind="primary"].destructive:hover {
     background: var(--cpd-color-bg-critical-hovered);
-    border-color: var(--cpd-color-bg-critical-hovered);
   }
 }
 
@@ -124,7 +121,6 @@ a.button {
 .button[data-kind="primary"].destructive[aria-expanded="true"] {
   /* TODO: We're waiting for this value to be formalized as a semantic token */
   background: var(--cpd-color-red-1100);
-  border-color: var(--cpd-color-red-1100);
 }
 
 .button[data-kind="secondary"] {
