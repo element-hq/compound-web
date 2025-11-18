@@ -26,3 +26,9 @@
 .visual-list-item-icon-destructive {
   color: var(--cpd-color-icon-critical-primary);
 }
+
+@media (forced-colors: active) {
+  .visual-list-item {
+    outline: 1px solid transparent;
+  }
+}
