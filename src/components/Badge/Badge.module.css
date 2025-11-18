@@ -11,6 +11,7 @@ Please see LICENSE files in the repository root for full details.
   align-items: center;
   border-radius: 9999px; /* pill effect */
   padding: var(--cpd-space-1x) var(--cpd-space-3x);
+
   /* Additional style to ensure visibility in contrast-mode */
   outline: 1px solid transparent;
 }

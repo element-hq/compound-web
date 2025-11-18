@@ -48,6 +48,7 @@ Please see LICENSE files in the repository root for full details.
   border-radius: 50%;
   background: transparent;
   box-sizing: border-box;
+
   /* Additional style to ensure visibility in contrast-mode */
   border: 1px solid transparent;
   color: transparent;

@@ -81,6 +81,7 @@ a.button {
 .button[data-kind="primary"] {
   color: var(--cpd-color-text-on-solid-primary);
   background: var(--cpd-color-bg-action-primary-rest);
+
   /* Additional style to ensure visibility in contrast-mode */
   outline: 1px solid transparent;
 }

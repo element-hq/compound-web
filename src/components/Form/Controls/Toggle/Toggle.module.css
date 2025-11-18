@@ -57,6 +57,7 @@ Please see LICENSE files in the repository root for full details.
   aspect-ratio: 1 / 1;
   border-radius: 50%;
   background: var(--dot-color);
+
   /* Additional style to ensure visibility in contrast-mode */
   border: 1px solid var(--dot-color);
   box-sizing: border-box;
@@ -75,6 +76,7 @@ ring after a simple click */
 
 :checked + .ui::after {
   --dot-color: var(--cpd-color-icon-on-solid-primary);
+
   transform: translateX(100%);
 }
 

@@ -91,6 +91,7 @@ Please see LICENSE files in the repository root for full details.
     /** TODO: have the shadow in the design tokens */
     box-shadow: 0 1.2px 2.4px 0 rgb(0 0 0 / 15%);
   }
+
   .input:not([disabled], [readonly], :checked):hover + .ui svg {
     color: var(--cpd-color-icon-quaternary);
   }

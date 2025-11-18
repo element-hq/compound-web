@@ -32,6 +32,7 @@ Please see LICENSE files in the repository root for full details.
     "description button" auto;
   align-items: center;
   column-gap: var(--cpd-space-6x);
+
   /* Additional style to ensure visibility in contrast-mode */
   outline: 1px solid transparent;
 }
