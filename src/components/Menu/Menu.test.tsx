@@ -17,9 +17,22 @@ import userEvent from "@testing-library/user-event";
 import { getPlatform } from "../../utils/platform";
 
 vi.mock("../../utils/platform", () => ({ getPlatform: vi.fn(() => "other") }));
-vi.spyOn(window, "matchMedia").mockReturnValue({
-  matches: false,
-} as unknown as MediaQueryList);
+vi.hoisted(() => {
+  Object.defineProperty(window, "matchMedia", {
+    writable: true,
+    enumerable: true,
+    value: vi.fn().mockImplementation((query) => ({
+      matches: false,
+      media: query,
+      onchange: null,
+      addListener: vi.fn(), // deprecated
+      removeListener: vi.fn(), // deprecated
+      addEventListener: vi.fn(),
+      removeEventListener: vi.fn(),
+      dispatchEvent: vi.fn(),
+    })),
+  });
+});
 
 async function withPlatform(
   platform: ReturnType<typeof getPlatform>,
