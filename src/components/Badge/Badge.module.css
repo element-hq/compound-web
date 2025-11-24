@@ -15,6 +15,7 @@ Please see LICENSE files in the repository root for full details.
 
 .badge[data-kind="default"] {
   border: 1px solid var(--cpd-color-alpha-gray-400);
+  outline: none;
   color: var(--cpd-color-gray-1100);
 }
 
@@ -41,4 +42,10 @@ Please see LICENSE files in the repository root for full details.
 .badge[data-kind="red"] {
   background: var(--cpd-color-alpha-red-300);
   color: var(--cpd-color-red-1100);
+}
+
+@media (forced-colors: active) {
+  .badge {
+    outline: 1px solid transparent;
+  }
 }

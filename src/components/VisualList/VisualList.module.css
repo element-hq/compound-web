@@ -15,3 +15,9 @@ Please see LICENSE files in the repository root for full details.
   border-radius: var(--cpd-space-3x);
   overflow: hidden;
 }
+
+@media (forced-colors: active) {
+  .visual-list {
+    outline: 1px solid transparent;
+  }
+}
