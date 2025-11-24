@@ -53,6 +53,14 @@ export const NoImageFallback: Story = {
   },
 };
 
+export const NoImageFallbackButton: Story = {
+  tags: ["axe-exclude"],
+  args: {
+    ...NoImageFallback.args,
+    ...Button.args,
+  },
+};
+
 export const LargeNoImageFallback: Story = {
   args: {
     src: "",
