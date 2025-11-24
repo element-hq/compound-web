@@ -51,6 +51,8 @@ button.avatar:disabled {
   overflow: hidden;
 }
 
+/* Additional selector for button to raise selector above button.avatar */
+button.avatar-imageless,
 .avatar-imageless {
   /* In the future we'd prefer to pass the HEX code as the data attr
      and use `attr(data-color)` to avoid the style declaration from below
