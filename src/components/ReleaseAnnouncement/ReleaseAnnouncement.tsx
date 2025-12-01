@@ -30,8 +30,10 @@ import { useReleaseAnnouncement } from "./useReleaseAnnouncement";
 
 type UseReleaseAnnouncementParam = Parameters<typeof useReleaseAnnouncement>[0];
 
-interface ReleaseAnnouncementProps
-  extends Omit<UseReleaseAnnouncementParam, "placement" | "displayArrow"> {
+interface ReleaseAnnouncementProps extends Omit<
+  UseReleaseAnnouncementParam,
+  "placement" | "displayArrow"
+> {
   /**
    * The placement of the component
    * @default "right"

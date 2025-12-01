@@ -10,7 +10,7 @@ Please see LICENSE files in the repository root for full details.
   grid-template: "icon label ." auto "empty1 label empty2" auto / auto auto minmax(
       /* Reserve space for the chevron so that the layout doesn't shift on
       hover */
-        var(--cpd-space-2x),
+      var(--cpd-space-2x),
       1fr
     );
   place-items: center end;
