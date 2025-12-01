@@ -15,3 +15,9 @@
   display: inline-flex;
   align-items: center;
 }
+
+@media (forced-colors: active) {
+  .pill {
+    outline: 1px solid transparent;
+  }
+}

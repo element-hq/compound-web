@@ -3,13 +3,13 @@
 exports[`FloatingMenu > renders 1`] = `
 <DocumentFragment>
   <div
-    aria-labelledby="«r0»"
+    aria-labelledby="_r_0_"
     class="_menu_8d7946"
     role="menu"
   >
     <h3
       class="_typography_61e060 _font-body-sm-semibold_61e060 _menu-title_096aee _title_8d7946"
-      id="«r0»"
+      id="_r_0_"
     >
       Settings
     </h3>

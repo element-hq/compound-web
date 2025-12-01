@@ -14,7 +14,7 @@ exports[`CheckboxMenuItem > renders 1`] = `
       <input
         aria-hidden="true"
         class="_input_937330"
-        id="«r0»"
+        id="_r_0_"
         tabindex="-1"
         type="checkbox"
       />

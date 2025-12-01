@@ -40,3 +40,9 @@ Please see LICENSE files in the repository root for full details.
   background-color: var(--cpd-color-bg-success-subtle);
   color: var(--cpd-color-icon-success-primary);
 }
+
+@media (forced-colors: active) {
+  .content {
+    outline: 1px solid transparent;
+  }
+}

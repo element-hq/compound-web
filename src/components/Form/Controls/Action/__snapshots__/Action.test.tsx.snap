@@ -4,14 +4,14 @@ exports[`ActionInput > renders 1`] = `
 <DocumentFragment>
   <div
     class="_container_8dd727"
-    id="«r0»"
+    id="_r_0_"
   >
     <input
       class="_control_958ff8 _control_8dd727"
     />
     <button
-      aria-controls="«r0»"
-      aria-labelledby="«r1»"
+      aria-controls="_r_0_"
+      aria-labelledby="_r_1_"
       class="_action_8dd727"
       type="button"
     >

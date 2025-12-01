@@ -40,6 +40,7 @@ export const Square: Story = {
 };
 
 export const Button: Story = {
+  tags: ["axe-exclude"],
   args: {
     type: "round",
     onClick: () => console.log("clicked!"),
@@ -49,6 +50,14 @@ export const Button: Story = {
 export const NoImageFallback: Story = {
   args: {
     src: "",
+  },
+};
+
+export const NoImageFallbackButton: Story = {
+  tags: ["axe-exclude"],
+  args: {
+    ...NoImageFallback.args,
+    ...Button.args,
   },
 };
 

@@ -34,3 +34,9 @@ Please see LICENSE files in the repository root for full details.
   /* same color as the tooltip background */
   fill: var(--cpd-color-alpha-gray-1400);
 }
+
+@media (forced-colors: active) {
+  .tooltip:not(.invisible) {
+    outline: 1px solid transparent;
+  }
+}

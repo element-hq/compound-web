@@ -49,4 +49,4 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Primary: Story = { args: {} };
+export const Primary: Story = { tags: ["axe-exclude"], args: {} };

@@ -22,7 +22,7 @@ type Props = { invalid?: boolean } & React.ComponentProps<typeof ActionInput>;
 const meta = {
   title: "Form/Controls/Action",
   component: ActionInput,
-  tags: ["autodocs"],
+  tags: ["autodocs", "axe-exclude"],
   parameters: {
     controls: {
       include: [

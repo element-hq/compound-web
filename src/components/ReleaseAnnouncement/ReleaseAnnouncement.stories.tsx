@@ -12,20 +12,29 @@ import { ReleaseAnnouncement as ReleaseAnnouncementComponent } from "./ReleaseAn
 
 type Props = Omit<
   React.ComponentProps<typeof ReleaseAnnouncementComponent>,
-  "open" | "children" | "onClick"
+  "open" | "onClick"
 >;
 
 const Template: React.FC<Props> = (args) => {
   const [open, setOpen] = useState(true);
 
   return (
-    <ReleaseAnnouncementComponent
-      {...args}
-      open={open}
-      onClick={() => setOpen(false)}
-    >
-      <Button onClick={() => setOpen((open) => !open)}>Open menu</Button>
-    </ReleaseAnnouncementComponent>
+    <>
+      <button
+        style={{ display: "block" }}
+        className="hideInScreenshot"
+        onClick={() => setOpen((open) => !open)}
+      >
+        {open ? "Close" : "Open"}
+      </button>
+      <ReleaseAnnouncementComponent
+        {...args}
+        open={open}
+        onClick={() => setOpen(false)}
+      >
+        {args.children}
+      </ReleaseAnnouncementComponent>
+    </>
   );
 };
 
@@ -39,6 +48,7 @@ const meta = {
     description: "From now on, click the icon here to view your notifications.",
     placement: "right",
     closeLabel: "Ok",
+    children: <Button>A button</Button>,
   },
 } satisfies Meta<typeof Template>;
 export default meta;
@@ -64,5 +74,11 @@ export const BottomPlacement: Story = {
 export const NoArrow: Story = {
   args: {
     displayArrow: false,
+  },
+};
+
+export const OnDivElement: Story = {
+  args: {
+    children: <div style={{ display: "inline-block" }}>Here is some text</div>,
   },
 };
