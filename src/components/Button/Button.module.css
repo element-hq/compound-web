@@ -22,6 +22,7 @@ Please see LICENSE files in the repository root for full details.
 a.button {
   /* Make the width match that of a real button */
   inline-size: max-content;
+
   /* Buttons should not be underlined */
   text-decoration: none;
 }
