@@ -1,5 +1,13 @@
 <p align="center"><img src="https://compound.element.io/logo-readme.png" width="300" alt="" /></p>
 
+> 🎨 **Fork Purpose**: This repository adds comprehensive Component Design Guidelines to Compound Web, addressing [Issue #383](https://github.com/element-hq/compound-web/issues/383). Includes 1,300+ lines of professional documentation covering accessibility, testing, design patterns, and best practices.
+>
+> 📋 **Status**: ✅ Ready for Pull Request  
+> 🔗 **Original Repository**: [element-hq/compound-web](https://github.com/element-hq/compound-web)  
+> 📖 **Documentation**: See [docs/COMPONENT_DESIGN_GUIDELINES.md](./docs/COMPONENT_DESIGN_GUIDELINES.md)
+
+---
+
 # Compound Web
 
 [![](https://img.shields.io/badge/-Storybook-ff4785?logo=Storybook&logoColor=white&style=flat-square)](https://compound.element.io/) [![](https://img.shields.io/github/license/vector-im/compound)](https://github.com/vector-im/compound/blob/main/LICENSE)
@@ -7,6 +15,17 @@
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=compound-web&metric=coverage)](https://sonarcloud.io/summary/new_code?id=compound-web)
 
 React implementation of Compound – Element's design system – See full documentation on https://compound.element.io
+
+## 📚 Documentation
+
+For comprehensive component development guidelines, please see our [Documentation](./docs/README.md):
+
+- **[Component Design Guidelines](./docs/COMPONENT_DESIGN_GUIDELINES.md)** - Best practices for creating and maintaining components, including:
+  - Component structure and organization
+  - Design principles and patterns
+  - Accessibility requirements (WCAG 2.1 AA)
+  - Spacing, typography, and color usage
+  - Testing standards and examples
 
 ## Development
 
@@ -61,3 +80,14 @@ This software is multi licensed by New Vector Ltd (Element). It can be used eith
 
 (2) under the terms of a paid-for Element Commercial License agreement between you and Element (the terms of which may vary depending on what you and Element have agreed to).
 Unless required by applicable law or agreed to in writing, software distributed under the Licenses is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the Licenses for the specific language governing permissions and limitations under the Licenses.
+
+## Contributing
+
+We welcome contributions! Please see our [Contributing Guide](./CONTRIBUTING.md) for details on:
+
+- Setting up your development environment
+- Creating new components
+- Following our design guidelines
+- Submitting pull requests
+
+For component development guidelines, see the [Component Design Guidelines](./docs/COMPONENT_DESIGN_GUIDELINES.md).
