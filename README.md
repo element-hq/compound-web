@@ -1,5 +1,13 @@
 <p align="center"><img src="https://compound.element.io/logo-readme.png" width="300" alt="" /></p>
 
+> 🎨 **Fork Purpose**: This repository adds comprehensive Component Design Guidelines to Compound Web, addressing [Issue #383](https://github.com/element-hq/compound-web/issues/383). Includes 1,300+ lines of professional documentation covering accessibility, testing, design patterns, and best practices.
+>
+> 📋 **Status**: ✅ Ready for Pull Request  
+> 🔗 **Original Repository**: [element-hq/compound-web](https://github.com/element-hq/compound-web)  
+> 📖 **Documentation**: See [docs/COMPONENT_DESIGN_GUIDELINES.md](./docs/COMPONENT_DESIGN_GUIDELINES.md)
+
+---
+
 # Compound Web
 
 [![](https://img.shields.io/badge/-Storybook-ff4785?logo=Storybook&logoColor=white&style=flat-square)](https://compound.element.io/) [![](https://img.shields.io/github/license/vector-im/compound)](https://github.com/vector-im/compound/blob/main/LICENSE)
