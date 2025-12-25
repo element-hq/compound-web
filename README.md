@@ -8,6 +8,17 @@
 
 React implementation of Compound – Element's design system – See full documentation on https://compound.element.io
 
+## 📚 Documentation
+
+For comprehensive component development guidelines, please see our [Documentation](./docs/README.md):
+
+- **[Component Design Guidelines](./docs/COMPONENT_DESIGN_GUIDELINES.md)** - Best practices for creating and maintaining components, including:
+  - Component structure and organization
+  - Design principles and patterns
+  - Accessibility requirements (WCAG 2.1 AA)
+  - Spacing, typography, and color usage
+  - Testing standards and examples
+
 ## Development
 
 | Command                    | Runs                          |
@@ -61,3 +72,14 @@ This software is multi licensed by New Vector Ltd (Element). It can be used eith
 
 (2) under the terms of a paid-for Element Commercial License agreement between you and Element (the terms of which may vary depending on what you and Element have agreed to).
 Unless required by applicable law or agreed to in writing, software distributed under the Licenses is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the Licenses for the specific language governing permissions and limitations under the Licenses.
+
+## Contributing
+
+We welcome contributions! Please see our [Contributing Guide](./CONTRIBUTING.md) for details on:
+
+- Setting up your development environment
+- Creating new components
+- Following our design guidelines
+- Submitting pull requests
+
+For component development guidelines, see the [Component Design Guidelines](./docs/COMPONENT_DESIGN_GUIDELINES.md).
