@@ -15,7 +15,7 @@ exports[`ReleaseAnnouncement > renders 1`] = `
     aria-hidden="true"
     class="_arrow_4b2dd5"
     height="20"
-    style="position: absolute; pointer-events: none; right: calc(100% - 0px); transform: rotate(90deg); top: -1px;"
+    style="position: absolute; pointer-events: none; right: calc(100% - 0px); transform: rotate(90deg);"
     viewBox="0 0 20 20"
     width="20"
   >
@@ -131,7 +131,7 @@ exports[`ReleaseAnnouncement > renders with a long label header and description 
     aria-hidden="true"
     class="_arrow_4b2dd5"
     height="20"
-    style="position: absolute; pointer-events: none; right: calc(100% - 0px); transform: rotate(90deg); top: -1px;"
+    style="position: absolute; pointer-events: none; right: calc(100% - 0px); transform: rotate(90deg);"
     viewBox="0 0 20 20"
     width="20"
   >
