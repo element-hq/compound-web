@@ -98,6 +98,7 @@ export const IconButton = forwardRef<
       data-kind={kind}
     >
       <IndicatorIcon
+        size={`calc(${size} * 0.75)`}
         indicator={indicator}
         colour={disabled ? "var(--cpd-color-icon-disabled)" : undefined}
       >
