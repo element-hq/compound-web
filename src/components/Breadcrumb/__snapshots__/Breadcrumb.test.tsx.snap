@@ -14,7 +14,7 @@ exports[`Breadcrumb > should render 1`] = `
   >
     <div
       class="_indicator-icon_849abf"
-      style="--cpd-icon-button-size: 100%;"
+      style="--cpd-icon-button-size: calc(28px * 0.75);"
     >
       <svg
         fill="currentColor"

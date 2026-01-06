@@ -74,7 +74,7 @@ exports[`Alert > renders actions 1`] = `
     >
       <div
         class="_indicator-icon_849abf"
-        style="--cpd-icon-button-size: 100%;"
+        style="--cpd-icon-button-size: calc(32px * 0.75);"
       >
         <svg
           fill="currentColor"
@@ -140,7 +140,7 @@ exports[`Alert > renders critical 1`] = `
     >
       <div
         class="_indicator-icon_849abf"
-        style="--cpd-icon-button-size: 100%;"
+        style="--cpd-icon-button-size: calc(32px * 0.75);"
       >
         <svg
           fill="currentColor"
@@ -211,7 +211,7 @@ exports[`Alert > renders info 1`] = `
     >
       <div
         class="_indicator-icon_849abf"
-        style="--cpd-icon-button-size: 100%;"
+        style="--cpd-icon-button-size: calc(32px * 0.75);"
       >
         <svg
           fill="currentColor"
@@ -277,7 +277,7 @@ exports[`Alert > renders success 1`] = `
     >
       <div
         class="_indicator-icon_849abf"
-        style="--cpd-icon-button-size: 100%;"
+        style="--cpd-icon-button-size: calc(32px * 0.75);"
       >
         <svg
           fill="currentColor"

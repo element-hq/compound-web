@@ -12,7 +12,7 @@ exports[`IconButton > renders a Default IconButton 1`] = `
   >
     <div
       class="_indicator-icon_849abf"
-      style="--cpd-icon-button-size: 100%;"
+      style="--cpd-icon-button-size: calc(32px * 0.75);"
     >
       <svg
         fill="currentColor"
@@ -48,7 +48,7 @@ exports[`IconButton > renders a DefaultDisabled IconButton 1`] = `
   >
     <div
       class="_indicator-icon_849abf"
-      style="--cpd-icon-button-size: 100%; --cpd-color-icon-tertiary: var(--cpd-color-icon-disabled);"
+      style="--cpd-icon-button-size: calc(32px * 0.75); --cpd-color-icon-tertiary: var(--cpd-color-icon-disabled);"
     >
       <svg
         fill="currentColor"
@@ -86,7 +86,7 @@ exports[`IconButton > renders a WithCriticalIndicator IconButton 1`] = `
     <div
       class="_indicator-icon_849abf"
       data-indicator="critical"
-      style="--cpd-icon-button-size: 100%;"
+      style="--cpd-icon-button-size: calc(32px * 0.75);"
     >
       <svg
         fill="currentColor"
@@ -124,7 +124,7 @@ exports[`IconButton > renders a WithIndicator IconButton 1`] = `
     <div
       class="_indicator-icon_849abf"
       data-indicator="default"
-      style="--cpd-icon-button-size: 100%;"
+      style="--cpd-icon-button-size: calc(32px * 0.75);"
     >
       <svg
         fill="currentColor"
@@ -162,7 +162,7 @@ exports[`IconButton > renders a WithIndicatorDisabled IconButton 1`] = `
     <div
       class="_indicator-icon_849abf"
       data-indicator="default"
-      style="--cpd-icon-button-size: 100%; --cpd-color-icon-tertiary: var(--cpd-color-icon-disabled);"
+      style="--cpd-icon-button-size: calc(32px * 0.75); --cpd-color-icon-tertiary: var(--cpd-color-icon-disabled);"
     >
       <svg
         fill="currentColor"
@@ -198,7 +198,7 @@ exports[`IconButton > renders a WithSecondaryKind IconButton 1`] = `
   >
     <div
       class="_indicator-icon_849abf"
-      style="--cpd-icon-button-size: 100%;"
+      style="--cpd-icon-button-size: calc(32px * 0.75);"
     >
       <svg
         fill="currentColor"
@@ -234,7 +234,7 @@ exports[`IconButton > renders a WithSecondaryKindAndNoBackground IconButton 1`] 
   >
     <div
       class="_indicator-icon_849abf"
-      style="--cpd-icon-button-size: 100%;"
+      style="--cpd-icon-button-size: calc(32px * 0.75);"
     >
       <svg
         fill="currentColor"
@@ -272,7 +272,7 @@ exports[`IconButton > renders a WithSuccessIndicator IconButton 1`] = `
     <div
       class="_indicator-icon_849abf"
       data-indicator="success"
-      style="--cpd-icon-button-size: 100%;"
+      style="--cpd-icon-button-size: calc(32px * 0.75);"
     >
       <svg
         fill="currentColor"
