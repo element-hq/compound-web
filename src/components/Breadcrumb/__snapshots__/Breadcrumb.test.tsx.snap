@@ -9,7 +9,7 @@ exports[`Breadcrumb > should render 1`] = `
     class="_icon-button_339b22"
     data-kind="secondary"
     role="button"
-    style="--cpd-icon-button-size: 28px;"
+    style="--cpd-icon-button-size: 28px; padding: calc(3.5px);"
     tabindex="0"
   >
     <div

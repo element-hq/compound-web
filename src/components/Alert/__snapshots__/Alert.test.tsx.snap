@@ -69,7 +69,7 @@ exports[`Alert > renders actions 1`] = `
       class="_icon-button_339b22 _close_be9a30"
       data-kind="primary"
       role="button"
-      style="--cpd-icon-button-size: 32px;"
+      style="--cpd-icon-button-size: 32px; padding: calc(4px);"
       tabindex="0"
     >
       <div
@@ -135,7 +135,7 @@ exports[`Alert > renders critical 1`] = `
       class="_icon-button_339b22 _close_be9a30"
       data-kind="primary"
       role="button"
-      style="--cpd-icon-button-size: 32px;"
+      style="--cpd-icon-button-size: 32px; padding: calc(4px);"
       tabindex="0"
     >
       <div
@@ -206,7 +206,7 @@ exports[`Alert > renders info 1`] = `
       class="_icon-button_339b22 _close_be9a30"
       data-kind="primary"
       role="button"
-      style="--cpd-icon-button-size: 32px;"
+      style="--cpd-icon-button-size: 32px; padding: calc(4px);"
       tabindex="0"
     >
       <div
@@ -272,7 +272,7 @@ exports[`Alert > renders success 1`] = `
       class="_icon-button_339b22 _close_be9a30"
       data-kind="primary"
       role="button"
-      style="--cpd-icon-button-size: 32px;"
+      style="--cpd-icon-button-size: 32px; padding: calc(4px);"
       tabindex="0"
     >
       <div

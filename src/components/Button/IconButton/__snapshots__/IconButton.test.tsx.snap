@@ -7,7 +7,7 @@ exports[`IconButton > renders a Default IconButton 1`] = `
     class="_icon-button_339b22"
     data-kind="primary"
     role="button"
-    style="--cpd-icon-button-size: 32px;"
+    style="--cpd-icon-button-size: 32px; padding: calc(4px);"
     tabindex="0"
   >
     <div
@@ -43,7 +43,7 @@ exports[`IconButton > renders a DefaultDisabled IconButton 1`] = `
     class="_icon-button_339b22"
     data-kind="primary"
     role="button"
-    style="--cpd-icon-button-size: 32px;"
+    style="--cpd-icon-button-size: 32px; padding: calc(4px);"
     tabindex="0"
   >
     <div
@@ -80,7 +80,7 @@ exports[`IconButton > renders a WithCriticalIndicator IconButton 1`] = `
     data-indicator="critical"
     data-kind="primary"
     role="button"
-    style="--cpd-icon-button-size: 32px;"
+    style="--cpd-icon-button-size: 32px; padding: calc(4px);"
     tabindex="0"
   >
     <div
@@ -118,7 +118,7 @@ exports[`IconButton > renders a WithIndicator IconButton 1`] = `
     data-indicator="default"
     data-kind="primary"
     role="button"
-    style="--cpd-icon-button-size: 32px;"
+    style="--cpd-icon-button-size: 32px; padding: calc(4px);"
     tabindex="0"
   >
     <div
@@ -156,7 +156,7 @@ exports[`IconButton > renders a WithIndicatorDisabled IconButton 1`] = `
     data-indicator="default"
     data-kind="primary"
     role="button"
-    style="--cpd-icon-button-size: 32px;"
+    style="--cpd-icon-button-size: 32px; padding: calc(4px);"
     tabindex="0"
   >
     <div
@@ -193,7 +193,7 @@ exports[`IconButton > renders a WithSecondaryKind IconButton 1`] = `
     class="_icon-button_339b22"
     data-kind="secondary"
     role="button"
-    style="--cpd-icon-button-size: 32px;"
+    style="--cpd-icon-button-size: 32px; padding: calc(4px);"
     tabindex="0"
   >
     <div
@@ -229,7 +229,7 @@ exports[`IconButton > renders a WithSecondaryKindAndNoBackground IconButton 1`] 
     class="_icon-button_339b22 _no-background_339b22"
     data-kind="secondary"
     role="button"
-    style="--cpd-icon-button-size: 32px;"
+    style="--cpd-icon-button-size: 32px; padding: calc(4px);"
     tabindex="0"
   >
     <div
@@ -266,7 +266,7 @@ exports[`IconButton > renders a WithSuccessIndicator IconButton 1`] = `
     data-indicator="success"
     data-kind="primary"
     role="button"
-    style="--cpd-icon-button-size: 32px;"
+    style="--cpd-icon-button-size: 32px; padding: calc(4px);"
     tabindex="0"
   >
     <div

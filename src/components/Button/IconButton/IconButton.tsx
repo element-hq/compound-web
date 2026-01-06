@@ -25,10 +25,19 @@ type IconButtonProps = UnstyledButtonPropsFor<"button"> & {
   className?: string;
   /**
    * The size of the button in CSS units, e.g. `"24px"`.
-   * Note that this is the size of the *button* itself: the icon will be 0.75 * this size
    * @default 32px
    */
   size?: CSSStyleDeclaration["height"];
+  /**
+   * The size of the icon in CSS units, e.g. `"24px"`.
+   * If not specified, defaults to 0.75 * button size
+   */
+  iconSize?: CSSStyleDeclaration["height"];
+  /**
+   * The padding of the button in CSS units, e.g. `"4px"`.
+   * If not specified, defaults to 0.125 * button size
+   */
+  padding?: CSSStyleDeclaration["padding"];
   /**
    * The icon button indicator dot displayed on the top right
    * As in IndicatorIcon
@@ -67,6 +76,8 @@ export const IconButton = forwardRef<
     className,
     indicator,
     size = "32px",
+    iconSize,
+    padding,
     style,
     disabled,
     destructive,
@@ -81,6 +92,12 @@ export const IconButton = forwardRef<
     [styles["no-background"]]: noBackground,
   });
 
+  // Calculate icon size: use iconSize prop if provided, otherwise default to 0.75 * button size
+  const calculatedIconSize = iconSize ?? `calc(${size} * 0.75)`;
+  
+  // Calculate padding: use padding prop if provided, otherwise default to 0.125 * button size
+  const calculatedPadding = padding ?? `calc(${size} * 0.125)`;
+
   const button = (
     <UnstyledButton
       as="button"
@@ -89,6 +106,7 @@ export const IconButton = forwardRef<
       style={
         {
           "--cpd-icon-button-size": size,
+          padding: calculatedPadding,
           ...style,
         } as React.CSSProperties
       }
@@ -98,7 +116,7 @@ export const IconButton = forwardRef<
       data-kind={kind}
     >
       <IndicatorIcon
-        size={`calc(${size} * 0.75)`}
+        size={calculatedIconSize}
         indicator={indicator}
         colour={disabled ? "var(--cpd-color-icon-disabled)" : undefined}
       >
