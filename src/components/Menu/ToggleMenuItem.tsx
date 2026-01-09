@@ -43,12 +43,13 @@ export const ToggleMenuItem = forwardRef<HTMLInputElement, Props>(
     // etc. to communicate its state.
     return (
       <MenuItem
-        as="div"
+        as="button"
         role="menuitemcheckbox"
         aria-checked={checked}
         className={className}
         Icon={Icon}
         label={label}
+        hideChevron
         onSelect={onSelect}
         disabled={disabled}
         onClick={onClick}
@@ -58,6 +59,7 @@ export const ToggleMenuItem = forwardRef<HTMLInputElement, Props>(
           ref={ref}
           // This is purely cosmetic; really the whole MenuItem is the toggle.
           aria-hidden
+          tabIndex={-1}
           checked={checked}
           disabled={disabled}
           onChange={onChange}
