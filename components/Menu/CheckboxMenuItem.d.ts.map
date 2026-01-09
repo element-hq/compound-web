@@ -1,1 +1,1 @@
-{"version":3,"file":"CheckboxMenuItem.d.ts","sourceRoot":"","sources":["../../../src/components/Menu/CheckboxMenuItem.tsx"],"names":[],"mappings":"AAOA,OAAO,KAKN,MAAM,OAAO,CAAC;AAcf;;;GAGG;AACH,eAAO,MAAM,gBAAgB;;;;;;;;;;;;IAV3B;;OAEG;aACM,OAAO;0CA2CjB,CAAC"}
+{"version":3,"file":"CheckboxMenuItem.d.ts","sourceRoot":"","sources":["../../../src/components/Menu/CheckboxMenuItem.tsx"],"names":[],"mappings":"AAOA,OAAO,KAKN,MAAM,OAAO,CAAC;AAcf;;;GAGG;AACH,eAAO,MAAM,gBAAgB;;;;;;;;;;;;IAV3B;;OAEG;aACM,OAAO;0CA6CjB,CAAC"}
