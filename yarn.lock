@@ -1580,10 +1580,10 @@
   resolved "https://registry.yarnpkg.com/@testing-library/user-event/-/user-event-14.6.1.tgz#13e09a32d7a8b7060fe38304788ebf4197cd2149"
   integrity sha512-vq7fv0rnt+QTXgPxr5Hjc210p6YKq2kmdziLgnsZGgLJ9e6VAShx1pACLuRjd/AS/sr7phAR58OIIpf0LlmQNw==
 
-"@tsconfig/node22@^22.0.0":
-  version "22.0.5"
-  resolved "https://registry.yarnpkg.com/@tsconfig/node22/-/node22-22.0.5.tgz#56be9f34ccffd3aa85f9cc7365ad9765d5829adb"
-  integrity sha512-hLf2ld+sYN/BtOJjHUWOk568dvjFQkHnLNa6zce25GIH+vxKfvTgm3qpaH6ToF5tu/NN0IH66s+Bb5wElHrLcw==
+"@tsconfig/node24@^24.0.0":
+  version "24.0.3"
+  resolved "https://registry.yarnpkg.com/@tsconfig/node24/-/node24-24.0.3.tgz#168b7ac691e9fcfc23ec75a25c8d3c44df981681"
+  integrity sha512-vcERKtKQKHgzt/vfS3Gjasd8SUI2a0WZXpgJURdJsMySpS5+ctgbPfuLj2z/W+w4lAfTWxoN4upKfu2WzIRYnw==
 
 "@tsconfig/vite-react@^7.0.0":
   version "7.0.2"
