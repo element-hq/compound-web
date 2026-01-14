@@ -27,7 +27,7 @@ Please see LICENSE files in the repository root for full details.
 
 .icon-button[data-kind="primary"] {
   * {
-    color: var(--cpd-color-icon-tertiary);
+    color: var(--cpd-color-icon-secondary);
   }
 }
 
