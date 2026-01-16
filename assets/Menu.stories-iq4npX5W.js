@@ -1,0 +1,10 @@
+import{j as t}from"./jsx-runtime-u17CrQMm.js";import{r as m}from"./iframe-DhX9y-EN.js";import"./index-EV58jo5y.js";import{U as p}from"./user-profile-DEZeNDyG.js";import{N as s,C as c,L as l}from"./notifications-BNFPXzSD.js";import{M as u}from"./Menu-BQvt1bQ4.js";import{M as e}from"./MenuItem-RRf4HT3J.js";import{S as d}from"./Separator-DJ8MHbi-.js";import{B as f}from"./Button-dmWm1gHw.js";import{M as x}from"./MenuTitle-fAEpiKB-.js";import"./preload-helper-PPVm8Dsz.js";import"./index-Be1ST-iW.js";import"./index-DHISwbEl.js";import"./index-BpOb8MZu.js";import"./index-P7EDm8Ol.js";import"./index-D6spzG3k.js";import"./floating-ui.core-BbbQpTXO.js";import"./FloatingMenu-Dryq6Niv.js";import"./index-BXulfWwn.js";import"./DrawerMenu-DwgL78gV.js";import"./Text-Bt7tx38N.js";import"./Typography-Du_5RdvA.js";import"./chevron-right-BnskBkZK.js";import"./index-B7_QL51m.js";import"./floating-ui.react-Cs-HXz86.js";import"./UnstyledButton-uea8yoaP.js";const g=a=>{const[i,n]=m.useState(!0);return t.jsxs(u,{...a,open:i,onOpenChange:n,trigger:t.jsx(f,{children:"Open menu"}),align:"start",children:[t.jsx(e,{Icon:p,label:"Profile",onSelect:()=>{}}),t.jsx(e,{Icon:s,label:"Notifications",onSelect:()=>{}}),t.jsx(x,{title:"Other section"}),t.jsx(e,{Icon:s,label:"Other Notifications",onSelect:()=>{}}),t.jsx(e,{Icon:c,label:"Feedback",onSelect:()=>{}}),t.jsx(d,{}),t.jsx(e,{kind:"critical",Icon:l,label:"Sign out",onSelect:()=>{}})]})},A={title:"Menu",component:g,tags:["autodocs","axe-exclude"],argTypes:{},args:{}},o={args:{title:"Today's Menu"}},r={args:{title:"Untitled Menu",showTitle:!1}};o.parameters={...o.parameters,docs:{...o.parameters?.docs,source:{originalSource:`{
+  args: {
+    title: "Today's Menu"
+  }
+}`,...o.parameters?.docs?.source}}};r.parameters={...r.parameters,docs:{...r.parameters?.docs,source:{originalSource:`{
+  args: {
+    title: "Untitled Menu",
+    showTitle: false
+  }
+}`,...r.parameters?.docs?.source}}};const D=["Menu","WithoutTitle"];export{o as Menu,r as WithoutTitle,D as __namedExportsOrder,A as default};
