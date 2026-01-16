@@ -83,7 +83,7 @@
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-storybook": "^10.0.0",
     "jsdom": "^27.0.0",
-    "prettier": "3.7.4",
+    "prettier": "3.8.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "resize-observer-polyfill": "^1.5.1",
