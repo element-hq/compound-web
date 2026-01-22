@@ -80,6 +80,10 @@ Please see LICENSE files in the repository root for full details.
   background: var(--cpd-color-bg-subtle-secondary);
 }
 
+.input[disabled] {
+  cursor: not-allowed;
+}
+
 .input[disabled] + .ui {
   border-color: var(--cpd-color-border-disabled);
   background: var(--cpd-color-bg-canvas-disabled);

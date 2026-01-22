@@ -61,6 +61,10 @@ Please see LICENSE files in the repository root for full details.
   outline-offset: 1px;
 }
 
+.input[disabled] {
+  cursor: not-allowed;
+}
+
 .input[disabled] + .ui {
   border-color: var(--cpd-color-border-disabled);
   background: var(--cpd-color-bg-canvas-disabled);
