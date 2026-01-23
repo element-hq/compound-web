@@ -34,19 +34,8 @@ Please see LICENSE files in the repository root for full details.
   }
 }
 
-@keyframes slide-out {
-  to {
-    opacity: 0;
-    transform: translate(0, var(--cpd-space-2x));
-  }
-}
-
 .menu[data-state="open"] {
   animation: slide-in 180ms;
-}
-
-.menu[data-state="closed"] {
-  animation: slide-out 110ms;
 }
 
 @keyframes fade-in {
