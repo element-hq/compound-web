@@ -32,6 +32,11 @@ interface Props extends ComponentPropsWithoutRef<"div"> {
    * The menu contents.
    */
   children: ReactNode;
+  /**
+   * Whether the closing animation is enabled.
+   * @default true
+   */
+  hasClosingAnimation?: boolean;
 }
 
 /**
@@ -40,7 +45,17 @@ interface Props extends ComponentPropsWithoutRef<"div"> {
 // This an internal component not intended for export! Consumers should use it
 // via the Menu or ContextMenu components.
 export const FloatingMenu = forwardRef<HTMLDivElement, Props>(
-  ({ title, showTitle = true, className, children, ...props }, ref) => {
+  (
+    {
+      title,
+      showTitle = true,
+      className,
+      children,
+      hasClosingAnimation = true,
+      ...props
+    },
+    ref,
+  ) => {
     const titleId = useId();
     return (
       <div
@@ -48,7 +63,9 @@ export const FloatingMenu = forwardRef<HTMLDivElement, Props>(
         ref={ref}
         aria-label={showTitle ? undefined : title}
         aria-labelledby={showTitle ? titleId : undefined}
-        className={classnames(className, styles.menu)}
+        className={classnames(className, styles.menu, {
+          [styles["closing-animation"]]: hasClosingAnimation,
+        })}
         {...props}
       >
         {showTitle && (

@@ -45,7 +45,7 @@ Please see LICENSE files in the repository root for full details.
   animation: slide-in 180ms;
 }
 
-.menu[data-state="closed"] {
+.closing-animation[data-state="closed"] {
   animation: slide-out 110ms;
 }
 
