@@ -68,11 +68,6 @@ interface Props {
    * @default center
    */
   align?: "start" | "center" | "end";
-  /**
-   * Whether the closing animation is enabled.
-   * @default true
-   */
-  hasClosingAnimation?: boolean;
 }
 
 const DropdownMenuItemWrapper: FC<MenuItemWrapperProps> = ({
@@ -96,7 +91,6 @@ export const Menu: FC<Props> = ({
   children: childrenProp,
   side = "bottom",
   align = "center",
-  hasClosingAnimation = true,
 }) => {
   // Normally, the menu takes the form of a floating box. But on Android and
   // iOS, the menu should morph into a drawer
@@ -128,11 +122,7 @@ export const Menu: FC<Props> = ({
       <Trigger asChild>{trigger}</Trigger>
       <Portal>
         <Content asChild side={side} align={align} sideOffset={8}>
-          <FloatingMenu
-            title={title}
-            showTitle={showTitle}
-            hasClosingAnimation={hasClosingAnimation}
-          >
+          <FloatingMenu title={title} showTitle={showTitle}>
             {children}
           </FloatingMenu>
         </Content>

@@ -141,11 +141,7 @@ export const ContextMenu: FC<Props> = ({
       {trigger}
       <Portal>
         <Content asChild>
-          <FloatingMenu
-            showTitle={showTitle}
-            title={title}
-            hasClosingAnimation={false}
-          >
+          <FloatingMenu showTitle={showTitle} title={title}>
             {children}
           </FloatingMenu>
         </Content>
