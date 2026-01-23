@@ -4,7 +4,7 @@ exports[`FloatingMenu > renders 1`] = `
 <DocumentFragment>
   <div
     aria-labelledby="_r_0_"
-    class="_menu_8d7946"
+    class="_menu_8d7946 _closing-animation_8d7946"
     role="menu"
   >
     <h3
