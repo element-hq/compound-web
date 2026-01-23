@@ -23,7 +23,6 @@ import { FloatingMenu } from "./FloatingMenu";
 import { Drawer } from "vaul";
 import classnames from "classnames";
 import drawerStyles from "./DrawerMenu.module.css";
-import contextStyles from "./ContextMenu.module.css";
 import {
   MenuContext,
   type MenuData,
@@ -141,8 +140,12 @@ export const ContextMenu: FC<Props> = ({
     <Root onOpenChange={onOpenChange}>
       {trigger}
       <Portal>
-        <Content asChild className={classnames(contextStyles.content)}>
-          <FloatingMenu showTitle={showTitle} title={title}>
+        <Content asChild>
+          <FloatingMenu
+            showTitle={showTitle}
+            title={title}
+            hasClosingAnimation={false}
+          >
             {children}
           </FloatingMenu>
         </Content>
