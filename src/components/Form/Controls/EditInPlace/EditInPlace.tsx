@@ -236,7 +236,7 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
     );
 
     const onInputHandler = useCallback(
-      (e: React.ChangeEvent<HTMLInputElement>) => {
+      (e: React.InputEvent<HTMLInputElement>) => {
         dispatch(Event.Touch);
         onInput?.(e);
       },
