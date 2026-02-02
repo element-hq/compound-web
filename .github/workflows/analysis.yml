@@ -33,7 +33,7 @@ jobs:
       - name: Test
         run: "yarn run test --coverage"
       - name: Upload Artifact
-        uses: actions/upload-artifact@330a01c490aca151604b8cf639adc76d48f6c5d4 # v5
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
         with:
           name: coverage
           path: |
@@ -62,7 +62,7 @@ jobs:
       - name: Get Playwright version
         run: echo "PLAYWRIGHT_VERSION=$(yarn list --pattern @playwright/test --depth=0 --json --non-interactive --no-progress | jq -r '.data.trees[].name')" >> $GITHUB_ENV
       - name: Cache Playwright binaries
-        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
+        uses: actions/cache@cdf6c1fa76f9f475f3d7449005a359c84ca0f306 # v5
         id: playwright-cache
         with:
           path: |
@@ -78,7 +78,7 @@ jobs:
           run: yarn playwright test -j 100%
       - name: Upload Playwright report
         if: always()
-        uses: actions/upload-artifact@330a01c490aca151604b8cf639adc76d48f6c5d4 # v5
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
         with:
           name: html-report--attempt-${{ github.run_attempt }}
           path: playwright-report
