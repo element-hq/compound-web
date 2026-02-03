@@ -44,7 +44,7 @@ jobs:
         run: |
           yarn version --no-git-tag-version --${{ github.event.inputs.version-bump }}
           git config --global user.name 'ElementRobot'
-          git config --global user.email 'releases@riot.im'
+          git config --global user.email 'releases@element.io'
           git commit -am "${{ github.event.inputs.version-bump }} version bump"
           git push
 
