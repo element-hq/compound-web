@@ -1,0 +1,10 @@
+import{j as t}from"./jsx-runtime-u17CrQMm.js";import{r as m}from"./iframe-NDgwdo63.js";import"./index-BhuIfWeb.js";import{U as p}from"./user-profile-CoRnV0NB.js";import{N as s,C as c,L as l}from"./notifications-qpJ23it5.js";import{M as u}from"./Menu-BElwyd3y.js";import{M as e}from"./MenuItem-CR1P13rC.js";import{S as d}from"./Separator-DcBhXFZC.js";import{B as f}from"./Button-s1S4CJk3.js";import{M as x}from"./MenuTitle-oeyXGvfm.js";import"./preload-helper-PPVm8Dsz.js";import"./index-TVJKpnUJ.js";import"./index-VLIw9Q7D.js";import"./index-BGt1JjI6.js";import"./index-7w6CW-C_.js";import"./index-yq13v7-1.js";import"./floating-ui.utils-TO_MjaUp.js";import"./FloatingMenu-CDBfmWQn.js";import"./index-C_j9C9bg.js";import"./DrawerMenu-5vubSjpv.js";import"./Text-0NQOMVkL.js";import"./Typography-BDWHDTnH.js";import"./chevron-right-J38l6BNX.js";import"./index-BHFAxjfu.js";import"./floating-ui.react-Bea4opPh.js";import"./UnstyledButton-BQNeUQXq.js";const g=a=>{const[i,n]=m.useState(!0);return t.jsxs(u,{...a,open:i,onOpenChange:n,trigger:t.jsx(f,{children:"Open menu"}),align:"start",children:[t.jsx(e,{Icon:p,label:"Profile",onSelect:()=>{}}),t.jsx(e,{Icon:s,label:"Notifications",onSelect:()=>{}}),t.jsx(x,{title:"Other section"}),t.jsx(e,{Icon:s,label:"Other Notifications",onSelect:()=>{}}),t.jsx(e,{Icon:c,label:"Feedback",onSelect:()=>{}}),t.jsx(d,{}),t.jsx(e,{kind:"critical",Icon:l,label:"Sign out",onSelect:()=>{}})]})},A={title:"Menu",component:g,tags:["autodocs","axe-exclude"],argTypes:{},args:{}},o={args:{title:"Today's Menu"}},r={args:{title:"Untitled Menu",showTitle:!1}};o.parameters={...o.parameters,docs:{...o.parameters?.docs,source:{originalSource:`{
+  args: {
+    title: "Today's Menu"
+  }
+}`,...o.parameters?.docs?.source}}};r.parameters={...r.parameters,docs:{...r.parameters?.docs,source:{originalSource:`{
+  args: {
+    title: "Untitled Menu",
+    showTitle: false
+  }
+}`,...r.parameters?.docs?.source}}};const D=["Menu","WithoutTitle"];export{o as Menu,r as WithoutTitle,D as __namedExportsOrder,A as default};
