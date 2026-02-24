@@ -27,6 +27,11 @@ import { getPlatform } from "../../utils/platform";
 
 interface Props {
   /**
+   * CSS classes for the menu.
+   */
+  className?: string;
+
+  /**
    * The menu title. This can be hidden with `showTitle={false}` in which case it will only
    * be a label for screen readers.
    */
@@ -83,6 +88,7 @@ const DropdownMenuItemWrapper: FC<MenuItemWrapperProps> = ({
  * A menu opened by pressing a button.
  */
 export const Menu: FC<Props> = ({
+  className,
   title,
   showTitle = true,
   open,
@@ -122,7 +128,11 @@ export const Menu: FC<Props> = ({
       <Trigger asChild>{trigger}</Trigger>
       <Portal>
         <Content asChild side={side} align={align} sideOffset={8}>
-          <FloatingMenu title={title} showTitle={showTitle}>
+          <FloatingMenu
+            className={className}
+            title={title}
+            showTitle={showTitle}
+          >
             {children}
           </FloatingMenu>
         </Content>
