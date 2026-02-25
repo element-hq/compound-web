@@ -1,6 +1,10 @@
 import { FC, ReactNode } from '../../../node_modules/react';
 interface Props {
     /**
+     * CSS classes for the menu.
+     */
+    className?: string;
+    /**
      * The menu title. This can be hidden with `showTitle={false}` in which case it will only
      * be a label for screen readers.
      */
