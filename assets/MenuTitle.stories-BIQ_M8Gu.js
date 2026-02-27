@@ -1,0 +1,3 @@
+import{j as o}from"./jsx-runtime-u17CrQMm.js";import{M as e}from"./MenuTitle-DWl_nZIL.js";import"./index-B4Uh42Jf.js";import"./iframe-BYckviv8.js";import"./Text-CnH1X5lh.js";import"./Typography-COx1wPnR.js";import"./index-DyRmHcR8.js";import"./preload-helper-PPVm8Dsz.js";const d={title:"Menu/MenuTitle",component:e,tags:["autodocs"],argTypes:{},args:{title:"Title"}},s=r=>o.jsx(e,{...r}),t=s.bind({});t.args={};t.parameters={...t.parameters,docs:{...t.parameters?.docs,source:{originalSource:`(args: ComponentProps<typeof MenuTitleComponent>) => {
+  return <MenuTitleComponent {...args} />;
+}`,...t.parameters?.docs?.source}}};const T=["Default"];export{t as Default,T as __namedExportsOrder,d as default};
