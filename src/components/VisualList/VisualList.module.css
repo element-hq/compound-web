@@ -11,7 +11,7 @@ Please see LICENSE files in the repository root for full details.
   gap: var(--cpd-space-1x);
   margin: 0;
   padding: 0;
-  list-style-type: none;
+  list-style-type: "";
   border-radius: var(--cpd-space-3x);
   overflow: hidden;
 }

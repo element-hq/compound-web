@@ -81,7 +81,7 @@ Please see LICENSE files in the repository root for full details.
       cursor: pointer;
 
       li {
-        list-style: none;
+        list-style-type: "";
         font: var(--cpd-font-body-md-medium);
         padding: var(--cpd-space-3x) var(--cpd-space-4x);
         border-block-end: 1px solid var(--cpd-color-gray-300);

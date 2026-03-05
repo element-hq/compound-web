@@ -17,7 +17,7 @@
   justify-content: flex-start;
   align-items: center;
   gap: var(--cpd-space-3x);
-  list-style: none;
+  list-style-type: "";
   padding: 0;
   margin: 0;
 }
