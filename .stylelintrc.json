@@ -1,5 +1,8 @@
 {
-  "extends": "stylelint-config-standard",
+  "extends": [
+    "stylelint-config-standard",
+    "stylelint-plugin-defensive-css/configs/accessibility"
+  ],
   "plugins": [
     "stylelint-value-no-unknown-custom-properties",
     "stylelint-plugin-defensive-css",
@@ -18,7 +21,12 @@
         ]
       }
     ],
-    "plugin/use-defensive-css": [true, { "accidental-hover": true }],
+    "defensive-css/require-flex-wrap": [true, { "severity": "warning" }],
+    "defensive-css/require-prefers-reduced-motion": [
+      true,
+      { "severity": "warning" }
+    ],
+    "defensive-css/require-focus-visible": [true, { "severity": "warning" }],
     "csstools/use-logical": true
   },
   "ignoreFiles": ["dist/**/*.css"]
