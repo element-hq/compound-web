@@ -19,7 +19,7 @@ Please see LICENSE files in the repository root for full details.
     gap: var(--cpd-space-1x);
 
     /* override list styles */
-    list-style: none;
+    list-style-type: "";
     margin: 0;
     padding: 0;
 
