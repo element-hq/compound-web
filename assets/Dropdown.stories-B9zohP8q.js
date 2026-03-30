@@ -1,0 +1,40 @@
+import{a as e,n as t}from"./chunk-BneVvdWh.js";import{J as n}from"./iframe-9RxgpQCZ.js";import{t as r}from"./jsx-runtime-DweqXWlm.js";import{t as i}from"./dist-DEgaRUqs.js";import{t as a}from"./classnames-BmD4jabB.js";import{n as o,t as s}from"./error-solid-Bm6lML8x.js";import{a as c,d as l}from"./floating-ui.react-BjSnbMD8.js";import{n as u,t as d}from"./check-BIwKgIOe.js";import{n as f,t as p}from"./chevron-down-C_LzsFDB.js";var m,h,g,_,v,y,b,x,S=t((()=>{m=`_container_gn3xc_8`,h=`_placeholder_gn3xc_47`,g=`_border_gn3xc_51`,_=`_content_gn3xc_60`,v=`_open_gn3xc_108`,y=`_help_gn3xc_112`,b=`_error_gn3xc_117`,x={container:m,placeholder:h,border:g,content:_,open:v,help:y,error:b}}));function C(){let[e,t]=(0,T.useState)(!1),n=(0,T.useRef)(null);return(0,T.useEffect)(()=>{let e=e=>{n.current&&!n.current.contains(e.target)&&t(!1)};return document.addEventListener(`click`,e),()=>document.removeEventListener(`click`,e)},[t]),[e,t,n]}function w(e,t,n){let r=(0,T.useRef)(null);return{listRef:r,onComboboxKeyDown:(0,T.useCallback)(({key:n})=>{switch(n){case`Escape`:t(!1);break;case`ArrowDown`:t(!0),e&&(r.current?.firstElementChild)?.focus();break;case`ArrowUp`:t(!0);break;case`Home`:t(!0),Promise.resolve().then(()=>{(r.current?.firstElementChild)?.focus()});break;case`End`:t(!0),Promise.resolve().then(()=>{(r.current?.lastElementChild)?.focus()});break}},[r,e,t]),onOptionKeyDown:(0,T.useCallback)((e,i)=>{let{key:a,altKey:o}=e;switch(e.stopPropagation(),e.preventDefault(),a){case`Enter`:case` `:n(i),t(!1);break;case`Tab`:case`Escape`:t(!1);break;case`ArrowDown`:{let e=document.activeElement;r.current?.contains(e)&&e&&e.nextElementSibling?.focus();break}case`ArrowUp`:if(o)n(i),t(!1);else{let e=document.activeElement;r.current?.contains(e)&&e&&e.previousElementSibling?.focus()}break;case`Home`:(r.current?.firstElementChild)?.focus();break;case`End`:(r.current?.lastElementChild)?.focus();break}},[r,n,t])}}var T,E,D,O,k,A=t((()=>{f(),u(),o(),T=e(n(),1),E=e(a(),1),S(),c(),D=r(),O=(0,T.forwardRef)(function({className:e,label:t,placeholder:n,helpLabel:r,onValueChange:i,error:a,value:o,defaultValue:c,values:u,...d},f){let[m,h]=(0,T.useState)(c),g=o??m,_=(0,T.useMemo)(()=>g===void 0?n:u.find(([e])=>e===g)?.[1]??n,[g,u,n]),v=(0,T.useCallback)(e=>{h(e),i?.(e)},[h,i]),[y,b,S]=C(),{listRef:O,onComboboxKeyDown:A,onOptionKeyDown:j}=w(y,b,v),M=(0,T.useRef)(null);(0,T.useEffect)(()=>{g!==void 0&&M.current?.focus()},[g]);let N=_===n,P=(0,E.default)({[x.placeholder]:N}),F=(0,E.default)(x.border,{[x.open]:y}),I=(0,E.default)(x.content,{[x.open]:y}),L=l(),R=l();return(0,D.jsxs)(`div`,{ref:S,className:(0,E.default)(e,x.container),"aria-invalid":!!a,children:[(0,D.jsx)(`label`,{id:L,children:t}),(0,D.jsxs)(`button`,{className:P,role:`combobox`,"aria-haspopup":`listbox`,"aria-labelledby":L,"aria-controls":R,"aria-expanded":y,ref:e=>{M.current=e,typeof f==`function`?f(e):f&&(f.current=e)},onClick:()=>b(e=>!e),onKeyDown:A,...d,children:[_,(0,D.jsx)(p,{width:`24`,height:`24`})]}),(0,D.jsx)(`div`,{className:F}),(0,D.jsx)(`div`,{className:I,children:(0,D.jsx)(`ul`,{ref:O,id:R,role:`listbox`,className:x.content,children:u.map(([e,t])=>(0,D.jsx)(k,{isDisplayed:y,isSelected:g===e,onClick:()=>{b(!1),v(e)},onKeyDown:t=>j(t,e),children:t},e))})}),!a&&r&&(0,D.jsx)(`span`,{className:x.help,children:r}),a&&(0,D.jsxs)(`span`,{className:x.error,children:[(0,D.jsx)(s,{width:`20`,height:`20`}),a]})]})}),k=(0,T.memo)(function({children:e,isSelected:t,isDisplayed:n,...r}){let i=(0,T.useRef)(null);return(0,T.useEffect)(()=>{t&&n&&i.current?.focus()},[t,n]),(0,D.jsxs)(`li`,{tabIndex:0,role:`option`,ref:i,"aria-selected":t,...r,children:[e,` `,t&&(0,D.jsx)(d,{width:`20`,height:`20`})]})});try{O.displayName=`Dropdown`,O.__docgenInfo={description:`The dropdown content.`,displayName:`Dropdown`,props:{className:{defaultValue:null,description:`The CSS class name.`,name:`className`,required:!1,type:{name:`string`}},value:{defaultValue:null,description:`The controlled value of the dropdown.`,name:`value`,required:!1,type:{name:`string`}},defaultValue:{defaultValue:null,description:`The default value of the dropdown, used when uncontrolled.`,name:`defaultValue`,required:!1,type:{name:`string`}},values:{defaultValue:null,description:`The values of the dropdown.
+[value, text]`,name:`values`,required:!0,type:{name:`[string, string][]`}},placeholder:{defaultValue:null,description:`The placeholder text.`,name:`placeholder`,required:!0,type:{name:`string`}},label:{defaultValue:null,description:`The label to display at the top of the dropdown`,name:`label`,required:!0,type:{name:`string`}},helpLabel:{defaultValue:null,description:`The help label to display at the bottom of the dropdown`,name:`helpLabel`,required:!1,type:{name:`string`}},onValueChange:{defaultValue:null,description:`Callback for when the value changes.
+@param value`,name:`onValueChange`,required:!1,type:{name:`((value: string) => void)`}},error:{defaultValue:null,description:`The error message to display.`,name:`error`,required:!1,type:{name:`string`}}}}}catch{}})),j,M,N,P,F,I,L;t((()=>{A(),i(),n(),{fn:j}=__STORYBOOK_MODULE_TEST__,M={title:`Dropdown`,component:O,tags:[`autodocs`],parameters:{controls:{include:[`defaultValue`,`placeholder`,`error`]}},argTypes:{label:{type:`string`},error:{type:`string`},placeholder:{type:`string`},values:{type:`string`}},args:{label:`Label`,placeholder:`Select an option`,onValueChange:j(),values:[[`Option1`,`Option 1`],[`Option2`,`Option 2`],[`Option3`,`Option 3`]]}},N={parameters:{design:{type:`figma`,url:`https://www.figma.com/file/rTaQE2nIUSLav4Tg3nozq7/Compound-Web-Components?node-id=799-5732&t=g2Ex9sbzgku1nTIN-4`}}},P={args:{helpLabel:`Optional help text.`},parameters:{design:{type:`figma`,url:`https://www.figma.com/file/rTaQE2nIUSLav4Tg3nozq7/Compound-Web-Components?node-id=799-345&t=g2Ex9sbzgku1nTIN-4`}}},F={args:{error:`Select an option`},parameters:{design:{type:`figma`,url:`https://www.figma.com/file/rTaQE2nIUSLav4Tg3nozq7/Compound-Web-Components?node-id=799-370&t=g2Ex9sbzgku1nTIN-4`}}},I={args:{defaultValue:`Option2`},parameters:{design:{type:`figma`,url:`https://www.figma.com/file/rTaQE2nIUSLav4Tg3nozq7/Compound-Web-Components?node-id=799-381&t=g2Ex9sbzgku1nTIN-4`}}},N.parameters={...N.parameters,docs:{...N.parameters?.docs,source:{originalSource:`{
+  parameters: {
+    design: {
+      type: "figma",
+      url: "https://www.figma.com/file/rTaQE2nIUSLav4Tg3nozq7/Compound-Web-Components?node-id=799-5732&t=g2Ex9sbzgku1nTIN-4"
+    }
+  }
+}`,...N.parameters?.docs?.source}}},P.parameters={...P.parameters,docs:{...P.parameters?.docs,source:{originalSource:`{
+  args: {
+    helpLabel: "Optional help text."
+  },
+  parameters: {
+    design: {
+      type: "figma",
+      url: "https://www.figma.com/file/rTaQE2nIUSLav4Tg3nozq7/Compound-Web-Components?node-id=799-345&t=g2Ex9sbzgku1nTIN-4"
+    }
+  }
+}`,...P.parameters?.docs?.source}}},F.parameters={...F.parameters,docs:{...F.parameters?.docs,source:{originalSource:`{
+  args: {
+    error: "Select an option"
+  },
+  parameters: {
+    design: {
+      type: "figma",
+      url: "https://www.figma.com/file/rTaQE2nIUSLav4Tg3nozq7/Compound-Web-Components?node-id=799-370&t=g2Ex9sbzgku1nTIN-4"
+    }
+  }
+}`,...F.parameters?.docs?.source}}},I.parameters={...I.parameters,docs:{...I.parameters?.docs,source:{originalSource:`{
+  args: {
+    defaultValue: "Option2"
+  },
+  parameters: {
+    design: {
+      type: "figma",
+      url: "https://www.figma.com/file/rTaQE2nIUSLav4Tg3nozq7/Compound-Web-Components?node-id=799-381&t=g2Ex9sbzgku1nTIN-4"
+    }
+  }
+}`,...I.parameters?.docs?.source}}},L=[`Default`,`WithHelpLabel`,`WithError`,`WithDefaultValue`]}))();export{N as Default,I as WithDefaultValue,F as WithError,P as WithHelpLabel,L as __namedExportsOrder,M as default};

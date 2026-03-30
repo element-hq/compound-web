@@ -1,1 +1,0 @@
-import{n as e,t}from"./react-DUGIaM2x.js";t();export{e as MDXProvider};
