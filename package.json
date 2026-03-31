@@ -72,7 +72,7 @@
     "@types/react": "^19.0.0",
     "@typescript-eslint/eslint-plugin": "^8.0.0",
     "@typescript-eslint/parser": "^8.0.0",
-    "@vector-im/compound-design-tokens": "^8.0.0",
+    "@vector-im/compound-design-tokens": "^9.0.0",
     "@vitejs/plugin-react": "^6.0.0",
     "@vitest/coverage-v8": "^4.0.0",
     "browserslist-to-esbuild": "^2.0.0",
@@ -115,7 +115,7 @@
     "@fontsource/inconsolata": "^5",
     "@fontsource/inter": "^5",
     "@types/react": "*",
-    "@vector-im/compound-design-tokens": ">=1.6.1 <9.0.0",
+    "@vector-im/compound-design-tokens": ">=1.6.1 <10.0.0",
     "react": "^18 || ^19.0.0"
   },
   "peerDependenciesMeta": {
