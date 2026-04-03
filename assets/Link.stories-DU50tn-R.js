@@ -1,7 +1,0 @@
-import{n as e}from"./chunk-BneVvdWh.js";import{t}from"./dist-CaLCMGxh.js";import{n,t as r}from"./Link-D3U0k1eJ.js";var i,a,o,s;e((()=>{t(),n(),i={title:`Link`,component:r,tags:[`autodocs`],argTypes:{},args:{size:`medium`,children:`Text link`}},a={args:{}},o={args:{size:`small`}},a.parameters={...a.parameters,docs:{...a.parameters?.docs,source:{originalSource:`{
-  args: {}
-}`,...a.parameters?.docs?.source}}},o.parameters={...o.parameters,docs:{...o.parameters?.docs,source:{originalSource:`{
-  args: {
-    size: "small"
-  }
-}`,...o.parameters?.docs?.source}}},s=[`Round`,`Small`]}))();export{a as Round,o as Small,s as __namedExportsOrder,i as default};
