@@ -35,12 +35,12 @@ Small.args = {
   size: "small",
 };
 
-export const Destructive = Template.bind({});
-Destructive.args = {
-  destructive: true,
+export const Critical = Template.bind({});
+Critical.args = {
+  kind: "critical",
 };
 
 export const Success = Template.bind({});
 Success.args = {
-  success: true,
+  kind: "success",
 };

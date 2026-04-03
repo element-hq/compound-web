@@ -20,31 +20,23 @@ interface BigIconProps {
    */
   size?: "small" | "medium" | "large";
   /**
-   * Whether this button triggers a destructive action.
-   * @default false
+   * The color variant of the icon.
+   * @default "primary"
    */
-  destructive?: boolean;
-  /**
-   * Whether this button triggers a success action.
-   * @default false
-   */
-  success?: boolean;
+  kind?: "primary" | "critical" | "success";
 }
 
 export function BigIcon({
   className,
   size = "large",
-  destructive = false,
-  success = false,
+  kind = "primary",
   children,
 }: PropsWithChildren<BigIconProps>): JSX.Element {
   return (
     <div
-      className={classNames(styles.content, className, {
-        [styles.destructive]: destructive,
-        [styles.success]: success,
-      })}
+      className={classNames(styles["big-icon"], className)}
       data-size={size}
+      data-kind={kind}
     >
       {React.Children.only(children)}
     </div>
