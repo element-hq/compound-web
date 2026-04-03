@@ -1,0 +1,11 @@
+import{a as e,n as t}from"./chunk-BneVvdWh.js";import{J as n}from"./iframe-sQwAcK62.js";import{t as r}from"./jsx-runtime-DweqXWlm.js";import{i,n as a,r as o,t as s}from"./visibility-on-D5nTqdUo.js";import{n as c,t as l}from"./Action-LwhaB-Yc.js";import{l as u,t as d}from"./dist-1E2FGhrn.js";var f,p,m,h,g,_,v=t((()=>{f=e(n(),1),u(),l(),s(),o(),p=r(),m={isHidden:!0,icon:i,label:`Show`,type:`password`},h={isHidden:!1,icon:a,label:`Hide`,type:`text`},g=(0,f.forwardRef)(function(e,t){let[{icon:n,label:r,type:i},a]=(0,f.useReducer)(e=>e.isHidden?h:m,m);return(0,p.jsx)(c,{ref:t,...e,Icon:n,actionLabel:r,onActionClick:()=>a(),type:i})}),_=(0,f.forwardRef)(function(e,t){return(0,p.jsx)(d,{asChild:!0,children:(0,p.jsx)(g,{ref:t,...e})})});try{g.displayName=`PasswordInput`,g.__docgenInfo={description:`A password input with a toggle to show/hide the password.
+
+Standalone input to be used outside of Radix forms.`,displayName:`PasswordInput`,props:{className:{defaultValue:null,description:`The CSS class name.`,name:`className`,required:!1,type:{name:`string`}},enableLigatures:{defaultValue:null,description:`Enable contextual alternate ligatures on input text
+For example on an in-place editing field
+https://github.com/rsms/inter/issues/222
+https://github.com/rsms/inter/blob/master/src/features/calt.fea`,name:`enableLigatures`,required:!1,type:{name:`boolean`}}}}}catch{}try{_.displayName=`PasswordControl`,_.__docgenInfo={description:`A password input with a toggle to show/hide the password.
+
+Control to be used in a Radix form.`,displayName:`PasswordControl`,props:{className:{defaultValue:null,description:`The CSS class name.`,name:`className`,required:!1,type:{name:`string`}},enableLigatures:{defaultValue:null,description:`Enable contextual alternate ligatures on input text
+For example on an in-place editing field
+https://github.com/rsms/inter/issues/222
+https://github.com/rsms/inter/blob/master/src/features/calt.fea`,name:`enableLigatures`,required:!1,type:{name:`boolean`}}}}}catch{}})),y=t((()=>{v()}));export{_ as n,g as r,y as t};
