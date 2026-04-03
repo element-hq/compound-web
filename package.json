@@ -115,7 +115,7 @@
     "@fontsource/inconsolata": "^5",
     "@fontsource/inter": "^5",
     "@types/react": "*",
-    "@vector-im/compound-design-tokens": ">=1.6.1 <10.0.0",
+    "@vector-im/compound-design-tokens": ">=1.6.1 <11.0.0",
     "react": "^18 || ^19.0.0"
   },
   "peerDependenciesMeta": {
