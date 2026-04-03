@@ -15,10 +15,10 @@ interface BigIconProps {
    */
   className?: string;
   /**
-   * The size of the icon.
-   * @default "large"
+   * The t-shirt size of the icon.
+   * @default "lg"
    */
-  size?: "small" | "medium" | "large";
+  size?: "sm" | "md" | "lg";
   /**
    * The color variant of the icon.
    * @default "primary"
@@ -28,7 +28,7 @@ interface BigIconProps {
 
 export function BigIcon({
   className,
-  size = "large",
+  size = "lg",
   kind = "primary",
   children,
 }: PropsWithChildren<BigIconProps>): JSX.Element {

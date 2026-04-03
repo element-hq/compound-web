@@ -5,7 +5,7 @@ exports[`BigIcon > renders a critical big icon 1`] = `
   <div
     class="_big-icon_6ba1e4"
     data-kind="critical"
-    data-size="large"
+    data-size="lg"
   >
     <svg
       fill="currentColor"
@@ -27,7 +27,7 @@ exports[`BigIcon > renders a large big icon 1`] = `
   <div
     class="_big-icon_6ba1e4"
     data-kind="primary"
-    data-size="large"
+    data-size="lg"
   >
     <svg
       fill="currentColor"
@@ -49,7 +49,7 @@ exports[`BigIcon > renders a medium big icon 1`] = `
   <div
     class="_big-icon_6ba1e4"
     data-kind="primary"
-    data-size="medium"
+    data-size="md"
   >
     <svg
       fill="currentColor"
@@ -71,7 +71,7 @@ exports[`BigIcon > renders a small big icon 1`] = `
   <div
     class="_big-icon_6ba1e4"
     data-kind="primary"
-    data-size="small"
+    data-size="sm"
   >
     <svg
       fill="currentColor"
@@ -93,7 +93,7 @@ exports[`BigIcon > renders a success big icon 1`] = `
   <div
     class="_big-icon_6ba1e4"
     data-kind="success"
-    data-size="large"
+    data-size="lg"
   >
     <svg
       fill="currentColor"

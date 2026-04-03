@@ -16,11 +16,11 @@ Please see LICENSE files in the repository root for full details.
   }
 }
 
-.big-icon[data-size="medium"] {
+.big-icon[data-size="md"] {
   padding: var(--cpd-space-3x);
 }
 
-.big-icon[data-size="small"] {
+.big-icon[data-size="sm"] {
   padding: var(--cpd-space-3x);
 
   > svg {
