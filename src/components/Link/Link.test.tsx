@@ -18,7 +18,7 @@ describe("Link", () => {
   });
 
   it("renders width a small size", () => {
-    const { asFragment } = render(<Link size="small" />);
+    const { asFragment } = render(<Link size="sm" />);
     expect(asFragment()).toMatchSnapshot();
   });
 });

@@ -15,15 +15,15 @@ type LinkProps = {
    */
   className?: string;
   /**
-   * The type of link.
+   * The color variant of the link.
    * @default "primary"
    */
   kind?: "primary" | "critical";
   /**
-   * The size of link.
-   * @default "medium"
+   * The t-shirt size of the link.
+   * @default "md"
    */
-  size?: "small" | "medium";
+  size?: "sm" | "md";
 } & Omit<React.HTMLProps<HTMLAnchorElement>, "rel" | "size">;
 
 /**
@@ -31,7 +31,7 @@ type LinkProps = {
  */
 export const Link = forwardRef<HTMLAnchorElement, PropsWithChildren<LinkProps>>(
   function Link(
-    { children, className, kind = "primary", size = "medium", ...props },
+    { children, className, kind = "primary", size = "md", ...props },
     ref,
   ) {
     return (

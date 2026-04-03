@@ -108,7 +108,7 @@ function Page({ page, isLastPage, onClick }: PageProps): JSX.Element {
         </span>
       ) : (
         <Link
-          size="small"
+          size="sm"
           role="button"
           onClick={onClick}
           onKeyDown={onKeyDown}
