@@ -1337,9 +1337,9 @@ className?: string
 kind?: &quot;success&quot; | &quot;critical&quot; | &quot;primary&quot; = primary
 
 /**
- * The size of the icon.
+ * The t-shirt size of the icon.
  */
-size?: &quot;small&quot; | &quot;medium&quot; | &quot;large&quot; = large</code></pre>
+size?: &quot;sm&quot; | &quot;md&quot; | &quot;lg&quot; = lg</code></pre>
           </div>
         </div>
     
@@ -1372,7 +1372,7 @@ import KeyIcon from "@vector-im/compound-design-tokens/assets/web/icons/key";</c
               </div>
               
               
-              <pre><code>const Medium = () =&gt; &lt;BigIconComponent size=&quot;medium&quot;&gt;&lt;KeyIcon /&gt;&lt;/BigIconComponent&gt;;</code></pre>
+              <pre><code>const Medium = () =&gt; &lt;BigIconComponent size=&quot;md&quot;&gt;&lt;KeyIcon /&gt;&lt;/BigIconComponent&gt;;</code></pre>
             </div>
             <div class="note ok">
               <div class="row">
@@ -1381,7 +1381,7 @@ import KeyIcon from "@vector-im/compound-design-tokens/assets/web/icons/key";</c
               </div>
               
               
-              <pre><code>const Small = () =&gt; &lt;BigIconComponent size=&quot;small&quot;&gt;&lt;KeyIcon /&gt;&lt;/BigIconComponent&gt;;</code></pre>
+              <pre><code>const Small = () =&gt; &lt;BigIconComponent size=&quot;sm&quot;&gt;&lt;KeyIcon /&gt;&lt;/BigIconComponent&gt;;</code></pre>
             </div>
             <div class="note ok">
               <div class="row">
@@ -2705,7 +2705,7 @@ className?: string</code></pre>
             </div>
             <pre><code>Component: src/components/Typography/Heading.tsx::Heading</code></pre>
             <pre><code>Props:</code></pre>
-            <pre><code>size?: &quot;sm&quot; | &quot;lg&quot; | &quot;md&quot; | &quot;xl&quot;</code></pre>
+            <pre><code>size?: &quot;sm&quot; | &quot;md&quot; | &quot;lg&quot; | &quot;xl&quot;</code></pre>
           </div>
         </div>
     
@@ -3554,14 +3554,14 @@ export const Invalid: Story = { args: { invalid: true } };
 className?: string
 
 /**
- * The type of link.
+ * The color variant of the link.
  */
 kind?: &quot;critical&quot; | &quot;primary&quot; = primary
 
 /**
- * The size of link.
+ * The t-shirt size of the link.
  */
-size?: &quot;small&quot; | &quot;medium&quot; = medium</code></pre>
+size?: &quot;sm&quot; | &quot;md&quot; = md</code></pre>
           </div>
         </div>
     
@@ -3579,12 +3579,12 @@ size?: &quot;small&quot; | &quot;medium&quot; = medium</code></pre>
           
             <div class="note ok">
               <div class="row">
-                <span class="ex-name">Round</span>
+                <span class="ex-name">Default</span>
                 <span class="badge ok">story ok</span>
               </div>
               
               
-              <pre><code>const Round = () =&gt; &lt;LinkComponent size=&quot;medium&quot;&gt;Text link&lt;/LinkComponent&gt;;</code></pre>
+              <pre><code>const Default = () =&gt; &lt;LinkComponent&gt;Text link&lt;/LinkComponent&gt;;</code></pre>
             </div>
             <div class="note ok">
               <div class="row">
@@ -3593,7 +3593,7 @@ size?: &quot;small&quot; | &quot;medium&quot; = medium</code></pre>
               </div>
               
               
-              <pre><code>const Small = () =&gt; &lt;LinkComponent size=&quot;small&quot;&gt;Text link&lt;/LinkComponent&gt;;</code></pre>
+              <pre><code>const Small = () =&gt; &lt;LinkComponent size=&quot;sm&quot;&gt;Text link&lt;/LinkComponent&gt;;</code></pre>
             </div>
         </div>
     
@@ -3678,7 +3678,7 @@ label: string | null
 /**
  * Additional properties to pass to the Text label component.
  */
-labelProps?: Omit&lt;Omit&lt;{ as?: ElementType&lt;any, keyof IntrinsicElements&gt;; type?: &quot;heading&quot; | &quot;body&quot;; weight?: &quot;medium&quot; | &quot;bold&quot; | &quot;regular&quot; | &quot;semibold&quot; | undefined; size?: &quot;sm&quot; | &quot;lg&quot; | &quot;xs&quot; | &quot;md&quot; | &quot;xl&quot; | undefined; className?: string | undefined; } &amp; Omit&lt;any, &quot;ref&quot;&gt; &amp; { children?: ReactNode; }, &quot;type&quot;&gt; &amp; { size?: &quot;sm&quot; | &quot;lg&quot; | &quot;xs&quot; | &quot;md&quot; | undefined; }, &quot;ref&quot;&gt; | undefined
+labelProps?: Omit&lt;Omit&lt;{ as?: ElementType&lt;any, keyof IntrinsicElements&gt;; type?: &quot;heading&quot; | &quot;body&quot;; weight?: &quot;medium&quot; | &quot;bold&quot; | &quot;regular&quot; | &quot;semibold&quot; | undefined; size?: Size | undefined; className?: string | undefined; } &amp; Omit&lt;any, &quot;ref&quot;&gt; &amp; { children?: ReactNode; }, &quot;type&quot;&gt; &amp; { size?: &quot;xs&quot; | &quot;sm&quot; | &quot;md&quot; | &quot;lg&quot; | undefined; }, &quot;ref&quot;&gt; | undefined
 
 /**
  * Event callback for when the item is clicked.

@@ -1,7 +1,8 @@
 import { default as React } from '../../../../node_modules/react';
+import { Size } from '../../utils/size';
 type ProgressProps = {
     /** The size variant of the progress bar */
-    size: "sm" | "lg";
+    size: Size & ("sm" | "lg");
     /**
      * The colour variant to use for the progress bar indicator
      * If not set, the progress bar will be rendered with a gray tone, which should only be used when the progress bar is empty

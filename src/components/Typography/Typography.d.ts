@@ -1,4 +1,5 @@
 import { default as React, PropsWithChildren } from '../../../../node_modules/react';
+import { Size } from '../../utils/size';
 type TypographyProps<C extends React.ElementType> = {
     /**
      * The HTML tag.
@@ -16,7 +17,7 @@ type TypographyProps<C extends React.ElementType> = {
     /**
      * The t-shirt size of the content.
      */
-    size?: "xs" | "sm" | "md" | "lg" | "xl";
+    size?: Size;
     /**
      * The CSS class name.
      */

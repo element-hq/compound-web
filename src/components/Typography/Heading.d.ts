@@ -1,11 +1,12 @@
 import { default as React } from '../../../../node_modules/react';
 import { Typography } from './Typography';
+import { Size } from '../../utils/size';
 type TypographyProps = React.ComponentProps<typeof Typography>;
 /**
  * A heading component.
  */
 export declare const Heading: React.FC<Omit<TypographyProps, "type"> & {
-    size?: Exclude<TypographyProps["size"], "xs">;
+    size?: Exclude<Size, "xs">;
 }>;
 type HeadingProps = Omit<React.ComponentProps<typeof Heading>, "as" | "weight" | "size">;
 /**

@@ -1,14 +1,15 @@
 import { JSX, PropsWithChildren } from '../../../../../node_modules/react';
+import { Size } from '../../../utils/size';
 interface BigIconProps {
     /**
      * The CSS class name.
      */
     className?: string;
     /**
-     * The size of the icon.
-     * @default "large"
+     * The t-shirt size of the icon.
+     * @default "lg"
      */
-    size?: "small" | "medium" | "large";
+    size?: Size & ("sm" | "md" | "lg");
     /**
      * The color variant of the icon.
      * @default "primary"
