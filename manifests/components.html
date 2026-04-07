@@ -582,7 +582,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-docgen-typescript</code>. Generation took <strong>2.5s</strong>.
+              Using <code>react-docgen-typescript</code>. Generation took <strong>2.6s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -1288,7 +1288,7 @@ kind?: &quot;blue&quot; | &quot;green&quot; | &quot;grey&quot; | &quot;red&quot;
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> BigIconComponent</h2>
       <div class="badges">
-        <label for="c-5-icon-bigicon-props" class="badge ok as-toggle">4 prop types</label>
+        <label for="c-5-icon-bigicon-props" class="badge ok as-toggle">3 prop types</label>
         <label for="c-5-icon-bigicon-info" class="badge info as-toggle">1 info</label>
         <label for="c-5-icon-bigicon-stories" class="badge ok as-toggle">5 stories</label>
         
@@ -1322,7 +1322,7 @@ kind?: &quot;blue&quot; | &quot;green&quot; | &quot;grey&quot; | &quot;red&quot;
           <div class="note ok">
             <div class="row">
               <span class="ex-name">Prop types <small>(react-docgen-typescript)</small></span>
-              <span class="badge ok">4 prop types</span>
+              <span class="badge ok">3 prop types</span>
             </div>
             <pre><code>Component: src/components/Icon/BigIcon/BigIcon.tsx::BigIcon</code></pre>
             <pre><code>Props:</code></pre>
@@ -1332,19 +1332,14 @@ kind?: &quot;blue&quot; | &quot;green&quot; | &quot;grey&quot; | &quot;red&quot;
 className?: string
 
 /**
- * Whether this button triggers a destructive action.
+ * The color variant of the icon.
  */
-destructive?: boolean = false
+kind?: &quot;success&quot; | &quot;critical&quot; | &quot;primary&quot; = primary
 
 /**
  * The size of the icon.
  */
-size?: &quot;small&quot; | &quot;medium&quot; | &quot;large&quot; = large
-
-/**
- * Whether this button triggers a success action.
- */
-success?: boolean = false</code></pre>
+size?: &quot;small&quot; | &quot;medium&quot; | &quot;large&quot; = large</code></pre>
           </div>
         </div>
     
@@ -1390,12 +1385,12 @@ import KeyIcon from "@vector-im/compound-design-tokens/assets/web/icons/key";</c
             </div>
             <div class="note ok">
               <div class="row">
-                <span class="ex-name">Destructive</span>
+                <span class="ex-name">Critical</span>
                 <span class="badge ok">story ok</span>
               </div>
               
               
-              <pre><code>const Destructive = () =&gt; &lt;BigIconComponent destructive&gt;&lt;KeyIcon /&gt;&lt;/BigIconComponent&gt;;</code></pre>
+              <pre><code>const Critical = () =&gt; &lt;BigIconComponent kind=&quot;critical&quot;&gt;&lt;KeyIcon /&gt;&lt;/BigIconComponent&gt;;</code></pre>
             </div>
             <div class="note ok">
               <div class="row">
@@ -1404,7 +1399,7 @@ import KeyIcon from "@vector-im/compound-design-tokens/assets/web/icons/key";</c
               </div>
               
               
-              <pre><code>const Success = () =&gt; &lt;BigIconComponent success&gt;&lt;KeyIcon /&gt;&lt;/BigIconComponent&gt;;</code></pre>
+              <pre><code>const Success = () =&gt; &lt;BigIconComponent kind=&quot;success&quot;&gt;&lt;KeyIcon /&gt;&lt;/BigIconComponent&gt;;</code></pre>
             </div>
         </div>
     
