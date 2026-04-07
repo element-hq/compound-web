@@ -122,7 +122,7 @@ button.avatar-imageless,
 }
 
 .stacked-avatars > *:not(:first-child) {
-  margin-inline-start: calc(var(--cpd-avatar-size) * -0.2);
+  margin-inline-start: calc(var(--cpd-avatar-size) * -0.4);
 }
 
 .clip-path {

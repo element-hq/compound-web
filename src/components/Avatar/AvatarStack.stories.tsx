@@ -12,7 +12,7 @@ import { AvatarStack as AvatarStackComponent } from "./AvatarStack";
 import { Avatar } from "./Avatar";
 
 const meta = {
-  title: "Avatar/StackedAvatar",
+  title: "Avatar/AvatarStack",
   component: AvatarStackComponent,
   tags: ["autodocs"],
   argTypes: {},
@@ -20,15 +20,21 @@ const meta = {
     children: (
       <>
         <Avatar
+          name="Bob"
+          id="@bob:example.org"
+          size="20px"
+          src="/images/__test__/kitten2.jpg"
+        />
+        <Avatar
           name="Alice"
           id="@alice:example.org"
-          size="200px"
+          size="20px"
           src="/images/__test__/kitten.jpg"
         />
         <Avatar
           name="Bob"
           id="@bob:example.org"
-          size="200px"
+          size="20px"
           src="/images/__test__/kitten2.jpg"
         />
       </>
