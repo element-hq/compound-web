@@ -1,0 +1,4 @@
+import{n as e}from"./chunk-BneVvdWh.js";import{t}from"./dist-ytBllGKW.js";import{n,t as r}from"./Toast-BbsGY-FP.js";var i,a,o;e((()=>{t(),n(),i={title:`Toast`,component:r,tags:[`autodocs`],argTypes:{},args:{children:`Would you like some toast?`},parameters:{design:{type:`figma`,url:`https://www.figma.com/design/rTaQE2nIUSLav4Tg3nozq7/Compound-Web-Components?node-id=3627-42633&t=m0RMwUTXkukgU29g-0`}}},a={args:{},parameters:{}},a.parameters={...a.parameters,docs:{...a.parameters?.docs,source:{originalSource:`{
+  args: {},
+  parameters: {}
+}`,...a.parameters?.docs?.source}}},o=[`Default`]}))();export{a as Default,o as __namedExportsOrder,i as default};

@@ -582,7 +582,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-docgen-typescript</code>. Generation took <strong>2.6s</strong>.
+              Using <code>react-docgen-typescript</code>. Generation took <strong>2.5s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -1093,13 +1093,13 @@ src?: string</code></pre>
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> AvatarStackComponent</h2>
       <div class="badges">
-        <label for="c-3-avatar-stackedavatar-props" class="badge ok as-toggle">1 prop type</label>
+        <label for="c-3-avatar-avatarstack-props" class="badge ok as-toggle">1 prop type</label>
         
-        <label for="c-3-avatar-stackedavatar-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-3-avatar-avatarstack-stories" class="badge ok as-toggle">1 story</label>
         
       </div>
     </div>
-    <div class="meta" title="./src/components/Avatar/AvatarStack.stories.tsx">avatar-stackedavatar · ./src/components/Avatar/AvatarStack.stories.tsx</div>
+    <div class="meta" title="./src/components/Avatar/AvatarStack.stories.tsx">avatar-avatarstack · ./src/components/Avatar/AvatarStack.stories.tsx</div>
     
     <div class="hint">Renders a stack of avatars and clips the content appropriately. The `type` of avatars should always be set to `round` And all the avatars should have the same size.</div>
     
@@ -1108,9 +1108,9 @@ src?: string</code></pre>
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-3-avatar-stackedavatar-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-3-avatar-avatarstack-stories" class="tg tg-stories" type="checkbox" hidden />
   
-  <input id="c-3-avatar-stackedavatar-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-3-avatar-avatarstack-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -1149,15 +1149,21 @@ src?: string</code></pre>
               
               <pre><code>const AvatarStack = () =&gt; &lt;AvatarStackComponent&gt;(&lt;&gt;
       &lt;Avatar
+        name=&quot;Bob&quot;
+        id=&quot;@bob:example.org&quot;
+        size=&quot;20px&quot;
+        src=&quot;/images/__test__/kitten2.jpg&quot;
+      /&gt;
+      &lt;Avatar
         name=&quot;Alice&quot;
         id=&quot;@alice:example.org&quot;
-        size=&quot;200px&quot;
+        size=&quot;20px&quot;
         src=&quot;/images/__test__/kitten.jpg&quot;
       /&gt;
       &lt;Avatar
         name=&quot;Bob&quot;
         id=&quot;@bob:example.org&quot;
-        size=&quot;200px&quot;
+        size=&quot;20px&quot;
         src=&quot;/images/__test__/kitten2.jpg&quot;
       /&gt;
     &lt;/&gt;)&lt;/AvatarStackComponent&gt;;</code></pre>
