@@ -27,7 +27,8 @@ if (!COMPONENT_NAME) {
   throw new Error("You must provide a component name");
 }
 
-const COPYRIGHT_HOLDER = COPYRIGHTARRAY.join(" ").trim() || "New Vector Ltd";
+const COPYRIGHT_HOLDER =
+  COPYRIGHTARRAY.join(" ").trim() || "Element Software Ltd.";
 console.log(`Attributing the copyright to: ${COPYRIGHT_HOLDER}\n`);
 
 const fileExtensions = [".tsx", ".test.tsx", ".stories.tsx", ".module.css"];
