@@ -11,10 +11,11 @@ import classNames from "classnames";
 import styles from "./Progress.module.css";
 
 import { Root, Indicator } from "@radix-ui/react-progress";
+import type { Size } from "../../utils/size";
 
 type ProgressProps = {
   /** The size variant of the progress bar */
-  size: "sm" | "lg";
+  size: Size & ("sm" | "lg");
 
   /**
    * The colour variant to use for the progress bar indicator

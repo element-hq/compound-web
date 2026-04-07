@@ -9,6 +9,7 @@ Please see LICENSE files in the repository root for full details.
 import React from "react";
 import { Typography } from "./Typography";
 import { Text } from "./Text";
+import type { Size } from "../../utils/size";
 
 type TypographyProps = React.ComponentProps<typeof Typography>;
 
@@ -18,7 +19,7 @@ type TypographyProps = React.ComponentProps<typeof Typography>;
 export const Heading: React.FC<
   Omit<TypographyProps, "type"> & {
     // xs is not a valid heading size
-    size?: Exclude<TypographyProps["size"], "xs">;
+    size?: Exclude<Size, "xs">;
   }
 > = ({ as = "h1", children, ...props }) => {
   return (

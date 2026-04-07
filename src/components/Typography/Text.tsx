@@ -8,6 +8,7 @@ Please see LICENSE files in the repository root for full details.
 
 import React from "react";
 import { Typography } from "./Typography";
+import type { Size } from "../../utils/size";
 
 type TypographyProps = React.ComponentProps<typeof Typography>;
 
@@ -18,7 +19,7 @@ type TypographyProps = React.ComponentProps<typeof Typography>;
 export const Text: React.FC<
   Omit<TypographyProps, "type"> & {
     // xl is not a valid text size
-    size?: Exclude<TypographyProps["size"], "xl">;
+    size?: Exclude<Size, "xl">;
   }
 > = ({ as = "p", children, ...props }) => {
   return (

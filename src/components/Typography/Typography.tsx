@@ -10,6 +10,7 @@ import React, { type PropsWithChildren } from "react";
 import classNames from "classnames";
 
 import styles from "./Typography.module.css";
+import type { Size } from "../../utils/size";
 
 type TypographyProps<C extends React.ElementType> = {
   /**
@@ -28,7 +29,7 @@ type TypographyProps<C extends React.ElementType> = {
   /**
    * The t-shirt size of the content.
    */
-  size?: "xs" | "sm" | "md" | "lg" | "xl";
+  size?: Size;
   /**
    * The CSS class name.
    */

@@ -15,6 +15,7 @@ import React, {
 } from "react";
 import styles from "./Button.module.css";
 import { UnstyledButton, type UnstyledButtonPropsFor } from "./UnstyledButton";
+import type { Size } from "../../utils/size";
 
 interface ButtonComponent {
   // With the explicit `as` prop
@@ -35,7 +36,7 @@ type ButtonOwnProps = PropsWithChildren<{
   /**
    * The t-shirt size of the button.
    */
-  size?: "sm" | "lg";
+  size?: Size & ("sm" | "lg");
 
   /**
    * Whether the button is an icon only button.

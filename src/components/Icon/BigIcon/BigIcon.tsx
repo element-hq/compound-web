@@ -8,6 +8,7 @@ Please see LICENSE files in the repository root for full details.
 import React, { type JSX, type PropsWithChildren } from "react";
 import styles from "./BigIcon.module.css";
 import classNames from "classnames";
+import type { Size } from "../../../utils/size";
 
 interface BigIconProps {
   /**
@@ -18,7 +19,7 @@ interface BigIconProps {
    * The t-shirt size of the icon.
    * @default "lg"
    */
-  size?: "sm" | "md" | "lg";
+  size?: Size & ("sm" | "md" | "lg");
   /**
    * The color variant of the icon.
    * @default "primary"
