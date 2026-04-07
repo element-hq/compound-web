@@ -15,7 +15,6 @@ const meta = {
   tags: ["autodocs"],
   argTypes: {},
   args: {
-    size: "medium",
     children: "Text link",
   },
 } satisfies Meta<typeof LinkComponent>;
@@ -23,6 +22,6 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Round: Story = { args: {} };
+export const Default: Story = { args: {} };
 
-export const Small: Story = { args: { size: "small" } };
+export const Small: Story = { args: { size: "sm" } };

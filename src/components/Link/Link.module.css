@@ -44,6 +44,10 @@ Please see LICENSE files in the repository root for full details.
   background: var(--cpd-color-text-critical-primary);
 }
 
-.link[data-size="small"] {
+.link[data-size="md"] {
+  font-size: var(--cpd-font-size-body-md);
+}
+
+.link[data-size="sm"] {
   font-size: var(--cpd-font-size-body-sm);
 }
