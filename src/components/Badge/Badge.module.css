@@ -14,34 +14,34 @@ Please see LICENSE files in the repository root for full details.
 }
 
 .badge[data-kind="default"] {
-  border: 1px solid var(--cpd-color-alpha-gray-400);
+  border: 1px solid var(--cpd-color-border-interactive-secondary);
   outline: none;
-  color: var(--cpd-color-gray-1100);
+  color: var(--cpd-color-text-primary);
 }
 
 .badge[data-kind="grey"] {
-  background: var(--cpd-color-alpha-gray-300);
-  color: var(--cpd-color-gray-1100);
+  background: var(--cpd-color-bg-badge-secondary);
+  color: var(--cpd-color-text-primary);
 }
 
 .badge[data-kind="on-solid"] {
-  background: var(--cpd-color-alpha-gray-1200);
+  background: var(--cpd-color-bg-badge-primary);
   color: var(--cpd-color-text-on-solid-primary);
 }
 
 .badge[data-kind="blue"] {
-  background: var(--cpd-color-alpha-blue-300);
-  color: var(--cpd-color-blue-1100);
+  background: var(--cpd-color-bg-badge-info);
+  color: var(--cpd-color-text-badge-info);
 }
 
 .badge[data-kind="green"] {
-  background: var(--cpd-color-alpha-green-300);
-  color: var(--cpd-color-green-1100);
+  background: var(--cpd-color-bg-badge-accent);
+  color: var(--cpd-color-text-badge-accent);
 }
 
 .badge[data-kind="red"] {
-  background: var(--cpd-color-alpha-red-300);
-  color: var(--cpd-color-red-1100);
+  background: var(--cpd-color-bg-badge-critical);
+  color: var(--cpd-color-text-critical-primary);
 }
 
 @media (forced-colors: active) {
