@@ -15,6 +15,10 @@ Please see LICENSE files in the repository root for full details.
   min-block-size: 28px;
 }
 
+.has-icon {
+  padding-inline-start: var(--cpd-space-2x);
+}
+
 .badge[data-kind="default"] {
   border: 1px solid var(--cpd-color-border-interactive-secondary);
 
@@ -22,31 +26,55 @@ Please see LICENSE files in the repository root for full details.
   padding-block: calc(var(--cpd-space-1x) - 1px);
   outline: none;
   color: var(--cpd-color-text-primary);
+
+  svg {
+    color: var(--cpd-color-icon-primary);
+  }
 }
 
 .badge[data-kind="grey"] {
   background: var(--cpd-color-bg-badge-secondary);
   color: var(--cpd-color-text-primary);
+
+  svg {
+    color: var(--cpd-color-icon-primary);
+  }
 }
 
 .badge[data-kind="on-solid"] {
   background: var(--cpd-color-bg-badge-primary);
   color: var(--cpd-color-text-on-solid-primary);
+
+  svg {
+    color: var(--cpd-color-icon-on-solid-primary);
+  }
 }
 
 .badge[data-kind="blue"] {
   background: var(--cpd-color-bg-badge-info);
   color: var(--cpd-color-text-badge-info);
+
+  svg {
+    color: var(--cpd-color-icon-info-primary);
+  }
 }
 
 .badge[data-kind="green"] {
   background: var(--cpd-color-bg-badge-accent);
   color: var(--cpd-color-text-badge-accent);
+
+  svg {
+    color: var(--cpd-color-icon-accent-primary);
+  }
 }
 
 .badge[data-kind="red"] {
   background: var(--cpd-color-bg-badge-critical);
   color: var(--cpd-color-text-critical-primary);
+
+  svg {
+    color: var(--cpd-color-icon-critical-primary);
+  }
 }
 
 @media (forced-colors: active) {
