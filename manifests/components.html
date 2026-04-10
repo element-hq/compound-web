@@ -576,13 +576,13 @@
 <header>
   <div class="wrap">
     <h1>Manifest Debugger</h1>
-    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">12/51 prop type errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">22/51 infos</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">35/219 story errors</a></div>
+    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">13/52 prop type errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">23/52 infos</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">36/221 story errors</a></div>
   </div>
 </header>
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-docgen-typescript</code>. Generation took <strong>2.6s</strong>.
+              Using <code>react-docgen-typescript</code>. Generation took <strong>2.7s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -6229,7 +6229,7 @@ export const Primary: Story = { tags: [&quot;axe-exclude&quot;], args: {} };
       <div class="badges">
         <label for="c-35-menu-contextmenu-err" class="badge err as-toggle">prop type error</label>
         <label for="c-35-menu-contextmenu-info" class="badge info as-toggle">1 info</label>
-        <label for="c-35-menu-contextmenu-stories" class="badge err as-toggle">2/2 story errors</label>
+        <label for="c-35-menu-contextmenu-stories" class="badge err as-toggle">2/3 story errors</label>
         
       </div>
     </div>
@@ -6253,13 +6253,13 @@ export const Primary: Story = { tags: [&quot;axe-exclude&quot;], args: {} };
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>No component file found for the &quot;Template&quot; component.
-  65 | };
-  66 |
-&gt; 67 | const meta = {
+  66 | };
+  67 |
+&gt; 68 | const meta = {
      | ^
-  68 |   title: &quot;Menu/ContextMenu&quot;,
-  69 |   component: Template,
-  70 |   tags: [&quot;autodocs&quot;],
+  69 |   title: &quot;Menu/ContextMenu&quot;,
+  70 |   component: Template,
+  71 |   tags: [&quot;autodocs&quot;],
 
 ./src/components/Menu/ContextMenu.stories.tsx:
 /*
@@ -6278,6 +6278,7 @@ import LeaveIcon from &quot;@vector-im/compound-design-tokens/assets/web/icons/l
 
 import { ContextMenu as ContextMenuComponent } from &quot;./ContextMenu&quot;;
 import { MenuItem } from &quot;./MenuItem&quot;;
+import { SubMenu } from &quot;./SubMenu&quot;;
 import { Separator } from &quot;../Separator/Separator&quot;;
 
 type Props = Omit&lt;
@@ -6345,6 +6346,64 @@ export const ContextMenuWithoutTitle: Story = {
     showTitle: false,
   },
 };
+
+const WithSubMenuTemplate: React.FC&lt;Props&gt; = (args) =&gt; {
+  return (
+    &lt;ContextMenuComponent
+      {...args}
+      title=&quot;Settings&quot;
+      trigger={
+        &lt;div
+          style={{
+            borderRadius: 24,
+            background: &quot;var(--cpd-color-bg-subtle-secondary)&quot;,
+            inlineSize: 300,
+            blockSize: 200,
+            textAlign: &quot;center&quot;,
+            display: &quot;flex&quot;,
+            alignItems: &quot;center&quot;,
+            justifyContent: &quot;center&quot;,
+            padding: 32,
+            boxSizing: &quot;border-box&quot;,
+          }}
+        &gt;
+          Right click or long press to open menu
+        &lt;/div&gt;
+      }
+      hasAccessibleAlternative={false}
+    &gt;
+      &lt;MenuItem Icon={UserProfileIcon} label=&quot;Profile&quot; onSelect={() =&gt; {}} /&gt;
+      &lt;SubMenu
+        trigger={
+          &lt;MenuItem
+            Icon={NotificationsIcon}
+            label=&quot;Notifications&quot;
+            onSelect={null}
+          /&gt;
+        }
+      &gt;
+        &lt;MenuItem label=&quot;All notifications&quot; onSelect={() =&gt; {}} /&gt;
+        &lt;MenuItem label=&quot;Mentions only&quot; onSelect={() =&gt; {}} /&gt;
+        &lt;MenuItem label=&quot;Mute&quot; onSelect={() =&gt; {}} /&gt;
+      &lt;/SubMenu&gt;
+      &lt;MenuItem Icon={ChatProblemIcon} label=&quot;Feedback&quot; onSelect={() =&gt; {}} /&gt;
+      &lt;Separator /&gt;
+      &lt;MenuItem
+        kind=&quot;critical&quot;
+        Icon={LeaveIcon}
+        label=&quot;Sign out&quot;
+        onSelect={() =&gt; {}}
+      /&gt;
+    &lt;/ContextMenuComponent&gt;
+  );
+};
+
+export const ContextMenuWithSubMenu: StoryObj&lt;
+  Meta&lt;typeof WithSubMenuTemplate&gt;
+&gt; = {
+  render: (args) =&gt; &lt;WithSubMenuTemplate {...args} /&gt;,
+  tags: [&quot;skip-screenshot&quot;],
+};
 </code></pre></div>
     </div>
         </div>
@@ -6386,10 +6445,19 @@ export const ContextMenuWithoutTitle: Story = {
                 <div class="row">
                   <span class="ex-name">Imports</span>
                 </div>
-                <pre><code>import { ContextMenu as ContextMenuComponent, MenuItem, Separator } from "@vector-im/compound-web";</code></pre>
+                <pre><code>import { ContextMenu as ContextMenuComponent, MenuItem, Separator, SubMenu } from "@vector-im/compound-web";</code></pre>
               </div>
           
           
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Context Menu With Sub Menu</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const ContextMenuWithSubMenu = () =&gt; &lt;WithSubMenuTemplate /&gt;;</code></pre>
+            </div>
         </div>
     
   </div>
@@ -7011,9 +7079,165 @@ export const Primary: Story = { args: {} };
     <div class="title">
       <h2><span class="status-dot dot-err"></span> Template</h2>
       <div class="badges">
-        <label for="c-40-menu-togglemenuitem-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-40-menu-togglemenuitem-info" class="badge info as-toggle">1 info</label>
-        <label for="c-40-menu-togglemenuitem-stories" class="badge err as-toggle">1/1 story errors</label>
+        <label for="c-40-menu-submenu-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-40-menu-submenu-info" class="badge info as-toggle">1 info</label>
+        <label for="c-40-menu-submenu-stories" class="badge err as-toggle">1/1 story errors</label>
+        
+      </div>
+    </div>
+    <div class="meta" title="./src/components/Menu/SubMenu.stories.tsx">menu-submenu · ./src/components/Menu/SubMenu.stories.tsx</div>
+    
+    
+    
+  </div>
+
+  <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
+  <input id="c-40-menu-submenu-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-40-menu-submenu-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-40-menu-submenu-stories" class="tg tg-stories" type="checkbox" hidden />
+  
+  
+
+  <div class="panels">
+    
+        <div class="panel panel-err">
+          
+    <div class="note err">
+      <div class="note-title">Prop type error</div>
+      <div class="note-body"><pre><code>No component file found for the &quot;Template&quot; component.
+  57 | };
+  58 |
+&gt; 59 | const meta = {
+     | ^
+  60 |   title: &quot;Menu/SubMenu&quot;,
+  61 |   component: Template,
+  62 |   tags: [&quot;autodocs&quot;, &quot;axe-exclude&quot;],
+
+./src/components/Menu/SubMenu.stories.tsx:
+/*
+Copyright 2026 Element Creations Ltd.
+
+SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-Element-Commercial
+Please see LICENSE files in the repository root for full details.
+*/
+
+import React, { useState } from &quot;react&quot;;
+import { type Meta, type StoryObj } from &quot;@storybook/react-vite&quot;;
+import UserProfileIcon from &quot;@vector-im/compound-design-tokens/assets/web/icons/user-profile&quot;;
+import NotificationsIcon from &quot;@vector-im/compound-design-tokens/assets/web/icons/notifications&quot;;
+import ChatProblemIcon from &quot;@vector-im/compound-design-tokens/assets/web/icons/chat-problem&quot;;
+import LeaveIcon from &quot;@vector-im/compound-design-tokens/assets/web/icons/leave&quot;;
+
+import { Menu } from &quot;./Menu&quot;;
+import { MenuItem } from &quot;./MenuItem&quot;;
+import { SubMenu } from &quot;./SubMenu&quot;;
+import { Separator } from &quot;../Separator/Separator&quot;;
+import { Button } from &quot;../Button/Button&quot;;
+
+const Template: React.FC = () =&gt; {
+  const [open, setOpen] = useState(true);
+
+  return (
+    &lt;Menu
+      title=&quot;Menu with SubMenu&quot;
+      open={open}
+      onOpenChange={setOpen}
+      trigger={&lt;Button&gt;Open menu&lt;/Button&gt;}
+      align=&quot;start&quot;
+    &gt;
+      &lt;MenuItem Icon={UserProfileIcon} label=&quot;Profile&quot; onSelect={() =&gt; {}} /&gt;
+      &lt;SubMenu
+        open={true}
+        trigger={
+          &lt;MenuItem
+            Icon={NotificationsIcon}
+            label=&quot;Notifications&quot;
+            onSelect={null}
+          /&gt;
+        }
+      &gt;
+        &lt;MenuItem label=&quot;All notifications&quot; onSelect={() =&gt; {}} /&gt;
+        &lt;MenuItem label=&quot;Mentions only&quot; onSelect={() =&gt; {}} /&gt;
+        &lt;MenuItem label=&quot;Mute&quot; onSelect={() =&gt; {}} /&gt;
+      &lt;/SubMenu&gt;
+      &lt;MenuItem Icon={ChatProblemIcon} label=&quot;Feedback&quot; onSelect={() =&gt; {}} /&gt;
+      &lt;Separator /&gt;
+      &lt;MenuItem
+        kind=&quot;critical&quot;
+        Icon={LeaveIcon}
+        label=&quot;Sign out&quot;
+        onSelect={() =&gt; {}}
+      /&gt;
+    &lt;/Menu&gt;
+  );
+};
+
+const meta = {
+  title: &quot;Menu/SubMenu&quot;,
+  component: Template,
+  tags: [&quot;autodocs&quot;, &quot;axe-exclude&quot;],
+  argTypes: {},
+  args: {},
+} satisfies Meta&lt;typeof Template&gt;;
+export default meta;
+
+type Story = StoryObj&lt;typeof meta&gt;;
+
+export const Default: Story = {};
+</code></pre></div>
+    </div>
+        </div>
+    
+        <div class="panel panel-info">
+          
+    <div class="note info">
+      <div class="note-title">Info</div>
+      <div class="note-body">No description found. Write a jsdoc comment such as /** Component description */.</div>
+    </div>
+        </div>
+    
+    
+        <div class="panel panel-stories">
+          
+            <div class="note err">
+              <div class="row">
+                <span class="ex-name">Default</span>
+                <span class="badge err">story error</span>
+              </div>
+              
+              
+              
+              <pre><code>Could not generate snippet without component name.</code></pre>
+            </div>
+          
+          
+          <div class="note ok">
+                <div class="row">
+                  <span class="ex-name">Imports</span>
+                </div>
+                <pre><code>import { Button, Menu, MenuItem, Separator, SubMenu } from "@vector-im/compound-web";</code></pre>
+              </div>
+          
+          
+        </div>
+    
+  </div>
+</article>
+<article
+  class="card 
+  has-error 
+  has-info 
+  has-story-error
+  no-doc-error"
+  role="listitem"
+  aria-label="Template">
+  <div class="head">
+    <div class="title">
+      <h2><span class="status-dot dot-err"></span> Template</h2>
+      <div class="badges">
+        <label for="c-41-menu-togglemenuitem-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-41-menu-togglemenuitem-info" class="badge info as-toggle">1 info</label>
+        <label for="c-41-menu-togglemenuitem-stories" class="badge err as-toggle">1/1 story errors</label>
         
       </div>
     </div>
@@ -7024,9 +7248,9 @@ export const Primary: Story = { args: {} };
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-40-menu-togglemenuitem-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-40-menu-togglemenuitem-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-40-menu-togglemenuitem-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-41-menu-togglemenuitem-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-41-menu-togglemenuitem-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-41-menu-togglemenuitem-stories" class="tg tg-stories" type="checkbox" hidden />
   
   
 
@@ -7154,9 +7378,9 @@ export const Primary: Story = { args: {} };
     <div class="title">
       <h2><span class="status-dot dot-err"></span> Template</h2>
       <div class="badges">
-        <label for="c-41-release-announcement-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-41-release-announcement-info" class="badge info as-toggle">1 info</label>
-        <label for="c-41-release-announcement-stories" class="badge err as-toggle">5/5 story errors</label>
+        <label for="c-42-release-announcement-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-42-release-announcement-info" class="badge info as-toggle">1 info</label>
+        <label for="c-42-release-announcement-stories" class="badge err as-toggle">5/5 story errors</label>
         
       </div>
     </div>
@@ -7167,9 +7391,9 @@ export const Primary: Story = { args: {} };
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-41-release-announcement-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-41-release-announcement-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-41-release-announcement-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-42-release-announcement-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-42-release-announcement-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-42-release-announcement-stories" class="tg tg-stories" type="checkbox" hidden />
   
   
 
@@ -7364,9 +7588,9 @@ export const OnDivElement: Story = {
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> TextInput</h2>
       <div class="badges">
-        <label for="c-42-form-controls-text-props" class="badge ok as-toggle">2 prop types</label>
+        <label for="c-43-form-controls-text-props" class="badge ok as-toggle">2 prop types</label>
         
-        <label for="c-42-form-controls-text-stories" class="badge ok as-toggle">7 stories</label>
+        <label for="c-43-form-controls-text-stories" class="badge ok as-toggle">7 stories</label>
         
       </div>
     </div>
@@ -7379,9 +7603,9 @@ export const OnDivElement: Story = {
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-42-form-controls-text-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-43-form-controls-text-stories" class="tg tg-stories" type="checkbox" hidden />
   
-  <input id="c-42-form-controls-text-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-43-form-controls-text-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -7515,9 +7739,9 @@ enableLigatures?: boolean</code></pre>
     <div class="title">
       <h2><span class="status-dot dot-err"></span> ThreadIcon</h2>
       <div class="badges">
-        <label for="c-43-icon-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-43-icon-info" class="badge info as-toggle">1 info</label>
-        <label for="c-43-icon-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-44-icon-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-44-icon-info" class="badge info as-toggle">1 info</label>
+        <label for="c-44-icon-stories" class="badge ok as-toggle">1 story</label>
         
       </div>
     </div>
@@ -7528,9 +7752,9 @@ enableLigatures?: boolean</code></pre>
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-43-icon-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-43-icon-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-43-icon-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-44-icon-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-44-icon-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-44-icon-stories" class="tg tg-stories" type="checkbox" hidden />
   
   
 
@@ -7621,9 +7845,9 @@ export const Icon: Story = { args: {} };
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> ToastComponent</h2>
       <div class="badges">
-        <label for="c-44-toast-props" class="badge ok as-toggle">1 prop type</label>
-        <label for="c-44-toast-info" class="badge info as-toggle">1 info</label>
-        <label for="c-44-toast-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-45-toast-props" class="badge ok as-toggle">1 prop type</label>
+        <label for="c-45-toast-info" class="badge info as-toggle">1 info</label>
+        <label for="c-45-toast-stories" class="badge ok as-toggle">1 story</label>
         
       </div>
     </div>
@@ -7635,10 +7859,10 @@ export const Icon: Story = { args: {} };
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="c-44-toast-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-44-toast-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-45-toast-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-45-toast-stories" class="tg tg-stories" type="checkbox" hidden />
   
-  <input id="c-44-toast-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-45-toast-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -7700,9 +7924,9 @@ export const Icon: Story = { args: {} };
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> ToggleInput</h2>
       <div class="badges">
-        <label for="c-45-form-controls-toggle-props" class="badge ok as-toggle">1 prop type</label>
+        <label for="c-46-form-controls-toggle-props" class="badge ok as-toggle">1 prop type</label>
         
-        <label for="c-45-form-controls-toggle-stories" class="badge ok as-toggle">7 stories</label>
+        <label for="c-46-form-controls-toggle-stories" class="badge ok as-toggle">7 stories</label>
         
       </div>
     </div>
@@ -7715,9 +7939,9 @@ export const Icon: Story = { args: {} };
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-45-form-controls-toggle-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-46-form-controls-toggle-stories" class="tg tg-stories" type="checkbox" hidden />
   
-  <input id="c-45-form-controls-toggle-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-46-form-controls-toggle-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -7829,9 +8053,9 @@ className?: string</code></pre>
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> TooltipComponent</h2>
       <div class="badges">
-        <label for="c-46-tooltip-props" class="badge ok as-toggle">11 prop types</label>
+        <label for="c-47-tooltip-props" class="badge ok as-toggle">11 prop types</label>
         
-        <label for="c-46-tooltip-stories" class="badge ok as-toggle">10 stories</label>
+        <label for="c-47-tooltip-stories" class="badge ok as-toggle">10 stories</label>
         
       </div>
     </div>
@@ -7844,9 +8068,9 @@ className?: string</code></pre>
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-46-tooltip-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-47-tooltip-stories" class="tg tg-stories" type="checkbox" hidden />
   
-  <input id="c-46-tooltip-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-47-tooltip-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -8120,8 +8344,8 @@ import UserIcon from "@vector-im/compound-design-tokens/assets/web/icons/user-pr
       <h2><span class="status-dot dot-ok"></span> UnreadComponent</h2>
       <div class="badges">
         
-        <label for="c-47-activitymarker-unread-info" class="badge info as-toggle">1 info</label>
-        <label for="c-47-activitymarker-unread-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-48-activitymarker-unread-info" class="badge info as-toggle">1 info</label>
+        <label for="c-48-activitymarker-unread-stories" class="badge ok as-toggle">1 story</label>
         
       </div>
     </div>
@@ -8133,8 +8357,8 @@ import UserIcon from "@vector-im/compound-design-tokens/assets/web/icons/user-pr
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="c-47-activitymarker-unread-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-47-activitymarker-unread-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-48-activitymarker-unread-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-48-activitymarker-unread-stories" class="tg tg-stories" type="checkbox" hidden />
   
   
 
@@ -8189,9 +8413,9 @@ import UserIcon from "@vector-im/compound-design-tokens/assets/web/icons/user-pr
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> UnreadCounterComponent</h2>
       <div class="badges">
-        <label for="c-48-activitymarker-unreadcounter-props" class="badge ok as-toggle">1 prop type</label>
-        <label for="c-48-activitymarker-unreadcounter-info" class="badge info as-toggle">1 info</label>
-        <label for="c-48-activitymarker-unreadcounter-stories" class="badge ok as-toggle">4 stories</label>
+        <label for="c-49-activitymarker-unreadcounter-props" class="badge ok as-toggle">1 prop type</label>
+        <label for="c-49-activitymarker-unreadcounter-info" class="badge info as-toggle">1 info</label>
+        <label for="c-49-activitymarker-unreadcounter-stories" class="badge ok as-toggle">4 stories</label>
         
       </div>
     </div>
@@ -8203,10 +8427,10 @@ import UserIcon from "@vector-im/compound-design-tokens/assets/web/icons/user-pr
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="c-48-activitymarker-unreadcounter-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-48-activitymarker-unreadcounter-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-49-activitymarker-unreadcounter-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-49-activitymarker-unreadcounter-stories" class="tg tg-stories" type="checkbox" hidden />
   
-  <input id="c-48-activitymarker-unreadcounter-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-49-activitymarker-unreadcounter-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -8307,9 +8531,9 @@ count: string | number | null</code></pre>
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> VisualListComponent</h2>
       <div class="badges">
-        <label for="c-49-visuallist-visuallist-props" class="badge ok as-toggle">1 prop type</label>
+        <label for="c-50-visuallist-visuallist-props" class="badge ok as-toggle">1 prop type</label>
         
-        <label for="c-49-visuallist-visuallist-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-50-visuallist-visuallist-stories" class="badge ok as-toggle">1 story</label>
         
       </div>
     </div>
@@ -8322,9 +8546,9 @@ count: string | number | null</code></pre>
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-49-visuallist-visuallist-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-50-visuallist-visuallist-stories" class="tg tg-stories" type="checkbox" hidden />
   
-  <input id="c-49-visuallist-visuallist-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-50-visuallist-visuallist-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -8390,9 +8614,9 @@ className?: string</code></pre>
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> VisualListItemComponent</h2>
       <div class="badges">
-        <label for="c-50-visuallist-visuallistitem-props" class="badge ok as-toggle">4 prop types</label>
+        <label for="c-51-visuallist-visuallistitem-props" class="badge ok as-toggle">4 prop types</label>
         
-        <label for="c-50-visuallist-visuallistitem-stories" class="badge ok as-toggle">4 stories</label>
+        <label for="c-51-visuallist-visuallistitem-stories" class="badge ok as-toggle">4 stories</label>
         
       </div>
     </div>
@@ -8405,9 +8629,9 @@ className?: string</code></pre>
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-50-visuallist-visuallistitem-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-51-visuallist-visuallistitem-stories" class="tg tg-stories" type="checkbox" hidden />
   
-  <input id="c-50-visuallist-visuallistitem-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-51-visuallist-visuallistitem-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -8504,7 +8728,7 @@ success?: boolean = false</code></pre>
           <label for="no-component-import-found-toggle" class="group-header">
             <span class="caret">▸</span>
             <span class="group-title">No component import found</span>
-            <span class="group-count">12</span>
+            <span class="group-count">13</span>
           </label>
           <div class="group-cards">
 <article
@@ -9846,7 +10070,7 @@ export const Primary: Story = { tags: [&quot;axe-exclude&quot;], args: {} };
       <div class="badges">
         <label for="c-error-4-menu-contextmenu-err" class="badge err as-toggle">prop type error</label>
         <label for="c-error-4-menu-contextmenu-info" class="badge info as-toggle">1 info</label>
-        <label for="c-error-4-menu-contextmenu-stories" class="badge err as-toggle">2/2 story errors</label>
+        <label for="c-error-4-menu-contextmenu-stories" class="badge err as-toggle">2/3 story errors</label>
         
       </div>
     </div>
@@ -9870,13 +10094,13 @@ export const Primary: Story = { tags: [&quot;axe-exclude&quot;], args: {} };
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>No component file found for the &quot;Template&quot; component.
-  65 | };
-  66 |
-&gt; 67 | const meta = {
+  66 | };
+  67 |
+&gt; 68 | const meta = {
      | ^
-  68 |   title: &quot;Menu/ContextMenu&quot;,
-  69 |   component: Template,
-  70 |   tags: [&quot;autodocs&quot;],
+  69 |   title: &quot;Menu/ContextMenu&quot;,
+  70 |   component: Template,
+  71 |   tags: [&quot;autodocs&quot;],
 
 ./src/components/Menu/ContextMenu.stories.tsx:
 /*
@@ -9895,6 +10119,7 @@ import LeaveIcon from &quot;@vector-im/compound-design-tokens/assets/web/icons/l
 
 import { ContextMenu as ContextMenuComponent } from &quot;./ContextMenu&quot;;
 import { MenuItem } from &quot;./MenuItem&quot;;
+import { SubMenu } from &quot;./SubMenu&quot;;
 import { Separator } from &quot;../Separator/Separator&quot;;
 
 type Props = Omit&lt;
@@ -9962,6 +10187,64 @@ export const ContextMenuWithoutTitle: Story = {
     showTitle: false,
   },
 };
+
+const WithSubMenuTemplate: React.FC&lt;Props&gt; = (args) =&gt; {
+  return (
+    &lt;ContextMenuComponent
+      {...args}
+      title=&quot;Settings&quot;
+      trigger={
+        &lt;div
+          style={{
+            borderRadius: 24,
+            background: &quot;var(--cpd-color-bg-subtle-secondary)&quot;,
+            inlineSize: 300,
+            blockSize: 200,
+            textAlign: &quot;center&quot;,
+            display: &quot;flex&quot;,
+            alignItems: &quot;center&quot;,
+            justifyContent: &quot;center&quot;,
+            padding: 32,
+            boxSizing: &quot;border-box&quot;,
+          }}
+        &gt;
+          Right click or long press to open menu
+        &lt;/div&gt;
+      }
+      hasAccessibleAlternative={false}
+    &gt;
+      &lt;MenuItem Icon={UserProfileIcon} label=&quot;Profile&quot; onSelect={() =&gt; {}} /&gt;
+      &lt;SubMenu
+        trigger={
+          &lt;MenuItem
+            Icon={NotificationsIcon}
+            label=&quot;Notifications&quot;
+            onSelect={null}
+          /&gt;
+        }
+      &gt;
+        &lt;MenuItem label=&quot;All notifications&quot; onSelect={() =&gt; {}} /&gt;
+        &lt;MenuItem label=&quot;Mentions only&quot; onSelect={() =&gt; {}} /&gt;
+        &lt;MenuItem label=&quot;Mute&quot; onSelect={() =&gt; {}} /&gt;
+      &lt;/SubMenu&gt;
+      &lt;MenuItem Icon={ChatProblemIcon} label=&quot;Feedback&quot; onSelect={() =&gt; {}} /&gt;
+      &lt;Separator /&gt;
+      &lt;MenuItem
+        kind=&quot;critical&quot;
+        Icon={LeaveIcon}
+        label=&quot;Sign out&quot;
+        onSelect={() =&gt; {}}
+      /&gt;
+    &lt;/ContextMenuComponent&gt;
+  );
+};
+
+export const ContextMenuWithSubMenu: StoryObj&lt;
+  Meta&lt;typeof WithSubMenuTemplate&gt;
+&gt; = {
+  render: (args) =&gt; &lt;WithSubMenuTemplate {...args} /&gt;,
+  tags: [&quot;skip-screenshot&quot;],
+};
 </code></pre></div>
     </div>
         </div>
@@ -10003,10 +10286,19 @@ export const ContextMenuWithoutTitle: Story = {
                 <div class="row">
                   <span class="ex-name">Imports</span>
                 </div>
-                <pre><code>import { ContextMenu as ContextMenuComponent, MenuItem, Separator } from "@vector-im/compound-web";</code></pre>
+                <pre><code>import { ContextMenu as ContextMenuComponent, MenuItem, Separator, SubMenu } from "@vector-im/compound-web";</code></pre>
               </div>
           
           
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Context Menu With Sub Menu</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const ContextMenuWithSubMenu = () =&gt; &lt;WithSubMenuTemplate /&gt;;</code></pre>
+            </div>
         </div>
     
   </div>
@@ -10628,9 +10920,165 @@ export const Primary: Story = { args: {} };
     <div class="title">
       <h2><span class="status-dot dot-err"></span> Template</h2>
       <div class="badges">
-        <label for="c-error-9-menu-togglemenuitem-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-9-menu-togglemenuitem-info" class="badge info as-toggle">1 info</label>
-        <label for="c-error-9-menu-togglemenuitem-stories" class="badge err as-toggle">1/1 story errors</label>
+        <label for="c-error-9-menu-submenu-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-9-menu-submenu-info" class="badge info as-toggle">1 info</label>
+        <label for="c-error-9-menu-submenu-stories" class="badge err as-toggle">1/1 story errors</label>
+        
+      </div>
+    </div>
+    <div class="meta" title="./src/components/Menu/SubMenu.stories.tsx">menu-submenu · ./src/components/Menu/SubMenu.stories.tsx</div>
+    
+    
+    
+  </div>
+
+  <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
+  <input id="c-error-9-menu-submenu-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-9-menu-submenu-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-9-menu-submenu-stories" class="tg tg-stories" type="checkbox" hidden />
+  
+  
+
+  <div class="panels">
+    
+        <div class="panel panel-err">
+          
+    <div class="note err">
+      <div class="note-title">Prop type error</div>
+      <div class="note-body"><pre><code>No component file found for the &quot;Template&quot; component.
+  57 | };
+  58 |
+&gt; 59 | const meta = {
+     | ^
+  60 |   title: &quot;Menu/SubMenu&quot;,
+  61 |   component: Template,
+  62 |   tags: [&quot;autodocs&quot;, &quot;axe-exclude&quot;],
+
+./src/components/Menu/SubMenu.stories.tsx:
+/*
+Copyright 2026 Element Creations Ltd.
+
+SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-Element-Commercial
+Please see LICENSE files in the repository root for full details.
+*/
+
+import React, { useState } from &quot;react&quot;;
+import { type Meta, type StoryObj } from &quot;@storybook/react-vite&quot;;
+import UserProfileIcon from &quot;@vector-im/compound-design-tokens/assets/web/icons/user-profile&quot;;
+import NotificationsIcon from &quot;@vector-im/compound-design-tokens/assets/web/icons/notifications&quot;;
+import ChatProblemIcon from &quot;@vector-im/compound-design-tokens/assets/web/icons/chat-problem&quot;;
+import LeaveIcon from &quot;@vector-im/compound-design-tokens/assets/web/icons/leave&quot;;
+
+import { Menu } from &quot;./Menu&quot;;
+import { MenuItem } from &quot;./MenuItem&quot;;
+import { SubMenu } from &quot;./SubMenu&quot;;
+import { Separator } from &quot;../Separator/Separator&quot;;
+import { Button } from &quot;../Button/Button&quot;;
+
+const Template: React.FC = () =&gt; {
+  const [open, setOpen] = useState(true);
+
+  return (
+    &lt;Menu
+      title=&quot;Menu with SubMenu&quot;
+      open={open}
+      onOpenChange={setOpen}
+      trigger={&lt;Button&gt;Open menu&lt;/Button&gt;}
+      align=&quot;start&quot;
+    &gt;
+      &lt;MenuItem Icon={UserProfileIcon} label=&quot;Profile&quot; onSelect={() =&gt; {}} /&gt;
+      &lt;SubMenu
+        open={true}
+        trigger={
+          &lt;MenuItem
+            Icon={NotificationsIcon}
+            label=&quot;Notifications&quot;
+            onSelect={null}
+          /&gt;
+        }
+      &gt;
+        &lt;MenuItem label=&quot;All notifications&quot; onSelect={() =&gt; {}} /&gt;
+        &lt;MenuItem label=&quot;Mentions only&quot; onSelect={() =&gt; {}} /&gt;
+        &lt;MenuItem label=&quot;Mute&quot; onSelect={() =&gt; {}} /&gt;
+      &lt;/SubMenu&gt;
+      &lt;MenuItem Icon={ChatProblemIcon} label=&quot;Feedback&quot; onSelect={() =&gt; {}} /&gt;
+      &lt;Separator /&gt;
+      &lt;MenuItem
+        kind=&quot;critical&quot;
+        Icon={LeaveIcon}
+        label=&quot;Sign out&quot;
+        onSelect={() =&gt; {}}
+      /&gt;
+    &lt;/Menu&gt;
+  );
+};
+
+const meta = {
+  title: &quot;Menu/SubMenu&quot;,
+  component: Template,
+  tags: [&quot;autodocs&quot;, &quot;axe-exclude&quot;],
+  argTypes: {},
+  args: {},
+} satisfies Meta&lt;typeof Template&gt;;
+export default meta;
+
+type Story = StoryObj&lt;typeof meta&gt;;
+
+export const Default: Story = {};
+</code></pre></div>
+    </div>
+        </div>
+    
+        <div class="panel panel-info">
+          
+    <div class="note info">
+      <div class="note-title">Info</div>
+      <div class="note-body">No description found. Write a jsdoc comment such as /** Component description */.</div>
+    </div>
+        </div>
+    
+    
+        <div class="panel panel-stories">
+          
+            <div class="note err">
+              <div class="row">
+                <span class="ex-name">Default</span>
+                <span class="badge err">story error</span>
+              </div>
+              
+              
+              
+              <pre><code>Could not generate snippet without component name.</code></pre>
+            </div>
+          
+          
+          <div class="note ok">
+                <div class="row">
+                  <span class="ex-name">Imports</span>
+                </div>
+                <pre><code>import { Button, Menu, MenuItem, Separator, SubMenu } from "@vector-im/compound-web";</code></pre>
+              </div>
+          
+          
+        </div>
+    
+  </div>
+</article>
+<article
+  class="card 
+  has-error 
+  has-info 
+  has-story-error
+  no-doc-error"
+  role="listitem"
+  aria-label="Template">
+  <div class="head">
+    <div class="title">
+      <h2><span class="status-dot dot-err"></span> Template</h2>
+      <div class="badges">
+        <label for="c-error-10-menu-togglemenuitem-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-10-menu-togglemenuitem-info" class="badge info as-toggle">1 info</label>
+        <label for="c-error-10-menu-togglemenuitem-stories" class="badge err as-toggle">1/1 story errors</label>
         
       </div>
     </div>
@@ -10641,9 +11089,9 @@ export const Primary: Story = { args: {} };
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-9-menu-togglemenuitem-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-9-menu-togglemenuitem-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-9-menu-togglemenuitem-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-10-menu-togglemenuitem-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-10-menu-togglemenuitem-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-10-menu-togglemenuitem-stories" class="tg tg-stories" type="checkbox" hidden />
   
   
 
@@ -10771,9 +11219,9 @@ export const Primary: Story = { args: {} };
     <div class="title">
       <h2><span class="status-dot dot-err"></span> Template</h2>
       <div class="badges">
-        <label for="c-error-10-release-announcement-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-10-release-announcement-info" class="badge info as-toggle">1 info</label>
-        <label for="c-error-10-release-announcement-stories" class="badge err as-toggle">5/5 story errors</label>
+        <label for="c-error-11-release-announcement-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-11-release-announcement-info" class="badge info as-toggle">1 info</label>
+        <label for="c-error-11-release-announcement-stories" class="badge err as-toggle">5/5 story errors</label>
         
       </div>
     </div>
@@ -10784,9 +11232,9 @@ export const Primary: Story = { args: {} };
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-10-release-announcement-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-10-release-announcement-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-10-release-announcement-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-11-release-announcement-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-11-release-announcement-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-11-release-announcement-stories" class="tg tg-stories" type="checkbox" hidden />
   
   
 
@@ -10981,9 +11429,9 @@ export const OnDivElement: Story = {
     <div class="title">
       <h2><span class="status-dot dot-err"></span> ThreadIcon</h2>
       <div class="badges">
-        <label for="c-error-11-icon-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-11-icon-info" class="badge info as-toggle">1 info</label>
-        <label for="c-error-11-icon-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-12-icon-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-12-icon-info" class="badge info as-toggle">1 info</label>
+        <label for="c-error-12-icon-stories" class="badge ok as-toggle">1 story</label>
         
       </div>
     </div>
@@ -10994,9 +11442,9 @@ export const OnDivElement: Story = {
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-11-icon-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-11-icon-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-11-icon-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-12-icon-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-12-icon-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-12-icon-stories" class="tg tg-stories" type="checkbox" hidden />
   
   
 

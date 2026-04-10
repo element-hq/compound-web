@@ -18,6 +18,7 @@ export { NavBar, NavItem } from './components/Nav';
 export { Menu } from './components/Menu/Menu';
 export { MenuItem } from './components/Menu/MenuItem';
 export { MenuTitle } from './components/Menu/MenuTitle';
+export { SubMenu } from './components/Menu/SubMenu';
 export { RadioMenuItem } from './components/Menu/RadioMenuItem';
 export { Progress } from './components/Progress/Progress';
 export { Search } from './components/Search/Search';
