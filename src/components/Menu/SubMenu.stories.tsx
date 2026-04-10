@@ -31,6 +31,7 @@ const Template: React.FC = () => {
     >
       <MenuItem Icon={UserProfileIcon} label="Profile" onSelect={() => {}} />
       <SubMenu
+        open={true}
         trigger={
           <MenuItem
             Icon={NotificationsIcon}
