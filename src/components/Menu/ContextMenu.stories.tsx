@@ -138,4 +138,5 @@ export const ContextMenuWithSubMenu: StoryObj<
   Meta<typeof WithSubMenuTemplate>
 > = {
   render: (args) => <WithSubMenuTemplate {...args} />,
+  tags: ["skip-screenshot"],
 };
