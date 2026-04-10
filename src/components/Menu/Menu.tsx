@@ -12,6 +12,10 @@ import {
   Portal,
   Content,
   DropdownMenuItem,
+  DropdownMenuSub,
+  DropdownMenuSubTrigger,
+  DropdownMenuSubContent,
+  DropdownMenuPortal,
 } from "@radix-ui/react-dropdown-menu";
 import { FloatingMenu } from "./FloatingMenu";
 import { Drawer } from "vaul";
@@ -21,6 +25,7 @@ import {
   MenuContext,
   type MenuData,
   type MenuItemWrapperProps,
+  type SubMenuWrapperProps,
 } from "./MenuContext";
 import { DrawerMenu } from "./DrawerMenu";
 import { getPlatform } from "../../utils/platform";
@@ -84,6 +89,24 @@ const DropdownMenuItemWrapper: FC<MenuItemWrapperProps> = ({
   </DropdownMenuItem>
 );
 
+const DropdownSubMenuWrapper: FC<SubMenuWrapperProps> = ({
+  trigger,
+  children,
+  open,
+  onOpenChange,
+}) => (
+  <DropdownMenuSub open={open} onOpenChange={onOpenChange}>
+    <DropdownMenuSubTrigger asChild>{trigger}</DropdownMenuSubTrigger>
+    <DropdownMenuPortal>
+      <DropdownMenuSubContent asChild alignOffset={-20}>
+        <FloatingMenu title="" showTitle={false}>
+          {children}
+        </FloatingMenu>
+      </DropdownMenuSubContent>
+    </DropdownMenuPortal>
+  </DropdownMenuSub>
+);
+
 /**
  * A menu opened by pressing a button.
  */
@@ -105,6 +128,7 @@ export const Menu: FC<Props> = ({
   const context: MenuData = useMemo(
     () => ({
       MenuItemWrapper: drawer ? null : DropdownMenuItemWrapper,
+      SubMenuWrapper: drawer ? null : DropdownSubMenuWrapper,
       onOpenChange,
     }),
     [onOpenChange],

@@ -23,7 +23,8 @@ Please see LICENSE files in the repository root for full details.
   background: var(--cpd-color-bg-action-secondary-rest);
 }
 
-.item.interactive {
+.item.interactive,
+.item[data-state] {
   cursor: pointer;
 }
 
@@ -88,12 +89,31 @@ button.item {
   color: var(--cpd-color-icon-critical-primary);
 }
 
+/* Submenu triggers: always show the chevron and apply hover style when open */
+.item[data-state] > .nav-hint {
+  display: initial;
+}
+
+.item[data-state] > .nav-hint ~ * {
+  display: none;
+}
+
+.item[data-state="open"][data-kind="primary"] {
+  background: var(--cpd-color-bg-action-secondary-hovered);
+}
+
+.item[data-state="open"][data-kind="critical"] {
+  background: var(--cpd-color-bg-critical-subtle);
+}
+
 @media (hover) {
-  .item.interactive[data-kind="primary"]:hover {
+  .item.interactive[data-kind="primary"]:hover,
+  .item[data-state][data-kind="primary"]:hover {
     background: var(--cpd-color-bg-action-secondary-hovered);
   }
 
-  .item.interactive[data-kind="critical"]:hover {
+  .item.interactive[data-kind="critical"]:hover,
+  .item[data-state][data-kind="critical"]:hover {
     background: var(--cpd-color-bg-critical-subtle);
   }
 
@@ -107,11 +127,13 @@ button.item {
   }
 }
 
-.item.interactive[data-kind="primary"]:active {
+.item.interactive[data-kind="primary"]:active,
+.item[data-state][data-kind="primary"]:active {
   background: var(--cpd-color-bg-action-secondary-pressed);
 }
 
-.item.interactive[data-kind="critical"]:active {
+.item.interactive[data-kind="critical"]:active,
+.item[data-state][data-kind="critical"]:active {
   background: var(--cpd-color-bg-critical-subtle-hovered);
 }
 

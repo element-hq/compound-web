@@ -17,11 +17,34 @@ export interface MenuItemWrapperProps {
   children: ReactNode;
 }
 
+export interface SubMenuWrapperProps {
+  /**
+   * The trigger element that opens the submenu (typically a MenuItem).
+   */
+  trigger: ReactNode;
+  /**
+   * The submenu contents.
+   */
+  children: ReactNode;
+  /**
+   * Whether the submenu is open (controlled).
+   */
+  open?: boolean;
+  /**
+   * Event handler called when the open state of the submenu changes.
+   */
+  onOpenChange?: (open: boolean) => void;
+}
+
 export interface MenuData {
   /**
    * A component that wraps interactive menu items.
    */
   MenuItemWrapper: ComponentType<MenuItemWrapperProps> | null;
+  /**
+   * A component that wraps submenus.
+   */
+  SubMenuWrapper: ComponentType<SubMenuWrapperProps> | null;
   /**
    * Event handler called when the open state of the menu changes.
    */

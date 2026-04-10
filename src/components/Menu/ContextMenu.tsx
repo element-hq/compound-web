@@ -18,6 +18,10 @@ import {
   Portal,
   Content,
   ContextMenuItem,
+  ContextMenuSub,
+  ContextMenuSubTrigger,
+  ContextMenuSubContent,
+  ContextMenuPortal,
 } from "@radix-ui/react-context-menu";
 import { FloatingMenu } from "./FloatingMenu";
 import { Drawer } from "vaul";
@@ -27,6 +31,7 @@ import {
   MenuContext,
   type MenuData,
   type MenuItemWrapperProps,
+  type SubMenuWrapperProps,
 } from "./MenuContext";
 import { DrawerMenu } from "./DrawerMenu";
 import { getPlatform } from "../../utils/platform";
@@ -73,6 +78,24 @@ const ContextMenuItemWrapper: FC<MenuItemWrapperProps> = ({
   </ContextMenuItem>
 );
 
+const ContextSubMenuWrapper: FC<SubMenuWrapperProps> = ({
+  trigger,
+  children,
+  open,
+  onOpenChange,
+}) => (
+  <ContextMenuSub open={open} onOpenChange={onOpenChange}>
+    <ContextMenuSubTrigger asChild>{trigger}</ContextMenuSubTrigger>
+    <ContextMenuPortal>
+      <ContextMenuSubContent asChild alignOffset={-20}>
+        <FloatingMenu title="" showTitle={false}>
+          {children}
+        </FloatingMenu>
+      </ContextMenuSubContent>
+    </ContextMenuPortal>
+  </ContextMenuSub>
+);
+
 /**
  * A menu opened by right-clicking or long-pressing another UI element.
  */
@@ -100,6 +123,7 @@ export const ContextMenu: FC<Props> = ({
   const context: MenuData = useMemo(
     () => ({
       MenuItemWrapper: drawer ? null : ContextMenuItemWrapper,
+      SubMenuWrapper: drawer ? null : ContextSubMenuWrapper,
       onOpenChange,
     }),
     [onOpenChange],
