@@ -11,10 +11,15 @@ Please see LICENSE files in the repository root for full details.
   align-items: center;
   border-radius: 9999px; /* pill effect */
   padding: var(--cpd-space-1x) var(--cpd-space-3x);
+  box-sizing: border-box;
+  min-block-size: 28px;
 }
 
 .badge[data-kind="default"] {
   border: 1px solid var(--cpd-color-border-interactive-secondary);
+
+  /* To keep the same height than the order the badge despite the border  */
+  padding-block: calc(var(--cpd-space-1x) - 1px);
   outline: none;
   color: var(--cpd-color-text-primary);
 }
