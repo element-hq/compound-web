@@ -14,6 +14,7 @@ import LeaveIcon from "@vector-im/compound-design-tokens/assets/web/icons/leave"
 
 import { ContextMenu as ContextMenuComponent } from "./ContextMenu";
 import { MenuItem } from "./MenuItem";
+import { SubMenu } from "./SubMenu";
 import { Separator } from "../Separator/Separator";
 
 type Props = Omit<
@@ -80,4 +81,62 @@ export const ContextMenuWithoutTitle: Story = {
   args: {
     showTitle: false,
   },
+};
+
+const WithSubMenuTemplate: React.FC<Props> = (args) => {
+  return (
+    <ContextMenuComponent
+      {...args}
+      title="Settings"
+      trigger={
+        <div
+          style={{
+            borderRadius: 24,
+            background: "var(--cpd-color-bg-subtle-secondary)",
+            inlineSize: 300,
+            blockSize: 200,
+            textAlign: "center",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: 32,
+            boxSizing: "border-box",
+          }}
+        >
+          Right click or long press to open menu
+        </div>
+      }
+      hasAccessibleAlternative={false}
+    >
+      <MenuItem Icon={UserProfileIcon} label="Profile" onSelect={() => {}} />
+      <SubMenu
+        trigger={
+          <MenuItem
+            Icon={NotificationsIcon}
+            label="Notifications"
+            onSelect={null}
+          />
+        }
+      >
+        <MenuItem label="All notifications" onSelect={() => {}} />
+        <MenuItem label="Mentions only" onSelect={() => {}} />
+        <MenuItem label="Mute" onSelect={() => {}} />
+      </SubMenu>
+      <MenuItem Icon={ChatProblemIcon} label="Feedback" onSelect={() => {}} />
+      <Separator />
+      <MenuItem
+        kind="critical"
+        Icon={LeaveIcon}
+        label="Sign out"
+        onSelect={() => {}}
+      />
+    </ContextMenuComponent>
+  );
+};
+
+export const ContextMenuWithSubMenu: StoryObj<
+  Meta<typeof WithSubMenuTemplate>
+> = {
+  render: (args) => <WithSubMenuTemplate {...args} />,
+  tags: ["skip-screenshot"],
 };
