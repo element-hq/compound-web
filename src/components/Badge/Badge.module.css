@@ -22,7 +22,7 @@ Please see LICENSE files in the repository root for full details.
 .badge[data-kind="default"] {
   border: 1px solid var(--cpd-color-border-interactive-secondary);
 
-  /* To keep the same height than the order the badge despite the border  */
+  /* To keep the same height than the other badges despite the border  */
   padding-block: calc(var(--cpd-space-1x) - 1px);
   outline: none;
   color: var(--cpd-color-text-primary);
