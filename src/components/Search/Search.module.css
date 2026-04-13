@@ -61,6 +61,7 @@ Please see LICENSE files in the repository root for full details.
   color: var(--cpd-color-text-secondary);
 }
 
+/* stylelint-disable-next-line defensive-css/require-focus-visible */
 .input:focus::placeholder {
   color: var(--cpd-color-text-secondary);
 }
