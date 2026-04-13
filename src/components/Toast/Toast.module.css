@@ -7,7 +7,7 @@ Please see LICENSE files in the repository root for full details.
 
 .toast-container {
   inline-size: fit-content;
-  background-color: var(--cpd-color-alpha-gray-1300);
+  background-color: var(--cpd-color-bg-action-primary-rest);
   color: var(--cpd-color-text-on-solid-primary);
   border-radius: 99px;
   padding: var(--cpd-space-2x) var(--cpd-space-4x);
