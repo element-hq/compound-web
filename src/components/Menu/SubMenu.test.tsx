@@ -7,7 +7,7 @@ Please see LICENSE files in the repository root for full details.
 
 import React from "react";
 import { describe, it, expect, vi } from "vitest";
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import UserProfileIcon from "@vector-im/compound-design-tokens/assets/web/icons/user-profile";
 import NotificationsIcon from "@vector-im/compound-design-tokens/assets/web/icons/notifications";
 
@@ -50,10 +50,12 @@ describe("SubMenu", () => {
     screen.getByRole("menuitem", { name: "Notifications" });
   });
 
-  it("shows submenu items when open", () => {
+  it("shows submenu items when open", async () => {
     renderMenu(true);
 
-    expect(screen.getByRole("menuitem", { name: "All" })).toBeInTheDocument();
+    await waitFor(() =>
+      expect(screen.getByRole("menuitem", { name: "All" })).toBeInTheDocument(),
+    );
     expect(
       screen.getByRole("menuitem", { name: "Mentions only" }),
     ).toBeInTheDocument();

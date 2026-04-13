@@ -8,12 +8,18 @@ Please see LICENSE files in the repository root for full details.
 import { describe, it, expect } from "vitest";
 import { render } from "@testing-library/react";
 import React from "react";
+import UserIcon from "@vector-im/compound-design-tokens/assets/web/icons/user-profile";
 
 import { Badge } from "./Badge";
 
 describe("Badge", () => {
   it("renders", () => {
     const { asFragment } = render(<Badge />);
+    expect(asFragment()).toMatchSnapshot();
+  });
+
+  it("renders with an Icon", () => {
+    const { asFragment } = render(<Badge Icon={UserIcon}>User</Badge>);
     expect(asFragment()).toMatchSnapshot();
   });
 });
