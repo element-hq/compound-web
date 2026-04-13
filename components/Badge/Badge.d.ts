@@ -1,4 +1,4 @@
-import { default as React, PropsWithChildren } from '../../../node_modules/react';
+import { default as React, ComponentType, PropsWithChildren } from '../../../node_modules/react';
 type BadgeProps = {
     /**
      * The CSS class name.
@@ -8,6 +8,10 @@ type BadgeProps = {
      * The type of badge.
      */
     kind?: "default" | "grey" | "on-solid" | "blue" | "green" | "red";
+    /**
+     * An icon to display within the badge.
+     */
+    Icon?: ComponentType<React.SVGAttributes<SVGElement>>;
 };
 /**
  * A Badge component.

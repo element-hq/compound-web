@@ -582,7 +582,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-docgen-typescript</code>. Generation took <strong>2.5s</strong>.
+              Using <code>react-docgen-typescript</code>. Generation took <strong>2.7s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -1184,7 +1184,7 @@ src?: string</code></pre>
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> BadgeComponent</h2>
       <div class="badges">
-        <label for="c-4-badge-props" class="badge ok as-toggle">2 prop types</label>
+        <label for="c-4-badge-props" class="badge ok as-toggle">3 prop types</label>
         
         <label for="c-4-badge-stories" class="badge ok as-toggle">1 story</label>
         
@@ -1211,7 +1211,7 @@ src?: string</code></pre>
           <div class="note ok">
             <div class="row">
               <span class="ex-name">Prop types <small>(react-docgen-typescript)</small></span>
-              <span class="badge ok">2 prop types</span>
+              <span class="badge ok">3 prop types</span>
             </div>
             <pre><code>Component: src/components/Badge/Badge.tsx::Badge</code></pre>
             <pre><code>Props:</code></pre>
@@ -1219,6 +1219,11 @@ src?: string</code></pre>
  * The CSS class name.
  */
 className?: string
+
+/**
+ * An icon to display within the badge.
+ */
+Icon?: ComponentType&lt;SVGAttributes&lt;SVGElement&gt;&gt;
 
 /**
  * The type of badge.
@@ -1268,6 +1273,32 @@ kind?: &quot;blue&quot; | &quot;green&quot; | &quot;grey&quot; | &quot;red&quot;
       &lt;BadgeComponent kind=&quot;green&quot;&gt;Green&lt;/BadgeComponent&gt;
       &amp;nbsp;
       &lt;BadgeComponent kind=&quot;red&quot;&gt;Red&lt;/BadgeComponent&gt;
+    &lt;/div&gt;
+    &lt;br /&gt;
+    &lt;div&gt;
+      &lt;BadgeComponent Icon={ReactionIcon} kind=&quot;default&quot;&gt;
+        Default
+      &lt;/BadgeComponent&gt;
+      &amp;nbsp;
+      &lt;BadgeComponent Icon={ReactionIcon} kind=&quot;grey&quot;&gt;
+        Grey
+      &lt;/BadgeComponent&gt;
+      &amp;nbsp;
+      &lt;BadgeComponent Icon={ReactionIcon} kind=&quot;on-solid&quot;&gt;
+        On Solid
+      &lt;/BadgeComponent&gt;
+      &amp;nbsp;
+      &lt;BadgeComponent Icon={ReactionIcon} kind=&quot;blue&quot;&gt;
+        Blue
+      &lt;/BadgeComponent&gt;
+      &amp;nbsp;
+      &lt;BadgeComponent Icon={ReactionIcon} kind=&quot;green&quot;&gt;
+        Green
+      &lt;/BadgeComponent&gt;
+      &amp;nbsp;
+      &lt;BadgeComponent Icon={ReactionIcon} kind=&quot;red&quot;&gt;
+        Red
+      &lt;/BadgeComponent&gt;
     &lt;/div&gt;
   &lt;/div&gt;
 );</code></pre>
