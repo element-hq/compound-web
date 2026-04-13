@@ -292,10 +292,10 @@
   resolved "https://registry.yarnpkg.com/@csstools/selector-specificity/-/selector-specificity-6.0.0.tgz#ef28e27c1ded1d8e5c54879a9399e7055aed1920"
   integrity sha512-4sSgl78OtOXEX/2d++8A83zHNTgwCJMaR24FvsYL7Uf/VS8HZk9PTwR51elTbGqMuwH3szLvvOXEaVnqn0Z3zA==
 
-"@element-hq/element-web-playwright-common@^2.0.0":
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/@element-hq/element-web-playwright-common/-/element-web-playwright-common-2.3.0.tgz#4c61560bb7f9148b66f5de1310f648324756c55f"
-  integrity sha512-NyAhoRish+km2CLK2226H8oQHB2HdUw6M2eNcmAyJS46hfXDbPdr/nCKfyALAZiL+FSvOQcz3N33+zRlP63mQQ==
+"@element-hq/element-web-playwright-common@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@element-hq/element-web-playwright-common/-/element-web-playwright-common-3.0.0.tgz#67537b55013275538765cb02add3d1d01b868f39"
+  integrity sha512-oQFsfP1uVJTOGnbN/jzPpOfRAQ7las0Dsv7EsuKO3Iz+LnllEam5vXqvKAcXQyH7mj6csvSdRE75Dp6K0+ZS1g==
   dependencies:
     "@axe-core/playwright" "^4.10.1"
     "@testcontainers/postgresql" "^11.0.0"
