@@ -5,7 +5,13 @@ SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-Element-Commercial
 Please see LICENSE files in the repository root for full details.
 */
 
-import React, { type FC, type ReactNode, useMemo } from "react";
+import React, {
+  type FC,
+  type ReactNode,
+  useMemo,
+  useEffect,
+  useState,
+} from "react";
 import {
   Root,
   Trigger,
@@ -89,23 +95,48 @@ const DropdownMenuItemWrapper: FC<MenuItemWrapperProps> = ({
   </DropdownMenuItem>
 );
 
+/** Duration of the parent menu's slide-in animation (ms). */
+const MENU_ANIMATION_DURATION = 180;
+
 const DropdownSubMenuWrapper: FC<SubMenuWrapperProps> = ({
   trigger,
   children,
-  open,
+  open: openProp,
   onOpenChange,
-}) => (
-  <DropdownMenuSub open={open} onOpenChange={onOpenChange}>
-    <DropdownMenuSubTrigger asChild>{trigger}</DropdownMenuSubTrigger>
-    <DropdownMenuPortal>
-      <DropdownMenuSubContent asChild alignOffset={-20}>
-        <FloatingMenu title="" showTitle={false}>
-          {children}
-        </FloatingMenu>
-      </DropdownMenuSubContent>
-    </DropdownMenuPortal>
-  </DropdownMenuSub>
-);
+}) => {
+  // When the submenu is programmatically opened at the same time as the parent
+  // menu (e.g. open={true} on mount), the parent is still mid-animation and
+  // the trigger position hasn't settled. Defer the open so the submenu
+  // positions correctly after the parent animation completes.
+  const [deferredOpen, setDeferredOpen] = useState(false);
+
+  useEffect(() => {
+    if (openProp) {
+      const timer = setTimeout(
+        () => setDeferredOpen(true),
+        MENU_ANIMATION_DURATION,
+      );
+      return () => clearTimeout(timer);
+    } else {
+      setDeferredOpen(false);
+    }
+  }, [openProp]);
+
+  const open = openProp ? deferredOpen : openProp;
+
+  return (
+    <DropdownMenuSub open={open} onOpenChange={onOpenChange}>
+      <DropdownMenuSubTrigger asChild>{trigger}</DropdownMenuSubTrigger>
+      <DropdownMenuPortal>
+        <DropdownMenuSubContent asChild alignOffset={-20}>
+          <FloatingMenu title="" showTitle={false}>
+            {children}
+          </FloatingMenu>
+        </DropdownMenuSubContent>
+      </DropdownMenuPortal>
+    </DropdownMenuSub>
+  );
+};
 
 /**
  * A menu opened by pressing a button.
