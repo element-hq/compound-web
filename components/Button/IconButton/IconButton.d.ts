@@ -1,5 +1,6 @@
 import { default as React } from '../../../../node_modules/react';
 import { UnstyledButtonPropsFor } from '../UnstyledButton';
+import { Tooltip } from '../../Tooltip/Tooltip';
 type IconButtonProps = UnstyledButtonPropsFor<"button"> & {
     /**
      * The type of button.
@@ -34,6 +35,10 @@ type IconButtonProps = UnstyledButtonPropsFor<"button"> & {
      * Optional tooltip for the button
      */
     tooltip?: string;
+    /**
+     * The placement of the tooltip, if `tooltip` is provided.
+     */
+    tooltipPlacement?: React.ComponentProps<typeof Tooltip>["placement"];
     /**
      * Hide the background when the button is not active or hovered.
      * @default false

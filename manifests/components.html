@@ -576,13 +576,13 @@
 <header>
   <div class="wrap">
     <h1>Manifest Debugger</h1>
-    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">13/52 prop type errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">23/52 infos</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">36/221 story errors</a></div>
+    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">13/52 prop type errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">23/52 infos</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">36/225 story errors</a></div>
   </div>
 </header>
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-docgen-typescript</code>. Generation took <strong>2.7s</strong>.
+              Using <code>react-docgen-typescript</code>. Generation took <strong>2.8s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -2777,7 +2777,7 @@ className?: string</code></pre>
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> IconButtonComponent</h2>
       <div class="badges">
-        <label for="c-14-button-iconbutton-props" class="badge ok as-toggle">7 prop types</label>
+        <label for="c-14-button-iconbutton-props" class="badge ok as-toggle">8 prop types</label>
         
         <label for="c-14-button-iconbutton-stories" class="badge ok as-toggle">11 stories</label>
         
@@ -2804,7 +2804,7 @@ className?: string</code></pre>
           <div class="note ok">
             <div class="row">
               <span class="ex-name">Prop types <small>(react-docgen-typescript)</small></span>
-              <span class="badge ok">7 prop types</span>
+              <span class="badge ok">8 prop types</span>
             </div>
             <pre><code>Component: src/components/Button/IconButton/IconButton.tsx::IconButton</code></pre>
             <pre><code>Props:</code></pre>
@@ -2846,7 +2846,12 @@ size?: string = 32px
 /**
  * Optional tooltip for the button
  */
-tooltip?: string</code></pre>
+tooltip?: string
+
+/**
+ * The placement of the tooltip, if `tooltip` is provided.
+ */
+tooltipPlacement?: Placement</code></pre>
           </div>
         </div>
     
@@ -7876,9 +7881,9 @@ export const Icon: Story = { args: {} };
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> ToastComponent</h2>
       <div class="badges">
-        <label for="c-45-toast-props" class="badge ok as-toggle">1 prop type</label>
+        <label for="c-45-toast-props" class="badge ok as-toggle">4 prop types</label>
         <label for="c-45-toast-info" class="badge info as-toggle">1 info</label>
-        <label for="c-45-toast-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-45-toast-stories" class="badge ok as-toggle">5 stories</label>
         
       </div>
     </div>
@@ -7910,11 +7915,26 @@ export const Icon: Story = { args: {} };
           <div class="note ok">
             <div class="row">
               <span class="ex-name">Prop types <small>(react-docgen-typescript)</small></span>
-              <span class="badge ok">1 prop type</span>
+              <span class="badge ok">4 prop types</span>
             </div>
             <pre><code>Component: src/components/Toast/Toast.tsx::Toast</code></pre>
             <pre><code>Props:</code></pre>
-            <pre><code>className?: string</code></pre>
+            <pre><code>className?: string
+
+/**
+ * An icon to display within the button.
+ */
+Icon?: ComponentType&lt;SVGAttributes&lt;SVGElement&gt;&gt;
+
+/**
+ * Whether to show the action button. If true, an action button will be shown on the right side of the toast.
+ */
+onClose?: MouseEventHandler&lt;HTMLButtonElement&gt;
+
+/**
+ * The tooltip to show on the close button. This is only used if `onClose` is provided.
+ */
+tooltip?: string</code></pre>
           </div>
         </div>
     
@@ -7926,7 +7946,7 @@ export const Icon: Story = { args: {} };
                 <div class="row">
                   <span class="ex-name">Imports</span>
                 </div>
-                <pre><code>import { Toast as ToastComponent } from "@vector-im/compound-web";</code></pre>
+                <pre><code>import { Toast as ToastComponent, TooltipProvider } from "@vector-im/compound-web";</code></pre>
               </div>
           
           
@@ -7937,7 +7957,43 @@ export const Icon: Story = { args: {} };
               </div>
               
               
-              <pre><code>const Default = () =&gt; &lt;ToastComponent&gt;Would you like some toast?&lt;/ToastComponent&gt;;</code></pre>
+              <pre><code>const Default = () =&gt; &lt;ToastComponent onClose={undefined}&gt;Would you like some toast?&lt;/ToastComponent&gt;;</code></pre>
+            </div>
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Icon</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const Icon = () =&gt; &lt;ToastComponent onClose={undefined} Icon={CheckIcon}&gt;Would you like some toast?&lt;/ToastComponent&gt;;</code></pre>
+            </div>
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Close And Icon</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const CloseAndIcon = () =&gt; &lt;ToastComponent onClose={fn()} Icon={CheckIcon} tooltip=&quot;Close&quot;&gt;Would you like some toast?&lt;/ToastComponent&gt;;</code></pre>
+            </div>
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Multiline</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const Multiline = () =&gt; &lt;ToastComponent onClose={undefined} Icon={CheckIcon}&gt;Would you like some toast on multiple multiple multiple lines?&lt;/ToastComponent&gt;;</code></pre>
+            </div>
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Multiline And Close</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const MultilineAndClose = () =&gt; &lt;ToastComponent onClose={fn()} Icon={CheckIcon} tooltip=&quot;Close&quot;&gt;Would you like some toast on multiple multiple multiple lines?&lt;/ToastComponent&gt;;</code></pre>
             </div>
         </div>
     
