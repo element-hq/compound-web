@@ -35,6 +35,8 @@ Please see LICENSE files in the repository root for full details.
 }
 
 .menu[data-state="open"] {
+  /* Disable linter, we have a reduced motion style below */
+  /* stylelint-disable-next-line defensive-css/require-prefers-reduced-motion */
   animation: slide-in 180ms;
 }
 

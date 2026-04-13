@@ -22,5 +22,8 @@ Please see LICENSE files in the repository root for full details.
   align-items: center;
   inline-size: 100%;
   block-size: 100%;
-  animation: 1s linear spin infinite;
+
+  @media (prefers-reduced-motion: no-preference) {
+    animation: 1s linear spin infinite;
+  }
 }

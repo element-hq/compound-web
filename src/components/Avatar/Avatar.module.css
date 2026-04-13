@@ -18,6 +18,7 @@ Please see LICENSE files in the repository root for full details.
   font-family: var(--cpd-font-family-sans);
   font-weight: bold;
   overflow: hidden;
+  /* stylelint-disable-next-line defensive-css/no-user-select-none */
   user-select: none;
 
   /* Set a background color to help with visual consistency when displaying

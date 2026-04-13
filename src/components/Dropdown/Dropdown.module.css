@@ -31,7 +31,9 @@ Please see LICENSE files in the repository root for full details.
     gap: var(--cpd-space-4x);
 
     svg {
-      transition: transform 0.1s linear;
+      @media (prefers-reduced-motion: no-preference) {
+        transition: transform 0.1s linear;
+      }
     }
   }
 

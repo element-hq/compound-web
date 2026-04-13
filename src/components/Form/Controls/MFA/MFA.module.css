@@ -90,6 +90,7 @@ Please see LICENSE files in the repository root for full details.
   border-color: var(--cpd-color-text-critical-primary);
 }
 
+/* stylelint-disable-next-line defensive-css/require-focus-visible */
 .control:focus ~ .digit:not([data-filled]) {
   outline: 2px solid var(--cpd-color-border-focused);
   border-color: transparent;

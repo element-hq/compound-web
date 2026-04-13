@@ -59,7 +59,11 @@ Please see LICENSE files in the repository root for full details.
 .progress-bar-indicator {
   position: absolute;
   inset: 0;
-  transition: transform 0.2s ease-in-out;
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition: transform 0.2s ease-in-out;
+  }
+
   background-image: linear-gradient(
     135deg,
     var(--cpd-progress-bar-muted) 0%,
