@@ -10,12 +10,42 @@ Please see LICENSE files in the repository root for full details.
   background-color: var(--cpd-color-alpha-gray-1300);
   color: var(--cpd-color-text-on-solid-primary);
   border-radius: 99px;
-  font-size: var(--cpd-font-body-sm-medium);
   padding: var(--cpd-space-2x) var(--cpd-space-4x);
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: var(--cpd-space-2x);
 }
 
 @media (forced-colors: active) {
   .toast-container {
     outline: 1px solid transparent;
+  }
+}
+
+.icon {
+  flex-shrink: 0;
+}
+
+.has-close {
+  gap: var(--cpd-space-3x);
+}
+
+.content {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  gap: var(--cpd-space-2x);
+}
+
+.close {
+  align-self: flex-start;
+  padding: var(--cpd-space-0-5x) !important;
+
+  &:not(:hover, :focus-visible) {
+    * {
+      /* Override default color of icon button. The container background is different than the default canvas color */
+      color: var(--cpd-color-icon-on-solid-primary) !important;
+    }
   }
 }

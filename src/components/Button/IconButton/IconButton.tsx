@@ -48,6 +48,10 @@ type IconButtonProps = UnstyledButtonPropsFor<"button"> & {
    */
   tooltip?: string;
   /**
+   * The placement of the tooltip, if `tooltip` is provided.
+   */
+  tooltipPlacement?: React.ComponentProps<typeof Tooltip>["placement"];
+  /**
    * Hide the background when the button is not active or hovered.
    * @default false
    */
@@ -71,6 +75,7 @@ export const IconButton = forwardRef<
     disabled,
     destructive,
     tooltip,
+    tooltipPlacement,
     noBackground = false,
     ...props
   },
@@ -106,5 +111,11 @@ export const IconButton = forwardRef<
     </UnstyledButton>
   );
 
-  return tooltip ? <Tooltip label={tooltip}>{button}</Tooltip> : button;
+  return tooltip ? (
+    <Tooltip label={tooltip} placement={tooltipPlacement}>
+      {button}
+    </Tooltip>
+  ) : (
+    button
+  );
 });
