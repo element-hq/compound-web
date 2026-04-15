@@ -52,6 +52,7 @@ export { Breadcrumb } from "./components/Breadcrumb";
 export { VisualList, VisualListItem } from "./components/VisualList";
 export { ChatFilter } from "./components/ChatFilter";
 export { UnreadCounter, Pill, Unread } from "./components/ActivityMarker";
+export { PageHeader } from "./components/PageHeader/PageHeader";
 
 export {
   TextControl,
