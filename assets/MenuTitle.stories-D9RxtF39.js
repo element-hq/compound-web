@@ -1,3 +1,0 @@
-import{n as e}from"./chunk-BneVvdWh.js";import{t}from"./react-D1sJ83FZ.js";import{t as n}from"./jsx-runtime-fcfuQg7E.js";import{t as r}from"./dist-DJ4Ld394.js";import{n as i,t as a}from"./MenuTitle-DLA3G5TV.js";var o,s,c,l,u;e((()=>{i(),r(),t(),o=n(),s={title:`Menu/MenuTitle`,component:a,tags:[`autodocs`],argTypes:{},args:{title:`Title`}},c=e=>(0,o.jsx)(a,{...e}),l=c.bind({}),l.args={},l.parameters={...l.parameters,docs:{...l.parameters?.docs,source:{originalSource:`(args: ComponentProps<typeof MenuTitleComponent>) => {
-  return <MenuTitleComponent {...args} />;
-}`,...l.parameters?.docs?.source}}},u=[`Default`]}))();export{l as Default,u as __namedExportsOrder,s as default};
