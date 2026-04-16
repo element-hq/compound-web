@@ -39,8 +39,7 @@ const meta = {
   parameters: {
     design: {
       type: "figma",
-      // TODO: Fix
-      url: "https://www.figma.com/design/rTaQE2nIUSLav4Tg3nozq7/Compound-Web-Components?node-id=3627-42633&t=m0RMwUTXkukgU29g-0",
+      url: "https://www.figma.com/design/NKjLzSlbD8JnldYQ5sFpce/Element-Call-Updates---Q1-2025?node-id=358-65788&t=JAOxO4b7eVCo2u9Z-0",
     },
   },
   decorators: [
@@ -72,3 +71,8 @@ const Template: StoryFn<typeof ToggleButton> = (
 
 export const Default = Template.bind({});
 Default.args = {};
+
+export const Smaller = Template.bind({});
+Smaller.args = {
+  size: "24px",
+};
