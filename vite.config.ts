@@ -78,6 +78,15 @@ export default defineConfig({
     }),
   ],
 
+  css: {
+    modules: {
+      // Attempt to give generated CSS class names relatively stable identifiers.
+      // By default they include a hash of the css module file, and the line number within the file.
+      // Instead, let's just use the filename of the component for disambiguation.
+      generateScopedName: "_cpd-[path]_[local]",
+    },
+  },
+
   test: {
     environment: "jsdom",
     globals: true,
