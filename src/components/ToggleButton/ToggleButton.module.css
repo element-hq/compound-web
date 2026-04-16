@@ -1,0 +1,39 @@
+/*
+Copyright (C) 2026 Element Creations Ltd
+Copyright 2023, 2024 New Vector Ltd.
+
+SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-Element-Commercial
+Please see LICENSE in the repository root for full details.
+*/
+
+.toggle {
+  border-radius: 99px;
+  border: 1px solid var(--cpd-color-border-interactive-secondary);
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  padding: var(--cpd-space-1x);
+  gap: 5px;
+}
+
+.toggle > button.button {
+  transition: background-color 0.1s;
+  svg {
+    transition: color 0.1s;
+  }
+  box-shadow: 0px 1.2px 2.4px 0px rgba(0, 0, 0, 0.15);
+}
+
+.toggle > button.button[data-active="true"] {
+  background: var(--cpd-color-bg-action-primary-rest);
+  svg > path {
+    color: var(--cpd-color-icon-on-solid-primary);
+  }
+}
+
+.toggle > button.button[data-active="false"] {
+  background: var(--cpd-color-bg-canvas-default);
+  svg > path {
+    color: var(--cpd-color-icon-primary);
+  }
+}
