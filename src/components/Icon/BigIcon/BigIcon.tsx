@@ -8,6 +8,7 @@ Please see LICENSE files in the repository root for full details.
 import React, { type JSX, type PropsWithChildren } from "react";
 import styles from "./BigIcon.module.css";
 import classNames from "classnames";
+import type { Size } from "../../../utils/size";
 
 interface BigIconProps {
   /**
@@ -15,36 +16,28 @@ interface BigIconProps {
    */
   className?: string;
   /**
-   * The size of the icon.
-   * @default "large"
+   * The t-shirt size of the icon.
+   * @default "lg"
    */
-  size?: "small" | "medium" | "large";
+  size?: Size & ("sm" | "md" | "lg");
   /**
-   * Whether this button triggers a destructive action.
-   * @default false
+   * The color variant of the icon.
+   * @default "primary"
    */
-  destructive?: boolean;
-  /**
-   * Whether this button triggers a success action.
-   * @default false
-   */
-  success?: boolean;
+  kind?: "primary" | "critical" | "success";
 }
 
 export function BigIcon({
   className,
-  size = "large",
-  destructive = false,
-  success = false,
+  size = "lg",
+  kind = "primary",
   children,
 }: PropsWithChildren<BigIconProps>): JSX.Element {
   return (
     <div
-      className={classNames(styles.content, className, {
-        [styles.destructive]: destructive,
-        [styles.success]: success,
-      })}
+      className={classNames(styles["big-icon"], className)}
       data-size={size}
+      data-kind={kind}
     >
       {React.Children.only(children)}
     </div>

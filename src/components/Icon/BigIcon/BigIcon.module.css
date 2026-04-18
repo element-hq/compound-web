@@ -5,12 +5,10 @@ SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-Element-Commercial
 Please see LICENSE files in the repository root for full details.
 */
 
-.content {
+.big-icon {
   display: inline-flex;
-  background-color: var(--cpd-color-bg-subtle-secondary);
   padding: var(--cpd-space-4x);
   border-radius: var(--cpd-space-2x);
-  color: var(--cpd-color-icon-secondary);
 
   > svg {
     inline-size: 32px;
@@ -18,11 +16,11 @@ Please see LICENSE files in the repository root for full details.
   }
 }
 
-.content[data-size="medium"] {
+.big-icon[data-size="md"] {
   padding: var(--cpd-space-3x);
 }
 
-.content[data-size="small"] {
+.big-icon[data-size="sm"] {
   padding: var(--cpd-space-3x);
 
   > svg {
@@ -31,18 +29,23 @@ Please see LICENSE files in the repository root for full details.
   }
 }
 
-.destructive {
+.big-icon[data-kind="primary"] {
+  background-color: var(--cpd-color-bg-subtle-secondary);
+  color: var(--cpd-color-icon-primary);
+}
+
+.big-icon[data-kind="critical"] {
   background-color: var(--cpd-color-bg-critical-subtle);
   color: var(--cpd-color-icon-critical-primary);
 }
 
-.success {
+.big-icon[data-kind="success"] {
   background-color: var(--cpd-color-bg-success-subtle);
   color: var(--cpd-color-icon-success-primary);
 }
 
 @media (forced-colors: active) {
-  .content {
+  .big-icon {
     outline: 1px solid transparent;
   }
 }

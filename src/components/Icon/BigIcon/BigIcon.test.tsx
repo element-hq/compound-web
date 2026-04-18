@@ -11,8 +11,7 @@ import * as stories from "./BigIcon.stories.tsx";
 import { render } from "@testing-library/react";
 import React from "react";
 
-const { Default, Medium, Small, Destructive, Success } =
-  composeStories(stories);
+const { Default, Medium, Small, Critical, Success } = composeStories(stories);
 
 describe("BigIcon", () => {
   it("renders a large big icon", () => {
@@ -30,8 +29,8 @@ describe("BigIcon", () => {
     expect(container).toMatchSnapshot();
   });
 
-  it("renders a destructive big icon", () => {
-    const { container } = render(<Destructive />);
+  it("renders a critical big icon", () => {
+    const { container } = render(<Critical />);
     expect(container).toMatchSnapshot();
   });
 

@@ -7,6 +7,7 @@ Please see LICENSE files in the repository root for full details.
 
 import React from "react";
 import { type Meta, type StoryObj } from "@storybook/react-vite";
+import ReactionIcon from "@vector-im/compound-design-tokens/assets/web/icons/reaction";
 
 import { Badge as BadgeComponent } from "./Badge";
 
@@ -37,6 +38,32 @@ const meta = {
         <BadgeComponent kind="green">Green</BadgeComponent>
         &nbsp;
         <BadgeComponent kind="red">Red</BadgeComponent>
+      </div>
+      <br />
+      <div>
+        <BadgeComponent Icon={ReactionIcon} kind="default">
+          Default
+        </BadgeComponent>
+        &nbsp;
+        <BadgeComponent Icon={ReactionIcon} kind="grey">
+          Grey
+        </BadgeComponent>
+        &nbsp;
+        <BadgeComponent Icon={ReactionIcon} kind="on-solid">
+          On Solid
+        </BadgeComponent>
+        &nbsp;
+        <BadgeComponent Icon={ReactionIcon} kind="blue">
+          Blue
+        </BadgeComponent>
+        &nbsp;
+        <BadgeComponent Icon={ReactionIcon} kind="green">
+          Green
+        </BadgeComponent>
+        &nbsp;
+        <BadgeComponent Icon={ReactionIcon} kind="red">
+          Red
+        </BadgeComponent>
       </div>
     </div>
   ),

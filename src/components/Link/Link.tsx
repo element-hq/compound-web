@@ -8,6 +8,7 @@ Please see LICENSE files in the repository root for full details.
 import React, { forwardRef, type PropsWithChildren } from "react";
 import styles from "./Link.module.css";
 import classNames from "classnames";
+import type { Size } from "../../utils/size";
 
 type LinkProps = {
   /**
@@ -15,15 +16,15 @@ type LinkProps = {
    */
   className?: string;
   /**
-   * The type of link.
+   * The color variant of the link.
    * @default "primary"
    */
   kind?: "primary" | "critical";
   /**
-   * The size of link.
-   * @default "medium"
+   * The t-shirt size of the link.
+   * @default "md"
    */
-  size?: "small" | "medium";
+  size?: Size & ("sm" | "md");
 } & Omit<React.HTMLProps<HTMLAnchorElement>, "rel" | "size">;
 
 /**
@@ -31,7 +32,7 @@ type LinkProps = {
  */
 export const Link = forwardRef<HTMLAnchorElement, PropsWithChildren<LinkProps>>(
   function Link(
-    { children, className, kind = "primary", size = "medium", ...props },
+    { children, className, kind = "primary", size = "md", ...props },
     ref,
   ) {
     return (

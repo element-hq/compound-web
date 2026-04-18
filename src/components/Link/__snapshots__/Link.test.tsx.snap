@@ -5,7 +5,7 @@ exports[`Link > renders 1`] = `
   <a
     class="_link_d78ce8"
     data-kind="primary"
-    data-size="medium"
+    data-size="md"
     rel="noreferrer noopener"
   />
 </DocumentFragment>
@@ -16,7 +16,7 @@ exports[`Link > renders width a small size 1`] = `
   <a
     class="_link_d78ce8"
     data-kind="primary"
-    data-size="small"
+    data-size="sm"
     rel="noreferrer noopener"
   />
 </DocumentFragment>

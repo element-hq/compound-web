@@ -6,14 +6,14 @@ Please see LICENSE files in the repository root for full details.
 */
 
 .separator {
-  --cpd-separator-color: var(--cpd-color-gray-400);
+  --cpd-separator-color: var(--cpd-color-separator-primary);
   --cpd-separator-size: 1px;
 
   background-color: var(--cpd-separator-color);
 }
 
 .separator[data-kind="secondary"] {
-  --cpd-separator-color: var(--cpd-color-gray-300);
+  --cpd-separator-color: var(--cpd-color-separator-secondary);
 }
 
 .separator[data-kind="section"] {

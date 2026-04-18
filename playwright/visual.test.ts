@@ -38,7 +38,7 @@ const stories = JSON.parse(fs.readFileSync(storiesPath, "utf8"))
 // Perform visual testing on each story
 for (const story of Object.values(stories)) {
   // Ignore things that are not stories (e.g. doc pages)
-  if (story.type === "story") {
+  if (story.type === "story" && !story.tags.includes("skip-screenshot")) {
     test(
       `${story.title} ${story.name}`,
       { tag: "@screenshot" },

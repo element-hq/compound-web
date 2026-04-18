@@ -5,13 +5,23 @@ SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-Element-Commercial
 Please see LICENSE files in the repository root for full details.
 */
 
-import React, { type FC, type ReactNode, useMemo } from "react";
+import React, {
+  type FC,
+  type ReactNode,
+  useMemo,
+  useEffect,
+  useState,
+} from "react";
 import {
   Root,
   Trigger,
   Portal,
   Content,
   DropdownMenuItem,
+  DropdownMenuSub,
+  DropdownMenuSubTrigger,
+  DropdownMenuSubContent,
+  DropdownMenuPortal,
 } from "@radix-ui/react-dropdown-menu";
 import { FloatingMenu } from "./FloatingMenu";
 import { Drawer } from "vaul";
@@ -21,6 +31,7 @@ import {
   MenuContext,
   type MenuData,
   type MenuItemWrapperProps,
+  type SubMenuWrapperProps,
 } from "./MenuContext";
 import { DrawerMenu } from "./DrawerMenu";
 import { getPlatform } from "../../utils/platform";
@@ -84,6 +95,49 @@ const DropdownMenuItemWrapper: FC<MenuItemWrapperProps> = ({
   </DropdownMenuItem>
 );
 
+/** Duration of the parent menu's slide-in animation (ms). */
+const MENU_ANIMATION_DURATION = 180;
+
+const DropdownSubMenuWrapper: FC<SubMenuWrapperProps> = ({
+  trigger,
+  children,
+  open: openProp,
+  onOpenChange,
+}) => {
+  // When the submenu is programmatically opened at the same time as the parent
+  // menu (e.g. open={true} on mount), the parent is still mid-animation and
+  // the trigger position hasn't settled. Defer the open so the submenu
+  // positions correctly after the parent animation completes.
+  const [deferredOpen, setDeferredOpen] = useState(false);
+
+  useEffect(() => {
+    if (openProp) {
+      const timer = setTimeout(
+        () => setDeferredOpen(true),
+        MENU_ANIMATION_DURATION,
+      );
+      return () => clearTimeout(timer);
+    } else {
+      setDeferredOpen(false);
+    }
+  }, [openProp]);
+
+  const open = openProp ? deferredOpen : openProp;
+
+  return (
+    <DropdownMenuSub open={open} onOpenChange={onOpenChange}>
+      <DropdownMenuSubTrigger asChild>{trigger}</DropdownMenuSubTrigger>
+      <DropdownMenuPortal>
+        <DropdownMenuSubContent asChild alignOffset={-20}>
+          <FloatingMenu title="" showTitle={false}>
+            {children}
+          </FloatingMenu>
+        </DropdownMenuSubContent>
+      </DropdownMenuPortal>
+    </DropdownMenuSub>
+  );
+};
+
 /**
  * A menu opened by pressing a button.
  */
@@ -105,6 +159,7 @@ export const Menu: FC<Props> = ({
   const context: MenuData = useMemo(
     () => ({
       MenuItemWrapper: drawer ? null : DropdownMenuItemWrapper,
+      SubMenuWrapper: drawer ? null : DropdownSubMenuWrapper,
       onOpenChange,
     }),
     [onOpenChange],

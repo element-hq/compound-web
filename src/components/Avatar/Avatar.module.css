@@ -18,7 +18,7 @@ Please see LICENSE files in the repository root for full details.
   font-family: var(--cpd-font-family-sans);
   font-weight: bold;
   overflow: hidden;
-  user-select: none;
+  user-select: none; /* stylelint-disable-line defensive-css/no-user-select-none */
 
   /* Set a background color to help with visual consistency when displaying
    * avatars with a translucent background */
@@ -122,7 +122,7 @@ button.avatar-imageless,
 }
 
 .stacked-avatars > *:not(:first-child) {
-  margin-inline-start: calc(var(--cpd-avatar-size) * -0.2);
+  margin-inline-start: calc(var(--cpd-avatar-size) * -0.4);
 }
 
 .clip-path {

@@ -1,6 +1,6 @@
 {
   "name": "@vector-im/compound-web",
-  "version": "8.4.0",
+  "version": "9.2.0",
   "description": "Compound components for the Web",
   "type": "module",
   "main": "./dist/index.cjs",
@@ -51,12 +51,12 @@
   },
   "homepage": "https://github.com/vector-im/compound-web#readme",
   "devDependencies": {
-    "@element-hq/element-web-playwright-common": "^2.0.0",
+    "@element-hq/element-web-playwright-common": "^3.0.0",
     "@fontsource/inconsolata": "^5.0.8",
     "@fontsource/inter": "^5.0.8",
     "@playwright/test": "^1.41.1",
     "@storybook/addon-a11y": "^10.3.1",
-    "@storybook/addon-designs": "11.1.2",
+    "@storybook/addon-designs": "11.1.3",
     "@storybook/addon-docs": "^10.3.1",
     "@storybook/addon-links": "^10.3.1",
     "@storybook/addon-themes": "^10.3.1",
@@ -72,7 +72,7 @@
     "@types/react": "^19.0.0",
     "@typescript-eslint/eslint-plugin": "^8.0.0",
     "@typescript-eslint/parser": "^8.0.0",
-    "@vector-im/compound-design-tokens": "^8.0.0",
+    "@vector-im/compound-design-tokens": "^10.1.0",
     "@vitejs/plugin-react": "^6.0.0",
     "@vitest/coverage-v8": "^4.0.0",
     "browserslist-to-esbuild": "^2.0.0",
@@ -83,7 +83,7 @@
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-storybook": "^10.0.0",
     "jsdom": "^29.0.0",
-    "prettier": "3.8.1",
+    "prettier": "3.8.2",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "resize-observer-polyfill": "^1.5.1",
@@ -95,7 +95,7 @@
     "stylelint-plugin-defensive-css": "^2.0.0",
     "stylelint-use-logical": "^2.1.0",
     "stylelint-value-no-unknown-custom-properties": "^6.0.0",
-    "typescript": "^5.2.2",
+    "typescript": "^6.0.0",
     "vite": "^8.0.0",
     "vite-plugin-dts": "^4.5.4",
     "vitest": "^4.0.0"
@@ -115,7 +115,7 @@
     "@fontsource/inconsolata": "^5",
     "@fontsource/inter": "^5",
     "@types/react": "*",
-    "@vector-im/compound-design-tokens": ">=1.6.1 <9.0.0",
+    "@vector-im/compound-design-tokens": ">=1.6.1 <11.0.0",
     "react": "^18 || ^19.0.0"
   },
   "peerDependenciesMeta": {

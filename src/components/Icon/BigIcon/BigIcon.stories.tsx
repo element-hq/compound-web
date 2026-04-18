@@ -27,20 +27,20 @@ const Template: StoryFn<typeof BigIconComponent> = (args) => (
 export const Default = Template.bind({});
 export const Medium = Template.bind({});
 Medium.args = {
-  size: "medium",
+  size: "md",
 };
 
 export const Small = Template.bind({});
 Small.args = {
-  size: "small",
+  size: "sm",
 };
 
-export const Destructive = Template.bind({});
-Destructive.args = {
-  destructive: true,
+export const Critical = Template.bind({});
+Critical.args = {
+  kind: "critical",
 };
 
 export const Success = Template.bind({});
 Success.args = {
-  success: true,
+  kind: "success",
 };
