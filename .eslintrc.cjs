@@ -23,7 +23,7 @@ module.exports = {
       "paths": [{
         "name": "@floating-ui/react",
         "importNames": ["useId"],
-        "message": "Please use useId from React directly: compound only support React 18+ and floating-ui's wrapper breaks mocks that make the IDs consistent in tests.",
+        "message": "Please use useId from React directly: Compound only supports React 18+ and floating-ui's wrapper breaks mocks that make the IDs consistent in tests.",
       }],
     }],
   },
