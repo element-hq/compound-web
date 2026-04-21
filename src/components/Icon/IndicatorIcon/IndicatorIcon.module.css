@@ -18,7 +18,6 @@ Please see LICENSE files in the repository root for full details.
   /* This is called 'button size' but the docs say 'icon size' */
   inline-size: var(--cpd-icon-button-size);
   block-size: var(--cpd-icon-button-size);
-  margin: var(--cpd-icon-button-margin);
   aspect-ratio: 1 / 1;
   color: var(--cpd-color-icon-tertiary);
   position: relative;
