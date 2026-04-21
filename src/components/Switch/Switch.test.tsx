@@ -21,11 +21,37 @@ describe("Switch", () => {
     expect(asFragment()).toMatchSnapshot();
   });
 
-  it("can be toggled", async () => {
+  it("can be toggled via click", async () => {
     const user = userEvent.setup();
     const onChange = vi.fn();
-    const { getByLabelText } = render(<Default onChange={onChange} />);
-    await user.click(getByLabelText("Stop"));
-    expect(onChange).toHaveBeenCalled();
+    const { getByRole } = render(<Default onChange={onChange} />);
+    const list = getByRole("radio", { name: "List" });
+    const grid = getByRole("radio", { name: "Grid" });
+
+    await user.click(grid);
+    expect(onChange).toHaveBeenCalledWith("grid");
+    expect(grid).toBeChecked();
+
+    await user.click(list);
+    expect(onChange).toHaveBeenCalledWith("list");
+    expect(list).toBeChecked();
+  });
+
+  it("can be toggled via keyboard tab + arrow key", async () => {
+    const user = userEvent.setup();
+    const onChange = vi.fn();
+    const { getByRole } = render(<Default onChange={onChange} />);
+    const list = getByRole("radio", { name: "List" });
+    const grid = getByRole("radio", { name: "Grid" });
+
+    await user.keyboard("{tab}");
+
+    await user.keyboard("{arrowleft}");
+    expect(onChange).toHaveBeenCalledWith("grid");
+    expect(grid).toBeChecked();
+
+    await user.keyboard("{arrowright}");
+    expect(onChange).toHaveBeenCalledWith("list");
+    expect(list).toBeChecked();
   });
 });

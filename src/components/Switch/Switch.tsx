@@ -11,33 +11,38 @@ import { Tooltip } from "../../index";
 import classNames from "classnames";
 
 import styles from "./Switch.module.css";
+import type { Size } from "../../utils/size";
 
 type Icon = React.ForwardRefExoticComponent<
   Omit<React.SVGProps<SVGSVGElement>, "ref" | "children"> &
     React.RefAttributes<SVGSVGElement>
 >;
 
-type Button<Value = string> = {
-  Icon: Icon;
-  value: Value;
-  label: string;
-};
-
 interface Props<LeftValue extends string, RightValue extends string> {
-  left: Button<LeftValue>;
-  right: Button<RightValue>;
+  name: string;
+  leftIcon: Icon;
+  leftLabel: string;
+  leftValue: LeftValue;
+  rightIcon: Icon;
+  rightLabel: string;
+  rightValue: LeftValue;
   value: LeftValue | RightValue;
   className?: string;
   onChange: (value: LeftValue | RightValue) => void;
-  size?: "lg" | "md";
+  size?: Size & ("lg" | "md");
 }
 
 export const Switch = <
   LeftValue extends string = string,
   RightValue extends string = string,
 >({
-  left,
-  right,
+  name,
+  leftIcon: LeftIcon,
+  leftLabel,
+  leftValue,
+  rightIcon: RightIcon,
+  rightLabel,
+  rightValue,
   value,
   className,
   onChange,
@@ -50,27 +55,27 @@ export const Switch = <
   );
 
   return (
-    <form data-size={size} className={classNames(styles.toggle, className)}>
-      <Tooltip label={left.label}>
+    <fieldset data-size={size} className={classNames(styles.toggle, className)}>
+      <Tooltip label={leftLabel}>
         <input
           type="radio"
-          name={left.value}
-          value={left.value}
-          checked={value === left.value}
+          name={name}
+          value={leftValue}
+          checked={value === leftValue}
           onChange={onInputChange}
         />
       </Tooltip>
-      <left.Icon aria-hidden />
-      <Tooltip label={right.label}>
+      <LeftIcon aria-hidden />
+      <Tooltip label={rightLabel}>
         <input
           type="radio"
-          name={right.value}
-          value={right.value}
-          checked={value === right.value}
+          name={name}
+          value={rightValue}
+          checked={value === rightValue}
           onChange={onInputChange}
         />
       </Tooltip>
-      <right.Icon aria-hidden />
-    </form>
+      <RightIcon aria-hidden />
+    </fieldset>
   );
 };
