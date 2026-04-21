@@ -30,6 +30,11 @@ type IconButtonProps = UnstyledButtonPropsFor<"button"> & {
    */
   size?: CSSStyleDeclaration["height"];
   /**
+   * The amount of margin to give the icon itself.
+   * @default 0 / unset.
+   */
+  margin?: CSSStyleDeclaration["margin"];
+  /**
    * The icon button indicator dot displayed on the top right
    * As in IndicatorIcon
    */
@@ -71,6 +76,7 @@ export const IconButton = forwardRef<
     className,
     indicator,
     size = "32px",
+    margin = "0px",
     style,
     disabled,
     destructive,
@@ -94,6 +100,7 @@ export const IconButton = forwardRef<
       style={
         {
           "--cpd-icon-button-size": size,
+          "--cpd-icon-button-margin": margin,
           ...style,
         } as React.CSSProperties
       }
@@ -104,6 +111,7 @@ export const IconButton = forwardRef<
     >
       <IndicatorIcon
         indicator={indicator}
+        size="auto"
         colour={disabled ? "var(--cpd-color-icon-disabled)" : undefined}
       >
         {React.Children.only(children)}

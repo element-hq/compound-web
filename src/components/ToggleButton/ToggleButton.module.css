@@ -7,6 +7,14 @@ Please see LICENSE in the repository root for full details.
 */
 
 .toggle {
+  --size-px: 44px; /* lg */
+  --cpd-togglebutton-icon-padding: 10px; /* lg */
+  &[data-size="md"] {
+    --size-px: 32px;
+    --cpd-icon-button-margin: 0px;
+  }
+  background: var(--cpd-color-bg-canvas-default);
+
   border-radius: 99px;
   border: 1px solid var(--cpd-color-border-interactive-secondary);
   width: fit-content;
@@ -14,6 +22,14 @@ Please see LICENSE in the repository root for full details.
   display: flex;
   padding: var(--cpd-space-1x);
   gap: 5px;
+
+  input {
+    display: none;
+    appearance: none;
+    /* Safari puts a margin on these, which is not removed via appearance: none */
+    margin: 0;
+    cursor: pointer;
+  }
 }
 
 .toggle > button.button {
@@ -22,18 +38,25 @@ Please see LICENSE in the repository root for full details.
     transition: color 0.1s;
   }
   box-shadow: 0px 1.2px 2.4px 0px rgba(0, 0, 0, 0.15);
-}
 
-.toggle > button.button[data-active="true"] {
-  background: var(--cpd-color-bg-action-primary-rest);
-  svg > path {
-    color: var(--cpd-color-icon-on-solid-primary);
+  &[data-active="true"] {
+    background: var(--cpd-color-bg-action-primary-rest);
+    svg > path {
+      color: var(--cpd-color-icon-on-solid-primary);
+    }
+
+    &:hover {
+      background: var(--cpd-color-bg-action-primary-hovered);
+    }
   }
-}
+  &[data-active="false"] {
+    background: var(--cpd-color-bg-canvas-default);
+    svg > path {
+      color: var(--cpd-color-icon-primary);
+    }
 
-.toggle > button.button[data-active="false"] {
-  background: var(--cpd-color-bg-canvas-default);
-  svg > path {
-    color: var(--cpd-color-icon-primary);
+    &:hover {
+      background: var(--cpd-color-bg-subtle-primary);
+    }
   }
 }

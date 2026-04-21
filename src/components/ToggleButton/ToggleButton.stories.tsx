@@ -21,7 +21,12 @@ const meta = {
   title: "ToggleButton",
   component: ToggleButton,
   tags: ["autodocs"],
-  argTypes: {},
+  argTypes: {
+    size: {
+      options: ["lg", "md"],
+      control: { type: "inline-radio" },
+    },
+  },
   args: {
     value: "play",
     left: {
@@ -72,7 +77,7 @@ const Template: StoryFn<typeof ToggleButton> = (
 export const Default = Template.bind({});
 Default.args = {};
 
-export const Smaller = Template.bind({});
-Smaller.args = {
-  size: "24px",
+export const Medium = Template.bind({});
+Medium.args = {
+  size: "md",
 };

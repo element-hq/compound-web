@@ -8,11 +8,12 @@ Please see LICENSE in the repository root for full details.
 
 import React, {
   type ChangeEvent,
+  type KeyboardEventHandler,
   type MouseEventHandler,
   useCallback,
   useId,
 } from "react";
-import { IconButton, Tooltip } from "../../index";
+import { IconButton } from "../../index";
 import classNames from "classnames";
 
 import styles from "./ToggleButton.module.css";
@@ -34,8 +35,24 @@ interface Props<LeftValue extends string, RightValue extends string> {
   value: LeftValue | RightValue;
   className?: string;
   onChange: (value: LeftValue | RightValue) => void;
-  size?: string;
+  size?: "lg" | "md";
 }
+
+const iconButtonSizes: Record<
+  NonNullable<Props<string, string>["size"]>,
+  `${number}px`
+> = {
+  lg: "44px",
+  md: "32px",
+};
+
+const iconButtonMargins: Record<
+  NonNullable<Props<string, string>["size"]>,
+  `${number}px`
+> = {
+  lg: "4px",
+  md: "2px",
+};
 
 export const ToggleButton = <
   LeftValue extends string = string,
@@ -46,10 +63,8 @@ export const ToggleButton = <
   value,
   className,
   onChange,
-  size: requestedSize,
+  size = "lg",
 }: Props<LeftValue, RightValue>): React.ReactElement => {
-  const size = requestedSize ?? "44px";
-
   const { Icon: LeftIcon, label: leftLabel, value: leftValue } = left;
   const { Icon: RightIcon, label: rightLabel, value: rightValue } = right;
 
@@ -58,7 +73,12 @@ export const ToggleButton = <
   // of css hacks. This solution is simpler and uses aria roles to hopefully
   // render nicely for screen readers.
   return (
-    <div className={classNames(styles.toggle, className)} role="radiogroup">
+    <div
+      className={classNames(styles.toggle, className)}
+      data-size={size}
+      onKeyUp={onKeyUp}
+      role="radiogroup"
+    >
       <IconButton
         className={styles.button}
         tooltip={leftLabel}
@@ -66,7 +86,8 @@ export const ToggleButton = <
         data-active={value === leftValue}
         aria-pressed={value === leftValue}
         onClick={() => onChange(leftValue)}
-        size={size}
+        size={iconButtonSizes[size]}
+        margin={iconButtonMargins[size]}
       >
         <LeftIcon />
       </IconButton>
@@ -77,7 +98,8 @@ export const ToggleButton = <
         data-active={value === rightValue}
         aria-pressed={value === rightValue}
         onClick={() => onChange(rightValue)}
-        size={size}
+        size={iconButtonSizes[size]}
+        margin={iconButtonMargins[size]}
       >
         <RightIcon />
       </IconButton>
