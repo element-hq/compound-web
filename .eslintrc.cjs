@@ -19,13 +19,19 @@ module.exports = {
   },
   rules: {
     "prettier/prettier": "error",
-    "no-restricted-imports": ["error", {
-      "paths": [{
-        "name": "@floating-ui/react",
-        "importNames": ["useId"],
-        "message": "Please use useId from React directly: Compound only supports React 18+ and floating-ui's wrapper breaks mocks that make the IDs consistent in tests.",
-      }],
-    }],
+    "no-restricted-imports": [
+      "error",
+      {
+        paths: [
+          {
+            name: "@floating-ui/react",
+            importNames: ["useId"],
+            message:
+              "Please use useId from React directly: Compound only supports React 18+ and floating-ui's wrapper breaks mocks that make the IDs consistent in tests.",
+          },
+        ],
+      },
+    ],
   },
   plugins: ["prettier", "react", "@typescript-eslint", "matrix-org"],
   settings: {
