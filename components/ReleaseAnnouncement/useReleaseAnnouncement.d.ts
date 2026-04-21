@@ -34,8 +34,8 @@ interface UseReleaseAnnouncementProps {
  * This hook provides the necessary props to create a release announcement.
  */
 export declare function useReleaseAnnouncement({ open, header, description, closeLabel, placement, onClick, displayArrow, }: UseReleaseAnnouncementProps): {
-    labelId: string | undefined;
-    descriptionId: string | undefined;
+    labelId: string;
+    descriptionId: string;
     header: string;
     description: string;
     closeLabel: string;

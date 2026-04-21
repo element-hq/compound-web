@@ -8,8 +8,8 @@ export declare const ReleaseAnnouncementContext: import('../../../node_modules/r
  * Provides the context for the ReleaseAnnouncement components.
  */
 export declare function useReleaseAnnouncementContext(): {
-    labelId: string | undefined;
-    descriptionId: string | undefined;
+    labelId: string;
+    descriptionId: string;
     header: string;
     description: string;
     closeLabel: string;

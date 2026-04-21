@@ -103,7 +103,7 @@ export declare function useTooltip({ open: controlledOpen, disabled, onOpenChang
         active?: boolean;
         selected?: boolean;
     }) => Record<string, unknown>;
-    labelId: string | undefined;
+    labelId: string;
     captionId: string | undefined;
     caption: string | JSX.Element | undefined;
     purpose: "label" | "description";
