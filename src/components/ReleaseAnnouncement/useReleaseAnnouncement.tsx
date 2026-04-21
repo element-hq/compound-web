@@ -13,11 +13,10 @@ import {
   type Placement,
   shift,
   useFloating,
-  useId,
   useInteractions,
   useRole,
 } from "@floating-ui/react";
-import { type MouseEventHandler, useMemo, useRef } from "react";
+import { type MouseEventHandler, useMemo, useRef, useId } from "react";
 
 interface UseReleaseAnnouncementProps {
   /**
