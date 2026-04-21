@@ -12,6 +12,7 @@ Please see LICENSE in the repository root for full details.
     --cpd-switch-icon-size: 24px;
     --cpd-switch-icon-padding: 10px;
   }
+
   &[data-size="md"] {
     --cpd-switch-button-size: 32px;
     --cpd-switch-icon-size: 20px;
@@ -24,20 +25,7 @@ Please see LICENSE in the repository root for full details.
   background: var(--cpd-color-bg-canvas-default);
   display: flex;
   position: relative;
-  width: fit-content;
-
-  input {
-    appearance: none;
-    /* Safari puts a margin on these, which is not removed via appearance: none */
-    margin: 0;
-    block-size: var(--cpd-switch-button-size);
-    inline-size: var(--cpd-switch-button-size);
-    cursor: pointer;
-    border-radius: var(--cpd-radius-pill-effect);
-    background: var(--cpd-color-bg-action-secondary-rest);
-    box-shadow: 0px 1.2px 2.4px 0px rgba(0, 0, 0, 0.15);
-    transition: background-color 0.1s;
-  }
+  inline-size: fit-content;
 
   svg {
     display: block;
@@ -45,25 +33,43 @@ Please see LICENSE in the repository root for full details.
     pointer-events: none;
     color: var(--cpd-color-icon-primary);
     transition: color 0.1s;
-    width: var(--cpd-switch-icon-size);
-    height: var(--cpd-switch-icon-size);
-    margin-top: calc(
+    inline-size: var(--cpd-switch-icon-size);
+    block-size: var(--cpd-switch-icon-size);
+    margin-block-start: calc(
       (var(--cpd-switch-button-size) - var(--cpd-switch-icon-size)) / 2
     );
   }
 
   svg:nth-child(2) {
     inset-inline-start: var(--cpd-space-1x);
-    margin-left: calc(
+    margin-inline-start: calc(
       (var(--cpd-switch-button-size) - var(--cpd-switch-icon-size)) / 2
     );
   }
 
   svg:nth-child(4) {
     inset-inline-end: var(--cpd-space-1x);
-    margin-right: calc(
+    margin-inline-end: calc(
       (var(--cpd-switch-button-size) - var(--cpd-switch-icon-size)) / 2
     );
+  }
+
+  input {
+    appearance: none;
+
+    /* Safari puts a margin on these, which is not removed via appearance: none */
+    margin: 0;
+    block-size: var(--cpd-switch-button-size);
+    inline-size: var(--cpd-switch-button-size);
+    cursor: pointer;
+    border-radius: var(--cpd-radius-pill-effect);
+    background: var(--cpd-color-bg-action-secondary-rest);
+    box-shadow: 0 1.2px 2.4px 0 rgb(0 0 0 / 15%);
+    transition: background-color 0.1s;
+  }
+
+  input:first-child {
+    margin-inline-end: 5px;
   }
 
   @media (hover: hover) {
@@ -71,6 +77,7 @@ Please see LICENSE in the repository root for full details.
       background: var(--cpd-color-bg-action-secondary-hovered);
       box-shadow: none;
     }
+
     input:checked:hover {
       background: var(--cpd-color-bg-action-primary-hovered);
     }
@@ -91,9 +98,5 @@ Please see LICENSE in the repository root for full details.
 
   input:checked:active {
     background: var(--cpd-color-bg-action-primary-pressed);
-  }
-
-  input:first-child {
-    margin-inline-end: 5px;
   }
 }
