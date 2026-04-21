@@ -1,24 +1,24 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`ToggleButton > renders 1`] = `
+exports[`Switch > renders 1`] = `
 <DocumentFragment>
-  <div
-    class="_toggle_05d2ba"
+  <form
+    class="_toggle_40ce32"
+    data-size="lg"
   >
     <input
-      aria-label="Play"
-      aria-labelledby="_r_1_"
+      aria-labelledby="_r_0_"
       checked=""
-      name="_r_0_"
+      name="play"
       type="radio"
       value="play"
     />
     <svg
       aria-hidden="true"
       fill="currentColor"
-      height="24"
+      height="1em"
       viewBox="0 0 24 24"
-      width="24"
+      width="1em"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
@@ -26,24 +26,23 @@ exports[`ToggleButton > renders 1`] = `
       />
     </svg>
     <input
-      aria-label="Stop"
-      aria-labelledby="_r_6_"
-      name="_r_0_"
+      aria-labelledby="_r_5_"
+      name="stop"
       type="radio"
       value="stop"
     />
     <svg
       aria-hidden="true"
       fill="currentColor"
-      height="24"
+      height="1em"
       viewBox="0 0 24 24"
-      width="24"
+      width="1em"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
         d="M4 8a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v8a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4z"
       />
     </svg>
-  </div>
+  </form>
 </DocumentFragment>
 `;

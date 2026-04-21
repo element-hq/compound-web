@@ -1,0 +1,99 @@
+/*
+Copyright (C) 2026 Element Creations Ltd
+Copyright 2023, 2024 New Vector Ltd.
+
+SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-Element-Commercial
+Please see LICENSE in the repository root for full details.
+*/
+
+.toggle {
+  &[data-size="lg"] {
+    --cpd-switch-button-size: 44px;
+    --cpd-switch-icon-size: 24px;
+    --cpd-switch-icon-padding: 10px;
+  }
+  &[data-size="md"] {
+    --cpd-switch-button-size: 32px;
+    --cpd-switch-icon-size: 20px;
+    --cpd-icon-button-margin: 0px;
+  }
+
+  padding: var(--cpd-space-1x);
+  border: 1px solid var(--cpd-color-border-interactive-secondary);
+  border-radius: var(--cpd-radius-pill-effect);
+  background: var(--cpd-color-bg-canvas-default);
+  display: flex;
+  position: relative;
+  width: fit-content;
+
+  input {
+    appearance: none;
+    /* Safari puts a margin on these, which is not removed via appearance: none */
+    margin: 0;
+    block-size: var(--cpd-switch-button-size);
+    inline-size: var(--cpd-switch-button-size);
+    cursor: pointer;
+    border-radius: var(--cpd-radius-pill-effect);
+    background: var(--cpd-color-bg-action-secondary-rest);
+    box-shadow: 0px 1.2px 2.4px 0px rgba(0, 0, 0, 0.15);
+    transition: background-color 0.1s;
+  }
+
+  svg {
+    display: block;
+    position: absolute;
+    pointer-events: none;
+    color: var(--cpd-color-icon-primary);
+    transition: color 0.1s;
+    width: var(--cpd-switch-icon-size);
+    height: var(--cpd-switch-icon-size);
+    margin-top: calc(
+      (var(--cpd-switch-button-size) - var(--cpd-switch-icon-size)) / 2
+    );
+  }
+
+  svg:nth-child(2) {
+    inset-inline-start: var(--cpd-space-1x);
+    margin-left: calc(
+      (var(--cpd-switch-button-size) - var(--cpd-switch-icon-size)) / 2
+    );
+  }
+
+  svg:nth-child(4) {
+    inset-inline-end: var(--cpd-space-1x);
+    margin-right: calc(
+      (var(--cpd-switch-button-size) - var(--cpd-switch-icon-size)) / 2
+    );
+  }
+
+  @media (hover: hover) {
+    input:hover {
+      background: var(--cpd-color-bg-action-secondary-hovered);
+      box-shadow: none;
+    }
+    input:checked:hover {
+      background: var(--cpd-color-bg-action-primary-hovered);
+    }
+  }
+
+  input:active {
+    background: var(--cpd-color-bg-action-secondary-pressed);
+    box-shadow: none;
+  }
+
+  input:checked {
+    background: var(--cpd-color-bg-action-primary-rest);
+  }
+
+  input:checked + svg {
+    color: var(--cpd-color-icon-on-solid-primary);
+  }
+
+  input:checked:active {
+    background: var(--cpd-color-bg-action-primary-pressed);
+  }
+
+  input:first-child {
+    margin-inline-end: 5px;
+  }
+}

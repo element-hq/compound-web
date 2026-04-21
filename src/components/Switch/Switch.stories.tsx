@@ -8,7 +8,7 @@ Please see LICENSE files in the repository root for full details.
 import React, { type ComponentProps } from "react";
 import { type Meta, type StoryFn } from "@storybook/react-vite";
 
-import { ToggleButton } from "./ToggleButton";
+import { Switch } from "./Switch";
 import { TooltipProvider } from "../Tooltip/TooltipProvider";
 import { fn } from "storybook/test";
 import {
@@ -18,8 +18,8 @@ import {
 import { useState } from "storybook/internal/preview-api";
 
 const meta = {
-  title: "ToggleButton",
-  component: ToggleButton,
+  title: "Switch",
+  component: Switch,
   tags: ["autodocs"],
   argTypes: {
     size: {
@@ -44,7 +44,7 @@ const meta = {
   parameters: {
     design: {
       type: "figma",
-      url: "https://www.figma.com/design/NKjLzSlbD8JnldYQ5sFpce/Element-Call-Updates---Q1-2025?node-id=358-65788&t=JAOxO4b7eVCo2u9Z-0",
+      url: "https://www.figma.com/design/rTaQE2nIUSLav4Tg3nozq7/Compound-Web-Components?node-id=12554-2698&t=G1RVhzCxMki0lMZs-4",
     },
   },
   decorators: [
@@ -54,16 +54,16 @@ const meta = {
       </TooltipProvider>
     ),
   ],
-} satisfies Meta<typeof ToggleButton>;
+} satisfies Meta<typeof Switch>;
 export default meta;
 
-const Template: StoryFn<typeof ToggleButton> = (
-  args: ComponentProps<typeof ToggleButton>,
+const Template: StoryFn<typeof Switch> = (
+  args: ComponentProps<typeof Switch>,
 ) => {
   // Make it interactive
   const [value, setValue] = useState(args.value);
   return (
-    <ToggleButton
+    <Switch
       {...args}
       value={value}
       onChange={(v) => {
