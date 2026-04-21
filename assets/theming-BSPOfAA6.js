@@ -1,1 +1,0 @@
-import{c as e,g as t}from"./theming-B7gded_7.js";e();export{t as color};
