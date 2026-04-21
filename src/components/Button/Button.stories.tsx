@@ -66,13 +66,25 @@ export const Default: Story = {
     kind: undefined,
     size: undefined,
   },
+  parameters: {
+    design: {
+      type: "figma",
+      url: "https://www.figma.com/design/rTaQE2nIUSLav4Tg3nozq7/Compound-Web-Components?node-id=636-1532&t=CqQz9I7idxYJVjXi-0",
+    },
+  },
 };
 
-export const Small: Story = {
+export const Medium: Story = {
   args: {
     // test component defaults
     kind: undefined,
-    size: "sm",
+    size: "md",
+  },
+  parameters: {
+    design: {
+      type: "figma",
+      url: "https://www.figma.com/design/rTaQE2nIUSLav4Tg3nozq7/Compound-Web-Components?node-id=637-2838&t=CqQz9I7idxYJVjXi-0",
+    },
   },
 };
 
@@ -122,10 +134,10 @@ export const WithIcon: Story = {
   },
 };
 
-export const SmallWithIcon: Story = {
+export const MediumWithIcon: Story = {
   args: {
     ...Primary.args,
-    size: "sm",
+    size: "md",
     Icon: icons.VisibilityOnIcon,
   },
 };

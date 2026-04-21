@@ -61,7 +61,7 @@ a.button {
   padding-inline-start: var(--cpd-space-7x);
 }
 
-.button[data-size="sm"] {
+.button[data-size="md"] {
   padding-block: var(--cpd-space-1x);
   padding-inline: var(--cpd-space-5x);
   min-block-size: var(--cpd-space-9x);
@@ -73,7 +73,7 @@ a.button {
   }
 }
 
-.button[data-size="sm"].has-icon:not(.icon-only) {
+.button[data-size="md"].has-icon:not(.icon-only) {
   padding-inline-start: var(--cpd-space-4x);
 }
 
