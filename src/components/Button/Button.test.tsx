@@ -16,7 +16,7 @@ import { composeStories } from "@storybook/react";
 
 const {
   Default,
-  Small,
+  Medium,
   Primary,
   PrimaryDestructive,
   Secondary,
@@ -24,7 +24,7 @@ const {
   Tertiary,
   TertiaryDestructive,
   WithIcon,
-  SmallWithIcon,
+  MediumWithIcon,
   Disabled,
   Link,
   LinkDisabled,
@@ -35,8 +35,8 @@ describe("Button", () => {
     const { container } = render(<Default />);
     expect(container).toMatchSnapshot();
   });
-  it("renders a Small button", () => {
-    const { container } = render(<Small />);
+  it("renders a Medium button", () => {
+    const { container } = render(<Medium />);
     expect(container).toMatchSnapshot();
   });
   it("renders a Primary button", () => {
@@ -68,7 +68,7 @@ describe("Button", () => {
     expect(container).toMatchSnapshot();
   });
   it("renders a SmallWithIcon button", () => {
-    const { container } = render(<SmallWithIcon />);
+    const { container } = render(<MediumWithIcon />);
     expect(container).toMatchSnapshot();
   });
   it("renders a Disabled button", () => {

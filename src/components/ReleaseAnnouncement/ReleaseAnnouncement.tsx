@@ -193,7 +193,7 @@ function ReleaseAnnouncementContent(): JSX.Element {
         {description}
       </Text>
       <Button
-        size="sm"
+        size="md"
         kind="secondary"
         className={styles.button}
         onClick={onClick}
