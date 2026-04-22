@@ -17,7 +17,7 @@ type ButtonOwnProps = PropsWithChildren<{
     /**
      * The t-shirt size of the button.
      */
-    size?: Size & ("sm" | "lg");
+    size?: Size & ("md" | "lg");
     /**
      * Whether the button is an icon only button.
      */
