@@ -1,0 +1,9 @@
+import{n as e}from"./chunk-DnJy8xQt.js";import{t}from"./react-Baqbuk-D.js";import{t as n}from"./jsx-runtime-DC6t-S6Q.js";import{t as r}from"./dist-Bq344-ZT.js";import{n as i,t as a}from"./info-DSSFWx_z.js";import{n as o,t as s}from"./VisualListItem-B-1_J8KG.js";var c,l,u,d,f,p,m,h;e((()=>{o(),r(),t(),i(),c=n(),l={title:`VisualList/VisualListItem`,component:s,tags:[`autodocs`,`axe-exclude`],argTypes:{},args:{Icon:a,children:`List item description`}},u=e=>(0,c.jsx)(s,{...e}),d=u.bind({}),d.args={},f=u.bind({}),f.args={success:!0},p=u.bind({}),p.args={destructive:!0},m=u.bind({}),m.args={children:`List item with a looooooooooong very looooooooooong loooooooooooooong description`,style:{alignItems:`start`}},d.parameters={...d.parameters,docs:{...d.parameters?.docs,source:{originalSource:`(args: ComponentProps<typeof VisualListItemComponent>) => {
+  return <VisualListItemComponent {...args} />;
+}`,...d.parameters?.docs?.source}}},f.parameters={...f.parameters,docs:{...f.parameters?.docs,source:{originalSource:`(args: ComponentProps<typeof VisualListItemComponent>) => {
+  return <VisualListItemComponent {...args} />;
+}`,...f.parameters?.docs?.source}}},p.parameters={...p.parameters,docs:{...p.parameters?.docs,source:{originalSource:`(args: ComponentProps<typeof VisualListItemComponent>) => {
+  return <VisualListItemComponent {...args} />;
+}`,...p.parameters?.docs?.source}}},m.parameters={...m.parameters,docs:{...m.parameters?.docs,source:{originalSource:`(args: ComponentProps<typeof VisualListItemComponent>) => {
+  return <VisualListItemComponent {...args} />;
+}`,...m.parameters?.docs?.source}}},h=[`Default`,`Success`,`Destructive`,`Multiline`]}))();export{d as Default,p as Destructive,m as Multiline,f as Success,h as __namedExportsOrder,l as default};
