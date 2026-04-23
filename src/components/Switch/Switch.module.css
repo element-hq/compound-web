@@ -24,6 +24,7 @@ Please see LICENSE in the repository root for full details.
   position: relative;
   inline-size: fit-content;
   border: 1px solid var(--cpd-color-border-interactive-secondary);
+
   @media (forced-colors) {
     border: 1px solid;
   }
@@ -68,6 +69,7 @@ Please see LICENSE in the repository root for full details.
     box-shadow: 0 1.2px 2.4px 0 rgb(0 0 0 / 15%);
     transition: background-color 0.1s;
     border: 1px solid var(--cpd-color-bg-action-secondary-pressed);
+
     @media (forced-colors) {
       border: 1px solid;
     }
@@ -95,6 +97,7 @@ Please see LICENSE in the repository root for full details.
 
   input:checked {
     background: var(--cpd-color-bg-action-primary-rest);
+
     @media (forced-colors) {
       border: 3px solid;
     }
