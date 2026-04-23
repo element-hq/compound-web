@@ -18,16 +18,13 @@ Please see LICENSE in the repository root for full details.
   }
 
   padding: var(--cpd-space-0-5x);
-  border-color: var(--cpd-color-border-interactive-secondary);
-  border: 1px solid var(--cpd-color-border-interactive-secondary);
   border-radius: var(--cpd-radius-pill-effect);
   background: var(--cpd-color-bg-canvas-default);
   display: flex;
   position: relative;
   inline-size: fit-content;
-
-  @media (prefers-contrast: more) {
-    /* Firefox only seems to respect this border in high-contrast mode when the value is set exactly like this. */
+  border: 1px solid var(--cpd-color-border-interactive-secondary);
+  @media (forced-colors) {
     border: 1px solid;
   }
 
@@ -71,6 +68,9 @@ Please see LICENSE in the repository root for full details.
     box-shadow: 0 1.2px 2.4px 0 rgb(0 0 0 / 15%);
     transition: background-color 0.1s;
     border: 1px solid var(--cpd-color-bg-action-secondary-pressed);
+    @media (forced-colors) {
+      border: 1px solid;
+    }
   }
 
   input:first-child {
@@ -95,8 +95,8 @@ Please see LICENSE in the repository root for full details.
 
   input:checked {
     background: var(--cpd-color-bg-action-primary-rest);
-    @media (prefers-contrast: more) {
-      border-width: 3px;
+    @media (forced-colors) {
+      border: 3px solid;
     }
   }
 
