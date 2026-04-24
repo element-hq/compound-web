@@ -8,7 +8,7 @@ interface SwitchProps<LeftValue extends string, RightValue extends string> {
     leftValue: LeftValue;
     rightIcon: Icon;
     rightLabel: string;
-    rightValue: LeftValue;
+    rightValue: RightValue;
     value: LeftValue | RightValue;
     onChange: (value: LeftValue | RightValue) => void;
     size?: Size & ("lg" | "md");
