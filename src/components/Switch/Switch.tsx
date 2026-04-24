@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2026 Element Creations Ltd
+Copyright 2026 Element Creations Ltd.
 Copyright 2023, 2024 New Vector Ltd.
 
 SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-Element-Commercial

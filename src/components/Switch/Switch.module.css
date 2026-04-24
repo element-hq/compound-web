@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2026 Element Creations Ltd
+Copyright 2026 Element Creations Ltd.
 Copyright 2023, 2024 New Vector Ltd.
 
 SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-Element-Commercial
@@ -26,6 +26,7 @@ Please see LICENSE in the repository root for full details.
   border: 1px solid var(--cpd-color-border-interactive-secondary);
 
   @media (forced-colors) {
+    /* Firefox seems to lose borders in practice (https://github.com/element-hq/compound-web/pull/482#discussion_r3136544962) so redefine this here. */
     border: 1px solid;
   }
 
@@ -69,10 +70,6 @@ Please see LICENSE in the repository root for full details.
     box-shadow: 0 1.2px 2.4px 0 rgb(0 0 0 / 15%);
     transition: background-color 0.1s;
     border: 1px solid var(--cpd-color-bg-action-secondary-pressed);
-
-    @media (forced-colors) {
-      border: 1px solid;
-    }
   }
 
   input:first-child {
