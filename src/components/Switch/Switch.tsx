@@ -6,7 +6,11 @@ SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-Element-Commercial
 Please see LICENSE in the repository root for full details.
 */
 
-import React, { type ChangeEvent, useCallback } from "react";
+import React, {
+  type ChangeEvent,
+  type FieldsetHTMLAttributes,
+  useCallback,
+} from "react";
 import { Tooltip } from "../../index";
 import classNames from "classnames";
 
@@ -18,7 +22,7 @@ type Icon = React.ForwardRefExoticComponent<
     React.RefAttributes<SVGSVGElement>
 >;
 
-interface Props<LeftValue extends string, RightValue extends string> {
+interface SwitchProps<LeftValue extends string, RightValue extends string> {
   name: string;
   leftIcon: Icon;
   leftLabel: string;
@@ -27,7 +31,6 @@ interface Props<LeftValue extends string, RightValue extends string> {
   rightLabel: string;
   rightValue: LeftValue;
   value: LeftValue | RightValue;
-  className?: string;
   onChange: (value: LeftValue | RightValue) => void;
   size?: Size & ("lg" | "md");
 }
@@ -47,7 +50,12 @@ export const Switch = <
   className,
   onChange,
   size = "lg",
-}: Props<LeftValue, RightValue>): React.ReactElement => {
+  ...fieldSetProps
+}: SwitchProps<LeftValue, RightValue> &
+  Omit<
+    React.HTMLAttributes<HTMLFieldSetElement>,
+    "onChange"
+  >): React.ReactElement => {
   const onInputChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>) =>
       onChange(e.target.value as LeftValue | RightValue),
@@ -55,7 +63,11 @@ export const Switch = <
   );
 
   return (
-    <fieldset data-size={size} className={classNames(styles.toggle, className)}>
+    <fieldset
+      data-size={size}
+      className={classNames(styles.toggle, className)}
+      {...fieldSetProps}
+    >
       <Tooltip label={leftLabel}>
         <input
           type="radio"

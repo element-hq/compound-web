@@ -58,7 +58,7 @@ const meta = {
     (Story) => (
       <TooltipProvider>
         <form>
-          <Story />
+          <Story aria-label="Switch control" />
         </form>
       </TooltipProvider>
     ),

@@ -69,7 +69,7 @@ Please see LICENSE in the repository root for full details.
     background: var(--cpd-color-bg-action-secondary-rest);
     box-shadow: 0 1.2px 2.4px 0 rgb(0 0 0 / 15%);
     transition: background-color 0.1s;
-    border: 1px solid var(--cpd-color-bg-action-secondary-pressed);
+    border: 1px solid var(--cpd-color-border-interactive-secondary);
   }
 
   input:first-child {
@@ -78,6 +78,7 @@ Please see LICENSE in the repository root for full details.
 
   @media (hover: hover) {
     input:hover {
+      border-color: var(--cpd-color-border-interactive-primary);
       background: var(--cpd-color-bg-action-secondary-hovered);
       box-shadow: none;
     }
@@ -93,6 +94,7 @@ Please see LICENSE in the repository root for full details.
   }
 
   input:checked {
+    border: unset;
     background: var(--cpd-color-bg-action-primary-rest);
 
     @media (forced-colors) {
