@@ -1,0 +1,5 @@
+import{n as e}from"./chunk-DnJy8xQt.js";import{t}from"./dist-BVurTHq_.js";import{n,t as r}from"./Text-BYksVgAj.js";var i,a,o,s;e((()=>{t(),n(),i={title:`Typography`,component:r,argTypes:{size:{options:[`xs`,`sm`,`md`,`lg`],control:{type:`inline-radio`}},weight:{options:[`regular`,`medium`,`semibold`],control:{type:`inline-radio`}},children:{type:`string`}},args:{children:`The quick brown fox jumps over the lazy dog`,size:`md`,weight:`regular`}},a={},o={args:{children:`-> 1x2x3`}},a.parameters={...a.parameters,docs:{...a.parameters?.docs,source:{originalSource:`{}`,...a.parameters?.docs?.source}}},o.parameters={...o.parameters,docs:{...o.parameters?.docs,source:{originalSource:`{
+  args: {
+    children: "-> 1x2x3"
+  }
+}`,...o.parameters?.docs?.source}}},s=[`Text`,`Ligatures`]}))();export{o as Ligatures,a as Text,s as __namedExportsOrder,i as default};
