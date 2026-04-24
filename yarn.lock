@@ -1925,9 +1925,9 @@
   integrity sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==
 
 "@vector-im/compound-design-tokens@^10.1.0":
-  version "10.1.0"
-  resolved "https://registry.yarnpkg.com/@vector-im/compound-design-tokens/-/compound-design-tokens-10.1.0.tgz#f4b9c57f54d6f8f4b37ad1ec45bdf6bdd2f2268f"
-  integrity sha512-o+7DGx+NygpT2NPE1Jo//7NZDuyjzRH06eRchS0ZlkJicKx/impEmShmHU/XiE4P84BIFOo9eZ1Ws+rAym6Tuw==
+  version "10.1.1"
+  resolved "https://registry.yarnpkg.com/@vector-im/compound-design-tokens/-/compound-design-tokens-10.1.1.tgz#496eb14e8ad9b66706175338558e4f00a7c5323a"
+  integrity sha512-f2rdTilbPeOjrX7Mh9iTPcp5VergY7JLLWzKVjwMvpT0wtoFKwn59D1hwX2QInpiG70QTCxEdQFYLxQKvJQ74Q==
 
 "@vitejs/plugin-react@^6.0.0":
   version "6.0.1"
