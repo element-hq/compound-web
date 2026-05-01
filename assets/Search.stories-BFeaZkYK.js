@@ -1,3 +1,0 @@
-import{n as e}from"./chunk-DnJy8xQt.js";import{J as t}from"./iframe-CU1HCcUZ.js";import{t as n}from"./jsx-runtime-B-hFyic3.js";import{t as r}from"./dist-CsQN413h.js";import{l as i,r as a}from"./dist-CxlpSXkl.js";import{o,s}from"./EditInPlace-B8fb98LX.js";var c,l,u,d;e((()=>{t(),r(),i(),s(),c=n(),l={title:`Search`,component:o,tags:[`autodocs`],argTypes:{},args:{name:`search`},decorators:[e=>(0,c.jsx)(a,{children:(0,c.jsx)(e,{})})]},u={args:{}},u.parameters={...u.parameters,docs:{...u.parameters?.docs,source:{originalSource:`{
-  args: {}
-}`,...u.parameters?.docs?.source}}},d=[`Search`]}))();export{u as Search,d as __namedExportsOrder,l as default};
