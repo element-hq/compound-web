@@ -26,14 +26,10 @@ jobs:
           token: ${{ secrets.ELEMENT_BOT_TOKEN }}
 
       - name: 🔧 Set up node environment
-        uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6
+        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6
         with:
           cache: "yarn"
           node-version-file: ".node-version"
-
-      # Ensure npm 11.5.1 or later is installed
-      - name: Update npm
-        run: npm install -g npm@latest
 
       - name: 🛠️ Setup
         # When running `install` it also calls the `prepare` step which generates
