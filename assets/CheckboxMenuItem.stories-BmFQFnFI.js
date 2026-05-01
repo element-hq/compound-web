@@ -1,4 +1,0 @@
-import{a as e,n as t}from"./chunk-DnJy8xQt.js";import{J as n}from"./iframe-CH0aQRFm.js";import{t as r}from"./jsx-runtime-B-hFyic3.js";import{t as i}from"./dist-Ck6gIxc3.js";import{a,i as o}from"./EditInPlace-DK8uuYEd.js";var s,c,l,u,d,f;t((()=>{s=e(n(),1),a(),i(),c=r(),l=e=>{let[t,n]=(0,s.useState)(!1);return(0,c.jsxs)(`div`,{style:{width:300},role:`menu`,children:[(0,c.jsx)(o,{...e,label:`First item`,checked:t,onSelect:e=>{e.preventDefault(),n(e=>!e)}}),(0,c.jsx)(o,{...e,label:`Second item with a name that's quite long`,checked:!0,disabled:!0,onSelect:()=>{}})]})},u={title:`Menu/CheckboxMenuItem`,component:l,tags:[`autodocs`],argTypes:{},args:{}},d={tags:[`axe-exclude`],args:{}},d.parameters={...d.parameters,docs:{...d.parameters?.docs,source:{originalSource:`{
-  tags: ["axe-exclude"],
-  args: {}
-}`,...d.parameters?.docs?.source}}},f=[`Primary`]}))();export{d as Primary,f as __namedExportsOrder,u as default};
