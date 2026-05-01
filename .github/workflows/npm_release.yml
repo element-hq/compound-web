@@ -31,10 +31,6 @@ jobs:
           cache: "yarn"
           node-version-file: ".node-version"
 
-      # Ensure npm 11.5.1 or later is installed
-      - name: Update npm
-        run: npm install -g npm@latest
-
       - name: 🛠️ Setup
         # When running `install` it also calls the `prepare` step which generates
         # a build
