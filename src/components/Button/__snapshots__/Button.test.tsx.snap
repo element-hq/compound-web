@@ -62,6 +62,21 @@ exports[`Button > renders a LinkDisabled button 1`] = `
 </div>
 `;
 
+exports[`Button > renders a Medium button 1`] = `
+<div>
+  <button
+    aria-disabled="false"
+    class="_button_0829c1"
+    data-kind="primary"
+    data-size="md"
+    role="button"
+    tabindex="0"
+  >
+    Click me!
+  </button>
+</div>
+`;
+
 exports[`Button > renders a Primary Destructive button 1`] = `
 <div>
   <button
@@ -122,28 +137,13 @@ exports[`Button > renders a Secondary button 1`] = `
 </div>
 `;
 
-exports[`Button > renders a Small button 1`] = `
-<div>
-  <button
-    aria-disabled="false"
-    class="_button_0829c1"
-    data-kind="primary"
-    data-size="sm"
-    role="button"
-    tabindex="0"
-  >
-    Click me!
-  </button>
-</div>
-`;
-
 exports[`Button > renders a SmallWithIcon button 1`] = `
 <div>
   <button
     aria-disabled="false"
     class="_button_0829c1 _has-icon_0829c1"
     data-kind="primary"
-    data-size="sm"
+    data-size="md"
     role="button"
     tabindex="0"
   >

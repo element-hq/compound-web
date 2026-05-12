@@ -22,12 +22,12 @@ import React, {
   useState,
   type KeyboardEvent,
   useMemo,
+  useId,
 } from "react";
 
 import classNames from "classnames";
 
 import styles from "./Dropdown.module.css";
-import { useId } from "@floating-ui/react";
 
 type DropdownProps = {
   /**

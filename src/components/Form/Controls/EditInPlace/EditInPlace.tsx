@@ -303,7 +303,7 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
                     <Button
                       type="submit"
                       kind="primary"
-                      size="sm"
+                      size="md"
                       ref={saveButtonRef}
                       disabled={state !== State.Dirty}
                       iconOnly
@@ -316,7 +316,7 @@ export const EditInPlace = forwardRef<HTMLInputElement, Props>(
                   <Button
                     type="reset"
                     kind="secondary"
-                    size="sm"
+                    size="md"
                     ref={cancelButtonRef}
                     className={styles.button}
                     disabled={state === State.Saving}

@@ -161,7 +161,7 @@ export const Invite: Story = {
   args: {
     label: "Invite",
     kind: "primary",
-    size: "sm",
+    size: "md",
     Icon: icons.UserAddIcon,
   },
 };
@@ -170,7 +170,7 @@ export const Edit: Story = {
   args: {
     label: "Edit",
     kind: "primary",
-    size: "sm",
+    size: "md",
     Icon: icons.EditIcon,
   },
 };
@@ -179,7 +179,7 @@ export const Search: Story = {
   args: {
     label: "Search",
     kind: "secondary",
-    size: "sm",
+    size: "md",
     Icon: icons.SearchIcon,
   },
 };
@@ -188,7 +188,7 @@ export const Save: Story = {
   args: {
     label: "Save",
     kind: "primary",
-    size: "sm",
+    size: "md",
     Icon: icons.CheckIcon,
   },
 };
@@ -197,7 +197,7 @@ export const SaveDisabled: Story = {
   args: {
     label: "Save",
     kind: "primary",
-    size: "sm",
+    size: "md",
     Icon: icons.CheckIcon,
     disabled: true,
   },
@@ -207,7 +207,7 @@ export const Cancel: Story = {
   args: {
     label: "Cancel",
     kind: "secondary",
-    size: "sm",
+    size: "md",
     Icon: icons.CloseIcon,
   },
 };
@@ -216,7 +216,7 @@ export const Close: Story = {
   args: {
     label: "Close",
     kind: "secondary",
-    size: "sm",
+    size: "md",
     Icon: icons.CloseIcon,
   },
 };

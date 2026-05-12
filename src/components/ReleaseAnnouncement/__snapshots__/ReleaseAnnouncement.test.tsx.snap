@@ -49,7 +49,7 @@ exports[`ReleaseAnnouncement > renders 1`] = `
   <button
     class="_button_0829c1 _button_4b2dd5"
     data-kind="secondary"
-    data-size="sm"
+    data-size="md"
     role="button"
     tabindex="0"
   >
@@ -107,7 +107,7 @@ exports[`ReleaseAnnouncement > renders the component at the bottom of the trigge
   <button
     class="_button_0829c1 _button_4b2dd5"
     data-kind="secondary"
-    data-size="sm"
+    data-size="md"
     role="button"
     tabindex="0"
   >
@@ -165,7 +165,7 @@ exports[`ReleaseAnnouncement > renders with a long label header and description 
   <button
     class="_button_0829c1 _button_4b2dd5"
     data-kind="secondary"
-    data-size="sm"
+    data-size="md"
     role="button"
     tabindex="0"
   >
@@ -200,7 +200,7 @@ exports[`ReleaseAnnouncement > renders without an arrow 1`] = `
   <button
     class="_button_0829c1 _button_4b2dd5"
     data-kind="secondary"
-    data-size="sm"
+    data-size="md"
     role="button"
     tabindex="0"
   >

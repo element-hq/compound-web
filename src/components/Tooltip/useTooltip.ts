@@ -18,7 +18,6 @@ import {
   useFloating,
   useFocus,
   useHover,
-  useId,
   useInteractions,
   useRole,
 } from "@floating-ui/react";
@@ -29,6 +28,7 @@ import {
   type JSX,
   type AriaAttributes,
   useEffect,
+  useId,
 } from "react";
 import { hoverDelay } from "./TooltipProvider";
 

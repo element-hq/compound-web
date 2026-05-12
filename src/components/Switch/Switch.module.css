@@ -1,0 +1,112 @@
+/*
+Copyright 2026 Element Creations Ltd.
+Copyright 2023, 2024 New Vector Ltd.
+
+SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-Element-Commercial
+Please see LICENSE in the repository root for full details.
+*/
+
+.toggle {
+  &[data-size="lg"] {
+    --cpd-switch-button-size: 44px;
+    --cpd-switch-icon-size: 24px;
+  }
+
+  &[data-size="md"] {
+    --cpd-switch-button-size: 32px;
+    --cpd-switch-icon-size: 20px;
+  }
+
+  padding: var(--cpd-space-0-5x);
+  border-radius: var(--cpd-radius-pill-effect);
+  background: var(--cpd-color-bg-canvas-default);
+  display: flex;
+  position: relative;
+  inline-size: fit-content;
+  border: 1px solid var(--cpd-color-border-interactive-secondary);
+
+  @media (forced-colors) {
+    /* Firefox seems to lose borders in practice (https://github.com/element-hq/compound-web/pull/482#discussion_r3136544962) so redefine this here. */
+    border: 1px solid;
+  }
+
+  svg {
+    display: block;
+    position: absolute;
+    pointer-events: none;
+    color: var(--cpd-color-icon-primary);
+    transition: color 0.1s;
+    inline-size: var(--cpd-switch-icon-size);
+    block-size: var(--cpd-switch-icon-size);
+    margin-block-start: calc(
+      (var(--cpd-switch-button-size) - var(--cpd-switch-icon-size)) / 2
+    );
+  }
+
+  svg:nth-child(2) {
+    inset-inline-start: var(--cpd-space-0-5x);
+    margin-inline-start: calc(
+      (var(--cpd-switch-button-size) - var(--cpd-switch-icon-size)) / 2
+    );
+  }
+
+  svg:nth-child(4) {
+    inset-inline-end: var(--cpd-space-0-5x);
+    margin-inline-end: calc(
+      (var(--cpd-switch-button-size) - var(--cpd-switch-icon-size)) / 2
+    );
+  }
+
+  input {
+    appearance: none;
+
+    /* Safari puts a margin on these, which is not removed via appearance: none */
+    margin: 0;
+    block-size: var(--cpd-switch-button-size);
+    inline-size: var(--cpd-switch-button-size);
+    cursor: pointer;
+    border-radius: var(--cpd-radius-pill-effect);
+    background: var(--cpd-color-bg-action-secondary-rest);
+    box-shadow: 0 1.2px 2.4px 0 rgb(0 0 0 / 15%);
+    transition: background-color 0.1s;
+    border: 1px solid var(--cpd-color-border-interactive-secondary);
+  }
+
+  input:first-child {
+    margin-inline-end: 5px;
+  }
+
+  @media (hover: hover) {
+    input:hover {
+      border-color: var(--cpd-color-border-interactive-primary);
+      background: var(--cpd-color-bg-action-secondary-hovered);
+      box-shadow: none;
+    }
+
+    input:checked:hover {
+      background: var(--cpd-color-bg-action-primary-hovered);
+    }
+  }
+
+  input:active {
+    background: var(--cpd-color-bg-action-secondary-pressed);
+    box-shadow: none;
+  }
+
+  input:checked {
+    border: unset;
+    background: var(--cpd-color-bg-action-primary-rest);
+
+    @media (forced-colors) {
+      border: 3px solid;
+    }
+  }
+
+  input:checked + svg {
+    color: var(--cpd-color-icon-on-solid-primary);
+  }
+
+  input:checked:active {
+    background: var(--cpd-color-bg-action-primary-pressed);
+  }
+}
