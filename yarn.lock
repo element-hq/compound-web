@@ -1354,10 +1354,10 @@
   resolved "https://registry.yarnpkg.com/@rolldown/pluginutils/-/pluginutils-1.0.0-rc.18.tgz#51cf2589596a179ebe8cbf313f1358c7b51a2fdc"
   integrity sha512-CUY5Mnhe64xQBGZEEXQ5WyZwsc1JU3vAZLIxtrsBt3LO6UOb+C8GunVKqe9sT8NeWb4lqSaoJtp2xo6GxT1MNw==
 
-"@rolldown/pluginutils@1.0.0-rc.7":
-  version "1.0.0-rc.7"
-  resolved "https://registry.yarnpkg.com/@rolldown/pluginutils/-/pluginutils-1.0.0-rc.7.tgz#0414869467f0e471a6515d4f506c85fde867e022"
-  integrity sha512-qujRfC8sFVInYSPPMLQByRh7zhwkGFS4+tyMQ83srV1qrxL4g8E2tyxVVyxd0+8QeBM1mIk9KbWxkegRr76XzA==
+"@rolldown/pluginutils@^1.0.0":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@rolldown/pluginutils/-/pluginutils-1.0.1.tgz#e3fcee093fbb5ce765e1ad088ff4de2889f6f9be"
+  integrity sha512-2j9bGt5Jh8hj+vPtgzPtl72j0yRxHAyumoo6TNfAjsLB04UtpSvPbPcDcBMxz7n+9CYB0c1GxQFxYRg2jimqGw==
 
 "@rollup/pluginutils@^5.0.2":
   version "5.3.0"
@@ -1804,16 +1804,16 @@
   integrity sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==
 
 "@vector-im/compound-design-tokens@^10.1.0":
-  version "10.1.1"
-  resolved "https://registry.yarnpkg.com/@vector-im/compound-design-tokens/-/compound-design-tokens-10.1.1.tgz#496eb14e8ad9b66706175338558e4f00a7c5323a"
-  integrity sha512-f2rdTilbPeOjrX7Mh9iTPcp5VergY7JLLWzKVjwMvpT0wtoFKwn59D1hwX2QInpiG70QTCxEdQFYLxQKvJQ74Q==
+  version "10.2.0"
+  resolved "https://registry.yarnpkg.com/@vector-im/compound-design-tokens/-/compound-design-tokens-10.2.0.tgz#e7668a42e05206078e30835087b10490b1b7652d"
+  integrity sha512-0/xEt6HuYMxRt6F4bSwB8DjgCEB26bFVqSwvVlcDbDWPun8e2p+NWTfJ109SMZFOAtPgmEcShB3xz/lG+zqgiA==
 
 "@vitejs/plugin-react@^6.0.0":
-  version "6.0.1"
-  resolved "https://registry.yarnpkg.com/@vitejs/plugin-react/-/plugin-react-6.0.1.tgz#d9113b71a0a592714913eafd9e5e63bcafd0ff15"
-  integrity sha512-l9X/E3cDb+xY3SWzlG1MOGt2usfEHGMNIaegaUGFsLkb3RCn/k8/TOXBcab+OndDI4TBtktT8/9BwwW8Vi9KUQ==
+  version "6.0.2"
+  resolved "https://registry.yarnpkg.com/@vitejs/plugin-react/-/plugin-react-6.0.2.tgz#f70cb8ed0ce225dbc3055d78070f820d8aa35eda"
+  integrity sha512-DlSMqo4WhThw4vB8Mpn0Woe9J+Jfq1geJ61AKW0QEgLzGMNwtIMdxbDUzLxcun8W7NbJO0e2Jg/Nxm3cCSVzzg==
   dependencies:
-    "@rolldown/pluginutils" "1.0.0-rc.7"
+    "@rolldown/pluginutils" "^1.0.0"
 
 "@vitest/coverage-v8@^4.0.0":
   version "4.1.5"
