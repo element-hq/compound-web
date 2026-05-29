@@ -282,16 +282,16 @@
   resolved "https://registry.yarnpkg.com/@csstools/selector-specificity/-/selector-specificity-6.0.0.tgz#ef28e27c1ded1d8e5c54879a9399e7055aed1920"
   integrity sha512-4sSgl78OtOXEX/2d++8A83zHNTgwCJMaR24FvsYL7Uf/VS8HZk9PTwR51elTbGqMuwH3szLvvOXEaVnqn0Z3zA==
 
-"@element-hq/element-web-playwright-common@^4.0.0":
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/@element-hq/element-web-playwright-common/-/element-web-playwright-common-4.0.0.tgz#3448df530f1d7d8c1268bc5c75cb86e3f36a70f6"
-  integrity sha512-EQ68nmcXbwxif4W9QMi0l3loFmi1bDsXk3If15X+R2uZ3HVrcB7M7TMhpVgeMEpOu3YOYqFbT3ZrmaM4GlMSRg==
+"@element-hq/element-web-playwright-common@^6.0.0":
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/@element-hq/element-web-playwright-common/-/element-web-playwright-common-6.0.0.tgz#45c3aff1cc79d53da887660d8f7d460460c6eb6d"
+  integrity sha512-9rOxyYl7s6umIzIa1HsbgfHt3VxppcYxdsD+86bmfWgSXmYQl/rs/ThCoZt8/pyoS1cH30DcwYitJaLc96qLuQ==
   dependencies:
     "@axe-core/playwright" "^4.10.1"
     "@testcontainers/postgresql" "^11.0.0"
     glob "^13.0.5"
     lodash-es "^4.17.23"
-    mailpit-api "^1.2.0"
+    mailpit-api "^2.0.0"
     strip-ansi "^7.1.0"
     testcontainers "^11.0.0"
     wait-on "^9.0.4"
@@ -3353,11 +3353,6 @@ esutils@^2.0.2:
   resolved "https://registry.yarnpkg.com/esutils/-/esutils-2.0.3.tgz#74d2eb4de0b8da1293711910d50775b9b710ef64"
   integrity sha512-kVscqXk4OCp68SZ0dkgEKVi6/8ij300KBWTJq32P/dYeWTSwK41WyTxalN1eRmA5Z9UU/LX9D7FWSmV9SAYx6g==
 
-event-target-polyfill@^0.0.4:
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/event-target-polyfill/-/event-target-polyfill-0.0.4.tgz#060ee66e85aaedc76b6fa66079782dcc11cba496"
-  integrity sha512-Gs6RLjzlLRdT8X9ZipJdIZI/Y6/HhRLyq9RdDlCsnpxr/+Nn6bU2EFGuC94GjxqhM+Nmij2Vcq98yoHrU8uNFQ==
-
 event-target-shim@^5.0.0:
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/event-target-shim/-/event-target-shim-5.0.1.tgz#5d4d3ebdf9583d63a5333ce2deb7480ab2b05789"
@@ -4198,11 +4193,6 @@ isexe@^2.0.0:
   resolved "https://registry.yarnpkg.com/isexe/-/isexe-2.0.0.tgz#e8fbf374dc556ff8947a10dcb0572d633f2cfa10"
   integrity sha512-RHxMLp9lnKHGHRng9QFhRCMbYAcVpn69smSGcq3f36xjgVVWThj4qqLbTLlq7Ssj8B+fIQ1EuCEGI2lKsyQeIw==
 
-isomorphic-ws@^5.0.0:
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/isomorphic-ws/-/isomorphic-ws-5.0.0.tgz#e5529148912ecb9b451b46ed44d53dae1ce04bbf"
-  integrity sha512-muId7Zzn9ywDsyXgTIafTry2sV3nySZeUDe6YedVd1Hvuuep5AsIlqK+XefWpYTyJG5e503F2xIuT2lcU6rCSw==
-
 istanbul-lib-coverage@^3.0.0, istanbul-lib-coverage@^3.2.2:
   version "3.2.2"
   resolved "https://registry.yarnpkg.com/istanbul-lib-coverage/-/istanbul-lib-coverage-3.2.2.tgz#2d166c4b0644d43a39f04bf6c2edd1e585f31756"
@@ -4562,15 +4552,10 @@ magicast@^0.5.2:
     "@babel/types" "^7.29.0"
     source-map-js "^1.2.1"
 
-mailpit-api@^1.2.0:
-  version "1.9.0"
-  resolved "https://registry.yarnpkg.com/mailpit-api/-/mailpit-api-1.9.0.tgz#a4acbf2845c947e085dc1a7aaec2f639cd0f26d6"
-  integrity sha512-KoZIR7vfE7boEBLZ7fOw6SpGxn2pF207eLEWCoYePKAayFe3zYxGUgxNwxzEAp0hwVYSoe0lJQdeprHLEuelhA==
-  dependencies:
-    axios "^1.15.0"
-    isomorphic-ws "^5.0.0"
-    partysocket "^1.1.10"
-    ws "^8.18.3"
+mailpit-api@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/mailpit-api/-/mailpit-api-2.0.0.tgz#f922eaf7e06209b4b2b0ef7d367da0ce8eb1aec8"
+  integrity sha512-zK68B0CRVZaJS1PaX7omFhKUKSLp4JMMpAUTRYbCmcrgJ9nguIh4sS+RRUyFeW1nykDNH8PVlRz/WSXsq9ZqlQ==
 
 make-dir@^4.0.0:
   version "4.0.0"
@@ -4934,13 +4919,6 @@ parse5@^8.0.1:
   integrity sha512-z1e/HMG90obSGeidlli3hj7cbocou0/wa5HacvI3ASx34PecNjNQeaHNo5WIZpWofN9kgkqV1q5YvXe3F0FoPw==
   dependencies:
     entities "^8.0.0"
-
-partysocket@^1.1.10:
-  version "1.1.17"
-  resolved "https://registry.yarnpkg.com/partysocket/-/partysocket-1.1.17.tgz#043eb5e1dcfba25c0d1c802d264030a38621f7a7"
-  integrity sha512-tSwTRAyHEyoxydG2D6IjQKt4WbpLXi3Tvklviro7AdPJtod15DzBzyJLGry7tSegPAor+cHjgwLmZcG+60gLWA==
-  dependencies:
-    event-target-polyfill "^0.0.4"
 
 path-browserify@^1.0.1:
   version "1.0.1"
@@ -6685,7 +6663,7 @@ write-file-atomic@^7.0.1:
   dependencies:
     signal-exit "^4.0.1"
 
-ws@^8.18.0, ws@^8.18.3:
+ws@^8.18.0:
   version "8.20.0"
   resolved "https://registry.yarnpkg.com/ws/-/ws-8.20.0.tgz#4cd9532358eba60bc863aad1623dfb045a4d4af8"
   integrity sha512-sAt8BhgNbzCtgGbt2OxmpuryO63ZoDk/sqaB/znQm94T4fCEsy/yV+7CdC1kJhOU9lboAEU7R3kquuycDoibVA==
