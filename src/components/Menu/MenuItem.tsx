@@ -145,7 +145,7 @@ export const MenuItem = <C extends MenuItemElement = "button">({
 
       {label !== null && (
         <Text
-          className={styles.label}
+          className={classnames(styles.label, labelProps?.className)}
           size="md"
           weight="medium"
           as="span"
