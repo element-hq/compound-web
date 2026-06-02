@@ -16,6 +16,8 @@ React implementation of Compound – Element's design system – See full docume
 | `yarn lint`                | Lints all components          |
 | `yarn gen:component $name` | Bootstraps a new component    |
 
+Make sure to read the [guidelines for component development](https://compound.element.io/?path=/docs/develop-contributing--docs).
+
 ### Testing
 
 | Command              | Runs                              |
@@ -53,7 +55,7 @@ To release a new version of Compound Web:
 
 ## Copyright & License
 
-Copyright (c) 2023-2025 New Vector Ltd
+Copyright (c) 2023-2026 New Vector Ltd
 
 This software is multi licensed by New Vector Ltd (Element). It can be used either:
 
