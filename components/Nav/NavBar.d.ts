@@ -20,6 +20,6 @@ type NavBarProps = {
 /**
  * A navigation bar component
  */
-export declare const NavBar: ({ children, className, role, "aria-label": ariaLabel, ...rest }: React.PropsWithChildren<NavBarProps>) => import("react/jsx-runtime").JSX.Element;
+export declare const NavBar: ({ children, className, role, "aria-label": ariaLabel, ...rest }: React.PropsWithChildren<NavBarProps>) => React.JSX.Element;
 export {};
 //# sourceMappingURL=NavBar.d.ts.map

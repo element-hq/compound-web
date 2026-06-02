@@ -1,4 +1,4 @@
-import { HTMLProps } from '../../../node_modules/react';
+import { default as React, HTMLProps } from '../../../node_modules/react';
 interface UnreadCounterProps extends HTMLProps<HTMLDivElement> {
     /**
      * The number to display.
@@ -6,6 +6,6 @@ interface UnreadCounterProps extends HTMLProps<HTMLDivElement> {
      */
     count: string | number | null;
 }
-export declare function UnreadCounter({ count, ...props }: UnreadCounterProps): import("react/jsx-runtime").JSX.Element;
+export declare function UnreadCounter({ count, ...props }: UnreadCounterProps): React.JSX.Element;
 export {};
 //# sourceMappingURL=UnreadCounter.d.ts.map
