@@ -1,3 +1,0 @@
-import{i as e}from"./preload-helper-xPQekRTU.js";import{Y as t}from"./iframe-BlM1rryP.js";import{t as n}from"./jsx-runtime-CaZkqeYb.js";import{t as r}from"./dist-DL9tHcxq.js";import{l as i,r as a}from"./dist-BosFOuK8.js";import{c as o,s}from"./EditInPlace-C_qEJfEg.js";var c,l,u,d;e((()=>{t(),r(),i(),o(),c=n(),l={title:`Search`,component:s,tags:[`autodocs`],argTypes:{},args:{name:`search`},decorators:[e=>(0,c.jsx)(a,{children:(0,c.jsx)(e,{})})]},u={args:{}},u.parameters={...u.parameters,docs:{...u.parameters?.docs,source:{originalSource:`{
-  args: {}
-}`,...u.parameters?.docs?.source}}},d=[`Search`]}))();export{u as Search,d as __namedExportsOrder,l as default};
