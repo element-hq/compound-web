@@ -87,7 +87,7 @@ export interface CommonUseTooltipProps {
    * near containers they should not overlap (e.g. the message composer).
    * @default undefined
    */
-  boundary?: Element | null | Element[];
+  boundary?: Element | Element[];
 
   /**
    * Additional aria-* attributes to pass through to the floating tooltip for
@@ -156,19 +156,14 @@ export function useTooltip({
         crossAxis: placement.includes("-"),
         fallbackAxisSideDirection: "start",
         padding: 5,
-        // Only pass boundary if set — FloatingUI's Boundary type excludes null
-        ...(boundary ? { boundary } : {}),
+        boundary,
       }),
       shift({ padding: 5 }),
-      ...(boundary
-        ? [
-            hide({
-              strategy: "escaped",
-              boundary,
-              padding: 6,
-            }),
-          ]
-        : []),
+      hide({
+        strategy: "escaped",
+        boundary,
+        padding: 6,
+      }),
       // add the little arrow along with the floating content
       arrow({
         element: arrowRef,
