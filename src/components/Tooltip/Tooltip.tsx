@@ -127,6 +127,9 @@ function TooltipContent({
   // Label tooltips are kept in the DOM even when not visually open
   if (!open && purpose !== "label") return null;
 
+  // Hide the tooltip if it has escaped its boundary (when `boundary` prop is set)
+  const escaped = floatingContext.middlewareData?.hide?.escaped ?? false;
+
   return (
     <FloatingPortal>
       <div
@@ -135,7 +138,7 @@ function TooltipContent({
         {...rest.tooltipProps}
         {...rest.getFloatingProps()}
         className={classNames(styles.tooltip, {
-          [styles.invisible]: purpose === "label" && !open,
+          [styles.invisible]: (purpose === "label" && !open) || escaped,
         })}
       >
         <FloatingArrow
