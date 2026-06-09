@@ -40,6 +40,16 @@ export interface CommonUseTooltipProps {
      */
     isTriggerInteractive: boolean;
     /**
+     * An optional boundary element to constrain the tooltip within.
+     * When provided, the tooltip will be hidden if it escapes this boundary.
+     * Also passed to the `flip` middleware so it can choose a placement that
+     * keeps the tooltip inside the boundary.
+     * Accepts a single Element or an array of Elements. Useful for tooltips
+     * near containers they should not overlap (e.g. the message composer).
+     * @default undefined
+     */
+    boundary?: Element | Element[];
+    /**
      * Additional aria-* attributes to pass through to the floating tooltip for
      * edge cases which require more user awareness like errors & alerts.
      */
@@ -59,7 +69,7 @@ export interface TooltipDescription {
     description: string;
 }
 type UseTooltipProps = CommonUseTooltipProps & (TooltipLabel | TooltipDescription);
-export declare function useTooltip({ open: controlledOpen, disabled, onOpenChange, placement, isTriggerInteractive, caption, "aria-atomic": ariaAtomic, "aria-live": ariaLive, ...props }: UseTooltipProps): {
+export declare function useTooltip({ open: controlledOpen, disabled, onOpenChange, placement, isTriggerInteractive, caption, "aria-atomic": ariaAtomic, "aria-live": ariaLive, boundary, ...props }: UseTooltipProps): {
     arrowRef: import('../../../node_modules/react').RefObject<null>;
     placement: Placement;
     strategy: import('@floating-ui/utils').Strategy;
