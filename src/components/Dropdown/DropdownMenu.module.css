@@ -1,0 +1,68 @@
+/*
+Copyright 2024 New Vector Ltd.
+Copyright 2026 Element Creations Ltd.
+
+SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-Element-Commercial
+Please see LICENSE files in the repository root for full details.
+*/
+
+.border {
+  display: none;
+  border-inline-start: 1px solid var(--cpd-color-border-interactive-secondary);
+  border-inline-end: 1px solid var(--cpd-color-border-interactive-secondary);
+  block-size: var(--cpd-space-1x);
+  margin-block-start: calc(var(--cpd-space-1x) * -1);
+  box-sizing: border-box;
+}
+
+.content {
+  display: none;
+  position: relative;
+
+  ul {
+    /**
+     * To make the component going over the other elements
+     */
+    position: absolute;
+    display: block;
+    inline-size: 100%;
+    background: var(--cpd-color-bg-canvas-default);
+    border: 1px solid var(--cpd-color-border-interactive-secondary);
+    border-block-start: 0;
+    border-end-start-radius: var(--cpd-space-4x);
+    border-end-end-radius: var(--cpd-space-4x);
+    box-sizing: border-box;
+    box-shadow: 0 4px 24px 0 rgb(27 29 34 / 10%);
+    margin: 0;
+    padding: 0;
+    padding-block-end: var(--cpd-space-4x);
+    cursor: pointer;
+
+    li {
+      list-style-type: "";
+      font: var(--cpd-font-body-md-medium);
+      padding: var(--cpd-space-3x) var(--cpd-space-4x);
+      border-block-end: 1px solid var(--cpd-color-gray-300);
+      color: var(--cpd-color-text-secondary);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--cpd-space-4x);
+
+      @media (hover) {
+        &:hover {
+          background: var(--cpd-color-gray-200);
+        }
+      }
+
+      &[aria-selected="true"] {
+        color: var(--cpd-color-text-primary);
+        background: var(--cpd-color-gray-300);
+      }
+    }
+  }
+}
+
+.open {
+  display: block;
+}
