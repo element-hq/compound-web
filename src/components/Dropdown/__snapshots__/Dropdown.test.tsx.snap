@@ -33,13 +33,12 @@ exports[`Dropdown > can be opened 1`] = `
       </svg>
     </button>
     <div
-      class="_border_1f39d3 _open_1f39d3"
+      class="_border_053716 _open_053716"
     />
     <div
-      class="_content_1f39d3 _open_1f39d3"
+      class="_content_053716 _open_053716"
     >
       <ul
-        class="_content_1f39d3"
         id="_r_9_"
         role="listbox"
       >
@@ -106,13 +105,12 @@ exports[`Dropdown > can select a value 1`] = `
       </svg>
     </button>
     <div
-      class="_border_1f39d3 _open_1f39d3"
+      class="_border_053716 _open_053716"
     />
     <div
-      class="_content_1f39d3 _open_1f39d3"
+      class="_content_053716 _open_053716"
     >
       <ul
-        class="_content_1f39d3"
         id="_r_b_"
         role="listbox"
       >
@@ -190,13 +188,12 @@ exports[`Dropdown > renders a Default dropdown 1`] = `
       </svg>
     </button>
     <div
-      class="_border_1f39d3"
+      class="_border_053716"
     />
     <div
-      class="_content_1f39d3"
+      class="_content_053716"
     >
       <ul
-        class="_content_1f39d3"
         id="_r_1_"
         role="listbox"
       >
@@ -263,13 +260,12 @@ exports[`Dropdown > renders a dropdown with a default value  1`] = `
       </svg>
     </button>
     <div
-      class="_border_1f39d3"
+      class="_border_053716"
     />
     <div
-      class="_content_1f39d3"
+      class="_content_053716"
     >
       <ul
-        class="_content_1f39d3"
         id="_r_7_"
         role="listbox"
       >
@@ -347,13 +343,12 @@ exports[`Dropdown > renders a dropdown with a help label 1`] = `
       </svg>
     </button>
     <div
-      class="_border_1f39d3"
+      class="_border_053716"
     />
     <div
-      class="_content_1f39d3"
+      class="_content_053716"
     >
       <ul
-        class="_content_1f39d3"
         id="_r_3_"
         role="listbox"
       >
@@ -425,13 +420,12 @@ exports[`Dropdown > renders a dropdown with an error  1`] = `
       </svg>
     </button>
     <div
-      class="_border_1f39d3"
+      class="_border_053716"
     />
     <div
-      class="_content_1f39d3"
+      class="_content_053716"
     >
       <ul
-        class="_content_1f39d3"
         id="_r_5_"
         role="listbox"
       >
