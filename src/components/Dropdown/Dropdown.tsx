@@ -6,14 +6,11 @@ Please see LICENSE files in the repository root for full details.
 */
 
 import ChevronDown from "@vector-im/compound-design-tokens/assets/web/icons/chevron-down";
-import Check from "@vector-im/compound-design-tokens/assets/web/icons/check";
 import Error from "@vector-im/compound-design-tokens/assets/web/icons/error-solid";
 
 import React, {
   type Dispatch,
   forwardRef,
-  type HTMLProps,
-  memo,
   type RefObject,
   type SetStateAction,
   useCallback,
@@ -28,6 +25,7 @@ import React, {
 import classNames from "classnames";
 
 import styles from "./Dropdown.module.css";
+import { DropdownMenu } from "./DropdownMenu";
 
 type DropdownProps = {
   /**
@@ -125,12 +123,6 @@ export const Dropdown = forwardRef<HTMLButtonElement, DropdownProps>(
     const buttonClasses = classNames({
       [styles.placeholder]: hasPlaceholder,
     });
-    const borderClasses = classNames(styles.border, {
-      [styles.open]: open,
-    });
-    const contentClasses = classNames(styles.content, {
-      [styles.open]: open,
-    });
 
     /**
      * Ids for accessibility.
@@ -169,30 +161,18 @@ export const Dropdown = forwardRef<HTMLButtonElement, DropdownProps>(
           {text}
           <ChevronDown width="24" height="24" />
         </button>
-        <div className={borderClasses} />
-        <div className={contentClasses}>
-          <ul
-            ref={listRef}
-            id={contentId}
-            role="listbox"
-            className={styles.content}
-          >
-            {values.map(([v, text]) => (
-              <DropdownItem
-                key={v}
-                isDisplayed={open}
-                isSelected={value === v}
-                onClick={() => {
-                  setOpen(false);
-                  setValue(v);
-                }}
-                onKeyDown={(e) => onOptionKeyDown(e, v)}
-              >
-                {text}
-              </DropdownItem>
-            ))}
-          </ul>
-        </div>
+        <DropdownMenu
+          open={open}
+          values={values}
+          selectedValue={value}
+          id={contentId}
+          listRef={listRef}
+          onOptionKeyDown={onOptionKeyDown}
+          onSelect={(v) => {
+            setOpen(false);
+            setValue(v);
+          }}
+        />
         {!error && helpLabel && (
           <span className={styles.help}>{helpLabel}</span>
         )}
@@ -206,52 +186,6 @@ export const Dropdown = forwardRef<HTMLButtonElement, DropdownProps>(
     );
   },
 );
-
-type DropdownItemProps = HTMLProps<HTMLLIElement> & {
-  /**
-   * Whether the dropdown item is selected.
-   */
-  isSelected: boolean;
-  /**
-   * Whether the dropdown item is displayed.
-   */
-  isDisplayed: boolean;
-  /**
-   * The text to display in the dropdown item.
-   */
-  children: string;
-};
-
-/**
- * A dropdown item component.
- */
-const DropdownItem = memo(function DropdownItem({
-  children,
-  isSelected,
-  isDisplayed,
-  ...props
-}: DropdownItemProps) {
-  const ref = useRef<HTMLLIElement>(null);
-
-  // Focus the item if the dropdown is open and the item is already selected
-  useEffect(() => {
-    if (isSelected && isDisplayed) {
-      ref.current?.focus();
-    }
-  }, [isSelected, isDisplayed]);
-
-  return (
-    <li
-      tabIndex={0}
-      role="option"
-      ref={ref}
-      aria-selected={isSelected}
-      {...props}
-    >
-      {children} {isSelected && <Check width="20" height="20" />}
-    </li>
-  );
-});
 
 /**
  * A hook to manage the open state of the dropdown.

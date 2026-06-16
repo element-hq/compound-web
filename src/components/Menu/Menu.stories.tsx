@@ -62,8 +62,15 @@ const meta = {
   title: "Menu",
   component: Template,
   tags: ["autodocs", "axe-exclude"],
-  argTypes: {},
-  args: {},
+  argTypes: {
+    side: {
+      control: "select",
+      options: ["top", "right", "bottom", "left"],
+    },
+  },
+  args: {
+    side: "bottom",
+  },
 } satisfies Meta<typeof Template>;
 export default meta;
 
