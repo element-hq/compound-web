@@ -16,11 +16,12 @@ exports[`Dropdown > can be opened 1`] = `
       aria-expanded="true"
       aria-haspopup="listbox"
       aria-labelledby="_r_8_"
-      class="_placeholder_1f39d3"
+      class="_trigger-button_1f39d3 _placeholder_1f39d3 _open-trigger_1f39d3"
       role="combobox"
     >
       Select an option
       <svg
+        class="_chevron_1f39d3"
         fill="currentColor"
         height="24"
         viewBox="0 0 24 24"
@@ -33,10 +34,7 @@ exports[`Dropdown > can be opened 1`] = `
       </svg>
     </button>
     <div
-      class="_border_1f39d3 _open_1f39d3"
-    />
-    <div
-      class="_content_1f39d3 _open_1f39d3"
+      class="_content_1f39d3 _open_1f39d3 _seamless_1f39d3"
     >
       <ul
         class="_content_1f39d3"
@@ -89,11 +87,12 @@ exports[`Dropdown > can select a value 1`] = `
       aria-expanded="true"
       aria-haspopup="listbox"
       aria-labelledby="_r_a_"
-      class=""
+      class="_trigger-button_1f39d3 _open-trigger_1f39d3"
       role="combobox"
     >
       Option 2
       <svg
+        class="_chevron_1f39d3"
         fill="currentColor"
         height="24"
         viewBox="0 0 24 24"
@@ -106,10 +105,7 @@ exports[`Dropdown > can select a value 1`] = `
       </svg>
     </button>
     <div
-      class="_border_1f39d3 _open_1f39d3"
-    />
-    <div
-      class="_content_1f39d3 _open_1f39d3"
+      class="_content_1f39d3 _open_1f39d3 _seamless_1f39d3"
     >
       <ul
         class="_content_1f39d3"
@@ -173,11 +169,12 @@ exports[`Dropdown > renders a Default dropdown 1`] = `
       aria-expanded="false"
       aria-haspopup="listbox"
       aria-labelledby="_r_0_"
-      class="_placeholder_1f39d3"
+      class="_trigger-button_1f39d3 _placeholder_1f39d3"
       role="combobox"
     >
       Select an option
       <svg
+        class="_chevron_1f39d3"
         fill="currentColor"
         height="24"
         viewBox="0 0 24 24"
@@ -190,10 +187,7 @@ exports[`Dropdown > renders a Default dropdown 1`] = `
       </svg>
     </button>
     <div
-      class="_border_1f39d3"
-    />
-    <div
-      class="_content_1f39d3"
+      class="_content_1f39d3 _seamless_1f39d3"
     >
       <ul
         class="_content_1f39d3"
@@ -246,11 +240,12 @@ exports[`Dropdown > renders a dropdown with a default value  1`] = `
       aria-expanded="false"
       aria-haspopup="listbox"
       aria-labelledby="_r_6_"
-      class=""
+      class="_trigger-button_1f39d3"
       role="combobox"
     >
       Option 2
       <svg
+        class="_chevron_1f39d3"
         fill="currentColor"
         height="24"
         viewBox="0 0 24 24"
@@ -263,10 +258,7 @@ exports[`Dropdown > renders a dropdown with a default value  1`] = `
       </svg>
     </button>
     <div
-      class="_border_1f39d3"
-    />
-    <div
-      class="_content_1f39d3"
+      class="_content_1f39d3 _seamless_1f39d3"
     >
       <ul
         class="_content_1f39d3"
@@ -330,11 +322,12 @@ exports[`Dropdown > renders a dropdown with a help label 1`] = `
       aria-expanded="false"
       aria-haspopup="listbox"
       aria-labelledby="_r_2_"
-      class="_placeholder_1f39d3"
+      class="_trigger-button_1f39d3 _placeholder_1f39d3"
       role="combobox"
     >
       Select an option
       <svg
+        class="_chevron_1f39d3"
         fill="currentColor"
         height="24"
         viewBox="0 0 24 24"
@@ -347,10 +340,7 @@ exports[`Dropdown > renders a dropdown with a help label 1`] = `
       </svg>
     </button>
     <div
-      class="_border_1f39d3"
-    />
-    <div
-      class="_content_1f39d3"
+      class="_content_1f39d3 _seamless_1f39d3"
     >
       <ul
         class="_content_1f39d3"
@@ -408,11 +398,12 @@ exports[`Dropdown > renders a dropdown with an error  1`] = `
       aria-expanded="false"
       aria-haspopup="listbox"
       aria-labelledby="_r_4_"
-      class="_placeholder_1f39d3"
+      class="_trigger-button_1f39d3 _placeholder_1f39d3"
       role="combobox"
     >
       Select an option
       <svg
+        class="_chevron_1f39d3"
         fill="currentColor"
         height="24"
         viewBox="0 0 24 24"
@@ -425,10 +416,7 @@ exports[`Dropdown > renders a dropdown with an error  1`] = `
       </svg>
     </button>
     <div
-      class="_border_1f39d3"
-    />
-    <div
-      class="_content_1f39d3"
+      class="_content_1f39d3 _seamless_1f39d3"
     >
       <ul
         class="_content_1f39d3"
