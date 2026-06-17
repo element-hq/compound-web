@@ -95,6 +95,7 @@ export const WithDefaultValue: Story = {
 export const WithCustomTrigger: Story = {
   args: {
     customTrigger: (props) => <button {...props}>🐴</button>,
+    label: null,
   },
   parameters: {
     design: {
