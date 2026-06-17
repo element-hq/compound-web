@@ -29,6 +29,19 @@ import classNames from "classnames";
 
 import styles from "./Dropdown.module.css";
 
+/**
+ * Props injected into the trigger render function.
+ */
+export type DropdownTriggerProps = {
+  role: "combobox";
+  "aria-haspopup": "listbox";
+  "aria-labelledby"?: string;
+  "aria-controls": string;
+  "aria-expanded": boolean;
+  onClick: () => void;
+  onKeyDown: (e: KeyboardEvent<Element>) => void;
+};
+
 type DropdownProps = {
   /**
    * The CSS class name.
@@ -49,12 +62,16 @@ type DropdownProps = {
   values: [string, string][];
   /**
    * The placeholder text.
+   * Required because it's unusual not to set this unless making a custom dropdown with a custom trigger,
+   * in which case you may explicitly pass null.
    */
-  placeholder: string;
+  placeholder: string | null;
   /**
    * The label to display at the top of the dropdown
+   * Required because it's unusual not to set this unless making a custom dropdown with a custom trigger,
+   * in which case you may explicitly pass null.
    */
-  label: string;
+  label: string | null;
   /**
    * The help label to display at the bottom of the dropdown
    */
@@ -68,6 +85,12 @@ type DropdownProps = {
    * The error message to display.
    */
   error?: string;
+  /**
+   * Render a custom trigger element instead of the default button.
+   * Receives the accessibility and event handler props to apply to the trigger,
+   * and the current display text (selected value label or placeholder).
+   */
+  customTrigger?: (props: DropdownTriggerProps) => React.ReactNode;
 };
 
 /**
@@ -85,6 +108,7 @@ export const Dropdown = forwardRef<HTMLButtonElement, DropdownProps>(
       value: controlledValue,
       defaultValue,
       values,
+      customTrigger,
       ...props
     },
     ref,
@@ -123,13 +147,13 @@ export const Dropdown = forwardRef<HTMLButtonElement, DropdownProps>(
 
     const hasPlaceholder = text === placeholder;
     const buttonClasses = classNames({
+      [styles.triggerButton]: true,
       [styles.placeholder]: hasPlaceholder,
-    });
-    const borderClasses = classNames(styles.border, {
-      [styles.open]: open,
+      [styles.openTrigger]: open,
     });
     const contentClasses = classNames(styles.content, {
       [styles.open]: open,
+      [styles.seamless]: !customTrigger,
     });
 
     /**
@@ -138,38 +162,46 @@ export const Dropdown = forwardRef<HTMLButtonElement, DropdownProps>(
     const labelId = useId();
     const contentId = useId();
 
+    const combinedRef = (element: HTMLButtonElement | null) => {
+      buttonRef.current = element;
+      if (typeof ref === "function") {
+        ref(element);
+      } else if (ref) {
+        ref.current = element;
+      }
+    };
+
+    const triggerProps: DropdownTriggerProps = {
+      role: "combobox",
+      "aria-haspopup": "listbox",
+      "aria-controls": contentId,
+      "aria-expanded": open,
+      onClick: () => setOpen((_open) => !_open),
+      onKeyDown: onComboboxKeyDown,
+    };
+
+    if (label) triggerProps["aria-labelledby"] = labelId;
+
     return (
       <div
         ref={dropdownRef}
         className={classNames(className, styles.container)}
         aria-invalid={Boolean(error)}
       >
-        <label id={labelId}>{label}</label>
-        <button
-          className={buttonClasses}
-          role="combobox"
-          aria-haspopup="listbox"
-          aria-labelledby={labelId}
-          aria-controls={contentId}
-          aria-expanded={open}
-          ref={(element) => {
-            // Private ref to focus the button
-            buttonRef.current = element;
-            // Handle forwarded ref
-            if (typeof ref === "function") {
-              ref(element);
-            } else if (ref) {
-              ref.current = element;
-            }
-          }}
-          onClick={() => setOpen((_open) => !_open)}
-          onKeyDown={onComboboxKeyDown}
-          {...props}
-        >
-          {text}
-          <ChevronDown width="24" height="24" />
-        </button>
-        <div className={borderClasses} />
+        {label && <label id={labelId}>{label}</label>}
+        {customTrigger ? (
+          customTrigger(triggerProps)
+        ) : (
+          <button
+            className={buttonClasses}
+            {...triggerProps}
+            ref={combinedRef}
+            {...props}
+          >
+            {text}
+            <ChevronDown className={styles.chevron} width="24" height="24" />
+          </button>
+        )}
         <div className={contentClasses}>
           <ul
             ref={listRef}
