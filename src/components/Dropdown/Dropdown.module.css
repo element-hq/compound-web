@@ -119,8 +119,8 @@ Please see LICENSE files in the repository root for full details.
        * Shunt it upwards a bit
        */
       inset-block-start: calc(var(--cpd-space-2x) * -1);
-      border-top-left-radius: 0;
-      border-top-right-radius: 0;
+      border-start-start-radius: 0;
+      border-start-end-radius: 0;
 
       li {
         &:first-child {
