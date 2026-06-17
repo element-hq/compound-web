@@ -116,9 +116,9 @@ Please see LICENSE files in the repository root for full details.
   .seamless {
     ul {
       /*
-       * Shunt it upwards a bit
+       * Shunt it upwards a bit (plus one pixel to match how it was before)
        */
-      inset-block-start: calc(var(--cpd-space-2x) * -1);
+      inset-block-start: calc(var(--cpd-space-2x) * -1 - 1px);
       border-start-start-radius: 0;
       border-start-end-radius: 0;
 
