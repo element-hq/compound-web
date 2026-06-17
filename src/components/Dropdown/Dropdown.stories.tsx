@@ -101,10 +101,4 @@ export const WithCustomTrigger: Story = {
     ),
     label: null,
   },
-  parameters: {
-    design: {
-      type: "figma",
-      url: "https://www.figma.com/file/rTaQE2nIUSLav4Tg3nozq7/Compound-Web-Components?node-id=799-5732&t=g2Ex9sbzgku1nTIN-4",
-    },
-  },
 };
