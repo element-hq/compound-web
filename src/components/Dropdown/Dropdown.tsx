@@ -147,9 +147,9 @@ export const Dropdown = forwardRef<HTMLButtonElement, DropdownProps>(
 
     const hasPlaceholder = text === placeholder;
     const buttonClasses = classNames({
-      [styles.triggerButton]: true,
+      [styles["trigger-button"]]: true,
       [styles.placeholder]: hasPlaceholder,
-      [styles.openTrigger]: open,
+      [styles["open-trigger"]]: open,
     });
     const contentClasses = classNames(styles.content, {
       [styles.open]: open,

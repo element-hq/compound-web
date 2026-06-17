@@ -14,7 +14,7 @@ Please see LICENSE files in the repository root for full details.
     margin-block-end: var(--cpd-space-1x);
   }
 
-  .triggerButton {
+  .trigger-button {
     inline-size: 100%;
     border: 1px solid var(--cpd-color-border-interactive-primary);
     background: var(--cpd-color-bg-canvas-default);
@@ -37,7 +37,7 @@ Please see LICENSE files in the repository root for full details.
     }
   }
 
-  .openTrigger {
+  .open-trigger {
     /*
      * When the dropdown is open, it needs to sit above the menu so
      * the menu appears to extend out from under the trigger.
@@ -87,7 +87,7 @@ Please see LICENSE files in the repository root for full details.
         list-style-type: "";
         font: var(--cpd-font-body-md-medium);
         padding: var(--cpd-space-3x) var(--cpd-space-4x);
-        border-bottom: 1px solid var(--cpd-color-gray-300);
+        border-block-end: 1px solid var(--cpd-color-gray-300);
         color: var(--cpd-color-text-secondary);
         display: flex;
         justify-content: space-between;
@@ -118,10 +118,9 @@ Please see LICENSE files in the repository root for full details.
       /*
        * Shunt it upwards a bit
        */
-      top: calc(var(--cpd-space-2x) * -1);
-
-      border-top-left-radius: 0px;
-      border-top-right-radius: 0px;
+      inset-block-start: calc(var(--cpd-space-2x) * -1);
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
 
       li {
         &:first-child {
@@ -129,7 +128,7 @@ Please see LICENSE files in the repository root for full details.
            * ...and make the first item taller at the top to compensate
            * (it's normally 3x so make it 5x)
            */
-          padding-top: var(--cpd-space-5x);
+          padding-block-start: var(--cpd-space-5x);
         }
       }
     }
