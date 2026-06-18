@@ -35,16 +35,16 @@ Please see LICENSE files in the repository root for full details.
        * Hidden by default, this gets overridden to show the menu when it's open.
        */
       display: none;
+
       /**
        * To make the component going over the other elements
        */
       position: absolute;
-      height: fit-content;
+      block-size: fit-content;
       inline-size: 100%;
       background: var(--cpd-color-bg-canvas-default);
       border: 1px solid var(--cpd-color-border-interactive-secondary);
       border-radius: var(--cpd-space-4x);
-
       box-sizing: border-box;
       box-shadow: 0 4px 24px 0 rgb(27 29 34 / 10%);
       margin: 0;
@@ -104,6 +104,17 @@ Please see LICENSE files in the repository root for full details.
     }
   }
 
+  .open {
+    ul {
+      display: block;
+
+      /*
+       * In non-seamless mode, shunt it down to float just below the trigger.
+       */
+      inset-block-start: calc(100% + var(--cpd-space-2x));
+    }
+  }
+
   /*
    * When we use the standard dropdown trigger component, adjust the menu so it appears to
    * extend out from under the trigger. Otherwise it should float just below with rounded
@@ -130,18 +141,8 @@ Please see LICENSE files in the repository root for full details.
         /*
          * Shunt it upwards a bit (plus one pixel to match how it was before)
          */
-        top: calc(100% - var(--cpd-space-2x));
+        inset-block-start: calc(100% - var(--cpd-space-2x));
       }
-    }
-  }
-
-  .open {
-    ul {
-      display: block;
-      /*
-       * In non-seamless mode, shunt it down to float just below the trigger.
-       */
-      top: calc(100% + var(--cpd-space-2x));
     }
   }
 
