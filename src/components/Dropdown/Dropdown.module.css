@@ -23,10 +23,6 @@ Please see LICENSE files in the repository root for full details.
     }
   }
 
-  button.placeholder {
-    color: var(--cpd-color-text-secondary);
-  }
-
   .content {
     position: relative;
 
@@ -101,6 +97,10 @@ Please see LICENSE files in the repository root for full details.
           transition: transform 0.1s linear;
         }
       }
+
+      &.placeholder {
+        color: var(--cpd-color-text-secondary);
+      }
     }
   }
 
@@ -141,7 +141,7 @@ Please see LICENSE files in the repository root for full details.
         /*
          * Shunt it upwards a bit (plus one pixel to match how it was before)
          */
-        inset-block-start: calc(100% - var(--cpd-space-2x));
+        inset-block-start: calc(100% - var(--cpd-space-2x) - 1px);
       }
     }
   }
