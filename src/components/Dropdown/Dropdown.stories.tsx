@@ -94,7 +94,7 @@ export const WithDefaultValue: Story = {
 
 export const WithCustomTrigger: Story = {
   args: {
-    customTrigger: (props) => (
+    trigger: (props) => (
       <button aria-label="Custom trigger" {...props}>
         🐴
       </button>
