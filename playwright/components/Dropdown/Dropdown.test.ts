@@ -79,6 +79,11 @@ test.describe("Dropdown", () => {
       await expect(page).toMatchScreenshot("open-custom-trigger.png", {
         fullPage: true,
       });
+
+      await page.getByRole("option", { name: "Option 2" }).hover();
+      await expect(page).toMatchScreenshot("hover-custom-trigger.png", {
+        fullPage: true,
+      });
     },
   );
 });
