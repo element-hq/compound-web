@@ -168,7 +168,7 @@ Please see LICENSE files in the repository root for full details.
       color: var(--cpd-color-text-critical-primary);
     }
 
-    button {
+    button.trigger-button {
       border-color: var(--cpd-color-text-critical-primary);
     }
   }
