@@ -11,33 +11,10 @@ exports[`Dropdown > can be opened 1`] = `
     >
       Label
     </label>
-    <button
-      aria-controls="_r_9_"
-      aria-expanded="true"
-      aria-haspopup="listbox"
-      aria-labelledby="_r_8_"
-      class="_trigger-button_1f39d3 _placeholder_1f39d3 _open-trigger_1f39d3"
-      role="combobox"
-    >
-      Select an option
-      <svg
-        class="_chevron_1f39d3"
-        fill="currentColor"
-        height="24"
-        viewBox="0 0 24 24"
-        width="24"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M12 14.95q-.2 0-.375-.062a.9.9 0 0 1-.325-.213l-4.6-4.6a.95.95 0 0 1-.275-.7q0-.425.275-.7a.95.95 0 0 1 .7-.275q.425 0 .7.275l3.9 3.9 3.9-3.9a.95.95 0 0 1 .7-.275q.425 0 .7.275a.95.95 0 0 1 .275.7.95.95 0 0 1-.275.7l-4.6 4.6q-.15.15-.325.212a1.1 1.1 0 0 1-.375.063"
-        />
-      </svg>
-    </button>
     <div
       class="_content_1f39d3 _open_1f39d3 _seamless_1f39d3"
     >
       <ul
-        class="_content_1f39d3"
         id="_r_9_"
         role="listbox"
       >
@@ -66,6 +43,28 @@ exports[`Dropdown > can be opened 1`] = `
            
         </li>
       </ul>
+      <button
+        aria-controls="_r_9_"
+        aria-expanded="true"
+        aria-haspopup="listbox"
+        aria-labelledby="_r_8_"
+        class="_trigger-button_1f39d3 _placeholder_1f39d3 _open-trigger_1f39d3"
+        role="combobox"
+      >
+        Select an option
+        <svg
+          class="_chevron_1f39d3"
+          fill="currentColor"
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12 14.95q-.2 0-.375-.062a.9.9 0 0 1-.325-.213l-4.6-4.6a.95.95 0 0 1-.275-.7q0-.425.275-.7a.95.95 0 0 1 .7-.275q.425 0 .7.275l3.9 3.9 3.9-3.9a.95.95 0 0 1 .7-.275q.425 0 .7.275a.95.95 0 0 1 .275.7.95.95 0 0 1-.275.7l-4.6 4.6q-.15.15-.325.212a1.1 1.1 0 0 1-.375.063"
+          />
+        </svg>
+      </button>
     </div>
   </div>
 </div>
@@ -82,33 +81,10 @@ exports[`Dropdown > can select a value 1`] = `
     >
       Label
     </label>
-    <button
-      aria-controls="_r_b_"
-      aria-expanded="true"
-      aria-haspopup="listbox"
-      aria-labelledby="_r_a_"
-      class="_trigger-button_1f39d3 _open-trigger_1f39d3"
-      role="combobox"
-    >
-      Option 2
-      <svg
-        class="_chevron_1f39d3"
-        fill="currentColor"
-        height="24"
-        viewBox="0 0 24 24"
-        width="24"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M12 14.95q-.2 0-.375-.062a.9.9 0 0 1-.325-.213l-4.6-4.6a.95.95 0 0 1-.275-.7q0-.425.275-.7a.95.95 0 0 1 .7-.275q.425 0 .7.275l3.9 3.9 3.9-3.9a.95.95 0 0 1 .7-.275q.425 0 .7.275a.95.95 0 0 1 .275.7.95.95 0 0 1-.275.7l-4.6 4.6q-.15.15-.325.212a1.1 1.1 0 0 1-.375.063"
-        />
-      </svg>
-    </button>
     <div
       class="_content_1f39d3 _open_1f39d3 _seamless_1f39d3"
     >
       <ul
-        class="_content_1f39d3"
         id="_r_b_"
         role="listbox"
       >
@@ -148,6 +124,28 @@ exports[`Dropdown > can select a value 1`] = `
            
         </li>
       </ul>
+      <button
+        aria-controls="_r_b_"
+        aria-expanded="true"
+        aria-haspopup="listbox"
+        aria-labelledby="_r_a_"
+        class="_trigger-button_1f39d3 _open-trigger_1f39d3"
+        role="combobox"
+      >
+        Option 2
+        <svg
+          class="_chevron_1f39d3"
+          fill="currentColor"
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12 14.95q-.2 0-.375-.062a.9.9 0 0 1-.325-.213l-4.6-4.6a.95.95 0 0 1-.275-.7q0-.425.275-.7a.95.95 0 0 1 .7-.275q.425 0 .7.275l3.9 3.9 3.9-3.9a.95.95 0 0 1 .7-.275q.425 0 .7.275a.95.95 0 0 1 .275.7.95.95 0 0 1-.275.7l-4.6 4.6q-.15.15-.325.212a1.1 1.1 0 0 1-.375.063"
+          />
+        </svg>
+      </button>
     </div>
   </div>
 </div>
@@ -164,33 +162,10 @@ exports[`Dropdown > renders a Default dropdown 1`] = `
     >
       Label
     </label>
-    <button
-      aria-controls="_r_1_"
-      aria-expanded="false"
-      aria-haspopup="listbox"
-      aria-labelledby="_r_0_"
-      class="_trigger-button_1f39d3 _placeholder_1f39d3"
-      role="combobox"
-    >
-      Select an option
-      <svg
-        class="_chevron_1f39d3"
-        fill="currentColor"
-        height="24"
-        viewBox="0 0 24 24"
-        width="24"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M12 14.95q-.2 0-.375-.062a.9.9 0 0 1-.325-.213l-4.6-4.6a.95.95 0 0 1-.275-.7q0-.425.275-.7a.95.95 0 0 1 .7-.275q.425 0 .7.275l3.9 3.9 3.9-3.9a.95.95 0 0 1 .7-.275q.425 0 .7.275a.95.95 0 0 1 .275.7.95.95 0 0 1-.275.7l-4.6 4.6q-.15.15-.325.212a1.1 1.1 0 0 1-.375.063"
-        />
-      </svg>
-    </button>
     <div
       class="_content_1f39d3 _seamless_1f39d3"
     >
       <ul
-        class="_content_1f39d3"
         id="_r_1_"
         role="listbox"
       >
@@ -219,6 +194,28 @@ exports[`Dropdown > renders a Default dropdown 1`] = `
            
         </li>
       </ul>
+      <button
+        aria-controls="_r_1_"
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        aria-labelledby="_r_0_"
+        class="_trigger-button_1f39d3 _placeholder_1f39d3"
+        role="combobox"
+      >
+        Select an option
+        <svg
+          class="_chevron_1f39d3"
+          fill="currentColor"
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12 14.95q-.2 0-.375-.062a.9.9 0 0 1-.325-.213l-4.6-4.6a.95.95 0 0 1-.275-.7q0-.425.275-.7a.95.95 0 0 1 .7-.275q.425 0 .7.275l3.9 3.9 3.9-3.9a.95.95 0 0 1 .7-.275q.425 0 .7.275a.95.95 0 0 1 .275.7.95.95 0 0 1-.275.7l-4.6 4.6q-.15.15-.325.212a1.1 1.1 0 0 1-.375.063"
+          />
+        </svg>
+      </button>
     </div>
   </div>
 </div>
@@ -235,33 +232,10 @@ exports[`Dropdown > renders a dropdown with a default value  1`] = `
     >
       Label
     </label>
-    <button
-      aria-controls="_r_7_"
-      aria-expanded="false"
-      aria-haspopup="listbox"
-      aria-labelledby="_r_6_"
-      class="_trigger-button_1f39d3"
-      role="combobox"
-    >
-      Option 2
-      <svg
-        class="_chevron_1f39d3"
-        fill="currentColor"
-        height="24"
-        viewBox="0 0 24 24"
-        width="24"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M12 14.95q-.2 0-.375-.062a.9.9 0 0 1-.325-.213l-4.6-4.6a.95.95 0 0 1-.275-.7q0-.425.275-.7a.95.95 0 0 1 .7-.275q.425 0 .7.275l3.9 3.9 3.9-3.9a.95.95 0 0 1 .7-.275q.425 0 .7.275a.95.95 0 0 1 .275.7.95.95 0 0 1-.275.7l-4.6 4.6q-.15.15-.325.212a1.1 1.1 0 0 1-.375.063"
-        />
-      </svg>
-    </button>
     <div
       class="_content_1f39d3 _seamless_1f39d3"
     >
       <ul
-        class="_content_1f39d3"
         id="_r_7_"
         role="listbox"
       >
@@ -301,6 +275,28 @@ exports[`Dropdown > renders a dropdown with a default value  1`] = `
            
         </li>
       </ul>
+      <button
+        aria-controls="_r_7_"
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        aria-labelledby="_r_6_"
+        class="_trigger-button_1f39d3"
+        role="combobox"
+      >
+        Option 2
+        <svg
+          class="_chevron_1f39d3"
+          fill="currentColor"
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12 14.95q-.2 0-.375-.062a.9.9 0 0 1-.325-.213l-4.6-4.6a.95.95 0 0 1-.275-.7q0-.425.275-.7a.95.95 0 0 1 .7-.275q.425 0 .7.275l3.9 3.9 3.9-3.9a.95.95 0 0 1 .7-.275q.425 0 .7.275a.95.95 0 0 1 .275.7.95.95 0 0 1-.275.7l-4.6 4.6q-.15.15-.325.212a1.1 1.1 0 0 1-.375.063"
+          />
+        </svg>
+      </button>
     </div>
   </div>
 </div>
@@ -317,33 +313,10 @@ exports[`Dropdown > renders a dropdown with a help label 1`] = `
     >
       Label
     </label>
-    <button
-      aria-controls="_r_3_"
-      aria-expanded="false"
-      aria-haspopup="listbox"
-      aria-labelledby="_r_2_"
-      class="_trigger-button_1f39d3 _placeholder_1f39d3"
-      role="combobox"
-    >
-      Select an option
-      <svg
-        class="_chevron_1f39d3"
-        fill="currentColor"
-        height="24"
-        viewBox="0 0 24 24"
-        width="24"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M12 14.95q-.2 0-.375-.062a.9.9 0 0 1-.325-.213l-4.6-4.6a.95.95 0 0 1-.275-.7q0-.425.275-.7a.95.95 0 0 1 .7-.275q.425 0 .7.275l3.9 3.9 3.9-3.9a.95.95 0 0 1 .7-.275q.425 0 .7.275a.95.95 0 0 1 .275.7.95.95 0 0 1-.275.7l-4.6 4.6q-.15.15-.325.212a1.1 1.1 0 0 1-.375.063"
-        />
-      </svg>
-    </button>
     <div
       class="_content_1f39d3 _seamless_1f39d3"
     >
       <ul
-        class="_content_1f39d3"
         id="_r_3_"
         role="listbox"
       >
@@ -372,6 +345,28 @@ exports[`Dropdown > renders a dropdown with a help label 1`] = `
            
         </li>
       </ul>
+      <button
+        aria-controls="_r_3_"
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        aria-labelledby="_r_2_"
+        class="_trigger-button_1f39d3 _placeholder_1f39d3"
+        role="combobox"
+      >
+        Select an option
+        <svg
+          class="_chevron_1f39d3"
+          fill="currentColor"
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12 14.95q-.2 0-.375-.062a.9.9 0 0 1-.325-.213l-4.6-4.6a.95.95 0 0 1-.275-.7q0-.425.275-.7a.95.95 0 0 1 .7-.275q.425 0 .7.275l3.9 3.9 3.9-3.9a.95.95 0 0 1 .7-.275q.425 0 .7.275a.95.95 0 0 1 .275.7.95.95 0 0 1-.275.7l-4.6 4.6q-.15.15-.325.212a1.1 1.1 0 0 1-.375.063"
+          />
+        </svg>
+      </button>
     </div>
     <span
       class="_help_1f39d3"
@@ -393,33 +388,10 @@ exports[`Dropdown > renders a dropdown with an error  1`] = `
     >
       Label
     </label>
-    <button
-      aria-controls="_r_5_"
-      aria-expanded="false"
-      aria-haspopup="listbox"
-      aria-labelledby="_r_4_"
-      class="_trigger-button_1f39d3 _placeholder_1f39d3"
-      role="combobox"
-    >
-      Select an option
-      <svg
-        class="_chevron_1f39d3"
-        fill="currentColor"
-        height="24"
-        viewBox="0 0 24 24"
-        width="24"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M12 14.95q-.2 0-.375-.062a.9.9 0 0 1-.325-.213l-4.6-4.6a.95.95 0 0 1-.275-.7q0-.425.275-.7a.95.95 0 0 1 .7-.275q.425 0 .7.275l3.9 3.9 3.9-3.9a.95.95 0 0 1 .7-.275q.425 0 .7.275a.95.95 0 0 1 .275.7.95.95 0 0 1-.275.7l-4.6 4.6q-.15.15-.325.212a1.1 1.1 0 0 1-.375.063"
-        />
-      </svg>
-    </button>
     <div
       class="_content_1f39d3 _seamless_1f39d3"
     >
       <ul
-        class="_content_1f39d3"
         id="_r_5_"
         role="listbox"
       >
@@ -448,6 +420,28 @@ exports[`Dropdown > renders a dropdown with an error  1`] = `
            
         </li>
       </ul>
+      <button
+        aria-controls="_r_5_"
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        aria-labelledby="_r_4_"
+        class="_trigger-button_1f39d3 _placeholder_1f39d3"
+        role="combobox"
+      >
+        Select an option
+        <svg
+          class="_chevron_1f39d3"
+          fill="currentColor"
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12 14.95q-.2 0-.375-.062a.9.9 0 0 1-.325-.213l-4.6-4.6a.95.95 0 0 1-.275-.7q0-.425.275-.7a.95.95 0 0 1 .7-.275q.425 0 .7.275l3.9 3.9 3.9-3.9a.95.95 0 0 1 .7-.275q.425 0 .7.275a.95.95 0 0 1 .275.7.95.95 0 0 1-.275.7l-4.6 4.6q-.15.15-.325.212a1.1 1.1 0 0 1-.375.063"
+          />
+        </svg>
+      </button>
     </div>
     <span
       class="_error_1f39d3"
