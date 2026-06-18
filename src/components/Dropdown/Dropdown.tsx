@@ -189,26 +189,8 @@ export const Dropdown = forwardRef<HTMLButtonElement, DropdownProps>(
         aria-invalid={Boolean(error)}
       >
         {label && <label id={labelId}>{label}</label>}
-        {customTrigger ? (
-          customTrigger(triggerProps)
-        ) : (
-          <button
-            className={buttonClasses}
-            {...triggerProps}
-            ref={combinedRef}
-            {...props}
-          >
-            {text}
-            <ChevronDown className={styles.chevron} width="24" height="24" />
-          </button>
-        )}
         <div className={contentClasses}>
-          <ul
-            ref={listRef}
-            id={contentId}
-            role="listbox"
-            className={styles.content}
-          >
+          <ul ref={listRef} id={contentId} role="listbox">
             {values.map(([v, text]) => (
               <DropdownItem
                 key={v}
@@ -224,6 +206,20 @@ export const Dropdown = forwardRef<HTMLButtonElement, DropdownProps>(
               </DropdownItem>
             ))}
           </ul>
+          {/* The trigger appears after in the DOM so it appears on top z-wise. The menu is shunted down to appear vertically below.  */}
+          {customTrigger ? (
+            customTrigger(triggerProps)
+          ) : (
+            <button
+              className={buttonClasses}
+              {...triggerProps}
+              ref={combinedRef}
+              {...props}
+            >
+              {text}
+              <ChevronDown className={styles.chevron} width="24" height="24" />
+            </button>
+          )}
         </div>
         {!error && helpLabel && (
           <span className={styles.help}>{helpLabel}</span>

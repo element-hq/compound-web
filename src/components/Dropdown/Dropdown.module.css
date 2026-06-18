@@ -14,37 +14,6 @@ Please see LICENSE files in the repository root for full details.
     margin-block-end: var(--cpd-space-1x);
   }
 
-  .trigger-button {
-    inline-size: 100%;
-    border: 1px solid var(--cpd-color-border-interactive-primary);
-    background: var(--cpd-color-bg-canvas-default);
-    border-radius: 0.5rem;
-    padding: var(--cpd-space-3x) var(--cpd-space-3x) var(--cpd-space-3x)
-      var(--cpd-space-4x);
-    box-sizing: border-box;
-    color: var(--cpd-color-text-primary);
-    font: var(--cpd-font-body-md-regular);
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: var(--cpd-space-4x);
-
-    .chevron {
-      @media (prefers-reduced-motion: no-preference) {
-        transition: transform 0.1s linear;
-      }
-    }
-  }
-
-  .open-trigger {
-    /*
-     * When the dropdown is open, it needs to sit above the menu so
-     * the menu appears to extend out from under the trigger.
-     */
-    z-index: 1;
-  }
-
   /**
    * When the dropdown is open, rotate the arrow icon
    */
@@ -59,23 +28,23 @@ Please see LICENSE files in the repository root for full details.
   }
 
   .content {
-    /**
-     * Hidden by default, this gets overridden to show the menu when it's open.
-     */
-    display: none;
     position: relative;
 
     ul {
       /**
+       * Hidden by default, this gets overridden to show the menu when it's open.
+       */
+      display: none;
+      /**
        * To make the component going over the other elements
        */
       position: absolute;
-      display: block;
+      height: fit-content;
       inline-size: 100%;
       background: var(--cpd-color-bg-canvas-default);
       border: 1px solid var(--cpd-color-border-interactive-secondary);
       border-radius: var(--cpd-space-4x);
-      overflow: hidden;
+
       box-sizing: border-box;
       box-shadow: 0 4px 24px 0 rgb(27 29 34 / 10%);
       margin: 0;
@@ -106,6 +75,33 @@ Please see LICENSE files in the repository root for full details.
         }
       }
     }
+
+    .trigger-button {
+      /*
+       * Needs to be not position: static so it appears above the menu (from being after it in the DOM).
+       */
+      position: relative;
+      inline-size: 100%;
+      border: 1px solid var(--cpd-color-border-interactive-primary);
+      background: var(--cpd-color-bg-canvas-default);
+      border-radius: 0.5rem;
+      padding: var(--cpd-space-3x) var(--cpd-space-3x) var(--cpd-space-3x)
+        var(--cpd-space-4x);
+      box-sizing: border-box;
+      color: var(--cpd-color-text-primary);
+      font: var(--cpd-font-body-md-regular);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--cpd-space-4x);
+
+      .chevron {
+        @media (prefers-reduced-motion: no-preference) {
+          transition: transform 0.1s linear;
+        }
+      }
+    }
   }
 
   /*
@@ -115,10 +111,6 @@ Please see LICENSE files in the repository root for full details.
    */
   .seamless {
     ul {
-      /*
-       * Shunt it upwards a bit (plus one pixel to match how it was before)
-       */
-      inset-block-start: calc(var(--cpd-space-2x) * -1 - 1px);
       border-start-start-radius: 0;
       border-start-end-radius: 0;
 
@@ -132,10 +124,25 @@ Please see LICENSE files in the repository root for full details.
         }
       }
     }
+
+    &.open {
+      ul {
+        /*
+         * Shunt it upwards a bit (plus one pixel to match how it was before)
+         */
+        top: calc(100% - var(--cpd-space-2x));
+      }
+    }
   }
 
   .open {
-    display: block;
+    ul {
+      display: block;
+      /*
+       * In non-seamless mode, shunt it down to float just below the trigger.
+       */
+      top: calc(100% + var(--cpd-space-2x));
+    }
   }
 
   .help {
