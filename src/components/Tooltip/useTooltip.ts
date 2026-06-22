@@ -9,6 +9,7 @@ import {
   arrow,
   autoUpdate,
   flip,
+  hide,
   offset,
   type OpenChangeReason,
   type Placement,
@@ -78,6 +79,17 @@ export interface CommonUseTooltipProps {
   isTriggerInteractive: boolean;
 
   /**
+   * An optional boundary element to constrain the tooltip within.
+   * When provided, the tooltip will be hidden if it escapes this boundary.
+   * Also passed to the `flip` middleware so it can choose a placement that
+   * keeps the tooltip inside the boundary.
+   * Accepts a single Element or an array of Elements. Useful for tooltips
+   * near containers they should not overlap (e.g. the message composer).
+   * @default undefined
+   */
+  boundary?: Element | Element[];
+
+  /**
    * Additional aria-* attributes to pass through to the floating tooltip for
    * edge cases which require more user awareness like errors & alerts.
    */
@@ -111,6 +123,7 @@ export function useTooltip({
   caption,
   "aria-atomic": ariaAtomic,
   "aria-live": ariaLive,
+  boundary,
   ...props
 }: UseTooltipProps) {
   const labelId = useId();
@@ -143,8 +156,14 @@ export function useTooltip({
         crossAxis: placement.includes("-"),
         fallbackAxisSideDirection: "start",
         padding: 5,
+        boundary,
       }),
       shift({ padding: 5 }),
+      hide({
+        strategy: "escaped",
+        boundary,
+        padding: 6,
+      }),
       // add the little arrow along with the floating content
       arrow({
         element: arrowRef,
