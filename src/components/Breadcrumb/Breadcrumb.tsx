@@ -24,8 +24,9 @@ interface BreadcrumbProps extends HTMLProps<HTMLElement> {
   backLabel: string;
   /**
    * The click handler for the back button.
+   * If undefined, the back button will be disabled.
    */
-  onBackClick: MouseEventHandler<HTMLButtonElement>;
+  onBackClick?: MouseEventHandler<HTMLButtonElement>;
   /**
    * The pages to display in the breadcrumb.
    * All the pages except the last one are displayed as links.
@@ -57,6 +58,7 @@ export function Breadcrumb({
         size="28px"
         aria-label={backLabel}
         onClick={onBackClick}
+        disabled={!onBackClick}
       >
         <Chevron />
       </IconButton>
