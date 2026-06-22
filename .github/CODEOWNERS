@@ -1,2 +1,3 @@
-*    @element-hq/compound
-*    @element-hq/compound-web-reviewers
+*                                       @element-hq/compound
+*                                       @element-hq/compound-web-reviewers
+/playwright/visual.test.ts-snapshots    @element-hq/design
