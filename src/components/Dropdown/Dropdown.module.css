@@ -70,6 +70,7 @@ Please see LICENSE files in the repository root for full details.
        * To make the component going over the other elements
        */
       position: absolute;
+      inset-block-start: var(--cpd-space-2x);
       display: block;
       inline-size: 100%;
       background: var(--cpd-color-bg-canvas-default);
