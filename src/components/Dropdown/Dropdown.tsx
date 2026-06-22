@@ -86,11 +86,11 @@ type DropdownProps = {
    */
   error?: string;
   /**
-   * Render a custom trigger element instead of the default button.
-   * Receives the accessibility and event handler props to apply to the trigger,
-   * and the current display text (selected value label or placeholder).
+   * The trigger element used to open the menu.
+   * Receives the props to apply to the trigger.
+   * Default: a button with the selected value or the placeholder text and a chevron down icon.
    */
-  customTrigger?: (props: DropdownTriggerProps) => React.ReactNode;
+  trigger?: (props: DropdownTriggerProps) => React.ReactNode;
 };
 
 /**
@@ -108,7 +108,7 @@ export const Dropdown = forwardRef<HTMLButtonElement, DropdownProps>(
       value: controlledValue,
       defaultValue,
       values,
-      customTrigger,
+      trigger,
       ...props
     },
     ref,
@@ -153,7 +153,7 @@ export const Dropdown = forwardRef<HTMLButtonElement, DropdownProps>(
     });
     const contentClasses = classNames(styles.content, {
       [styles.open]: open,
-      [styles.seamless]: !customTrigger,
+      [styles.seamless]: !trigger,
     });
 
     /**
@@ -189,8 +189,8 @@ export const Dropdown = forwardRef<HTMLButtonElement, DropdownProps>(
         aria-invalid={Boolean(error)}
       >
         {label && <label id={labelId}>{label}</label>}
-        {customTrigger ? (
-          customTrigger(triggerProps)
+        {trigger ? (
+          trigger(triggerProps)
         ) : (
           <button
             className={buttonClasses}

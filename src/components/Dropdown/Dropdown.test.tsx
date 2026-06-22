@@ -111,7 +111,7 @@ describe("Dropdown", () => {
         ]}
         placeholder={null}
         label={null}
-        customTrigger={(props) => (
+        trigger={(props) => (
           <button {...props} aria-label="Custom trigger">
             Custom trigger
           </button>
