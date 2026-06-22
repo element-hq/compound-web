@@ -104,7 +104,7 @@ export const WithCustomTrigger: Story = {
   parameters: {
     design: {
       type: "figma",
-      url: "https://www.figma.com/file/rTaQE2nIUSLav4Tg3nozq7/Compound-Web-Components?node-id=799-5732&t=g2Ex9sbzgku1nTIN-4",
+      url: "https://www.figma.com/design/rTaQE2nIUSLav4Tg3nozq7/Compound-Web-Components?node-id=13501-3908&t=udyWNnl3nVzp2l52-0",
     },
   },
 };
