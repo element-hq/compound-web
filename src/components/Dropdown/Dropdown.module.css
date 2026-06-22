@@ -8,6 +8,7 @@ Please see LICENSE files in the repository root for full details.
 .container {
   display: flex;
   flex-direction: column;
+  isolation: isolate;
 
   label {
     font: var(--cpd-font-body-md-medium);
