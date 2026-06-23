@@ -1,0 +1,3 @@
+import{i as e}from"./preload-helper-xPQekRTU.js";import{t}from"./dist-DsaBFljL.js";import{n,t as r}from"./threads-CLGWygx8.js";var i,a,o;e((()=>{t(),r(),i={title:`Icon`,component:n,argTypes:{}},a={args:{}},a.parameters={...a.parameters,docs:{...a.parameters?.docs,source:{originalSource:`{
+  args: {}
+}`,...a.parameters?.docs?.source}}},o=[`Icon`]}))();export{a as Icon,o as __namedExportsOrder,i as default};
