@@ -33,6 +33,11 @@ const Template: StoryFn<typeof BreadcrumbComponent> = (
 export const Default = Template.bind({});
 Default.args = {};
 
+export const DisabledBack = Template.bind({});
+DisabledBack.args = {
+  onBackClick: undefined,
+};
+
 function ControlledBreadcrumb(
   args: ComponentProps<typeof BreadcrumbComponent>,
 ) {

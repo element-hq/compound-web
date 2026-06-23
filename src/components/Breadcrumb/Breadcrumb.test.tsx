@@ -13,12 +13,17 @@ import React from "react";
 import userEvent from "@testing-library/user-event";
 import { Breadcrumb } from "./Breadcrumb.tsx";
 
-const { Default } = composeStories(stories);
+const { Default, DisabledBack } = composeStories(stories);
 
 describe("Breadcrumb", () => {
   it("should render", () => {
     render(<Default />);
     expect(screen.getByRole("navigation")).toMatchSnapshot();
+  });
+
+  it("should disable back button", () => {
+    const { getByLabelText } = render(<DisabledBack />);
+    expect(getByLabelText("Back")).toHaveAttribute("aria-disabled", "true");
   });
 
   it("should call onPageClick when a page is clicked", async () => {

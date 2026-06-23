@@ -5,6 +5,7 @@ exports[`Breadcrumb > should render 1`] = `
   class="_breadcrumb_a10670"
 >
   <button
+    aria-disabled="false"
     aria-label="Back"
     class="_icon-button_339b22"
     data-kind="secondary"
