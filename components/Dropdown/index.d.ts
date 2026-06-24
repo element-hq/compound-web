@@ -1,2 +1,2 @@
-export { Dropdown } from './Dropdown';
+export { Dropdown, type DropdownTriggerProps } from './Dropdown';
 //# sourceMappingURL=index.d.ts.map

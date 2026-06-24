@@ -30,7 +30,7 @@ export { Tooltip } from './components/Tooltip/Tooltip';
 export { TooltipProvider } from './components/Tooltip/TooltipProvider';
 export { ReleaseAnnouncement } from './components/ReleaseAnnouncement';
 export { Toast } from './components/Toast/Toast';
-export { Dropdown } from './components/Dropdown';
+export { Dropdown, type DropdownTriggerProps } from './components/Dropdown';
 export { InlineSpinner } from './components/InlineSpinner';
 export { Breadcrumb } from './components/Breadcrumb';
 export { VisualList, VisualListItem } from './components/VisualList';
