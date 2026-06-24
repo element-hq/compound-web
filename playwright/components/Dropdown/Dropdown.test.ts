@@ -63,4 +63,27 @@ test.describe("Dropdown", () => {
       });
     },
   );
+
+  test(
+    "should be able to open with a custom trigger",
+    { tag: "@screenshot" },
+    async ({ page }) => {
+      await page.goto(
+        `iframe.html?viewMode=story&id=dropdown--with-custom-trigger`,
+        {
+          waitUntil: "networkidle",
+        },
+      );
+
+      await page.getByRole("combobox").click();
+      await expect(page).toMatchScreenshot("open-custom-trigger.png", {
+        fullPage: true,
+      });
+
+      await page.getByRole("option", { name: "Option 2" }).hover();
+      await expect(page).toMatchScreenshot("hover-custom-trigger.png", {
+        fullPage: true,
+      });
+    },
+  );
 });

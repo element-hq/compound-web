@@ -8,13 +8,14 @@ Please see LICENSE files in the repository root for full details.
 .container {
   display: flex;
   flex-direction: column;
+  isolation: isolate;
 
   label {
     font: var(--cpd-font-body-md-medium);
     margin-block-end: var(--cpd-space-1x);
   }
 
-  button {
+  .trigger-button {
     inline-size: 100%;
     border: 1px solid var(--cpd-color-border-interactive-primary);
     background: var(--cpd-color-bg-canvas-default);
@@ -30,18 +31,26 @@ Please see LICENSE files in the repository root for full details.
     align-items: center;
     gap: var(--cpd-space-4x);
 
-    svg {
+    .chevron {
       @media (prefers-reduced-motion: no-preference) {
         transition: transform 0.1s linear;
       }
     }
   }
 
+  .open-trigger {
+    /*
+     * When the dropdown is open, it needs to sit above the menu so
+     * the menu appears to extend out from under the trigger.
+     */
+    z-index: 1;
+  }
+
   /**
    * When the dropdown is open, rotate the arrow icon
    */
   button[aria-expanded="true"] {
-    svg {
+    .chevron {
       transform: rotate(180deg);
     }
   }
@@ -50,16 +59,10 @@ Please see LICENSE files in the repository root for full details.
     color: var(--cpd-color-text-secondary);
   }
 
-  .border {
-    display: none;
-    border-inline-start: 1px solid var(--cpd-color-border-interactive-secondary);
-    border-inline-end: 1px solid var(--cpd-color-border-interactive-secondary);
-    block-size: var(--cpd-space-1x);
-    margin-block-start: calc(var(--cpd-space-1x) * -1);
-    box-sizing: border-box;
-  }
-
   .content {
+    /**
+     * Hidden by default, this gets overridden to show the menu when it's open.
+     */
     display: none;
     position: relative;
 
@@ -68,13 +71,13 @@ Please see LICENSE files in the repository root for full details.
        * To make the component going over the other elements
        */
       position: absolute;
+      inset-block-start: var(--cpd-space-2x);
       display: block;
       inline-size: 100%;
       background: var(--cpd-color-bg-canvas-default);
       border: 1px solid var(--cpd-color-border-interactive-secondary);
-      border-block-start: 0;
-      border-end-start-radius: var(--cpd-space-4x);
-      border-end-end-radius: var(--cpd-space-4x);
+      border-radius: var(--cpd-space-4x);
+      overflow: hidden;
       box-sizing: border-box;
       box-shadow: 0 4px 24px 0 rgb(27 29 34 / 10%);
       margin: 0;
@@ -102,6 +105,32 @@ Please see LICENSE files in the repository root for full details.
         &[aria-selected="true"] {
           color: var(--cpd-color-text-primary);
           background: var(--cpd-color-gray-300);
+        }
+      }
+    }
+  }
+
+  /*
+   * When we use the standard dropdown trigger component, adjust the menu so it appears to
+   * extend out from under the trigger. Otherwise it should float just below with rounded
+   * corners.
+   */
+  .seamless {
+    ul {
+      /*
+       * Shunt it upwards a bit (plus one pixel to match how it was before)
+       */
+      inset-block-start: calc(var(--cpd-space-2x) * -1 - 1px);
+      border-start-start-radius: 0;
+      border-start-end-radius: 0;
+
+      li {
+        &:first-child {
+          /*
+           * ...and make the first item taller at the top to compensate
+           * (it's normally 3x so make it 5x)
+           */
+          padding-block-start: var(--cpd-space-5x);
         }
       }
     }

@@ -101,6 +101,32 @@ describe("Dropdown", () => {
     expect(getByRole("combobox")).toHaveTextContent("Option 3");
     expect(getByRole("combobox")).toHaveAttribute("aria-expanded", "false");
   });
+  it("renders and opens with a custom trigger", async () => {
+    const user = userEvent.setup();
+    render(
+      <Dropdown
+        values={[
+          ["1", "Option 1"],
+          ["2", "Option 2"],
+        ]}
+        placeholder={null}
+        label={null}
+        trigger={(props) => (
+          <button {...props} aria-label="Custom trigger">
+            Custom trigger
+          </button>
+        )}
+      />,
+    );
+
+    expect(
+      screen.getByRole("combobox", { name: "Custom trigger" }),
+    ).toBeVisible();
+
+    await user.click(screen.getByRole("combobox", { name: "Custom trigger" }));
+
+    expect(screen.getByRole("option", { name: "Option 1" })).toBeVisible();
+  });
   it("supports controlled operation", async () => {
     const user = userEvent.setup();
     render(<ControlledDropdown />);

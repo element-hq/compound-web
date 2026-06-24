@@ -7,7 +7,7 @@ Please see LICENSE files in the repository root for full details.
 import { Dropdown } from "./Dropdown";
 import { fn } from "storybook/test";
 import { type Meta, type StoryObj } from "@storybook/react-vite";
-import { type ComponentProps } from "react";
+import React, { type ComponentProps } from "react";
 
 const meta = {
   title: "Dropdown",
@@ -88,6 +88,23 @@ export const WithDefaultValue: Story = {
     design: {
       type: "figma",
       url: "https://www.figma.com/file/rTaQE2nIUSLav4Tg3nozq7/Compound-Web-Components?node-id=799-381&t=g2Ex9sbzgku1nTIN-4",
+    },
+  },
+};
+
+export const WithCustomTrigger: Story = {
+  args: {
+    trigger: (props) => (
+      <button aria-label="Custom trigger" {...props}>
+        🐴
+      </button>
+    ),
+    label: null,
+  },
+  parameters: {
+    design: {
+      type: "figma",
+      url: "https://www.figma.com/design/rTaQE2nIUSLav4Tg3nozq7/Compound-Web-Components?node-id=13501-3908&t=udyWNnl3nVzp2l52-0",
     },
   },
 };
