@@ -3,13 +3,13 @@ import { default as React, KeyboardEvent } from '../../../node_modules/react';
  * Props injected into the trigger render function.
  */
 export type DropdownTriggerProps = {
-    role: "combobox";
-    "aria-haspopup": "listbox";
+    role?: "combobox";
+    "aria-haspopup"?: "listbox";
     "aria-labelledby"?: string;
-    "aria-controls": string;
-    "aria-expanded": boolean;
-    onClick: () => void;
-    onKeyDown: (e: KeyboardEvent<Element>) => void;
+    "aria-controls"?: string;
+    "aria-expanded"?: boolean;
+    onClick?: () => void;
+    onKeyDown?: (e: KeyboardEvent<Element>) => void;
 };
 type DropdownProps = {
     /**
