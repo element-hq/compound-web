@@ -5,7 +5,7 @@ SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-Element-Commercial
 Please see LICENSE files in the repository root for full details.
 */
 
-import React from "react";
+import React, { type ComponentType, type MouseEventHandler } from "react";
 import { type Meta, type StoryObj } from "@storybook/react-vite";
 import CheckIcon from "@vector-im/compound-design-tokens/assets/web/icons/check";
 
@@ -13,14 +13,35 @@ import { Toast as ToastComponent } from "./Toast";
 import { TooltipProvider } from "../Tooltip/TooltipProvider";
 import { fn } from "storybook/test";
 
+/**
+ * The real `Toast` props are a discriminated union (`onClick` and `onClose` are
+ * mutually exclusive). Storybook's arg-type inference doesn't support such
+ * unions — it intersects the members, collapsing the `never` discriminants and
+ * leaving the args as `never`. We describe a permissive superset here purely
+ * for the stories' types; the component still enforces the union for consumers.
+ */
+type StoryArgs = {
+  className?: string;
+  Icon?: ComponentType<React.SVGAttributes<SVGElement>>;
+  children?: React.ReactNode;
+  onClose?: MouseEventHandler<HTMLButtonElement>;
+  tooltip?: string;
+  onClick?: MouseEventHandler<HTMLButtonElement>;
+};
+
 const meta = {
   title: "Toast",
-  component: ToastComponent,
+  component: ToastComponent as ComponentType<StoryArgs>,
   tags: ["autodocs"],
   argTypes: {},
   args: {
     children: "Would you like some toast?",
+    // Storybook's `actions.argTypesRegex` ("^on[A-Z].*") otherwise auto-injects
+    // spy functions for `onClose`/`onClick`, which would make every toast render
+    // with a close button / as a clickable button. Default them off here; the
+    // relevant stories opt back in explicitly.
     onClose: undefined,
+    onClick: undefined,
   },
   parameters: {
     design: {
@@ -35,10 +56,10 @@ const meta = {
       </TooltipProvider>
     ),
   ],
-} satisfies Meta<typeof ToastComponent>;
+} satisfies Meta<StoryArgs>;
 export default meta;
 
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<StoryArgs>;
 
 export const Default: Story = {};
 
@@ -83,5 +104,24 @@ export const MultilineAndClose: Story = {
     onClose: fn(),
     tooltip: "Close",
     children: "Would you like some toast on multiple multiple multiple lines?",
+  },
+};
+
+/**
+ * When `onClick` is provided, the whole toast becomes a button. This is
+ * mutually exclusive with `onClose`, as a button cannot contain another button.
+ */
+export const Clickable: Story = {
+  args: {
+    onClick: fn(),
+    children: "There are new messages, jump to them",
+  },
+};
+
+export const ClickableWithIcon: Story = {
+  args: {
+    Icon: CheckIcon,
+    onClick: fn(),
+    children: "There are new messages, jump to them",
   },
 };

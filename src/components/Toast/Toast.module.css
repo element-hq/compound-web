@@ -23,6 +23,30 @@ Please see LICENSE files in the repository root for full details.
   }
 }
 
+/* Clickable mode: the toast container is a button. Reset the default button
+ * appearance and layer interaction states on top of the shared container. */
+.clickable {
+  appearance: none;
+  box-sizing: border-box;
+  border: none;
+  cursor: pointer;
+}
+
+@media (hover) {
+  .clickable:hover {
+    background-color: var(--cpd-color-bg-action-primary-hovered);
+  }
+}
+
+.clickable:active {
+  background-color: var(--cpd-color-bg-action-primary-pressed);
+}
+
+.clickable:focus-visible {
+  outline: 2px solid var(--cpd-color-border-focused);
+  outline-offset: 1px;
+}
+
 .icon {
   flex-shrink: 0;
 }

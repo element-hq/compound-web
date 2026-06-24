@@ -13,7 +13,8 @@ import { composeStories } from "@storybook/react";
 import * as stories from "./Toast.stories";
 import userEvent from "@testing-library/user-event";
 
-const { Default, Icon, CloseAndIcon, Multiline } = composeStories(stories);
+const { Default, Icon, CloseAndIcon, Multiline, Clickable } =
+  composeStories(stories);
 
 describe("Toast", () => {
   it("renders", () => {
@@ -48,5 +49,24 @@ describe("Toast", () => {
 
     await user.click(screen.getByRole("button"));
     expect(onClose).toHaveBeenCalledTimes(1);
+  });
+
+  it("renders the whole toast as a button when onClick is provided", () => {
+    const { asFragment } = render(<Clickable />);
+    expect(
+      screen.getByRole("button", {
+        name: "There are new messages, jump to them",
+      }),
+    ).toBeInTheDocument();
+    expect(asFragment()).toMatchSnapshot();
+  });
+
+  it("calls onClick when the toast is clicked", async () => {
+    const user = userEvent.setup();
+    const onClick = vi.fn();
+    render(<Clickable onClick={onClick} />);
+
+    await user.click(screen.getByRole("button"));
+    expect(onClick).toHaveBeenCalledTimes(1);
   });
 });
