@@ -10,11 +10,16 @@ Please see LICENSE files in the repository root for full details.
   background-color: var(--cpd-color-bg-action-primary-rest);
   color: var(--cpd-color-text-on-solid-primary);
   border-radius: 99px;
-  padding: var(--cpd-space-2x) var(--cpd-space-4x);
+
+  /* Text-only toast: 8px block padding around the 20px icon/text = 36px tall.
+   * Trailing padding is larger than leading to balance the pill. */
+  padding-block: var(--cpd-space-2x); /* 8px */
+  padding-inline: var(--cpd-space-4x) var(--cpd-space-6x); /* 16px / 24px */
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
   gap: var(--cpd-space-2x);
+  box-shadow: 0 4px 24px 0 rgb(27 29 34 / 10%);
 }
 
 @media (forced-colors: active) {
@@ -23,12 +28,41 @@ Please see LICENSE files in the repository root for full details.
   }
 }
 
+/* Clickable mode: the toast container is a button. Reset the default button
+ * appearance and layer interaction states on top of the shared container. */
+.clickable {
+  appearance: none;
+  box-sizing: border-box;
+  border: none;
+  cursor: pointer;
+}
+
+@media (hover) {
+  .clickable:hover {
+    background-color: var(--cpd-color-bg-action-primary-hovered);
+  }
+}
+
+.clickable:active {
+  background-color: var(--cpd-color-bg-action-primary-pressed);
+}
+
+.clickable:focus-visible {
+  outline: 2px solid var(--cpd-color-border-focused);
+  outline-offset: 1px;
+}
+
 .icon {
   flex-shrink: 0;
 }
 
 .has-close {
-  gap: var(--cpd-space-3x);
+  /* The 24px close button is taller than the text, so it drives the toast
+   * height. Drop the block padding to 6px so the action toast stays the same
+   * height as the text-only one: 6 + 24 + 6 = 36px, matching 8 + 20 + 8 = 36px.
+   * The close button sits 8px from the trailing edge. */
+  padding-block: var(--cpd-space-1-5x); /* 6px */
+  padding-inline-end: var(--cpd-space-2x); /* 8px */
 }
 
 .content {

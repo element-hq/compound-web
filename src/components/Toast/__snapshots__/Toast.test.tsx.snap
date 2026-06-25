@@ -3,10 +3,10 @@
 exports[`Toast > renders 1`] = `
 <DocumentFragment>
   <div
-    class="_typography_61e060 _font-body-sm-medium_61e060 _toast-container_78370f"
+    class="_toast-container_78370f"
   >
     <div
-      class="_content_78370f"
+      class="_typography_61e060 _font-body-sm-medium_61e060 _content_78370f"
     >
       Would you like some toast?
     </div>
@@ -20,10 +20,10 @@ exports[`Toast > renders multiline 1`] = `
     style="width: 250px;"
   >
     <div
-      class="_typography_61e060 _font-body-sm-medium_61e060 _toast-container_78370f"
+      class="_toast-container_78370f"
     >
       <div
-        class="_content_78370f"
+        class="_typography_61e060 _font-body-sm-medium_61e060 _content_78370f"
       >
         <svg
           aria-hidden="true"
@@ -45,13 +45,28 @@ exports[`Toast > renders multiline 1`] = `
 </DocumentFragment>
 `;
 
+exports[`Toast > renders the whole toast as a button when onClick is provided 1`] = `
+<DocumentFragment>
+  <button
+    class="_toast-container_78370f _clickable_78370f"
+    type="button"
+  >
+    <div
+      class="_typography_61e060 _font-body-sm-medium_61e060 _content_78370f"
+    >
+      There are new messages, jump to them
+    </div>
+  </button>
+</DocumentFragment>
+`;
+
 exports[`Toast > renders with a close button and icon 1`] = `
 <DocumentFragment>
   <div
-    class="_typography_61e060 _font-body-sm-medium_61e060 _toast-container_78370f _has-close_78370f"
+    class="_toast-container_78370f _has-close_78370f"
   >
     <div
-      class="_content_78370f"
+      class="_typography_61e060 _font-body-sm-medium_61e060 _content_78370f"
     >
       <svg
         aria-hidden="true"
@@ -100,10 +115,10 @@ exports[`Toast > renders with a close button and icon 1`] = `
 exports[`Toast > renders with an icon 1`] = `
 <DocumentFragment>
   <div
-    class="_typography_61e060 _font-body-sm-medium_61e060 _toast-container_78370f"
+    class="_toast-container_78370f"
   >
     <div
-      class="_content_78370f"
+      class="_typography_61e060 _font-body-sm-medium_61e060 _content_78370f"
     >
       <svg
         aria-hidden="true"
