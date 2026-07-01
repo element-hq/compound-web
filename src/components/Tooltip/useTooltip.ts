@@ -8,6 +8,7 @@
 import {
   arrow,
   autoUpdate,
+  type Boundary,
   flip,
   hide,
   offset,
@@ -85,9 +86,11 @@ export interface CommonUseTooltipProps {
    * keeps the tooltip inside the boundary.
    * Accepts a single Element or an array of Elements. Useful for tooltips
    * near containers they should not overlap (e.g. the message composer).
+   * Additionally, accepts `clippingAncestors`,
+   * which are the overflow ancestors which will cause the element to be clipped.
    * @default undefined
    */
-  boundary?: Element | Element[];
+  boundary?: Boundary;
 
   /**
    * Additional aria-* attributes to pass through to the floating tooltip for
@@ -159,11 +162,14 @@ export function useTooltip({
         boundary,
       }),
       shift({ padding: 5 }),
-      hide({
-        strategy: "escaped",
-        boundary,
-        padding: 6,
-      }),
+      // only load the hide middleware if `boundary` is specified otherwise it will default to `clippingAncestors`
+      boundary
+        ? hide({
+            strategy: "escaped",
+            boundary,
+            padding: 6,
+          })
+        : null,
       // add the little arrow along with the floating content
       arrow({
         element: arrowRef,

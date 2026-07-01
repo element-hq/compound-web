@@ -34,7 +34,11 @@ const meta = {
       options: ["top", "right", "left", "bottom"],
     },
     open: {
-      control: "boolean",
+      control: "inline-radio",
+      options: ["auto", false, true],
+      mapping: {
+        auto: undefined,
+      },
     },
     isTriggerInteractive: {
       control: "boolean",
@@ -52,7 +56,7 @@ const meta = {
   args: {
     // needed, to prevent the tooltip to be in controlled mode
     onOpenChange: undefined,
-    open: undefined,
+    open: undefined as boolean | undefined,
     description: "",
     label: "",
     children: (
@@ -92,7 +96,7 @@ const Layout: FC<LayoutProps> = ({ children }) => (
   </div>
 );
 
-const TemplatePlacement: StoryFn<typeof meta> = () => (
+const TemplatePlacement: StoryFn<typeof meta.args> = (args) => (
   <Layout>
     {(
       [
@@ -106,12 +110,7 @@ const TemplatePlacement: StoryFn<typeof meta> = () => (
         "left-start",
       ] as Array<PlacementType>
     ).map((placement) => (
-      <TooltipComponent
-        key={placement}
-        open={true}
-        placement={placement}
-        label="@bob:example.org"
-      >
+      <TooltipComponent {...args} key={placement} placement={placement}>
         <IconButton>
           <UserIcon />
         </IconButton>
@@ -121,7 +120,10 @@ const TemplatePlacement: StoryFn<typeof meta> = () => (
 );
 
 export const Placement = TemplatePlacement.bind({});
-Placement.args = {};
+Placement.args = {
+  open: true,
+  label: "@bob:example.org",
+};
 
 export const Default: Story = {
   args: {
