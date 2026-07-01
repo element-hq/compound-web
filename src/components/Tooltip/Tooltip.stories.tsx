@@ -34,7 +34,11 @@ const meta = {
       options: ["top", "right", "left", "bottom"],
     },
     open: {
-      control: "boolean",
+      control: "inline-radio",
+      options: ["auto", false, true],
+      mapping: {
+        auto: undefined,
+      },
     },
     isTriggerInteractive: {
       control: "boolean",
@@ -52,9 +56,9 @@ const meta = {
   args: {
     // needed, to prevent the tooltip to be in controlled mode
     onOpenChange: undefined,
-    open: true,
+    open: undefined as boolean | undefined,
     description: "",
-    label: "@bob:example.org",
+    label: "",
     children: (
       <IconButton>
         <UserIcon />
@@ -116,7 +120,10 @@ const TemplatePlacement: StoryFn<typeof meta.args> = (args) => (
 );
 
 export const Placement = TemplatePlacement.bind({});
-Placement.args = {};
+Placement.args = {
+  open: true,
+  label: "@bob:example.org",
+};
 
 export const Default: Story = {
   args: {
