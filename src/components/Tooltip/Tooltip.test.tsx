@@ -73,7 +73,7 @@ describe("Tooltip", () => {
   it("renders default tooltip", async () => {
     render(
       <TooltipProvider>
-        <Tooltip label="@bob:example.org">
+        <Tooltip label="@bob:example.org" boundary="clippingAncestors">
           <IconButton>
             <UserIcon />
           </IconButton>
