@@ -1,4 +1,4 @@
-import { OpenChangeReason, Placement } from '@floating-ui/react';
+import { Boundary, OpenChangeReason, Placement } from '@floating-ui/react';
 import { JSX, AriaAttributes } from '../../../node_modules/react';
 export interface CommonUseTooltipProps {
     /**
@@ -46,9 +46,11 @@ export interface CommonUseTooltipProps {
      * keeps the tooltip inside the boundary.
      * Accepts a single Element or an array of Elements. Useful for tooltips
      * near containers they should not overlap (e.g. the message composer).
+     * Additionally, accepts `clippingAncestors`,
+     * which are the overflow ancestors which will cause the element to be clipped.
      * @default undefined
      */
-    boundary?: Element | Element[];
+    boundary?: Boundary;
     /**
      * Additional aria-* attributes to pass through to the floating tooltip for
      * edge cases which require more user awareness like errors & alerts.
@@ -90,10 +92,10 @@ export declare function useTooltip({ open: controlledOpen, disabled, onOpenChang
         floating: HTMLElement | null;
     } & import('@floating-ui/react').ExtendedElements<import('@floating-ui/react').ReferenceType>;
     context: {
-        placement: Placement;
-        strategy: import('@floating-ui/utils').Strategy;
         x: number;
         y: number;
+        placement: Placement;
+        strategy: import('@floating-ui/utils').Strategy;
         middlewareData: import('@floating-ui/core').MiddlewareData;
         isPositioned: boolean;
         update: () => void;

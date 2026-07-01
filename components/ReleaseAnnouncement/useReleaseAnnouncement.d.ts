@@ -67,10 +67,10 @@ export declare function useReleaseAnnouncement({ open, header, description, clos
         floating: HTMLElement | null;
     } & import('@floating-ui/react').ExtendedElements<import('@floating-ui/react').ReferenceType>;
     context: {
-        placement: Placement;
-        strategy: import('@floating-ui/utils').Strategy;
         x: number;
         y: number;
+        placement: Placement;
+        strategy: import('@floating-ui/utils').Strategy;
         middlewareData: import('@floating-ui/core').MiddlewareData;
         isPositioned: boolean;
         update: () => void;
