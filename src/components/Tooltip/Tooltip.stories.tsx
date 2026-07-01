@@ -52,9 +52,9 @@ const meta = {
   args: {
     // needed, to prevent the tooltip to be in controlled mode
     onOpenChange: undefined,
-    open: undefined,
+    open: true,
     description: "",
-    label: "",
+    label: "@bob:example.org",
     children: (
       <IconButton>
         <UserIcon />
@@ -92,7 +92,7 @@ const Layout: FC<LayoutProps> = ({ children }) => (
   </div>
 );
 
-const TemplatePlacement: StoryFn<typeof meta> = () => (
+const TemplatePlacement: StoryFn<typeof meta.args> = (args) => (
   <Layout>
     {(
       [
@@ -106,12 +106,7 @@ const TemplatePlacement: StoryFn<typeof meta> = () => (
         "left-start",
       ] as Array<PlacementType>
     ).map((placement) => (
-      <TooltipComponent
-        key={placement}
-        open={true}
-        placement={placement}
-        label="@bob:example.org"
-      >
+      <TooltipComponent {...args} key={placement} placement={placement}>
         <IconButton>
           <UserIcon />
         </IconButton>
