@@ -24,11 +24,11 @@ Please see LICENSE files in the repository root for full details.
 
 @media (hover) {
   .link[data-kind="primary"]:hover {
-    background: var(--cpd-color-gray-300);
+    background: var(--cpd-color-bg-subtle-primary);
   }
 
   .link[data-kind="critical"]:hover {
-    background: var(--cpd-color-red-300);
+    background: var(--cpd-color-bg-critical-subtle-hovered);
   }
 }
 
