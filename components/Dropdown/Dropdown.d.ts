@@ -1,4 +1,4 @@
-import { default as React, KeyboardEvent } from '../../../node_modules/react';
+import { default as React, KeyboardEvent } from '../../../node_modules/.pnpm/react@19.2.7/node_modules/react';
 /**
  * Props injected into the trigger render function.
  */

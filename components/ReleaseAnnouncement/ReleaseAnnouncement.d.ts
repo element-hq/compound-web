@@ -1,4 +1,4 @@
-import { JSX, PropsWithChildren } from '../../../node_modules/react';
+import { JSX, PropsWithChildren } from '../../../node_modules/.pnpm/react@19.2.7/node_modules/react';
 import { Placement } from '@floating-ui/react';
 import { useReleaseAnnouncement } from './useReleaseAnnouncement';
 type UseReleaseAnnouncementParam = Parameters<typeof useReleaseAnnouncement>[0];

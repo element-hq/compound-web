@@ -1,4 +1,4 @@
-import { default as React, FC } from '../../../node_modules/react';
+import { default as React, FC } from '../../../node_modules/.pnpm/react@19.2.7/node_modules/react';
 export declare const hoverDelay: {
     open: number;
     close: number;

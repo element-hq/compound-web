@@ -1,4 +1,4 @@
-import { default as React } from '../../../node_modules/react';
+import { default as React } from '../../../node_modules/.pnpm/react@19.2.7/node_modules/react';
 import { Size } from '../../utils/size';
 type Icon = React.ForwardRefExoticComponent<Omit<React.SVGProps<SVGSVGElement>, "ref" | "children"> & React.RefAttributes<SVGSVGElement>>;
 interface SwitchProps<LeftValue extends string, RightValue extends string> {

@@ -1,5 +1,5 @@
 import { Boundary, OpenChangeReason, Placement } from '@floating-ui/react';
-import { JSX, AriaAttributes } from '../../../node_modules/react';
+import { JSX, AriaAttributes } from '../../../node_modules/.pnpm/react@19.2.7/node_modules/react';
 export interface CommonUseTooltipProps {
     /**
      * The controlled open state of the tooltip.
@@ -72,17 +72,17 @@ export interface TooltipDescription {
 }
 type UseTooltipProps = CommonUseTooltipProps & (TooltipLabel | TooltipDescription);
 export declare function useTooltip({ open: controlledOpen, disabled, onOpenChange, placement, isTriggerInteractive, caption, "aria-atomic": ariaAtomic, "aria-live": ariaLive, boundary, ...props }: UseTooltipProps): {
-    arrowRef: import('../../../node_modules/react').RefObject<null>;
+    arrowRef: import('../../../node_modules/.pnpm/react@19.2.7/node_modules/react').RefObject<null>;
     placement: Placement;
-    strategy: import('@floating-ui/utils').Strategy;
-    middlewareData: import('@floating-ui/core').MiddlewareData;
+    strategy: import('@floating-ui/react-dom').Strategy;
+    middlewareData: import('@floating-ui/react-dom').MiddlewareData;
     x: number;
     y: number;
     isPositioned: boolean;
     update: () => void;
     floatingStyles: React.CSSProperties;
     refs: {
-        reference: import('../../../node_modules/react').MutableRefObject<import('@floating-ui/react-dom').ReferenceType | null>;
+        reference: import('../../../node_modules/.pnpm/react@19.2.7/node_modules/react').MutableRefObject<import('@floating-ui/react-dom').ReferenceType | null>;
         floating: React.MutableRefObject<HTMLElement | null>;
         setReference: (node: import('@floating-ui/react-dom').ReferenceType | null) => void;
         setFloating: (node: HTMLElement | null) => void;
@@ -95,8 +95,8 @@ export declare function useTooltip({ open: controlledOpen, disabled, onOpenChang
         x: number;
         y: number;
         placement: Placement;
-        strategy: import('@floating-ui/utils').Strategy;
-        middlewareData: import('@floating-ui/core').MiddlewareData;
+        strategy: import('@floating-ui/react-dom').Strategy;
+        middlewareData: import('@floating-ui/react-dom').MiddlewareData;
         isPositioned: boolean;
         update: () => void;
         floatingStyles: React.CSSProperties;

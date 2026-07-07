@@ -1,4 +1,4 @@
-import { default as React } from '../../../node_modules/react';
+import { default as React } from '../../../node_modules/.pnpm/react@19.2.7/node_modules/react';
 /**
  * Avatar component that will fallback to an initial letter over a coloured
  * background if no source is provided or if the source has failed to load.

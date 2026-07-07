@@ -1,4 +1,4 @@
-import { ComponentProps, PropsWithChildren, default as React } from '../../../../../node_modules/react';
+import { ComponentProps, PropsWithChildren, default as React } from '../../../../../node_modules/.pnpm/react@19.2.7/node_modules/react';
 import { ToggleInput } from '../Toggle';
 type SettingsToggleProps = {
     /**

@@ -1,4 +1,4 @@
-import { default as React } from '../../../node_modules/react';
+import { default as React } from '../../../node_modules/.pnpm/react@19.2.7/node_modules/react';
 import { Message } from '@radix-ui/react-form';
 type MessageProps = {
     /**

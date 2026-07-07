@@ -1,4 +1,4 @@
-import { FC, ReactNode } from '../../../node_modules/react';
+import { FC, ReactNode } from '../../../node_modules/.pnpm/react@19.2.7/node_modules/react';
 interface Props {
     /**
      * The trigger element that opens the submenu. This should be a MenuItem.

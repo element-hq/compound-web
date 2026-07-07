@@ -1,4 +1,4 @@
-import { default as React, ComponentPropsWithoutRef, ComponentType, ReactElement, SVGAttributes, MouseEventHandler } from '../../../node_modules/react';
+import { default as React, ComponentPropsWithoutRef, ComponentType, ReactElement, SVGAttributes, MouseEventHandler } from '../../../node_modules/.pnpm/react@19.2.7/node_modules/react';
 import { Text } from '../Typography/Text';
 type MenuItemElement = "button" | "a" | "div";
 type Props<C extends MenuItemElement> = {

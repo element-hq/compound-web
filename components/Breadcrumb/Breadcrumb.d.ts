@@ -1,4 +1,4 @@
-import { HTMLProps, JSX, MouseEventHandler } from '../../../node_modules/react';
+import { HTMLProps, JSX, MouseEventHandler } from '../../../node_modules/.pnpm/react@19.2.7/node_modules/react';
 interface BreadcrumbProps extends HTMLProps<HTMLElement> {
     /**
      * The label for the back button.

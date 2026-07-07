@@ -3,7 +3,7 @@ type ContextType = ReturnType<typeof useReleaseAnnouncement> | null;
 /**
  * The context for the ReleaseAnnouncement components.
  */
-export declare const ReleaseAnnouncementContext: import('../../../node_modules/react').Context<ContextType>;
+export declare const ReleaseAnnouncementContext: import('../../../node_modules/.pnpm/react@19.2.7/node_modules/react').Context<ContextType>;
 /**
  * Provides the context for the ReleaseAnnouncement components.
  */
@@ -13,25 +13,25 @@ export declare function useReleaseAnnouncementContext(): {
     header: string;
     description: string;
     closeLabel: string;
-    onClick: import('../../../node_modules/react').MouseEventHandler<HTMLButtonElement>;
+    onClick: import('../../../node_modules/.pnpm/react@19.2.7/node_modules/react').MouseEventHandler<HTMLButtonElement>;
     displayArrow: boolean | undefined;
-    arrowRef: import('../../../node_modules/react').RefObject<null>;
+    arrowRef: import('../../../node_modules/.pnpm/react@19.2.7/node_modules/react').RefObject<null>;
     getReferenceProps: (userProps?: React.HTMLProps<Element>) => Record<string, unknown>;
     getFloatingProps: (userProps?: React.HTMLProps<HTMLElement>) => Record<string, unknown>;
     getItemProps: (userProps?: Omit<React.HTMLProps<HTMLElement>, "selected" | "active"> & {
         active?: boolean;
         selected?: boolean;
     }) => Record<string, unknown>;
-    placement: import('@floating-ui/utils').Placement;
-    strategy: import('@floating-ui/utils').Strategy;
-    middlewareData: import('@floating-ui/core').MiddlewareData;
+    placement: import('@floating-ui/react-dom').Placement;
+    strategy: import('@floating-ui/react-dom').Strategy;
+    middlewareData: import('@floating-ui/react-dom').MiddlewareData;
     x: number;
     y: number;
     isPositioned: boolean;
     update: () => void;
     floatingStyles: React.CSSProperties;
     refs: {
-        reference: import('../../../node_modules/react').MutableRefObject<import('@floating-ui/react-dom').ReferenceType | null>;
+        reference: import('../../../node_modules/.pnpm/react@19.2.7/node_modules/react').MutableRefObject<import('@floating-ui/react-dom').ReferenceType | null>;
         floating: React.MutableRefObject<HTMLElement | null>;
         setReference: (node: import('@floating-ui/react-dom').ReferenceType | null) => void;
         setFloating: (node: HTMLElement | null) => void;
@@ -43,9 +43,9 @@ export declare function useReleaseAnnouncementContext(): {
     context: {
         x: number;
         y: number;
-        placement: import('@floating-ui/utils').Placement;
-        strategy: import('@floating-ui/utils').Strategy;
-        middlewareData: import('@floating-ui/core').MiddlewareData;
+        placement: import('@floating-ui/react-dom').Placement;
+        strategy: import('@floating-ui/react-dom').Strategy;
+        middlewareData: import('@floating-ui/react-dom').MiddlewareData;
         isPositioned: boolean;
         update: () => void;
         floatingStyles: React.CSSProperties;
