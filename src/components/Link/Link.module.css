@@ -12,6 +12,10 @@ Please see LICENSE files in the repository root for full details.
   font-weight: var(--cpd-font-weight-medium);
   border-radius: var(--cpd-radius-pill-effect);
   padding-inline: 0.25rem;
+  cursor: pointer;
+  transition-property: color, background-color;
+  /* Fade out :active background slowly */
+  transition-duration: 0.15s;
 }
 
 .link[data-kind="primary"] {
@@ -22,26 +26,17 @@ Please see LICENSE files in the repository root for full details.
   color: var(--cpd-color-text-critical-primary);
 }
 
-@media (hover) {
-  .link[data-kind="primary"]:hover {
-    background: var(--cpd-color-bg-subtle-primary);
-  }
-
-  .link[data-kind="critical"]:hover {
-    background: var(--cpd-color-bg-critical-subtle-hovered);
-  }
-}
-
 .link:active {
-  color: var(--cpd-color-text-on-solid-primary);
+  /* Fade in :active background quickly */
+  transition-duration: 0.05s;
 }
 
 .link[data-kind="primary"]:active {
-  background: var(--cpd-color-text-primary);
+  background: var(--cpd-color-bg-subtle-primary);
 }
 
 .link[data-kind="critical"]:active {
-  background: var(--cpd-color-text-critical-primary);
+  background: var(--cpd-color-bg-critical-subtle-hovered);
 }
 
 .link[data-size="md"] {
