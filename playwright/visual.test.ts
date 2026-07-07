@@ -27,7 +27,7 @@ test.describe.configure({ mode: "parallel" });
 const storiesPath = new URL("../storybook-static/index.json", import.meta.url);
 if (!fs.existsSync(storiesPath)) {
   console.error(
-    "Storybook manifest not found, please rebuild with 'yarn build-storybook'",
+    "Storybook manifest not found, please rebuild with 'pnpm build-storybook'",
   );
   process.exit(1);
 }
