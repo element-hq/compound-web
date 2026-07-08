@@ -14,7 +14,6 @@ Please see LICENSE files in the repository root for full details.
   padding-inline: 0.25rem;
   cursor: pointer;
   transition-property: color, background-color;
-  /* Fade out :active background slowly */
   transition-duration: 0.15s;
 }
 
@@ -27,7 +26,7 @@ Please see LICENSE files in the repository root for full details.
 }
 
 .link:active {
-  /* Fade in :active background quickly */
+  /* Fade in :active background quicker than it fades out */
   transition-duration: 0.05s;
 }
 
