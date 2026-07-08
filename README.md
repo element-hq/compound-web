@@ -12,9 +12,9 @@ React implementation of Compound – Element's design system – See full docume
 
 | Command                    | Runs                          |
 | -------------------------- | ----------------------------- |
-| `yarn dev`                 | Runs a local Storybook server |
-| `yarn lint`                | Lints all components          |
-| `yarn gen:component $name` | Bootstraps a new component    |
+| `pnpm dev`                 | Runs a local Storybook server |
+| `pnpm lint`                | Lints all components          |
+| `pnpm gen:component $name` | Bootstraps a new component    |
 
 Make sure to read the [guidelines for component development](https://compound.element.io/?path=/docs/develop-contributing--docs).
 
@@ -22,24 +22,13 @@ Make sure to read the [guidelines for component development](https://compound.el
 
 | Command              | Runs                              |
 | -------------------- | --------------------------------- |
-| `yarn test`          | Runs unit tests                   |
-| `yarn e2e:docker`    | Runs end-to-end tests             |
-| `yarn e2e:docker -u` | Updates end-to-end test snapshots |
+| `pnpm test`          | Runs unit tests                   |
+| `pnpm e2e:docker`    | Runs end-to-end tests             |
+| `pnpm e2e:docker -u` | Updates end-to-end test snapshots |
 
 All components are expected to come with comprehensive unit tests and visual tests. We use Playwright to run visual tests on every story present in Storybook, so story coverage is really important! It helps us validate component implementations against the designs and prevents visual regressions at the same time.
 
 We recommend running the end-to-end tests via Docker as shown above to get consistent text rendering for screenshots.
-
-### Linking
-
-If you want to work on Compound Web as a linked package within a larger React application, TypeScript might complain about there being multiple copies of @types/react in the tree. You can work around this by linking Compound Web's copy of @types/react to your application's copy:
-
-```bash
-$ cd my-application/node_modules/@types/react
-$ yarn link
-$ cd ../../../../compound-web
-$ yarn link @types/react
-```
 
 ## Release
 

@@ -8,30 +8,38 @@ jobs:
     name: "Lint"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
-      - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6
+      - name: Checkout code
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
+      - name: Set up pnpm
+        uses: pnpm/action-setup@0ebf47130e4866e96fce0953f49152a61190b271 # v6.0.9
+      - name: pnpm cache
+        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6
         with:
-          cache: "yarn"
+          cache: "pnpm"
           node-version-file: ".node-version"
-      - name: Install deps
-        run: yarn install --frozen-lockfile
+      - name: Install dependencies
+        run: "pnpm install --frozen-lockfile --ignore-scripts"
       - name: Lint
-        run: "yarn run lint"
+        run: "pnpm lint"
       - name: Check formatting
-        run: "yarn run prettier:check"
+        run: "pnpm prettier:check"
   test:
     name: "Unit test"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
-      - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6
+      - name: Checkout code
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
+      - name: Set up pnpm
+        uses: pnpm/action-setup@0ebf47130e4866e96fce0953f49152a61190b271 # v6.0.9
+      - name: pnpm cache
+        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6
         with:
-          cache: "yarn"
+          cache: "pnpm"
           node-version-file: ".node-version"
-      - name: Install deps
-        run: yarn install --frozen-lockfile
+      - name: Install dependencies
+        run: "pnpm install --frozen-lockfile --ignore-scripts"
       - name: Test
-        run: "yarn run test --coverage"
+        run: "pnpm test --coverage"
       - name: Upload Artifact
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
         with:
@@ -50,17 +58,21 @@ jobs:
     # image, in playwright/Dockerfile
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
-      - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6
+      - name: Checkout code
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
+      - name: Set up pnpm
+        uses: pnpm/action-setup@0ebf47130e4866e96fce0953f49152a61190b271 # v6.0.9
+      - name: pnpm cache
+        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6
         with:
-          cache: "yarn"
+          cache: "pnpm"
           node-version-file: ".node-version"
-      - name: Install deps
-        run: yarn install --frozen-lockfile
+      - name: Install dependencies
+        run: "pnpm install --frozen-lockfile --ignore-scripts"
       - name: Build Storybook
-        run: yarn build-storybook
+        run: pnpm build-storybook
       - name: Get Playwright version
-        run: echo "PLAYWRIGHT_VERSION=$(yarn list --pattern @playwright/test --depth=0 --json --non-interactive --no-progress | jq -r '.data.trees[].name')" >> $GITHUB_ENV
+        run: echo "PLAYWRIGHT_VERSION=$(pnpm list @playwright/test --depth=0 --json | jq -r '.[0].devDependencies["@playwright/test"].version')" >> $GITHUB_ENV
       - name: Cache Playwright binaries
         uses: actions/cache@caa296126883cff596d87d8935842f9db880ef25 # v5
         id: playwright-cache
@@ -70,12 +82,12 @@ jobs:
           key: ${{ runner.os }}-playwright-${{ env.PLAYWRIGHT_VERSION }}
       - name: Install Playwright binaries
         if: steps.playwright-cache.outputs.cache-hit != 'true'
-        run: yarn playwright install --with-deps
+        run: pnpm playwright install --with-deps
       - name: Run Playwright tests
         # We use this action to get a virtual frame buffer for the browsers
         uses: coactions/setup-xvfb@b6b4fcfb9f5a895edadc3bc76318fae0ac17c8b3 # v1
         with:
-          run: yarn playwright test -j 100%
+          run: pnpm playwright test -j 100%
       - name: Upload Playwright report
         if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
