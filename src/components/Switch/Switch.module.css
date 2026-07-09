@@ -25,6 +25,7 @@ Please see LICENSE in the repository root for full details.
   display: flex;
   position: relative;
   inline-size: fit-content;
+
   /* Same color as the background since we don't want it to look like a border
   outside of forced colors mode. Just reserves space in the layout. */
   border: var(--cpd-border-width-1) solid var(--cpd-color-bg-subtle-secondary);
