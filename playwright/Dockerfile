@@ -12,4 +12,4 @@ RUN usermod -ou $UID -g $GID pwuser
 USER pwuser
 
 WORKDIR /work/compound-web
-ENTRYPOINT ["node", "node_modules/playwright/cli.js", "test"]
+ENTRYPOINT ["node", "node_modules/@playwright/test/cli.js", "test"]
