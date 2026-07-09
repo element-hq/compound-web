@@ -10,24 +10,29 @@ Please see LICENSE in the repository root for full details.
   &[data-size="lg"] {
     --cpd-switch-button-size: 44px;
     --cpd-switch-icon-size: 24px;
+    --cpd-switch-gap: var(--cpd-space-2x);
   }
 
   &[data-size="md"] {
     --cpd-switch-button-size: 32px;
     --cpd-switch-icon-size: 20px;
+    --cpd-switch-gap: var(--cpd-space-1-5x);
   }
 
-  padding: var(--cpd-space-0-5x);
+  padding: calc(var(--cpd-space-0-5x) - var(--cpd-border-width-1));
   border-radius: var(--cpd-radius-pill-effect);
-  background: var(--cpd-color-bg-canvas-default);
+  background: var(--cpd-color-bg-subtle-secondary);
   display: flex;
   position: relative;
   inline-size: fit-content;
-  border: 1px solid var(--cpd-color-border-interactive-secondary);
+
+  /* Same color as the background since we don't want it to look like a border
+  outside of forced colors mode. Just reserves space in the layout. */
+  border: var(--cpd-border-width-1) solid var(--cpd-color-bg-subtle-secondary);
 
   @media (forced-colors) {
     /* Firefox seems to lose borders in practice (https://github.com/element-hq/compound-web/pull/482#discussion_r3136544962) so redefine this here. */
-    border: 1px solid;
+    border: var(--cpd-border-width-1) solid;
   }
 
   svg {
@@ -44,14 +49,14 @@ Please see LICENSE in the repository root for full details.
   }
 
   svg:nth-child(2) {
-    inset-inline-start: var(--cpd-space-0-5x);
+    inset-inline-start: var(--cpd-border-width-1);
     margin-inline-start: calc(
       (var(--cpd-switch-button-size) - var(--cpd-switch-icon-size)) / 2
     );
   }
 
   svg:nth-child(4) {
-    inset-inline-end: var(--cpd-space-0-5x);
+    inset-inline-end: var(--cpd-border-width-1);
     margin-inline-end: calc(
       (var(--cpd-switch-button-size) - var(--cpd-switch-icon-size)) / 2
     );
@@ -73,7 +78,7 @@ Please see LICENSE in the repository root for full details.
   }
 
   input:first-child {
-    margin-inline-end: 5px;
+    margin-inline-end: var(--cpd-switch-gap);
   }
 
   @media (hover: hover) {
