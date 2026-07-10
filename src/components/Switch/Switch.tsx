@@ -6,7 +6,11 @@ SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-Element-Commercial
 Please see LICENSE in the repository root for full details.
 */
 
-import React, { type ChangeEvent, useCallback } from "react";
+import React, {
+  type ChangeEvent,
+  type FieldsetHTMLAttributes,
+  useCallback,
+} from "react";
 import { Tooltip } from "../../index";
 import classNames from "classnames";
 
@@ -49,7 +53,7 @@ export const Switch = <
   ...fieldSetProps
 }: SwitchProps<LeftValue, RightValue> &
   Omit<
-    React.HTMLAttributes<HTMLFieldSetElement>,
+    FieldsetHTMLAttributes<HTMLFieldSetElement>,
     "onChange"
   >): React.ReactElement => {
   const onInputChange = useCallback(
