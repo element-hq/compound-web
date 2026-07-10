@@ -93,10 +93,12 @@ Please see LICENSE in the repository root for full details.
         background: var(--cpd-color-bg-action-primary-hovered);
       }
     }
+
     &:active {
       background: var(--cpd-color-bg-action-secondary-pressed);
       box-shadow: none;
     }
+
     &:checked:active {
       background: var(--cpd-color-bg-action-primary-pressed);
     }
