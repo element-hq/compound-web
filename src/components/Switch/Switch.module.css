@@ -121,6 +121,8 @@ Please see LICENSE in the repository root for full details.
 
   input:disabled {
     cursor: default;
+    background: var(--cpd-color-bg-subtle-primary);
+    box-shadow: none;
   }
 
   input:disabled + svg {
