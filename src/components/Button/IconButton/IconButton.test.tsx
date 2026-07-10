@@ -5,12 +5,16 @@ SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-Element-Commercial
 Please see LICENSE files in the repository root for full details.
 */
 
-import { describe, it, expect } from "vitest";
-import { render } from "@testing-library/react";
+import { describe, it, expect, vi } from "vitest";
+import { render, screen } from "@testing-library/react";
 import React from "react";
 import { composeStories } from "@storybook/react";
+import userEvent from "@testing-library/user-event";
 
 import * as stories from "./IconButton.stories";
+import { IconButton } from "./IconButton";
+import { TooltipProvider } from "../../Tooltip/TooltipProvider";
+import { UserIcon } from "@vector-im/compound-design-tokens/assets/web/icons";
 
 const {
   Default,
@@ -55,5 +59,31 @@ describe("IconButton", () => {
   it("renders a WithSecondaryKindAndNoBackground IconButton", () => {
     const { container } = render(<WithSecondaryKindAndNoBackground />);
     expect(container).toMatchSnapshot();
+  });
+  it("calls onTooltipOpenChange when the tooltip opens and closes", async () => {
+    const user = userEvent.setup();
+    const onTooltipOpenChange = vi.fn();
+    render(
+      <TooltipProvider>
+        <IconButton tooltip="Profile" onTooltipOpenChange={onTooltipOpenChange}>
+          <UserIcon />
+        </IconButton>
+      </TooltipProvider>,
+    );
+
+    await user.tab();
+    expect(screen.getByRole("button")).toHaveFocus();
+    expect(onTooltipOpenChange).toHaveBeenLastCalledWith(
+      true,
+      expect.anything(),
+      expect.anything(),
+    );
+
+    await user.tab();
+    expect(onTooltipOpenChange).toHaveBeenLastCalledWith(
+      false,
+      expect.anything(),
+      expect.anything(),
+    );
   });
 });
