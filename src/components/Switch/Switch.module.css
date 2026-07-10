@@ -81,21 +81,25 @@ Please see LICENSE in the repository root for full details.
     margin-inline-end: var(--cpd-switch-gap);
   }
 
-  @media (hover: hover) {
-    input:hover {
-      border-color: var(--cpd-color-border-interactive-primary);
-      background: var(--cpd-color-bg-action-secondary-hovered);
+  input:not(:disabled) {
+    @media (hover: hover) {
+      &:hover {
+        border-color: var(--cpd-color-border-interactive-primary);
+        background: var(--cpd-color-bg-action-secondary-hovered);
+        box-shadow: none;
+      }
+
+      &:checked:hover {
+        background: var(--cpd-color-bg-action-primary-hovered);
+      }
+    }
+    &:active {
+      background: var(--cpd-color-bg-action-secondary-pressed);
       box-shadow: none;
     }
-
-    input:checked:hover {
-      background: var(--cpd-color-bg-action-primary-hovered);
+    &:checked:active {
+      background: var(--cpd-color-bg-action-primary-pressed);
     }
-  }
-
-  input:active {
-    background: var(--cpd-color-bg-action-secondary-pressed);
-    box-shadow: none;
   }
 
   input:checked {
@@ -113,7 +117,11 @@ Please see LICENSE in the repository root for full details.
     }
   }
 
-  input:checked:active {
-    background: var(--cpd-color-bg-action-primary-pressed);
+  input:disabled {
+    cursor: default;
+  }
+
+  input:disabled + svg {
+    color: var(--cpd-color-icon-disabled);
   }
 }

@@ -50,6 +50,7 @@ export const Switch = <
   className,
   onChange,
   size = "lg",
+  disabled,
   ...fieldSetProps
 }: SwitchProps<LeftValue, RightValue> &
   Omit<
@@ -66,22 +67,25 @@ export const Switch = <
     <fieldset
       data-size={size}
       className={classNames(styles.toggle, className)}
+      disabled={disabled}
       {...fieldSetProps}
     >
-      <Tooltip label={leftLabel}>
+      <Tooltip label={leftLabel} disabled={disabled}>
         <input
           type="radio"
           name={name}
           value={leftValue}
+          disabled={disabled}
           checked={value === leftValue}
           onChange={onInputChange}
         />
       </Tooltip>
       <LeftIcon aria-hidden />
-      <Tooltip label={rightLabel}>
+      <Tooltip label={rightLabel} disabled={disabled}>
         <input
           type="radio"
           name={name}
+          disabled={disabled}
           value={rightValue}
           checked={value === rightValue}
           onChange={onInputChange}

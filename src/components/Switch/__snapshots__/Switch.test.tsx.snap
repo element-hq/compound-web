@@ -60,6 +60,7 @@ exports[`Switch > renders disabled 1`] = `
       <input
         aria-labelledby="_r_c_"
         checked=""
+        disabled=""
         name="controls"
         type="radio"
         value="list"
@@ -78,6 +79,7 @@ exports[`Switch > renders disabled 1`] = `
       </svg>
       <input
         aria-labelledby="_r_h_"
+        disabled=""
         name="controls"
         type="radio"
         value="grid"
