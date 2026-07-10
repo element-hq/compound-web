@@ -108,7 +108,9 @@ Please see LICENSE in the repository root for full details.
   }
 
   input:checked + svg {
-    color: var(--cpd-color-icon-on-solid-primary);
+    @media not (forced-colors) {
+      color: var(--cpd-color-icon-on-solid-primary);
+    }
   }
 
   input:checked:active {
