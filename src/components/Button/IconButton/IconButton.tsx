@@ -12,6 +12,7 @@ import styles from "./IconButton.module.css";
 import { UnstyledButton, type UnstyledButtonPropsFor } from "../UnstyledButton";
 import { IndicatorIcon } from "../../Icon/IndicatorIcon/IndicatorIcon";
 import { Tooltip } from "../../Tooltip/Tooltip";
+import type { OpenChangeReason } from "@floating-ui/react";
 
 type IconButtonProps = UnstyledButtonPropsFor<"button"> & {
   /**
@@ -51,6 +52,11 @@ type IconButtonProps = UnstyledButtonPropsFor<"button"> & {
    * The placement of the tooltip, if `tooltip` is provided.
    */
   tooltipPlacement?: React.ComponentProps<typeof Tooltip>["placement"];
+  onTooltipOpenChange?: (
+    open: boolean,
+    event?: Event | undefined,
+    reason?: OpenChangeReason | undefined,
+  ) => void;
   /**
    * Hide the background when the button is not active or hovered.
    * @default false
@@ -77,6 +83,7 @@ export const IconButton = forwardRef<
     tooltip,
     tooltipPlacement,
     noBackground = false,
+    onTooltipOpenChange,
     ...props
   },
   ref,
@@ -112,7 +119,11 @@ export const IconButton = forwardRef<
   );
 
   return tooltip ? (
-    <Tooltip label={tooltip} placement={tooltipPlacement}>
+    <Tooltip
+      label={tooltip}
+      placement={tooltipPlacement}
+      onOpenChange={onTooltipOpenChange}
+    >
       {button}
     </Tooltip>
   ) : (
