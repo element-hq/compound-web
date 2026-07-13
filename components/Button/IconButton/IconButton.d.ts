@@ -1,6 +1,7 @@
 import { default as React } from '../../../../node_modules/.pnpm/react@19.2.7/node_modules/react';
 import { UnstyledButtonPropsFor } from '../UnstyledButton';
 import { Tooltip } from '../../Tooltip/Tooltip';
+import { OpenChangeReason } from '@floating-ui/react';
 type IconButtonProps = UnstyledButtonPropsFor<"button"> & {
     /**
      * The type of button.
@@ -39,6 +40,7 @@ type IconButtonProps = UnstyledButtonPropsFor<"button"> & {
      * The placement of the tooltip, if `tooltip` is provided.
      */
     tooltipPlacement?: React.ComponentProps<typeof Tooltip>["placement"];
+    onTooltipOpenChange?: (open: boolean, event?: Event | undefined, reason?: OpenChangeReason | undefined) => void;
     /**
      * Hide the background when the button is not active or hovered.
      * @default false
