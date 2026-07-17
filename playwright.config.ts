@@ -10,6 +10,11 @@ import { defineConfig, devices } from "@playwright/test";
 const port = 6006;
 const baseUrl = `http://localhost:${port}`;
 
+const baseChromium = {
+  ...devices["Desktop Chrome"],
+  viewport: { width: 720, height: 720 },
+};
+
 export default defineConfig({
   testDir: "playwright",
   use: {
@@ -19,19 +24,15 @@ export default defineConfig({
     {
       name: "chromium",
       use: {
-        ...devices["Desktop Chrome"],
-        viewport: { width: 720, height: 720 },
+        ...baseChromium,
       },
     },
     {
-      name: "contrast",
+      name: "forced-colors",
       use: {
-        ...devices["Desktop Firefox"],
-        viewport: { width: 720, height: 720 },
-        launchOptions: {
-          firefoxUserPrefs: {
-            "browser.display.document_color_use": 2,
-          },
+        ...baseChromium,
+        contextOptions: {
+          forcedColors: "active",
         },
       },
     },
