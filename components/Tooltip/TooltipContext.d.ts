@@ -3,12 +3,12 @@ type ContextType = ReturnType<typeof useTooltip> | null;
 /**
  * The context for the Tooltip components.
  */
-export declare const TooltipContext: import('../../../node_modules/.pnpm/react@19.2.7/node_modules/react').Context<ContextType>;
+export declare const TooltipContext: import('../../../node_modules/.pnpm/react@19.2.8/node_modules/react').Context<ContextType>;
 /**
  * Provides the context for the Tooltip components.
  */
 export declare function useTooltipContext(): {
-    arrowRef: import('../../../node_modules/.pnpm/react@19.2.7/node_modules/react').RefObject<null>;
+    arrowRef: import('../../../node_modules/.pnpm/react@19.2.8/node_modules/react').RefObject<null>;
     placement: import('@floating-ui/react-dom').Placement;
     strategy: import('@floating-ui/react-dom').Strategy;
     middlewareData: import('@floating-ui/react-dom').MiddlewareData;
@@ -18,7 +18,7 @@ export declare function useTooltipContext(): {
     update: () => void;
     floatingStyles: React.CSSProperties;
     refs: {
-        reference: import('../../../node_modules/.pnpm/react@19.2.7/node_modules/react').MutableRefObject<import('@floating-ui/react-dom').ReferenceType | null>;
+        reference: import('../../../node_modules/.pnpm/react@19.2.8/node_modules/react').MutableRefObject<import('@floating-ui/react-dom').ReferenceType | null>;
         floating: React.MutableRefObject<HTMLElement | null>;
         setReference: (node: import('@floating-ui/react-dom').ReferenceType | null) => void;
         setFloating: (node: HTMLElement | null) => void;
@@ -48,8 +48,8 @@ export declare function useTooltipContext(): {
     getReferenceProps: (userProps?: React.HTMLProps<Element>) => Record<string, unknown>;
     getFloatingProps: (userProps?: React.HTMLProps<HTMLElement>) => Record<string, unknown>;
     getItemProps: (userProps?: Omit<React.HTMLProps<HTMLElement>, "selected" | "active"> & {
-        active?: boolean;
-        selected?: boolean;
+        active?: boolean | undefined;
+        selected?: boolean | undefined;
     }) => Record<string, unknown>;
     labelId: string;
     captionId: string | undefined;

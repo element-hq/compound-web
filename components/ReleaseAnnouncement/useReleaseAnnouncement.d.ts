@@ -1,5 +1,5 @@
 import { Placement } from '@floating-ui/react';
-import { MouseEventHandler } from '../../../node_modules/.pnpm/react@19.2.7/node_modules/react';
+import { MouseEventHandler } from '../../../node_modules/.pnpm/react@19.2.8/node_modules/react';
 interface UseReleaseAnnouncementProps {
     /**
      * Whether the release announcement is open.
@@ -41,12 +41,12 @@ export declare function useReleaseAnnouncement({ open, header, description, clos
     closeLabel: string;
     onClick: MouseEventHandler<HTMLButtonElement>;
     displayArrow: boolean | undefined;
-    arrowRef: import('../../../node_modules/.pnpm/react@19.2.7/node_modules/react').RefObject<null>;
+    arrowRef: import('../../../node_modules/.pnpm/react@19.2.8/node_modules/react').RefObject<null>;
     getReferenceProps: (userProps?: React.HTMLProps<Element>) => Record<string, unknown>;
     getFloatingProps: (userProps?: React.HTMLProps<HTMLElement>) => Record<string, unknown>;
     getItemProps: (userProps?: Omit<React.HTMLProps<HTMLElement>, "selected" | "active"> & {
-        active?: boolean;
-        selected?: boolean;
+        active?: boolean | undefined;
+        selected?: boolean | undefined;
     }) => Record<string, unknown>;
     placement: Placement;
     strategy: import('@floating-ui/react-dom').Strategy;
@@ -57,7 +57,7 @@ export declare function useReleaseAnnouncement({ open, header, description, clos
     update: () => void;
     floatingStyles: React.CSSProperties;
     refs: {
-        reference: import('../../../node_modules/.pnpm/react@19.2.7/node_modules/react').MutableRefObject<import('@floating-ui/react-dom').ReferenceType | null>;
+        reference: import('../../../node_modules/.pnpm/react@19.2.8/node_modules/react').MutableRefObject<import('@floating-ui/react-dom').ReferenceType | null>;
         floating: React.MutableRefObject<HTMLElement | null>;
         setReference: (node: import('@floating-ui/react-dom').ReferenceType | null) => void;
         setFloating: (node: HTMLElement | null) => void;
