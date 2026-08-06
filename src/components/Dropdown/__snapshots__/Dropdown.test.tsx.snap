@@ -19,7 +19,9 @@ exports[`Dropdown > can be opened 1`] = `
       class="_trigger-button_1f39d3 _placeholder_1f39d3 _open-trigger_1f39d3"
       role="combobox"
     >
-      Select an option
+      <div>
+        Select an option
+      </div>
       <svg
         class="_chevron_1f39d3"
         fill="currentColor"
@@ -90,7 +92,9 @@ exports[`Dropdown > can select a value 1`] = `
       class="_trigger-button_1f39d3 _open-trigger_1f39d3"
       role="combobox"
     >
-      Option 2
+      <div>
+        Option 2
+      </div>
       <svg
         class="_chevron_1f39d3"
         fill="currentColor"
@@ -172,7 +176,9 @@ exports[`Dropdown > renders a Default dropdown 1`] = `
       class="_trigger-button_1f39d3 _placeholder_1f39d3"
       role="combobox"
     >
-      Select an option
+      <div>
+        Select an option
+      </div>
       <svg
         class="_chevron_1f39d3"
         fill="currentColor"
@@ -243,7 +249,9 @@ exports[`Dropdown > renders a dropdown with a default value  1`] = `
       class="_trigger-button_1f39d3"
       role="combobox"
     >
-      Option 2
+      <div>
+        Option 2
+      </div>
       <svg
         class="_chevron_1f39d3"
         fill="currentColor"
@@ -325,7 +333,9 @@ exports[`Dropdown > renders a dropdown with a help label 1`] = `
       class="_trigger-button_1f39d3 _placeholder_1f39d3"
       role="combobox"
     >
-      Select an option
+      <div>
+        Select an option
+      </div>
       <svg
         class="_chevron_1f39d3"
         fill="currentColor"
@@ -401,7 +411,9 @@ exports[`Dropdown > renders a dropdown with an error  1`] = `
       class="_trigger-button_1f39d3 _placeholder_1f39d3"
       role="combobox"
     >
-      Select an option
+      <div>
+        Select an option
+      </div>
       <svg
         class="_chevron_1f39d3"
         fill="currentColor"
