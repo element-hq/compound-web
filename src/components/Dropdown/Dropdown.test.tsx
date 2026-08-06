@@ -18,20 +18,14 @@ const { Default, WithHelpLabel, WithError, WithDefaultValue } =
 
 const ControlledDropdown: FC = () => {
   const [value, setValue] = useState("1");
-  const values = useMemo<[string, string][]>(
-    () => [
-      ["1", "Option 1"],
-      ["2", "Option 2"],
-    ],
-    [],
-  );
+  const values = useMemo<string[]>(() => ["1", "2"], []);
   return (
     <Dropdown
       value={value}
       onValueChange={setValue}
       values={values}
-      placeholder=""
       label="Label"
+      renderItem={(value) => "Option " + value}
     />
   );
 };
@@ -105,17 +99,14 @@ describe("Dropdown", () => {
     const user = userEvent.setup();
     render(
       <Dropdown
-        values={[
-          ["1", "Option 1"],
-          ["2", "Option 2"],
-        ]}
-        placeholder={null}
+        values={["1", "2"]}
         label={null}
         trigger={(props) => (
           <button {...props} aria-label="Custom trigger">
             Custom trigger
           </button>
         )}
+        renderItem={(value) => "Option " + value}
       />,
     );
 
