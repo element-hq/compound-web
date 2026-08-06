@@ -198,7 +198,7 @@ export function Dropdown<K extends string | number = string>({
           ref={combinedRef}
           {...props}
         >
-          {currentContent}
+          <div>{currentContent}</div>
           <ChevronDown className={styles.chevron} width="24" height="24" />
         </button>
       )}

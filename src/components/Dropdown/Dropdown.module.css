@@ -91,7 +91,10 @@ Please see LICENSE files in the repository root for full details.
         padding: var(--cpd-space-3x) var(--cpd-space-4x);
         border-block-end: 1px solid var(--cpd-color-gray-300);
         color: var(--cpd-color-text-secondary);
+        display: flex;
+        justify-content: space-between;
         align-items: center;
+        gap: var(--cpd-space-4x);
 
         @media (hover) {
           &:hover {
