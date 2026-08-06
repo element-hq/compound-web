@@ -44,7 +44,7 @@ export type DropdownTriggerProps = {
   onKeyDown?: (e: KeyboardEvent<Element>) => void;
 };
 
-export type DropdownProps<K extends string | number = string> = {
+type DropdownProps<K extends string | number = string> = {
   /**
    * The CSS class name.
    */
