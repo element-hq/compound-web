@@ -25,24 +25,18 @@ const meta = {
     error: {
       type: "string",
     },
-    placeholder: {
-      type: "string",
-    },
     values: {
       type: "string",
     },
   },
   args: {
     label: "Label",
-    placeholder: "Select an option",
     onValueChange: fn(),
-    values: [
-      ["Option1", "Option 1"],
-      ["Option2", "Option 2"],
-      ["Option3", "Option 3"],
-    ],
+    values: ["Option1", "Option2", "Option3"],
+    renderItem: (value) =>
+      value ? value?.replace("Option", "Option ") : "Select an option",
   },
-} satisfies Meta<ComponentProps<typeof Dropdown>>;
+} satisfies Meta<ComponentProps<typeof Dropdown<string>>>;
 export default meta;
 
 type Story = StoryObj<typeof meta>;

@@ -1,9 +1,11 @@
 /*
-Copyright 2024 New Vector Ltd.
-
-SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-Element-Commercial
-Please see LICENSE files in the repository root for full details.
-*/
+ * Copyright 2024 New Vector Ltd.
+ * Copyright 2026 Element Creations Ltd.
+ *
+ *
+ * SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-Element-Commercial
+ * Please see LICENSE files in the repository root for full details.
+ */
 
 import ChevronDown from "@vector-im/compound-design-tokens/assets/web/icons/chevron-down";
 import Check from "@vector-im/compound-design-tokens/assets/web/icons/check";
@@ -11,9 +13,9 @@ import Error from "@vector-im/compound-design-tokens/assets/web/icons/error-soli
 
 import React, {
   type Dispatch,
-  forwardRef,
   type HTMLProps,
   memo,
+  type Ref,
   type RefObject,
   type SetStateAction,
   useCallback,
@@ -42,7 +44,7 @@ export type DropdownTriggerProps = {
   onKeyDown?: (e: KeyboardEvent<Element>) => void;
 };
 
-type DropdownProps = {
+type DropdownProps<K = string> = {
   /**
    * The CSS class name.
    */
@@ -50,22 +52,17 @@ type DropdownProps = {
   /**
    * The controlled value of the dropdown.
    */
-  value?: string;
+  value?: K;
   /**
    * The default value of the dropdown, used when uncontrolled.
    */
-  defaultValue?: string;
+  defaultValue?: K;
   /**
-   * The values of the dropdown.
-   * [value, text]
+   * The values of the items presented in the dropdown, in order.
+   * These are the values provided back to onValueChange and the values provided
+   * to renderItem, if provided.
    */
-  values: [string, string][];
-  /**
-   * The placeholder text.
-   * Required because it's unusual not to set this unless making a custom dropdown with a custom trigger,
-   * in which case you may explicitly pass null.
-   */
-  placeholder: string | null;
+  values: K[];
   /**
    * The label to display at the top of the dropdown
    * Required because it's unusual not to set this unless making a custom dropdown with a custom trigger,
@@ -80,7 +77,7 @@ type DropdownProps = {
    * Callback for when the value changes.
    * @param value
    */
-  onValueChange?: (value: string) => void;
+  onValueChange?: (value: K) => void;
   /**
    * The error message to display.
    */
@@ -91,153 +88,153 @@ type DropdownProps = {
    * Default: a button with the selected value or the placeholder text and a chevron down icon.
    */
   trigger?: (props: DropdownTriggerProps) => React.ReactNode;
+  /**
+   * A function render the node that represent a given item, given the value of that item.
+   * To render the placeholder, null is passed.
+   */
+  renderItem: (value: K | null) => React.ReactNode;
+  /**
+   * A ref to the default trigger button.
+   * Unused if a custom `trigger` is provided.
+   */
+  ref?: Ref<HTMLButtonElement>;
 };
 
 /**
- * The dropdown content.
+ * A dropdown that lets the user select one of a set of values.
+ * The type parameter `K` represents the set of values.
  */
-export const Dropdown = forwardRef<HTMLButtonElement, DropdownProps>(
-  function Dropdown(
-    {
-      className,
-      label,
-      placeholder,
-      helpLabel,
-      onValueChange,
-      error,
-      value: controlledValue,
-      defaultValue,
-      values,
-      trigger,
-      ...props
+export function Dropdown<K extends string | number = string>({
+  className,
+  label,
+  helpLabel,
+  onValueChange,
+  error,
+  value: controlledValue,
+  defaultValue,
+  values,
+  renderItem,
+  trigger,
+  ref,
+  ...props
+}: DropdownProps<K>) {
+  const [uncontrolledValue, setUncontrolledValue] = useState<K | undefined>(
+    defaultValue,
+  );
+  const value = controlledValue ?? uncontrolledValue ?? null;
+  const currentContent = useMemo(() => renderItem(value), [value, renderItem]);
+
+  const setValue = useCallback(
+    (value: K) => {
+      setUncontrolledValue(value);
+      onValueChange?.(value);
     },
-    ref,
-  ) {
-    const [uncontrolledValue, setUncontrolledValue] = useState(defaultValue);
-    const value = controlledValue ?? uncontrolledValue;
-    const text = useMemo(
-      () =>
-        value === undefined
-          ? placeholder
-          : (values.find(([v]) => v === value)?.[1] ?? placeholder),
-      [value, values, placeholder],
-    );
+    [setUncontrolledValue, onValueChange],
+  );
 
-    const setValue = useCallback(
-      (value: string) => {
-        setUncontrolledValue(value);
-        onValueChange?.(value);
-      },
-      [setUncontrolledValue, onValueChange],
-    );
+  const [open, setOpen, dropdownRef] = useOpen();
+  const { listRef, onComboboxKeyDown, onOptionKeyDown } = useKeyboardShortcut(
+    open,
+    setOpen,
+    setValue,
+  );
 
-    const [open, setOpen, dropdownRef] = useOpen();
-    const { listRef, onComboboxKeyDown, onOptionKeyDown } = useKeyboardShortcut(
-      open,
-      setOpen,
-      setValue,
-    );
+  const buttonRef = useRef<HTMLButtonElement | null>(null);
+  useEffect(() => {
+    // Focus the button when the value is set
+    // Test if the value is undefined to avoid focusing on the first render
+    if (value !== null) buttonRef.current?.focus();
+  }, [value]);
 
-    const buttonRef = useRef<HTMLButtonElement | null>(null);
-    useEffect(() => {
-      // Focus the button when the value is set
-      // Test if the value is undefined to avoid focusing on the first render
-      if (value !== undefined) buttonRef.current?.focus();
-    }, [value]);
+  const buttonClasses = classNames({
+    [styles["trigger-button"]]: true,
+    [styles.placeholder]: value === null,
+    [styles["open-trigger"]]: open,
+  });
+  const contentClasses = classNames(styles.content, {
+    [styles.open]: open,
+    [styles.seamless]: !trigger,
+  });
 
-    const hasPlaceholder = text === placeholder;
-    const buttonClasses = classNames({
-      [styles["trigger-button"]]: true,
-      [styles.placeholder]: hasPlaceholder,
-      [styles["open-trigger"]]: open,
-    });
-    const contentClasses = classNames(styles.content, {
-      [styles.open]: open,
-      [styles.seamless]: !trigger,
-    });
+  /**
+   * Ids for accessibility.
+   */
+  const labelId = useId();
+  const contentId = useId();
 
-    /**
-     * Ids for accessibility.
-     */
-    const labelId = useId();
-    const contentId = useId();
+  const combinedRef = (element: HTMLButtonElement | null) => {
+    buttonRef.current = element;
+    if (typeof ref === "function") {
+      ref(element);
+    } else if (ref) {
+      ref.current = element;
+    }
+  };
 
-    const combinedRef = (element: HTMLButtonElement | null) => {
-      buttonRef.current = element;
-      if (typeof ref === "function") {
-        ref(element);
-      } else if (ref) {
-        ref.current = element;
-      }
-    };
+  const triggerProps: DropdownTriggerProps = {
+    role: "combobox",
+    "aria-haspopup": "listbox",
+    "aria-controls": contentId,
+    "aria-expanded": open,
+    onClick: () => setOpen((_open) => !_open),
+    onKeyDown: onComboboxKeyDown,
+  };
 
-    const triggerProps: DropdownTriggerProps = {
-      role: "combobox",
-      "aria-haspopup": "listbox",
-      "aria-controls": contentId,
-      "aria-expanded": open,
-      onClick: () => setOpen((_open) => !_open),
-      onKeyDown: onComboboxKeyDown,
-    };
+  if (label) triggerProps["aria-labelledby"] = labelId;
 
-    if (label) triggerProps["aria-labelledby"] = labelId;
-
-    return (
-      <div
-        ref={dropdownRef}
-        className={classNames(className, styles.container)}
-        aria-invalid={Boolean(error)}
-      >
-        {label && <label id={labelId}>{label}</label>}
-        {trigger ? (
-          trigger(triggerProps)
-        ) : (
-          <button
-            className={buttonClasses}
-            {...triggerProps}
-            ref={combinedRef}
-            {...props}
-          >
-            {text}
-            <ChevronDown className={styles.chevron} width="24" height="24" />
-          </button>
-        )}
-        <div className={contentClasses}>
-          <ul
-            ref={listRef}
-            id={contentId}
-            role="listbox"
-            className={styles.content}
-          >
-            {values.map(([v, text]) => (
-              <DropdownItem
-                key={v}
-                isDisplayed={open}
-                isSelected={value === v}
-                onClick={() => {
-                  setOpen(false);
-                  setValue(v);
-                }}
-                onKeyDown={(e) => onOptionKeyDown(e, v)}
-              >
-                {text}
-              </DropdownItem>
-            ))}
-          </ul>
-        </div>
-        {!error && helpLabel && (
-          <span className={styles.help}>{helpLabel}</span>
-        )}
-        {error && (
-          <span className={styles.error}>
-            <Error width="20" height="20" />
-            {error}
-          </span>
-        )}
+  return (
+    <div
+      ref={dropdownRef}
+      className={classNames(className, styles.container)}
+      aria-invalid={Boolean(error)}
+    >
+      {label && <label id={labelId}>{label}</label>}
+      {trigger ? (
+        trigger(triggerProps)
+      ) : (
+        <button
+          className={buttonClasses}
+          {...triggerProps}
+          ref={combinedRef}
+          {...props}
+        >
+          <div>{currentContent}</div>
+          <ChevronDown className={styles.chevron} width="24" height="24" />
+        </button>
+      )}
+      <div className={contentClasses}>
+        <ul
+          ref={listRef}
+          id={contentId}
+          role="listbox"
+          className={styles.content}
+        >
+          {values.map((v) => (
+            <DropdownItem
+              key={v}
+              isDisplayed={open}
+              isSelected={value === v}
+              onClick={() => {
+                setOpen(false);
+                setValue(v);
+              }}
+              onKeyDown={(e) => onOptionKeyDown(e, v)}
+            >
+              {renderItem(v)}
+            </DropdownItem>
+          ))}
+        </ul>
       </div>
-    );
-  },
-);
+      {!error && helpLabel && <span className={styles.help}>{helpLabel}</span>}
+      {error && (
+        <span className={styles.error}>
+          <Error width="20" height="20" />
+          {error}
+        </span>
+      )}
+    </div>
+  );
+}
 
 type DropdownItemProps = HTMLProps<HTMLLIElement> & {
   /**
@@ -249,9 +246,9 @@ type DropdownItemProps = HTMLProps<HTMLLIElement> & {
    */
   isDisplayed: boolean;
   /**
-   * The text to display in the dropdown item.
+   * The content to display in the dropdown item.
    */
-  children: string;
+  children: React.ReactNode;
 };
 
 /**
@@ -317,10 +314,10 @@ function useOpen(): [
  * @param setOpen - the dropdown open state setter.
  * @param setValue - set the selected value and text
  */
-function useKeyboardShortcut(
+function useKeyboardShortcut<K extends string | number>(
   open: boolean,
   setOpen: Dispatch<SetStateAction<boolean>>,
-  setValue: (value: string) => void,
+  setValue: (value: K) => void,
 ) {
   const listRef = useRef<HTMLUListElement>(null);
   const onComboboxKeyDown = useCallback(
@@ -362,7 +359,7 @@ function useKeyboardShortcut(
   );
 
   const onOptionKeyDown = useCallback(
-    (evt: KeyboardEvent, value: string) => {
+    (evt: KeyboardEvent, value: K) => {
       const { key, altKey } = evt;
       evt.stopPropagation();
       evt.preventDefault();
