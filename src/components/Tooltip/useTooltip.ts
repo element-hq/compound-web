@@ -15,6 +15,7 @@ import {
   type OpenChangeReason,
   type Placement,
   shift,
+  useClientPoint,
   useDelayGroup,
   useDismiss,
   useFloating,
@@ -91,6 +92,19 @@ export interface CommonUseTooltipProps {
    * @default undefined
    */
   boundary?: Boundary;
+
+  /**
+   * Whether the tooltip should be shown next to the mouse pointer.
+   * @default false
+   */
+  showNextToMousePointer?: boolean;
+
+  /**
+   * When using showNextToMousePointer, this prop restricts the placement of the tooltip
+   * along a given axis.
+   * @default both
+   */
+  restrictAxis?: "x" | "y" | "both";
 
   /**
    * Additional aria-* attributes to pass through to the floating tooltip for
@@ -178,6 +192,13 @@ export function useTooltip({
   });
 
   const context = data.context;
+
+  const clientPoint = useClientPoint(context, {
+    // This has to be boolean even though the type accepts undefined
+    enabled: props.showNextToMousePointer ?? false,
+    axis: props.restrictAxis,
+  });
+
   const { delay, initialDelay } = useDelayGroup(context);
   // We can tell if no delay group has been provided, because the delay will
   // default to zero
@@ -259,6 +280,7 @@ export function useTooltip({
     dismiss,
     role,
     label,
+    clientPoint,
   ]);
 
   return useMemo(
