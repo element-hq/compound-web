@@ -195,3 +195,10 @@ export const Descriptive: Story = {
     children: <span>EIN</span>,
   },
 };
+
+export const NextToMousePointer: Story = {
+  args: {
+    description: "This is a tooltip!",
+    showNextToMousePointer: true,
+  },
+};
