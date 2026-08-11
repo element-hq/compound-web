@@ -198,7 +198,7 @@ export function Dropdown<K extends string | number = string>({
           ref={combinedRef}
           {...props}
         >
-          <div>{currentContent}</div>
+          {currentContent}
           <ChevronDown className={styles.chevron} width="24" height="24" />
         </button>
       )}
@@ -277,7 +277,7 @@ const DropdownItem = memo(function DropdownItem({
       aria-selected={isSelected}
       {...props}
     >
-      {children} {isSelected && <Check width="20" height="20" />}
+      <span>{children}</span> {isSelected && <Check width="20" height="20" />}
     </li>
   );
 });
