@@ -19,9 +19,7 @@ exports[`Dropdown > can be opened 1`] = `
       class="_trigger-button_1f39d3 _placeholder_1f39d3 _open-trigger_1f39d3"
       role="combobox"
     >
-      <div>
-        Select an option
-      </div>
+      Select an option
       <svg
         class="_chevron_1f39d3"
         fill="currentColor"
@@ -48,7 +46,9 @@ exports[`Dropdown > can be opened 1`] = `
           role="option"
           tabindex="0"
         >
-          Option 1
+          <span>
+            Option 1
+          </span>
            
         </li>
         <li
@@ -56,7 +56,9 @@ exports[`Dropdown > can be opened 1`] = `
           role="option"
           tabindex="0"
         >
-          Option 2
+          <span>
+            Option 2
+          </span>
            
         </li>
         <li
@@ -64,7 +66,9 @@ exports[`Dropdown > can be opened 1`] = `
           role="option"
           tabindex="0"
         >
-          Option 3
+          <span>
+            Option 3
+          </span>
            
         </li>
       </ul>
@@ -92,9 +96,7 @@ exports[`Dropdown > can select a value 1`] = `
       class="_trigger-button_1f39d3 _open-trigger_1f39d3"
       role="combobox"
     >
-      <div>
-        Option 2
-      </div>
+      Option 2
       <svg
         class="_chevron_1f39d3"
         fill="currentColor"
@@ -121,7 +123,9 @@ exports[`Dropdown > can select a value 1`] = `
           role="option"
           tabindex="0"
         >
-          Option 1
+          <span>
+            Option 1
+          </span>
            
         </li>
         <li
@@ -129,7 +133,9 @@ exports[`Dropdown > can select a value 1`] = `
           role="option"
           tabindex="0"
         >
-          Option 2
+          <span>
+            Option 2
+          </span>
            
           <svg
             fill="currentColor"
@@ -148,7 +154,9 @@ exports[`Dropdown > can select a value 1`] = `
           role="option"
           tabindex="0"
         >
-          Option 3
+          <span>
+            Option 3
+          </span>
            
         </li>
       </ul>
@@ -176,9 +184,7 @@ exports[`Dropdown > renders a Default dropdown 1`] = `
       class="_trigger-button_1f39d3 _placeholder_1f39d3"
       role="combobox"
     >
-      <div>
-        Select an option
-      </div>
+      Select an option
       <svg
         class="_chevron_1f39d3"
         fill="currentColor"
@@ -205,7 +211,9 @@ exports[`Dropdown > renders a Default dropdown 1`] = `
           role="option"
           tabindex="0"
         >
-          Option 1
+          <span>
+            Option 1
+          </span>
            
         </li>
         <li
@@ -213,7 +221,9 @@ exports[`Dropdown > renders a Default dropdown 1`] = `
           role="option"
           tabindex="0"
         >
-          Option 2
+          <span>
+            Option 2
+          </span>
            
         </li>
         <li
@@ -221,7 +231,9 @@ exports[`Dropdown > renders a Default dropdown 1`] = `
           role="option"
           tabindex="0"
         >
-          Option 3
+          <span>
+            Option 3
+          </span>
            
         </li>
       </ul>
@@ -249,9 +261,7 @@ exports[`Dropdown > renders a dropdown with a default value  1`] = `
       class="_trigger-button_1f39d3"
       role="combobox"
     >
-      <div>
-        Option 2
-      </div>
+      Option 2
       <svg
         class="_chevron_1f39d3"
         fill="currentColor"
@@ -278,7 +288,9 @@ exports[`Dropdown > renders a dropdown with a default value  1`] = `
           role="option"
           tabindex="0"
         >
-          Option 1
+          <span>
+            Option 1
+          </span>
            
         </li>
         <li
@@ -286,7 +298,9 @@ exports[`Dropdown > renders a dropdown with a default value  1`] = `
           role="option"
           tabindex="0"
         >
-          Option 2
+          <span>
+            Option 2
+          </span>
            
           <svg
             fill="currentColor"
@@ -305,7 +319,9 @@ exports[`Dropdown > renders a dropdown with a default value  1`] = `
           role="option"
           tabindex="0"
         >
-          Option 3
+          <span>
+            Option 3
+          </span>
            
         </li>
       </ul>
@@ -333,9 +349,7 @@ exports[`Dropdown > renders a dropdown with a help label 1`] = `
       class="_trigger-button_1f39d3 _placeholder_1f39d3"
       role="combobox"
     >
-      <div>
-        Select an option
-      </div>
+      Select an option
       <svg
         class="_chevron_1f39d3"
         fill="currentColor"
@@ -362,7 +376,9 @@ exports[`Dropdown > renders a dropdown with a help label 1`] = `
           role="option"
           tabindex="0"
         >
-          Option 1
+          <span>
+            Option 1
+          </span>
            
         </li>
         <li
@@ -370,7 +386,9 @@ exports[`Dropdown > renders a dropdown with a help label 1`] = `
           role="option"
           tabindex="0"
         >
-          Option 2
+          <span>
+            Option 2
+          </span>
            
         </li>
         <li
@@ -378,7 +396,9 @@ exports[`Dropdown > renders a dropdown with a help label 1`] = `
           role="option"
           tabindex="0"
         >
-          Option 3
+          <span>
+            Option 3
+          </span>
            
         </li>
       </ul>
@@ -411,9 +431,7 @@ exports[`Dropdown > renders a dropdown with an error  1`] = `
       class="_trigger-button_1f39d3 _placeholder_1f39d3"
       role="combobox"
     >
-      <div>
-        Select an option
-      </div>
+      Select an option
       <svg
         class="_chevron_1f39d3"
         fill="currentColor"
@@ -440,7 +458,9 @@ exports[`Dropdown > renders a dropdown with an error  1`] = `
           role="option"
           tabindex="0"
         >
-          Option 1
+          <span>
+            Option 1
+          </span>
            
         </li>
         <li
@@ -448,7 +468,9 @@ exports[`Dropdown > renders a dropdown with an error  1`] = `
           role="option"
           tabindex="0"
         >
-          Option 2
+          <span>
+            Option 2
+          </span>
            
         </li>
         <li
@@ -456,7 +478,9 @@ exports[`Dropdown > renders a dropdown with an error  1`] = `
           role="option"
           tabindex="0"
         >
-          Option 3
+          <span>
+            Option 3
+          </span>
            
         </li>
       </ul>
