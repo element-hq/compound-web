@@ -85,6 +85,29 @@ describe("Tooltip", () => {
     expect(screen.queryByRole("tooltip")).toBe(null);
   });
 
+  it("renders no floating element while a label tooltip is closed", () => {
+    render(
+      <TooltipProvider>
+        <Tooltip label="User profile" caption="Alt + P">
+          <IconButton>
+            <UserIcon />
+          </IconButton>
+        </Tooltip>
+      </TooltipProvider>,
+    );
+    // The label and caption still reach assistive technology with the tooltip closed
+    expect(
+      screen.getByRole("button", { name: "User profile" }),
+    ).toHaveAccessibleDescription("Alt + P");
+    // but the portal holds only them: no floating element (nor its arrow) for Floating-UI to
+    // position. One would hold an autoUpdate loop for as long as it stayed mounted, attaching
+    // scroll and resize listeners to every overflow ancestor, and a virtualised list pays that
+    // per row.
+    const portal = document.querySelector("[data-floating-ui-portal]");
+    expect(portal?.querySelector("div")).toBe(null);
+    expect(portal?.querySelector("svg")).toBe(null);
+  });
+
   it("opens tooltip on focus", async () => {
     const user = userEvent.setup();
     render(

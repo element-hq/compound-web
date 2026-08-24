@@ -124,8 +124,22 @@ function TooltipContent({
     ...rest
   } = useTooltipContext();
 
-  // Label tooltips are kept in the DOM even when not visually open
-  if (!open && purpose !== "label") return null;
+  // A closed tooltip has nothing to show, but a label tooltip still supplies its anchor's
+  // accessible name, and its caption the anchor's description, so those nodes stay in the
+  // document. What they no longer need is a floating element to sit in: without one,
+  // `refs.setFloating` is never called, and Floating-UI only runs `whileElementsMounted` once both
+  // elements exist. No floating element means no `autoUpdate` loop, which eliminates scroll and resize
+  // listeners on every overflow ancestor that have a high cost in large virtualized lists.
+  //
+  // They stay in the portal rather than rendering inline next to the anchor. An anchor may be a
+  // void element, and a consumer's layout may count its children — `Switch` positions its icons
+  // with `svg:nth-child` — so a sibling span is not ours to add.
+  if (!open)
+    return purpose === "label" ? (
+      <FloatingPortal>
+        <span className={styles["closed-label"]}>{children}</span>
+      </FloatingPortal>
+    ) : null;
 
   // Hide the tooltip if it has escaped its boundary (when `boundary` prop is set)
   const escaped = floatingContext.middlewareData?.hide?.escaped ?? false;
@@ -137,9 +151,7 @@ function TooltipContent({
         style={rest.floatingStyles}
         {...rest.tooltipProps}
         {...rest.getFloatingProps()}
-        className={classNames(styles.tooltip, {
-          [styles.invisible]: (purpose === "label" && !open) || escaped,
-        })}
+        className={classNames(styles.tooltip, { [styles.invisible]: escaped })}
       >
         <FloatingArrow
           ref={arrowRef}
