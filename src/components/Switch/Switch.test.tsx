@@ -13,11 +13,16 @@ import { composeStories } from "@storybook/react";
 import * as stories from "./Switch.stories";
 import userEvent from "@testing-library/user-event";
 
-const { Default } = composeStories(stories);
+const { Default, Disabled } = composeStories(stories);
 
 describe("Switch", () => {
   it("renders", () => {
     const { asFragment } = render(<Default />);
+    expect(asFragment()).toMatchSnapshot();
+  });
+
+  it("renders disabled", () => {
+    const { asFragment } = render(<Disabled />);
     expect(asFragment()).toMatchSnapshot();
   });
 
@@ -53,5 +58,20 @@ describe("Switch", () => {
     await user.keyboard("{arrowright}");
     expect(onChange).toHaveBeenCalledWith("list");
     expect(list).toBeChecked();
+  });
+
+  it("cannot be toggled when disabled", async () => {
+    const user = userEvent.setup();
+    const onChange = vi.fn();
+    const { getByRole } = render(<Disabled onChange={onChange} />);
+    const list = getByRole("radio", { name: "List" });
+    const grid = getByRole("radio", { name: "Grid" });
+
+    expect(list).toBeDisabled();
+    expect(grid).toBeDisabled();
+
+    await user.click(grid);
+    expect(onChange).not.toHaveBeenCalled();
+    expect(grid).not.toBeChecked();
   });
 });
