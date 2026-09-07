@@ -3,7 +3,7 @@
   "version": "10.0.1",
   "description": "Compound components for the Web",
   "type": "module",
-  "packageManager": "pnpm@11.23.0+sha512.f00082e5b283a199b74e079da28d155c008fe232f44c8a06ea7ddfa014ecf719fc362f790ecc67b28106ddac2afb24c49a9a079159da560b2ce7d1e98efd11af",
+  "packageManager": "pnpm@12.3.4+sha512.961aa41fb077da3a04a441d9f8e15ebc0c96da8ef710b2eb67bf9ee7cb0610eabd48f1fd85f51cffe73846785fa0f87c56a3a872a1d893f8446741b5cce45457",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "sideEffects": false,
