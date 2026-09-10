@@ -90,3 +90,8 @@ export const Medium = Template.bind({});
 Medium.args = {
   size: "md",
 };
+
+export const Disabled = Template.bind({});
+Disabled.args = {
+  disabled: true,
+};
