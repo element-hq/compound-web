@@ -25,6 +25,20 @@ Please see LICENSE files in the repository root for full details.
   pointer-events: none;
 }
 
+.closed-label {
+  /* Clipped rather than removed, like `.tooltip.invisible`, so that it can still act as an
+  accessible label. Unlike that one there is no floating element positioning it, so it is also
+  taken out of flow and given no size of its own, and so neither occupies space at the end of
+  the portal nor extends the page's scrollable area. */
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  pointer-events: none;
+}
+
 .caption {
   font-weight: var(--cpd-font-weight-regular);
   color: var(--cpd-color-text-secondary);
