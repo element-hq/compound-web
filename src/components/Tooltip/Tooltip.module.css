@@ -26,7 +26,7 @@ Please see LICENSE files in the repository root for full details.
 }
 
 .clamp {
-  line-clamp: var(--cpd-tooltip-max-lines);
+  line-clamp: var(--cpd-tooltip-max-lines, unset);
   overflow: hidden;
 }
 
