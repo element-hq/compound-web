@@ -100,6 +100,13 @@ export interface CommonUseTooltipProps {
   maxWidth?: number | string;
 
   /**
+   * The maximum number of lines the tooltip text can wrap onto before being
+   * truncated with an ellipsis.
+   * @default undefined
+   */
+  maxLines?: number;
+
+  /**
    * Additional aria-* attributes to pass through to the floating tooltip for
    * edge cases which require more user awareness like errors & alerts.
    */
@@ -135,6 +142,7 @@ export function useTooltip({
   "aria-live": ariaLive,
   boundary,
   maxWidth,
+  maxLines,
   ...props
 }: UseTooltipProps) {
   const labelId = useId();
@@ -278,6 +286,7 @@ export function useTooltip({
       open,
       setOpen,
       maxWidth,
+      maxLines,
       tooltipProps: {
         "aria-atomic": ariaAtomic,
         "aria-live": ariaLive,
@@ -294,6 +303,7 @@ export function useTooltip({
       open,
       setOpen,
       maxWidth,
+      maxLines,
       interactions,
       data,
       arrowRef,

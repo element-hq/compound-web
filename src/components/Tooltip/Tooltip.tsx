@@ -77,7 +77,17 @@ export function Tooltip({
         {children}
       </TooltipAnchor>
       <TooltipContent>
-        <span id={context.labelId}>
+        <span
+          id={context.labelId}
+          className={classNames({ [styles.clamp]: !!context.maxLines })}
+          style={
+            context.maxLines
+              ? ({
+                  "--cpd-tooltip-max-lines": context.maxLines,
+                } as React.CSSProperties)
+              : undefined
+          }
+        >
           {hasLabel(props) ? props.label : props.description}
         </span>
         <Caption />

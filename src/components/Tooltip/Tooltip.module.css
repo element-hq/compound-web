@@ -25,6 +25,11 @@ Please see LICENSE files in the repository root for full details.
   pointer-events: none;
 }
 
+.clamp {
+  line-clamp: var(--cpd-tooltip-max-lines);
+  overflow: hidden;
+}
+
 .caption {
   font-weight: var(--cpd-font-weight-regular);
   color: var(--cpd-color-text-secondary);
