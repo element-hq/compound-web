@@ -93,6 +93,13 @@ export interface CommonUseTooltipProps {
   boundary?: Boundary;
 
   /**
+   * The maximum width of the tooltip. Accepts any valid CSS `max-width`
+   * value (e.g. `200`, `"200px"`, `"20ch"`).
+   * @default undefined
+   */
+  maxWidth?: number | string;
+
+  /**
    * Additional aria-* attributes to pass through to the floating tooltip for
    * edge cases which require more user awareness like errors & alerts.
    */
@@ -127,6 +134,7 @@ export function useTooltip({
   "aria-atomic": ariaAtomic,
   "aria-live": ariaLive,
   boundary,
+  maxWidth,
   ...props
 }: UseTooltipProps) {
   const labelId = useId();
@@ -269,6 +277,7 @@ export function useTooltip({
       purpose: purpose as "label" | "description",
       open,
       setOpen,
+      maxWidth,
       tooltipProps: {
         "aria-atomic": ariaAtomic,
         "aria-live": ariaLive,
@@ -284,6 +293,7 @@ export function useTooltip({
       role,
       open,
       setOpen,
+      maxWidth,
       interactions,
       data,
       arrowRef,

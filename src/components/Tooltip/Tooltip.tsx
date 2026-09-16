@@ -121,6 +121,7 @@ function TooltipContent({
     open,
     arrowRef,
     purpose,
+    maxWidth,
     ...rest
   } = useTooltipContext();
 
@@ -134,7 +135,7 @@ function TooltipContent({
     <FloatingPortal>
       <div
         ref={rest.refs.setFloating}
-        style={rest.floatingStyles}
+        style={{ ...rest.floatingStyles, maxWidth }}
         {...rest.tooltipProps}
         {...rest.getFloatingProps()}
         className={classNames(styles.tooltip, {
