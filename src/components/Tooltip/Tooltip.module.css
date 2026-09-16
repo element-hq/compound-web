@@ -26,7 +26,10 @@ Please see LICENSE files in the repository root for full details.
 }
 
 .clamp {
+  -webkit-line-clamp: var(--cpd-tooltip-max-lines, unset);
   line-clamp: var(--cpd-tooltip-max-lines, unset);
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
   overflow: hidden;
 }
 
