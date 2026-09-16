@@ -231,4 +231,32 @@ describe("Tooltip", () => {
     );
     screen.getByRole("image", { name: "User profile" });
   });
+
+  it("applies maxLines as a CSS custom property on the tooltip text", async () => {
+    render(
+      <TooltipProvider>
+        <Tooltip
+          open={true}
+          maxLines={2}
+          description="Deep and meaningful tooltip text"
+        >
+          <span>Brief summary</span>
+        </Tooltip>
+      </TooltipProvider>,
+    );
+    const text = screen.getByText("Deep and meaningful tooltip text");
+    expect(text.style.getPropertyValue("--cpd-tooltip-max-lines")).toBe("2");
+  });
+
+  it("does not set the max-lines custom property when maxLines is not given", async () => {
+    render(
+      <TooltipProvider>
+        <Tooltip open={true} description="Content worthy of hovering">
+          <span>Snippet</span>
+        </Tooltip>
+      </TooltipProvider>,
+    );
+    const text = screen.getByText("Content worthy of hovering");
+    expect(text.style.getPropertyValue("--cpd-tooltip-max-lines")).toBe("");
+  });
 });
