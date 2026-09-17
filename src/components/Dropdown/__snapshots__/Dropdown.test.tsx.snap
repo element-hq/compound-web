@@ -7,6 +7,7 @@ exports[`Dropdown > can be opened 1`] = `
     class="_container_1f39d3"
   >
     <label
+      class=""
       id="_r_8_"
     >
       Label
@@ -84,6 +85,7 @@ exports[`Dropdown > can select a value 1`] = `
     class="_container_1f39d3"
   >
     <label
+      class=""
       id="_r_a_"
     >
       Label
@@ -250,6 +252,7 @@ exports[`Dropdown > renders a dropdown with a default value  1`] = `
     class="_container_1f39d3"
   >
     <label
+      class=""
       id="_r_6_"
     >
       Label
@@ -338,6 +341,7 @@ exports[`Dropdown > renders a dropdown with a help label 1`] = `
     class="_container_1f39d3"
   >
     <label
+      class=""
       id="_r_2_"
     >
       Label
@@ -420,6 +424,7 @@ exports[`Dropdown > renders a dropdown with an error  1`] = `
     class="_container_1f39d3"
   >
     <label
+      class=""
       id="_r_4_"
     >
       Label
