@@ -77,7 +77,17 @@ export function Tooltip({
         {children}
       </TooltipAnchor>
       <TooltipContent>
-        <span id={context.labelId}>
+        <span
+          id={context.labelId}
+          className={classNames({ [styles.clamp]: !!context.maxLines })}
+          style={
+            context.maxLines
+              ? ({
+                  "--cpd-tooltip-max-lines": context.maxLines,
+                } as React.CSSProperties)
+              : undefined
+          }
+        >
           {hasLabel(props) ? props.label : props.description}
         </span>
         <Caption />
@@ -121,6 +131,7 @@ function TooltipContent({
     open,
     arrowRef,
     purpose,
+    maxWidth,
     ...rest
   } = useTooltipContext();
 
@@ -134,7 +145,7 @@ function TooltipContent({
     <FloatingPortal>
       <div
         ref={rest.refs.setFloating}
-        style={rest.floatingStyles}
+        style={{ ...rest.floatingStyles, maxWidth }}
         {...rest.tooltipProps}
         {...rest.getFloatingProps()}
         className={classNames(styles.tooltip, {

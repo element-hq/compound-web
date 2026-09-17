@@ -195,3 +195,22 @@ export const Descriptive: Story = {
     children: <span>EIN</span>,
   },
 };
+
+export const WithMaxWidth: Story = {
+  args: {
+    open: true,
+    maxWidth: 150,
+    label:
+      "This is a long tooltip label that will wrap onto multiple lines because of the maxWidth prop",
+  },
+};
+
+export const WithMaxLines: Story = {
+  args: {
+    open: true,
+    maxWidth: 150,
+    maxLines: 2,
+    label:
+      "This is a long tooltip label that will be truncated after two lines because of the maxLines prop",
+  },
+};
