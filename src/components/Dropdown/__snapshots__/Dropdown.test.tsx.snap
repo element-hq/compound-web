@@ -172,6 +172,7 @@ exports[`Dropdown > renders a Default dropdown 1`] = `
     class="_container_1f39d3"
   >
     <label
+      class=""
       id="_r_0_"
     >
       Label
