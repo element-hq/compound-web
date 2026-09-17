@@ -52,6 +52,18 @@ export interface CommonUseTooltipProps {
      */
     boundary?: Boundary;
     /**
+     * The maximum width of the tooltip. Accepts any valid CSS `max-width`
+     * value (e.g. `200`, `"200px"`, `"20ch"`).
+     * @default 580px
+     */
+    maxWidth?: number | string;
+    /**
+     * The maximum number of lines the tooltip text can wrap onto before being
+     * truncated with an ellipsis.
+     * @default 2
+     */
+    maxLines?: number;
+    /**
      * Additional aria-* attributes to pass through to the floating tooltip for
      * edge cases which require more user awareness like errors & alerts.
      */
@@ -71,7 +83,7 @@ export interface TooltipDescription {
     description: string;
 }
 type UseTooltipProps = CommonUseTooltipProps & (TooltipLabel | TooltipDescription);
-export declare function useTooltip({ open: controlledOpen, disabled, onOpenChange, placement, isTriggerInteractive, caption, "aria-atomic": ariaAtomic, "aria-live": ariaLive, boundary, ...props }: UseTooltipProps): {
+export declare function useTooltip({ open: controlledOpen, disabled, onOpenChange, placement, isTriggerInteractive, caption, "aria-atomic": ariaAtomic, "aria-live": ariaLive, boundary, maxWidth, maxLines, ...props }: UseTooltipProps): {
     arrowRef: import('../../../node_modules/.pnpm/react@19.2.8/node_modules/react').RefObject<null>;
     placement: Placement;
     strategy: import('@floating-ui/react-dom').Strategy;
@@ -121,6 +133,8 @@ export declare function useTooltip({ open: controlledOpen, disabled, onOpenChang
     purpose: "label" | "description";
     open: boolean;
     setOpen: (open: boolean, event?: Event | undefined, reason?: OpenChangeReason | undefined) => void;
+    maxWidth: string | number;
+    maxLines: number;
     tooltipProps: {
         "aria-atomic": (boolean | "true" | "false") | undefined;
         "aria-live": "off" | "assertive" | "polite" | undefined;
