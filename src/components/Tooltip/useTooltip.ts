@@ -95,14 +95,14 @@ export interface CommonUseTooltipProps {
   /**
    * The maximum width of the tooltip. Accepts any valid CSS `max-width`
    * value (e.g. `200`, `"200px"`, `"20ch"`).
-   * @default undefined
+   * @default 580px
    */
   maxWidth?: number | string;
 
   /**
    * The maximum number of lines the tooltip text can wrap onto before being
    * truncated with an ellipsis.
-   * @default undefined
+   * @default 2
    */
   maxLines?: number;
 
@@ -141,8 +141,8 @@ export function useTooltip({
   "aria-atomic": ariaAtomic,
   "aria-live": ariaLive,
   boundary,
-  maxWidth,
-  maxLines,
+  maxWidth = "580px",
+  maxLines = 2,
   ...props
 }: UseTooltipProps) {
   const labelId = useId();
