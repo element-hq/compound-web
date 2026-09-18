@@ -202,7 +202,7 @@ export function Dropdown<K extends string | number = string>({
       aria-invalid={Boolean(error)}
     >
       {label && (
-        <label id={labelId} className={classNames(disabled && styles.disabled)}>
+        <label id={labelId} className={classNames({ [styles.disabled]: disabled })}>
           {label}
         </label>
       )}
