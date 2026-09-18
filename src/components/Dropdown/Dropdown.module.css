@@ -67,6 +67,7 @@ Please see LICENSE files in the repository root for full details.
     color: var(--cpd-color-text-disabled);
     background-color: var(--cpd-color-bg-canvas-disabled);
     border-color: var(--cpd-color-border-disabled);
+    cursor: not-allowed;
   }
 
   .content {
