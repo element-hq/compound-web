@@ -98,6 +98,11 @@ type DropdownProps<K = string> = {
    * Unused if a custom `trigger` is provided.
    */
   ref?: Ref<HTMLButtonElement>;
+  /**
+   * True to make the dropdown disabled and non-interactive.
+   * Default: false.
+   */
+  disabled?: boolean;
 };
 
 /**
@@ -116,6 +121,7 @@ export function Dropdown<K extends string | number = string>({
   renderItem,
   trigger,
   ref,
+  disabled = false,
   ...props
 }: DropdownProps<K>) {
   const [uncontrolledValue, setUncontrolledValue] = useState<K | undefined>(
@@ -150,6 +156,7 @@ export function Dropdown<K extends string | number = string>({
     [styles["trigger-button"]]: true,
     [styles.placeholder]: value === null,
     [styles["open-trigger"]]: open,
+    [styles["disabled-trigger"]]: disabled,
   });
   const contentClasses = classNames(styles.content, {
     [styles.open]: open,
@@ -171,12 +178,18 @@ export function Dropdown<K extends string | number = string>({
     }
   };
 
+  const onClick = useCallback(() => {
+    if (disabled) return;
+
+    setOpen((_open) => !_open);
+  }, [setOpen, disabled]);
+
   const triggerProps: DropdownTriggerProps = {
     role: "combobox",
     "aria-haspopup": "listbox",
     "aria-controls": contentId,
     "aria-expanded": open,
-    onClick: () => setOpen((_open) => !_open),
+    onClick: onClick,
     onKeyDown: onComboboxKeyDown,
   };
 
@@ -188,7 +201,14 @@ export function Dropdown<K extends string | number = string>({
       className={classNames(className, styles.container)}
       aria-invalid={Boolean(error)}
     >
-      {label && <label id={labelId}>{label}</label>}
+      {label && (
+        <label
+          id={labelId}
+          className={classNames({ [styles.disabled]: disabled })}
+        >
+          {label}
+        </label>
+      )}
       {trigger ? (
         trigger(triggerProps)
       ) : (
@@ -197,6 +217,7 @@ export function Dropdown<K extends string | number = string>({
           {...triggerProps}
           ref={combinedRef}
           {...props}
+          disabled={disabled}
         >
           {currentContent}
           <ChevronDown className={styles.chevron} width="24" height="24" />

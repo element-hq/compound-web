@@ -50,6 +50,18 @@ export const Default: Story = {
   },
 };
 
+export const Disabled: Story = {
+  args: {
+    disabled: true,
+  },
+  parameters: {
+    design: {
+      type: "figma",
+      url: "https://www.figma.com/file/rTaQE2nIUSLav4Tg3nozq7/Compound-Web-Components?node-id=799-5732&t=g2Ex9sbzgku1nTIN-4",
+    },
+  },
+};
+
 export const WithHelpLabel: Story = {
   args: {
     helpLabel: "Optional help text.",
