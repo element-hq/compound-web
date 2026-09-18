@@ -65,11 +65,16 @@ type DropdownProps<K = string> = {
      * Unused if a custom `trigger` is provided.
      */
     ref?: Ref<HTMLButtonElement>;
+    /**
+     * True to make the dropdown disabled and non-interactive.
+     * Default: false.
+     */
+    disabled?: boolean;
 };
 /**
  * A dropdown that lets the user select one of a set of values.
  * The type parameter `K` represents the set of values.
  */
-export declare function Dropdown<K extends string | number = string>({ className, label, helpLabel, onValueChange, error, value: controlledValue, defaultValue, values, renderItem, trigger, ref, ...props }: DropdownProps<K>): React.JSX.Element;
+export declare function Dropdown<K extends string | number = string>({ className, label, helpLabel, onValueChange, error, value: controlledValue, defaultValue, values, renderItem, trigger, ref, disabled, ...props }: DropdownProps<K>): React.JSX.Element;
 export {};
 //# sourceMappingURL=Dropdown.d.ts.map
