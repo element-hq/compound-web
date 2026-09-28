@@ -141,8 +141,8 @@ importers:
         version: 1.1.2(@types/react-dom@19.2.3(@types/react@19.2.18))(@types/react@19.2.18)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
     devDependencies:
       '@element-hq/element-web-playwright-common':
-        specifier: ^6.0.0
-        version: 6.2.0(@element-hq/element-web-module-api@1.14.0(@types/react-dom@19.2.3(@types/react@19.2.18))(@types/react@19.2.18)(react@19.2.8))(@playwright/test@1.62.1)(debug@4.4.3(supports-color@10.2.2))(playwright-core@1.61.1)(supports-color@10.2.2)
+        specifier: ^7.0.0
+        version: 7.0.0(@element-hq/element-web-module-api@1.14.0(@types/react-dom@19.2.3(@types/react@19.2.18))(@types/react@19.2.18)(react@19.2.8))(@playwright/test@1.62.1)(debug@4.4.3(supports-color@10.2.2))(playwright-core@1.63.0)(supports-color@10.2.2)
       '@fontsource/inconsolata':
         specifier: ^5.0.8
         version: 5.3.0
@@ -482,14 +482,14 @@ packages:
       matrix-widget-api:
         optional: true
 
-  '@element-hq/element-web-playwright-common@6.2.0':
-    resolution: {integrity: sha512-jExUJdrFnwBNyG/YdL2Z5kPeadxDNCmOakqhK6W+9T9oZWty1bXegfo1XVpjr6bTbDmAQ8ZPd6PXi0h38XQaCg==}
+  '@element-hq/element-web-playwright-common@7.0.0':
+    resolution: {integrity: sha512-kwzYfYVTuxJAwbVAt6qc0l2ev0OApZD1PRrgSHtA0Mwaa1XbXgushRrBU2gWLefJFL1EkKFBsoukzc1dseXBgg==}
     engines: {node: '>=20.0.0'}
     hasBin: true
     peerDependencies:
       '@element-hq/element-web-module-api': '*'
-      '@playwright/test': 1.61.1
-      playwright-core: 1.61.1
+      '@playwright/test': 1.63.0
+      playwright-core: 1.63.0
 
   '@emnapi/core@1.11.0':
     resolution: {integrity: sha512-l9Oo58x0HOP5znGzVhYW9U3e5wVuA4LAZU2AGezTmkhO1CgQRFDhDg4nneHsu/t3WniXg9QrG2nIXL/ZS8ln8Q==}
@@ -4157,13 +4157,13 @@ packages:
   pkg-types@2.3.1:
     resolution: {integrity: sha512-y+ichcgc2LrADuhLNAx8DFjVfgz91pRxfZdI3UDhxHvcVEZsenLO+7XaU5vOp0u/7V/wZ+plyuQxtrDlZJ+yeg==}
 
-  playwright-core@1.61.1:
-    resolution: {integrity: sha512-h7Qlt6m4REp25qvIdvbDtVmD4LqVXfpRxhORv9L0jzETM05p4fuPJ3dKyuSXQxDSbXnmS79HAgi9589lGSpLkg==}
-    engines: {node: '>=18'}
-    hasBin: true
-
   playwright-core@1.62.1:
     resolution: {integrity: sha512-wPYSwEBJY9GHraISXqyqtx0na0LpO3XEX7jNDhntbex7tzUS7kLnZsOlFruFJB4Hi/rhDMjXGqHewDZ68nYZVw==}
+    engines: {node: '>=20'}
+    hasBin: true
+
+  playwright-core@1.63.0:
+    resolution: {integrity: sha512-rYCsBF/M5HjUch52bbtVONEFjv6Xu8sm8h72dNlR5bzIE1fvC/bxgspzkjSfU+MweEMmPM8KJebG6nnyxo5mCg==}
     engines: {node: '>=20'}
     hasBin: true
 
@@ -5267,10 +5267,10 @@ snapshots:
       is-potential-custom-element-name: 1.0.1
       lru-cache: 11.5.2
 
-  '@axe-core/playwright@4.11.2(playwright-core@1.61.1)':
+  '@axe-core/playwright@4.11.2(playwright-core@1.63.0)':
     dependencies:
       axe-core: 4.11.3
-      playwright-core: 1.61.1
+      playwright-core: 1.63.0
 
   '@babel/code-frame@7.29.7':
     dependencies:
@@ -5451,16 +5451,16 @@ snapshots:
       '@types/react-dom': 19.2.3(@types/react@19.2.18)
       react: 19.2.8
 
-  '@element-hq/element-web-playwright-common@6.2.0(@element-hq/element-web-module-api@1.14.0(@types/react-dom@19.2.3(@types/react@19.2.18))(@types/react@19.2.18)(react@19.2.8))(@playwright/test@1.62.1)(debug@4.4.3(supports-color@10.2.2))(playwright-core@1.61.1)(supports-color@10.2.2)':
+  '@element-hq/element-web-playwright-common@7.0.0(@element-hq/element-web-module-api@1.14.0(@types/react-dom@19.2.3(@types/react@19.2.18))(@types/react@19.2.18)(react@19.2.8))(@playwright/test@1.62.1)(debug@4.4.3(supports-color@10.2.2))(playwright-core@1.63.0)(supports-color@10.2.2)':
     dependencies:
-      '@axe-core/playwright': 4.11.2(playwright-core@1.61.1)
+      '@axe-core/playwright': 4.11.2(playwright-core@1.63.0)
       '@element-hq/element-web-module-api': 1.14.0(@types/react-dom@19.2.3(@types/react@19.2.18))(@types/react@19.2.18)(react@19.2.8)
       '@playwright/test': 1.62.1
       '@testcontainers/postgresql': 12.1.0(supports-color@10.2.2)
       glob: 13.0.6
       lodash-es: 4.18.1
       mailpit-api: 2.0.0
-      playwright-core: 1.61.1
+      playwright-core: 1.63.0
       strip-ansi: 7.2.0
       testcontainers: 12.1.0(supports-color@10.2.2)
       wait-on: 9.0.5(debug@4.4.3(supports-color@10.2.2))
@@ -6577,7 +6577,7 @@ snapshots:
       eslint-visitor-keys: 4.2.1
       espree: 10.4.0
       estraverse: 5.3.0
-      picomatch: 4.0.5
+      picomatch: 4.0.7
 
   '@testcontainers/postgresql@12.1.0(supports-color@10.2.2)':
     dependencies:
@@ -9141,9 +9141,9 @@ snapshots:
       exsolve: 1.1.0
       pathe: 2.0.3
 
-  playwright-core@1.61.1: {}
-
   playwright-core@1.62.1: {}
+
+  playwright-core@1.63.0: {}
 
   playwright@1.62.1:
     dependencies:
