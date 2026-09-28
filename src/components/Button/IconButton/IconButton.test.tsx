@@ -20,7 +20,7 @@ const {
   Default,
   DefaultDisabled,
   WithIndicator,
-  WithSuccessIndicator,
+  WithAccentIndicator,
   WithCriticalIndicator,
   WithIndicatorDisabled,
   WithSecondaryKind,
@@ -40,8 +40,8 @@ describe("IconButton", () => {
     const { container } = render(<WithIndicator />);
     expect(container).toMatchSnapshot();
   });
-  it("renders a WithSuccessIndicator IconButton", () => {
-    const { container } = render(<WithSuccessIndicator />);
+  it("renders a WithAccentIndicator IconButton", () => {
+    const { container } = render(<WithAccentIndicator />);
     expect(container).toMatchSnapshot();
   });
   it("renders a WithCriticalIndicator IconButton", () => {

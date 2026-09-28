@@ -63,9 +63,9 @@ export const WithIndicator: Story = {
   },
 };
 
-export const WithSuccessIndicator: Story = {
+export const WithAccentIndicator: Story = {
   args: {
-    indicator: "success",
+    indicator: "accent",
   },
 };
 
