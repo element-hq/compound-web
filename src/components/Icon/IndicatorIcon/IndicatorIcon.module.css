@@ -54,8 +54,8 @@ Please see LICENSE files in the repository root for full details.
   background-color: var(--background-color);
 }
 
-.indicator-icon[data-indicator="success"]::before {
-  --background-color: var(--cpd-color-icon-success-primary);
+.indicator-icon[data-indicator="accent"]::before {
+  --background-color: var(--cpd-color-icon-accent-primary);
 }
 
 .indicator-icon[data-indicator="critical"]::before {

@@ -34,7 +34,7 @@ type IconButtonProps = UnstyledButtonPropsFor<"button"> & {
    * The icon button indicator dot displayed on the top right
    * As in IndicatorIcon
    */
-  indicator?: "default" | "success" | "critical";
+  indicator?: "default" | "accent" | "critical";
   /**
    * Whether the button is interactable
    */

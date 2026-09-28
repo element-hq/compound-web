@@ -12,7 +12,7 @@ import { composeStories } from "@storybook/react";
 
 import * as stories from "./IndicatorIcon.stories";
 
-const { Default, WithIndicator, WithSuccessIndicator, WithCriticalIndicator } =
+const { Default, WithIndicator, WithAccentIndicator, WithCriticalIndicator } =
   composeStories(stories);
 
 describe("IconButton", () => {
@@ -24,8 +24,8 @@ describe("IconButton", () => {
     const { container } = render(<WithIndicator />);
     expect(container).toMatchSnapshot();
   });
-  it("renders a WithSuccessIndicator IconButton", () => {
-    const { container } = render(<WithSuccessIndicator />);
+  it("renders a WithAccentIndicator IconButton", () => {
+    const { container } = render(<WithAccentIndicator />);
     expect(container).toMatchSnapshot();
   });
   it("renders a WithCriticalIndicator IconButton", () => {
