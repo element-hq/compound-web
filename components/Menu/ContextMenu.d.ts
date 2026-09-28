@@ -1,4 +1,4 @@
-import { FC, ReactNode } from '../../../node_modules/.pnpm/react@19.2.8/node_modules/react';
+import { FC, ReactNode } from '../../../node_modules/.pnpm/react@19.3.0/node_modules/react';
 interface Props {
     /**
      * The menu title.

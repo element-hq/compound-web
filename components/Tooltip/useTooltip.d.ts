@@ -1,5 +1,5 @@
 import { Boundary, OpenChangeReason, Placement } from '@floating-ui/react';
-import { JSX, AriaAttributes } from '../../../node_modules/.pnpm/react@19.2.8/node_modules/react';
+import { JSX, AriaAttributes } from '../../../node_modules/.pnpm/react@19.3.0/node_modules/react';
 export interface CommonUseTooltipProps {
     /**
      * The controlled open state of the tooltip.
@@ -84,7 +84,7 @@ export interface TooltipDescription {
 }
 type UseTooltipProps = CommonUseTooltipProps & (TooltipLabel | TooltipDescription);
 export declare function useTooltip({ open: controlledOpen, disabled, onOpenChange, placement, isTriggerInteractive, caption, "aria-atomic": ariaAtomic, "aria-live": ariaLive, boundary, maxWidth, maxLines, ...props }: UseTooltipProps): {
-    arrowRef: import('../../../node_modules/.pnpm/react@19.2.8/node_modules/react').RefObject<null>;
+    arrowRef: import('../../../node_modules/.pnpm/react@19.3.0/node_modules/react').RefObject<null>;
     placement: Placement;
     strategy: import('@floating-ui/react-dom').Strategy;
     middlewareData: import('@floating-ui/react-dom').MiddlewareData;
@@ -94,7 +94,7 @@ export declare function useTooltip({ open: controlledOpen, disabled, onOpenChang
     update: () => void;
     floatingStyles: React.CSSProperties;
     refs: {
-        reference: import('../../../node_modules/.pnpm/react@19.2.8/node_modules/react').MutableRefObject<import('@floating-ui/react-dom').ReferenceType | null>;
+        reference: import('../../../node_modules/.pnpm/react@19.3.0/node_modules/react').MutableRefObject<import('@floating-ui/react-dom').ReferenceType | null>;
         floating: React.MutableRefObject<HTMLElement | null>;
         setReference: (node: import('@floating-ui/react-dom').ReferenceType | null) => void;
         setFloating: (node: HTMLElement | null) => void;

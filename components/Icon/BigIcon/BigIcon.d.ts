@@ -1,4 +1,4 @@
-import { JSX, PropsWithChildren } from '../../../../node_modules/.pnpm/react@19.2.8/node_modules/react';
+import { JSX, PropsWithChildren } from '../../../../node_modules/.pnpm/react@19.3.0/node_modules/react';
 import { Size } from '../../../utils/size';
 interface BigIconProps {
     /**

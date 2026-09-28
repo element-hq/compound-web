@@ -1,0 +1,3 @@
+import{n as e}from"./rolldown-runtime-DkW27tQK.js";import{t}from"./react-Q1GcV6wX.js";import{t as n}from"./jsx-runtime-DeHZSEgm.js";import{t as r}from"./dist-CFkkZEZD.js";import{n as i,t as a}from"./MenuTitle-B2Udj5Pq.js";var o,s,c,l,u;function d(){return(d=e((()=>{i(),r(),t(),o=n(),s={title:`Menu/MenuTitle`,component:a,tags:[`autodocs`],argTypes:{},args:{title:`Title`}},c=e=>(0,o.jsx)(a,{...e}),l=c.bind({}),l.args={},u=[`Default`],l.parameters={...l.parameters,docs:{...l.parameters?.docs,source:{originalSource:`(args: ComponentProps<typeof MenuTitleComponent>) => {
+  return <MenuTitleComponent {...args} />;
+}`,...l.parameters?.docs?.source}}}})))()}d();export{l as Default,u as __namedExportsOrder,s as default};
