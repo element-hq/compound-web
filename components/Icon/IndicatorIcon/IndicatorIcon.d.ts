@@ -17,7 +17,7 @@ type IconButtonProps = {
      * The indicator dot displayed on the top right
      * Names based on the colours used for the dot, or undefined for no dot.
      */
-    indicator?: "default" | "success" | "critical";
+    indicator?: "default" | "accent" | "critical";
 };
 export declare const IndicatorIcon: React.ForwardRefExoticComponent<IconButtonProps & {
     children?: React.ReactNode | undefined;
