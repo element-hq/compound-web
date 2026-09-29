@@ -74,3 +74,65 @@ export const Menu: Story = { args: { title: "Today's Menu" } };
 export const WithoutTitle = {
   args: { title: "Untitled Menu", showTitle: false },
 };
+
+const manyItems = Array.from({ length: 30 }, (_, i) => (
+  <MenuItem
+    key={i}
+    Icon={NotificationsIcon}
+    label={`Item ${i + 1}`}
+    onSelect={() => {}}
+  />
+));
+
+const LongTemplate: React.FC<Props> = (args) => {
+  const [open, setOpen] = useState(true);
+  return (
+    <MenuComponent
+      {...args}
+      open={open}
+      onOpenChange={setOpen}
+      trigger={<Button>Open menu</Button>}
+      align="start"
+    >
+      {manyItems}
+    </MenuComponent>
+  );
+};
+
+export const WithManyItems: StoryObj<typeof LongTemplate> = {
+  render: (args) => <LongTemplate {...args} />,
+  args: { title: "A long menu" },
+};
+
+const BoundaryTemplate: React.FC<Props> = (args) => {
+  const [open, setOpen] = useState(true);
+  const [boundary, setBoundary] = useState<HTMLDivElement | null>(null);
+  return (
+    <div
+      ref={setBoundary}
+      style={{
+        blockSize: 320,
+        inlineSize: 280,
+        outline: "1px dashed var(--cpd-color-border-interactive-primary)",
+      }}
+    >
+      <MenuComponent
+        {...args}
+        open={open}
+        onOpenChange={setOpen}
+        trigger={<Button>Open menu</Button>}
+        align="start"
+        collisionBoundary={boundary}
+        collisionPadding={8}
+      >
+        {manyItems}
+      </MenuComponent>
+    </div>
+  );
+};
+
+/** As in an app embedded in a page: the menu scrolls within the box. */
+export const WithinABoundary: StoryObj<typeof BoundaryTemplate> = {
+  render: (args) => <BoundaryTemplate {...args} />,
+  args: { title: "A bounded menu" },
+};

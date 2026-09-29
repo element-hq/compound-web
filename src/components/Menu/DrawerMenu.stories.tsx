@@ -55,3 +55,22 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const DrawerMenu: Story = { args: {} };
+
+export const WithManyItems: Story = {
+  render: (args) => (
+    <>
+      <div className={drawerStyles.bg} />
+      <DrawerMenuComponent {...args} title="Settings">
+        {Array.from({ length: 30 }, (_, i) => (
+          <MenuItem
+            key={i}
+            Icon={NotificationsIcon}
+            label={`Item ${i + 1}`}
+            onSelect={() => {}}
+          />
+        ))}
+      </DrawerMenuComponent>
+    </>
+  ),
+  args: {},
+};
