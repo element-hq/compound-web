@@ -21,27 +21,20 @@ function scrolledTo(area: HTMLElement, scrollTop: number): void {
 }
 
 describe("MenuScrollArea", () => {
-  it("marks each edge with more beyond it", () => {
+  it("marks when there is more below", () => {
     render(<MenuScrollArea data-testid="area">Items</MenuScrollArea>);
     const area = screen.getByTestId("area");
 
     scrolledTo(area, 0);
-    expect(area).not.toHaveAttribute("data-more-above");
     expect(area).toHaveAttribute("data-more-below");
-
     scrolledTo(area, 100);
-    expect(area).toHaveAttribute("data-more-above");
     expect(area).toHaveAttribute("data-more-below");
-
     scrolledTo(area, 200);
-    expect(area).toHaveAttribute("data-more-above");
     expect(area).not.toHaveAttribute("data-more-below");
   });
 
-  it("marks neither edge where nothing overflows", () => {
+  it("marks nothing where nothing overflows", () => {
     render(<MenuScrollArea data-testid="area">Items</MenuScrollArea>);
-    const area = screen.getByTestId("area");
-    expect(area).not.toHaveAttribute("data-more-above");
-    expect(area).not.toHaveAttribute("data-more-below");
+    expect(screen.getByTestId("area")).not.toHaveAttribute("data-more-below");
   });
 });

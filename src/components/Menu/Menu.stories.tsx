@@ -173,15 +173,19 @@ const RegionTemplate: React.FC<Props> = (args) => {
       >
         <MenuTitle title="Devices" />
         <MenuScrollArea>{manyItems}</MenuScrollArea>
-        <Separator />
-        <MenuItem Icon={LeaveIcon} label="Settings" onSelect={() => {}} />
       </MenuComponent>
     </div>
   );
 };
 
-/** Only the list scrolls; the heading and the last item stay put. */
+/** Only the list scrolls, and fades out down to the frame; the heading stays put. */
 export const WithAScrollingRegion: StoryObj<typeof RegionTemplate> = {
   render: (args) => <RegionTemplate {...args} />,
   args: { title: "A menu with a scrolling region", showTitle: false },
+  parameters: {
+    design: {
+      type: "figma",
+      url: "https://www.figma.com/design/rTaQE2nIUSLav4Tg3nozq7/Compound-Web-Components?node-id=15001-41548&t=RLC8Yo2JsfB3rYqz-4",
+    },
+  },
 };
