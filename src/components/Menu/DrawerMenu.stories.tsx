@@ -73,4 +73,10 @@ export const WithManyItems: Story = {
     </>
   ),
   args: {},
+  parameters: {
+    design: {
+      type: "figma",
+      url: "https://www.figma.com/design/rTaQE2nIUSLav4Tg3nozq7/Compound-Web-Components?node-id=15001-41548&t=RLC8Yo2JsfB3rYqz-4",
+    },
+  },
 };

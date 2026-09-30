@@ -102,6 +102,12 @@ const LongTemplate: React.FC<Props> = (args) => {
 export const WithManyItems: StoryObj<typeof LongTemplate> = {
   render: (args) => <LongTemplate {...args} />,
   args: { title: "A long menu" },
+  parameters: {
+    design: {
+      type: "figma",
+      url: "https://www.figma.com/design/rTaQE2nIUSLav4Tg3nozq7/Compound-Web-Components?node-id=15001-41548&t=RLC8Yo2JsfB3rYqz-4",
+    },
+  },
 };
 
 const BoundaryTemplate: React.FC<Props> = (args) => {
@@ -135,4 +141,10 @@ const BoundaryTemplate: React.FC<Props> = (args) => {
 export const WithinABoundary: StoryObj<typeof BoundaryTemplate> = {
   render: (args) => <BoundaryTemplate {...args} />,
   args: { title: "A bounded menu" },
+  parameters: {
+    design: {
+      type: "figma",
+      url: "https://www.figma.com/design/rTaQE2nIUSLav4Tg3nozq7/Compound-Web-Components?node-id=15001-41548&t=RLC8Yo2JsfB3rYqz-4",
+    },
+  },
 };
