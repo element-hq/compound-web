@@ -19,15 +19,20 @@ Please see LICENSE files in the repository root for full details.
   /* So a long menu scrolls rather than running past its boundary. */
   max-inline-size: min(340px, var(--radix-popper-available-width, 340px));
   max-block-size: var(--radix-popper-available-height, none);
-  overflow-y: auto;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+
+  --cpd-separator-spacing: 0;
+  --cpd-separator-inset: var(--cpd-space-4x);
+}
+
+.content {
   display: flex;
   flex-direction: column;
   gap: var(--cpd-space-1x);
   padding-block: calc(var(--cpd-space-5x) - var(--cpd-border-width-1))
     calc(var(--cpd-space-4x) - var(--cpd-border-width-1));
-
-  --cpd-separator-spacing: 0;
-  --cpd-separator-inset: var(--cpd-space-4x);
 }
 
 @keyframes slide-in {
