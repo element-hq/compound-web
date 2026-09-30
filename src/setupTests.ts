@@ -18,3 +18,12 @@ import { TextEncoder, TextDecoder } from "util";
  * Polyfilling for `react-dom/server` as those aren't shipped with jsdom16 and above
  */
 Object.assign(global, { TextDecoder, TextEncoder });
+
+// jsdom lays nothing out, so there is nothing for it to report.
+if (typeof ResizeObserver === "undefined") {
+  global.ResizeObserver = class {
+    public observe(): void {}
+    public unobserve(): void {}
+    public disconnect(): void {}
+  };
+}

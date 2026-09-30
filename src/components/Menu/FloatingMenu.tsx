@@ -14,6 +14,7 @@ import React, {
 } from "react";
 import styles from "./FloatingMenu.module.css";
 import { MenuTitle } from "./MenuTitle.tsx";
+import { MenuScrollArea } from "./MenuScrollArea.tsx";
 
 interface Props extends ComponentPropsWithoutRef<"div"> {
   /**
@@ -52,12 +53,12 @@ export const FloatingMenu = forwardRef<HTMLDivElement, Props>(
         className={classnames(className, styles.menu)}
         {...props}
       >
-        <div role="none" className={styles.content}>
+        <MenuScrollArea className={styles.content}>
           {showTitle && (
             <MenuTitle className={styles.title} title={title} id={titleId} />
           )}
           {children}
-        </div>
+        </MenuScrollArea>
       </div>
     );
   },

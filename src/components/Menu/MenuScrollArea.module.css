@@ -1,0 +1,61 @@
+/*
+Copyright 2026 Element Creations Ltd.
+
+SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-Element-Commercial
+Please see LICENSE files in the repository root for full details.
+*/
+
+/* Registered, so that the fades can transition. */
+@property --edge-start {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #000;
+}
+
+@property --edge-end {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #000;
+}
+
+.area {
+  min-block-size: 0;
+  overflow-y: auto;
+
+  --fade: var(--cpd-space-6x);
+  --inset-start: var(--cpd-menu-scroll-inset-block-start, 0px);
+  --inset-end: var(--cpd-menu-scroll-inset-block-end, 0px);
+}
+
+/* Only while it overflows: a masked area is drawn apart, which costs, and its
+text can come out a shade different. */
+.area[data-more-above],
+.area[data-more-below] {
+  /* A mask rather than a gradient over the content, which would have to
+  match whatever is behind it. */
+  mask-image: linear-gradient(
+    to bottom,
+    #000 var(--inset-start),
+    var(--edge-start) var(--inset-start),
+    #000 calc(var(--inset-start) + var(--fade)),
+    #000 calc(100% - var(--inset-end) - var(--fade)),
+    var(--edge-end) calc(100% - var(--inset-end)),
+    #000 calc(100% - var(--inset-end))
+  );
+}
+
+.area[data-more-above] {
+  --edge-start: transparent;
+}
+
+.area[data-more-below] {
+  --edge-end: transparent;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .area {
+    transition:
+      --edge-start 150ms ease-out,
+      --edge-end 150ms ease-out;
+  }
+}

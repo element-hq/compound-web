@@ -37,8 +37,6 @@ outline, and a border would take space. */
 }
 
 .content {
-  min-block-size: 0;
-  overflow-y: auto;
   display: flex;
   flex-direction: column;
   gap: var(--cpd-space-1x);

@@ -8,7 +8,7 @@ exports[`FloatingMenu > renders 1`] = `
     role="menu"
   >
     <div
-      class="_content_8d7946"
+      class="_area_47ef0a _content_8d7946"
       role="none"
     >
       <h3
