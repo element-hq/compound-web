@@ -13,6 +13,7 @@ import React, {
 import styles from "./DrawerMenu.module.css";
 import { getPlatform } from "../../utils/platform";
 import classNames from "classnames";
+import { MenuScrollArea } from "./MenuScrollArea";
 
 interface Props extends ComponentPropsWithoutRef<"div"> {
   /**
@@ -40,7 +41,7 @@ export const DrawerMenu = forwardRef<HTMLDivElement, Props>(
       {...props}
       role="menu"
     >
-      <div className={styles.body}>{children}</div>
+      <MenuScrollArea className={styles.body}>{children}</MenuScrollArea>
     </div>
   ),
 );

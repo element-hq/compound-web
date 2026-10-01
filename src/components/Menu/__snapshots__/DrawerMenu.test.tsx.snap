@@ -9,7 +9,8 @@ exports[`DrawerMenu > renders 1`] = `
     role="menu"
   >
     <div
-      class="_body_fead1c"
+      class="_area_47ef0a _body_fead1c"
+      role="none"
     >
       <button
         class="_item_9618f6 _interactive_9618f6"

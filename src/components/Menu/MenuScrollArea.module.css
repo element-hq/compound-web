@@ -1,0 +1,33 @@
+/*
+Copyright 2026 Element Creations Ltd.
+
+SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-Element-Commercial
+Please see LICENSE files in the repository root for full details.
+*/
+
+.area {
+  min-block-size: 0;
+  overflow-y: auto;
+
+  --solid: var(--cpd-space-4x);
+  --fade: min(var(--cpd-space-6x), 25%);
+  --inset: var(--cpd-menu-scroll-inset-block-end, 0px);
+}
+
+/* The last thing in a menu runs to its frame, so the fade does too. */
+.area > .area:last-child {
+  margin-block-end: calc(-1 * var(--cpd-menu-padding-block-end, 0px));
+  padding-block-end: var(--cpd-menu-padding-block-end, 0);
+}
+
+/* Only while it overflows: a masked area is drawn apart, which costs, and its
+text can come out a shade different. */
+.area[data-more-below] {
+  mask-image: linear-gradient(
+    to bottom,
+    #000 calc(100% - var(--inset) - var(--solid) - var(--fade)),
+    transparent calc(100% - var(--inset) - var(--solid)),
+    transparent calc(100% - var(--inset)),
+    #000 calc(100% - var(--inset))
+  );
+}
