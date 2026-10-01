@@ -20,6 +20,9 @@ Please see LICENSE files in the repository root for full details.
   inset-block-end: 0;
   inset-inline: 0;
 
+  /* Leaves some backdrop to tap to dismiss. */
+  max-block-size: calc(100% - var(--cpd-space-16x));
+
   /* Cap the inline content size at 520px, filling the rest of the space with
   padding */
   padding-inline: max(0px, calc((100% - 520px) / 2));
@@ -61,6 +64,7 @@ Please see LICENSE files in the repository root for full details.
   where it meets with the curved border. A contain: paint fixes that. */
   contain: paint;
   overflow: auto;
+  min-block-size: 0;
   scrollbar-width: none;
 
   --cpd-separator-spacing: 0;
