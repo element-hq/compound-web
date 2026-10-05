@@ -52,10 +52,12 @@ export const FloatingMenu = forwardRef<HTMLDivElement, Props>(
         className={classnames(className, styles.menu)}
         {...props}
       >
-        {showTitle && (
-          <MenuTitle className={styles.title} title={title} id={titleId} />
-        )}
-        {children}
+        <div role="none" className={styles.content}>
+          {showTitle && (
+            <MenuTitle className={styles.title} title={title} id={titleId} />
+          )}
+          {children}
+        </div>
       </div>
     );
   },

@@ -140,7 +140,7 @@ const DropdownSubMenuWrapper: FC<SubMenuWrapperProps> = ({
     <DropdownMenuSub open={open} onOpenChange={onOpenChange}>
       <DropdownMenuSubTrigger asChild>{trigger}</DropdownMenuSubTrigger>
       <DropdownMenuPortal>
-        <DropdownMenuSubContent asChild alignOffset={-20}>
+        <DropdownMenuSubContent asChild sideOffset={4} alignOffset={-20}>
           <FloatingMenu title="" showTitle={false}>
             {children}
           </FloatingMenu>
@@ -164,7 +164,7 @@ export const Menu: FC<Props> = ({
   side = "bottom",
   align = "center",
   collisionBoundary,
-  collisionPadding,
+  collisionPadding = 0,
 }) => {
   // Normally, the menu takes the form of a floating box. But on Android and
   // iOS, the menu should morph into a drawer

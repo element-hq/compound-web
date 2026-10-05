@@ -6,28 +6,43 @@ Please see LICENSE files in the repository root for full details.
 */
 
 .menu {
-  box-sizing: border-box;
+  position: relative;
   border-radius: var(--cpd-space-3x);
   background: var(--cpd-color-bg-canvas-default);
-
-  /* Not an inset outline: content that scrolls can paint over one. */
-  border: var(--cpd-border-width-1) solid
-    var(--cpd-color-border-interactive-secondary);
   box-shadow: 0 4px 24px 0 rgb(0 0 0 / 10%);
   inline-size: fit-content;
 
   /* So a long menu scrolls rather than running past its boundary. */
   max-inline-size: min(340px, var(--radix-popper-available-width, 340px));
   max-block-size: var(--radix-popper-available-height, none);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+
+  --cpd-separator-spacing: 0;
+  --cpd-separator-inset: var(--cpd-space-4x);
+}
+
+/* The frame, over the content: content that scrolls can paint over an
+outline, and a border would take space. */
+.menu::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border: var(--cpd-border-width-1) solid
+    var(--cpd-color-border-interactive-secondary);
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.content {
+  min-block-size: 0;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
   gap: var(--cpd-space-1x);
-  padding-block: calc(var(--cpd-space-5x) - var(--cpd-border-width-1))
-    calc(var(--cpd-space-4x) - var(--cpd-border-width-1));
-
-  --cpd-separator-spacing: 0;
-  --cpd-separator-inset: var(--cpd-space-4x);
+  padding-block: var(--cpd-space-5x) var(--cpd-space-4x);
 }
 
 @keyframes slide-in {
