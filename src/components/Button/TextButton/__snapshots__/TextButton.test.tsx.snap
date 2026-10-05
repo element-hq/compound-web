@@ -1,0 +1,16 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`TextButton > renders 1`] = `
+<DocumentFragment>
+  <button
+    class="_text-button_c5cc91"
+    data-kind="primary"
+    data-size="md"
+    role="button"
+    tabindex="0"
+    type="button"
+  >
+    Text button
+  </button>
+</DocumentFragment>
+`;
