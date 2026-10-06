@@ -12,6 +12,7 @@ import React, {
   forwardRef,
   useId,
 } from "react";
+import ChevronDownIcon from "@vector-im/compound-design-tokens/assets/web/icons/chevron-down";
 import styles from "./FloatingMenu.module.css";
 import { MenuTitle } from "./MenuTitle.tsx";
 import { MenuScrollArea } from "./MenuScrollArea.tsx";
@@ -59,6 +60,12 @@ export const FloatingMenu = forwardRef<HTMLDivElement, Props>(
           )}
           {children}
         </MenuScrollArea>
+        <ChevronDownIcon
+          aria-hidden
+          className={styles.more}
+          width={20}
+          height={20}
+        />
       </div>
     );
   },

@@ -13,6 +13,7 @@ Please see LICENSE files in the repository root for full details.
 import "@testing-library/jest-dom/vitest";
 
 import { TextEncoder, TextDecoder } from "util";
+import { vi } from "vitest";
 
 /**
  * Polyfilling for `react-dom/server` as those aren't shipped with jsdom16 and above
@@ -20,10 +21,8 @@ import { TextEncoder, TextDecoder } from "util";
 Object.assign(global, { TextDecoder, TextEncoder });
 
 // jsdom lays nothing out, so there is nothing for it to report.
-if (typeof ResizeObserver === "undefined") {
-  global.ResizeObserver = class {
-    public observe(): void {}
-    public unobserve(): void {}
-    public disconnect(): void {}
-  };
-}
+globalThis.ResizeObserver ??= class {
+  public observe = vi.fn();
+  public unobserve = vi.fn();
+  public disconnect = vi.fn();
+};

@@ -10,6 +10,7 @@ import React, {
   type ReactNode,
   forwardRef,
 } from "react";
+import ChevronDownIcon from "@vector-im/compound-design-tokens/assets/web/icons/chevron-down";
 import styles from "./DrawerMenu.module.css";
 import { getPlatform } from "../../utils/platform";
 import classNames from "classnames";
@@ -42,6 +43,12 @@ export const DrawerMenu = forwardRef<HTMLDivElement, Props>(
       role="menu"
     >
       <MenuScrollArea className={styles.body}>{children}</MenuScrollArea>
+      <ChevronDownIcon
+        aria-hidden
+        className={styles.more}
+        width={20}
+        height={20}
+      />
     </div>
   ),
 );

@@ -47,23 +47,19 @@ outline, and a border would take space. */
 
 /* A chevron with the fade, while there is more below: the fade shows only
 where there is content under it, and a cut between two rows leaves none. */
-.menu::after {
-  content: "";
+.more {
+  display: none;
   position: absolute;
-  inset-inline-start: calc(50% - var(--cpd-space-5x) / 2);
+  inset-inline: 0;
   inset-block-end: var(--cpd-space-1x);
   z-index: 1;
-  inline-size: var(--cpd-space-5x);
-  block-size: var(--cpd-space-5x);
-  background-color: var(--cpd-color-icon-secondary);
-  mask: url("@vector-im/compound-design-tokens/icons/chevron-down.svg") center /
-    contain no-repeat;
-  opacity: 0;
+  margin-inline: auto;
+  color: var(--cpd-color-icon-secondary);
   pointer-events: none;
 }
 
-.menu:has(> [data-more-below], > * > [data-more-below]:last-child)::after {
-  opacity: 1;
+.menu:has(> [data-more-below], > * > [data-more-below]:last-child) > .more {
+  display: block;
 }
 
 @keyframes slide-in {

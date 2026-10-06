@@ -7,8 +7,8 @@ Please see LICENSE files in the repository root for full details.
 
 import classnames from "classnames";
 import React, {
-  type ComponentPropsWithoutRef,
-  forwardRef,
+  type ComponentProps,
+  type JSX,
   useEffect,
   useState,
 } from "react";
@@ -23,10 +23,12 @@ import styles from "./MenuScrollArea.module.css";
  * Content stuck to the bottom of the area is kept clear of the fade by
  * setting `--cpd-menu-scroll-inset-block-end` on the area to its height.
  */
-export const MenuScrollArea = forwardRef<
-  HTMLDivElement,
-  ComponentPropsWithoutRef<"div">
->(({ className, children, ...props }, theirRef) => {
+export function MenuScrollArea({
+  className,
+  children,
+  ref: theirRef,
+  ...props
+}: ComponentProps<"div">): JSX.Element {
   const [area, setArea] = useState<HTMLDivElement | null>(null);
   const ref = useMergeRefs([setArea, theirRef]);
   useEffect(() => (area ? watchScrollEdges(area) : undefined), [area]);
@@ -41,11 +43,16 @@ export const MenuScrollArea = forwardRef<
       {children}
     </div>
   );
-});
+}
 
-MenuScrollArea.displayName = "MenuScrollArea";
-
-// Set on the element rather than rendered, as it changes on every scroll.
+/**
+ * Keeps `data-more-below` on the area while there is more to scroll to below,
+ * following its scrolling and the size of it and its content. Set on the
+ * element rather than rendered, as it changes on every scroll.
+ *
+ * @param area - The element that scrolls.
+ * @returns A function that stops watching.
+ */
 function watchScrollEdges(area: HTMLElement): () => void {
   const measure = (): void => {
     // Scroll positions can be fractional.
