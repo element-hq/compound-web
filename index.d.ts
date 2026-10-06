@@ -5,7 +5,7 @@ export { Alert } from './components/Alert/Alert';
 export { Avatar } from './components/Avatar/Avatar';
 export { AvatarStack } from './components/Avatar/AvatarStack';
 export { Badge } from './components/Badge/Badge';
-export { Button, IconButton } from './components/Button';
+export { Button, IconButton, TextButton } from './components/Button';
 export { Body } from './components/Typography/Body';
 export { Text } from './components/Typography/Text';
 export { Switch } from './components/Switch';
