@@ -1,0 +1,59 @@
+/*
+Copyright 2026 New Vector Ltd.
+
+SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-Element-Commercial
+Please see LICENSE files in the repository root for full details.
+*/
+
+.text-button {
+  display: inline-block;
+  text-decoration: underline;
+  color: var(--cpd-color-text-primary);
+  font-family: inherit;
+  font-weight: var(--cpd-font-weight-medium);
+  line-height: inherit;
+  background: none;
+  border: none;
+  border-radius: var(--cpd-radius-pill-effect);
+  padding-block: 0;
+  padding-inline: var(--cpd-space-1x);
+  cursor: pointer;
+  transition-property: color, background-color;
+  transition-duration: 0.15s;
+}
+
+.text-button[data-kind="primary"] {
+  color: var(--cpd-color-text-primary);
+}
+
+.text-button[data-kind="critical"] {
+  color: var(--cpd-color-text-critical-primary);
+}
+
+.text-button:active {
+  /* Fade in :active background quicker than it fades out */
+  transition-duration: 0.05s;
+}
+
+.text-button[data-kind="primary"]:not([aria-disabled="true"]):active {
+  background: var(--cpd-color-bg-subtle-primary);
+}
+
+.text-button[data-kind="critical"]:not([aria-disabled="true"]):active {
+  background: var(--cpd-color-bg-critical-subtle-hovered);
+}
+
+.text-button[data-size="md"] {
+  font-size: var(--cpd-font-size-body-md);
+  min-block-size: 24px;
+}
+
+.text-button[data-size="sm"] {
+  font-size: var(--cpd-font-size-body-sm);
+  min-block-size: 20px;
+}
+
+.text-button[aria-disabled="true"] {
+  color: var(--cpd-color-text-disabled);
+  cursor: not-allowed;
+}
