@@ -1,4 +1,5 @@
 import { FC, ReactNode } from '../../../node_modules/.pnpm/react@19.3.0/node_modules/react';
+import { DropdownMenuContentProps } from '@radix-ui/react-dropdown-menu';
 interface Props {
     /**
      * CSS classes for the menu.
@@ -46,6 +47,17 @@ interface Props {
      * @default center
      */
     align?: "start" | "center" | "end";
+    /**
+     * Elements besides the viewport that the menu stays within; a menu too long
+     * for the space scrolls. Ignored where the menu is a drawer.
+     */
+    collisionBoundary?: DropdownMenuContentProps["collisionBoundary"];
+    /**
+     * Pixels kept between the menu and its boundary. Ignored where the menu is a
+     * drawer.
+     * @default 0
+     */
+    collisionPadding?: DropdownMenuContentProps["collisionPadding"];
 }
 /**
  * A menu opened by pressing a button.
