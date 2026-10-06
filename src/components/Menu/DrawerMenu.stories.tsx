@@ -55,3 +55,28 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const DrawerMenu: Story = { args: {} };
+
+export const WithManyItems: Story = {
+  render: (args) => (
+    <>
+      <div className={drawerStyles.bg} />
+      <DrawerMenuComponent {...args} title="Settings">
+        {Array.from({ length: 30 }, (_, i) => (
+          <MenuItem
+            key={i}
+            Icon={NotificationsIcon}
+            label={`Item ${i + 1}`}
+            onSelect={() => {}}
+          />
+        ))}
+      </DrawerMenuComponent>
+    </>
+  ),
+  args: {},
+  parameters: {
+    design: {
+      type: "figma",
+      url: "https://www.figma.com/design/rTaQE2nIUSLav4Tg3nozq7/Compound-Web-Components?node-id=15001-41548&t=RLC8Yo2JsfB3rYqz-4",
+    },
+  },
+};

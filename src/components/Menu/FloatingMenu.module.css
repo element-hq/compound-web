@@ -6,25 +6,60 @@ Please see LICENSE files in the repository root for full details.
 */
 
 .menu {
+  position: relative;
   border-radius: var(--cpd-space-3x);
   background: var(--cpd-color-bg-canvas-default);
-
-  /* Here we use outline to create a border internal to the container. The Radix
-  menu component may try to override it with outline: none, hence the need for
-  !important. */
-  outline: var(--cpd-border-width-1) solid
-    var(--cpd-color-border-interactive-secondary) !important;
-  outline-offset: calc(-1 * var(--cpd-border-width-1));
   box-shadow: 0 4px 24px 0 rgb(0 0 0 / 10%);
   inline-size: fit-content;
-  max-inline-size: 340px;
+
+  /* So a long menu scrolls rather than running past its boundary. */
+  max-inline-size: min(340px, var(--radix-popper-available-width, 340px));
+  max-block-size: var(--radix-popper-available-height, none);
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  gap: var(--cpd-space-1x);
-  padding-block: var(--cpd-space-5x) var(--cpd-space-4x);
 
   --cpd-separator-spacing: 0;
   --cpd-separator-inset: var(--cpd-space-4x);
+}
+
+/* The frame, over the content: content that scrolls can paint over an
+outline, and a border would take space. */
+.menu::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border: var(--cpd-border-width-1) solid
+    var(--cpd-color-border-interactive-secondary);
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--cpd-space-1x);
+  padding-block: var(--cpd-space-5x) var(--cpd-menu-padding-block-end);
+
+  --cpd-menu-padding-block-end: var(--cpd-space-4x);
+}
+
+/* A chevron with the fade, while there is more below: the fade shows only
+where there is content under it, and a cut between two rows leaves none. */
+.more {
+  display: none;
+  position: absolute;
+  inset-inline: 0;
+  inset-block-end: var(--cpd-space-1x);
+  z-index: 1;
+  margin-inline: auto;
+  color: var(--cpd-color-icon-secondary);
+  pointer-events: none;
+}
+
+.menu:has(> [data-more-below], > * > [data-more-below]:last-child) > .more {
+  display: block;
 }
 
 @keyframes slide-in {

@@ -20,6 +20,9 @@ Please see LICENSE files in the repository root for full details.
   inset-block-end: 0;
   inset-inline: 0;
 
+  /* Leaves some backdrop to tap to dismiss. */
+  max-block-size: calc(100% - var(--cpd-space-16x));
+
   /* Cap the inline content size at 520px, filling the rest of the space with
   padding */
   padding-inline: max(0px, calc((100% - 520px) / 2));
@@ -40,6 +43,23 @@ Please see LICENSE files in the repository root for full details.
   );
 }
 
+/* A chevron with the fade, while there is more below: the fade shows only
+where there is content under it, and a cut between two rows leaves none. */
+.more {
+  display: none;
+  position: absolute;
+  inset-inline: 0;
+  inset-block-end: var(--cpd-space-1x);
+  z-index: 1;
+  margin-inline: auto;
+  color: var(--cpd-color-icon-secondary);
+  pointer-events: none;
+}
+
+.drawer:has(> [data-more-below], > * > [data-more-below]:last-child) > .more {
+  display: block;
+}
+
 .drawer[data-platform="ios"] {
   --border-radius: 10px;
   --handle-block-size: 5px;
@@ -53,7 +73,7 @@ Please see LICENSE files in the repository root for full details.
   flex-direction: column;
   gap: var(--cpd-space-2x);
   padding-block: calc(var(--content-inset-block-start) + var(--cpd-space-6x))
-    var(--cpd-space-12x);
+    var(--cpd-menu-padding-block-end);
   border-start-start-radius: var(--border-radius);
   border-start-end-radius: var(--border-radius);
 
@@ -61,10 +81,12 @@ Please see LICENSE files in the repository root for full details.
   where it meets with the curved border. A contain: paint fixes that. */
   contain: paint;
   overflow: auto;
+  min-block-size: 0;
   scrollbar-width: none;
 
   --cpd-separator-spacing: 0;
   --cpd-separator-inset: var(--cpd-space-4x);
+  --cpd-menu-padding-block-end: var(--cpd-space-12x);
 }
 
 .body::before {

@@ -22,6 +22,7 @@ import {
   DropdownMenuSubTrigger,
   DropdownMenuSubContent,
   DropdownMenuPortal,
+  type DropdownMenuContentProps,
 } from "@radix-ui/react-dropdown-menu";
 import { FloatingMenu } from "./FloatingMenu";
 import { Drawer } from "vaul";
@@ -84,6 +85,17 @@ interface Props {
    * @default center
    */
   align?: "start" | "center" | "end";
+  /**
+   * Elements besides the viewport that the menu stays within; a menu too long
+   * for the space scrolls. Ignored where the menu is a drawer.
+   */
+  collisionBoundary?: DropdownMenuContentProps["collisionBoundary"];
+  /**
+   * Pixels kept between the menu and its boundary. Ignored where the menu is a
+   * drawer.
+   * @default 0
+   */
+  collisionPadding?: DropdownMenuContentProps["collisionPadding"];
 }
 
 const DropdownMenuItemWrapper: FC<MenuItemWrapperProps> = ({
@@ -128,7 +140,7 @@ const DropdownSubMenuWrapper: FC<SubMenuWrapperProps> = ({
     <DropdownMenuSub open={open} onOpenChange={onOpenChange}>
       <DropdownMenuSubTrigger asChild>{trigger}</DropdownMenuSubTrigger>
       <DropdownMenuPortal>
-        <DropdownMenuSubContent asChild alignOffset={-20}>
+        <DropdownMenuSubContent asChild sideOffset={4} alignOffset={-20}>
           <FloatingMenu title="" showTitle={false}>
             {children}
           </FloatingMenu>
@@ -151,6 +163,8 @@ export const Menu: FC<Props> = ({
   children: childrenProp,
   side = "bottom",
   align = "center",
+  collisionBoundary,
+  collisionPadding = 0,
 }) => {
   // Normally, the menu takes the form of a floating box. But on Android and
   // iOS, the menu should morph into a drawer
@@ -182,7 +196,14 @@ export const Menu: FC<Props> = ({
     <Root open={open} onOpenChange={onOpenChange}>
       <Trigger asChild>{trigger}</Trigger>
       <Portal>
-        <Content asChild side={side} align={align} sideOffset={8}>
+        <Content
+          asChild
+          side={side}
+          align={align}
+          sideOffset={8}
+          collisionBoundary={collisionBoundary}
+          collisionPadding={collisionPadding}
+        >
           <FloatingMenu
             className={className}
             title={title}
