@@ -1,0 +1,1 @@
+import{t as e}from"./iframe-BGRIGv23.js";e();
