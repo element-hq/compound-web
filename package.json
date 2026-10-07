@@ -1,6 +1,6 @@
 {
   "name": "@vector-im/compound-web",
-  "version": "10.2.0",
+  "version": "10.3.0",
   "description": "Compound components for the Web",
   "type": "module",
   "packageManager": "pnpm@12.6.0",
