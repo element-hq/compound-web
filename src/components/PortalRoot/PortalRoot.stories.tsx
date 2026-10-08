@@ -68,36 +68,23 @@ interface HostProps {
   children: ReactNode;
 }
 
+/** The class of the portal root's box, to scope the outline styles to it. */
+const rootClass = "portal-root-story-root";
+
+/** The outline marking the portal root and anything portalled into it. */
+const rootOutline = "2px dashed var(--cpd-color-purple-900)";
+
 /**
- * A host with a portal root of its own, next to the content it hosts. The
+ * This component renders the children inside a `PortalRoot` if `enabled`. The
  * root is kept in state so that `PortalRoot` sees `null` on the first render
  * and the real element afterwards, which is how a real host would do it.
+ *
+ * The root and anything portalled into it get a purple dashed outline, so
+ * floating parts that land in the root stand out from those that land in
+ * `document.body`, even though both are positioned next to their trigger.
  */
-const pageIsDark = (): boolean =>
-  document.documentElement.classList.contains("cpd-theme-dark") ||
-  document.documentElement.classList.contains("cpd-theme-dark-hc");
-
-/**
- * The theme class opposite to the page's, so that floating parts portalled
- * into the portal root stand out from those portalled into `document.body`.
- * Storybook's theme switcher puts its class on the `html` element, and may do
- * so after the story's first render, so this follows it as it changes.
- */
-function useContrastingTheme(): string {
-  const [dark, setDark] = useState(pageIsDark);
-  useEffect(() => {
-    const update = (): void => setDark(pageIsDark());
-    update();
-    const observer = new MutationObserver(update);
-    observer.observe(document.documentElement, { attributeFilter: ["class"] });
-    return () => observer.disconnect();
-  }, []);
-  return dark ? "cpd-theme-light" : "cpd-theme-dark";
-}
-
 const Host: FC<HostProps> = ({ enabled, selector, children }) => {
   const [root, setRoot] = useState<HTMLDivElement | null>(null);
-  const theme = useContrastingTheme();
   const content = (
     <div style={boxStyle}>
       <span>Host</span>
@@ -114,20 +101,18 @@ const Host: FC<HostProps> = ({ enabled, selector, children }) => {
         gap: 16,
       }}
     >
+      {/* Portalled elements can't be styled inline, so match them by
+      selector. Important, as Radix sets an inline `outline: none` on menus. */}
+      <style>{`.${rootClass} ${selector} { outline: ${rootOutline} !important; outline-offset: 2px; }`}</style>
       {enabled ? <PortalRoot root={root}>{content}</PortalRoot> : content}
       <div
         ref={setRoot}
-        className={theme}
-        style={{
-          ...boxStyle,
-          minHeight: 32,
-          // Resolved inside the themed box, so it shows the contrasting theme
-          background: "var(--cpd-color-bg-canvas-default)",
-        }}
+        className={rootClass}
+        style={{ ...boxStyle, border: rootOutline, minHeight: 32 }}
       >
         <span>
-          Portal root: uses the opposite theme to the page, so anything
-          portalled in here does too
+          Portal root: anything portalled in here gets the same purple dashed
+          outline
         </span>
       </div>
     </div>
@@ -187,8 +172,9 @@ innermost one wins.
 
 - \`root\` must be in the same document as the triggers, or positioning will
   be off. Positioning itself is unaffected by the choice of root: floating
-  parts are placed relative to their trigger either way. That is why the
-  portal root in the stories below uses the opposite theme to the page.
+  parts are placed relative to their trigger either way. That is why
+  anything portalled into the portal root in the stories below gets a purple
+  dashed outline.
 - Styles are not carried across. A root inside a shadow root needs Compound's
   stylesheet as well.
 `,
@@ -228,8 +214,6 @@ export const WithoutPortalRoot: Story = {
 /**
  * Tooltips follow the `PortalRoot` too. The `TooltipProvider` can sit on
  * either side of it.
- *
- * Note: tooltips backgrounds are `black` in `light`-theme and `lightGray` in `dark`-theme.
  */
 export const WithTooltip: Story = {
   render: () => (
