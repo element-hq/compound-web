@@ -39,8 +39,8 @@ export function usePortalRoot(): PortalRootElement | undefined {
 
 interface Props {
   /**
-   * The element to portal into. `null` is the same as no `PortalRoot` at all,
-   * so a ref or state that is not yet populated can be passed straight in.
+   * The element to portal into.
+   * @default document.body
    */
   root: PortalRootElement | null;
   children: ReactNode;
