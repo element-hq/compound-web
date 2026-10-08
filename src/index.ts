@@ -48,7 +48,6 @@ export { Tooltip } from "./components/Tooltip/Tooltip";
 export { TooltipProvider } from "./components/Tooltip/TooltipProvider";
 export {
   PortalRoot,
-  usePortalRoot,
   type PortalRootElement,
 } from "./components/PortalRoot/PortalRoot";
 export { ReleaseAnnouncement } from "./components/ReleaseAnnouncement";

@@ -31,7 +31,7 @@ const PortalRootContext = createContext<PortalRootElement | undefined>(
  * into, as set by the nearest enclosing `PortalRoot`, or `undefined` where
  * there is none and they go into `document.body`.
  *
- * Use it from your own portalling components so that they follow Compound's.
+ * Internal to Compound: it is deliberately not exported from the package.
  */
 export function usePortalRoot(): PortalRootElement | undefined {
   return useContext(PortalRootContext);

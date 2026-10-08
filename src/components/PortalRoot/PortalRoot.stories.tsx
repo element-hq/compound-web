@@ -6,17 +6,11 @@ Please see LICENSE files in the repository root for full details.
 */
 
 import React, { type FC, type ReactNode, useEffect, useState } from "react";
-import {
-  autoUpdate,
-  FloatingPortal,
-  offset,
-  useFloating,
-} from "@floating-ui/react";
 import { type Meta, type StoryObj } from "@storybook/react-vite";
 import UserProfileIcon from "@vector-im/compound-design-tokens/assets/web/icons/user-profile";
 import SettingsIcon from "@vector-im/compound-design-tokens/assets/web/icons/settings";
 
-import { PortalRoot, usePortalRoot } from "./PortalRoot";
+import { PortalRoot } from "./PortalRoot";
 import { Menu } from "../Menu/Menu";
 import { MenuItem } from "../Menu/MenuItem";
 import { Tooltip } from "../Tooltip/Tooltip";
@@ -189,24 +183,6 @@ const [root, setRoot] = useState<HTMLElement | null>(null);
 not populated yet can be passed straight in. Nested providers are fine: the
 innermost one wins.
 
-### \`usePortalRoot\`
-
-Returns the element set by the nearest enclosing \`PortalRoot\`, or
-\`undefined\` where there is none. Use it from your own portalling components
-so that they follow Compound's:
-
-\`\`\`tsx
-const root = usePortalRoot();
-// Keyed because FloatingPortal picks its container once, on mount, and the
-// root may arrive a render later than the content it hosts
-return (
-  <FloatingPortal key={root ? "root" : "body"} root={root}>
-    …
-  </FloatingPortal>
-);
-// or: createPortal(…, root ?? document.body)
-\`\`\`
-
 ### Caveats
 
 - \`root\` must be in the same document as the triggers, or positioning will
@@ -265,59 +241,6 @@ export const WithTooltip: Story = {
           </IconButton>
         </Tooltip>
       </TooltipProvider>
-    </Host>
-  ),
-};
-
-/**
- * A popover of your own, built on floating-ui like Compound's tooltips. It
- * calls `usePortalRoot` so that it portals into the same place as they do.
- *
- *  Note: The custom-popover for this example uses: `bg-action-primary-rest` as the background.
- *  It will be `black` in `light`-theme and `lightGray` in `dark`-theme
- */
-const CustomPopover: FC = () => {
-  const root = usePortalRoot();
-  const { refs, floatingStyles } = useFloating({
-    open: true,
-    placement: "right",
-    middleware: [offset(8)],
-    whileElementsMounted: autoUpdate,
-  });
-  return (
-    <>
-      <Button ref={refs.setReference} kind="secondary" size="md">
-        Custom popover trigger
-      </Button>
-      <FloatingPortal key={root ? "root" : "body"} root={root}>
-        <div
-          ref={refs.setFloating}
-          data-testid="custom-popover"
-          style={{
-            ...floatingStyles,
-            padding: "var(--cpd-space-2x) var(--cpd-space-3x)",
-            borderRadius: "var(--cpd-space-2x)",
-            background: "var(--cpd-color-bg-action-primary-rest)",
-            color: "var(--cpd-color-text-on-solid-primary)",
-            font: "var(--cpd-font-body-sm-medium)",
-          }}
-        >
-          My own popover
-        </div>
-      </FloatingPortal>
-    </>
-  );
-};
-
-/**
- * A popover of your own that calls `usePortalRoot` lands in the same place as
- * Compound's floating parts. It is positioned next to its trigger in the host,
- * but sits in the portal root in the DOM.
- */
-export const WithUsePortalRoot: Story = {
-  render: () => (
-    <Host enabled selector="[data-testid='custom-popover']">
-      <CustomPopover />
     </Host>
   ),
 };
