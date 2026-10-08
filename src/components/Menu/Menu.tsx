@@ -36,6 +36,7 @@ import {
 } from "./MenuContext";
 import { DrawerMenu } from "./DrawerMenu";
 import { getPlatform } from "../../utils/platform";
+import { usePortalRoot } from "../PortalRoot/PortalRoot";
 
 interface Props {
   /**
@@ -116,6 +117,7 @@ const DropdownSubMenuWrapper: FC<SubMenuWrapperProps> = ({
   open: openProp,
   onOpenChange,
 }) => {
+  const portalRoot = usePortalRoot();
   // When the submenu is programmatically opened at the same time as the parent
   // menu (e.g. open={true} on mount), the parent is still mid-animation and
   // the trigger position hasn't settled. Defer the open so the submenu
@@ -139,7 +141,7 @@ const DropdownSubMenuWrapper: FC<SubMenuWrapperProps> = ({
   return (
     <DropdownMenuSub open={open} onOpenChange={onOpenChange}>
       <DropdownMenuSubTrigger asChild>{trigger}</DropdownMenuSubTrigger>
-      <DropdownMenuPortal>
+      <DropdownMenuPortal container={portalRoot}>
         <DropdownMenuSubContent asChild sideOffset={4} alignOffset={-20}>
           <FloatingMenu title="" showTitle={false}>
             {children}
@@ -170,6 +172,7 @@ export const Menu: FC<Props> = ({
   // iOS, the menu should morph into a drawer
   const platform = getPlatform();
   const drawer = platform === "android" || platform === "ios";
+  const portalRoot = usePortalRoot();
   const context: MenuData = useMemo(
     () => ({
       MenuItemWrapper: drawer ? null : DropdownMenuItemWrapper,
@@ -185,7 +188,7 @@ export const Menu: FC<Props> = ({
   return drawer ? (
     <Drawer.Root open={open} onOpenChange={onOpenChange}>
       <Drawer.Trigger asChild>{trigger}</Drawer.Trigger>
-      <Drawer.Portal>
+      <Drawer.Portal container={portalRoot}>
         <Drawer.Overlay className={classnames(drawerMenu.bg)} />
         <Drawer.Content asChild>
           <DrawerMenu title={title}>{children}</DrawerMenu>
@@ -195,7 +198,7 @@ export const Menu: FC<Props> = ({
   ) : (
     <Root open={open} onOpenChange={onOpenChange}>
       <Trigger asChild>{trigger}</Trigger>
-      <Portal>
+      <Portal container={portalRoot}>
         <Content
           asChild
           side={side}

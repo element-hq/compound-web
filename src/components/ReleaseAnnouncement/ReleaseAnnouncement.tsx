@@ -27,6 +27,7 @@ import {
   ReleaseAnnouncementContext,
 } from "./ReleaseAnnouncementContext";
 import { useReleaseAnnouncement } from "./useReleaseAnnouncement";
+import { usePortalRoot } from "../PortalRoot/PortalRoot";
 
 type UseReleaseAnnouncementParam = Parameters<typeof useReleaseAnnouncement>[0];
 
@@ -129,11 +130,14 @@ function ReleaseAnnouncementContainer({
     displayArrow,
     ...rest
   } = useReleaseAnnouncementContext();
+  const portalRoot = usePortalRoot();
 
   if (!floatingContext.open) return null;
 
   return (
-    <FloatingPortal>
+    // Keyed because FloatingPortal picks its container once, on mount, and the
+    // portal root may only arrive a render later
+    <FloatingPortal key={portalRoot ? "root" : "body"} root={portalRoot}>
       <FloatingFocusManager context={floatingContext} modal={false}>
         <div
           ref={rest.refs.setFloating}

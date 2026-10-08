@@ -46,6 +46,11 @@ export { ToggleMenuItem } from "./components/Menu/ToggleMenuItem";
 export { CheckboxMenuItem } from "./components/Menu/CheckboxMenuItem";
 export { Tooltip } from "./components/Tooltip/Tooltip";
 export { TooltipProvider } from "./components/Tooltip/TooltipProvider";
+export {
+  PortalRoot,
+  usePortalRoot,
+  type PortalRootElement,
+} from "./components/PortalRoot/PortalRoot";
 export { ReleaseAnnouncement } from "./components/ReleaseAnnouncement";
 export { Toast } from "./components/Toast/Toast";
 export { Dropdown, type DropdownTriggerProps } from "./components/Dropdown";
