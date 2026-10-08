@@ -205,6 +205,16 @@ export const WithMaxWidth: Story = {
   },
 };
 
+export const WithMaxWidthNoSpaces: Story = {
+  args: {
+    open: true,
+    maxWidth: 150,
+    maxLines: 1,
+    label:
+      "reallylongbitoftextwithnospacesthatwouldallowthebrowserto-sensiblylinebreak",
+  },
+};
+
 export const WithMaxLines: Story = {
   args: {
     open: true,
