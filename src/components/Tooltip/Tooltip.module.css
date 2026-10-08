@@ -30,7 +30,9 @@ Please see LICENSE files in the repository root for full details.
   line-clamp: var(--cpd-tooltip-max-lines, unset);
   -webkit-box-orient: vertical;
   display: -webkit-box;
+  max-inline-size: 100%;
   overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .caption {
