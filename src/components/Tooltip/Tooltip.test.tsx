@@ -6,7 +6,7 @@ Please see LICENSE files in the repository root for full details.
 */
 
 import { describe, it, expect, vi, onTestFinished } from "vitest";
-import { fireEvent, render, screen } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import React, { act } from "react";
 
 import { IconButton } from "../Button";
@@ -318,6 +318,8 @@ describe("Tooltip", () => {
       expect(root).toContainElement(screen.getByRole("tooltip"));
     });
 
+    // Why this works without a `key` on the FloatingPortal is explained on the
+    // same test in ReleaseAnnouncement.test.tsx.
     it("portals into a root that arrives after the first render", async () => {
       // A host that keeps its root in state, so that the root is null on the
       // first render and only set once the element has mounted
@@ -340,7 +342,7 @@ describe("Tooltip", () => {
       };
       render(<Host />);
       const root = screen.getByTestId("late-root");
-      await vi.waitFor(() =>
+      await waitFor(() =>
         expect(root).toContainElement(screen.getByText("Mute")),
       );
     });

@@ -22,24 +22,26 @@ import React, {
  */
 export type PortalRootElement = HTMLElement | ShadowRoot;
 
-const PortalRootContext = createContext<PortalRootElement | undefined>(
+const PortalRootContext = createContext<PortalRootElement | null | undefined>(
   undefined,
 );
 
 /**
  * The element that the floating parts of Compound's components are portalled
- * into, as set by the nearest enclosing `PortalRoot`, or `undefined` where
- * there is none and they go into `document.body`.
+ * into, as set by the nearest enclosing `PortalRoot`. `undefined` where there
+ * is no `PortalRoot` and they go into `document.body`; `null` where there is
+ * one whose root is not available yet.
  *
  * Internal to Compound: it is deliberately not exported from the package.
  */
-export function usePortalRoot(): PortalRootElement | undefined {
+export function usePortalRoot(): PortalRootElement | null | undefined {
   return useContext(PortalRootContext);
 }
 
 interface Props {
   /**
-   * The element to portal into.
+   * The element to portal into. Pass `null` while it is not available yet
+   * (state set from a callback ref, say): floating parts follow it once it is.
    * @default document.body
    */
   root: PortalRootElement | null;
@@ -63,7 +65,7 @@ interface Props {
  * off. The innermost `PortalRoot` wins.
  */
 export const PortalRoot: FC<Props> = ({ root, children }) => (
-  <PortalRootContext.Provider value={root ?? undefined}>
+  <PortalRootContext.Provider value={root}>
     {children}
   </PortalRootContext.Provider>
 );

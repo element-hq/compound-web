@@ -135,22 +135,9 @@ function ReleaseAnnouncementContainer({
   if (!floatingContext.open) return null;
 
   return (
-    // Keyed on whether there is a portal root. floating-ui's FloatingPortal
-    // follows changes to `root` by itself, except right after it mounts:
-    // until a microtask later, it ignores them. A root kept in state from a
-    // ref arrives in exactly that window, as it goes from null to the element
-    // in the same commit that mounts this, and would otherwise leave this
-    // stuck in document.body. The key remounts the portal in that case.
-    //
-    // Switching from one root element to another needs no key, as long as it
-    // happens after that window, which it does in practice (see the "moves to
-    // a new root" test in ReleaseAnnouncement.test.tsx). A key per element
-    // would only matter if the root switched between two elements in the same
-    // commit that mounts this, i.e. if the host replaced its root as this
-    // first rendered. Hosts set their root once and change it later, if ever
-    // (moving into a Picture-in-Picture window, say), and content moved into
-    // another window remounts there anyway, so that is not a realistic case.
-    <FloatingPortal key={portalRoot ? "root" : "body"} root={portalRoot}>
+    // A `null` root (a PortalRoot whose element is pending) makes this wait
+    // for it; see the PortalRoot tests in ReleaseAnnouncement.test.tsx.
+    <FloatingPortal root={portalRoot}>
       <FloatingFocusManager context={floatingContext} modal={false}>
         <div
           ref={rest.refs.setFloating}

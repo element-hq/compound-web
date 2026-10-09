@@ -144,18 +144,9 @@ function TooltipContent({
   const escaped = floatingContext.middlewareData?.hide?.escaped ?? false;
 
   return (
-    // floating-ui's FloatingPortal follows changes to `root` by itself,
-    // except right after it mounts:
-    // If a root changes in the same microtask that it mounts, it ignores them.
-    // The key remounts the portal in that case. (So this is covered)
-    //
-    // Switching from one root element to another needs no key, as long as it
-    // happens after that window (see the "moves to a new root" test in
-    // Tooltip.test.tsx).
-    // A key per element would only matter if the root switched between two
-    // elements in the same commit that mounts this, i.e. if the host replaced
-    // its root while it first rendered.
-    <FloatingPortal key={portalRoot ? "root" : "body"} root={portalRoot}>
+    // A `null` root (a PortalRoot whose element is pending) makes this wait
+    // for it; see the PortalRoot tests in Tooltip.test.tsx.
+    <FloatingPortal root={portalRoot}>
       <div
         ref={rest.refs.setFloating}
         style={{ ...rest.floatingStyles, maxWidth }}

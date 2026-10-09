@@ -164,9 +164,9 @@ const [root, setRoot] = useState<HTMLElement | null>(null);
 </PortalRoot>
 \`\`\`
 
-\`null\` is treated as no \`PortalRoot\` at all, so a ref or state that is
-not populated yet can be passed straight in. Nested providers are fine: the
-innermost one wins.
+\`null\` means the root is not available yet, so state that is only set once
+the element has mounted can be passed straight in: floating parts follow it
+once it is. Nested providers are fine: the innermost one wins.
 
 ### Caveats
 

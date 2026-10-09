@@ -8,7 +8,7 @@
 import { composeStories } from "@storybook/react";
 import * as stories from "./ReleaseAnnouncement.stories";
 import { describe, it, expect, vi, onTestFinished } from "vitest";
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import React from "react";
 import { ReleaseAnnouncement } from "./ReleaseAnnouncement";
 import { Button } from "../Button";
@@ -83,7 +83,27 @@ describe("ReleaseAnnouncement", () => {
       expect(root).toContainElement(await screen.findByRole("dialog"));
     });
 
+    // No `key` on the FloatingPortal is needed for this to work: it creates
+    // its portal node in a layout effect that re-runs when `root` changes, and
+    // a `null` root makes it wait rather than fall back to document.body.
+    //
+    // It looks like it could fail because:
+    // - nothing forces a remount when `root` changes
+    // - FloatingPortal ignores `root` changes right after it mounts (its node
+    //   guard only clears a microtask later), and a root from a callback ref
+    //   arrives in exactly that window
+    //
+    // floating-ui covers all of this, as long as `null` (not `undefined`) is
+    // passed while the root is pending:
+    // - https://github.com/floating-ui/floating-ui/issues/2454 (fixed by
+    //   #2764): the guard that makes early `root` changes go unnoticed
+    // - https://github.com/floating-ui/floating-ui/issues/3099 (fixed by
+    //   #3104): a `null` root waits instead of falling back to document.body
+    // - https://floating-ui.com/docs/FloatingPortal#root: pass an element,
+    //   and `null` until it exists
     it("portals into a root that arrives after the first render", async () => {
+      // A host that keeps its root in state, so that the root is null on the
+      // first render and only set once the element has mounted
       const Host: React.FC = () => {
         const [root, setRoot] = React.useState<HTMLDivElement | null>(null);
         return (
@@ -95,7 +115,7 @@ describe("ReleaseAnnouncement", () => {
       };
       render(<Host />);
       const root = screen.getByTestId("late-root");
-      await vi.waitFor(() =>
+      await waitFor(() =>
         expect(root).toContainElement(screen.getByRole("dialog")),
       );
     });
@@ -108,7 +128,7 @@ describe("ReleaseAnnouncement", () => {
       );
       expect(a).toContainElement(await screen.findByRole("dialog"));
       rerender(<PortalRoot root={b}>{announcement}</PortalRoot>);
-      await vi.waitFor(() =>
+      await waitFor(() =>
         expect(b).toContainElement(screen.getByRole("dialog")),
       );
       expect(a).toBeEmptyDOMElement();

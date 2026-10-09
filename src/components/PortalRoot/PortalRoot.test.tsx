@@ -26,7 +26,7 @@ describe("PortalRoot", () => {
     expect(seen).toBeUndefined();
   });
 
-  it("treats a null root as no root", () => {
+  it("passes a null root through, as distinct from no provider", () => {
     let seen: unknown = "unset";
     const Probe = () => {
       seen = usePortalRoot();
@@ -37,7 +37,7 @@ describe("PortalRoot", () => {
         <Probe />
       </PortalRoot>,
     );
-    expect(seen).toBeUndefined();
+    expect(seen).toBeNull();
   });
 
   it("lets the innermost provider win", () => {
