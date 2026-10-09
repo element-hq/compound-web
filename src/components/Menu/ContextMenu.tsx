@@ -35,6 +35,8 @@ import {
 } from "./MenuContext";
 import { DrawerMenu } from "./DrawerMenu";
 import { getPlatform } from "../../utils/platform";
+import { usePortalRoot } from "../PortalRoot/PortalRoot";
+import { useDeferredSubMenuOpen } from "./useDeferredSubMenuOpen";
 
 interface Props {
   /**
@@ -81,20 +83,24 @@ const ContextMenuItemWrapper: FC<MenuItemWrapperProps> = ({
 const ContextSubMenuWrapper: FC<SubMenuWrapperProps> = ({
   trigger,
   children,
-  open,
+  open: openProp,
   onOpenChange,
-}) => (
-  <ContextMenuSub open={open} onOpenChange={onOpenChange}>
-    <ContextMenuSubTrigger asChild>{trigger}</ContextMenuSubTrigger>
-    <ContextMenuPortal>
-      <ContextMenuSubContent asChild alignOffset={-20}>
-        <FloatingMenu title="" showTitle={false}>
-          {children}
-        </FloatingMenu>
-      </ContextMenuSubContent>
-    </ContextMenuPortal>
-  </ContextMenuSub>
-);
+}) => {
+  const portalRoot = usePortalRoot();
+  const open = useDeferredSubMenuOpen(openProp);
+  return (
+    <ContextMenuSub open={open} onOpenChange={onOpenChange}>
+      <ContextMenuSubTrigger asChild>{trigger}</ContextMenuSubTrigger>
+      <ContextMenuPortal container={portalRoot}>
+        <ContextMenuSubContent asChild alignOffset={-20}>
+          <FloatingMenu title="" showTitle={false}>
+            {children}
+          </FloatingMenu>
+        </ContextMenuSubContent>
+      </ContextMenuPortal>
+    </ContextMenuSub>
+  );
+};
 
 /**
  * A menu opened by right-clicking or long-pressing another UI element.
@@ -120,6 +126,7 @@ export const ContextMenu: FC<Props> = ({
   // iOS, the menu should morph into a drawer
   const platform = getPlatform();
   const drawer = platform === "android" || platform === "ios";
+  const portalRoot = usePortalRoot();
   const context: MenuData = useMemo(
     () => ({
       MenuItemWrapper: drawer ? null : ContextMenuItemWrapper,
@@ -152,7 +159,7 @@ export const ContextMenu: FC<Props> = ({
     <>
       <Root onOpenChange={onOpenChange}>{trigger}</Root>
       <Drawer.Root open={open} onOpenChange={onOpenChange}>
-        <Drawer.Portal>
+        <Drawer.Portal container={portalRoot}>
           <Drawer.Overlay className={classnames(drawerStyles.bg)} />
           <Drawer.Content asChild>
             <DrawerMenu title={title}>{children}</DrawerMenu>
@@ -163,7 +170,7 @@ export const ContextMenu: FC<Props> = ({
   ) : (
     <Root onOpenChange={onOpenChange}>
       {trigger}
-      <Portal>
+      <Portal container={portalRoot}>
         <Content asChild>
           <FloatingMenu showTitle={showTitle} title={title}>
             {children}
