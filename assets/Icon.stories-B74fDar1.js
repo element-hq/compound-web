@@ -1,0 +1,3 @@
+import{n as e}from"./rolldown-runtime-DkW27tQK.js";import{t}from"./dist-Cfkm_wp8.js";import{n,t as r}from"./threads-8-zsUdwL.js";var i,a,o;function s(){return(s=e((()=>{t(),r(),i={title:`Icon`,component:n,argTypes:{}},a={args:{}},o=[`Icon`],a.parameters={...a.parameters,docs:{...a.parameters?.docs,source:{originalSource:`{
+  args: {}
+}`,...a.parameters?.docs?.source}}}})))()}s();export{a as Icon,o as __namedExportsOrder,i as default};
