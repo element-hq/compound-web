@@ -5,13 +5,7 @@ SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-Element-Commercial
 Please see LICENSE files in the repository root for full details.
 */
 
-import React, {
-  type FC,
-  type ReactNode,
-  useMemo,
-  useEffect,
-  useState,
-} from "react";
+import React, { type FC, type ReactNode, useMemo } from "react";
 import {
   Root,
   Trigger,
@@ -37,6 +31,7 @@ import {
 import { DrawerMenu } from "./DrawerMenu";
 import { getPlatform } from "../../utils/platform";
 import { usePortalRoot } from "../PortalRoot/PortalRoot";
+import { useDeferredSubMenuOpen } from "./useDeferredSubMenuOpen";
 
 interface Props {
   /**
@@ -108,9 +103,6 @@ const DropdownMenuItemWrapper: FC<MenuItemWrapperProps> = ({
   </DropdownMenuItem>
 );
 
-/** Duration of the parent menu's slide-in animation (ms). */
-const MENU_ANIMATION_DURATION = 180;
-
 const DropdownSubMenuWrapper: FC<SubMenuWrapperProps> = ({
   trigger,
   children,
@@ -118,25 +110,7 @@ const DropdownSubMenuWrapper: FC<SubMenuWrapperProps> = ({
   onOpenChange,
 }) => {
   const portalRoot = usePortalRoot();
-  // When the submenu is programmatically opened at the same time as the parent
-  // menu (e.g. open={true} on mount), the parent is still mid-animation and
-  // the trigger position hasn't settled. Defer the open so the submenu
-  // positions correctly after the parent animation completes.
-  const [deferredOpen, setDeferredOpen] = useState(false);
-
-  useEffect(() => {
-    if (openProp) {
-      const timer = setTimeout(
-        () => setDeferredOpen(true),
-        MENU_ANIMATION_DURATION,
-      );
-      return () => clearTimeout(timer);
-    } else {
-      setDeferredOpen(false);
-    }
-  }, [openProp]);
-
-  const open = openProp ? deferredOpen : openProp;
+  const open = useDeferredSubMenuOpen(openProp);
 
   return (
     <DropdownMenuSub open={open} onOpenChange={onOpenChange}>

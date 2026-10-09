@@ -81,7 +81,10 @@ describe("ContextMenu", () => {
 
     const trigger = screen.getByText("Open menu");
     await userEvent.pointer([{ target: trigger }, { keys: "[MouseRight]" }]);
-    expect(screen.getByRole("menuitem", { name: "All" })).toBeInTheDocument();
+    // The submenu opens once the menu's animation is over
+    expect(
+      await screen.findByRole("menuitem", { name: "All" }),
+    ).toBeInTheDocument();
     expect(
       screen.getByRole("menuitem", { name: "Mentions only" }),
     ).toBeInTheDocument();
@@ -149,10 +152,23 @@ describe("ContextMenu", () => {
     it("portals a submenu into the root", async () => {
       const root = makePortalRoot();
       const { rerender } = await openMenuIn(root);
-      // Open the submenu once the menu is open, as a user would. A submenu
-      // that is already open when the menu opens is a known, unhandled edge
-      // case: see ContextSubMenuWrapper.
+      // Open the submenu once the menu is open, as a user would
       rerender(menu(root, true));
+      expect(root).toContainElement(
+        await screen.findByRole("menuitem", { name: "All" }),
+      );
+    });
+
+    it("keeps an already open submenu accessible in the root", async () => {
+      const root = makePortalRoot();
+      render(menu(root, true));
+      await userEvent.pointer([
+        { target: screen.getByText("Open menu") },
+        { keys: "[MouseRight]" },
+      ]);
+      // findByRole ignores aria-hidden content, so this also checks that the
+      // modal menu has not hidden its own submenu from assistive technology
+      // (see ContextSubMenuWrapper)
       expect(root).toContainElement(
         await screen.findByRole("menuitem", { name: "All" }),
       );

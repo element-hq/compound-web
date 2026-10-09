@@ -36,6 +36,7 @@ import {
 import { DrawerMenu } from "./DrawerMenu";
 import { getPlatform } from "../../utils/platform";
 import { usePortalRoot } from "../PortalRoot/PortalRoot";
+import { useDeferredSubMenuOpen } from "./useDeferredSubMenuOpen";
 
 interface Props {
   /**
@@ -82,23 +83,11 @@ const ContextMenuItemWrapper: FC<MenuItemWrapperProps> = ({
 const ContextSubMenuWrapper: FC<SubMenuWrapperProps> = ({
   trigger,
   children,
-  open,
+  open: openProp,
   onOpenChange,
 }) => {
-  // Known edge case, deliberately not handled: inside a PortalRoot, a submenu
-  // that is already open (open={true}) when the context menu opens is hidden
-  // from assistive technology. With a portal container given up front, Radix
-  // mounts the submenu in the same render as the menu, so it is already in the
-  // root when the menu, being modal, marks everything outside itself
-  // aria-hidden. Without a PortalRoot the submenu mounts a render later and
-  // escapes this.
-  //
-  // This is rare: it needs a submenu to be opened programmatically before the
-  // user right-clicks, whereas a submenu opened by hover or keyboard mounts
-  // after the menu and is unaffected. Menu avoids it by deferring such opens
-  // until its animation has finished (see DropdownSubMenuWrapper). Doing the
-  // same here was judged not worth the added complexity.
   const portalRoot = usePortalRoot();
+  const open = useDeferredSubMenuOpen(openProp);
   return (
     <ContextMenuSub open={open} onOpenChange={onOpenChange}>
       <ContextMenuSubTrigger asChild>{trigger}</ContextMenuSubTrigger>
