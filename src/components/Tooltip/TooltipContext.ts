@@ -6,9 +6,9 @@
  */
 
 import { createContext, useContext } from "react";
-import { useTooltip } from "./useTooltip";
+import { type UseTooltipReturn } from "./useTooltip";
 
-type ContextType = ReturnType<typeof useTooltip> | null;
+type ContextType = UseTooltipReturn | null;
 /**
  * The context for the Tooltip components.
  */
@@ -17,7 +17,7 @@ export const TooltipContext = createContext<ContextType>(null);
 /**
  * Provides the context for the Tooltip components.
  */
-export function useTooltipContext() {
+export function useTooltipContext(): UseTooltipReturn {
   const context = useContext(TooltipContext);
 
   if (context == null) {

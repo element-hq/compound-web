@@ -5,14 +5,15 @@ SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-Element-Commercial
 Please see LICENSE files in the repository root for full details.
 */
 
-import { describe, it, expect, vi } from "vitest";
-import { fireEvent, render, screen } from "@testing-library/react";
+import { describe, it, expect, vi, onTestFinished } from "vitest";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import React, { act } from "react";
 
 import { IconButton } from "../Button";
 import userEvent from "@testing-library/user-event";
 import { TooltipProvider } from "./TooltipProvider";
 import { Tooltip } from "./Tooltip";
+import { PortalRoot } from "../PortalRoot/PortalRoot";
 import { UserIcon } from "@vector-im/compound-design-tokens/assets/web/icons";
 
 /**
@@ -26,6 +27,17 @@ function mockFocusVisible(e: Element): void {
       originalMatches(selectors) ||
       (selectors === ":focus-visible" && e === document.activeElement),
   );
+}
+
+/**
+ * A portal root of its own, next to the body's other children, so that we can
+ * tell what went into it and what went straight into the body.
+ */
+function makePortalRoot(): HTMLDivElement {
+  const root = document.createElement("div");
+  document.body.appendChild(root);
+  onTestFinished(() => root.remove());
+  return root;
 }
 
 describe("Tooltip", () => {
@@ -270,5 +282,108 @@ describe("Tooltip", () => {
     );
     const tooltip = screen.getByRole("tooltip");
     expect(tooltip.style.getPropertyValue("max-width")).toBe("580px");
+  });
+
+  describe("in a PortalRoot", () => {
+    it("portals a label tooltip into the root", () => {
+      const root = makePortalRoot();
+      render(
+        <PortalRoot root={root}>
+          <TooltipProvider>
+            <Tooltip label="Mute">
+              <IconButton>
+                <UserIcon />
+              </IconButton>
+            </Tooltip>
+          </TooltipProvider>
+        </PortalRoot>,
+      );
+      // A label tooltip is in the DOM from the start, just not visible
+      expect(root).toContainElement(screen.getByText("Mute"));
+    });
+
+    it("portals a descriptive tooltip into the root", () => {
+      const root = makePortalRoot();
+      render(
+        <PortalRoot root={root}>
+          <TooltipProvider>
+            <Tooltip description="Mutes the microphone" open>
+              <IconButton aria-label="Mute">
+                <UserIcon />
+              </IconButton>
+            </Tooltip>
+          </TooltipProvider>
+        </PortalRoot>,
+      );
+      expect(root).toContainElement(screen.getByRole("tooltip"));
+    });
+
+    // Why this works without a `key` on the FloatingPortal is explained on the
+    // same test in ReleaseAnnouncement.test.tsx.
+    it("portals into a root that arrives after the first render", async () => {
+      // A host that keeps its root in state, so that the root is null on the
+      // first render and only set once the element has mounted
+      const Host: React.FC = () => {
+        const [root, setRoot] = React.useState<HTMLDivElement | null>(null);
+        return (
+          <>
+            <PortalRoot root={root}>
+              <TooltipProvider>
+                <Tooltip label="Mute">
+                  <IconButton>
+                    <UserIcon />
+                  </IconButton>
+                </Tooltip>
+              </TooltipProvider>
+            </PortalRoot>
+            <div data-testid="late-root" ref={setRoot} />
+          </>
+        );
+      };
+      render(<Host />);
+      const root = screen.getByTestId("late-root");
+      await waitFor(() =>
+        expect(root).toContainElement(screen.getByText("Mute")),
+      );
+    });
+
+    it("moves to a new root", async () => {
+      const a = makePortalRoot();
+      const b = makePortalRoot();
+      const ui = (root: HTMLElement): React.ReactElement => (
+        <PortalRoot root={root}>
+          <TooltipProvider>
+            <Tooltip label="Mute">
+              <IconButton>
+                <UserIcon />
+              </IconButton>
+            </Tooltip>
+          </TooltipProvider>
+        </PortalRoot>
+      );
+      const { rerender } = render(ui(a));
+      expect(a).toContainElement(screen.getByText("Mute"));
+      // Let the first render settle, as a host would before switching roots
+      await act(async () => {});
+      rerender(ui(b));
+      expect(b).toContainElement(screen.getByText("Mute"));
+      expect(a).toBeEmptyDOMElement();
+    });
+
+    it("portals into the body without a root", () => {
+      const root = makePortalRoot();
+      render(
+        <TooltipProvider>
+          <Tooltip label="Mute">
+            <IconButton>
+              <UserIcon />
+            </IconButton>
+          </Tooltip>
+        </TooltipProvider>,
+      );
+      const tooltip = screen.getByText("Mute");
+      expect(document.body).toContainElement(tooltip);
+      expect(root).not.toContainElement(tooltip);
+    });
   });
 });

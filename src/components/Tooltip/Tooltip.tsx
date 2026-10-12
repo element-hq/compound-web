@@ -31,6 +31,7 @@ import {
   type TooltipLabel,
   useTooltip,
 } from "./useTooltip";
+import { usePortalRoot } from "../PortalRoot/PortalRoot";
 
 // Unfortunately Omit doesn't distribute nicely over sum types, so we have to
 // piece together the useTooltip options type by hand
@@ -134,6 +135,7 @@ function TooltipContent({
     maxWidth,
     ...rest
   } = useTooltipContext();
+  const portalRoot = usePortalRoot();
 
   // Label tooltips are kept in the DOM even when not visually open
   if (!open && purpose !== "label") return null;
@@ -142,7 +144,9 @@ function TooltipContent({
   const escaped = floatingContext.middlewareData?.hide?.escaped ?? false;
 
   return (
-    <FloatingPortal>
+    // A `null` root (a PortalRoot whose element is pending) makes this wait
+    // for it; see the PortalRoot tests in Tooltip.test.tsx.
+    <FloatingPortal root={portalRoot}>
       <div
         ref={rest.refs.setFloating}
         style={{ ...rest.floatingStyles, maxWidth }}

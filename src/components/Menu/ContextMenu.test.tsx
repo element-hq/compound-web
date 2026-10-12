@@ -5,7 +5,7 @@ SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-Element-Commercial
 Please see LICENSE files in the repository root for full details.
 */
 
-import { describe, it, expect, vi } from "vitest";
+import { describe, it, expect, vi, onTestFinished } from "vitest";
 import { render, screen } from "@testing-library/react";
 import React from "react";
 import UserProfileIcon from "@vector-im/compound-design-tokens/assets/web/icons/user-profile";
@@ -15,6 +15,21 @@ import { MenuItem } from "./MenuItem";
 import { SubMenu } from "./SubMenu";
 import NotificationsIcon from "@vector-im/compound-design-tokens/assets/web/icons/notifications";
 import userEvent from "@testing-library/user-event";
+import { PortalRoot } from "../PortalRoot/PortalRoot";
+import { getPlatform } from "../../utils/platform";
+
+vi.mock("../../utils/platform", () => ({ getPlatform: vi.fn(() => "other") }));
+
+/**
+ * A portal root of its own, next to the body's other children, so that we can
+ * tell what went into it and what went straight into the body.
+ */
+function makePortalRoot(): HTMLDivElement {
+  const root = document.createElement("div");
+  document.body.appendChild(root);
+  onTestFinished(() => root.remove());
+  return root;
+}
 
 describe("ContextMenu", () => {
   function renderMenu(
@@ -66,9 +81,105 @@ describe("ContextMenu", () => {
 
     const trigger = screen.getByText("Open menu");
     await userEvent.pointer([{ target: trigger }, { keys: "[MouseRight]" }]);
-    expect(screen.getByRole("menuitem", { name: "All" })).toBeInTheDocument();
+    // The submenu opens once the menu's animation is over
+    expect(
+      await screen.findByRole("menuitem", { name: "All" }),
+    ).toBeInTheDocument();
     expect(
       screen.getByRole("menuitem", { name: "Mentions only" }),
     ).toBeInTheDocument();
+  });
+
+  describe("in a PortalRoot", () => {
+    const menu = (
+      root: HTMLElement | null,
+      subMenuOpen: boolean,
+    ): React.ReactElement => (
+      <PortalRoot root={root}>
+        <ContextMenu
+          title="Settings"
+          trigger={<div>Open menu</div>}
+          hasAccessibleAlternative
+        >
+          <MenuItem
+            Icon={UserProfileIcon}
+            label="Profile"
+            onSelect={() => {}}
+          />
+          <SubMenu
+            open={subMenuOpen}
+            trigger={
+              <MenuItem
+                Icon={NotificationsIcon}
+                label="Notifications"
+                onSelect={null}
+              />
+            }
+          >
+            <MenuItem label="All" onSelect={() => {}} />
+          </SubMenu>
+        </ContextMenu>
+      </PortalRoot>
+    );
+
+    async function openMenuIn(
+      root: HTMLElement | null,
+    ): Promise<ReturnType<typeof render>> {
+      const result = render(menu(root, false));
+      await userEvent.pointer([
+        { target: screen.getByText("Open menu") },
+        { keys: "[MouseRight]" },
+      ]);
+      return result;
+    }
+
+    it("portals a floating menu into the root", async () => {
+      const root = makePortalRoot();
+      await openMenuIn(root);
+      expect(root).toContainElement(await screen.findByRole("menu"));
+    });
+
+    it("portals a drawer menu into the root", async () => {
+      vi.mocked(getPlatform).mockReturnValue("android");
+      onTestFinished(() => {
+        vi.mocked(getPlatform).mockReturnValue("other");
+      });
+      const root = makePortalRoot();
+      await openMenuIn(root);
+      expect(root).toContainElement(await screen.findByRole("menu"));
+    });
+
+    it("portals a submenu into the root", async () => {
+      const root = makePortalRoot();
+      const { rerender } = await openMenuIn(root);
+      // Open the submenu once the menu is open, as a user would
+      rerender(menu(root, true));
+      expect(root).toContainElement(
+        await screen.findByRole("menuitem", { name: "All" }),
+      );
+    });
+
+    it("keeps an already open submenu accessible in the root", async () => {
+      const root = makePortalRoot();
+      render(menu(root, true));
+      await userEvent.pointer([
+        { target: screen.getByText("Open menu") },
+        { keys: "[MouseRight]" },
+      ]);
+      // findByRole ignores aria-hidden content, so this also checks that the
+      // modal menu has not hidden its own submenu from assistive technology
+      // (see ContextSubMenuWrapper)
+      expect(root).toContainElement(
+        await screen.findByRole("menuitem", { name: "All" }),
+      );
+    });
+
+    it("portals into the body without a root", async () => {
+      const root = makePortalRoot();
+      await openMenuIn(null);
+      const menu = await screen.findByRole("menu");
+      expect(document.body).toContainElement(menu);
+      expect(root).not.toContainElement(menu);
+    });
   });
 });

@@ -15,8 +15,16 @@ import {
   useFloating,
   useInteractions,
   useRole,
+  type UseFloatingReturn,
+  type UseInteractionsReturn,
 } from "@floating-ui/react";
-import { type MouseEventHandler, useMemo, useRef, useId } from "react";
+import {
+  type MouseEventHandler,
+  type RefObject,
+  useMemo,
+  useRef,
+  useId,
+} from "react";
 
 interface UseReleaseAnnouncementProps {
   /**
@@ -50,6 +58,21 @@ interface UseReleaseAnnouncementProps {
 }
 
 /**
+ * What `useReleaseAnnouncement` returns, and what the release announcement
+ * context holds. Spelled out rather than inferred: declaration files must be
+ * able to name every type in it, which fails for Floating UI's types when
+ * Compound is built from inside a `node_modules` directory (as a git
+ * dependency is).
+ */
+export type UseReleaseAnnouncementReturn = UseInteractionsReturn &
+  UseFloatingReturn &
+  Omit<UseReleaseAnnouncementProps, "placement"> & {
+    labelId: string;
+    descriptionId: string;
+    arrowRef: RefObject<null>;
+  };
+
+/**
  * This hook provides the necessary props to create a release announcement.
  */
 export function useReleaseAnnouncement({
@@ -60,7 +83,7 @@ export function useReleaseAnnouncement({
   placement,
   onClick,
   displayArrow,
-}: UseReleaseAnnouncementProps) {
+}: UseReleaseAnnouncementProps): UseReleaseAnnouncementReturn {
   // Set on `aria-labelledby` attribute
   const labelId = useId();
   // Set on `aria-describedby` attribute

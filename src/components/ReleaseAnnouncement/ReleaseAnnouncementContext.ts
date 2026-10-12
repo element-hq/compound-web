@@ -6,9 +6,9 @@ Please see LICENSE files in the repository root for full details.
 */
 
 import { createContext, useContext } from "react";
-import { useReleaseAnnouncement } from "./useReleaseAnnouncement";
+import { type UseReleaseAnnouncementReturn } from "./useReleaseAnnouncement";
 
-type ContextType = ReturnType<typeof useReleaseAnnouncement> | null;
+type ContextType = UseReleaseAnnouncementReturn | null;
 /**
  * The context for the ReleaseAnnouncement components.
  */
@@ -17,7 +17,7 @@ export const ReleaseAnnouncementContext = createContext<ContextType>(null);
 /**
  * Provides the context for the ReleaseAnnouncement components.
  */
-export function useReleaseAnnouncementContext() {
+export function useReleaseAnnouncementContext(): UseReleaseAnnouncementReturn {
   const context = useContext(ReleaseAnnouncementContext);
 
   if (context == null) {
