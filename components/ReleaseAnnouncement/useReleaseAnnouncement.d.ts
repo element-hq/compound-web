@@ -1,5 +1,5 @@
-import { Placement } from '@floating-ui/react';
-import { MouseEventHandler } from '../../../node_modules/.pnpm/react@19.3.0/node_modules/react';
+import { Placement, UseFloatingReturn, UseInteractionsReturn } from '@floating-ui/react';
+import { MouseEventHandler, RefObject } from '../../../node_modules/.pnpm/react@19.3.0/node_modules/react';
 interface UseReleaseAnnouncementProps {
     /**
      * Whether the release announcement is open.
@@ -31,60 +31,20 @@ interface UseReleaseAnnouncementProps {
     displayArrow?: boolean;
 }
 /**
- * This hook provides the necessary props to create a release announcement.
+ * What `useReleaseAnnouncement` returns, and what the release announcement
+ * context holds. Spelled out rather than inferred: declaration files must be
+ * able to name every type in it, which fails for Floating UI's types when
+ * Compound is built from inside a `node_modules` directory (as a git
+ * dependency is).
  */
-export declare function useReleaseAnnouncement({ open, header, description, closeLabel, placement, onClick, displayArrow, }: UseReleaseAnnouncementProps): {
+export type UseReleaseAnnouncementReturn = UseInteractionsReturn & UseFloatingReturn & Omit<UseReleaseAnnouncementProps, "placement"> & {
     labelId: string;
     descriptionId: string;
-    header: string;
-    description: string;
-    closeLabel: string;
-    onClick: MouseEventHandler<HTMLButtonElement>;
-    displayArrow: boolean | undefined;
-    arrowRef: import('../../../node_modules/.pnpm/react@19.3.0/node_modules/react').RefObject<null>;
-    getReferenceProps: (userProps?: React.HTMLProps<Element>) => Record<string, unknown>;
-    getFloatingProps: (userProps?: React.HTMLProps<HTMLElement>) => Record<string, unknown>;
-    getItemProps: (userProps?: Omit<React.HTMLProps<HTMLElement>, "selected" | "active"> & {
-        active?: boolean | undefined;
-        selected?: boolean | undefined;
-    }) => Record<string, unknown>;
-    placement: Placement;
-    strategy: import('@floating-ui/react-dom').Strategy;
-    middlewareData: import('@floating-ui/react-dom').MiddlewareData;
-    x: number;
-    y: number;
-    isPositioned: boolean;
-    update: () => void;
-    floatingStyles: React.CSSProperties;
-    refs: {
-        reference: import('../../../node_modules/.pnpm/react@19.3.0/node_modules/react').MutableRefObject<import('@floating-ui/react-dom').ReferenceType | null>;
-        floating: React.MutableRefObject<HTMLElement | null>;
-        setReference: (node: import('@floating-ui/react-dom').ReferenceType | null) => void;
-        setFloating: (node: HTMLElement | null) => void;
-    } & import('@floating-ui/react').ExtendedRefs<import('@floating-ui/react').ReferenceType>;
-    elements: {
-        reference: import('@floating-ui/react-dom').ReferenceType | null;
-        floating: HTMLElement | null;
-    } & import('@floating-ui/react').ExtendedElements<import('@floating-ui/react').ReferenceType>;
-    context: {
-        x: number;
-        y: number;
-        placement: Placement;
-        strategy: import('@floating-ui/react-dom').Strategy;
-        middlewareData: import('@floating-ui/react-dom').MiddlewareData;
-        isPositioned: boolean;
-        update: () => void;
-        floatingStyles: React.CSSProperties;
-        open: boolean;
-        onOpenChange: (open: boolean, event?: Event, reason?: import('@floating-ui/react').OpenChangeReason) => void;
-        events: import('@floating-ui/react').FloatingEvents;
-        dataRef: React.MutableRefObject<import('@floating-ui/react').ContextData>;
-        nodeId: string | undefined;
-        floatingId: string | undefined;
-        refs: import('@floating-ui/react').ExtendedRefs<import('@floating-ui/react').ReferenceType>;
-        elements: import('@floating-ui/react').ExtendedElements<import('@floating-ui/react').ReferenceType>;
-    };
-    open: boolean;
+    arrowRef: RefObject<null>;
 };
+/**
+ * This hook provides the necessary props to create a release announcement.
+ */
+export declare function useReleaseAnnouncement({ open, header, description, closeLabel, placement, onClick, displayArrow, }: UseReleaseAnnouncementProps): UseReleaseAnnouncementReturn;
 export {};
 //# sourceMappingURL=useReleaseAnnouncement.d.ts.map

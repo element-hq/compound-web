@@ -1,5 +1,5 @@
-import { Boundary, OpenChangeReason, Placement } from '@floating-ui/react';
-import { JSX, AriaAttributes } from '../../../node_modules/.pnpm/react@19.3.0/node_modules/react';
+import { Boundary, OpenChangeReason, Placement, UseFloatingReturn, UseInteractionsReturn } from '@floating-ui/react';
+import { JSX, AriaAttributes, RefObject } from '../../../node_modules/.pnpm/react@19.3.0/node_modules/react';
 export interface CommonUseTooltipProps {
     /**
      * The controlled open state of the tooltip.
@@ -83,62 +83,24 @@ export interface TooltipDescription {
     description: string;
 }
 type UseTooltipProps = CommonUseTooltipProps & (TooltipLabel | TooltipDescription);
-export declare function useTooltip({ open: controlledOpen, disabled, onOpenChange, placement, isTriggerInteractive, caption, "aria-atomic": ariaAtomic, "aria-live": ariaLive, boundary, maxWidth, maxLines, ...props }: UseTooltipProps): {
-    arrowRef: import('../../../node_modules/.pnpm/react@19.3.0/node_modules/react').RefObject<null>;
-    placement: Placement;
-    strategy: import('@floating-ui/react-dom').Strategy;
-    middlewareData: import('@floating-ui/react-dom').MiddlewareData;
-    x: number;
-    y: number;
-    isPositioned: boolean;
-    update: () => void;
-    floatingStyles: React.CSSProperties;
-    refs: {
-        reference: import('../../../node_modules/.pnpm/react@19.3.0/node_modules/react').MutableRefObject<import('@floating-ui/react-dom').ReferenceType | null>;
-        floating: React.MutableRefObject<HTMLElement | null>;
-        setReference: (node: import('@floating-ui/react-dom').ReferenceType | null) => void;
-        setFloating: (node: HTMLElement | null) => void;
-    } & import('@floating-ui/react').ExtendedRefs<import('@floating-ui/react').ReferenceType>;
-    elements: {
-        reference: import('@floating-ui/react-dom').ReferenceType | null;
-        floating: HTMLElement | null;
-    } & import('@floating-ui/react').ExtendedElements<import('@floating-ui/react').ReferenceType>;
-    context: {
-        x: number;
-        y: number;
-        placement: Placement;
-        strategy: import('@floating-ui/react-dom').Strategy;
-        middlewareData: import('@floating-ui/react-dom').MiddlewareData;
-        isPositioned: boolean;
-        update: () => void;
-        floatingStyles: React.CSSProperties;
-        open: boolean;
-        onOpenChange: (open: boolean, event?: Event, reason?: OpenChangeReason) => void;
-        events: import('@floating-ui/react').FloatingEvents;
-        dataRef: React.MutableRefObject<import('@floating-ui/react').ContextData>;
-        nodeId: string | undefined;
-        floatingId: string | undefined;
-        refs: import('@floating-ui/react').ExtendedRefs<import('@floating-ui/react').ReferenceType>;
-        elements: import('@floating-ui/react').ExtendedElements<import('@floating-ui/react').ReferenceType>;
-    };
-    getReferenceProps: (userProps?: React.HTMLProps<Element>) => Record<string, unknown>;
-    getFloatingProps: (userProps?: React.HTMLProps<HTMLElement>) => Record<string, unknown>;
-    getItemProps: (userProps?: Omit<React.HTMLProps<HTMLElement>, "selected" | "active"> & {
-        active?: boolean | undefined;
-        selected?: boolean | undefined;
-    }) => Record<string, unknown>;
+/**
+ * What `useTooltip` returns, and what the tooltip context holds.
+ * Spelled out rather than inferred: declaration files must be able to name
+ * every type in it, which fails for Floating UI's types when Compound is built
+ * from inside a `node_modules` directory (as a git dependency is).
+ */
+export type UseTooltipReturn = UseInteractionsReturn & UseFloatingReturn & {
     labelId: string;
     captionId: string | undefined;
-    caption: string | JSX.Element | undefined;
+    caption: CommonUseTooltipProps["caption"];
     purpose: "label" | "description";
     open: boolean;
-    setOpen: (open: boolean, event?: Event | undefined, reason?: OpenChangeReason | undefined) => void;
-    maxWidth: string | number;
-    maxLines: number;
-    tooltipProps: {
-        "aria-atomic": (boolean | "true" | "false") | undefined;
-        "aria-live": "off" | "assertive" | "polite" | undefined;
-    };
+    setOpen: NonNullable<CommonUseTooltipProps["onOpenChange"]>;
+    maxWidth: NonNullable<CommonUseTooltipProps["maxWidth"]>;
+    maxLines: NonNullable<CommonUseTooltipProps["maxLines"]>;
+    tooltipProps: Pick<CommonUseTooltipProps, "aria-atomic" | "aria-live">;
+    arrowRef: RefObject<null>;
 };
+export declare function useTooltip({ open: controlledOpen, disabled, onOpenChange, placement, isTriggerInteractive, caption, "aria-atomic": ariaAtomic, "aria-live": ariaLive, boundary, maxWidth, maxLines, ...props }: UseTooltipProps): UseTooltipReturn;
 export {};
 //# sourceMappingURL=useTooltip.d.ts.map
