@@ -42,7 +42,6 @@ interface Props {
   /**
    * The element to portal into. Pass `null` while it is not available yet
    * (state set from a callback ref, say): floating parts follow it once it is.
-   * @default document.body
    */
   root: PortalRootElement | null;
   children: ReactNode;
