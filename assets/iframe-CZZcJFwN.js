@@ -1,0 +1,1 @@
+import{t as e}from"./iframe-BHub_P8N.js";e();
