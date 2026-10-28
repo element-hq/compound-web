@@ -14,7 +14,10 @@ import React, {
 } from "react";
 import { useMergeRefs } from "@floating-ui/react";
 import styles from "./MenuScrollArea.module.css";
-import { StickyParts, StickyPartsContext } from "./MenuSticky";
+import {
+  MenuScrollWatcher,
+  MenuScrollWatcherContext,
+} from "./MenuScrollWatcher";
 
 /**
  * A part of a menu that scrolls by itself, fading out at the bottom while
@@ -33,15 +36,13 @@ export function MenuScrollArea({
 }: ComponentProps<"div">): JSX.Element {
   const [area, setArea] = useState<HTMLDivElement | null>(null);
   const ref = useMergeRefs([setArea, theirRef]);
-  useEffect(() => (area ? watchScrollEdges(area) : undefined), [area]);
-
   // Made before the area is: a section's parts register in their own effects,
   // which run before the area's.
-  const [parts] = useState(() => new StickyParts());
-  useEffect(() => (area ? parts.attach(area) : undefined), [area, parts]);
+  const [watcher] = useState(() => new MenuScrollWatcher());
+  useEffect(() => (area ? watcher.attach(area) : undefined), [area, watcher]);
 
   return (
-    <StickyPartsContext.Provider value={parts}>
+    <MenuScrollWatcherContext.Provider value={watcher}>
       <div
         role="none"
         {...props}
@@ -50,43 +51,6 @@ export function MenuScrollArea({
       >
         {children}
       </div>
-    </StickyPartsContext.Provider>
+    </MenuScrollWatcherContext.Provider>
   );
-}
-
-/**
- * Keeps `data-more-below` on the area while there is more to scroll to below,
- * following its scrolling and the size of it and its content. Set on the
- * element rather than rendered, as it changes on every scroll.
- *
- * @param area - The element that scrolls.
- * @returns A function that stops watching.
- */
-function watchScrollEdges(area: HTMLElement): () => void {
-  const measure = (): void => {
-    // Scroll positions can be fractional.
-    area.toggleAttribute(
-      "data-more-below",
-      area.scrollTop + area.clientHeight < area.scrollHeight - 1,
-    );
-  };
-  // The content's length changes with the size of any child.
-  const resizes = new ResizeObserver(measure);
-  const observeChildren = (): void => {
-    for (const child of area.children) resizes.observe(child);
-  };
-  const additions = new MutationObserver(() => {
-    observeChildren();
-    measure();
-  });
-  resizes.observe(area);
-  observeChildren();
-  additions.observe(area, { childList: true });
-  area.addEventListener("scroll", measure, { passive: true });
-  measure();
-  return (): void => {
-    area.removeEventListener("scroll", measure);
-    resizes.disconnect();
-    additions.disconnect();
-  };
 }

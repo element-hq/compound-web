@@ -11,15 +11,15 @@ import React from "react";
 
 import { MenuScrollArea } from "./MenuScrollArea";
 import { MenuScrollSection } from "./MenuScrollSection";
+import { MenuScrollWatcher } from "./MenuScrollWatcher";
+
+// jsdom lays nothing out: boxes set here, and 40px tall otherwise.
+const boxes = new Map<Element, DOMRect>();
 
 /** Lays out the area 0–100px, with 16px of padding at its foot. */
 function laidOut(area: HTMLElement, footer: HTMLElement, footerTop: number) {
-  vi.spyOn(area, "getBoundingClientRect").mockReturnValue(
-    DOMRect.fromRect({ y: 0, height: 100 }),
-  );
-  vi.spyOn(footer, "getBoundingClientRect").mockReturnValue(
-    DOMRect.fromRect({ y: footerTop, height: 40 }),
-  );
+  boxes.set(area, DOMRect.fromRect({ y: 0, height: 100 }));
+  boxes.set(footer, DOMRect.fromRect({ y: footerTop, height: 40 }));
   fireEvent.scroll(area);
 }
 
@@ -27,6 +27,7 @@ describe("MenuScrollSection", () => {
   afterEach(() => {
     vi.unstubAllGlobals();
     vi.restoreAllMocks();
+    boxes.clear();
   });
 
   function renderSections(): HTMLElement {
@@ -40,7 +41,11 @@ describe("MenuScrollSection", () => {
         public disconnect = vi.fn();
       },
     );
-    vi.spyOn(HTMLElement.prototype, "offsetHeight", "get").mockReturnValue(40);
+    vi.spyOn(HTMLElement.prototype, "getBoundingClientRect").mockImplementation(
+      function (this: Element) {
+        return boxes.get(this) ?? DOMRect.fromRect({ height: 40 });
+      },
+    );
     render(
       <MenuScrollArea data-testid="area" style={{ paddingBlockEnd: "16px" }}>
         <MenuScrollSection title="Speakers">
@@ -74,9 +79,13 @@ describe("MenuScrollSection", () => {
 
   it("keeps the scroll padding clear of the title and the sticky item", () => {
     const area = renderSections();
-    expect(area.style.getPropertyValue("--header-clearance")).toBe("40px");
+    expect(
+      area.style.getPropertyValue("--cpd-menu-scroll-header-clearance"),
+    ).toBe("40px");
     // The item and the padding it sticks above.
-    expect(area.style.getPropertyValue("--footer-clearance")).toBe("56px");
+    expect(
+      area.style.getPropertyValue("--cpd-menu-scroll-footer-clearance"),
+    ).toBe("56px");
   });
 
   it("ends the fade above the sticky item only while it is pinned", () => {
@@ -87,13 +96,48 @@ describe("MenuScrollSection", () => {
     laidOut(area, footer, 44);
     expect(footer).toHaveAttribute("data-pinned");
     expect(area).toHaveAttribute("data-footer-pinned");
-    expect(area.style.getPropertyValue("--footer-inset")).toBe("56px");
+    expect(area.style.getPropertyValue("--cpd-menu-scroll-footer-inset")).toBe(
+      "56px",
+    );
 
     // Its section scrolled out of view below.
     laidOut(area, footer, 120);
     expect(footer).not.toHaveAttribute("data-pinned");
     expect(area).not.toHaveAttribute("data-footer-pinned");
-    expect(area.style.getPropertyValue("--footer-inset")).toBe("");
+    expect(area.style.getPropertyValue("--cpd-menu-scroll-footer-inset")).toBe(
+      "",
+    );
+  });
+
+  it("reads no layout on a scroll where no section has a footer", () => {
+    render(
+      <MenuScrollArea data-testid="area">
+        <MenuScrollSection title="Speakers">
+          <p>Speaker</p>
+        </MenuScrollSection>
+      </MenuScrollArea>,
+    );
+    const area = screen.getByTestId("area");
+    const layout = vi.spyOn(area, "getBoundingClientRect");
+
+    fireEvent.scroll(area);
+    expect(layout).not.toHaveBeenCalled();
+  });
+
+  it("clears what it wrote once it stops following", () => {
+    const area = renderSections();
+    const footer = screen.getByText("Reading").parentElement!;
+    laidOut(area, footer, 44);
+
+    // A second watcher on the same element, so its cleanup can be checked
+    // while the element stays.
+    const watcher = new MenuScrollWatcher();
+    watcher.addFooter(footer);
+    watcher.attach(area)();
+
+    expect(area).not.toHaveAttribute("data-footer-pinned");
+    expect(footer).not.toHaveAttribute("data-pinned");
+    expect(area.getAttribute("style")).not.toContain("--cpd-menu-scroll");
   });
 
   it("holds nothing at the foot for a false item", () => {

@@ -9,13 +9,16 @@ Please see LICENSE files in the repository root for full details.
   min-block-size: 0;
   overflow-y: auto;
 
-  /* Set by the area while it holds sticky parts. */
-  scroll-padding-block: var(--header-clearance, auto)
-    var(--footer-clearance, auto);
+  /* Set by MenuScrollWatcher while the area holds sticky parts. */
+  scroll-padding-block: var(--cpd-menu-scroll-header-clearance, auto)
+    var(--cpd-menu-scroll-footer-clearance, auto);
 
   --solid: var(--cpd-space-4x);
   --fade: min(var(--cpd-space-6x), 25%);
-  --inset: var(--footer-inset, var(--cpd-menu-scroll-inset-block-end, 0px));
+  --inset: var(
+    --cpd-menu-scroll-footer-inset,
+    var(--cpd-menu-scroll-inset-block-end, 0px)
+  );
 }
 
 /* The last thing in a menu runs to its frame, so the fade does too. */

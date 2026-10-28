@@ -28,6 +28,6 @@ what follows. */
   position: absolute;
   inset-inline: 0;
   inset-block-start: 100%;
-  block-size: var(--sticky-padding-block-end, 0);
+  block-size: var(--cpd-menu-scroll-padding-block-end, 0);
   background: inherit;
 }
