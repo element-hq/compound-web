@@ -14,6 +14,7 @@ import React, {
 } from "react";
 import { useMergeRefs } from "@floating-ui/react";
 import styles from "./MenuScrollArea.module.css";
+import { StickyParts, StickyPartsContext } from "./MenuSticky";
 
 /**
  * A part of a menu that scrolls by itself, fading out at the bottom while
@@ -22,6 +23,7 @@ import styles from "./MenuScrollArea.module.css";
  *
  * Content stuck to the bottom of the area is kept clear of the fade by
  * setting `--cpd-menu-scroll-inset-block-end` on the area to its height.
+ * A `MenuScrollSection`'s sticky parts are kept clear of it without that.
  */
 export function MenuScrollArea({
   className,
@@ -33,15 +35,22 @@ export function MenuScrollArea({
   const ref = useMergeRefs([setArea, theirRef]);
   useEffect(() => (area ? watchScrollEdges(area) : undefined), [area]);
 
+  // Made before the area is: a section's parts register in their own effects,
+  // which run before the area's.
+  const [parts] = useState(() => new StickyParts());
+  useEffect(() => (area ? parts.attach(area) : undefined), [area, parts]);
+
   return (
-    <div
-      role="none"
-      {...props}
-      ref={ref}
-      className={classnames(styles.area, className)}
-    >
-      {children}
-    </div>
+    <StickyPartsContext.Provider value={parts}>
+      <div
+        role="none"
+        {...props}
+        ref={ref}
+        className={classnames(styles.area, className)}
+      >
+        {children}
+      </div>
+    </StickyPartsContext.Provider>
   );
 }
 
