@@ -11,6 +11,7 @@ const HEADER_CLEARANCE = "--cpd-menu-scroll-header-clearance";
 const FOOTER_CLEARANCE = "--cpd-menu-scroll-footer-clearance";
 const FOOTER_INSET = "--cpd-menu-scroll-footer-inset";
 const PADDING_BLOCK_END = "--cpd-menu-scroll-padding-block-end";
+const GAP = "--cpd-menu-scroll-gap";
 
 /**
  * Follows a scroll area's scrolling and size, and those of the sticky headers
@@ -22,6 +23,8 @@ const PADDING_BLOCK_END = "--cpd-menu-scroll-padding-block-end";
  *   by keyboard clear of them.
  * - `data-pinned` on a footer while it is held at the foot, and the fade's
  *   inset above it then.
+ * - The area's bottom padding, which sticky content stops above, and its gap,
+ *   which the fade takes back.
  */
 export class MenuScrollWatcher {
   private area: HTMLElement | null = null;
@@ -68,6 +71,7 @@ export class MenuScrollWatcher {
         FOOTER_CLEARANCE,
         FOOTER_INSET,
         PADDING_BLOCK_END,
+        GAP,
       ])
         area.style.removeProperty(property);
       for (const footer of this.footers) delete footer.dataset.pinned;
@@ -111,17 +115,24 @@ export class MenuScrollWatcher {
     const area = this.area;
     if (area === null) return;
     setLength(area, HEADER_CLEARANCE, tallest(this.headers));
+    // Sticky content stops above the area's padding: the fade is moved down
+    // past it, and a pinned footer's fill covers it.
+    const style = getComputedStyle(area);
+    this.paddingEnd = Number.parseFloat(style.paddingBlockEnd) || 0;
+    setLength(
+      area,
+      PADDING_BLOCK_END,
+      this.paddingEnd > 0 ? this.paddingEnd : undefined,
+    );
+    // "normal" outside a flex or grid area.
+    const gap = Number.parseFloat(style.rowGap) || 0;
+    setLength(area, GAP, gap > 0 ? gap : undefined);
     const footer = tallest(this.footers);
-    if (footer === undefined) {
-      area.style.removeProperty(FOOTER_CLEARANCE);
-      area.style.removeProperty(PADDING_BLOCK_END);
-    } else {
-      this.paddingEnd =
-        Number.parseFloat(getComputedStyle(area).paddingBlockEnd) || 0;
-      setLength(area, FOOTER_CLEARANCE, footer + this.paddingEnd);
-      // A footer sticks above the area's padding; its fill covers that.
-      setLength(area, PADDING_BLOCK_END, this.paddingEnd);
-    }
+    setLength(
+      area,
+      FOOTER_CLEARANCE,
+      footer === undefined ? undefined : footer + this.paddingEnd,
+    );
     this.onScroll();
   };
 

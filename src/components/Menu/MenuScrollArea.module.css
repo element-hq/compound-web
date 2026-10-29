@@ -14,11 +14,19 @@ Please see LICENSE files in the repository root for full details.
     var(--cpd-menu-scroll-footer-clearance, auto);
 
   --solid: var(--cpd-space-4x);
-  --fade: min(var(--cpd-space-6x), 25%);
+
+  /* No share of the area: the overlay can't resolve one, as the area is as
+  tall as its content. */
+  --fade: var(--cpd-space-6x);
   --inset: var(
     --cpd-menu-scroll-footer-inset,
     var(--cpd-menu-scroll-inset-block-end, 0px)
   );
+
+  /* Its own bottom padding and gap, set by MenuScrollWatcher; reset here so an
+  area doesn't take those of the area it is in. */
+  --cpd-menu-scroll-padding-block-end: 0px;
+  --cpd-menu-scroll-gap: 0px;
 }
 
 /* The last thing in a menu runs to its frame, so the fade does too. */
@@ -27,16 +35,42 @@ Please see LICENSE files in the repository root for full details.
   padding-block-end: var(--cpd-menu-padding-block-end, 0);
 }
 
-/* Only while it overflows: a masked area is drawn apart, which costs, and its
-text can come out a shade different. */
-.area[data-more-below] {
-  mask-image: linear-gradient(
-    to bottom,
-    #000 calc(100% - var(--inset) - var(--solid) - var(--fade)),
-    transparent calc(100% - var(--inset) - var(--solid)),
-    transparent calc(100% - var(--inset)),
-    #000 calc(100% - var(--inset))
+/* The fade, drawn over the items in the menu's colour rather than masking
+them: a mask would fade the scrollbar too. Sticky at the end of the content, so
+it stays at the foot; it sticks above the area's padding, so it is moved down
+past that to the inset. Its margin takes back its size and, in a flex area, the
+gap before it, or showing it would change how far the area scrolls. */
+.area::after {
+  content: "";
+  display: none;
+  flex: none;
+  position: sticky;
+  inset-block-end: calc(
+    var(--inset) - var(--cpd-menu-scroll-padding-block-end)
   );
+  block-size: calc(var(--fade) + var(--solid));
+  margin-block-start: calc(
+    -1 * (var(--fade) + var(--solid) + var(--cpd-menu-scroll-gap))
+  );
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--cpd-color-bg-canvas-default) var(--fade)
+  );
+  pointer-events: none;
+}
+
+/* Only while there is more below. */
+.area[data-more-below]::after {
+  display: block;
+}
+
+/* Forced colours drop a gradient; this one fades to the forced background. */
+@media (forced-colors: active) {
+  .area::after {
+    forced-color-adjust: none;
+    background: linear-gradient(to bottom, transparent, Canvas var(--fade));
+  }
 }
 
 /* The items fade out right above a pinned footer: the chevron is under it. */
