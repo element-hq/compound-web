@@ -29,7 +29,9 @@ header, or it could ride up over it.
  * A section's title, held at the top of the scroll area while the section's
  * items scroll under it. Hidden, as the section's group carries the name.
  */
-export function MenuStickyHeader({ title }: { title: string }): JSX.Element {
+export function MenuStickyHeader({
+  title,
+}: Readonly<{ title: string }>): JSX.Element {
   const ref = useStickyPart("addHeader");
   return (
     <div ref={ref} aria-hidden className={styles.header}>
@@ -41,9 +43,9 @@ export function MenuStickyHeader({ title }: { title: string }): JSX.Element {
 /** Content held at the foot of the scroll area while its section is in view. */
 export function MenuStickyFooter({
   children,
-}: {
+}: Readonly<{
   children: ReactNode;
-}): JSX.Element {
+}>): JSX.Element {
   const ref = useStickyPart("addFooter");
   return (
     <div ref={ref} role="none" className={styles.footer}>

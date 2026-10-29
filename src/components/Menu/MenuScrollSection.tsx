@@ -29,7 +29,7 @@ export function MenuScrollSection({
   title,
   stickyBottomItem,
   children,
-}: MenuScrollSectionProps): JSX.Element {
+}: Readonly<MenuScrollSectionProps>): JSX.Element {
   const hasStickyBottom =
     stickyBottomItem !== undefined &&
     stickyBottomItem !== null &&

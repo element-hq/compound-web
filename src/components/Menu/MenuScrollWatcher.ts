@@ -61,8 +61,8 @@ export class MenuScrollWatcher {
       this.resizes = null;
       this.additions = null;
       this.area = null;
-      area.removeAttribute("data-more-below");
-      area.removeAttribute("data-footer-pinned");
+      delete area.dataset.moreBelow;
+      delete area.dataset.footerPinned;
       for (const property of [
         HEADER_CLEARANCE,
         FOOTER_CLEARANCE,
@@ -70,7 +70,7 @@ export class MenuScrollWatcher {
         PADDING_BLOCK_END,
       ])
         area.style.removeProperty(property);
-      for (const footer of this.footers) footer.removeAttribute("data-pinned");
+      for (const footer of this.footers) delete footer.dataset.pinned;
       this.inset = 0;
     };
   }
@@ -95,7 +95,7 @@ export class MenuScrollWatcher {
     this.onResize();
     return (): void => {
       parts.delete(part);
-      part.removeAttribute("data-pinned");
+      delete part.dataset.pinned;
       this.resizes?.unobserve(part);
       this.onResize();
     };
@@ -116,7 +116,8 @@ export class MenuScrollWatcher {
       area.style.removeProperty(FOOTER_CLEARANCE);
       area.style.removeProperty(PADDING_BLOCK_END);
     } else {
-      this.paddingEnd = parseFloat(getComputedStyle(area).paddingBlockEnd) || 0;
+      this.paddingEnd =
+        Number.parseFloat(getComputedStyle(area).paddingBlockEnd) || 0;
       setLength(area, FOOTER_CLEARANCE, footer + this.paddingEnd);
       // A footer sticks above the area's padding; its fill covers that.
       setLength(area, PADDING_BLOCK_END, this.paddingEnd);
