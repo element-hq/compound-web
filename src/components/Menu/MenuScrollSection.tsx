@@ -9,7 +9,7 @@ import React, { type JSX, type ReactNode } from "react";
 import { MenuStickyFooter, MenuStickyHeader } from "./MenuSticky";
 
 interface MenuScrollSectionProps {
-  /** Shown at the top of the section while it is in view, and names it. */
+  /** Shown at the top of the section while it is in view. */
   title: string;
   /**
    * Content held at the foot of the scroll area while the section is in view,
