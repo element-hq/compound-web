@@ -1,0 +1,33 @@
+/*
+Copyright 2026 Element Creations Ltd.
+
+SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-Element-Commercial
+Please see LICENSE files in the repository root for full details.
+*/
+
+/* Opaque, so the items scroll under it. The title's margins stay outside it,
+so only the title sticks, not the space a section puts around it. */
+.header {
+  position: sticky;
+  inset-block-start: 0;
+  background: var(--cpd-color-bg-canvas-default);
+}
+
+/* Opaque, so the items scroll under it. */
+.footer {
+  position: sticky;
+  inset-block-end: 0;
+  background: var(--cpd-color-bg-canvas-default);
+}
+
+/* A pinned footer sticks above the area's padding; this fills that strip, or
+the items would show through it. Only while pinned: elsewhere it would cover
+what follows. */
+.footer[data-pinned]::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  inset-block-start: 100%;
+  block-size: var(--cpd-menu-scroll-padding-block-end, 0);
+  background: inherit;
+}

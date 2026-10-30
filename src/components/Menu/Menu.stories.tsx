@@ -7,6 +7,7 @@ Please see LICENSE files in the repository root for full details.
 
 import React, { useState } from "react";
 import { type Meta, type StoryObj } from "@storybook/react-vite";
+import { expect, screen, waitFor } from "storybook/test";
 import UserProfileIcon from "@vector-im/compound-design-tokens/assets/web/icons/user-profile";
 import NotificationsIcon from "@vector-im/compound-design-tokens/assets/web/icons/notifications";
 import ChatProblemIcon from "@vector-im/compound-design-tokens/assets/web/icons/chat-problem";
@@ -18,6 +19,7 @@ import { Separator } from "../Separator/Separator";
 import { Button } from "../Button/Button";
 import { MenuTitle } from "./MenuTitle.tsx";
 import { MenuScrollArea } from "./MenuScrollArea.tsx";
+import { MenuScrollSection } from "./MenuScrollSection.tsx";
 
 type Props = Omit<
   React.ComponentProps<typeof MenuComponent>,
@@ -187,5 +189,98 @@ export const WithAScrollingRegion: StoryObj<typeof RegionTemplate> = {
       type: "figma",
       url: "https://www.figma.com/design/rTaQE2nIUSLav4Tg3nozq7/Compound-Web-Components?node-id=15001-41548&t=RLC8Yo2JsfB3rYqz-4",
     },
+  },
+};
+
+const SectionsTemplate: React.FC<Props> = (args) => {
+  const [open, setOpen] = useState(true);
+  const [boundary, setBoundary] = useState<HTMLDivElement | null>(null);
+  const items = (name: string, count: number): React.ReactNode =>
+    Array.from({ length: count }, (_, i) => (
+      <MenuItem key={i} label={`${name} ${i + 1}`} onSelect={() => {}} />
+    ));
+  return (
+    <div
+      ref={setBoundary}
+      style={{
+        blockSize: 400,
+        inlineSize: 280,
+        outline: "1px dashed var(--cpd-color-border-interactive-primary)",
+      }}
+    >
+      <MenuComponent
+        {...args}
+        open={open}
+        onOpenChange={setOpen}
+        trigger={<Button>Open menu</Button>}
+        align="start"
+        collisionBoundary={boundary}
+        collisionPadding={8}
+      >
+        <MenuScrollArea>
+          <MenuScrollSection title="Speakers">
+            {items("Speaker", 6)}
+          </MenuScrollSection>
+          <MenuScrollSection
+            title="Microphones"
+            stickyBottomItem={
+              <div
+                style={{
+                  margin: "var(--cpd-space-1x) var(--cpd-space-4x)",
+                  padding: "var(--cpd-space-2x) var(--cpd-space-3x)",
+                  border:
+                    "1px dashed var(--cpd-color-border-interactive-secondary)",
+                  borderRadius: "var(--cpd-space-2x)",
+                  background: "var(--cpd-color-bg-subtle-secondary)",
+                  font: "var(--cpd-font-body-sm-regular)",
+                  color: "var(--cpd-color-text-secondary)",
+                  textAlign: "center",
+                }}
+              >
+                Microphone level
+              </div>
+            }
+          >
+            {items("Microphone", 12)}
+          </MenuScrollSection>
+          <MenuScrollSection title="Cameras">
+            {items("Camera", 6)}
+          </MenuScrollSection>
+        </MenuScrollArea>
+      </MenuComponent>
+    </div>
+  );
+};
+
+/**
+ * Each section's title stays at the top while the section is in view, and the
+ * microphones' level at the foot; both leave with their section.
+ */
+export const WithScrollSections: StoryObj<typeof SectionsTemplate> = {
+  render: (args) => <SectionsTemplate {...args} />,
+  args: { title: "A menu with scrolling sections", showTitle: false },
+};
+
+/**
+ * Scrolled into the microphones: their title is held at the top, and their
+ * level at the foot with the items fading out above it.
+ */
+export const WithAPinnedFooter: StoryObj<typeof SectionsTemplate> = {
+  render: (args) => <SectionsTemplate {...args} />,
+  args: { title: "A menu with a pinned footer", showTitle: false },
+  play: async () => {
+    const group = await screen.findByRole("group", { name: "Microphones" });
+    const area = group.parentElement!;
+    // Sized by the menu's position, which settles after the first render.
+    await waitFor(() =>
+      expect(area.scrollHeight).toBeGreaterThan(area.clientHeight),
+    );
+    // Past the title, so it is only on screen if it is held there.
+    area.scrollTop +=
+      group.getBoundingClientRect().top -
+      area.getBoundingClientRect().top +
+      120;
+    const footer = screen.getByText("Microphone level").parentElement!;
+    await waitFor(() => expect(footer).toHaveAttribute("data-pinned"));
   },
 };
