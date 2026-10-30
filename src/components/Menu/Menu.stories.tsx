@@ -226,9 +226,15 @@ const SectionsTemplate: React.FC<Props> = (args) => {
             stickyBottomItem={
               <div
                 style={{
-                  padding: "var(--cpd-space-2x) var(--cpd-space-4x)",
+                  margin: "var(--cpd-space-1x) var(--cpd-space-4x)",
+                  padding: "var(--cpd-space-2x) var(--cpd-space-3x)",
+                  border:
+                    "1px dashed var(--cpd-color-border-interactive-secondary)",
+                  borderRadius: "var(--cpd-space-2x)",
+                  background: "var(--cpd-color-bg-subtle-secondary)",
                   font: "var(--cpd-font-body-sm-regular)",
                   color: "var(--cpd-color-text-secondary)",
+                  textAlign: "center",
                 }}
               >
                 Microphone level
