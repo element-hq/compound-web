@@ -44,18 +44,27 @@ export class MenuScrollWatcher {
    */
   public attach(area: HTMLElement): () => void {
     this.area = area;
-    // The content's length changes with the size of any child.
+    // One observer for every size that matters, so a change is handled once.
+    // The area's own size sets how much of the content is in view.
     this.resizes = new ResizeObserver(this.onResize);
     this.resizes.observe(area);
+    // The area also resizes when its children resize: watching those catches a
+    // change in how far it scrolls.
     this.observeChildren();
+    // The sticky (footer, header) elements resize observations
+    // are done manually. (they are not necassarly direct children.)
     for (const part of [...this.headers, ...this.footers])
       this.resizes.observe(part);
+    // A MutationObserver watches changes to the dom tree.
+    // We update our observations and call onResize if a child
+    // gets added/removed.
     this.additions = new MutationObserver(() => {
       this.observeChildren();
       this.onResize();
     });
     this.additions.observe(area, { childList: true });
     area.addEventListener("scroll", this.onScroll, { passive: true });
+    // The observers only report changes, so write the starting state now.
     this.onResize();
     return (): void => {
       area.removeEventListener("scroll", this.onScroll);
@@ -64,6 +73,9 @@ export class MenuScrollWatcher {
       this.resizes = null;
       this.additions = null;
       this.area = null;
+      // Clear everything written onto the elements, so a detached area looks
+      // as it would without a watcher. The parts stay registered: they remove
+      // themselves when they unmount.
       delete area.dataset.moreBelow;
       delete area.dataset.footerPinned;
       for (const property of [
@@ -105,6 +117,9 @@ export class MenuScrollWatcher {
     };
   }
 
+  /**
+   * Add all first level children to the resize observer.
+   */
   private observeChildren(): void {
     if (this.area === null || this.resizes === null) return;
     for (const child of this.area.children) this.resizes.observe(child);

@@ -19,11 +19,8 @@ import {
   MenuScrollWatcherContext,
 } from "./MenuScrollWatcher";
 
-/*
-These stick within their parent, so they hold only as long as the parent is in view.
-A header goes first in its section; a footer last, in a parent apart from the
-header, or it could ride up over it.
-*/
+// This file includes components, that stick within their parent, so they hold only as long as the parent is in view.
+// A header goes first in its section; a footer last.
 
 /**
  * A section's title, held at the top of the scroll area while the section's
@@ -47,6 +44,8 @@ export function MenuStickyFooter({
   children: ReactNode;
 }>): JSX.Element {
   const ref = useStickyPart("addFooter");
+  // Only a layout wrapper, not a level of the menu: its items belong to the
+  // group it is in: role="none" for strict screen readers.
   return (
     <div ref={ref} role="none" className={styles.footer}>
       {children}
