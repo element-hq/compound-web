@@ -70,7 +70,7 @@
     "@tsconfig/node24": "^24.0.0",
     "@tsconfig/vite-react": "^8.0.0",
     "@types/eslint": "^9.0.0",
-    "@types/node": "^24.0.0",
+    "@types/node": "^26.0.0",
     "@types/react": "^19.0.0",
     "@typescript-eslint/eslint-plugin": "^8.0.0",
     "@typescript-eslint/parser": "^8.0.0",
