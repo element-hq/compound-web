@@ -6,6 +6,7 @@ import { ComponentProps, JSX } from '../../../node_modules/.pnpm/react@19.3.0/no
  *
  * Content stuck to the bottom of the area is kept clear of the fade by
  * setting `--cpd-menu-scroll-inset-block-end` on the area to its height.
+ * A `MenuScrollSection`'s sticky parts are kept clear of it without that.
  */
 export declare function MenuScrollArea({ className, children, ref: theirRef, ...props }: ComponentProps<"div">): JSX.Element;
 //# sourceMappingURL=MenuScrollArea.d.ts.map
