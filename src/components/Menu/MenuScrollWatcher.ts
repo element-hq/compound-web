@@ -37,34 +37,48 @@ export class MenuScrollWatcher {
   private inset = 0;
 
   /**
-   * Starts following an area.
+   * This methods core purpose is setting up listeners.
+   * There are a couple of CSS properties that need to update (f.ex. if a element is the sticky footer)
+   * based on the layout/scroll position.
+   *
+   * Worth metioning: the size (and size changes) of elements and the container also play a role, not
+   * just the scroll offset.
    *
    * @param area - The element that scrolls.
    * @returns A function that stops following, and clears what it wrote.
    */
   public attach(area: HTMLElement): () => void {
     this.area = area;
-    // One observer for every size that matters, so a change is handled once.
-    // The area's own size sets how much of the content is in view.
+    // Our goal here is to make sure we call `this.onResize` & `this.onScroll` when needed. (nothing else happens here really)
+    // It is needed: whenever anything changes that might update layout (CSS or size related) properties.
+
+    // Start with the trivial `onScroll` case. The only scrolling item is area.
+    area.addEventListener("scroll", this.onScroll, { passive: true });
+
+    // We use a ResizeObserver to simplify listening to all the relevant HTML element size changes.
+    // (All following comments just mention why we observe the specific element)
     this.resizes = new ResizeObserver(this.onResize);
+
+    // main area size can impact if a section is scrolled out of view (none of the sticky items
+    // of thise section will be shown)
     this.resizes.observe(area);
-    // The area also resizes when its children resize: watching those catches a
-    // change in how far it scrolls.
+    // The sizes of the direct children also impacts what is visible in our current visible scroll window.
+    // e.g. increasing the hight of the first child moves our visible window.
     this.observeChildren();
     // The sticky (footer, header) elements resize observations
     // are done manually. (they are not necassarly direct children.)
     for (const part of [...this.headers, ...this.footers])
       this.resizes.observe(part);
-    // A MutationObserver watches changes to the dom tree.
+    // A MutationObserver emits for changes to the DOM tree (additions/removals).
     // We update our observations and call onResize if a child
-    // gets added/removed.
+    // gets added/removed as this can also update if we show/dont show a section with
+    // a sticky component.
     this.additions = new MutationObserver(() => {
       this.observeChildren();
       this.onResize();
     });
     this.additions.observe(area, { childList: true });
-    area.addEventListener("scroll", this.onScroll, { passive: true });
-    // The observers only report changes, so write the starting state now.
+    // The observers only report changes. Call onResize manually to compute the initial state.
     this.onResize();
     return (): void => {
       area.removeEventListener("scroll", this.onScroll);
