@@ -57,10 +57,11 @@ Please see LICENSE files in the repository root for full details.
   margin-inline-end: var(--cpd-space-4x);
 }
 
-/* The navigation hint and the children share the last column, so swapping
-between them on hover doesn't change the width of the item */
+/* The navigation hint and the first child share the last column, so swapping
+between them on hover doesn't change the width of the item. Any further
+children are placed by the grid as before. */
 .nav-hint,
-.nav-hint ~ * {
+.nav-hint + * {
   grid-row: 1;
   grid-column: -2;
 }

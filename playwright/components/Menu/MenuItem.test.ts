@@ -30,4 +30,27 @@ test.describe("MenuItem", () => {
     await expect(page.getByText("Longer children too")).toBeHidden();
     expect((await item.boundingBox())!.width).toBe(width);
   });
+
+  test("should not overlap multiple children", async ({ page }) => {
+    await page.goto(
+      "iframe.html?viewMode=story&id=menu-menuitem--with-a-long-label-and-children",
+      { waitUntil: "networkidle" },
+    );
+
+    const first = page.getByText("Longer children too");
+    await first.evaluate((el) => {
+      const second = el.cloneNode() as HTMLElement;
+      second.textContent = "Second child";
+      el.after(second);
+    });
+
+    const a = (await first.boundingBox())!;
+    const b = (await page.getByText("Second child").boundingBox())!;
+    const overlaps =
+      a.x < b.x + b.width &&
+      b.x < a.x + a.width &&
+      a.y < b.y + b.height &&
+      b.y < a.y + a.height;
+    expect(overlaps).toBe(false);
+  });
 });
