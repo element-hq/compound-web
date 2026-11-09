@@ -24,7 +24,7 @@ const meta = {
   tags: ["autodocs"],
   argTypes: {
     size: {
-      options: ["sm", "lg"],
+      options: ["md", "lg"],
       control: { type: "inline-radio" },
     },
     kind: {
