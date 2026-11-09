@@ -1,0 +1,1 @@
+import{t as e}from"./iframe-CQkay-r2.js";e();
