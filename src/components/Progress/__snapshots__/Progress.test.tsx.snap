@@ -30,7 +30,7 @@ exports[`Progress > renders a green progress bar 1`] = `
         data-max="100"
         data-state="complete"
         data-value="100"
-        style="transform: translateX(-0%);"
+        style="transform: translateX(0%);"
       />
     </div>
   </div>
@@ -67,7 +67,7 @@ exports[`Progress > renders a large full progress bar 1`] = `
         data-max="100"
         data-state="complete"
         data-value="100"
-        style="transform: translateX(-0%);"
+        style="transform: translateX(0%);"
       />
     </div>
   </div>
@@ -215,7 +215,7 @@ exports[`Progress > renders a small full progress bar 1`] = `
         data-max="100"
         data-state="complete"
         data-value="100"
-        style="transform: translateX(-0%);"
+        style="transform: translateX(0%);"
       />
     </div>
   </div>
