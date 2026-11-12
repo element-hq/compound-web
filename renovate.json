@@ -6,6 +6,7 @@
     "schedule:weekly",
     "monorepo:eslint"
   ],
+  "minimumReleaseAge": "3 days",
   "packageRules": [
     {
       "groupName": "GitHub Actions",
@@ -16,7 +17,8 @@
     {
       "groupName": "Compound design tokens",
       "matchDepNames": ["@vector-im/compound-design-tokens"],
-      "schedule": "before 5am on Tuesday and Friday"
+      "schedule": "before 5am on Tuesday and Friday",
+      "minimumReleaseAge": null
     },
     {
       "groupName": "Vaul",
