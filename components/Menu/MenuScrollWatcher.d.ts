@@ -57,5 +57,5 @@ export declare class MenuScrollWatcher {
     private followFooters;
 }
 /** The watcher of the scroll area a section is in, if it is in one. */
-export declare const MenuScrollWatcherContext: import('../../../node_modules/.pnpm/react@19.3.0/node_modules/react').Context<MenuScrollWatcher | null>;
+export declare const MenuScrollWatcherContext: import('../../../node_modules/.pnpm/react@19.3.1/node_modules/react').Context<MenuScrollWatcher | null>;
 //# sourceMappingURL=MenuScrollWatcher.d.ts.map

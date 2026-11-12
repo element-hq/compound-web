@@ -1,5 +1,5 @@
 import { Placement, UseFloatingReturn, UseInteractionsReturn } from '@floating-ui/react';
-import { MouseEventHandler, RefObject } from '../../../node_modules/.pnpm/react@19.3.0/node_modules/react';
+import { MouseEventHandler, RefObject } from '../../../node_modules/.pnpm/react@19.3.1/node_modules/react';
 interface UseReleaseAnnouncementProps {
     /**
      * Whether the release announcement is open.

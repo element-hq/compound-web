@@ -1,5 +1,5 @@
 import { Boundary, OpenChangeReason, Placement, UseFloatingReturn, UseInteractionsReturn } from '@floating-ui/react';
-import { JSX, AriaAttributes, RefObject } from '../../../node_modules/.pnpm/react@19.3.0/node_modules/react';
+import { JSX, AriaAttributes, RefObject } from '../../../node_modules/.pnpm/react@19.3.1/node_modules/react';
 export interface CommonUseTooltipProps {
     /**
      * The controlled open state of the tooltip.

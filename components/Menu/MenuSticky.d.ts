@@ -1,4 +1,4 @@
-import { JSX, ReactNode } from '../../../node_modules/.pnpm/react@19.3.0/node_modules/react';
+import { JSX, ReactNode } from '../../../node_modules/.pnpm/react@19.3.1/node_modules/react';
 /**
  * A section's title, held at the top of the scroll area while the section's
  * items scroll under it. Hidden, as the section's group carries the name.

@@ -1,4 +1,4 @@
-import { JSX, ReactNode } from '../../../node_modules/.pnpm/react@19.3.0/node_modules/react';
+import { JSX, ReactNode } from '../../../node_modules/.pnpm/react@19.3.1/node_modules/react';
 interface MenuScrollSectionProps {
     /** Shown at the top of the section while it is in view. */
     title: string;
