@@ -1,1 +1,0 @@
-import"./react-Q1GcV6wX.js";import{Et as e,Ft as t}from"./DocsRenderer-JROSPFPF-ClYVGK7M.js";e();export{t as color};
