@@ -60,7 +60,8 @@ export function Breadcrumb({
   // Bumped on resize so that a re-measure always happens, even when
   // collapsedCount is already 0 (setting it to 0 again would not re-render).
   const [, setMeasureTick] = useState(0);
-  const maxCollapsed = Math.max(0, pages.length - 2);
+  // Always keep the first page, the direct parent and the current page.
+  const maxCollapsed = Math.max(0, pages.length - 3);
 
   // Reset whenever the pages or the available width change, then collapse
   // one page at a time (from the left) until the list fits.
