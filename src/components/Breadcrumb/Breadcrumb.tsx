@@ -6,6 +6,9 @@ Please see LICENSE files in the repository root for full details.
 */
 
 import React, {
+  useLayoutEffect,
+  useRef,
+  useState,
   type HTMLProps,
   type JSX,
   type MouseEventHandler,
@@ -51,6 +54,44 @@ export function Breadcrumb({
   className,
   ...props
 }: BreadcrumbProps): JSX.Element {
+  const listRef = useRef<HTMLOListElement>(null);
+  // Number of pages hidden after the first page, to fit the available space.
+  const [collapsedCount, setCollapsedCount] = useState(0);
+  // Bumped on resize so that a re-measure always happens, even when
+  // collapsedCount is already 0 (setting it to 0 again would not re-render).
+  const [, setMeasureTick] = useState(0);
+  // Always keep the first page, the direct parent and the current page.
+  const maxCollapsed = Math.max(0, pages.length - 3);
+
+  // Reset whenever the pages or the available width change, then collapse
+  // one page at a time (from the left) until the list fits.
+  const pagesKey = pages.join("\u0000");
+  useLayoutEffect(() => {
+    setCollapsedCount(0);
+    const list = listRef.current;
+    if (!list || typeof ResizeObserver === "undefined") return;
+    let lastWidth = list.clientWidth;
+    const observer = new ResizeObserver(() => {
+      if (list.clientWidth !== lastWidth) {
+        lastWidth = list.clientWidth;
+        setCollapsedCount(0);
+        setMeasureTick((tick) => tick + 1);
+      }
+    });
+    observer.observe(list);
+    return () => observer.disconnect();
+  }, [pagesKey]);
+
+  useLayoutEffect(() => {
+    const list = listRef.current;
+    if (!list) return;
+    if (list.scrollWidth > list.clientWidth && collapsedCount < maxCollapsed) {
+      setCollapsedCount(collapsedCount + 1);
+    }
+  });
+
+  const hiddenPages = pages.slice(1, 1 + collapsedCount);
+
   return (
     <nav className={classNames(styles.breadcrumb, className)} {...props}>
       <IconButton
@@ -62,15 +103,25 @@ export function Breadcrumb({
       >
         <Chevron />
       </IconButton>
-      <ol className={styles.pages}>
-        {pages.map((page, index) => (
-          <Page
-            key={index}
-            page={page}
-            isLastPage={index === pages.length - 1}
-            onClick={() => onPageClick(page, index)}
-          />
-        ))}
+      <ol className={styles.pages} ref={listRef}>
+        {pages.map((page, index) => {
+          if (collapsedCount > 0 && index > 0 && index <= collapsedCount) {
+            // Render a single ellipsis in place of all the collapsed pages.
+            return index === 1 ? (
+              <li key="ellipsis" className={styles.ellipsis}>
+                <span title={hiddenPages.join(" / ")}>…</span>
+              </li>
+            ) : null;
+          }
+          return (
+            <Page
+              key={index}
+              page={page}
+              isLastPage={index === pages.length - 1}
+              onClick={() => onPageClick(page, index)}
+            />
+          );
+        })}
       </ol>
     </nav>
   );

@@ -75,3 +75,14 @@ export const Controlled: StoryFn<typeof BreadcrumbComponent> = (
 ) => {
   return <ControlledBreadcrumb {...args} />;
 };
+
+export const Collapsed: StoryFn<typeof BreadcrumbComponent> = (
+  args: ComponentProps<typeof BreadcrumbComponent>,
+) => (
+  <div style={{ inlineSize: "300px", resize: "horizontal", overflow: "auto" }}>
+    <BreadcrumbComponent {...args} />
+  </div>
+);
+Collapsed.args = {
+  pages: ["Root", "Page 1", "Page 2", "Page 3", "Current page"],
+};
