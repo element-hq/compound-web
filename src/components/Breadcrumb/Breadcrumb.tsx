@@ -1,5 +1,5 @@
 /*
-Copyright 2024 New Vector Ltd.
+Copyright 2024-2026 New Vector Ltd.
 
 SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-Element-Commercial
 Please see LICENSE files in the repository root for full details.
@@ -43,6 +43,9 @@ interface BreadcrumbProps extends HTMLProps<HTMLElement> {
   onPageClick: (page: string, index: number) => void;
 }
 
+// Calculated from => Root node / last parent / current page name.
+const MIN_PAGE_VISIBLE_COUNT = 3;
+
 /**
  * A breadcrumb component.
  */
@@ -55,23 +58,22 @@ export function Breadcrumb({
   ...props
 }: BreadcrumbProps): JSX.Element {
   const listRef = useRef<HTMLOListElement>(null);
-  // Number of pages hidden after the first page, to fit the available space.
-  const [collapsedCount, setCollapsedCount] = useState(0);
-  // Bumped on resize so that a re-measure always happens, even when
-  // collapsedCount is already 0 (setting it to 0 again would not re-render).
-  const [, setMeasureTick] = useState(0);
-  // Set when the pages still don't fit once fully collapsed: the list is then
-  // aligned to the end so the start is clipped and the current page stays visible.
-  const [clipStart, setClipStart] = useState(false);
-  // Always keep the first page, the direct parent and the current page.
-  const maxCollapsed = Math.max(0, pages.length - 3);
 
-  // Reset whenever the pages or the available width change, then collapse
-  // one page at a time (from the left) until the list fits.
+  // We attempt to collapse breadcrumbs when there isn't
+  // enough space to fully render all list items.
+  // The logic is that we collapse the left-most pages to "..."
+  // until everything can fit.
+  const [collapsedCount, setCollapsedCount] = useState(0);
+  const [, setMeasureTick] = useState(0);
+  const maxCollapsed = Math.max(0, pages.length - MIN_PAGE_VISIBLE_COUNT);
+
+  // Calculate a unique key for the page titles (\u0000 just being a character we wouldn't use)
   const pagesKey = pages.join("\u0000");
+
+  // Observe the list width, setMeasureTick is used to force
+  // a redraw when we see the width has changed.
   useLayoutEffect(() => {
     setCollapsedCount(0);
-    setClipStart(false);
     const list = listRef.current;
     if (!list || typeof ResizeObserver === "undefined") return;
     let lastWidth = list.clientWidth;
@@ -79,7 +81,6 @@ export function Breadcrumb({
       if (list.clientWidth !== lastWidth) {
         lastWidth = list.clientWidth;
         setCollapsedCount(0);
-        setClipStart(false);
         setMeasureTick((tick) => tick + 1);
       }
     });
@@ -90,14 +91,21 @@ export function Breadcrumb({
   useLayoutEffect(() => {
     const list = listRef.current;
     if (!list) return;
-    if (clipStart || list.scrollWidth <= list.clientWidth) return;
-    if (collapsedCount < maxCollapsed) {
+    // The list is end-aligned so overflow spills off the start edge, which
+    // scrollWidth doesn't report. Check whether the first page sticks out of
+    // the list instead (on either side, to handle RTL).
+    const first = list.firstElementChild?.getBoundingClientRect();
+    const bounds = list.getBoundingClientRect();
+    const overflowing =
+      first !== undefined &&
+      (first.left < bounds.left || first.right > bounds.right);
+    if (overflowing && collapsedCount < maxCollapsed) {
       setCollapsedCount(collapsedCount + 1);
-    } else {
-      setClipStart(true);
     }
   });
 
+  // Calculate the number of pages we want to hide and render them
+  // as "..."
   const hiddenPages = pages.slice(1, 1 + collapsedCount);
 
   return (
@@ -111,12 +119,7 @@ export function Breadcrumb({
       >
         <Chevron />
       </IconButton>
-      <ol
-        className={classNames(styles.pages, {
-          [styles["clip-start"]]: clipStart,
-        })}
-        ref={listRef}
-      >
+      <ol className={styles.pages} ref={listRef}>
         {pages.map((page, index) => {
           if (collapsedCount > 0 && index > 0 && index <= collapsedCount) {
             // Render a single ellipsis in place of all the collapsed pages.

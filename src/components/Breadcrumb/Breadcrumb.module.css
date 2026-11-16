@@ -21,14 +21,21 @@ Please see LICENSE files in the repository root for full details.
     min-inline-size: 0;
     overflow: hidden;
 
+    /*
+     * If the pages still don't fit once collapsed, overflow towards the start
+     * so the current page stays visible. When there is spare room, the auto
+     * margin on the last page absorbs it and keeps the list start-aligned;
+     * with negative free space auto margins are 0 and flex-end applies.
+     */
+    justify-content: flex-end;
+
     li {
       white-space: nowrap;
       flex-shrink: 0;
     }
 
-    /* Overflow towards the start, keeping the current page visible */
-    &.clip-start {
-      justify-content: flex-end;
+    li:last-child {
+      margin-inline-end: auto;
     }
 
     .ellipsis span {
