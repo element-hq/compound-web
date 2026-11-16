@@ -86,3 +86,14 @@ export const Collapsed: StoryFn<typeof BreadcrumbComponent> = (
 Collapsed.args = {
   pages: ["Root", "Page 1", "Page 2", "Page 3", "Current page"],
 };
+
+export const Clipped: StoryFn<typeof BreadcrumbComponent> = (
+  args: ComponentProps<typeof BreadcrumbComponent>,
+) => (
+  <div style={{ inlineSize: "200px" }}>
+    <BreadcrumbComponent {...args} />
+  </div>
+);
+Clipped.args = {
+  pages: ["Root", "Page 1", "Page 2", "Page 3", "Current page"],
+};

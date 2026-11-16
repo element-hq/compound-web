@@ -60,6 +60,9 @@ export function Breadcrumb({
   // Bumped on resize so that a re-measure always happens, even when
   // collapsedCount is already 0 (setting it to 0 again would not re-render).
   const [, setMeasureTick] = useState(0);
+  // Set when the pages still don't fit once fully collapsed: the list is then
+  // aligned to the end so the start is clipped and the current page stays visible.
+  const [clipStart, setClipStart] = useState(false);
   // Always keep the first page, the direct parent and the current page.
   const maxCollapsed = Math.max(0, pages.length - 3);
 
@@ -68,6 +71,7 @@ export function Breadcrumb({
   const pagesKey = pages.join("\u0000");
   useLayoutEffect(() => {
     setCollapsedCount(0);
+    setClipStart(false);
     const list = listRef.current;
     if (!list || typeof ResizeObserver === "undefined") return;
     let lastWidth = list.clientWidth;
@@ -75,6 +79,7 @@ export function Breadcrumb({
       if (list.clientWidth !== lastWidth) {
         lastWidth = list.clientWidth;
         setCollapsedCount(0);
+        setClipStart(false);
         setMeasureTick((tick) => tick + 1);
       }
     });
@@ -85,8 +90,11 @@ export function Breadcrumb({
   useLayoutEffect(() => {
     const list = listRef.current;
     if (!list) return;
-    if (list.scrollWidth > list.clientWidth && collapsedCount < maxCollapsed) {
+    if (clipStart || list.scrollWidth <= list.clientWidth) return;
+    if (collapsedCount < maxCollapsed) {
       setCollapsedCount(collapsedCount + 1);
+    } else {
+      setClipStart(true);
     }
   });
 
@@ -103,7 +111,12 @@ export function Breadcrumb({
       >
         <Chevron />
       </IconButton>
-      <ol className={styles.pages} ref={listRef}>
+      <ol
+        className={classNames(styles.pages, {
+          [styles["clip-start"]]: clipStart,
+        })}
+        ref={listRef}
+      >
         {pages.map((page, index) => {
           if (collapsedCount > 0 && index > 0 && index <= collapsedCount) {
             // Render a single ellipsis in place of all the collapsed pages.
