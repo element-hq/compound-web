@@ -22,6 +22,12 @@ export default {
     onBackClick: fn(),
     backLabel: "Back",
   },
+  parameters: {
+    design: {
+      type: "figma",
+      url: "https://www.figma.com/design/rTaQE2nIUSLav4Tg3nozq7/Compound-Web-Components?node-id=3646-61376&p=f&t=MbJ3WJvO9PXm2tBe-0",
+    },
+  },
 } as Meta<typeof BreadcrumbComponent>;
 
 const Template: StoryFn<typeof BreadcrumbComponent> = (
@@ -74,4 +80,26 @@ export const Controlled: StoryFn<typeof BreadcrumbComponent> = (
   args: ComponentProps<typeof BreadcrumbComponent>,
 ) => {
   return <ControlledBreadcrumb {...args} />;
+};
+
+export const Collapsed: StoryFn<typeof BreadcrumbComponent> = (
+  args: ComponentProps<typeof BreadcrumbComponent>,
+) => (
+  <div style={{ inlineSize: "300px", resize: "horizontal", overflow: "auto" }}>
+    <BreadcrumbComponent {...args} />
+  </div>
+);
+Collapsed.args = {
+  pages: ["Root", "Page 1", "Page 2", "Page 3", "Current page"],
+};
+
+export const Clipped: StoryFn<typeof BreadcrumbComponent> = (
+  args: ComponentProps<typeof BreadcrumbComponent>,
+) => (
+  <div style={{ inlineSize: "200px" }}>
+    <BreadcrumbComponent {...args} />
+  </div>
+);
+Clipped.args = {
+  pages: ["Root", "Page 1", "Page 2", "Page 3", "Current page"],
 };

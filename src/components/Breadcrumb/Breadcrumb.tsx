@@ -1,11 +1,14 @@
 /*
-Copyright 2024 New Vector Ltd.
+Copyright 2024-2026 New Vector Ltd.
 
 SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-Element-Commercial
 Please see LICENSE files in the repository root for full details.
 */
 
 import React, {
+  useLayoutEffect,
+  useRef,
+  useState,
   type HTMLProps,
   type JSX,
   type MouseEventHandler,
@@ -40,6 +43,9 @@ interface BreadcrumbProps extends HTMLProps<HTMLElement> {
   onPageClick: (page: string, index: number) => void;
 }
 
+// Calculated from => Root node / last parent / current page name.
+const MIN_PAGE_VISIBLE_COUNT = 3;
+
 /**
  * A breadcrumb component.
  */
@@ -51,6 +57,57 @@ export function Breadcrumb({
   className,
   ...props
 }: BreadcrumbProps): JSX.Element {
+  const listRef = useRef<HTMLOListElement>(null);
+
+  // We attempt to collapse breadcrumbs when there isn't
+  // enough space to fully render all list items.
+  // The logic is that we collapse the left-most pages to "..."
+  // until everything can fit.
+  const [collapsedCount, setCollapsedCount] = useState(0);
+  const [, setMeasureTick] = useState(0);
+  const maxCollapsed = Math.max(0, pages.length - MIN_PAGE_VISIBLE_COUNT);
+
+  // Calculate a unique key for the page titles (\u0000 just being a character we wouldn't use)
+  const pagesKey = pages.join("\u0000");
+
+  // Observe the list width, setMeasureTick is used to force
+  // a redraw when we see the width has changed.
+  useLayoutEffect(() => {
+    setCollapsedCount(0);
+    const list = listRef.current;
+    if (!list || typeof ResizeObserver === "undefined") return;
+    let lastWidth = list.clientWidth;
+    const observer = new ResizeObserver(() => {
+      if (list.clientWidth !== lastWidth) {
+        lastWidth = list.clientWidth;
+        setCollapsedCount(0);
+        setMeasureTick((tick) => tick + 1);
+      }
+    });
+    observer.observe(list);
+    return () => observer.disconnect();
+  }, [pagesKey]);
+
+  useLayoutEffect(() => {
+    const list = listRef.current;
+    if (!list) return;
+    // The list is end-aligned so overflow spills off the start edge, which
+    // scrollWidth doesn't report. Check whether the first page sticks out of
+    // the list instead (on either side, to handle RTL).
+    const first = list.firstElementChild?.getBoundingClientRect();
+    const bounds = list.getBoundingClientRect();
+    const overflowing =
+      first !== undefined &&
+      (first.left < bounds.left || first.right > bounds.right);
+    if (overflowing && collapsedCount < maxCollapsed) {
+      setCollapsedCount(collapsedCount + 1);
+    }
+  });
+
+  // Calculate the number of pages we want to hide and render them
+  // as "..."
+  const hiddenPages = pages.slice(1, 1 + collapsedCount);
+
   return (
     <nav className={classNames(styles.breadcrumb, className)} {...props}>
       <IconButton
@@ -62,15 +119,25 @@ export function Breadcrumb({
       >
         <Chevron />
       </IconButton>
-      <ol className={styles.pages}>
-        {pages.map((page, index) => (
-          <Page
-            key={index}
-            page={page}
-            isLastPage={index === pages.length - 1}
-            onClick={() => onPageClick(page, index)}
-          />
-        ))}
+      <ol className={styles.pages} ref={listRef}>
+        {pages.map((page, index) => {
+          if (collapsedCount > 0 && index > 0 && index <= collapsedCount) {
+            // Render a single ellipsis in place of all the collapsed pages.
+            return index === 1 ? (
+              <li key="ellipsis" className={styles.ellipsis}>
+                <span title={hiddenPages.join(" / ")}>…</span>
+              </li>
+            ) : null;
+          }
+          return (
+            <Page
+              key={index}
+              page={page}
+              isLastPage={index === pages.length - 1}
+              onClick={() => onPageClick(page, index)}
+            />
+          );
+        })}
       </ol>
     </nav>
   );
