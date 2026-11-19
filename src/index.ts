@@ -54,6 +54,7 @@ export {
 export { ReleaseAnnouncement } from "./components/ReleaseAnnouncement";
 export { Toast } from "./components/Toast/Toast";
 export { Dropdown, type DropdownTriggerProps } from "./components/Dropdown";
+export type { MenuAnchor } from "./components/Menu/AnchoredMenu";
 export { InlineSpinner } from "./components/InlineSpinner";
 export { Breadcrumb } from "./components/Breadcrumb";
 export { VisualList, VisualListItem } from "./components/VisualList";

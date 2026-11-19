@@ -5,7 +5,12 @@ SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-Element-Commercial
 Please see LICENSE files in the repository root for full details.
 */
 
-import { type ComponentType, type ReactNode, createContext } from "react";
+import {
+  type ComponentType,
+  type ReactNode,
+  type RefObject,
+  createContext,
+} from "react";
 
 export interface MenuItemWrapperProps {
   /**
@@ -49,6 +54,11 @@ export interface MenuData {
    * Event handler called when the open state of the menu changes.
    */
   onOpenChange: (open: boolean) => void;
+  /**
+   * The element holding the menu's content, if it is a floating box. Lets a
+   * popup opened from inside the menu line up with the menu's edge.
+   */
+  contentRef?: RefObject<HTMLElement | null>;
 }
 
 /**

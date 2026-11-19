@@ -16,9 +16,11 @@ import React, {
   type HTMLProps,
   memo,
   type Ref,
+  type RefCallback,
   type RefObject,
   type SetStateAction,
   useCallback,
+  useContext,
   useEffect,
   useRef,
   useState,
@@ -30,18 +32,79 @@ import React, {
 import classNames from "classnames";
 
 import styles from "./Dropdown.module.css";
+import {
+  AnchoredMenu,
+  type AnchoredMenuProps,
+  type MenuAnchor,
+} from "../Menu/AnchoredMenu";
+import { MenuContext } from "../Menu/MenuContext";
+import { MenuItem } from "../Menu/MenuItem";
+
+// The arrow key, pressed on the trigger, that opens the menu on each side
+const OPEN_KEY_FOR_SIDE: Record<string, string | undefined> = {
+  right: "ArrowRight",
+  left: "ArrowLeft",
+  bottom: "ArrowDown",
+  top: "ArrowUp",
+};
 
 /**
  * Props injected into the trigger render function.
  */
 export type DropdownTriggerProps = {
+  /**
+   * Set in the "listbox" variant. Absent in the "menu" variant, where the
+   * trigger keeps its own role (eg. button).
+   */
   role?: "combobox";
-  "aria-haspopup"?: "listbox";
+  "aria-haspopup"?: "listbox" | "menu";
   "aria-labelledby"?: string;
   "aria-controls"?: string;
   "aria-expanded"?: boolean;
   onClick?: () => void;
   onKeyDown?: (e: KeyboardEvent<Element>) => void;
+  /**
+   * Set in the "menu" variant, where the trigger element is used to position
+   * the menu when there is no parent menu or `anchor`.
+   */
+  ref?: RefCallback<HTMLElement>;
+};
+
+/**
+ * Props only used by the "menu" variant of the dropdown.
+ */
+type DropdownMenuVariantProps = {
+  /**
+   * The accessible name of the menu. Defaults to `label` if set.
+   */
+  menuTitle?: string;
+  /**
+   * What the menu is positioned against. By default, inside a Menu, the menu
+   * goes beside the parent menu, level with the trigger, as a submenu would.
+   * Elsewhere, it goes beside the trigger.
+   */
+  anchor?: MenuAnchor;
+  /**
+   * The side of the anchor on which to place the menu.
+   * @default right
+   */
+  side?: AnchoredMenuProps["side"];
+  /**
+   * The edge along which the menu and anchor are aligned.
+   * @default start
+   */
+  align?: AnchoredMenuProps["align"];
+  /**
+   * Whether the rest of the page is inert while the menu is open.
+   * @default true
+   */
+  modal?: boolean;
+  /**
+   * Event handler called when focus moves back out of the menu after it
+   * closes. Call event.preventDefault to handle focus yourself, eg. if the
+   * trigger is replaced once a value is selected.
+   */
+  onCloseAutoFocus?: (e: Event) => void;
 };
 
 type DropdownProps<K = string> = {
@@ -103,13 +166,44 @@ type DropdownProps<K = string> = {
    * Default: false.
    */
   disabled?: boolean;
-};
+  /**
+   * How the values are presented.
+   * - `"listbox"`: a list attached below the trigger, as in a form.
+   * - `"menu"`: a floating menu of items positioned beside the parent
+   *   menu (when inside a Menu) or the trigger, which only opens and closes on
+   *   click or keyboard. Use this inside menus. In a menu shown as a drawer
+   *   (on mobile), the items are shown in the drawer itself instead.
+   * @default "listbox"
+   */
+  variant?: "listbox" | "menu";
+} & DropdownMenuVariantProps;
 
 /**
  * A dropdown that lets the user select one of a set of values.
  * The type parameter `K` represents the set of values.
  */
 export function Dropdown<K extends string | number = string>({
+  variant = "listbox",
+  ...props
+}: DropdownProps<K>) {
+  if (variant === "menu") return <MenuDropdown<K> {...props} />;
+
+  // Don't pass the menu variant's props on to the listbox's trigger button
+  const listboxProps = { ...props };
+  for (const key of MENU_VARIANT_PROP_NAMES) delete listboxProps[key];
+  return <ListboxDropdown<K> {...listboxProps} />;
+}
+
+const MENU_VARIANT_PROP_NAMES = [
+  "menuTitle",
+  "anchor",
+  "side",
+  "align",
+  "modal",
+  "onCloseAutoFocus",
+] as const satisfies (keyof DropdownMenuVariantProps)[];
+
+function ListboxDropdown<K extends string | number>({
   className,
   label,
   helpLabel,
@@ -123,7 +217,7 @@ export function Dropdown<K extends string | number = string>({
   ref,
   disabled = false,
   ...props
-}: DropdownProps<K>) {
+}: Omit<DropdownProps<K>, "variant" | keyof DropdownMenuVariantProps>) {
   const [uncontrolledValue, setUncontrolledValue] = useState<K | undefined>(
     defaultValue,
   );
@@ -246,6 +340,186 @@ export function Dropdown<K extends string | number = string>({
           ))}
         </ul>
       </div>
+      {!error && helpLabel && <span className={styles.help}>{helpLabel}</span>}
+      {error && (
+        <span className={styles.error}>
+          <Error width="20" height="20" />
+          {error}
+        </span>
+      )}
+    </div>
+  );
+}
+
+function MenuDropdown<K extends string | number>({
+  className,
+  label,
+  helpLabel,
+  onValueChange,
+  error,
+  value: controlledValue,
+  defaultValue,
+  values,
+  renderItem,
+  trigger,
+  ref,
+  disabled = false,
+  menuTitle,
+  anchor: anchorProp,
+  side = "right",
+  align = "start",
+  modal = true,
+  onCloseAutoFocus,
+  ...props
+}: Omit<DropdownProps<K>, "variant">) {
+  const [uncontrolledValue, setUncontrolledValue] = useState<K | undefined>(
+    defaultValue,
+  );
+  const value = controlledValue ?? uncontrolledValue ?? null;
+  const currentContent = useMemo(() => renderItem(value), [value, renderItem]);
+
+  const setValue = useCallback(
+    (value: K) => {
+      setUncontrolledValue(value);
+      onValueChange?.(value);
+    },
+    [onValueChange],
+  );
+
+  const [open, setOpen] = useState(false);
+  const parentContext = useContext(MenuContext);
+  const labelId = useId();
+  const contentId = useId();
+
+  const triggerRef = useRef<HTMLElement | null>(null);
+  const setTriggerRef = useCallback(
+    (element: HTMLElement | null) => {
+      triggerRef.current = element;
+      if (typeof ref === "function") {
+        ref(element as HTMLButtonElement | null);
+      } else if (ref) {
+        ref.current = element as HTMLButtonElement | null;
+      }
+    },
+    [ref],
+  );
+
+  // Inside a menu, span the parent menu horizontally and the trigger
+  // vertically, so the menu goes beside the parent menu level with the
+  // trigger, like a submenu.
+  const defaultAnchor = useCallback((): DOMRect => {
+    const triggerRect =
+      triggerRef.current?.getBoundingClientRect() ?? new DOMRect();
+    const parentRect =
+      parentContext?.contentRef?.current?.getBoundingClientRect();
+    if (!parentRect) return triggerRect;
+    return new DOMRect(
+      parentRect.x,
+      triggerRect.y,
+      parentRect.width,
+      triggerRect.height,
+    );
+  }, [parentContext]);
+  const anchor = anchorProp ?? defaultAnchor;
+
+  const onClick = useCallback(() => {
+    if (disabled) return;
+    setOpen((open) => !open);
+  }, [disabled]);
+
+  // Enter and Space are handled by the trigger being a button. The arrow key
+  // pointing at the menu opens it too, as it would a submenu. Other arrow keys
+  // are left to the parent menu's keyboard navigation.
+  const onKeyDown = useCallback(
+    (e: KeyboardEvent) => {
+      if (disabled) return;
+      if (e.key === OPEN_KEY_FOR_SIDE[side]) {
+        e.preventDefault();
+        setOpen(true);
+      }
+    },
+    [disabled, side],
+  );
+
+  // Plain items, without radios: the current value isn't shown in the menu.
+  // An option to use radio items could be added if needed.
+  const items = values.map((v) => (
+    <MenuItem
+      key={v}
+      label={renderItem(v)}
+      onSelect={() => setValue(v)}
+      hideChevron
+    />
+  ));
+
+  // In a menu shown as a drawer, show the items in the drawer itself, as
+  // SubMenu does.
+  if (parentContext && parentContext.MenuItemWrapper == null) {
+    return (
+      <div role="group" aria-label={menuTitle ?? label ?? undefined}>
+        {items}
+      </div>
+    );
+  }
+
+  const triggerProps: DropdownTriggerProps = {
+    "aria-haspopup": "menu",
+    "aria-controls": open ? contentId : undefined,
+    "aria-expanded": open,
+    onClick,
+    onKeyDown,
+    ref: setTriggerRef,
+  };
+  if (label) triggerProps["aria-labelledby"] = labelId;
+
+  const buttonClasses = classNames({
+    [styles["trigger-button"]]: true,
+    [styles.placeholder]: value === null,
+    [styles["open-trigger"]]: open,
+    [styles["disabled-trigger"]]: disabled,
+  });
+
+  return (
+    <div
+      className={classNames(className, styles.container)}
+      aria-invalid={Boolean(error)}
+    >
+      {label && (
+        <label
+          id={labelId}
+          className={classNames({ [styles.disabled]: disabled })}
+        >
+          {label}
+        </label>
+      )}
+      {trigger ? (
+        trigger(triggerProps)
+      ) : (
+        <button
+          type="button"
+          className={buttonClasses}
+          {...triggerProps}
+          {...props}
+          disabled={disabled}
+        >
+          {currentContent}
+          <ChevronDown className={styles.chevron} width="24" height="24" />
+        </button>
+      )}
+      <AnchoredMenu
+        id={contentId}
+        title={menuTitle ?? label ?? ""}
+        showTitle={false}
+        open={open}
+        onOpenChange={setOpen}
+        anchor={anchor}
+        side={side}
+        align={align}
+        modal={modal}
+        onCloseAutoFocus={onCloseAutoFocus}
+      >
+        {items}
+      </AnchoredMenu>
       {!error && helpLabel && <span className={styles.help}>{helpLabel}</span>}
       {error && (
         <span className={styles.error}>

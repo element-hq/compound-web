@@ -36,6 +36,7 @@ export default defineConfig({
         "@radix-ui/react-context-menu",
         "@radix-ui/react-dropdown-menu",
         "@radix-ui/react-form",
+        "@radix-ui/react-menu",
         "@radix-ui/react-progress",
         "@radix-ui/react-separator",
         "@radix-ui/react-slot",

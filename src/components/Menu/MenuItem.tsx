@@ -12,6 +12,7 @@ import React, {
   type ElementType,
   isValidElement,
   type ReactElement,
+  type ReactNode,
   type SVGAttributes,
   useCallback,
   useContext,
@@ -41,10 +42,10 @@ type Props<C extends MenuItemElement> = {
    */
   Icon?: ComponentType<SVGAttributes<SVGElement>> | ReactElement;
   /**
-   * The label to show on this menu item.
+   * The label to show on this menu item, or null for no label.
    */
   // This prop is required because it's rare to not want a label
-  label: string | null;
+  label: ReactNode;
   /**
    * Additional properties to pass to the Text label component.
    */
