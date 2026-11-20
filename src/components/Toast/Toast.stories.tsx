@@ -5,13 +5,22 @@ SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-Element-Commercial
 Please see LICENSE files in the repository root for full details.
 */
 
-import React, { type ComponentType, type MouseEventHandler } from "react";
+import React, {
+  useState,
+  type ComponentType,
+  type MouseEventHandler,
+} from "react";
 import { type Meta, type StoryObj } from "@storybook/react-vite";
-import CheckIcon from "@vector-im/compound-design-tokens/assets/web/icons/check";
+import {
+  CheckIcon,
+  InfoSolidIcon,
+} from "@vector-im/compound-design-tokens/assets/web/icons";
 
-import { Toast as ToastComponent } from "./Toast";
+import { Toast, Toast as ToastComponent } from "./Toast";
 import { TooltipProvider } from "../Tooltip/TooltipProvider";
 import { fn } from "storybook/test";
+import { Menu } from "../Menu/Menu";
+import { MenuItem } from "../Menu/MenuItem";
 
 /**
  * The real `Toast` props are a discriminated union (`onClick` and `onClose` are
@@ -123,5 +132,29 @@ export const ClickableWithIcon: Story = {
     Icon: CheckIcon,
     onClick: fn(),
     children: "There are new messages, jump to them",
+  },
+};
+
+export const MenuTrigger: Story = {
+  // Axe rules produce a false positive here as with all Menu stories
+  tags: ["axe-exclude"],
+  render: () => {
+    const [open, setOpen] = useState(true);
+    return (
+      <Menu
+        title="Menu"
+        open={open}
+        onOpenChange={setOpen}
+        trigger={
+          <Toast aria-haspopup="menu" tooltip="More info" Icon={InfoSolidIcon}>
+            Menu available
+          </Toast>
+        }
+      >
+        <MenuItem label="Option 1" onSelect={() => {}} />
+        <MenuItem label="Option 2" onSelect={() => {}} />
+        <MenuItem label="Option 3" onSelect={() => {}} />
+      </Menu>
+    );
   },
 };

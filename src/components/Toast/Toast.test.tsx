@@ -7,11 +7,15 @@ Please see LICENSE files in the repository root for full details.
 
 import { vi, describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
-import React from "react";
+import React, { useState, type FC } from "react";
 import { composeStories } from "@storybook/react";
 
 import * as stories from "./Toast.stories";
 import userEvent from "@testing-library/user-event";
+import { Menu } from "../Menu/Menu";
+import { Toast } from "./Toast";
+import { MenuItem } from "../Menu/MenuItem";
+import { TooltipProvider } from "../Tooltip/TooltipProvider";
 
 const { Default, Icon, CloseAndIcon, Multiline, Clickable } =
   composeStories(stories);
@@ -68,5 +72,36 @@ describe("Toast", () => {
 
     await user.click(screen.getByRole("button"));
     expect(onClick).toHaveBeenCalledTimes(1);
+  });
+
+  it("functions as a menu trigger", async () => {
+    const user = userEvent.setup();
+    const selectOption1 = vi.fn();
+    const MenuTrigger: FC = () => {
+      const [open, setOpen] = useState(false);
+      return (
+        <TooltipProvider>
+          <Menu
+            title="Menu"
+            open={open}
+            onOpenChange={setOpen}
+            trigger={
+              <Toast aria-haspopup="menu" tooltip="More info">
+                Menu available
+              </Toast>
+            }
+          >
+            <MenuItem label="Option 1" onSelect={selectOption1} />
+            <MenuItem label="Option 2" onSelect={() => {}} />
+            <MenuItem label="Option 3" onSelect={() => {}} />
+          </Menu>
+        </TooltipProvider>
+      );
+    };
+    render(<MenuTrigger />);
+
+    await user.click(screen.getByRole("button"));
+    await user.click(screen.getByRole("menuitem", { name: "Option 1" }));
+    expect(selectOption1).toHaveBeenCalled();
   });
 });

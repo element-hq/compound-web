@@ -15,8 +15,11 @@ import React, {
 } from "react";
 import styles from "./Toast.module.css";
 import { Text } from "../Typography/Text";
-import { IconButton } from "../Button";
-import CloseIcon from "@vector-im/compound-design-tokens/assets/web/icons/close";
+import {
+  CloseIcon,
+  ChevronRightIcon,
+} from "@vector-im/compound-design-tokens/assets/web/icons";
+import { Tooltip } from "../Tooltip/Tooltip";
 
 type CommonProps = {
   className?: string;
@@ -26,31 +29,7 @@ type CommonProps = {
   Icon?: ComponentType<React.SVGAttributes<SVGElement>>;
 };
 
-/**
- * Props for the default, non-interactive toast. It renders as a `div` and can
- * optionally show a close button via `onClose`.
- */
-type ClosableToastProps = CommonProps & {
-  /**
-   * Handler called when the close button is clicked. If provided, a close
-   * button is shown on the right side of the toast.
-   *
-   * Mutually exclusive with `onClick`.
-   */
-  onClose?: MouseEventHandler<HTMLButtonElement>;
-  /**
-   * The tooltip to show on the close button. This is only used if `onClose` is
-   * provided.
-   */
-  tooltip?: string;
-  onClick?: never;
-} & Omit<React.HTMLAttributes<HTMLDivElement>, "onClick">;
-
-/**
- * Props for a clickable toast. The whole toast renders as a `button` and
- * invokes `onClick` when activated.
- */
-type ClickableToastProps = CommonProps & {
+type ActionProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   /**
    * Handler called when the toast is clicked. If provided, the whole toast
    * becomes a button.
@@ -59,16 +38,50 @@ type ClickableToastProps = CommonProps & {
    * cannot contain a nested close button.
    */
   onClick: MouseEventHandler<HTMLButtonElement>;
-  onClose?: never;
-  tooltip?: never;
-} & Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, "onClick" | "type">;
+  onClose?: undefined;
+  tooltip?: undefined;
+  "aria-haspopup"?: false;
+};
+
+type NoticeProps = React.HTMLAttributes<HTMLDivElement> & {
+  onClick?: undefined;
+  "aria-haspopup"?: false;
+} & (
+    | { onClose?: undefined; tooltip?: undefined }
+    | {
+        /**
+         * Handler called when the close button is clicked. If provided, a close
+         * button is shown on the right side of the toast.
+         *
+         * Mutually exclusive with `onClick`.
+         */
+        onClose: MouseEventHandler<HTMLButtonElement>;
+        /**
+         * The tooltip to show on the 'close' button.
+         */
+        tooltip: string;
+      }
+  );
+
+type TriggerProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
+  "aria-haspopup": true | "menu" | "listbox" | "tree" | "grid" | "dialog";
+  /**
+   * The tooltip to show on the 'more info' button.
+   */
+  tooltip: string;
+  onClose?: undefined;
+};
+
+type ToastProps = CommonProps & (ActionProps | NoticeProps | TriggerProps);
 
 /**
- * A toast is either non-interactive (and optionally dismissable via a close
- * button), or clickable as a whole — but never both.
+ * A temporary message appearing on top of other content.
+ *
+ * The message may:
+ * - display a notice with an optional close button (by setting `onClose` and `tooltip`)
+ * - offer a possible action (by setting `onClick`), or
+ * - act as a trigger for a popover (by setting `aria-haspopup` and `tooltip`).
  */
-type ToastProps = ClosableToastProps | ClickableToastProps;
-
 export const Toast = forwardRef<HTMLButtonElement | HTMLDivElement, ToastProps>(
   function Toast(
     {
@@ -78,6 +91,7 @@ export const Toast = forwardRef<HTMLButtonElement | HTMLDivElement, ToastProps>(
       onClick,
       onClose,
       tooltip,
+      "aria-haspopup": isPopoverTrigger,
       ...props
     }: PropsWithChildren<ToastProps>,
     ref,
@@ -96,9 +110,8 @@ export const Toast = forwardRef<HTMLButtonElement | HTMLDivElement, ToastProps>(
       </Text>
     );
 
-    // Clickable mode: the whole toast is a button. As interactive elements
-    // cannot be nested, this mode cannot also offer a close button.
-    if (onClick) {
+    // Action or trigger toast: the whole toast is a button.
+    if (onClick || isPopoverTrigger) {
       return (
         <button
           {...(props as React.ButtonHTMLAttributes<HTMLButtonElement>)}
@@ -110,36 +123,35 @@ export const Toast = forwardRef<HTMLButtonElement | HTMLDivElement, ToastProps>(
             styles.clickable,
             className,
           )}
+          aria-haspopup={isPopoverTrigger}
         >
           {content}
+          {/* For popover trigger toasts, we add a purely cosmetic 'More info' hint. */}
+          {isPopoverTrigger && (
+            <Tooltip label={tooltip} placement="top">
+              <div className={styles.button}>
+                <ChevronRightIcon width={20} height={20} aria-hidden />
+              </div>
+            </Tooltip>
+          )}
         </button>
       );
     }
 
-    // Default mode: a non-interactive container, optionally dismissable via a
-    // close button.
-    const hasCloseButton = Boolean(onClose);
+    // Notice toast: a non-interactive container with an optional close button.
     return (
       <div
         {...(props as React.HTMLAttributes<HTMLDivElement>)}
         ref={ref as Ref<HTMLDivElement>}
-        className={classnames(styles["toast-container"], className, {
-          [styles["has-close"]]: hasCloseButton,
-        })}
+        className={classnames(styles["toast-container"], className)}
       >
         {content}
-        {hasCloseButton && (
-          <IconButton
-            size="24px"
-            kind="secondary"
-            noBackground={true}
-            tooltip={tooltip}
-            tooltipPlacement="right"
-            className={styles.close}
-            onClick={onClose}
-          >
-            <CloseIcon />
-          </IconButton>
+        {onClose && (
+          <Tooltip label={tooltip} placement="top">
+            <button className={styles.button} onClick={onClose}>
+              <CloseIcon width={20} height={20} aria-hidden />
+            </button>
+          </Tooltip>
         )}
       </div>
     );
