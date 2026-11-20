@@ -63,7 +63,7 @@ exports[`Toast > renders the whole toast as a button when onClick is provided 1`
 exports[`Toast > renders with a close button and icon 1`] = `
 <DocumentFragment>
   <div
-    class="_toast-container_78370f _has-close_78370f"
+    class="_toast-container_78370f"
   >
     <div
       class="_typography_61e060 _font-body-sm-medium_61e060 _content_78370f"
@@ -85,28 +85,20 @@ exports[`Toast > renders with a close button and icon 1`] = `
     </div>
     <button
       aria-labelledby="_r_0_"
-      class="_icon-button_339b22 _close_78370f _no-background_339b22"
-      data-kind="secondary"
-      role="button"
-      style="--cpd-icon-button-size: 24px;"
-      tabindex="0"
+      class="_button_78370f"
     >
-      <div
-        class="_indicator-icon_849abf"
-        style="--cpd-icon-button-size: 100%;"
+      <svg
+        aria-hidden="true"
+        fill="currentColor"
+        height="20"
+        viewBox="0 0 24 24"
+        width="20"
+        xmlns="http://www.w3.org/2000/svg"
       >
-        <svg
-          fill="currentColor"
-          height="1em"
-          viewBox="0 0 24 24"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M6.293 6.293a1 1 0 0 1 1.414 0L12 10.586l4.293-4.293a1 1 0 1 1 1.414 1.414L13.414 12l4.293 4.293a1 1 0 0 1-1.414 1.414L12 13.414l-4.293 4.293a1 1 0 0 1-1.414-1.414L10.586 12 6.293 7.707a1 1 0 0 1 0-1.414"
-          />
-        </svg>
-      </div>
+        <path
+          d="M6.293 6.293a1 1 0 0 1 1.414 0L12 10.586l4.293-4.293a1 1 0 1 1 1.414 1.414L13.414 12l4.293 4.293a1 1 0 0 1-1.414 1.414L12 13.414l-4.293 4.293a1 1 0 0 1-1.414-1.414L10.586 12 6.293 7.707a1 1 0 0 1 0-1.414"
+        />
+      </svg>
     </button>
   </div>
 </DocumentFragment>
