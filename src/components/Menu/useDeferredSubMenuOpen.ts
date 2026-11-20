@@ -16,24 +16,23 @@ const MENU_ANIMATION_DURATION = 180;
  * A submenu that is open at the same time as its parent (`open={true}` on
  * mount) would otherwise be positioned before the parent's animation has
  * settled and, inside a `PortalRoot`, be marked `aria-hidden` by the modal
- * parent. Closing is never deferred.
+ * parent. Once the parent has finished opening, the submenu opens straight
+ * away. Closing is never deferred.
  */
 export function useDeferredSubMenuOpen(
   open: boolean | undefined,
 ): boolean | undefined {
-  const [deferredOpen, setDeferredOpen] = useState(false);
+  // The submenu mounts with its parent menu, so this becomes true once the
+  // parent's opening animation is over.
+  const [parentSettled, setParentSettled] = useState(false);
 
   useEffect(() => {
-    if (open) {
-      const timer = setTimeout(
-        () => setDeferredOpen(true),
-        MENU_ANIMATION_DURATION,
-      );
-      return () => clearTimeout(timer);
-    } else {
-      setDeferredOpen(false);
-    }
-  }, [open]);
+    const timer = setTimeout(
+      () => setParentSettled(true),
+      MENU_ANIMATION_DURATION,
+    );
+    return () => clearTimeout(timer);
+  }, []);
 
-  return open ? deferredOpen : open;
+  return open && !parentSettled ? false : open;
 }
