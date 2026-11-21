@@ -5,7 +5,7 @@ SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-Element-Commercial
 Please see LICENSE files in the repository root for full details.
 */
 
-import React, { type FC, type ReactNode, useMemo } from "react";
+import React, { type FC, type ReactNode, useMemo, useRef } from "react";
 import {
   Root,
   Trigger,
@@ -147,11 +147,13 @@ export const Menu: FC<Props> = ({
   const platform = getPlatform();
   const drawer = platform === "android" || platform === "ios";
   const portalRoot = usePortalRoot();
+  const contentRef = useRef<HTMLDivElement | null>(null);
   const context: MenuData = useMemo(
     () => ({
       MenuItemWrapper: drawer ? null : DropdownMenuItemWrapper,
       SubMenuWrapper: drawer ? null : DropdownSubMenuWrapper,
       onOpenChange,
+      contentRef: drawer ? undefined : contentRef,
     }),
     [onOpenChange],
   );
@@ -182,6 +184,7 @@ export const Menu: FC<Props> = ({
           collisionPadding={collisionPadding}
         >
           <FloatingMenu
+            ref={contentRef}
             className={className}
             title={title}
             showTitle={showTitle}

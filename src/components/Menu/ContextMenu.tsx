@@ -10,6 +10,7 @@ import React, {
   type ReactNode,
   useCallback,
   useMemo,
+  useRef,
   useState,
 } from "react";
 import {
@@ -127,11 +128,13 @@ export const ContextMenu: FC<Props> = ({
   const platform = getPlatform();
   const drawer = platform === "android" || platform === "ios";
   const portalRoot = usePortalRoot();
+  const contentRef = useRef<HTMLDivElement | null>(null);
   const context: MenuData = useMemo(
     () => ({
       MenuItemWrapper: drawer ? null : ContextMenuItemWrapper,
       SubMenuWrapper: drawer ? null : ContextSubMenuWrapper,
       onOpenChange,
+      contentRef: drawer ? undefined : contentRef,
     }),
     [onOpenChange],
   );
@@ -172,7 +175,7 @@ export const ContextMenu: FC<Props> = ({
       {trigger}
       <Portal container={portalRoot}>
         <Content asChild>
-          <FloatingMenu showTitle={showTitle} title={title}>
+          <FloatingMenu ref={contentRef} showTitle={showTitle} title={title}>
             {children}
           </FloatingMenu>
         </Content>

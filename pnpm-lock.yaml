@@ -182,14 +182,17 @@ importers:
         specifier: ^2.1.8
         version: 2.1.9(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
       '@radix-ui/react-context-menu':
-        specifier: ^2.2.16
+        specifier: ^2.4.1
         version: 2.4.1(@types/react-dom@19.2.3(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
       '@radix-ui/react-dropdown-menu':
-        specifier: ^2.1.1
+        specifier: ^2.2.1
         version: 2.2.1(@types/react-dom@19.2.3(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
       '@radix-ui/react-form':
         specifier: ^0.3.0
         version: 0.3.0(@types/react-dom@19.2.3(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
+      '@radix-ui/react-menu':
+        specifier: ^2.2.1
+        version: 2.2.1(@types/react-dom@19.2.3(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
       '@radix-ui/react-progress':
         specifier: ^1.1.0
         version: 1.2.1(@types/react-dom@19.2.3(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
@@ -6345,7 +6348,7 @@ snapshots:
   '@stylistic/eslint-plugin@5.10.0(eslint@8.57.1(supports-color@7.2.0))':
     dependencies:
       '@eslint-community/eslint-utils': 4.10.1(eslint@8.57.1(supports-color@7.2.0))
-      '@typescript-eslint/types': 8.72.1
+      '@typescript-eslint/types': 8.72.2
       eslint: 8.57.1(supports-color@7.2.0)
       eslint-visitor-keys: 4.2.1
       espree: 10.4.0
@@ -7633,7 +7636,7 @@ snapshots:
 
   eslint-plugin-jest@29.15.4(@typescript-eslint/eslint-plugin@8.72.2(@typescript-eslint/parser@8.72.2(eslint@8.57.1(supports-color@7.2.0))(supports-color@7.2.0)(typescript@6.0.3))(eslint@8.57.1(supports-color@7.2.0))(supports-color@7.2.0)(typescript@6.0.3))(eslint@8.57.1(supports-color@7.2.0))(supports-color@7.2.0)(typescript@6.0.3):
     dependencies:
-      '@typescript-eslint/utils': 8.72.1(eslint@8.57.1(supports-color@7.2.0))(supports-color@7.2.0)(typescript@6.0.3)
+      '@typescript-eslint/utils': 8.72.2(eslint@8.57.1(supports-color@7.2.0))(supports-color@7.2.0)(typescript@6.0.3)
       eslint: 8.57.1(supports-color@7.2.0)
     optionalDependencies:
       '@typescript-eslint/eslint-plugin': 8.72.2(@typescript-eslint/parser@8.72.2(eslint@8.57.1(supports-color@7.2.0))(supports-color@7.2.0)(typescript@6.0.3))(eslint@8.57.1(supports-color@7.2.0))(supports-color@7.2.0)(typescript@6.0.3)
