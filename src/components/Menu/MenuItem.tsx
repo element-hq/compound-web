@@ -109,7 +109,7 @@ export const MenuItem = <C extends MenuItemElement = "button">({
         if (!selectEvent.defaultPrevented) context?.onOpenChange(false);
       }
     },
-    [context, onSelect],
+    [context, onSelect, onClickProp],
   );
 
   const iconIsReactElement = isValidElement(Icon);

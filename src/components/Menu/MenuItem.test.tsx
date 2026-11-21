@@ -5,8 +5,8 @@ SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-Element-Commercial
 Please see LICENSE files in the repository root for full details.
 */
 
-import { describe, it, expect } from "vitest";
-import { render } from "@testing-library/react";
+import { describe, it, expect, vi } from "vitest";
+import { fireEvent, render } from "@testing-library/react";
 import React from "react";
 import LeaveIcon from "@vector-im/compound-design-tokens/assets/web/icons/leave";
 import UserProfileIcon from "@vector-im/compound-design-tokens/assets/web/icons/user-profile";
@@ -96,6 +96,20 @@ describe("MenuItem", () => {
     const { container } = render(<WithoutChevron />);
     expect(container).toMatchSnapshot();
   });
+  it("calls the latest onClick after a re-render", () => {
+    const first = vi.fn();
+    const second = vi.fn();
+    const { rerender, getByRole } = render(
+      <MenuItem label="Item" onSelect={null} onClick={first} />,
+    );
+    rerender(<MenuItem label="Item" onSelect={null} onClick={second} />);
+
+    fireEvent.click(getByRole("menuitem"));
+
+    expect(second).toHaveBeenCalled();
+    expect(first).not.toHaveBeenCalled();
+  });
+
   it("renders a menu item without an icon", () => {
     const { container } = render(<WithoutIcon />);
     expect(container).toMatchSnapshot();
