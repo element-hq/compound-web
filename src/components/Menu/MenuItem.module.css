@@ -57,9 +57,18 @@ Please see LICENSE files in the repository root for full details.
   margin-inline-end: var(--cpd-space-4x);
 }
 
+/* The navigation hint and the first child share the last column, so swapping
+between them on hover doesn't change the width of the item. Any further
+children are placed by the grid as before. */
+.nav-hint,
+.nav-hint + * {
+  grid-row: 1;
+  grid-column: -2;
+}
+
 .nav-hint {
   /* Hidden until the item is hovered over */
-  display: none;
+  visibility: hidden;
   flex-shrink: 0;
 }
 
@@ -91,7 +100,7 @@ button.item {
 
 /* Submenu triggers: always show the chevron and apply hover style when open */
 .item[data-state] > .nav-hint {
-  display: initial;
+  visibility: visible;
 }
 
 .item[data-state] > .nav-hint ~ * {
@@ -119,11 +128,11 @@ button.item {
 
   /* Replace the children with the navigation hint on hover */
   .item.interactive:hover > .nav-hint {
-    display: initial;
+    visibility: visible;
   }
 
   .item.interactive:hover > .nav-hint ~ * {
-    display: none;
+    visibility: hidden;
   }
 }
 
