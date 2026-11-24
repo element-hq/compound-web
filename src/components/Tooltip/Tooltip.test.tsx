@@ -69,6 +69,26 @@ describe("Tooltip", () => {
     expect(screen.queryByRole("button", { name: /.*/ })).toBe(null);
   });
 
+  it("positions a label tooltip only once it opens", async () => {
+    const user = userEvent.setup();
+    render(
+      <TooltipProvider>
+        <Tooltip label="Label">
+          <IconButton>
+            <UserIcon />
+          </IconButton>
+        </Tooltip>
+      </TooltipProvider>,
+    );
+    // Closed, it is in the document to label the button, but takes no position
+    const tooltip = screen.getByText("Label").parentElement!;
+    screen.getByRole("button", { name: "Label" });
+    expect(tooltip.style.transform).toBe("");
+
+    await user.tab();
+    await waitFor(() => expect(tooltip.style.transform).not.toBe(""));
+  });
+
   it("renders disabled", () => {
     render(
       <TooltipProvider>

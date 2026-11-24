@@ -148,7 +148,10 @@ function TooltipContent({
     // for it; see the PortalRoot tests in Tooltip.test.tsx.
     <FloatingPortal root={portalRoot}>
       <div
-        ref={rest.refs.setFloating}
+        // A closed label tooltip stays in the DOM to label its trigger, but must
+        // not be handed to Floating UI: it would be positioned on mount, and
+        // tracked through every scroll, resize and layout shift, while invisible.
+        ref={open ? rest.refs.setFloating : undefined}
         style={{ ...rest.floatingStyles, maxWidth }}
         {...rest.tooltipProps}
         {...rest.getFloatingProps()}
