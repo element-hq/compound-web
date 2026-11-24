@@ -56,7 +56,7 @@ jobs:
     name: "Test end-to-end"
     # This must be kept in sync with the version of ubuntu used in the Docker
     # image, in playwright/Dockerfile
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     steps:
       - name: Checkout code
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
