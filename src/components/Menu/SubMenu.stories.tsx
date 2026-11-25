@@ -18,7 +18,16 @@ import { SubMenu } from "./SubMenu";
 import { Separator } from "../Separator/Separator";
 import { Button } from "../Button/Button";
 
-const Template: React.FC = () => {
+interface TemplateProps {
+  /**
+   * Passed to the SubMenu. Leave undefined to let the submenu manage its own
+   * open state.
+   */
+  subMenuOpen?: boolean;
+  openOn?: "hover" | "click";
+}
+
+const Template: React.FC<TemplateProps> = ({ subMenuOpen, openOn }) => {
   const [open, setOpen] = useState(true);
 
   return (
@@ -31,7 +40,8 @@ const Template: React.FC = () => {
     >
       <MenuItem Icon={UserProfileIcon} label="Profile" onSelect={() => {}} />
       <SubMenu
-        open={true}
+        open={subMenuOpen}
+        openOn={openOn}
         trigger={
           <MenuItem
             Icon={NotificationsIcon}
@@ -60,11 +70,30 @@ const meta = {
   title: "Menu/SubMenu",
   component: Template,
   tags: ["autodocs", "axe-exclude"],
-  argTypes: {},
+  argTypes: {
+    openOn: { control: "inline-radio", options: ["hover", "click"] },
+  },
   args: {},
 } satisfies Meta<typeof Template>;
 export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {};
+export const Default: Story = {
+  args: { subMenuOpen: true },
+};
+
+/**
+ * Hover over "Notifications" to open the submenu.
+ */
+export const OpenOnHover: Story = {
+  args: { openOn: "hover" },
+};
+
+/**
+ * Click "Notifications" to open and close the submenu. Moving the pointer off
+ * it leaves the submenu open.
+ */
+export const OpenOnClick: Story = {
+  args: { openOn: "click" },
+};
